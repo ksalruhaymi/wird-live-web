@@ -1,0 +1,3652 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# =============================================================================
+# 6. Contact & Support (Kontak & Bantuan)
+# =============================================================================
+msgid "contact"
+msgstr "Kontak Kami"
+
+msgid "contact_page_description"
+msgstr "Hubungi kami, kami siap membantu Anda"
+
+msgid "contact_intro_text"
+msgstr "Kami senang melayani Anda di platform Wird Al-Qur'an Al-Kareem."
+
+msgid "name"
+msgstr "Nama"
+
+msgid "enter_your_name"
+msgstr "Masukkan nama Anda"
+
+msgid "email"
+msgstr "Email"
+
+msgid "your_message"
+msgstr "Pesan Anda"
+
+msgid "write_your_message_here"
+msgstr "Tulis pertanyaan atau pesan Anda di sini"
+
+msgid "send_message"
+msgstr "Kirim Pesan"
+
+msgid "message_sent"
+msgstr "Pesan terkirim"
+
+msgid "message_sent_successfully"
+msgstr "Pesan berhasil dikirim"
+
+msgid "thank_you_contact"
+msgstr "Terima kasih telah menghubungi kami"
+
+msgid "contact_success_message"
+msgstr ""
+"Pesan Anda berhasil diterima. Tim Wird Quran akan segera menindaklanjutinya."
+
+msgid "back_to_home"
+msgstr "Kembali ke Beranda"
+
+msgid "quran_recitation_prompt"
+msgstr "Pembacaan Al-Qur'an dalam bahasa Arab"
+
+msgid "save_stop"
+msgstr "Simpan Posisi Bacaan"
+
+msgid "cancel_stop"
+msgstr "Hapus Posisi Bacaan"
+
+msgid "hifz_audio_recording"
+msgstr "Rekaman Audio"
+
+msgid "hifz_enable_hiding"
+msgstr "Sembunyikan Ayat"
+
+msgid "hifz_segmentation_thematic"
+msgstr "Segmentasi Tematik"
+
+msgid "hifz_writing"
+msgstr "Menulis"
+
+msgid "zoom_in"
+msgstr "Perbesar"
+
+msgid "repeat"
+msgstr "Pengulangan"
+
+msgid "page"
+msgstr "Halaman"
+
+msgid "play_audio"
+msgstr "Putar Audio"
+
+msgid "word_meanings"
+msgstr "Arti Per Kata"
+
+msgid "brief_tafsir"
+msgstr "Tafsir Ringkas"
+
+msgid "playback_tools"
+msgstr "Alat Pemutaran"
+
+msgid "audio"
+msgstr "Audio"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"Untuk memutar audio saat menghafal, ketuk ayat agar tombol putar dan jeda "
+"muncul. Setelah itu Anda dapat mengatur volume dari sini, memperbesar "
+"tampilan untuk membaca dengan lebih mudah tanpa gangguan, serta menambah "
+"jumlah pengulangan ayat."
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "Dua halaman"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr "Switch between one page or two facing pages in the mushaf"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "Satu halaman"
+
+msgid "hifz_memorization_tools"
+msgstr "Teknik Menghafal"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"Fitur hafalan membantu memperkuat daya ingat dan melatih memori Anda. Anda "
+"dapat menyembunyikan ayat untuk melatih mengingatnya. Saat Anda mengarahkan "
+"kursor ke ayat, ayat akan muncul secara ringan sebagai petunjuk, dan saat "
+"diklik akan tampil sepenuhnya. Tersedia juga pembagian tematik yang "
+"mengelompokkan ayat-ayat terkait untuk memudahkan hafalan dan pemahaman."
+
+msgid "hifz_play"
+msgstr "Putar"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "Berhenti Total"
+
+msgid "hifz_mstwa_audio"
+msgstr "Volume Suara"
+
+msgid "mushaf"
+msgstr "Mushaf"
+
+msgid "reciter"
+msgstr "Qari"
+
+msgid "search"
+msgstr "Cari"
+
+msgid "stop_audio"
+msgstr "Hentikan Audio"
+
+msgid "recitation_correction"
+msgstr "Koreksi Bacaan"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"Pilih ayat terlebih dahulu. Kemudian tombol rekam akan muncul. Tekan tombol "
+"tersebut dan rekam bacaan Anda untuk ayat yang dipilih agar audio Anda dapat "
+"dianalisis dan bacaan Anda diperbaiki. Anda akan melihat persentase akurasi "
+"bacaan, dan tersedia tombol untuk mendengarkan suara rekaman Anda."
+
+msgid "recitation_accuracy_percentage"
+msgstr "Tingkat Ketepatan Bacaan"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "Audio Qari"
+
+msgid "my_recorded_audio"
+msgstr "Rekaman Saya"
+
+msgid "mushaf_hafs"
+msgstr "Mushaf Hafs"
+
+msgid "mushaf_warsh"
+msgstr "Mushaf Warsh"
+
+msgid "mushaf_qaloun"
+msgstr "Mushaf Qalun"
+
+msgid "mushaf_douri"
+msgstr "Mushaf Ad-Duri"
+
+msgid "mushaf_shuba"
+msgstr "Mushaf Syu'bah"
+
+msgid "mushaf_sousi"
+msgstr "Mushaf As-Susi"
+
+msgid "tafsir_almuyasser"
+msgstr "Tafsir Al-Muyassar"
+
+msgid "tafsir_alkatheer"
+msgstr "Tafsir Ibnu Katsir"
+
+msgid "tafsir_albaghawy"
+msgstr "Tafsir Al-Baghawi"
+
+msgid "tafsir_altabary"
+msgstr "Tafsir Ath-Thabari"
+
+msgid "tafsir_alqortoby"
+msgstr "Tafsir Al-Qurthubi"
+
+msgid "tafsir_alsa3dy"
+msgstr "Tafsir As-Sa'di"
+
+#, python-format
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Tafsir Halaman %(page)s Al-Qur'an | Wird Quran"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "Surah %(surah_name)s | Baca dan Dengar - Wird Quran"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "Dengarkan Al-Qur'an oleh %(qari_name)s | Wird Quran"
+
+#, python-format
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Halaman %(page)s Al-Qur'an | Wird Quran"
+
+#, python-format
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"Baca tafsir halaman %(page)s Al-Qur'an dengan mudah, lengkap dengan tampilan "
+"ayat yang terhubung langsung ke tafsir di Wird Quran."
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"Baca Surah %(surah_name)s Al-Qur'an dengan fitur mendengarkan dan navigasi "
+"yang mudah di platform Wird Quran."
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"Dengarkan lantunan Al-Qur'an oleh %(qari_name)s dalam kualitas tinggi, "
+"lengkap dengan kemudahan navigasi antar surah dan ayat."
+
+#, python-format
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"Jelajahi halaman %(page)s Al-Qur'an dengan antarmuka yang nyaman, navigasi "
+"cepat, dan pengalaman membaca yang lancar di platform Wird Quran."
+
+msgid "no_word_meanings"
+msgstr "Tidak ada arti kata untuk ayat ini"
+
+msgid "hide_word_meanings"
+msgstr "Sembunyikan arti"
+
+msgid "show_word_meanings"
+msgstr "Tampilkan arti per kata"
+
+msgid "word_meanings_hint"
+msgstr "Arti kata akan muncul saat tilawah diputar"
+
+msgid "error_word_meanings"
+msgstr "Gagal memuat arti kata"
+
+msgid "surah"
+msgstr "Surah"
+
+msgid "ayah"
+msgstr "Ayat"
+
+msgid "show_thematic_segmentation"
+msgstr "Tampilkan Segmentasi Tematik"
+
+msgid "hide_thematic_segmentation"
+msgstr "Sembunyikan Segmentasi Tematik"
+
+msgid "daily_quran_reading"
+msgstr "Bacaan Harian Saya"
+
+msgid "new_khatma"
+msgstr "Program Khatam Baru"
+
+msgid "close"
+msgstr "Tutup"
+
+msgid "current_khatma"
+msgstr "Program Khatam Saat Ini"
+
+msgid "Juz"
+msgstr "Juz"
+
+msgid "remaining_wirds"
+msgstr "Sisa Wird"
+
+msgid "khatma_count"
+msgstr "Jumlah Khatam"
+
+msgid "current_wird"
+msgstr "Wird Saat Ini"
+
+msgid "from"
+msgstr "Dari"
+
+msgid "to"
+msgstr "Ke"
+
+msgid "congratulations"
+msgstr "Selamat"
+
+msgid "you_finished_current_khatma"
+msgstr "Selamat! Anda telah menyelesaikan program khatam ini"
+
+msgid "continue_reading"
+msgstr "Lanjutkan Wird"
+
+msgid "finish_wird"
+msgstr "Wird Selesai"
+
+msgid "choose_mushaf"
+msgstr "Pilih Mushaf"
+
+msgid "current"
+msgstr "Saat Ini"
+
+msgid "start_new_khatma"
+msgstr "Mulai Khatam Baru"
+
+msgid "start_from"
+msgstr "Mulai Dari"
+
+msgid "mushaf_start"
+msgstr "Awal Mushaf"
+
+msgid "duration_days"
+msgstr "Durasi Program (Hari)"
+
+msgid "day"
+msgstr "Hari"
+
+msgid "daily_amount"
+msgstr "Jumlah Wird Harian"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "Ringkasan Program Khatam"
+
+msgid "start_khatma"
+msgstr "Mulai Program Khatam"
+
+msgid "reciters"
+msgstr "Para Qari"
+
+msgid "search_reciter"
+msgstr "Cari qari berdasarkan nama"
+
+msgid "loading"
+msgstr "Memuat..."
+
+msgid "tafasir"
+msgstr "Kitab Tafsir"
+
+msgid "no_tafsir_available"
+msgstr "Tafsir belum tersedia saat ini"
+
+# =============================================================================
+# 2. Core Reading & Audio Experience (Pengalaman Membaca & Audio)
+# =============================================================================
+msgid "quran"
+msgstr "Al-Qur'an"
+
+msgid "tafsir"
+msgstr "Tafsir"
+
+# =============================================================================
+# 15. Surah Names (Nama-Nama Surah)
+# =============================================================================
+msgid "surah_1"
+msgstr "Al-Fatihah"
+
+msgid "mushafs"
+msgstr "Koleksi Mushaf"
+
+msgid "reading_mode"
+msgstr "Mode Membaca"
+
+msgid "current_reciter"
+msgstr "Qari Saat Ini"
+
+msgid "coming_soon"
+msgstr "Segera Hadir"
+
+msgid "current_mushaf"
+msgstr "Mushaf Saat Ini"
+
+msgid "tafsir_loading_message"
+msgstr "Tafsir akan dimuat saat halaman dibuka"
+
+msgid "title_and_body_required"
+msgstr "Judul dan isi pesan wajib diisi"
+
+msgid "no_subscribers_available"
+msgstr "Tidak ada pelanggan yang tersedia untuk dikirimkan pesan"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "Anda terdaftar sebagai pelanggan Wird Quran"
+
+msgid "unsubscribe_label"
+msgstr "Untuk berhenti berlangganan"
+
+msgid "message_sent_to_subscribers"
+msgstr "Pesan dikirim ke %(count)s pelanggan"
+
+msgid "message_sent_with_failures"
+msgstr "Pesan dikirim ke %(sent_count)s pelanggan, gagal ke %(failed_count)s"
+
+msgid "message_send_failed"
+msgstr "Gagal mengirim pesan"
+
+msgid "please_enter_email"
+msgstr "Harap masukkan email Anda"
+
+msgid "newsletter_welcome_subject"
+msgstr "Terima kasih telah bergabung di Wird Quran"
+
+msgid "newsletter_greeting"
+msgstr "Assalamu'alaikum Warahmatullahi Wabarakatuh,"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "Terima kasih telah berlangganan Wird Quran"
+
+msgid "newsletter_joined_successfully"
+msgstr "Kami senang Anda bergabung, info terbaru akan dikirim ke email Anda"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr "Jika ingin berhenti berlangganan kapan saja, gunakan tautan berikut"
+
+msgid "newsletter_closing"
+msgstr "Hormat kami,"
+
+msgid "wird quran"
+msgstr "Wird Al-Qur'an Al-Kareem"
+
+msgid "newsletter_subscription_success"
+msgstr "Anda telah berhasil berlangganan pesan dari Wird Quran"
+
+msgid "newsletter_subscription_reactivated"
+msgstr "Berlangganan Wird Quran Anda telah diaktifkan kembali"
+
+msgid "email_already_subscribed"
+msgstr "Email ini sudah berlangganan"
+
+msgid "unsubscribe_success_message"
+msgstr "Anda berhasil berhenti berlangganan"
+
+msgid "unsubscribe_already_done"
+msgstr "Sudah berhenti berlangganan sebelumnya"
+
+msgid "qari_list_title"
+msgstr "Dengarkan Al-Qur'an"
+
+msgid "qari_list_description"
+msgstr ""
+"Jelajahi qari dan pilih bacaan favorit Anda dari beragam koleksi qari dengan "
+"suara indah."
+
+msgid "listen_quran"
+msgstr "Dengarkan Al-Qur'an"
+
+msgid "view_surahs"
+msgstr "Tampilkan Surah"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "Mendengarkan Al-Qur'an oleh"
+
+msgid "tilawa_wrd_quran"
+msgstr "Wird Quran"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "Dengarkan Al-Qur'an lengkap dengan suara"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "dengan kualitas tinggi dan navigasi surah yang mudah"
+
+msgid "all_reciters"
+msgstr "Semua Qari"
+
+msgid "select_surah_player"
+msgstr "Pilih surah"
+
+msgid "prev_surah"
+msgstr "Surat Sebelumnya"
+
+msgid "next_surah"
+msgstr "Surat berikutnya"
+
+msgid "search_surah"
+msgstr "Cari surah (nama/nomor)"
+
+msgid "ayah_counter"
+msgstr "Ayah"
+
+msgid "stop_playback"
+msgstr "Hentikan pemutaran"
+
+msgid "username_password_required"
+msgstr "Nama pengguna dan kata sandi wajib diisi."
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "Akun memerlukan aktivasi"
+
+msgid "invalid_login_credentials"
+msgstr "Data masuk tidak valid."
+
+# =============================================================================
+# 8. Dashboard & Analytics (Dasbor & Analitik)
+# =============================================================================
+msgid "dashboard"
+msgstr "Dasbor"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "Masuk atau daftar akun untuk melanjutkan"
+
+# =============================================================================
+# 5. Accounts & Auth (Akun & Autentikasi)
+# =============================================================================
+msgid "login"
+msgstr "Masuk"
+
+msgid "register"
+msgstr "Daftar Akun"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "Nama pengguna sudah digunakan."
+
+msgid "enter_username"
+msgstr "Masukkan nama pengguna"
+
+msgid "password"
+msgstr "Kata Sandi"
+
+msgid "enter_password"
+msgstr "Masukkan kata sandi"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "Lupa kata sandi?"
+
+msgid "create_account"
+msgstr "Buat akun"
+
+msgid "username_required"
+msgstr "Nama pengguna wajib diisi."
+
+msgid "username_taken"
+msgstr "Nama pengguna sudah digunakan."
+
+msgid "email_required"
+msgstr "Email wajib diisi."
+
+msgid "email_taken"
+msgstr "Email sudah terdaftar."
+
+msgid "password_required"
+msgstr "Kata sandi wajib diisi."
+
+msgid "register_success"
+msgstr ""
+"Selamat datang 🌿 Akun Anda berhasil dibuat. Kami senang Anda bergabung "
+"bersama kami."
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"Wird Quran adalah platform terintegrasi untuk membaca Al-Qur'an, "
+"mendengarkan lantunan ayat suci dari qari ternama, dan menelusuri kitab "
+"tafsir dengan mudah tanpa iklan."
+
+msgid "success"
+msgstr "Berhasil"
+
+msgid "error"
+msgstr "Kesalahan"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "Tentang Wird Al-Qur'an Al-Kareem"
+
+msgid "long_about_text"
+msgstr ""
+"Wird adalah platform digital yang dirancang untuk memudahkan interaksi "
+"dengan Al-Qur'an. Kami menyediakan akses ke berbagai mushaf, rekaman suara "
+"qari internasional, dan referensi tafsir yang otentik."
+
+msgid "about_wird"
+msgstr ""
+"Wird adalah platform digital terintegrasi yang bertujuan untuk memudahkan "
+"pembacaan dan tadabbur Al-Qur'an dengan cara yang terorganisir dan menarik. "
+"Platform ini menawarkan berbagai layanan seperti penelusuran mushaf dengan "
+"berbagai riwayat, mendengarkan qari ternama, dan membaca tafsir yang "
+"tepercaya. Pengguna juga dapat memantau bacaan harian (Wird) serta melacak "
+"kemajuan hafalan secara berkelanjutan. Platform ini hadir untuk mendukung "
+"pengabdian terhadap Kitabullah dan mempererat hubungan umat dengan Al-Qur'an."
+
+# =============================================================================
+# 1. SEO & Global Descriptions (Deskripsi Umum & SEO)
+# =============================================================================
+msgid "wird"
+msgstr "Wird"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "Wird Harian Anda dengan Al-Quran"
+
+msgid "home_hero_title1"
+msgstr "Pengalaman Tenang Membaca Al-Qur'an"
+
+msgid "home_hero_title2"
+msgstr "Dan Mendengarkan dan Refleksi"
+
+msgid "home_hero_desc"
+msgstr ""
+"Sebuah platform yang menghadirkan bacaan, tafsir, Tafsir, terjemahan, dan "
+"makna kata menjadi satu pengalaman yang mudah dan terorganisir."
+
+msgid "home_start_reading"
+msgstr "Mulai Membaca"
+
+msgid "home_explore_recitations"
+msgstr "Jelajahi Bacaan"
+
+msgid "home_calm_recitation"
+msgstr "Pelafalan yang Tenang"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "Fitur"
+
+msgid "home_features_title"
+msgstr "Semua yang Anda Butuhkan di Satu Tempat"
+
+msgid "home_features_desc"
+msgstr ""
+"Alat yang tenang untuk membantu Anda membaca, mendengarkan, dan merenung "
+"tanpa gangguan."
+
+msgid "home_feature_quran_title"
+msgstr "Baca Alquran"
+
+msgid "home_feature_quran_desc"
+msgstr ""
+"Antarmuka mushaf yang elegan membuat membaca nyaman dan enak dipandang."
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "Semua yang Anda Butuhkan di Satu Tempat"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"Alat yang tenang untuk membantu Anda membaca, mendengarkan, dan merenung "
+"tanpa gangguan."
+
+msgid "home_feature_listen_title"
+msgstr "Dengarkan Bacaan"
+
+msgid "home_feature_listen_desc"
+msgstr ""
+"Pilihan qari dengan suara murni dan pengalaman mendengarkan yang tenang."
+
+msgid "home_feature_tafsir_title"
+msgstr "Tafsir"
+
+msgid "home_feature_tafsir_desc"
+msgstr ""
+"Tafsir terpercaya dengan tampilan terorganisir untuk membantu refleksi dan "
+"pemahaman."
+
+msgid "home_feature_trans_title"
+msgstr "Terjemahan"
+
+msgid "home_feature_trans_desc"
+msgstr ""
+"Terjemahan makna dalam berbagai bahasa di samping ayat secara langsung."
+
+msgid "home_feature_words_title"
+msgstr "Arti Kata"
+
+msgid "home_feature_words_desc"
+msgstr ""
+"Carilah arti kata apa pun dengan satu sentuhan tanpa meninggalkan halaman."
+
+msgid "home_feature_daily_title"
+msgstr "Wird Harian"
+
+msgid "home_feature_daily_desc"
+msgstr ""
+"Atur Wird harian Anda dan lacak kesinambungannya dengan tenang dan teratur."
+
+msgid "surah_2"
+msgstr "Al-Baqarah"
+
+msgid "tracking_manual"
+msgstr ""
+
+# =============================================================================
+# 4. Hifz & Daily Wird & Khatma (Hafalan, Wird & Khatam)
+# =============================================================================
+msgid "daily_wird"
+msgstr "Wird Harian"
+
+msgid "home_daily_title"
+msgstr "Kebiasaan Tenang, Tumbuh Bersama Anda Hari demi Hari"
+
+msgid "home_daily_desc"
+msgstr ""
+"Atur Wird Anda agar sesuai dengan hari Anda, dan lacak kesinambungan Anda "
+"tanpa tekanan. Pengingat lembut, tampilan terorganisir, dan pelacakan "
+"sederhana membuat Anda selalu terhubung dengan Kitab Allah."
+
+msgid "home_gentle_tracking"
+msgstr "Pelacakan Lembut"
+
+msgid "home_flexible_reminder"
+msgstr "Pengingat Fleksibel"
+
+msgid "home_no_pressure"
+msgstr "Tanpa Tekanan"
+
+# =============================================================================
+# 3. Recitation & Reciters (Tilawah & Qari)
+# =============================================================================
+msgid "tilawa"
+msgstr "Tilawah"
+
+msgid "home_recitation_title"
+msgstr "Dengarkan dengan Suara yang Menenangkan Hati"
+
+msgid "home_recitation_desc"
+msgstr ""
+"Pilih qari yang menyentuh jiwa Anda, dan dengarkan dengan pengalaman yang "
+"tenang dan bebas gangguan."
+
+msgid "home_now_playing"
+msgstr "Sedang Dimainkan"
+
+msgid "home_reciter_label"
+msgstr "Tukang deklamasi"
+
+msgid "home_current_surah"
+msgstr "Surat saat ini"
+
+msgid "home_prev"
+msgstr "Sebelumnya"
+
+msgid "home_play_pause"
+msgstr "Putar / Jeda"
+
+msgid "home_next"
+msgstr "Berikutnya"
+
+msgid "home_reading_label"
+msgstr "Tafsir & Terjemahan"
+
+msgid "home_reading_title"
+msgstr "Renungkan Makna Secara Mendalam dan Jelas"
+
+msgid "home_reading_desc"
+msgstr ""
+"Sebuah pengalaman yang mirip dengan sebuah buku: ayat di tempatnya, dan "
+"makna di sampingnya."
+
+msgid "home_easy_tafsir"
+msgstr "Tafsir Mudah"
+
+msgid "home_meaning_badge"
+msgstr "Arti"
+
+msgid "home_meaning_label"
+msgstr "Arti"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "Kebijakan Privasi"
+
+msgid "Wird — Privacy Policy"
+msgstr "Wird — Kebijakan Privasi"
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr "Teman harian Anda dalam perjalanan bersama Al-Quran"
+
+msgid "Last updated: May 2026"
+msgstr "Terakhir diperbarui: Mei 2026"
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+"Kebijakan ini menjelaskan bagaimana Wird mengelola data Anda. Kami "
+"menjaganya singkat dan jujur."
+
+msgid "translations"
+msgstr "Terjemahan"
+
+msgid "translation_page_title"
+msgstr "Terjemahan"
+
+msgid "surahs"
+msgstr "Daftar Surah"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "Simpan Posisi Bacaan"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "Tautan footer"
+
+msgid "about"
+msgstr "Tentang Platform"
+
+msgid "contact_us"
+msgstr "Hubungi Kami"
+
+msgid "download_android"
+msgstr "Unduh untuk Android"
+
+msgid "download_ios"
+msgstr "Unduh untuk iOS"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "Menu"
+
+# =============================================================================
+# 13. UI Common Elements (Elemen Antarmuka Umum)
+# =============================================================================
+msgid "home"
+msgstr "Beranda"
+
+msgid "read_quran"
+msgstr "Baca Al-Quran"
+
+msgid "hifz_quran"
+msgstr "Hafalan Al-Qur'an"
+
+# =============================================================================
+# 10. Notifications & Campaigns (Notifikasi & Kampanye)
+# =============================================================================
+msgid "notifications"
+msgstr "Notifikasi"
+
+msgid "logout"
+msgstr "Keluar"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "Profil"
+
+msgid "SECTION 1"
+msgstr "BAGIAN 1"
+
+msgid "Information We Collect"
+msgstr "Informasi yang Kami Kumpulkan"
+
+msgid "a. Account Information (if you sign in)"
+msgstr "a. Informasi Akun (saat masuk)"
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr "b. Token Perangkat Firebase (FCM)"
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+"Kami menggunakan Firebase Cloud Messaging (oleh Google) untuk mengirim "
+"notifikasi. Token perangkat anonim dibuat oleh Firebase dan dikirim ke "
+"server kami. Token ini tidak mengidentifikasi Anda secara pribadi dan hanya "
+"digunakan untuk mengirim notifikasi."
+
+msgid "c. Contact Messages"
+msgstr "c. Pesan Kontak"
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+"Jika Anda menggunakan fitur Hubungi Kami, kami menerima pesan dan email yang "
+"Anda berikan."
+
+msgid "SECTION 2"
+msgstr "BAGIAN 2"
+
+msgid "Data Stored Only on Your Device"
+msgstr "Data yang Hanya Tersimpan di Perangkat Anda"
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr "Progres membaca, rencana Khatmah, dan posisi Wird"
+
+msgid "Azkar completion progress"
+msgstr "Progres penyelesaian Azkar"
+
+msgid "Notification schedule and preferences"
+msgstr "Jadwal notifikasi dan preferensi"
+
+msgid "Selected reciter and Mushaf style"
+msgstr "Qari dan gaya Mushaf yang dipilih"
+
+msgid "Accessibility and display settings"
+msgstr "Pengaturan aksesibilitas dan tampilan"
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr "Gambar Mushaf dan file audio yang diunduh"
+
+msgid "The Quran database"
+msgstr "Basis data Al-Quran"
+
+msgid "SECTION 3"
+msgstr "BAGIAN 3"
+
+msgid "Microphone Access"
+msgstr "Akses Mikrofon"
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+"Semua pemrosesan suara terjadi secara lokal di perangkat Anda. Tidak ada "
+"audio yang dikirim ke server kami atau pihak ketiga mana pun."
+
+msgid "SECTION 4"
+msgstr "BAGIAN 4"
+
+msgid "Third-Party Services"
+msgstr "Layanan Pihak Ketiga"
+
+msgid "Service"
+msgstr "Layanan"
+
+msgid "Provider"
+msgstr "Penyedia"
+
+msgid "Purpose"
+msgstr "Tujuan"
+
+msgid "Push notifications"
+msgstr "Notifikasi push"
+
+msgid "App initialisation"
+msgstr "Inisialisasi aplikasi"
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr "Tunduk pada Kebijakan Privasi Google:"
+
+msgid "SECTION 5"
+msgstr "BAGIAN 5"
+
+msgid "Analytics and Crash Reporting"
+msgstr "Analitik dan Laporan Crash"
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr "BAGIAN 6"
+
+msgid "Data Sharing"
+msgstr "Berbagi Data"
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+"Kami tidak menjual atau membagikan data pribadi Anda kepada pihak ketiga "
+"untuk tujuan iklan atau komersial. Data hanya dibagikan dengan Firebase "
+"(Google) untuk pengiriman notifikasi."
+
+msgid "SECTION 7"
+msgstr "BAGIAN 7"
+
+msgid "Data Security"
+msgstr "Keamanan Data"
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+"Token autentikasi disimpan menggunakan penyimpanan terenkripsi tingkat "
+"platform (Android Keystore)."
+
+msgid "All communication with our server uses HTTPS."
+msgstr "Semua komunikasi dengan server kami menggunakan HTTPS."
+
+msgid "SECTION 8"
+msgstr "BAGIAN 8"
+
+msgid "Your Rights"
+msgstr "Hak Anda"
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr "BAGIAN 9"
+
+msgid "Audience"
+msgstr "Audiens"
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+"Aplikasi ini dirancang untuk audiens umum. Tidak mengandung konten dewasa, "
+"kekerasan, atau iklan."
+
+msgid "SECTION 10"
+msgstr "BAGIAN 10"
+
+msgid "Changes to This Policy"
+msgstr "Perubahan pada Kebijakan Ini"
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr "Aplikasi Wird"
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "Kebijakan Privasi"
+
+msgid "Last updated May 2026"
+msgstr "Terakhir diperbarui Mei 2026"
+
+#~ msgid "web_wrd"
+#~ msgstr "Wird"
+
+#~ msgid "system_description"
+#~ msgstr ""
+#~ "Platform digital untuk membaca Al-Qur'an, mendengarkan tilawah, dan "
+#~ "memahami tafsir dengan mudah."
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird adalah platform digital terintegrasi yang bertujuan untuk memudahkan "
+#~ "pembacaan dan tadabbur Al-Qur'an secara terorganisir."
+
+#~ msgid "hifz"
+#~ msgstr "Hafalan"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "Juz %(number)s"
+
+#~ msgid "juz_number"
+#~ msgstr "Juz %(number)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "Bismillahirrahmanirrahim"
+
+#~ msgid "open_mushaf"
+#~ msgstr "Buka Mushaf"
+
+#~ msgid "hafs"
+#~ msgstr "Hafs"
+
+#~ msgid "warsh"
+#~ msgstr "Warsh"
+
+#~ msgid "qaloun"
+#~ msgstr "Qalun"
+
+#~ msgid "douri"
+#~ msgstr "Ad-Duri"
+
+#~ msgid "shuba"
+#~ msgstr "Syu'bah"
+
+#~ msgid "sousi"
+#~ msgstr "As-Susi"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "Sebagian besar sumber mushaf dari"
+
+#~ msgid "complex"
+#~ msgstr "Kompleks Percetakan Al-Qur'an Raja Fahd"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "Tidak ada tafsir"
+
+#~ msgid "tajweed"
+#~ msgstr "Tajwid"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "Tampilkan arti kata"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "Sembunyikan arti kata"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "Memuat arti kata..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "Sedang memuat arti kata"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "Gagal memuat arti kata"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "Arti kata tidak tersedia untuk ayat ini"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "Arti kata akan muncul saat tilawah dimulai"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "Makkiyah"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "Madaniyah"
+
+#~ msgid "start"
+#~ msgstr "Mulai"
+
+#~ msgid "selected_ayah"
+#~ msgstr "Ayat yang Dipilih"
+
+#~ msgid "analysis_result"
+#~ msgstr "Hasil"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "Pilih ayat terlebih dahulu"
+
+#~ msgid "browse_reciters"
+#~ msgstr "Jelajahi Qari"
+
+#~ msgid "next_wirds"
+#~ msgstr "Wird Selanjutnya"
+
+#~ msgid "previous_wirds"
+#~ msgstr "Wird Sebelumnya"
+
+#~ msgid "one_juz"
+#~ msgstr "1 Juz"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "Alat Tampilan"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "Tampilan Normal"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "Ulangi Ayat"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "Tanpa Pengulangan"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "Dua Kali"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "Kali"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "Perbesar Mushaf"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "Al-Qur'an akan dibagi berdasarkan durasi dan target harian untuk "
+#~ "memudahkan khatam."
+
+#~ msgid "resume_reading"
+#~ msgstr "Lanjutkan Membaca"
+
+#~ msgid "percentage"
+#~ msgstr "Persentase Kemajuan"
+
+#~ msgid "progress"
+#~ msgstr "Kemajuan"
+
+#~ msgid "from_page"
+#~ msgstr "Halaman Mulai"
+
+#~ msgid "to_page"
+#~ msgstr "Halaman Selesai"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "Dari"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "Ke"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "Surah Al-Baqarah - Ayat 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "Surah Al-Baqarah - Ayat 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "Nomor Ayat Saat Ini"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "Masuk atau daftar akun untuk melanjutkan"
+
+#~ msgid "welcome"
+#~ msgstr "Selamat Datang"
+
+#~ msgid "welcome_message"
+#~ msgstr "Selamat datang di platform Wird Quran"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "Selamat datang kembali"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "Profil Anda telah diperbarui"
+
+#~ msgid "accounts_settings"
+#~ msgstr "Pengaturan Akun"
+
+#~ msgid "login_settings"
+#~ msgstr "Pengaturan Masuk"
+
+#~ msgid "confirm_password"
+#~ msgstr "Konfirmasi Kata Sandi"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "Kata Sandi Baru"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "Tampilkan/Sembunyikan kata sandi"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "Nama pengguna wajib diisi"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "Nama pengguna sudah digunakan"
+
+#~ msgid "enter_email"
+#~ msgstr "Masukkan email Anda"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "Email wajib diisi"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "Email sudah digunakan"
+
+#~ msgid "invalid_email"
+#~ msgstr "Format email tidak valid"
+
+#~ msgid "full_name"
+#~ msgstr "Nama Lengkap"
+
+#~ msgid "phone"
+#~ msgstr "Nomor Telepon"
+
+#~ msgid "invalid_phone"
+#~ msgstr "Nomor telepon tidak valid"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "Nomor telepon sudah terdaftar"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "Jabatan/Pekerjaan"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "Laki-laki"
+
+#~ msgid "accounts_female"
+#~ msgstr "Perempuan"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "Akun Anda berhasil dibuat"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr "Akun berhasil dibuat. Selamat datang di platform kami."
+
+#~ msgid "login_failed"
+#~ msgstr "Data masuk tidak valid"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "Kata sandi tidak cocok"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "Kata sandi minimal 8 karakter"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "Perubahan berhasil disimpan"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "Data Anda berhasil disimpan"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "Data disimpan dan kata sandi diperbarui"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "Pengaturan masuk diperbarui"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr "Selamat datang, akun Anda telah disetujui."
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr ""
+#~ "Selamat datang di Pusat Inovasi, semoga pengalaman Anda menyenangkan"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "Manajemen Pusat Inovasi"
+
+#~ msgid "accounts_local"
+#~ msgstr "Lokal"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "Masuk Terpadu"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "Aktifkan Autentikasi Eksternal"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "Kontrol metode autentikasi sistem"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "Dari basis data sistem"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "Kemarin"
+
+#~ msgid "accounts_saah"
+#~ msgstr "1 jam yang lalu"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "10 menit yang lalu"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "5 menit yang lalu"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "Hubungi Kami"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "Hubungi kami melalui formulir kontak"
+
+#~ msgid "contact_description"
+#~ msgstr "Anda dapat menghubungi kami untuk pertanyaan atau bantuan apa pun"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr "Terima kasih, kami akan meninjau pesan Anda dan segera membalasnya"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "Pesan Anda berhasil dikirim"
+
+#~ msgid "write_message"
+#~ msgstr "Tulis pesan Anda di sini"
+
+#~ msgid "contact_message"
+#~ msgstr "Pesan"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "Pesan wajib diisi"
+
+#~ msgid "contact_name_required"
+#~ msgstr "Nama wajib diisi"
+
+#~ msgid "contact_email_required"
+#~ msgstr "Email wajib diisi"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "Email tidak valid"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "Telepon"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "WhatsApp/HP"
+
+#~ msgid "contact_email"
+#~ msgstr "Email"
+
+#~ msgid "contact_date"
+#~ msgstr "Tanggal"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "Semua Pesan"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "Pesan Kontak"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "Manajemen Pesan Kontak"
+
+#~ msgid "contact_message_details"
+#~ msgstr "Detail Pesan"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "Detail Pesan Komunikasi"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "Buka detail pesan"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "Klik pesan untuk membuka detail"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "Cari berdasarkan nama, email, atau isi pesan"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "Tidak ada pesan saat ini"
+
+#~ msgid "contact_reply"
+#~ msgstr "Dibalas"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "Balas Pesan"
+
+#~ msgid "write_reply"
+#~ msgstr "Tulis balasan lalu kirim"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "Kirim Balasan"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "Isi Balasan"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "Judul Balasan"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "Balasan terakhir disimpan"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "Balasan atas pesan Anda di situs kami"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "Pesan baru dari Kontak Kami"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "Baru"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "Belum dibaca"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "Sudah dibaca"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "Sedang mengirim..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "Pesan baru saja dikirim, coba lagi sebentar lagi"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr "Balasan baru saja dikirim, tunggu sebentar sebelum mencoba lagi"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr "Jika ada kendala, jangan ragu untuk menghubungi kami"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "Tim Dukungan"
+
+# =============================================================================
+# 7. Subscriptions & Newsletter (Langganan & Buletin)
+# =============================================================================
+#~ msgid "subscribe"
+#~ msgstr "Berlangganan"
+
+#~ msgid "subscriptions"
+#~ msgstr "Daftar Langganan"
+
+#~ msgid "subscription_active"
+#~ msgstr "Aktif"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "Aktif"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "Berhenti"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "Pelanggan Terverifikasi"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "Total Pelanggan"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "Semua Pelanggan"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "Pelanggan Aktif"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "Aktif"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "Terkonfirmasi"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "Belum Konfirmasi"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "Dikonfirmasi"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "Pelanggan Buletin"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "Pelanggan Buletin Email"
+
+#~ msgid "subscription_message"
+#~ msgstr "Berlangganan untuk info terbaru"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "Tidak ada pelanggan saat ini"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "Berhenti Berlangganan"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "Berhenti langganan email berhasil"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Berhenti langganan dari Wird Al-Qur'an Al-Kareem"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Dari pesan Wird Al-Qur'an"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "Kelola Langganan"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "Lihat Langganan"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "Ringkasan Langganan"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "Pusat Langganan"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "Ikhtisar Pelanggan Buletin"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr "Daftar email terdaftar untuk menerima berita"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "Tanggal Langganan"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "Tanggal Berhenti Langganan"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "Cari berdasarkan email"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "Buat Pesan"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr "Kirim email ke seluruh pelanggan aktif dan terverifikasi"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "Ikhtisar Dasbor"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "Panel Kontrol Internal"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "Ringkasan modul dan pengaturan utama sistem"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "Ringkasan angka dan indikator umum sistem"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "Statistik Situs"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "Statistik Halaman"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "Statistik Audio"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "Statistik Tafsir"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "Statistik Mushaf"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "Total Pengunjung"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "Total Kunjungan Halaman"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "Halaman Paling Banyak Dikunjungi"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "Kunjungan Halaman"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "Kunjungan 7 hari terakhir"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "Kunjungan 30 hari terakhir"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "Pengunjung 7 hari terakhir"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "Kunjungan beberapa hari terakhir"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "Pemutaran Audio"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "Putar audio 7 hari terakhir"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "Total Durasi Mendengarkan (Detik)"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "Halaman Paling Sering Didengar"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "Surah Paling Sering Diputar"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "Qari Paling Sering Diputar"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "Halaman Yang Dibuka"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "Halaman Mushaf Paling Sering Dibuka"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "Total Tafsir Dibuka"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "Tafsir dibuka 7 hari terakhir"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "Kitab Tafsir Paling Sering Dibuka"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "Kitab Paling Sering Digunakan"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "Halaman Tafsir Paling Sering Dibuka"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "Halaman Tafsir Terpopuler"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "Surah yang tafsirnya paling sering dibuka"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "Surah Paling Sering Ditafsirkan"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "Ayat Paling Sering Dibuka di Tafsir"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "Interaksi Terbaru"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr ""
+#~ "Pantau pengunjung, halaman, pemutaran audio, dan perpindahan halaman "
+#~ "mushaf"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr ""
+#~ "Pantau pembukaan tafsir, kitab terpopuler, halaman, surah, dan ayat "
+#~ "terkait"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "Panel Langsung"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "Belum ada data"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "Belum ada interaksi"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "Ayat"
+
+#~ msgid "analytics_audio"
+#~ msgstr "Audio"
+
+#~ msgid "analytics_page"
+#~ msgstr "Halaman"
+
+#~ msgid "analytics_pages"
+#~ msgstr "Halaman"
+
+#~ msgid "analytics_surah"
+#~ msgstr "Surah"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "Mushaf"
+
+#~ msgid "analytics_time"
+#~ msgstr "Waktu"
+
+#~ msgid "analytics_type"
+#~ msgstr "Tipe"
+
+#~ msgid "analytics_path"
+#~ msgstr "Path"
+
+#~ msgid "analytics_add"
+#~ msgstr "Jumlah"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "Unik"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "Kunjungan"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "Pemutaran"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "Audio Selesai"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "Buka Tafsir"
+
+# =============================================================================
+# 9. RBAC (Peran, Izin & Pengguna)
+# =============================================================================
+#~ msgid "roles"
+#~ msgstr "Peran"
+
+#~ msgid "permissions"
+#~ msgstr "Izin"
+
+#~ msgid "users"
+#~ msgstr "Pengguna"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "Kelola Pengguna"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "Kelola Peran"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "Kelola Izin"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "Kelola akun pengguna, peran, dan izin"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "Sistem Manajemen Pengguna dan Izin"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "Kelola Izin"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "Kelola peran sistem dan izin terkait"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "Manajemen pengguna dan penetapan peran"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "Tambah Pengguna"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "Tambah Pengguna Baru"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "Detail Pengguna"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "Lihat detail pengguna"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "Lihat data dan tetapkan peran"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "Tambah Peran"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "Edit Peran"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "Hapus Peran"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "Simpan Peran"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "Nama Peran"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "Peran Saat Ini"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "Peran Saat Ini"
+
+#~ msgid "rbac_role"
+#~ msgstr "Peran"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "Tambah Izin"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "Edit Izin"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "Hapus Izin"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "Simpan Izin"
+
+#~ msgid "rbac_permission"
+#~ msgstr "Izin"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "Izin"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "Nama Izin"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "Kode Izin"
+
+#~ msgid "rbac_module"
+#~ msgstr "Modul"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "Hubungkan peran dengan izin"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "Hubungkan izin dengan peran"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr "Pengguna berhasil dibuat, info masuk dikirim ke email"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "Pengguna berhasil dibuat, namun gagal mengirim email. Cek pengaturan mail."
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "Peran berhasil dibuat"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "Izin berhasil dibuat"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "Peran diperbarui"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "Izin diperbarui"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "Peran dihapus"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "Izin dihapus"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "Izin berhasil dikaitkan ke peran"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "Izin berhasil dilepas dari peran"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "Peran pengguna diperbarui"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "Konfirmasi hapus peran"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "Konfirmasi hapus izin"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "Anda akan menghapus peran ini"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "Anda akan menghapus izin ini"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "Peran utama tidak dapat dihapus"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "Izin utama tidak dapat dihapus"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "Kode peran utama tidak dapat diedit"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "Kode izin utama tidak dapat diedit"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr "Peran pengguna utama tidak dapat diedit melalui antarmuka ini"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "Izin utama tidak dapat dihapus dari peran ini"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "Tindakan ini tidak dapat dibatalkan"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "Cari berdasarkan nama pengguna atau peran"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "Cari berdasarkan nama atau jumlah izin"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr "Pilih peran dari daftar untuk mengelola izin"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr "Pilih peran lalu beri centang pada izin yang diinginkan"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "Pilih Peran"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "Tidak ada peran untuk pengguna ini"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "Tidak ada peran saat ini"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "Tidak ada pengguna saat ini"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "Masukkan nama dan kode peran"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "Masukkan kode dan nama izin"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "Masukkan kode dan nama izin"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Isi data pengguna; akun akan dibuat dan detail masuk dikirim via email"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "Isi data peran lalu simpan perubahan"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "Isi data izin lalu simpan perubahan"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr "Kata sandi acak akan dibuat dan dikirim ke email pengguna"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "Akun Anda telah dibuat di platform"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "Data akun Anda di platform"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr "Kami sarankan untuk mengubah kata sandi setelah masuk"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr "Deskripsi singkat tugas peran ini dalam sistem"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr "Deskripsi kapan izin ini digunakan dalam sistem"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "Email wajib untuk pengiriman info masuk"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "Kode peran sudah digunakan, pilih kode lain"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "Kode ini sudah digunakan untuk izin lain"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr "Gagal menyimpan izin karena kode ganda dalam basis data"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "Kesalahan: data peran atau izin hilang"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "Nama lengkap wajib diisi"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "Nama pengguna sudah digunakan"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "Email sudah digunakan"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "Nomor telepon sudah digunakan"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "Nama pengguna ini dipesan dan tidak bisa digunakan"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "Izin dikelompokkan per modul"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "Pengguna Aktif"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "Tidak Aktif"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "Status pengguna diperbarui"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "Masuk Terakhir"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "Hubungkan Peran"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "Kembali ke Daftar Peran"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "Kembali ke Izin"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "Kembali ke Daftar Pengguna"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "Kembali ke Daftar Pengguna"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "Peran pengguna (contoh:"
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "Izin khusus (contoh:"
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "Contoh: Admin Sistem"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "Contoh"
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "Digunakan dalam kode seperti"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "Untuk memverifikasi izin pengguna dalam"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "Otomatis untuk pengguna"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr ", dan akan disimpan dalam format seragam secara otomatis"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "Disarankan menggunakan pola"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "Masukkan nomor dalam format apa pun (05 / 5 /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "Opsional"
+
+#~ msgid "rbac_aw"
+#~ msgstr "atau"
+
+#~ msgid "rbac_aam"
+#~ msgstr "Umum"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "Partner"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "Partisipan"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "Supervisor"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "Akan ditetapkan peran"
+
+#~ msgid "rbac_5"
+#~ msgstr "atau 5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "Lihat Pengguna"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "Lihat Peran"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "Lihat Izin"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "Edit Pengguna"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "Hapus Pengguna"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "Edit Peran"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "Hapus Peran"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "Edit Izin"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "Hapus Izin"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "Akses Dasbor"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "Akses Analitik"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "Akses Studio Quran"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "Akses Komunikasi"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "Akses Langganan"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "Akses Notifikasi"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "Akses Saluran Pengiriman"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "Kelola Pengaturan Masuk"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "Lihat Kampanye"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "Lihat Pesan"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "Lihat Pesan Kontak"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "Lihat Pesan WhatsApp"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "Lihat Notifikasi Internal"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "Lihat Log Pengiriman"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "Lihat Pelanggan"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "Lihat Email"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "Kelola Proyek"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "Buat Pesan Kontak"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "Kirim Notifikasi"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "Tambah Qari"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "Edit Data Qari"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "Hapus Data Qari"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "Koordinat Quran"
+
+#~ msgid "rbac_action"
+#~ msgstr "Tindakan"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "Jumlah Pengguna"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "Jumlah Peran"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "Jumlah Izin"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "Pengguna Terdaftar"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "Peran Terstruktur"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "Izin Aktif"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr "Mengatur struktur peran dan distribusi tanggung jawab sistem"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "Pengaturan"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "Langganan"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "Kontrol akses modul dan operasi detail"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "Nama pengguna dan kata sandi wajib diisi"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "Admin Utama Sistem"
+
+#~ msgid "accounts_system"
+#~ msgstr "Sistem"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "Pusat Alert"
+
+#~ msgid "notification_new"
+#~ msgstr "Baru"
+
+#~ msgid "notification_alert"
+#~ msgstr "Pemberitahuan"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "Sudah Dibaca"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "Notifikasi Dibaca"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "Kirim Notifikasi"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "Kirim Pemberitahuan"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "Buat Notifikasi Baru"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "Kelola Notifikasi"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "Kirim notifikasi internal ke pengguna"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "Tulis teks notifikasi di sini"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "Berhasil dikirim"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "Ringkasan Notifikasi"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "Ringkasan Notifikasi"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "Tidak ada notifikasi saat ini"
+
+#~ msgid "notification_no_text"
+#~ msgstr "Tidak ada teks"
+
+#~ msgid "notification_alns"
+#~ msgstr "Teks"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "Dalam Sistem"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "Notifikasi Sistem"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "Notifikasi sistem dan interaktif"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "Notifikasi yang dikirim ke pengguna dari sistem"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "Ringkasan notifikasi yang dikirim melalui berbagai saluran"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "Jumlah notifikasi di halaman ini"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "Tidak ada penerima yang cocok"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "Pesan saat ini bukan dari"
+
+#~ msgid "notifications_latest"
+#~ msgstr "Notifikasi terbaru yang Anda terima (terbaru di atas, maks 10)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "Pusat Notifikasi"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "Notifikasi Terkirim"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "Ringkasan Notifikasi"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "Ringkasan notifikasi yang dikirim melalui berbagai saluran"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "Kirim Notifikasi"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "Pemberitahuan internal berhasil dikirim"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "Kampanye"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "Kampanye Terkirim"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "Total Kampanye"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "Judul Kampanye"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "Kampanye berhasil dibuat"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "Kampanye berhasil dikirim"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr "Tidak ada saluran atau grup Telegram yang aktif untuk kampanye ini"
+
+#~ msgid "communication_message_text"
+#~ msgstr "Teks Pesan"
+
+#~ msgid "communication_title_message"
+#~ msgstr "Judul Pesan"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "Gambar (Opsional)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "Jika ada gambar"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "Jika tidak ada gambar"
+
+#~ msgid "communication_send_post"
+#~ msgstr "Kirim Postingan"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "Kirim Telegram"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "Telegram - Saluran"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "Telegram - Grup"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "Untuk grup dan saluran"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "Facebook"
+
+#~ msgid "communication_platform"
+#~ msgstr "Platform"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "Saluran"
+
+#~ msgid "communication_channels"
+#~ msgstr "Saluran Komunikasi"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "Komunikasi Sosial"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "Kelola Komunikasi Sosial"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "Ringkasan Komunikasi Sosial"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "Cari berdasarkan judul atau teks"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "Cari berdasarkan judul atau saluran"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "Tanggal Pengiriman"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "Status Pengiriman"
+
+#~ msgid "communication_sent"
+#~ msgstr "Terkirim"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "Terkirim"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "Brouchure/Draf"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "Terjadwal"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "Sedang mengirim..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "Gagal mengirim"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "Menunggu"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "Kesalahan (jika ada)"
+
+#~ msgid "communication_log"
+#~ msgstr "Log"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "Log Pengiriman"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr "Log pengiriman untuk setiap kampanye dan saluran komunikasi"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "Tidak ada log pengiriman saat ini"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "Gunakan"
+
+#~ msgid "communication_drafts"
+#~ msgstr "Draf"
+
+#~ msgid "communication_qryba"
+#~ msgstr "Segera"
+
+# =============================================================================
+# 11. Messaging Channels (Email, SMS, WhatsApp)
+# =============================================================================
+#~ msgid "messages"
+#~ msgstr "Pesan"
+
+#~ msgid "messaging_messages"
+#~ msgstr "Pesan"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "Pesan Massal"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "Daftar Pesan Massal"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "Pesan Teks"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "Pesan Seluler"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "Pesan SMS"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "Detail Pesan Seluler"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "Tidak ada pesan seluler saat ini"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "Pesan WhatsApp"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "Detail Pesan WhatsApp"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "Notifikasi WhatsApp"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "Tidak ada pesan WhatsApp di log saat ini"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr ""
+#~ "Lihat log pesan WhatsApp yang dikirim melalui sistem terkait pengguna"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "Email"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "Pesan Email Umum"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "Buat Pesan Email Umum"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "Tidak ada pesan email saat ini"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "Isi Pesan (Email)"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "Email telah dikirim"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "Pesan email dibuat dan menunggu pengiriman"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "Pesan ini hanya akan dikirim via email; Anda bisa menggunakan pemformatan "
+#~ "dan tautan"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr "Pesan ini ditujukan untuk pelanggan buletin yang terdaftar"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "Kirim publikasi email ke pelanggan dengan opsi menambah semua pengguna "
+#~ "sistem"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "Buat Pesan Baru"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "Kirim Pesan"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "Isi Pesan"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "Tidak ada isi dalam pesan ini"
+
+#~ msgid "messaging_subject"
+#~ msgstr "Subjek"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "Judul dan Data"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "Judul dan isi pesan wajib diisi"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "Tulis isi pesan di sini"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "Tulis isi email di sini"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "Tipe Pesan"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "Tanpa Judul"
+
+#~ msgid "messaging_sender"
+#~ msgstr "Pengirim"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "Pengirim"
+
+#~ msgid "messaging_user"
+#~ msgstr "Pengguna"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "Penerima"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "Daftar Penerima"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "Lihat Penerima"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "Pilih Pengguna"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "Semua Pengguna"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "Pelanggan Buletin (default)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "Pengguna Terpilih"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "Pilih satu atau lebih pengguna dari daftar"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "Opsi tambahan penerima"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr "Tambah semua pengguna sistem bersama pelanggan buletin"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr "Aktifkan ini jika ingin pesan sampai ke seluruh pengguna sistem"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "Tidak ada penerima"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "Tidak ada penerima untuk pesan ini"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "Tidak ada penerima untuk dikirimkan pesan"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "Tidak ada penerima yang memiliki email"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "Tidak ada penerima yang menunggu pengiriman"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "Tidak ada penerima yang sesuai kriteria"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "Jumlah Penerima"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "Cari berdasarkan pengirim, judul, atau teks"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "Saluran Pengiriman"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "Saluran Pengiriman"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "Kelola Saluran Pengiriman"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr "Kelola pengiriman notifikasi via email dan sistem"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "Log Pengiriman"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "Log Pengiriman Notifikasi"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "Belum ada log pengiriman saat ini"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "Waktu Pengiriman"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "Lihat data pesan, penerima, dan status pengiriman"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "Lihat data pesan seluler dan isinya"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "Lihat data pesan WhatsApp dan isinya"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "Lihat email massal dengan jumlah penerima dan status"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "Lihat semua upaya pengiriman per penerima dengan statusnya"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "Laporan Terkirim"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "Laporan Pengiriman"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "Sudah Dibaca"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "Belum Dibaca"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "Pesan Kesalahan"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "Terdapat kegagalan"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "Kampanye"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "Log Pesan"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "Dikirim ke pengguna melalui sistem"
+
+#~ msgid "messaging_action"
+#~ msgstr "Tindakan"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "Email / ID"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "Kategori Utama"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "Individu"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "Massal"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "Tidak ditentukan"
+
+#~ msgid "messaging_first"
+#~ msgstr "Pertama"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "Coba"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "Cetak request yang dikirim ke provider"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "Cetak raw reply"
+
+#~ msgid "messaging_atba_reply_nsy"
+#~ msgstr "Jika balasan berupa teks"
+
+# =============================================================================
+# 12. Quran Studio & Coordinate Editor (Studio Quran & Editor Koordinat)
+# =============================================================================
+#~ msgid "quran_studio"
+#~ msgstr "Studio Quran"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "Manajemen Studio Quran"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "Kelola Data Qari"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "Kelola data qari yang tersedia di sistem"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "Data Qari"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "Halaman Qari"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "Belum ada data qari saat ini"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "Qari berhasil ditambahkan"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "Data qari berhasil diperbarui"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "Qari berhasil dihapus"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "Hapus Qari"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "Apakah Anda yakin ingin menghapus qari ini?"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "Nama (Arab)"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "Nama (Inggris)"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "Kode"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "Kode dan nama Arab wajib diisi"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "Editor Koordinat Ayat"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "Halaman Editor Koordinat"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "Koordinat"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "Tentukan Koordinat"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "Muat Koordinat"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "Ambil Koordinat"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "Simpan Koordinat"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "Edit Koordinat Tersimpan"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "Simpan Perubahan"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "Simpan Baru di"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "Memperbarui koordinat ayat di halaman"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "Tidak ada koordinat tersimpan untuk ayat ini di halaman ini"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "Masukkan nomor surah dan ayat lalu klik \"Muat Koordinat\". Kotak "
+#~ "koordinat akan muncul untuk diedit."
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "Seret mouse di atas mushaf untuk menggambar kotak koordinat ayat. Anda "
+#~ "bisa menggambar lebih dari satu kotak per ayat."
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "Harap masukkan nomor surah dan ayat"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "Masukkan nomor surah dan ayat sebelum memuat"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "Hapus Semua Kotak"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "Tidak ada kotak untuk disimpan"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "Nomor Surah"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "Nomor Ayat"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "Halaman Mushaf"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "Halaman Saat Ini"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "Halaman Selanjutnya"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "Halaman Sebelumnya"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "Gambar"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "Tindakan"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "Contoh: 2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "Contoh: 6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "Halaman Utama"
+
+#~ msgid "overview"
+#~ msgstr "Ikhtisar"
+
+#~ msgid "summary"
+#~ msgstr "Ringkasan"
+
+#~ msgid "important_services"
+#~ msgstr "Layanan Utama"
+
+#~ msgid "status"
+#~ msgstr "Status"
+
+#~ msgid "actions"
+#~ msgstr "Tindakan"
+
+#~ msgid "content"
+#~ msgstr "Konten"
+
+#~ msgid "title"
+#~ msgstr "Judul"
+
+#~ msgid "created_at"
+#~ msgstr "Tanggal Dibuat"
+
+#~ msgid "updated_at"
+#~ msgstr "Terakhir Diperbarui"
+
+#~ msgid "next"
+#~ msgstr "Selanjutnya"
+
+#~ msgid "previous"
+#~ msgstr "Sebelumnya"
+
+#~ msgid "back"
+#~ msgstr "Kembali"
+
+#~ msgid "save"
+#~ msgstr "Simpan"
+
+#~ msgid "save_changes"
+#~ msgstr "Simpan Perubahan"
+
+#~ msgid "add"
+#~ msgstr "Tambah"
+
+#~ msgid "create"
+#~ msgstr "Buat"
+
+#~ msgid "update"
+#~ msgstr "Perbarui"
+
+#~ msgid "edit"
+#~ msgstr "Edit"
+
+#~ msgid "delete"
+#~ msgstr "Hapus"
+
+#~ msgid "cancel"
+#~ msgstr "Batal"
+
+#~ msgid "confirm"
+#~ msgstr "Konfirmasi"
+
+#~ msgid "view"
+#~ msgstr "Lihat"
+
+#~ msgid "send"
+#~ msgstr "Kirim"
+
+#~ msgid "send_now"
+#~ msgstr "Kirim Sekarang"
+
+#~ msgid "sent"
+#~ msgstr "Terkirim"
+
+#~ msgid "failed"
+#~ msgstr "Gagal"
+
+#~ msgid "pending"
+#~ msgstr "Menunggu"
+
+#~ msgid "no_data"
+#~ msgstr "Tidak ada data"
+
+#~ msgid "settings"
+#~ msgstr "Pengaturan"
+
+#~ msgid "system_settings"
+#~ msgstr "Pengaturan Sistem"
+
+#~ msgid "security"
+#~ msgstr "Keamanan"
+
+#~ msgid "zoom_out"
+#~ msgstr "Perkecil"
+
+#~ msgid "app_arabic"
+#~ msgstr "Arab"
+
+#~ msgid "app_urdu"
+#~ msgstr "Urdu"
+
+#~ msgid "web_alkl"
+#~ msgstr "Semua"
+
+#~ msgid "web_fqt"
+#~ msgstr "Hanya"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "Hanya, atau"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "Hanya, atau keduanya"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "Seluruh Hak Cipta Dilindungi"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "Situs Al-Qur'an Al-Kareem"
+
+# =============================================================================
+# 14. Helpers & Validation (Bantuan & Validasi)
+# =============================================================================
+#~ msgid "required_field"
+#~ msgstr "Bagian ini wajib diisi"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "Nomor telepon wajib diisi"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "Format nomor telepon tidak valid"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "Nomor telepon tidak valid"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "Nomor telepon tidak dapat digunakan"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "Format nomor HP tidak valid"
+
+#~ msgid "core_ay"
+#~ msgstr "Atau apa pun"
+
+#~ msgid "core_mnasb"
+#~ msgstr "Sesuai"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr "Kami hanya menghitung kunjungan umum (misal: Beranda)"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "Jumlah baris per halaman"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "Jumlah rekaman"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "Maaf, Anda tidak memiliki izin untuk mengakses halaman ini"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "Akses Dilarang"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "Tinggi bar (kontrol visual)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "Durasi default notifikasi (milidetik)"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "Durasi khusus notifikasi ini (mengganti default)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "Maksimum tampilan default (misal: 20)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "Lebar tetap (kosongkan untuk otomatis)"
+
+#~ msgid "web_notification"
+#~ msgstr "Notifikasi"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "Tutup saat klik di luar kotak"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "Sinkronisasi 5 detik setelah pembaruan terakhir"
+
+#~ msgid "quran_nav"
+#~ msgstr "Navigasi Quran"
+
+#~ msgid "quran_text"
+#~ msgstr "Teks"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "Bagi teks menjadi"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "Sisa teks"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "Antara"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "Pesan baru dari formulir Hubungi Kami"
+
+#~ msgid "services_message_text"
+#~ msgstr "Isi pesan:"
+
+#~ msgid "surah_3"
+#~ msgstr "Ali 'Imran"
+
+#~ msgid "surah_4"
+#~ msgstr "An-Nisa'"
+
+#~ msgid "surah_5"
+#~ msgstr "Al-Ma'idah"
+
+#~ msgid "surah_6"
+#~ msgstr "Al-An'am"
+
+#~ msgid "surah_7"
+#~ msgstr "Al-A'raf"
+
+#~ msgid "surah_8"
+#~ msgstr "Al-Anfal"
+
+#~ msgid "surah_9"
+#~ msgstr "At-Tawbah"
+
+#~ msgid "surah_10"
+#~ msgstr "Yunus"
+
+#~ msgid "surah_11"
+#~ msgstr "Hud"
+
+#~ msgid "surah_12"
+#~ msgstr "Yusuf"
+
+#~ msgid "surah_13"
+#~ msgstr "Ar-Ra'd"
+
+#~ msgid "surah_14"
+#~ msgstr "Ibrahim"
+
+#~ msgid "surah_15"
+#~ msgstr "Al-Hijr"
+
+#~ msgid "surah_16"
+#~ msgstr "An-Nahl"
+
+#~ msgid "surah_17"
+#~ msgstr "Al-Isra'"
+
+#~ msgid "surah_18"
+#~ msgstr "Al-Kahf"
+
+#~ msgid "surah_19"
+#~ msgstr "Maryam"
+
+#~ msgid "surah_20"
+#~ msgstr "Taha"
+
+#~ msgid "surah_21"
+#~ msgstr "Al-Anbiya'"
+
+#~ msgid "surah_22"
+#~ msgstr "Al-Hajj"
+
+#~ msgid "surah_23"
+#~ msgstr "Al-Mu'minun"
+
+#~ msgid "surah_24"
+#~ msgstr "An-Nur"
+
+#~ msgid "surah_25"
+#~ msgstr "Al-Furqan"
+
+#~ msgid "surah_26"
+#~ msgstr "Ash-Shu'ara'"
+
+#~ msgid "surah_27"
+#~ msgstr "An-Naml"
+
+#~ msgid "surah_28"
+#~ msgstr "Al-Qasas"
+
+#~ msgid "surah_29"
+#~ msgstr "Al-'Ankabut"
+
+#~ msgid "surah_30"
+#~ msgstr "Ar-Rum"
+
+#~ msgid "surah_31"
+#~ msgstr "Luqman"
+
+#~ msgid "surah_32"
+#~ msgstr "As-Sajdah"
+
+#~ msgid "surah_33"
+#~ msgstr "Al-Ahzab"
+
+#~ msgid "surah_34"
+#~ msgstr "Saba'"
+
+#~ msgid "surah_35"
+#~ msgstr "Fatir"
+
+#~ msgid "surah_36"
+#~ msgstr "Ya-Sin"
+
+#~ msgid "surah_37"
+#~ msgstr "As-Saffat"
+
+#~ msgid "surah_38"
+#~ msgstr "Sad"
+
+#~ msgid "surah_39"
+#~ msgstr "Az-Zumar"
+
+#~ msgid "surah_40"
+#~ msgstr "Ghafir"
+
+#~ msgid "surah_41"
+#~ msgstr "Fussilat"
+
+#~ msgid "surah_42"
+#~ msgstr "Ash-Shura"
+
+#~ msgid "surah_43"
+#~ msgstr "Az-Zukhruf"
+
+#~ msgid "surah_44"
+#~ msgstr "Ad-Dukhan"
+
+#~ msgid "surah_45"
+#~ msgstr "Al-Jathiyah"
+
+#~ msgid "surah_46"
+#~ msgstr "Al-Ahqaf"
+
+#~ msgid "surah_47"
+#~ msgstr "Muhammad"
+
+#~ msgid "surah_48"
+#~ msgstr "Al-Fath"
+
+#~ msgid "surah_49"
+#~ msgstr "Al-Hujurat"
+
+#~ msgid "surah_50"
+#~ msgstr "Qaf"
+
+#~ msgid "surah_51"
+#~ msgstr "Adh-Dhariyat"
+
+#~ msgid "surah_52"
+#~ msgstr "At-Tur"
+
+#~ msgid "surah_53"
+#~ msgstr "An-Najm"
+
+#~ msgid "surah_54"
+#~ msgstr "Al-Qamar"
+
+#~ msgid "surah_55"
+#~ msgstr "Ar-Rahman"
+
+#~ msgid "surah_56"
+#~ msgstr "Al-Waqi'ah"
+
+#~ msgid "surah_57"
+#~ msgstr "Al-Hadid"
+
+#~ msgid "surah_58"
+#~ msgstr "Al-Mujadilah"
+
+#~ msgid "surah_59"
+#~ msgstr "Al-Hashr"
+
+#~ msgid "surah_60"
+#~ msgstr "Al-Mumtahanah"
+
+#~ msgid "surah_61"
+#~ msgstr "As-Saff"
+
+#~ msgid "surah_62"
+#~ msgstr "Al-Jumu'ah"
+
+#~ msgid "surah_63"
+#~ msgstr "Al-Munafiqun"
+
+#~ msgid "surah_64"
+#~ msgstr "At-Taghabun"
+
+#~ msgid "surah_65"
+#~ msgstr "At-Talaq"
+
+#~ msgid "surah_66"
+#~ msgstr "At-Tahrim"
+
+#~ msgid "surah_67"
+#~ msgstr "Al-Mulk"
+
+#~ msgid "surah_68"
+#~ msgstr "Al-Qalam"
+
+#~ msgid "surah_69"
+#~ msgstr "Al-Haqqah"
+
+#~ msgid "surah_70"
+#~ msgstr "Al-Ma'arij"
+
+#~ msgid "surah_71"
+#~ msgstr "Nuh"
+
+#~ msgid "surah_72"
+#~ msgstr "Al-Jinn"
+
+#~ msgid "surah_73"
+#~ msgstr "Al-Muzzammil"
+
+#~ msgid "surah_74"
+#~ msgstr "Al-Muddaththir"
+
+#~ msgid "surah_75"
+#~ msgstr "Al-Qiyamah"
+
+#~ msgid "surah_76"
+#~ msgstr "Al-Insan"
+
+#~ msgid "surah_77"
+#~ msgstr "Al-Mursalat"
+
+#~ msgid "surah_78"
+#~ msgstr "An-Naba'"
+
+#~ msgid "surah_79"
+#~ msgstr "An-Nazi'at"
+
+#~ msgid "surah_80"
+#~ msgstr "'Abasa"
+
+#~ msgid "surah_81"
+#~ msgstr "At-Takwir"
+
+#~ msgid "surah_82"
+#~ msgstr "Al-Infitar"
+
+#~ msgid "surah_83"
+#~ msgstr "Al-Mutaffifin"
+
+#~ msgid "surah_84"
+#~ msgstr "Al-Inshiqaq"
+
+#~ msgid "surah_85"
+#~ msgstr "Al-Buruj"
+
+#~ msgid "surah_86"
+#~ msgstr "At-Tariq"
+
+#~ msgid "surah_87"
+#~ msgstr "Al-A'la"
+
+#~ msgid "surah_88"
+#~ msgstr "Al-Ghashiyah"
+
+#~ msgid "surah_89"
+#~ msgstr "Al-Fajr"
+
+#~ msgid "surah_90"
+#~ msgstr "Al-Balad"
+
+#~ msgid "surah_91"
+#~ msgstr "Ash-Shams"
+
+#~ msgid "surah_92"
+#~ msgstr "Al-Layl"
+
+#~ msgid "surah_93"
+#~ msgstr "Ad-Duha"
+
+#~ msgid "surah_94"
+#~ msgstr "Ash-Sharh"
+
+#~ msgid "surah_95"
+#~ msgstr "At-Tin"
+
+#~ msgid "surah_96"
+#~ msgstr "Al-'Alaq"
+
+#~ msgid "surah_97"
+#~ msgstr "Al-Qadr"
+
+#~ msgid "surah_98"
+#~ msgstr "Al-Bayyinah"
+
+#~ msgid "surah_99"
+#~ msgstr "Az-Zalzalah"
+
+#~ msgid "surah_100"
+#~ msgstr "Al-'Adiyat"
+
+#~ msgid "surah_101"
+#~ msgstr "Al-Qari'ah"
+
+#~ msgid "surah_102"
+#~ msgstr "At-Takathur"
+
+#~ msgid "surah_103"
+#~ msgstr "Al-'Asr"
+
+#~ msgid "surah_104"
+#~ msgstr "Al-Humazah"
+
+#~ msgid "surah_105"
+#~ msgstr "Al-Fil"
+
+#~ msgid "surah_106"
+#~ msgstr "Quraysh"
+
+#~ msgid "surah_107"
+#~ msgstr "Al-Ma'un"
+
+#~ msgid "surah_108"
+#~ msgstr "Al-Kawthar"
+
+#~ msgid "surah_109"
+#~ msgstr "Al-Kafirun"
+
+#~ msgid "surah_110"
+#~ msgstr "An-Nasr"
+
+#~ msgid "surah_111"
+#~ msgstr "Al-Masad"
+
+#~ msgid "surah_112"
+#~ msgstr "Al-Ikhlas"
+
+#~ msgid "surah_113"
+#~ msgstr "Al-Falaq"
+
+#~ msgid "surah_114"
+#~ msgstr "Al-Nas"
+
+#~ msgid "contents"
+#~ msgstr "Daftar Isi"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "Aksesibilitas"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "Perbesar Font"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "Perkecil Font"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "Kontras Tinggi"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "Mode Gelap"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "Mode Membaca"
+
+#~ msgid "a11y_reset"
+#~ msgstr "Setel Ulang"
+
+#~ msgid "select_translation"
+#~ msgstr "Pilih Terjemahan"
+
+#~ msgid "select_surah"
+#~ msgstr "Pilih Surah"
+
+#~ msgid "copy_ayah"
+#~ msgstr "Salin Ayat"
+
+#~ msgid "share_ayah"
+#~ msgstr "Bagikan Ayat"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "Simpan Ayat"
+
+#~ msgid "play_ayah"
+#~ msgstr "Putar Audio"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "Ayat tersimpan"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "Dihapus dari tersimpan"
+
+#~ msgid "no_translation_available"
+#~ msgstr "Terjemahan tidak tersedia"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "Pilih Surah untuk memulai"
+
+#~ msgid "app_download_title"
+#~ msgstr "Unduh Aplikasi Wird"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "Pengalaman Al-Quran lengkap di perangkat Anda"
+
+#~ msgid "audio_language"
+#~ msgstr "Bahasa audio"
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "support"
+#~ msgstr "Dukungan"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "Jika balasannya bersifat tekstual"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "Wird hari ini"
+
+#~ msgid "home_this_week"
+#~ msgstr "Minggu ini"
+
+#~ msgid "home_your_wird"
+#~ msgstr "Wird Anda"
+
+#~ msgid "home_progress"
+#~ msgstr "Kemajuan"
+
+#~ msgid "home_days_progress"
+#~ msgstr "4 dari 7 hari"
+
+#~ msgid "day_sat"
+#~ msgstr "Duduk"
+
+#~ msgid "day_sun"
+#~ msgstr "Matahari"
+
+#~ msgid "day_mon"
+#~ msgstr "Senin"
+
+#~ msgid "day_tue"
+#~ msgstr "Selasa"
+
+#~ msgid "day_wed"
+#~ msgstr "Menikahi"
+
+#~ msgid "day_thu"
+#~ msgstr "Kam"
+
+#~ msgid "day_fri"
+#~ msgstr "Jumat"
+
+#~ msgid "home_today_wird"
+#~ msgstr "Wird hari ini"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "Mainkan pengajian oleh"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "Suara Murni"
+
+#~ msgid "home_tarteel"
+#~ msgstr "Bacaan Tarteel"
+
+#~ msgid "home_khashi"
+#~ msgstr "Bacaan yang penuh pengabdian"
+
+#~ msgid ""
+#~ "We may update this policy from time to time. The \"Last updated\" date at "
+#~ "the top reflects the most recent revision. Continued use of the app after "
+#~ "an update constitutes acceptance of the revised policy."
+#~ msgstr ""
+#~ "Kami mungkin memperbarui kebijakan ini dari waktu ke waktu. Tanggal "
+#~ "Terakhir diperbarui mencerminkan revisi terbaru. Penggunaan aplikasi "
+#~ "setelah pembaruan berarti penerimaan kebijakan yang direvisi."

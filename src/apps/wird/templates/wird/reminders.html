@@ -1,0 +1,151 @@
+{% extends "web/layouts/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}التنبيهات{% endblock %}
+
+{% block content %}
+<section class="py-8 px-4">
+  <div class="max-w-lg mx-auto">
+
+    <!-- Page header -->
+    <div class="mb-6 dir-text">
+      <h1 class="text-xl font-extrabold text-gray-900">التنبيهات</h1>
+      <p class="text-sm text-gray-500 mt-0.5">اضبط مواعيد تذكيرك اليومي</p>
+    </div>
+
+    <!-- Reminder cards -->
+    <div class="space-y-3" id="reminders-list">
+
+      {% for reminder in reminders %}
+      {% with rtype=reminder.reminder_type %}
+      <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden"
+           id="reminder-card-{{ rtype }}">
+
+        <!-- Card header row -->
+        <div class="flex items-center justify-between px-4 py-3.5 gap-3">
+
+          <!-- Icon + text -->
+          <div class="flex items-center gap-3 flex-1 min-w-0">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0
+                        {% if rtype == 'daily_wird' %}bg-emerald-100 text-emerald-600
+                        {% elif rtype == 'morning_adhkar' %}bg-amber-100 text-amber-600
+                        {% elif rtype == 'evening_adhkar' %}bg-indigo-100 text-indigo-600
+                        {% else %}bg-blue-100 text-blue-600{% endif %}">
+              {% if rtype == 'daily_wird' %}
+                <i class="bi bi-book text-lg"></i>
+              {% elif rtype == 'morning_adhkar' %}
+                <i class="bi bi-sunrise text-lg"></i>
+              {% elif rtype == 'evening_adhkar' %}
+                <i class="bi bi-sunset text-lg"></i>
+              {% else %}
+                <i class="bi bi-star text-lg"></i>
+              {% endif %}
+            </div>
+            <div class="dir-text min-w-0">
+              <div class="text-sm font-bold text-gray-900">{{ reminder.get_reminder_type_display }}</div>
+              <div class="text-xs text-gray-400">
+                {% if rtype == 'daily_wird' %}تذكير بورد القرآن اليومي
+                {% elif rtype == 'morning_adhkar' %}كل يوم في الصباح
+                {% elif rtype == 'evening_adhkar' %}كل يوم في المساء
+                {% else %}كل جمعة{% endif %}
+              </div>
+            </div>
+          </div>
+
+          <!-- Toggle switch -->
+          <button type="button"
+                  class="reminder-toggle w-12 h-6 rounded-full relative transition-colors flex-shrink-0
+                         {% if reminder.is_enabled %}bg-emerald-500{% else %}bg-gray-300{% endif %}"
+                  data-type="{{ rtype }}"
+                  data-enabled="{{ reminder.is_enabled|yesno:'true,false' }}"
+                  aria-pressed="{{ reminder.is_enabled|yesno:'true,false' }}">
+            <span class="absolute w-5 h-5 bg-white rounded-full shadow transition-transform
+                         {% if reminder.is_enabled %}translate-x-6{% else %}translate-x-0{% endif %}"
+                  style="top:2px;left:2px"></span>
+          </button>
+
+        </div>
+
+        <!-- Time picker row (visible when enabled) -->
+        <div class="reminder-time-row border-t border-gray-100 px-4 py-3
+                    {% if not reminder.is_enabled %}hidden{% endif %}">
+          <div class="flex items-center justify-between gap-3">
+            <span class="text-xs font-bold text-gray-500">وقت التنبيه</span>
+            <input type="time"
+                   class="reminder-time-input bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-sm font-bold text-gray-800 outline-none"
+                   value="{{ reminder.reminder_time|default:'' }}"
+                   data-type="{{ rtype }}">
+          </div>
+
+          {% if rtype == 'daily_wird' %}
+          <div class="mt-2 text-xs text-gray-400 dir-text">
+            لن يُرسَل التنبيه إذا كان ورد اليوم مكتملًا بالفعل
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+      {% endwith %}
+      {% endfor %}
+
+    </div><!-- /reminders-list -->
+
+    <!-- Web Push note -->
+    <div class="mt-6 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 dir-text">
+      <p class="text-xs text-gray-400">
+        <i class="bi bi-info-circle me-1"></i>
+        التنبيهات الفعلية عبر المتصفح ستتوفر في تحديث قادم.
+        إعداداتك محفوظة الآن وستُفعَّل تلقائياً.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var TOGGLE_URL   = "{% url 'wird:toggle_reminder' %}";
+  var SAVE_TIME_URL = "{% url 'wird:save_reminder_time' %}";
+  var CSRF = "{{ csrf_token }}";
+
+  function post(url, body) {
+    return fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-CSRFToken": CSRF },
+      body: JSON.stringify(body),
+    }).then(function (r) { return r.json(); });
+  }
+
+  // Toggle buttons
+  document.querySelectorAll(".reminder-toggle").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var type = btn.dataset.type;
+      post(TOGGLE_URL, { reminder_type: type }).then(function (data) {
+        if (!data.ok) return;
+        var on = data.is_enabled;
+        btn.dataset.enabled = on ? "true" : "false";
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+        btn.classList.toggle("bg-emerald-500", on);
+        btn.classList.toggle("bg-gray-300",    !on);
+        var knob = btn.querySelector("span");
+        if (knob) {
+          knob.classList.toggle("translate-x-6", on);
+          knob.classList.toggle("translate-x-0", !on);
+        }
+        var card    = document.getElementById("reminder-card-" + type);
+        var timeRow = card && card.querySelector(".reminder-time-row");
+        if (timeRow) timeRow.classList.toggle("hidden", !on);
+      });
+    });
+  });
+
+  // Time pickers
+  document.querySelectorAll(".reminder-time-input").forEach(function (input) {
+    input.addEventListener("change", function () {
+      post(SAVE_TIME_URL, { reminder_type: input.dataset.type, reminder_time: input.value || null });
+    });
+  });
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,134 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} رسائل الجوال {% endblock %}
+{% block description %} رسائل الجوال {% endblock %}
+{% block dashboard_content %}
+{% if request.user|can_access:"messaging.sms" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "messaging/includes/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+        رسائل الجوال
+      </h1>
+      <p class="mt-1 text-[11px] text-slate-500">
+        سجل رسائل SMS المرسلة للمستخدمين عن طريق النظام.
+      </p>
+    </div>
+  </div>
+
+  <!-- Controls row -->
+  <div class="flex items-center justify-between gap-4">
+    <!-- Left: total -->
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_messagings_sms %}
+    </div>
+
+    <!-- Center: search -->
+    <div class="flex justify-center flex-1">
+      {% include "web/components/table_search_input.html" with search_key="sms" placeholder="بحث بالمرسل أو العنوان أو النص" %}
+    </div>
+
+    <!-- Right spacer -->
+    <div class="flex-1"></div>
+
+    <!-- Right: per_page -->
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page %}
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto bg-white border border-slate-200 rounded-2xl shadow-sm">
+    {% if messagings_sms %}
+      <table class="js-search-table min-w-full text-[12px]">
+        <thead class="bg-slate-50 text-[11px] text-slate-500">
+          <tr class="dir-text">
+            <th class="px-4 py-3 font-bold w-[30%]">المرسل</th>
+            <th class="px-4 py-3 font-bold">المحتوى</th>
+            <th class="px-4 py-3 font-bold w-[15%] text-center">التاريخ</th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-slate-100">
+          {% for n in messagings_sms %}
+            <tr
+              class="cursor-pointer transition
+                     {% if not n.is_read %}
+                       bg-indigo-50 hover:bg-indigo-100
+                     {% else %}
+                       hover:bg-slate-50
+                     {% endif %}"
+              onclick="window.location.href='{% url 'apps.messaging:sms_detail' n.id %}'"
+            >
+              <!-- Sender -->
+              <td class="px-4 py-3 font-semibold">
+                <span class="{% if not n.is_read %}
+                               text-slate-900
+                             {% else %}
+                               text-slate-700
+                             {% endif %}">
+                  {{ n.broadcast.created_by.get_full_name|default:n.broadcast.created_by.username }}
+                </span>
+              </td>
+
+              <!-- Content -->
+              <td class="px-4 py-3">
+                <div class="flex items-start gap-2">
+
+                  <span class="mt-1 inline-flex w-2 h-2 rounded-full
+                               {% if not n.is_read %}
+                                 bg-indigo-500
+                               {% else %}
+                                 bg-slate-300
+                               {% endif %}">
+                  </span>
+
+                  <div class="flex-1">
+                    <div class="text-[12px]
+                                {% if not n.is_read %}
+                                  font-extrabold text-slate-900
+                                {% else %}
+                                  font-semibold text-slate-800
+                                {% endif %}">
+                      {{ n.title|default:"رسالة نصية (SMS)" }}
+                    </div>
+
+                    {% if n.body %}
+                      <div class="text-[11px] text-slate-500 truncate max-w-[420px]">
+                        {{ n.body|truncatechars:80 }}
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+              </td>
+
+              <!-- Date (center) -->
+              <td class="px-4 py-3 text-center text-[11px] text-slate-400 whitespace-nowrap">
+                {{ n.created_at|date:"Y-m-d" }}<br>
+                {{ n.created_at|time:"H:i" }}
+              </td>
+
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="py-10 text-center text-[12px] text-slate-400">
+        لا توجد رسائل جوال حالياً.
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Pagination row -->
+  <div class="flex items-center justify-between">
+    {% include "web/components/pagination.html" with page_obj=messagings_sms page_numbers=messagings_page_numbers tab="sms" per_page=per_page %}
+  </div>
+
+</div>
+
+{% endif %}
+{% endblock %}

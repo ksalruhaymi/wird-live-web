@@ -1,0 +1,216 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block dashboard_content %}
+
+{% if request.user|can_access:"users.detail" %}
+
+<div class="max-w-6xl mx-auto space-y-5" dir-text>
+
+  {% include "rbac/partials/tabs_header.html" %}
+
+  <div class="site-card p-5">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-4">
+      <div>
+        <h1 class="site-title-md">
+          تفاصيل المستخدم
+        </h1>
+        <p class="mt-0.5 text-[11px] site-text-muted">
+          عرض بيانات المستخدم وتعيين الأدوار له.
+        </p>
+      </div>
+
+      <a href="{% url 'rbac:users_list' %}"
+         class="inline-flex items-center gap-1 px-3 py-2 rounded-xl
+                border site-border text-[12px] site-text
+                hover:site-surface transition">
+        <i class="bi bi-arrow-right-short"></i>
+        رجوع إلى قائمة المستخدمين
+      </a>
+    </div>
+
+    <!-- User info -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-[13px]">
+
+      <div class="space-y-1">
+        <div class="text-[11px] site-text-muted">اسم المستخدم</div>
+        <div class="font-semibold site-text">
+          {{ user_obj.username }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-[11px] site-text-muted">آخر دخول</div>
+        <div class="text-[12px] site-text">
+          {{ user_obj.last_login|date:"Y-m-d H:i"|default:"-" }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-[11px] site-text-muted">الاسم الكامل</div>
+        <div class="font-semibold site-text">
+          {{ user_obj.full_name|default:user_obj.username }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-[11px] site-text-muted">البريد الإلكتروني</div>
+        <div class="font-mono text-[12px] site-text">
+          {{ user_obj.email|default:"-" }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-[11px] site-text-muted">رقم الجوال</div>
+        <div class="font-mono text-[12px] site-text">
+          {{ user_obj.mobile|default:"-" }}
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="space-y-1">
+        <div class="text-[11px] site-text-muted">الحالة</div>
+
+        {% if request.user|can_access:"users.update" %}
+          <form method="post"
+                action="{% url 'rbac:user_toggle_active' user_obj.pk %}"
+                class="inline-flex items-center">
+            {% csrf_token %}
+
+            <label class="inline-flex items-center cursor-pointer">
+              <input
+                type="checkbox"
+                name="is_active"
+                class="sr-only peer"
+                {% if user_obj.is_active %}checked{% endif %}
+                onchange="this.form.submit()"
+              >
+
+              <div class="w-10 h-5 rounded-full bg-slate-200
+                          peer-checked:bg-emerald-500
+                          transition flex items-center px-1">
+                <div class="w-4 h-4 bg-white rounded-full shadow
+                            translate-x-0 peer-checked:translate-x-4 transition">
+                </div>
+              </div>
+
+              <span class="mr-2 text-[12px] site-text">
+                {% if user_obj.is_active %}نشط{% else %}غير نشط{% endif %}
+              </span>
+            </label>
+          </form>
+        {% else %}
+          <div class="text-[12px]">
+            {% if user_obj.is_active %}
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full
+                           bg-emerald-50 text-emerald-700">
+                نشط
+              </span>
+            {% else %}
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full
+                           site-surface site-text-muted">
+                غير نشط
+              </span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Current roles -->
+      <div class="space-y-1 md:col-span-2">
+        <div class="text-[11px] site-text-muted">الأدوار الحالية</div>
+        <div class="flex flex-wrap gap-2">
+          {% with user_roles=user_obj.roles.all %}
+            {% if user_roles %}
+              {% for role in user_roles %}
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full
+                             site-surface site-link-primary text-[11px] border site-border">
+                  <i class="bi bi-shield-lock"></i>
+                  <span>{{ role.name }}</span>
+                  {% if role.slug %}
+                    <span class="text-[10px] site-text-muted">({{ role.slug }})</span>
+                  {% endif %}
+                </span>
+              {% endfor %}
+            {% else %}
+              <span class="text-[12px] site-text-muted">لا توجد أدوار مضافة لهذا المستخدم.</span>
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Roles assign/update -->
+    {% if request.user|can_access:"users.update" %}
+      <form method="post"
+            action="{% url 'rbac:user_update_roles' user_obj.pk %}"
+            class="border-t site-border pt-4 mt-4">
+        {% csrf_token %}
+
+        <details class="relative group">
+          <summary
+            class="list-none cursor-pointer w-full border site-border
+                   rounded-lg px-3 py-2 text-[13px] bg-white
+                   flex items-center justify-between">
+            <span>
+              {% if selected_roles %}
+                {{ selected_roles|length }} أدوار محددة
+              {% else %}
+                اختر الأدوار
+              {% endif %}
+            </span>
+            <i class="bi bi-chevron-down text-xs group-open:rotate-180 transition"></i>
+          </summary>
+
+          <div class="absolute z-10 mt-1 w-full bg-white border site-border
+                      rounded-xl shadow-lg max-h-60 overflow-y-auto
+                      p-2 space-y-1">
+
+            {% for role in roles %}
+              <label class="flex items-center justify-between px-2 py-1.5
+                            rounded-lg hover:site-surface cursor-pointer">
+                <div class="flex items-center gap-2 dir-row">
+                  <input
+                    type="checkbox"
+                    name="roles"
+                    value="{{ role.id }}"
+                    class="h-4 w-4"
+                    {% if role.id|stringformat:"s" in selected_roles %}checked{% endif %}
+                  >
+                  <span class="text-sm site-text">
+                    {{ role.name }}
+                  </span>
+                </div>
+                <span class="text-[11px] site-text-muted">
+                  {{ role.slug|default:"" }}
+                </span>
+              </label>
+            {% endfor %}
+
+          </div>
+        </details>
+
+        <div class="flex items-center justify-end mt-4">
+          <button type="submit"
+                  class="inline-flex items-center gap-2 px-4 py-2
+                         rounded-full site-btn-primary
+                         text-[12px] font-bold
+                         shadow-sm hover:shadow-md
+                         transition">
+            <i class="bi bi-save"></i>
+            حفظ التغييرات
+          </button>
+        </div>
+      </form>
+    {% endif %}
+
+  </div>
+
+</div>
+
+{% endif %}
+
+{% endblock %}

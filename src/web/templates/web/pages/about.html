@@ -1,0 +1,62 @@
+{% extends "web/layouts/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% trans "web_wrd_alqraan_alkrym" %}{% endblock %}
+{% block description %}{% trans "long_about_text" %}{% endblock %}
+
+{% block content %}
+
+
+<section class="py-16 px-4">
+
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Card -->
+    <div class="site-card p-8 md:p-12 space-y-8">
+
+      <!-- Header -->
+      <div class="dir-text space-y-2">
+
+        {% comment %} <div class="flex flex-col items-center justify-center py-1">
+          <div>
+              <a href="/" class="flex items-center p-2">
+                <img src="{% static 'images/wird.svg' %}" 
+                   alt="وِرد"
+                 class="h-24 w-auto">
+              </a>
+          </div>
+           <div class="text-md md:text-xl font-bold tracking-wider site-text">
+          </div>
+        </div> {% endcomment %}
+        
+      </div>
+      <div class="">
+        <p class="text-2xl  site-text-muted ">
+        {% trans "wird quran" %}
+        </p>
+      </div>
+      <!-- Divider -->
+      <hr class="border border-gray-100">
+
+      <!-- Content -->
+      <div class="space-y-6 dir-text leading-relaxed site-text text-sm md:text-base">
+
+        <p>
+        {% trans "about_wird" %}
+        </p>
+
+      </div>
+
+      <!-- Footer note -->
+      {% comment %} <div class="pt-4 dir-text">
+        <p class="text-xs site-text-muted py-5">
+        {% trans "wird quran" %}
+        </p>
+      </div> {% endcomment %}
+
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

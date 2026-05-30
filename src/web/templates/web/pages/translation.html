@@ -1,0 +1,1899 @@
+{% extends "web/layouts/base.html" %}
+{% load static i18n l10n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+
+{% block title %}{% trans "translations" %}{% endblock %}
+{% block description %}{% trans "translation_page_title" %}{% endblock %}
+
+{% block extra_head %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'quran/css/quran.css' %}">
+{% endblock %}
+
+{% block layout %}
+<main
+  id="translationReader"
+  class="min-h-screen bg-white text-slate-900"
+  style="
+    --mushaf-page-width: {{ mushaf_dimensions.normal.page_width|unlocalize }}px;
+    --mushaf-page-height: {{ mushaf_dimensions.normal.page_height|unlocalize }}px;
+    --mushaf-min-width: {{ mushaf_dimensions.normal.min_width|unlocalize }}px;
+    --mushaf-max-width: {{ mushaf_dimensions.normal.max_width|unlocalize }}px;
+    --mushaf-min-height: {{ mushaf_dimensions.normal.min_height|unlocalize }}px;
+    --mushaf-max-height: {{ mushaf_dimensions.normal.max_height|unlocalize }}px;
+  "
+>
+  <div id="translationSurahPanel" class="translation-surah-panel hidden">
+    <div class="quran-sel-panel-head">
+      <div class="quran-sel-panel-title">{% trans "surahs" %}</div>
+      <button type="button" id="translationSurahClose" class="quran-sel-close" aria-label="{% trans 'close' %}">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <div class="quran-sel-search-wrap">
+      <input id="translationSurahSearch" type="search" class="quran-sel-search" placeholder="{% trans 'search' %}">
+    </div>
+    <div class="translation-surah-list">
+      {% for surah in surahs %}
+        <a href="{% url 'web:translation_surah' surah.surah_number %}" data-surah-link class="translation-surah-link {% if selected_surah and selected_surah.surah_number == surah.surah_number %}is-active{% endif %}">
+          <span class="translation-surah-no">{{ surah.surah_number }}</span>
+          <span class="translation-surah-name">{% if CURRENT_LANGUAGE == 'ar' %}{{ surah.surah_name_ar }}{% else %}{{ surah.surah_name_en|default:surah.surah_name_ar }}{% endif %}</span>
+          <span class="translation-surah-count">{{ surah.ayah_count }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <aside id="translationPlaybackTools" class="translation-tools-panel" onclick="event.stopPropagation()"{% if is_ar_ui %} dir="rtl"{% endif %}>
+    <div class="translation-tools-title">
+      <span class="translation-tools-icon"><i class="bi bi-play-circle"></i></span>
+      <span>{% if is_ar_ui %}أدوات التشغيل{% else %}Playback Tools{% endif %}</span>
+    </div>
+
+    <div class="translation-tool-card">
+      <span class="translation-tool-label">{% if is_ar_ui %}وضع القراءة{% else %}Reading Mode{% endif %}</span>
+      <button type="button" id="translationReadingModeBtn" class="translation-switch" aria-label="{% trans 'reading_mode' %}"><span></span></button>
+      <button type="button" id="translationFullscreenBtn" class="translation-tool-circle" aria-label="{% trans 'fullscreen' %}">
+        <i class="bi bi-arrows-fullscreen"></i>
+      </button>
+    </div>
+
+    <div class="translation-tool-card translation-audio-card">
+      <div class="translation-progress-track"><span id="translationProgressFill"></span></div>
+      <div class="translation-audio-row">
+        <i class="bi bi-volume-up-fill text-slate-600"></i>
+        <input id="translationVolume" type="range" min="0" max="1" step="0.01" value="1" class="translation-volume-range">
+        {% if translation_audio_folder or is_ar_ui %}
+          <button type="button" id="translationStopBtn" class="translation-tool-circle" aria-label="{% trans 'stop' %}">
+            <i class="bi bi-stop-fill"></i>
+          </button>
+          <button type="button" id="translationPlaySelectedBtn" class="translation-tool-circle" aria-label="{% trans 'play_audio' %}">
+            <i class="bi bi-play-fill"></i>
+          </button>
+        {% endif %}
+      </div>
+    </div>
+
+  </aside>
+
+  {% if not has_text_translation and not is_ar_ui %}
+    <div class="translation-warning">
+      {% trans "Translation not available" %}
+    </div>
+  {% endif %}
+
+  <!-- Floating fullscreen exit button — shown only when fullscreen is active -->
+  <button id="translationFloatingExitBtn" type="button"
+    style="display:none;position:fixed;top:18px;right:18px;z-index:9999;width:38px;height:38px;border-radius:9999px;background:#fff;border:1px solid rgba(229,231,235,0.95);box-shadow:0 6px 16px rgba(0,0,0,0.2);align-items:center;justify-content:center;cursor:pointer;">
+    <i class="bi bi-fullscreen-exit" style="font-size:1rem;color:#111827;"></i>
+  </button>
+
+  <!-- Reading mode bar — fixed at top center, shown only when reading mode is on -->
+  <div id="translationReadingModeBar" class="hidden">
+    <div class="flex items-center bg-white border border-gray-200 shadow-sm rounded-full h-9 px-1 gap-1">
+      <button id="translationExitReadingBtn" type="button"
+              class="inline-flex items-center justify-center w-8 h-7 text-xs text-red-600 hover:bg-red-50 rounded-full transition">
+        <i class="bi bi-x-circle"></i>
+      </button>
+      <span class="w-px h-5 bg-gray-200"></span>
+      <span class="flex items-center gap-1.5 px-4 h-7 text-xs bg-emerald-600 text-white rounded-full">
+        <i class="bi bi-translate text-xs"></i>
+        <span>{% trans "translations" %}</span>
+      </span>
+      <span class="w-px h-5 bg-gray-200"></span>
+      <button id="translationReadingBarSurahBtn" type="button"
+              class="flex items-center gap-1.5 px-3 h-7 text-xs font-semibold text-gray-800 bg-gray-100 hover:bg-gray-200 border border-gray-300 rounded-full transition">
+        <i class="bi bi-list-ul text-sm"></i>
+        <span id="translationReadingBarSurahName">
+          {% if selected_surah %}
+            {% if CURRENT_LANGUAGE == 'ar' %}{{ selected_surah.surah_name_ar }}{% else %}{{ selected_surah.surah_name_en|default:selected_surah.surah_name_ar }}{% endif %}
+          {% else %}
+            {% trans "surahs" %}
+          {% endif %}
+        </span>
+        <i class="bi bi-chevron-down text-[10px]"></i>
+      </button>
+    </div>
+  </div>
+
+  <section id="translationBookShell" class="translation-book-shell">
+    <div id="translationZoomWrapper" class="relative mt-4">
+      <div class="translation-book-toolbar" dir-text>
+        <button type="button" class="translation-mode-pill is-active">
+          <i class="bi bi-translate"></i>
+          <span>{% trans "translations" %}</span>
+        </button>
+        <button type="button" id="translationSurahBtn" class="translation-book-btn" aria-expanded="false">
+          <i class="bi bi-journal-bookmark"></i>
+          <span class="truncate">
+            {% if selected_surah %}
+              {% if CURRENT_LANGUAGE == 'ar' %}{{ selected_surah.surah_name_ar }}{% else %}{{ selected_surah.surah_name_en|default:selected_surah.surah_name_ar }}{% endif %}
+            {% else %}
+              {% trans "surahs" %}
+            {% endif %}
+          </span>
+          <i class="bi bi-chevron-down text-xs text-slate-500"></i>
+        </button>
+      </div>
+
+      {% if is_ar_ui %}
+      <div id="translationLangFlags" class="translation-lang-flags">
+        <button type="button" data-lang="en" class="trans-flag-btn">🇬🇧</button>
+        <button type="button" data-lang="fr" class="trans-flag-btn">🇫🇷</button>
+        <button type="button" data-lang="fa" class="trans-flag-btn">🇮🇷</button>
+        <button type="button" data-lang="zh" class="trans-flag-btn">🇨🇳</button>
+        <button type="button" data-lang="pt" class="trans-flag-btn">🇵🇹</button>
+        <button type="button" data-lang="nl" class="trans-flag-btn">🇳🇱</button>
+        <button type="button" data-lang="fil" class="trans-flag-btn">🇵🇭</button>
+        <button type="button" data-lang="as" class="trans-flag-btn">🇮🇳</button>
+        <button type="button" data-lang="az" class="trans-flag-btn">🇦🇿</button>
+        <button type="button" data-lang="si" class="trans-flag-btn">🇱🇰</button>
+        <button type="button" data-lang="so" class="trans-flag-btn">🇸🇴</button>
+        <button type="button" data-lang="vi" class="trans-flag-btn">🇻🇳</button>
+      </div>
+      {% endif %}
+
+      <div id="translationMobileTools" class="translation-mobile-tools">
+        {% if translation_audio_folder %}
+        <button type="button" id="translationPlayMobile" class="trans-mob-btn" aria-label="Play"><i class="bi bi-play-fill"></i></button>
+        <button type="button" id="translationStopMobile" class="trans-mob-btn" aria-label="Stop"><i class="bi bi-stop-fill"></i></button>
+        {% endif %}
+      </div>
+
+      <div class="translation-book-frame w-full rounded-3xl overflow-hidden bg-white shadow-2xl border border-gray-200">
+        <div id="translationFlipBook" class="st-page-flip w-full">
+          {% if is_translation_rtl %}
+            {% for p in pages reversed %}
+              <div
+                class="page {% if forloop.counter0|divisibleby:2 %}page-right{% else %}page-left{% endif %}"
+                data-density="hard"
+                data-translation-page="{{ p }}"
+              >
+                <div class="page-content">
+                  <div class="flex flex-col h-full">
+                    <div class="translation-page-number-row">
+                      <div class="translation-page-number">{{ p }}</div>
+                    </div>
+                    <div class="translation-page-scroll" dir="rtl">
+                      <div id="translationPageContent-{{ p }}" class="translation-page-content" data-page-content>
+                        <p class="text-xs text-gray-400 text-center py-4">{% trans "Translation will be loaded when you open this page" %}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% else %}
+            {% for p in pages %}
+              <div
+                class="page {% if forloop.counter0|divisibleby:2 %}page-left{% else %}page-right{% endif %}"
+                data-density="hard"
+                data-translation-page="{{ p }}"
+              >
+                <div class="page-content">
+                  <div class="flex flex-col h-full">
+                    <div class="translation-page-number-row">
+                      <div class="translation-page-number">{{ p }}</div>
+                    </div>
+                    <div class="translation-page-scroll" dir="ltr">
+                      <div id="translationPageContent-{{ p }}" class="translation-page-content" data-page-content>
+                        <p class="text-xs text-gray-400 text-center py-4">{% trans "Translation will be loaded when you open this page" %}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="translationAyahMenu" class="translation-ayah-menu hidden">
+  {% if translation_audio_folder or is_ar_ui %}
+    <button type="button" data-menu-play class="translation-menu-action">
+      <i class="bi bi-play-circle text-emerald-700"></i><span>{% trans "play_audio" %}</span>
+    </button>
+  {% endif %}
+  <button type="button" data-menu-copy class="translation-menu-action">
+    <i class="bi bi-copy text-blue-700"></i><span>{% trans "copy" %}</span>
+  </button>
+  <button type="button" data-menu-share class="translation-menu-action">
+    <i class="bi bi-share text-amber-700"></i><span>{% trans "share" %}</span>
+  </button>
+  <button type="button" data-menu-bookmark class="translation-menu-action">
+    <i id="translationBookmarkIcon" class="bi bi-heart text-red-600"></i><span id="translationBookmarkText">{% trans "save_stop" %}</span>
+  </button>
+</div>
+
+<audio id="translationAudio" preload="none"></audio>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+  window.WIRD_TRANSLATION_AUDIO_FOLDER = "{{ translation_audio_folder|escapejs }}";
+  window.TRANSLATION_PAGE_DATA_URL = "{% url 'web:translation_page_data' %}";
+  window.TRANSLATION_DEFAULT_PAGE = {{ current_page|default:1 }};
+  window.TRANSLATION_TOTAL_PAGES = {{ total_pages|default:604 }};
+  window.TRANSLATION_IS_RTL = {% if is_translation_rtl %}true{% else %}false{% endif %};
+  window.IS_AR_UI = {% if is_ar_ui %}true{% else %}false{% endif %};
+  window.ACTIVE_TRANS_LANG = window.IS_AR_UI ? (localStorage.getItem("wird_trans_lang") || "en") : "";
+  window.TRANS_AUDIO_FOLDERS = {% if is_ar_ui %}{{ trans_audio_folders|safe }}{% else %}{}{% endif %};
+  window.TRANSLATION_PAGE_MAP = [
+    {% if is_translation_rtl %}
+      {% for p in pages reversed %}{{ p }}{% if not forloop.last %},{% endif %}{% endfor %}
+    {% else %}
+      {% for p in pages %}{{ p }}{% if not forloop.last %},{% endif %}{% endfor %}
+    {% endif %}
+  ];
+  window.TRANSLATION_LABELS = {
+    ayah: "{% trans 'ayah' %}",
+    verses: "{% trans 'verses' %}",
+    unavailable: "{% trans 'Translation not available' %}",
+    loading: "{% trans 'Translation will be loaded when you open this page' %}",
+    saveStop: "{% trans 'save_stop' %}",
+    cancelStop: "{% trans 'cancel_stop' %}"
+  };
+</script>
+<script>
+(function () {
+  "use strict";
+
+  var translationFlip = null;
+  var currentLoadedPages = new Set();
+  var audio = document.getElementById("translationAudio");
+  var folder = window.IS_AR_UI
+    ? (window.TRANS_AUDIO_FOLDERS[window.ACTIVE_TRANS_LANG] || "")
+    : (window.WIRD_TRANSLATION_AUDIO_FOLDER || "");
+  var activeCard = null;
+  var activeKey = null;
+  var activeSurah = null;
+  var activeAyah = null;
+  var pendingPlay = null;
+  var menu = document.getElementById("translationAyahMenu");
+  var bookmarkKey = "wird_translation_bookmarks_v5";
+  var surahPanel = document.getElementById("translationSurahPanel");
+  var surahBtn = document.getElementById("translationSurahBtn");
+  var surahSearch = document.getElementById("translationSurahSearch");
+  var progressFill = document.getElementById("translationProgressFill");
+  var currentPagePill = document.getElementById("translationCurrentPage");
+
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>"']/g, function (char) {
+      return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char];
+    });
+  }
+
+  function buildAudioUrl(surahNumber, ayahNumber) {
+    var s = String(surahNumber).padStart(3, "0");
+    var a = String(ayahNumber).padStart(3, "0");
+    var cleanFolder = String(folder || "").replace(/^\/+|\/+$/g, "");
+    return "{{ MEDIA_URL }}translations/" + cleanFolder + "/" + s + "/" + s + a + ".mp3";
+  }
+
+  function getBookmarks() {
+    try { return JSON.parse(localStorage.getItem(bookmarkKey) || "{}"); }
+    catch (e) { return {}; }
+  }
+
+  function saveBookmarks(value) {
+    try { localStorage.setItem(bookmarkKey, JSON.stringify(value)); }
+    catch (e) {}
+  }
+
+  function syncMenuBookmark() {
+    if (!activeCard) return;
+    var bookmarks = getBookmarks();
+    var saved = !!bookmarks[activeCard.dataset.key];
+    var icon = document.getElementById("translationBookmarkIcon");
+    var text = document.getElementById("translationBookmarkText");
+    if (icon) icon.className = saved ? "bi bi-heart-fill text-red-600" : "bi bi-heart text-red-600";
+    if (text) text.textContent = saved ? window.TRANSLATION_LABELS.cancelStop : window.TRANSLATION_LABELS.saveStop;
+  }
+
+  function syncBookmarks() {
+    var bookmarks = getBookmarks();
+    document.querySelectorAll("[data-ayah-card]").forEach(function (card) {
+      card.classList.toggle("is-bookmarked", !!bookmarks[card.dataset.key]);
+    });
+    syncMenuBookmark();
+  }
+
+  function updateProgress() {
+    if (!audio || !progressFill || !audio.duration) {
+      if (progressFill) progressFill.style.width = "0%";
+      return;
+    }
+    progressFill.style.width = Math.min(100, (audio.currentTime / audio.duration) * 100) + "%";
+  }
+
+  function updatePlayBtn(isPlaying) {
+    var btn = document.getElementById("translationPlaySelectedBtn");
+    if (!btn) return;
+    var ic = btn.querySelector("i");
+    if (ic) ic.className = isPlaying ? "bi bi-pause-fill" : "bi bi-play-fill";
+  }
+
+  function stopAudio() {
+    if (audio) {
+      audio.pause();
+      audio.removeAttribute("src");
+      audio.load();
+    }
+    document.querySelectorAll("[data-ayah-card].is-playing").forEach(function (card) {
+      card.classList.remove("is-playing");
+    });
+    activeKey = null;
+    activeCard = null;
+    activeSurah = null;
+    activeAyah = null;
+    pendingPlay = null;
+    updateProgress();
+    updatePlayBtn(false);
+  }
+
+  // All cards sorted by reading order (surah → ayah)
+  function sortedCards() {
+    return Array.from(document.querySelectorAll("[data-ayah-card]")).sort(function (a, b) {
+      var ds = Number(a.dataset.surah) - Number(b.dataset.surah);
+      return ds !== 0 ? ds : Number(a.dataset.ayah) - Number(b.dataset.ayah);
+    });
+  }
+
+  function findCardBySurahAyah(surah, ayah) {
+    return document.querySelector(
+      '[data-ayah-card][data-surah="' + surah + '"][data-ayah="' + ayah + '"]'
+    );
+  }
+
+  // Returns the Quran page number that a card belongs to
+  function getCardQuranPage(card) {
+    var box = card && card.closest("[data-translation-page]");
+    return box ? Number(box.dataset.translationPage) : null;
+  }
+
+  // Find the next card ONLY within the currently visible spread.
+  // If no next card on visible pages → return null so the caller flips the page.
+  function getNextSortedCard() {
+    if (activeSurah === null) return null;
+
+    // Build a set of currently visible page numbers
+    var vp = getCurrentPages();
+    var vis = new Set();
+    if (vp.right) vis.add(Number(vp.right));
+    if (vp.left)  vis.add(Number(vp.left));
+
+    // If we can determine visible pages, restrict to those cards only
+    var cards = sortedCards();
+    if (vis.size > 0) {
+      cards = cards.filter(function (c) { return vis.has(getCardQuranPage(c)); });
+    }
+
+    var found = false;
+    for (var i = 0; i < cards.length; i++) {
+      if (found) return cards[i];
+      if (Number(cards[i].dataset.surah) === activeSurah &&
+          Number(cards[i].dataset.ayah) === activeAyah) {
+        found = true;
+      }
+    }
+    return null;
+  }
+
+  // After a page renders, re-attach the highlight if the playing ayah is on that page
+  function restorePlayingHighlight() {
+    if (activeSurah === null || !audio || !audio.src) return;
+    var card = findCardBySurahAyah(activeSurah, activeAyah);
+    if (card && !card.classList.contains("is-playing")) {
+      card.classList.add("is-playing");
+      activeCard = card;
+    }
+  }
+
+  // After a page renders, play the pending next ayah if it's now in DOM
+  function checkPendingPlay() {
+    if (!pendingPlay) return;
+    var after = pendingPlay;
+    var cards = sortedCards();
+    for (var i = 0; i < cards.length; i++) {
+      var c = cards[i];
+      var s = Number(c.dataset.surah), a = Number(c.dataset.ayah);
+      if (s > after.surah || (s === after.surah && a > after.ayah)) {
+        pendingPlay = null;
+        playCard(c);
+        return;
+      }
+    }
+  }
+
+  // Scroll the card into view INSIDE the page's own scroll container only —
+  // never moves the outer viewport / the book itself.
+  function scrollCardInsidePage(card) {
+    var scroller = card && card.closest(".translation-page-scroll");
+    if (!scroller) return;
+    var scrollerTop    = scroller.getBoundingClientRect().top;
+    var scrollerBottom = scroller.getBoundingClientRect().bottom;
+    var cardTop        = card.getBoundingClientRect().top;
+    var cardBottom     = card.getBoundingClientRect().bottom;
+    // Already fully visible — no need to scroll
+    if (cardTop >= scrollerTop && cardBottom <= scrollerBottom) return;
+    // Center the card within the scroller
+    var target = scroller.scrollTop + (cardTop - scrollerTop)
+                 - (scroller.clientHeight / 2) + (card.offsetHeight / 2);
+    scroller.scrollTo({ top: target, behavior: "smooth" });
+  }
+
+  function playCard(card) {
+    if (!folder || !card) return;
+    if (activeKey === card.dataset.key) {
+      stopAudio();
+      return;
+    }
+    stopAudio();
+    activeCard = card;
+    activeKey = card.dataset.key;
+    activeSurah = Number(card.dataset.surah);
+    activeAyah = Number(card.dataset.ayah);
+    card.classList.add("is-playing");
+    scrollCardInsidePage(card);
+    audio.src = buildAudioUrl(card.dataset.surah, card.dataset.ayah);
+    audio.play().catch(stopAudio);
+  }
+
+  function playNextOrStop() {
+    var next = getNextSortedCard();
+    if (next) {
+      playCard(next);
+      return;
+    }
+    // Next ayah not yet loaded — flip forward then wait for renderPage
+    if (activeSurah !== null && translationFlip) {
+      pendingPlay = { surah: activeSurah, ayah: activeAyah };
+      // RTL uses reversed array → flipPrev() = forward (later pages)
+      // LTR uses forward array  → flipNext() = forward (later pages)
+      if (window.TRANSLATION_IS_RTL) {
+        translationFlip.flipPrev();
+      } else {
+        translationFlip.flipNext();
+      }
+    } else {
+      stopAudio();
+    }
+  }
+
+  function copyCard(card) {
+    var text = card ? (card.dataset.copyText || card.innerText || "").trim() : "";
+    if (navigator.clipboard && text) navigator.clipboard.writeText(text).catch(function () {});
+  }
+
+  function shareCard(card) {
+    var text = card ? (card.dataset.copyText || card.innerText || "").trim() : "";
+    if (navigator.share && text) navigator.share({ text: text }).catch(function () {});
+    else if (navigator.clipboard && text) navigator.clipboard.writeText(text).catch(function () {});
+  }
+
+  function toggleBookmark(card) {
+    if (!card) return;
+    var bookmarks = getBookmarks();
+    if (bookmarks[card.dataset.key]) delete bookmarks[card.dataset.key];
+    else bookmarks[card.dataset.key] = true;
+    saveBookmarks(bookmarks);
+    syncBookmarks();
+  }
+
+  function closeAyahMenu() {
+    if (menu) menu.classList.add("hidden");
+  }
+
+  function openAyahMenu(card, event) {
+    if (!menu || !card) return;
+    activeCard = card;
+    syncMenuBookmark();
+    var rectCard = card.getBoundingClientRect();
+    var x = event.clientX || (rectCard.left + 24);
+    var y = event.clientY || (rectCard.top + 24);
+    menu.classList.remove("hidden");
+    var rect = menu.getBoundingClientRect();
+    var left = Math.min(Math.max(12, x), window.innerWidth - rect.width - 12);
+    var top = Math.min(Math.max(12, y), window.innerHeight - rect.height - 12);
+    menu.style.left = Math.round(left) + "px";
+    menu.style.top = Math.round(top) + "px";
+  }
+
+  function getCurrentPages() {
+    if (!translationFlip || !Array.isArray(window.TRANSLATION_PAGE_MAP)) return {};
+    var i = translationFlip.getCurrentPageIndex();
+    if (isPortrait()) {
+      return { right: window.TRANSLATION_PAGE_MAP[i] || null, left: null };
+    }
+    return {
+      right: window.TRANSLATION_PAGE_MAP[i] || null,
+      left: window.TRANSLATION_PAGE_MAP[i + 1] || null
+    };
+  }
+
+  function isPortrait() {
+    return translationFlip && typeof translationFlip.getOrientation === "function" && translationFlip.getOrientation() === "portrait";
+  }
+
+  function updateUrl(page) {
+    if (!page) return;
+    if (currentPagePill) currentPagePill.textContent = page;
+    try {
+      var url = new URL(location.href);
+      url.searchParams.set("page", page);
+      history.replaceState({}, "", url);
+    } catch (e) {}
+  }
+
+  function setPageLoading(pageNumber) {
+    var box = document.getElementById("translationPageContent-" + pageNumber);
+    if (!box || box.dataset.loaded === "1") return;
+    box.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">' + escapeHtml(window.TRANSLATION_LABELS.loading) + '</p>';
+  }
+
+  function renderPage(data) {
+    if (!data || !data.page) return;
+    var box = document.getElementById("translationPageContent-" + data.page);
+    if (!box) return;
+    box.innerHTML = "";
+    box.dataset.loaded = "1";
+    currentLoadedPages.add(Number(data.page));
+
+    if (!data.items || !data.items.length) {
+      box.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">' + escapeHtml(window.TRANSLATION_LABELS.unavailable) + '</p>';
+      return;
+    }
+
+    data.items.forEach(function (item) {
+      if (item.show_surah_header) {
+        var heading = document.createElement("div");
+        heading.className = "translation-surah-heading";
+        heading.innerHTML = '<span>' + escapeHtml(item.surah_number) + '. ' + escapeHtml(item.surah_name) + '</span>' +
+          (item.ayah_count ? '<span>' + escapeHtml(item.ayah_count) + ' ' + escapeHtml(window.TRANSLATION_LABELS.verses) + '</span>' : '');
+        box.appendChild(heading);
+      }
+
+      var card = document.createElement("div");
+      card.dataset.ayahCard = "";
+      card.dataset.key = item.key || "";
+      card.dataset.surah = item.surah_number || "";
+      card.dataset.ayah = item.ayah_number || "";
+      card.dataset.copyText = item.translation || "";
+      card.className = "translation-line group relative cursor-pointer rounded-xl px-3 py-2 transition hover:bg-emerald-50/70 focus:bg-emerald-50 focus:outline-none";
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", window.TRANSLATION_LABELS.ayah + " " + item.ayah_number);
+
+      var row = document.createElement("div");
+      if (window.IS_AR_UI) {
+        row.className = "flex items-start gap-3 flex-row-reverse";
+        row.innerHTML = '<span class="translation-ayah-number">' + escapeHtml(item.ayah_number) + '</span>' +
+          '<div class="flex-1 min-w-0">' +
+            '<p class="trans-ar-ayah" dir="rtl">' + escapeHtml(item.arabic_text || "") + '</p>' +
+            '<p class="trans-tr-text" dir="ltr">' +
+            (item.translation ? escapeHtml(item.translation) : '<span class="text-amber-700 font-semibold text-xs">' + escapeHtml(window.TRANSLATION_LABELS.unavailable) + '</span>') +
+            '</p>' +
+          '</div>';
+      } else {
+        row.className = "flex items-start gap-3" + (window.TRANSLATION_IS_RTL ? " flex-row-reverse" : "");
+        row.innerHTML = '<span class="translation-ayah-number">' + escapeHtml(item.ayah_number) + '</span>' +
+          '<p class="translation-text ' + (window.TRANSLATION_IS_RTL ? 'text-right' : 'text-left') + '" dir="' + (window.TRANSLATION_IS_RTL ? 'rtl' : 'ltr') + '">' +
+          (item.translation ? escapeHtml(item.translation) : '<span class="text-sm font-semibold text-amber-700">' + escapeHtml(window.TRANSLATION_LABELS.unavailable) + '</span>') +
+          '</p>';
+      }
+      card.appendChild(row);
+      box.appendChild(card);
+    });
+
+    syncBookmarks();
+    restorePlayingHighlight();
+    checkPendingPlay();
+  }
+
+  function loadSpread(right, left) {
+    if (!window.TRANSLATION_PAGE_DATA_URL) return;
+
+    var needRight = right && !currentLoadedPages.has(Number(right));
+    var needLeft  = left  && !currentLoadedPages.has(Number(left));
+
+    // Both pages already cached — just restore state, no fetch needed
+    if (!needRight && !needLeft) {
+      restorePlayingHighlight();
+      checkPendingPlay();
+      return;
+    }
+
+    if (needRight) setPageLoading(right);
+    if (needLeft)  setPageLoading(left);
+
+    var params = new URLSearchParams();
+    if (needRight) params.append("right_page", right);
+    if (needLeft)  params.append("left_page",  left);
+    if (window.IS_AR_UI && window.ACTIVE_TRANS_LANG) params.append("lang", window.ACTIVE_TRANS_LANG);
+
+    fetch(window.TRANSLATION_PAGE_DATA_URL + "?" + params.toString())
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        if (needRight) renderPage(data.right);
+        if (needLeft)  renderPage(data.left);
+      })
+      .catch(function () {
+        [needRight ? right : null, needLeft ? left : null].forEach(function (pageNumber) {
+          if (!pageNumber) return;
+          var box = document.getElementById("translationPageContent-" + pageNumber);
+          if (box) box.innerHTML = '<p class="text-xs text-red-500 text-center py-4">' + escapeHtml(window.TRANSLATION_LABELS.unavailable) + '</p>';
+        });
+      });
+  }
+
+  function syncSpread() {
+    var pages = getCurrentPages();
+    updateUrl(pages.right || pages.left || 1);
+    loadSpread(pages.right, pages.left);
+  }
+
+  var TRANS_SINGLE_BP = 1181;
+
+  function isTransSingle() {
+    return window.innerWidth < TRANS_SINGLE_BP;
+  }
+
+  function getTranslationBookSize() {
+    var baseWidth = Number(window.MUSHAF_PAGE_WIDTH || 430);
+    var baseHeight = Number(window.MUSHAF_PAGE_HEIGHT || 660);
+    var ratio = baseWidth / baseHeight;
+    var single = isTransSingle();
+
+    var reader = document.getElementById("translationReader");
+    var isFs = !!document.fullscreenElement || !!(reader && reader.classList.contains("translation-fullscreen"));
+
+    if (isFs) {
+      var maxBookWidth = Math.min(window.innerWidth * 0.78, 1180);
+      var maxBookHeight = Math.min(window.innerHeight * 0.82, 760);
+      var divisor = single ? 1 : 2;
+
+      var pageWidthByScreen = Math.floor(maxBookWidth / divisor);
+      var pageWidthByHeight = Math.floor(maxBookHeight * ratio);
+
+      var pageWidth = Math.min(pageWidthByScreen, pageWidthByHeight);
+      pageWidth = Math.max(single ? 300 : 340, pageWidth);
+
+      var pageHeight = Math.round(pageWidth / ratio);
+
+      return { pageWidth: pageWidth, pageHeight: pageHeight, single: single };
+    }
+
+    var maxWidth = Number(window.MUSHAF_MAX_WIDTH || 1000);
+    var toolbar = document.querySelector(".translation-book-toolbar");
+    var toolbarHeight = toolbar ? toolbar.getBoundingClientRect().height : 56;
+    var sideAllowance = single ? 16 : (window.innerWidth >= 1181 ? 560 : 32);
+    var availableWidth = Math.max(280, window.innerWidth - sideAllowance);
+    var availableHeight = Math.max(360, window.innerHeight - toolbarHeight - 32);
+    var divisor = single ? 1 : 2;
+
+    var pageWidthFromWidth = Math.floor(Math.min(maxWidth / divisor, availableWidth / divisor));
+    var pageWidthFromHeight = Math.floor(availableHeight * ratio);
+
+    var pageWidth = Math.max(single ? 280 : 300, Math.min(pageWidthFromWidth, pageWidthFromHeight, baseWidth - 40));
+    var pageHeight = Math.round(pageWidth / ratio);
+
+    return { pageWidth: pageWidth, pageHeight: pageHeight, single: single };
+  }
+
+  function applyBookSize(size) {
+    var wrapper = document.getElementById("translationZoomWrapper");
+    var single = typeof size.single === "boolean" ? size.single : isTransSingle();
+    var bookWidth = single ? size.pageWidth : (size.pageWidth * 2);
+
+    if (wrapper) {
+      wrapper.style.width = bookWidth + "px";
+      wrapper.style.maxWidth = "100%";
+    }
+
+    var frame = document.querySelector(".translation-book-frame");
+    if (frame) {
+      frame.style.width = bookWidth + "px";
+      frame.style.maxWidth = "100%";
+      frame.style.height = size.pageHeight + "px";
+    }
+
+    var flipContainer = document.getElementById("translationFlipBook");
+    if (flipContainer) {
+      flipContainer.style.width = bookWidth + "px";
+      flipContainer.style.maxWidth = "100%";
+      flipContainer.style.height = size.pageHeight + "px";
+    }
+
+    translationFlip.update({ width: size.pageWidth, height: size.pageHeight, usePortrait: single });
+  }
+
+  function resizeTranslationBook() {
+    if (!translationFlip) return;
+    applyBookSize(getTranslationBookSize());
+  }
+
+  function initTranslationFlipBook() {
+    var flipContainer = document.getElementById("translationFlipBook");
+    if (!flipContainer || !window.St || !window.St.PageFlip) return;
+
+    var pages = flipContainer.querySelectorAll(".page");
+    var startPage = parseInt(window.TRANSLATION_DEFAULT_PAGE || "1", 10) || 1;
+    var startIndex = Array.isArray(window.TRANSLATION_PAGE_MAP) ? window.TRANSLATION_PAGE_MAP.indexOf(startPage) : 0;
+    var single = isTransSingle();
+
+    var size = getTranslationBookSize();
+
+    translationFlip = new St.PageFlip(flipContainer, {
+      width: size.pageWidth,
+      height: size.pageHeight,
+      size: "fixed",
+      minWidth: single ? 280 : (window.MUSHAF_MIN_WIDTH || 350),
+      maxWidth: window.MUSHAF_MAX_WIDTH || 1000,
+      minHeight: window.MUSHAF_MIN_HEIGHT || 400,
+      maxHeight: window.MUSHAF_MAX_HEIGHT || 1200,
+      maxShadowOpacity: 0.5,
+      showCover: false,
+      mobileScrollSupport: false,
+      useMouseEvents: false,
+      flippingTime: 800,
+      startPage: startIndex >= 0 ? startIndex : 0,
+      direction: window.TRANSLATION_IS_RTL ? "rtl" : "ltr",
+      usePortrait: single
+    });
+
+    translationFlip.loadFromHTML(pages);
+    translationFlip.on("flip", syncSpread);
+
+    applyBookSize(size);
+
+    // Force exact PageFlip dimensions so StPageFlip does not create a wider
+    // generated wrapper than the selected responsive mode allows.
+    flipContainer.style.height = size.pageHeight + "px";
+
+    flipContainer.addEventListener("click", function (event) {
+      if (event.target.closest("[data-ayah-card]")) return;
+      if (!translationFlip) return;
+      var rect = flipContainer.getBoundingClientRect();
+      var ratio = (event.clientX - rect.left) / rect.width;
+      // Works for both RTL (reversed array) and LTR (forward array):
+      //   flipPrev → lower index → RTL: later Quran page | LTR: earlier Quran page
+      //   flipNext → higher index → RTL: earlier Quran page | LTR: later Quran page
+      if (ratio < 0.20) translationFlip.flipPrev();
+      else if (ratio > 0.80) translationFlip.flipNext();
+    });
+
+    syncSpread();
+  }
+
+  document.addEventListener("click", function (event) {
+    var card = event.target.closest("[data-ayah-card]");
+    var clickedMenu = event.target.closest("#translationAyahMenu");
+    var clickedSurah = event.target.closest("#translationSurahPanel, #translationSurahBtn");
+
+    if (card) {
+      event.preventDefault();
+      event.stopPropagation();
+      openAyahMenu(card, event);
+      return;
+    }
+
+    if (!clickedMenu) closeAyahMenu();
+    if (!clickedSurah && surahPanel) surahPanel.classList.add("hidden");
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      closeAyahMenu();
+      if (surahPanel) surahPanel.classList.add("hidden");
+    }
+    if ((event.key === "Enter" || event.key === " ") && event.target.closest("[data-ayah-card]")) {
+      event.preventDefault();
+      openAyahMenu(event.target.closest("[data-ayah-card]"), { clientX: 24, clientY: 120 });
+    }
+  });
+
+  if (menu) {
+    menu.addEventListener("click", function (event) {
+      event.stopPropagation();
+      if (event.target.closest("[data-menu-play]")) playCard(activeCard);
+      if (event.target.closest("[data-menu-copy]")) copyCard(activeCard);
+      if (event.target.closest("[data-menu-share]")) shareCard(activeCard);
+      if (event.target.closest("[data-menu-bookmark]")) toggleBookmark(activeCard);
+      if (!event.target.closest("[data-menu-bookmark]")) closeAyahMenu();
+    });
+  }
+
+  if (audio) {
+    audio.addEventListener("ended", playNextOrStop);
+    audio.addEventListener("error", stopAudio);
+    audio.addEventListener("timeupdate", updateProgress);
+    audio.addEventListener("play",  function () { updatePlayBtn(true);  });
+    audio.addEventListener("pause", function () { updatePlayBtn(false); });
+  }
+
+  var stopBtn = document.getElementById("translationStopBtn");
+  if (stopBtn) stopBtn.addEventListener("click", stopAudio);
+
+  var playSelectedBtn = document.getElementById("translationPlaySelectedBtn");
+  if (playSelectedBtn) {
+    playSelectedBtn.addEventListener("click", function () {
+      if (audio && !audio.paused && activeCard) {
+        audio.pause();
+      } else if (audio && audio.paused && audio.src && activeCard) {
+        audio.play().catch(stopAudio);
+      } else {
+        playCard(activeCard || document.querySelector("[data-ayah-card]"));
+      }
+    });
+  }
+
+  var volume = document.getElementById("translationVolume");
+  if (volume && audio) {
+    volume.addEventListener("input", function () {
+      audio.volume = Number(volume.value || 1);
+      volume.style.setProperty("--fill", (Number(volume.value || 0) * 100) + "%");
+    });
+  }
+
+  var readingModeBtn = document.getElementById("translationReadingModeBtn");
+  var _translationReadingModeOn = false;
+
+  function setTranslationReadingMode(on) {
+    _translationReadingModeOn = on;
+    document.getElementById("translationReader").classList.toggle("translation-reading-mode", on);
+    if (readingModeBtn) readingModeBtn.classList.toggle("is-on", on);
+    var navbar = document.getElementById("mainNavbar");
+    var footer = document.querySelector(".public-footer");
+    var bar = document.getElementById("translationReadingModeBar");
+    if (on) {
+      if (navbar) navbar.style.display = "none";
+      if (footer) footer.style.display = "none";
+      if (bar) { bar.classList.remove("hidden"); bar.style.display = "flex"; }
+    } else {
+      if (navbar) navbar.style.removeProperty("display");
+      if (footer) footer.style.removeProperty("display");
+      if (bar) { bar.classList.add("hidden"); bar.style.removeProperty("display"); }
+    }
+    if (translationFlip) translationFlip.update();
+  }
+
+  if (readingModeBtn) {
+    readingModeBtn.addEventListener("click", function () {
+      setTranslationReadingMode(!_translationReadingModeOn);
+    });
+  }
+
+  var exitReadingBtn = document.getElementById("translationExitReadingBtn");
+  if (exitReadingBtn) {
+    exitReadingBtn.addEventListener("click", function () {
+      setTranslationReadingMode(false);
+    });
+  }
+
+  var fullscreenBtn = document.getElementById("translationFullscreenBtn");
+  var floatingExitBtn = document.getElementById("translationFloatingExitBtn");
+
+  function syncTranslationFullscreenState() {
+    var isFs = !!document.fullscreenElement;
+    var target = document.getElementById("translationReader");
+    if (target) {
+      target.classList.toggle("translation-fullscreen", isFs);
+      // Remove bg-white Tailwind class so our black background shows
+      if (isFs) {
+        target.classList.remove("bg-white");
+        target.style.setProperty("background", "#000", "important");
+        target.style.setProperty("background-color", "#000", "important");
+      } else {
+        target.classList.add("bg-white");
+        target.style.removeProperty("background");
+        target.style.removeProperty("background-color");
+      }
+    }
+    if (floatingExitBtn) floatingExitBtn.style.display = isFs ? "inline-flex" : "none";
+    var icon = fullscreenBtn ? fullscreenBtn.querySelector("i") : null;
+    if (icon) icon.className = isFs ? "bi bi-fullscreen-exit" : "bi bi-arrows-fullscreen";
+    if (translationFlip) {
+      window.requestAnimationFrame(resizeTranslationBook);
+    }
+  }
+
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener("click", function () {
+      var target = document.getElementById("translationReader");
+      if (!document.fullscreenElement) {
+        if (target && target.requestFullscreen) target.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    });
+  }
+
+  if (floatingExitBtn) {
+    floatingExitBtn.addEventListener("click", function () {
+      if (document.exitFullscreen) document.exitFullscreen();
+    });
+  }
+
+  document.addEventListener("fullscreenchange", syncTranslationFullscreenState);
+
+  var readingBarSurahBtn = document.getElementById("translationReadingBarSurahBtn");
+  if (readingBarSurahBtn && surahPanel) {
+    readingBarSurahBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      surahPanel.classList.toggle("hidden");
+      if (!surahPanel.classList.contains("hidden") && surahSearch) surahSearch.focus();
+    });
+    surahPanel.addEventListener("click", function (event) { event.stopPropagation(); });
+  }
+
+  if (surahBtn && surahPanel) {
+    surahBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      surahPanel.classList.toggle("hidden");
+      surahBtn.setAttribute("aria-expanded", surahPanel.classList.contains("hidden") ? "false" : "true");
+      if (!surahPanel.classList.contains("hidden") && surahSearch) surahSearch.focus();
+    });
+    surahPanel.addEventListener("click", function (event) { event.stopPropagation(); });
+  }
+
+  var surahClose = document.getElementById("translationSurahClose");
+  if (surahClose && surahPanel) {
+    surahClose.addEventListener("click", function () { surahPanel.classList.add("hidden"); });
+  }
+
+  if (surahSearch) {
+    surahSearch.addEventListener("input", function () {
+      var q = surahSearch.value.trim().toLowerCase();
+      document.querySelectorAll("[data-surah-link]").forEach(function (link) {
+        link.style.display = !q || link.textContent.toLowerCase().indexOf(q) !== -1 ? "" : "none";
+      });
+    });
+  }
+
+  window.addEventListener("DOMContentLoaded", initTranslationFlipBook);
+  window.addEventListener("resize", function () {
+    window.requestAnimationFrame(resizeTranslationBook);
+  });
+
+  // Mobile toolbar: delegate clicks to panel buttons
+  (function () {
+    var map = [
+      ["translationReadingModeMobile", "translationReadingModeBtn"],
+      ["translationFullscreenMobile",  "translationFullscreenBtn"],
+      ["translationPlayMobile",        "translationPlaySelectedBtn"],
+      ["translationStopMobile",        "translationStopBtn"],
+    ];
+    map.forEach(function (pair) {
+      var mob = document.getElementById(pair[0]);
+      var dst = document.getElementById(pair[1]);
+      if (mob && dst) mob.addEventListener("click", function () { dst.click(); });
+    });
+  })();
+
+  // Language flags (Arabic UI only)
+  if (window.IS_AR_UI) {
+    var initLang = window.ACTIVE_TRANS_LANG || "en";
+    document.querySelectorAll(".trans-flag-btn").forEach(function (btn) {
+      if (btn.dataset.lang === initLang) btn.classList.add("is-active");
+      btn.addEventListener("click", function () {
+        var lang = btn.dataset.lang;
+        window.ACTIVE_TRANS_LANG = lang;
+        folder = window.TRANS_AUDIO_FOLDERS[lang] || "";
+        try { localStorage.setItem("wird_trans_lang", lang); } catch (_) {}
+        document.querySelectorAll(".trans-flag-btn").forEach(function (b) {
+          b.classList.toggle("is-active", b.dataset.lang === lang);
+        });
+        currentLoadedPages.clear();
+        document.querySelectorAll("[data-page-content]").forEach(function (el) {
+          delete el.dataset.loaded;
+          el.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">' + escapeHtml(window.TRANSLATION_LABELS.loading) + '</p>';
+        });
+        syncSpread();
+      });
+    });
+  }
+}());
+</script>
+<style>
+  html, body,
+  #translationReader,
+  #translationReader * {
+    box-sizing: border-box;
+  }
+
+  #translationReader {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  #translationReader,
+  #translationReader section,
+  .translation-book-frame,
+  #translationFlipBook,
+  #translationFlipBook .page {
+    background: #fff !important;
+  }
+
+  .translation-book-shell {
+    min-height: calc(100vh - var(--navbar-height, 72px));
+    padding: 1rem 280px 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  #translationZoomWrapper {
+    width: min(100%, calc(100vw - 560px), 720px);
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  #translationFlipBook {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  #translationFlipBook.stf__parent {
+    max-width: 100% !important;
+    margin-inline: auto !important;
+  }
+
+  #translationFlipBook .stf__wrapper {
+    height: 100% !important;
+    padding-bottom: 0 !important;
+  }
+
+  .translation-book-toolbar {
+    min-height: 2.35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .translation-book-toolbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .translation-mode-pill,
+  .translation-book-btn {
+    display: inline-flex;
+    min-height: 2.4rem;
+    max-width: min(86vw, 420px);
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    background: #fff;
+    padding: 0.45rem 1rem;
+    color: #1f2937;
+    font-size: 0.95rem;
+    line-height: 1.1;
+    font-weight: 900;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+    transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+  }
+
+  .translation-mode-pill.is-active {
+    border-color: #059669;
+    background: #059669;
+    color: #fff;
+  }
+
+  .translation-book-btn:hover {
+    border-color: #10b981;
+    background: #ecfdf5;
+    color: #047857;
+  }
+
+  #translationFlipBook .page-content {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #translationFlipBook .page-content > .flex {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .translation-page-number-row {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .translation-page-number {
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    background: #fff;
+    color: #4b5563;
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+
+  .translation-page-scroll {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.25rem 3rem 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
+
+  .translation-page-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .translation-page-scroll::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background: #cbd5e1;
+  }
+
+  .translation-page-content {
+    color: #374151;
+  }
+
+  .translation-surah-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin: 0.35rem 0 0.85rem;
+    border-radius: 0.75rem;
+    background: #047857;
+    padding: 0.55rem 0.8rem;
+    color: #fff;
+    font-size: 0.72rem;
+    line-height: 1.2;
+    font-weight: 800;
+  }
+
+  .translation-line.is-bookmarked {
+    background: rgba(254, 226, 226, .78);
+    box-shadow: inset 4px 0 0 rgba(239, 68, 68, .9);
+  }
+
+  html[dir="rtl"] .translation-line.is-bookmarked,
+  [dir="rtl"] .translation-line.is-bookmarked {
+    box-shadow: inset -4px 0 0 rgba(239, 68, 68, .9);
+  }
+
+  .translation-line.is-playing {
+    background: rgba(16, 185, 129, 0.12) !important;
+    outline: 2px solid rgba(16, 185, 129, 0.55);
+    outline-offset: -1px;
+  }
+
+  .translation-text {
+    margin: 0;
+    flex: 1 1 auto;
+    color: #1f2937;
+    font-size: 0.82rem;
+    line-height: 1.62;
+    letter-spacing: 0;
+  }
+
+  .translation-ayah-number {
+    display: inline-flex;
+    width: 1.55rem;
+    height: 1.55rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: #f1f5f9;
+    color: #047857;
+    font-size: 0.68rem;
+    font-weight: 800;
+    box-shadow: inset 0 0 0 1px #e2e8f0;
+  }
+
+  .translation-surah-panel {
+    position: fixed;
+    top: calc(var(--navbar-height, 72px) + 3.75rem);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2100;
+    width: min(94vw, 780px);
+    max-height: min(74vh, 660px);
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    border-radius: 1.35rem;
+    background: #fff;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.20);
+    padding: 0.85rem;
+  }
+
+  .translation-surah-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    max-height: calc(min(74vh, 660px) - 6.4rem);
+    overflow-y: auto;
+    padding-inline-end: 0.15rem;
+  }
+
+  .translation-surah-link {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 2.5rem;
+    border: 1px solid #f1f5f9;
+    border-radius: 0.9rem;
+    background: #fff;
+    padding: 0.45rem 0.65rem;
+    color: #334155;
+    font-size: 0.88rem;
+    font-weight: 700;
+    transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+  }
+
+  .translation-surah-link:hover,
+  .translation-surah-link.is-active {
+    border-color: #a7f3d0;
+    background: #ecfdf5;
+    color: #065f46;
+  }
+
+  .translation-surah-no {
+    display: inline-flex;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: #f1f5f9;
+    color: #047857;
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+
+  .translation-surah-name {
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .translation-surah-count {
+    color: #94a3b8;
+    font-size: 0.73rem;
+    font-weight: 800;
+  }
+
+  .translation-tools-panel {
+    position: fixed;
+    top: calc(var(--navbar-height, 72px) + 3.4rem);
+    left: clamp(0.5rem, 1.5vw, 1.25rem);
+    z-index: 1500;
+    width: 224px;
+    border: 1px solid #e0f2fe;
+    border-radius: 0.85rem;
+    background: #fff;
+    padding: 0.65rem;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.10);
+  }
+  html[dir="rtl"] .translation-tools-panel {
+    left: auto;
+    right: clamp(0.5rem, 1.5vw, 1.25rem);
+  }
+
+  .translation-tools-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.55rem;
+    color: #111827;
+    font-size: 0.86rem;
+    font-weight: 900;
+  }
+
+  .translation-tools-icon {
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.65rem;
+    background: #f0f9ff;
+    color: #0284c7;
+  }
+
+  .translation-tool-card {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid #eef2f7;
+    border-radius: 0.75rem;
+    background: #fff;
+    padding: 0.55rem;
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.02);
+  }
+
+  .translation-tool-card + .translation-tool-card,
+  .translation-tool-nav {
+    margin-top: 0.5rem;
+  }
+
+  .translation-tool-label {
+    flex: 1;
+    color: #475569;
+    font-size: 0.76rem;
+    font-weight: 900;
+  }
+
+  .translation-switch {
+    width: 2.45rem;
+    height: 1.35rem;
+    border: 0;
+    border-radius: 9999px;
+    background: #cbd5e1;
+    padding: 0.15rem;
+    transition: background 0.2s ease;
+  }
+
+  .translation-switch span {
+    display: block;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-radius: 9999px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.18);
+    transition: transform 0.2s ease;
+  }
+
+  .translation-switch.is-on {
+    background: #047857;
+  }
+
+  .translation-switch.is-on span {
+    transform: translateX(1.1rem);
+  }
+
+  .translation-tool-circle,
+  .translation-nav-btn {
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 9999px;
+    background: #020617;
+    color: #fff;
+  }
+
+  .translation-audio-card {
+    display: block;
+  }
+
+  .translation-progress-track {
+    height: 0.35rem;
+    border-radius: 9999px;
+    background: #e5e7eb;
+    overflow: hidden;
+    margin-bottom: 0.55rem;
+  }
+
+  .translation-progress-track span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: #a3cf3a;
+  }
+
+  .translation-audio-row {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .translation-volume-range {
+    flex: 1;
+    min-width: 0;
+    accent-color: #a3cf3a;
+  }
+
+  .translation-tool-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+  }
+
+  .translation-page-pill {
+    display: inline-flex;
+    min-width: 2.4rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: #f1f5f9;
+    color: #334155;
+    font-weight: 900;
+  }
+
+  .translation-ayah-menu {
+    position: fixed;
+    z-index: 2147483000;
+    min-width: 210px;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    background: #fff;
+    padding: 0.45rem;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.22);
+  }
+
+  .translation-menu-action {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0.55rem;
+    border: 0;
+    border-radius: 0.75rem;
+    background: transparent;
+    padding: 0.65rem 0.75rem;
+    color: #334155;
+    text-align: start;
+    font-weight: 800;
+  }
+
+  .translation-menu-action:hover {
+    background: #f8fafc;
+  }
+
+  .translation-warning {
+    width: min(92vw, 720px);
+    margin: calc(var(--navbar-height, 72px) + 1rem) auto -1rem;
+    border: 1px solid #fde68a;
+    border-radius: 1.25rem;
+    background: #fffbeb;
+    padding: 0.9rem 1rem;
+    color: #92400e;
+    text-align: center;
+    font-size: 0.78rem;
+    line-height: 1.15;
+    font-weight: 800;
+  }
+
+  #translationReader.translation-reading-mode .translation-tools-panel {
+    display: none !important;
+  }
+
+  @media (max-width: 1180px) {
+    .translation-book-shell {
+      padding: 0.35rem clamp(0.5rem, 1.5vw, 1rem) 12rem;
+    }
+
+    .translation-tools-panel {
+      position: fixed;
+      top: auto;
+      left: 50%;
+      bottom: 1rem;
+      transform: translateX(-50%);
+      width: min(94vw, 560px);
+      min-width: 0;
+      padding: 0.65rem;
+    }
+
+    .translation-tools-title {
+      display: none;
+    }
+
+    .translation-tool-card {
+      padding: 0.7rem;
+    }
+
+    .translation-book-shell {
+      padding-bottom: 12rem;
+    }
+  }
+
+  @media (max-width: 1180px) {
+    #translationFlipBook.st-page-flip::after,
+    #translationFlipBook.stf__parent::after {
+      display: none !important;
+    }
+
+    .translation-page-scroll {
+      padding-left: 1.1rem !important;
+      padding-right: 1.1rem !important;
+    }
+  }
+
+  @media (max-width: 720px) {
+    .translation-surah-list {
+      grid-template-columns: 1fr;
+    }
+
+    .translation-book-shell {
+      padding-inline: 0.45rem;
+    }
+
+    .translation-tool-card:first-of-type {
+      display: none;
+    }
+  }
+
+  /* Match Quran Playback Tools sizing and remove translation-only pagination controls. */
+  .translation-tools-panel {
+    width: 224px;
+    min-width: 224px;
+    border-radius: 0.75rem;
+    border-color: #e0f2fe;
+    padding: 0.75rem;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+  }
+
+  .translation-tools-title {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .translation-tools-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .translation-tools-icon i {
+    font-size: 0.75rem;
+  }
+
+  .translation-tool-card {
+    border-radius: 0.75rem;
+    background: #f9fafb;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .translation-tool-label {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+  }
+
+  .translation-switch {
+    width: 2.5rem;
+    height: 1.25rem;
+  }
+
+  .translation-switch span {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .translation-switch.is-on span {
+    transform: translateX(1.15rem);
+  }
+
+  .translation-tool-circle {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.625rem;
+  }
+
+  .translation-progress-track {
+    height: 0.375rem;
+    margin-bottom: 0.5rem;
+    background: #e5e5d8;
+  }
+
+  .translation-progress-track span {
+    background: linear-gradient(to right, #f59e0b, #fbbf24);
+  }
+
+  .translation-audio-row {
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  .translation-volume-range {
+    width: 4rem;
+    flex: 0 0 4rem;
+  }
+
+
+  /* Keep translation typography close to the Quran reader's compact UI scale. */
+  .translation-page-content .translation-line {
+    padding: 0.4rem 0.6rem !important;
+  }
+
+  .translation-page-content .translation-text {
+    font-family: inherit;
+    font-size: 0.82rem !important;
+    line-height: 1.62 !important;
+    font-weight: 500;
+  }
+
+  .translation-page-content .translation-surah-heading {
+    font-size: 0.72rem !important;
+    line-height: 1.2 !important;
+  }
+
+
+  /* Match top translation pills to the Quran toolbar scale. */
+  .translation-mode-pill,
+  .translation-book-btn {
+    min-height: 2.15rem !important;
+    padding: 0.36rem 0.85rem !important;
+    gap: 0.42rem !important;
+    font-size: 0.84rem !important;
+    line-height: 1.05 !important;
+    font-weight: 900 !important;
+  }
+
+  .translation-mode-pill i,
+  .translation-book-btn i {
+    font-size: 0.9rem !important;
+  }
+
+  .translation-book-toolbar {
+    min-height: 2.2rem !important;
+    gap: 0.55rem !important;
+  }
+  .translation-fullscreen-active {
+    background: #050505 !important;
+    overflow: hidden !important;
+}
+
+.translation-fullscreen-active body,
+.translation-fullscreen-active main,
+.translation-fullscreen-active .translation-page-section {
+    background: #050505 !important;
+}
+
+.translation-fullscreen-active .translation-book-stage {
+    background: transparent !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 24px 40px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.translation-fullscreen-active .translation-book {
+    width: min(78vw, 1180px) !important;
+    height: min(82vh, 760px) !important;
+    max-width: 1180px !important;
+    max-height: 760px !important;
+    margin: auto !important;
+    background: #ffffff !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+}
+
+.translation-fullscreen-active .translation-book-spread {
+    width: 100% !important;
+    height: 100% !important;
+    background: #ffffff !important;
+}
+
+.translation-fullscreen-active .translation-book-page {
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+
+  /* Lift translation top pills closer to the navbar, removing the extra top gap. */
+  .translation-book-shell {
+    padding-top: 1rem !important;
+  }
+
+  .translation-book-toolbar {
+    margin-bottom: 0.25rem !important;
+  }
+
+  /* ── Mobile compact toolbar ───────────────────────────────────────────── */
+  .translation-mobile-tools {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .trans-mob-btn {
+    display: inline-flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 9999px;
+    background: #fff;
+    color: #374151;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(15,23,42,.07);
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+  }
+  .trans-mob-btn:hover { background: #ecfdf5; border-color: #059669; color: #047857; }
+  @media (max-width: 899px) {
+    .translation-tools-panel { display: none !important; }
+    .translation-mobile-tools { display: flex !important; }
+    .translation-book-shell  { padding-bottom: 1.5rem !important; }
+  }
+
+  /* ── Language flags row ───────────────────────────────────────────────── */
+  .translation-lang-flags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    margin: 0.25rem 0 0.2rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .translation-lang-flags::-webkit-scrollbar { display: none; }
+  .trans-flag-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 1.7rem;
+    border: 1.5px solid transparent;
+    border-radius: 6px;
+    background: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: .55;
+    transition: opacity .15s, border-color .15s, background .15s;
+  }
+  .trans-flag-btn:hover { opacity: 1; }
+  .trans-flag-btn.is-active { opacity: 1; border-color: #059669; background: #ecfdf5; }
+
+  /* ── Arabic UI: ayah text + translation layout ────────────────────────── */
+  .trans-ar-ayah {
+    font-size: 0.82rem;
+    line-height: 1.9;
+    color: #1A843A;
+    text-align: right;
+    margin-bottom: 0.1rem;
+  }
+  .trans-tr-text {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: #374151;
+    text-align: left;
+  }
+
+  /* ── Reading mode bar: fixed at top center ──────────────────────────────── */
+  #translationReadingModeBar {
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1400;
+    display: none;
+  }
+  #translationReadingModeBar:not(.hidden) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #translationReader.translation-reading-mode .translation-book-toolbar,
+  #translationReader.translation-reading-mode #translationLangFlags,
+  #translationReader.translation-reading-mode #translationMobileTools {
+    display: none !important;
+  }
+  #translationReader.translation-reading-mode #translationZoomWrapper {
+    margin-top: 4rem !important;
+  }
+
+  /* ── Fullscreen mode: centered natural book ───────────────────── */
+  #translationReader:fullscreen,
+  #translationReader:-webkit-full-screen,
+  #translationReader.translation-fullscreen {
+    background: #000 !important;
+    background-color: #000 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #translationReader.translation-fullscreen .translation-tools-panel,
+  #translationReader.translation-fullscreen .translation-book-toolbar,
+  #translationReader.translation-fullscreen #translationLangFlags,
+  #translationReader.translation-fullscreen #translationMobileTools,
+  #translationReader.translation-fullscreen .translation-warning {
+    display: none !important;
+  }
+
+  #translationReader.translation-fullscreen .translation-book-shell {
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  #translationReader.translation-fullscreen #translationZoomWrapper {
+    width: auto !important;
+    max-width: 78vw !important;
+    margin: 0 auto !important;
+    background: transparent !important;
+  }
+
+  #translationReader.translation-fullscreen .translation-book-frame {
+    width: auto !important;
+    max-width: 78vw !important;
+    height: auto !important;
+    background: #fff !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.55) !important;
+    overflow: hidden !important;
+  }
+
+  #translationReader.translation-fullscreen #translationFlipBook {
+    margin: 0 auto !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #translationReader.translation-fullscreen #translationFlipBook .page,
+  #translationReader.translation-fullscreen #translationFlipBook .page-content {
+    background: #fff !important;
+  }
+
+</style>
+{% endblock %}

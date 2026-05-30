@@ -1,0 +1,3581 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: si\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "අපව අමතන්න"
+
+msgid "contact_page_description"
+msgstr "අප අමතන්න, අපි ඔබට සේවය කිරීමට මෙහි සිටිමු"
+
+msgid "contact_intro_text"
+msgstr ""
+"ඔබ Wird Quran වේදිකාව සම්බන්ධ කර ගැනීමට ලැබීම ගැන අපි සතුටු වෙමු. අපි අල්ලාහ්ගේ පොතට "
+"සේවය කිරීමට සහ එය පාරායනය කිරීමට පහසුකම් සැලසීමට උත්සාහ කරමු."
+
+msgid "name"
+msgstr "නම"
+
+msgid "enter_your_name"
+msgstr "ඔබගේ නම ඇතුලත් කරන්න"
+
+msgid "email"
+msgstr "ඊමේල් කරන්න"
+
+msgid "your_message"
+msgstr "ඔයාගේ පණිවිඩය"
+
+msgid "write_your_message_here"
+msgstr "ඔබගේ විමසීම් හෝ පණිවිඩය මෙහි ලියන්න"
+
+msgid "send_message"
+msgstr "පණිවිඩයක් යවන්න"
+
+msgid "message_sent"
+msgstr "පණිවිඩය යවා ඇත"
+
+msgid "message_sent_successfully"
+msgstr "පණිවිඩය සාර්ථකව යවා ඇත"
+
+msgid "thank_you_contact"
+msgstr "අප හා සම්බන්ධ වීම ගැන ඔබට ස්තුතියි"
+
+msgid "contact_success_message"
+msgstr ""
+"ඔබගේ පණිවිඩය සාර්ථකව ලැබී ඇත. Wird Quran කණ්ඩායම එය සමාලෝචනය කර අල් කුර්ආනයේ සේවයට "
+"සහාය වීම සඳහා හැකි ඉක්මනින් ඔබ හා සම්බන්ධ වනු ඇත."
+
+msgid "back_to_home"
+msgstr "ආපසු නිවසට"
+
+msgid "quran_recitation_prompt"
+msgstr "අරාබි භාෂාවෙන් අල් කුර්ආනය පාරායනය කිරීම"
+
+msgid "save_stop"
+msgstr "කියවීමේ ස්ථානය සුරකින්න"
+
+msgid "cancel_stop"
+msgstr "කියවීමේ ස්ථානය ඉවත් කරන්න"
+
+msgid "hifz_audio_recording"
+msgstr "ශ්රව්ය පටිගත කිරීම"
+
+msgid "hifz_enable_hiding"
+msgstr "Ayahs සඟවන්න"
+
+msgid "hifz_segmentation_thematic"
+msgstr "තේමාත්මක ඛණ්ඩනය"
+
+msgid "hifz_writing"
+msgstr "ලිවීම"
+
+msgid "zoom_in"
+msgstr "විශාලනය කරන්න"
+
+msgid "repeat"
+msgstr "නැවත නැවත කරන්න"
+
+msgid "page"
+msgstr "පිටුව"
+
+msgid "play_audio"
+msgstr "ශ්‍රව්‍ය වාදනය කරන්න"
+
+msgid "word_meanings"
+msgstr "වචන අර්ථ"
+
+msgid "brief_tafsir"
+msgstr "කෙටි තෆ්සීර්"
+
+msgid "playback_tools"
+msgstr "පසුධාවන මෙවලම්"
+
+msgid "audio"
+msgstr "ශ්රව්ය උපකරණ"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"කටපාඩම් කරන අතරතුර ශ්‍රව්‍ය වාදනය කිරීමට, වාදනය සහ විරාම බොත්තම පෙන්වීමට ayah එකක් මත තට්ටු "
+"කරන්න. එවිට ඔබට මෙතැන් සිට ශබ්දය පාලනය කළ හැකිය, අවධානය වෙනතකට යොමු නොකර පහසුවෙන් "
+"කියවීම සඳහා තිරය විශාල කරන්න, සහ ayah හි පුනරාවර්තන ගණන වැඩි කරන්න."
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "පිටු දෙකක්"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr "මුෂාෆ්හි එක් පිටුවක් හෝ මුහුණැති පිටු දෙකක් අතර මාරු වන්න"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "එක පිටුවක්"
+
+msgid "hifz_memorization_tools"
+msgstr "මතක තබා ගැනීමේ ශිල්පීය ක්රම"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"මතක තබා ගැනීමේ මෙවලම් ඔබට මතකය ශක්තිමත් කිරීමට සහ ඔබේ මතකය පුහුණු කිරීමට උපකාරී වේ. ඔබට "
+"ඒවා මතක තබා ගැනීම සඳහා ඒවා සැඟවිය හැක. ඔබ ayah එකක් මත සැරිසරන විට, එය ඔබට මඟ "
+"පෙන්වීම සඳහා සැහැල්ලුවෙන් දිස්වන අතර, ඔබ එය ක්ලික් කළ විට, එය සම්පූර්ණයෙන්ම දිස්වේ. තේමාත්මක "
+"ඛණ්ඩනය ද ඇත, කටපාඩම් කිරීම සහ අවබෝධය පහසු කිරීම සඳහා මාතෘකා වලට අදාළ අයා වර්ග කිරීම."
+
+msgid "hifz_play"
+msgstr "සෙල්ලම් කරන්න"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "සම්පූර්ණ නැවතුම"
+
+msgid "hifz_mstwa_audio"
+msgstr "වෙළුම් මට්ටම"
+
+msgid "mushaf"
+msgstr "මුෂාෆ්"
+
+msgid "reciter"
+msgstr "කියවන්නා"
+
+msgid "search"
+msgstr "සොයන්න"
+
+msgid "stop_audio"
+msgstr "ශ්රව්ය උපකරණ නවත්වන්න"
+
+msgid "recitation_correction"
+msgstr "පාරායනය නිවැරදි කිරීම"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"පළමුව, ayah එකක් තෝරන්න. එවිට වාර්තා බොත්තම දිස්වනු ඇත. එය ඔබා තෝරාගත් ayah ඔබේ "
+"පාරායනය වාර්තා කරන්න එවිට ඔබේ ශ්රව්ය උපකරණ විශ්ලේෂණය කර ඔබේ පාරායනය නිවැරදි කළ හැකිය. "
+"ඔබට කියවීමේ නිරවද්‍යතා ප්‍රතිශතය පෙනෙනු ඇති අතර, ඔබේ පටිගත කළ හඬට සවන් දීමට බොත්තමක් ඔබට "
+"හමුවනු ඇත."
+
+msgid "recitation_accuracy_percentage"
+msgstr "කියවීමේ නිරවද්‍යතාවය"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "ෂෙයික් ඕඩියෝ"
+
+msgid "my_recorded_audio"
+msgstr "මගේ පටිගත කිරීම"
+
+msgid "mushaf_hafs"
+msgstr "හෆ්ස් මුෂාෆ්"
+
+msgid "mushaf_warsh"
+msgstr "වාර්ෂ් මුෂාෆ්"
+
+msgid "mushaf_qaloun"
+msgstr "කලෝන් මුෂාෆ්"
+
+msgid "mushaf_douri"
+msgstr "අල්-දූරි මුෂාෆ්"
+
+msgid "mushaf_shuba"
+msgstr "ෂුබා මුෂාෆ්"
+
+msgid "mushaf_sousi"
+msgstr "අල්-සුසි මුෂාෆ්"
+
+msgid "tafsir_almuyasser"
+msgstr "අල්-මුයසාර්"
+
+msgid "tafsir_alkatheer"
+msgstr "ඉබන් කතීර්"
+
+msgid "tafsir_albaghawy"
+msgstr "අල්-බගාවි"
+
+msgid "tafsir_altabary"
+msgstr "අල්-ටබරි"
+
+msgid "tafsir_alqortoby"
+msgstr "අල්-කුර්තුබි"
+
+msgid "tafsir_alsa3dy"
+msgstr "අල්-සාදි"
+
+#, fuzzy, python-format
+#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "කුරාණයෙන් %(පිටුව)s පිටුවේ තෆ්සීර් | විර්ඩ් කුරානය"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "සූරතය %(surah_name)s | කියවන්න සහ සවන් දෙන්න - විර්ඩ් කුර්ආනය"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "%(qari_name)s | විසින් පාරායනය කරන ලද කුර්ආනයට සවන් දෙන්න විර්ඩ් කුරානය"
+
+#, fuzzy, python-format
+#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "කුරාණයෙන් පිටුව %(පිටුව)s | විර්ඩ් කුරානය"
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+#| "displayed and linked to tafsir on the Wird Quran platform."
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"කුර්ආනයේ %(පිටුව)s පිටුවේ tafsir පහසුවෙන් කියවන්න, ayahs ප්‍රදර්ශනය කර Wird Quran වේදිකාවේ "
+"tafsir වෙත සම්බන්ධ කර ඇත."
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"Wird කුර්ආන් වේදිකාවේ පහසුවෙන් සවන් දීම සහ බ්‍රවුස් කිරීම සමඟින්, අල් කුර්ආනයෙන් සූරා "
+"%(surah_name)s කියවන්න."
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"සූරත සහ ආයා අතර පහසු සංචාලනය සමඟින් උසස් ගුණත්වයෙන් %(qari_name)s විසින් පාරායනය කරන ලද "
+"කුර්ආනයට සවන් දෙන්න."
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Browse page %(page)s from the Holy Quran with a comfortable and easy "
+#| "interface, with smooth reading and quick navigation on the Wird Quran "
+#| "platform."
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"Wird Quran වේදිකාවේ සුමට කියවීම සහ ඉක්මන් සංචලනය සමඟින්, සුවපහසු සහ පහසු අතුරු මුහුණතක් සමඟින් "
+"කුර්ආනයේ %(පිටුව)s පිටුව බ්‍රවුස් කරන්න."
+
+msgid "no_word_meanings"
+msgstr "මෙම Ayah සඳහා වචන අර්ථයක් නොමැත"
+
+msgid "hide_word_meanings"
+msgstr "වචනවල තේරුම සඟවන්න"
+
+msgid "show_word_meanings"
+msgstr "වචනවල තේරුම පෙන්වන්න"
+
+msgid "word_meanings_hint"
+msgstr "පාරායනය ආරම්භ වන විට වචන අර්ථයන් දිස්වනු ඇත"
+
+msgid "error_word_meanings"
+msgstr "වචන අර්ථ පූරණය කිරීමට අසමත් විය"
+
+msgid "surah"
+msgstr "සූරතය"
+
+msgid "ayah"
+msgstr "අය්යා"
+
+msgid "show_thematic_segmentation"
+msgstr "තේමාත්මක ඛණ්ඩනය පෙන්වන්න"
+
+msgid "hide_thematic_segmentation"
+msgstr "තේමාත්මක ඛණ්ඩනය සඟවන්න"
+
+msgid "daily_quran_reading"
+msgstr "මගේ ඩේලි වර්ඩ්"
+
+msgid "new_khatma"
+msgstr "නව ඛත්මා"
+
+msgid "close"
+msgstr "වසන්න"
+
+msgid "current_khatma"
+msgstr "වත්මන් ඛත්මා"
+
+msgid "Juz"
+msgstr "ජුස්"
+
+msgid "remaining_wirds"
+msgstr "ඉතිරි වයර්"
+
+msgid "khatma_count"
+msgstr "ඛත්ම ගණන්"
+
+msgid "current_wird"
+msgstr "වත්මන් වයර්"
+
+msgid "from"
+msgstr "සිට"
+
+msgid "to"
+msgstr "වෙත"
+
+msgid "congratulations"
+msgstr "සුභ පැතුම්"
+
+msgid "you_finished_current_khatma"
+msgstr "ඔබ මෙම ඛත්මය සාර්ථකව නිම කර ඇත"
+
+msgid "continue_reading"
+msgstr "Wird කියවීම දිගටම කරගෙන යන්න"
+
+msgid "finish_wird"
+msgstr "වයර් සම්පූර්ණ කරන ලදී"
+
+msgid "choose_mushaf"
+msgstr "මුෂාෆ් තෝරන්න"
+
+msgid "current"
+msgstr "වත්මන්"
+
+msgid "start_new_khatma"
+msgstr "නව Khatma ආරම්භ කරන්න"
+
+msgid "start_from"
+msgstr "සිට ආරම්භ කරන්න"
+
+msgid "mushaf_start"
+msgstr "මුෂාෆ්ගේ ආරම්භය"
+
+msgid "duration_days"
+msgstr "ඛත්මා කාල සීමාව (දින)"
+
+msgid "day"
+msgstr "දවස"
+
+msgid "daily_amount"
+msgstr "දෛනික Wird මුදල"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "ඛත්ම සාරාංශය"
+
+msgid "start_khatma"
+msgstr "Khatma ආරම්භ කරන්න"
+
+msgid "reciters"
+msgstr "කියවන්නන්"
+
+msgid "search_reciter"
+msgstr "නම අනුව කියවන්නා සොයන්න"
+
+msgid "loading"
+msgstr "පැටවීම"
+
+msgid "tafasir"
+msgstr "තෆ්සීර් පොත්"
+
+msgid "no_tafsir_available"
+msgstr "දැනට Tafsir නොමැත"
+
+msgid "quran"
+msgstr "කුරානය"
+
+msgid "tafsir"
+msgstr "තෆ්සීර්"
+
+msgid "surah_1"
+msgstr "අල්-ෆාතිහා"
+
+msgid "mushafs"
+msgstr "මුෂාෆ්වරු"
+
+msgid "reading_mode"
+msgstr "කියවීමේ මාදිලිය"
+
+msgid "current_reciter"
+msgstr "වත්මන් පාඨකයා"
+
+msgid "coming_soon"
+msgstr "ඉක්මණින් පැමිණෙන"
+
+msgid "current_mushaf"
+msgstr "වත්මන් මුෂාෆ්"
+
+msgid "tafsir_loading_message"
+msgstr "ඔබ මෙම පිටුව විවෘත කරන විට Tafsir පූරණය වේ"
+
+msgid "title_and_body_required"
+msgstr "මාතෘකාව සහ පණිවිඩ අන්තර්ගතය අවශ්‍ය වේ"
+
+msgid "no_subscribers_available"
+msgstr "යැවීම සඳහා ග්‍රාහකයින් නොමැත"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "ඔබ Wird කුර්ආන් පණිවිඩ සඳහා දායක වී ඇත"
+
+msgid "unsubscribe_label"
+msgstr "දායකත්වයෙන් ඉවත් වීමට"
+
+msgid "message_sent_to_subscribers"
+msgstr "%(count)s ග්‍රාහකයින් වෙත පණිවිඩය යවන ලදී"
+
+msgid "message_sent_with_failures"
+msgstr ""
+"%(sent_count)s ග්‍රාහකයින් වෙත පණිවිඩය යවන ලද අතර %(failed_count)s සඳහා අසාර්ථක විය"
+
+msgid "message_send_failed"
+msgstr "පණිවිඩ යැවීමට අසමත් විය"
+
+msgid "please_enter_email"
+msgstr "කරුණාකර ඔබගේ විද්‍යුත් තැපෑල ඇතුලත් කරන්න"
+
+msgid "newsletter_welcome_subject"
+msgstr "Wird කුර්ආනයට දායක වීම ගැන ඔබට ස්තුතියි"
+
+msgid "newsletter_greeting"
+msgstr "ඔබට අල්ලාහ්ගේ සාමය, දයාව සහ ආශිර්වාදය ලැබේවා,"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "Wird කුර්ආන් පණිවිඩ වලට දායක වීම ගැන ඔබට ස්තුතියි"
+
+msgid "newsletter_joined_successfully"
+msgstr ""
+"ඔබ අප හා සම්බන්ධ වීම ගැන අපි සතුටු වෙමු, ඔබට ඔබගේ විද්‍යුත් තැපෑලෙන් යාවත්කාලීන ලැබෙනු ඇත"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr "ඔබට ඕනෑම අවස්ථාවක දායකත්වයෙන් ඉවත් වීමට අවශ්‍ය නම්, ඔබට පහත සබැඳිය භාවිතා කළ හැක"
+
+msgid "newsletter_closing"
+msgstr "අවංක ස්තුතිය හා අගය කිරීම සමඟ"
+
+msgid "wird quran"
+msgstr "විර්ඩ් අල්-කුර්ආන් අල්-කරීම්"
+
+msgid "newsletter_subscription_success"
+msgstr "ස්තූතියි, ඔබ සාර්ථකව Wird කුර්ආන් පණිවිඩ සඳහා දායක වී ඇත"
+
+msgid "newsletter_subscription_reactivated"
+msgstr "ස්තූතියි, Wird කුර්ආන් පණිවිඩ සඳහා ඔබේ දායකත්වය නැවත සක්‍රිය කර ඇත"
+
+msgid "email_already_subscribed"
+msgstr "මෙම විද්‍යුත් තැපෑල දැනටමත් දායක වී ඇත"
+
+msgid "unsubscribe_success_message"
+msgstr "සාර්ථකව දායකත්වයෙන් ඉවත් විය"
+
+msgid "unsubscribe_already_done"
+msgstr "දැනටමත් දායකත්වයෙන් ඉවත් වී ඇත"
+
+msgid "qari_list_title"
+msgstr "ශුද්ධ වූ කුර්ආනයට සවන් දෙන්න"
+
+msgid "qari_list_description"
+msgstr ""
+"පාරායනය කරන්නන් බ්‍රවුස් කර අලංකාර කටහඬවල් සහිත විවිධ පාඨක එකතුවකින් ඔබේ ප්‍රියතම පාරායනය "
+"තෝරන්න."
+
+msgid "listen_quran"
+msgstr "කුරානයට සවන් දෙන්න"
+
+msgid "view_surahs"
+msgstr "සූරත බලන්න"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "විසින් කුරානයට සවන් දීම"
+
+msgid "tilawa_wrd_quran"
+msgstr "විර්ඩ් කුරානය"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "විසින් පාරායනය කරන ලද සම්පූර්ණ කුර්ආනයට සවන් දෙන්න"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "උසස් තත්ත්වයේ, සූරත අතර පහසු සංචලනය සමඟ"
+
+msgid "all_reciters"
+msgstr "සියලුම කියවන්නන්"
+
+msgid "select_surah_player"
+msgstr "සූරතයක් තෝරන්න"
+
+msgid "prev_surah"
+msgstr "පෙර සූරතය"
+
+msgid "next_surah"
+msgstr "ඊළඟ සූරතය"
+
+msgid "search_surah"
+msgstr "නම හෝ අංකය අනුව සූරත සොයන්න"
+
+msgid "ayah_counter"
+msgstr "අය්යා"
+
+msgid "stop_playback"
+msgstr "නැවත ධාවනය නවත්වන්න"
+
+msgid "username_password_required"
+msgstr "පරිශීලක නාමය සහ මුරපදය අවශ්‍ය වේ."
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "ගිණුම සක්රිය කිරීම අවශ්ය වේ"
+
+msgid "invalid_login_credentials"
+msgstr "වලංගු නොවන පිවිසුම් අක්තපත්‍ර."
+
+msgid "dashboard"
+msgstr "උපකරණ පුවරුව"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "ඉදිරියට යාමට පුරනය වන්න හෝ ගිණුමක් සාදන්න"
+
+msgid "login"
+msgstr "ඇතුල් වන්න"
+
+msgid "register"
+msgstr "ගිණුම තනන්න"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "පරිශීලක නාමය දැනටමත් ගෙන ඇත."
+
+msgid "enter_username"
+msgstr "පරිශීලක නාමය ඇතුළත් කරන්න"
+
+msgid "password"
+msgstr "මුරපදය"
+
+msgid "enter_password"
+msgstr "මුරපදය ඇතුළත් කරන්න"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "මුරපදය අමතක වුණා ද?"
+
+msgid "create_account"
+msgstr "ගිණුම සාදන්න"
+
+msgid "username_required"
+msgstr "පරිශීලක නාමය අවශ්ය වේ."
+
+msgid "username_taken"
+msgstr "පරිශීලක නාමය දැනටමත් ගෙන ඇත."
+
+msgid "email_required"
+msgstr "විද්‍යුත් තැපෑල අවශ්‍යයි."
+
+msgid "email_taken"
+msgstr "විද්‍යුත් තැපෑල දැනටමත් භාවිතයේ පවතී."
+
+msgid "password_required"
+msgstr "මුරපදය අවශ්ය වේ."
+
+msgid "register_success"
+msgstr ""
+"සාදරයෙන් පිළිගනිමු 🌿 ඔබගේ ගිණුම සාර්ථකව නිර්මාණය කර ඇත. ඔබ නැවට පැමිණීම ගැන අපි සතුටු වෙමු. "
+"අපි ඔබට වෙනස් හා ඵලදායී අත්දැකීමක් ප්රාර්ථනා කරමු."
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"Wird කුර්ආනය යනු අල් කුර්ආනය කියවීම, ප්‍රසිද්ධ පාරායනය කරන්නන්ගේ පාරායනයට සවන් දීම සහ Tafsir "
+"පොත් පහසුවෙන් සහ දැන්වීම්-රහිතව පිරික්සීම සඳහා ඒකාබද්ධ වේදිකාවකි."
+
+msgid "success"
+msgstr "සාර්ථකත්වය"
+
+msgid "error"
+msgstr "දෝෂයකි"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "Wird Al-Quran Al-Kareem ගැන"
+
+msgid "long_about_text"
+msgstr ""
+"Wird යනු සංවිධිත හා ආකර්ශනීය ආකාරයකින් අල් කුර්ආනය පාරායනය කිරීමට සහ මෙනෙහි කිරීමට පහසුකම් "
+"සැලසීම අරමුණු කරගත් ඒකාබද්ධ ඩිජිටල් වේදිකාවකි. එය විවිධ මුෂාෆ් බ්‍රවුස් කිරීම, පාරායනය කරන්නන්ට "
+"සවන් දීම සහ අව්‍යාජ තෆ්සීර් පොත් කියවීම වැනි සේවාවන් සපයයි."
+
+msgid "about_wird"
+msgstr ""
+"Wird යනු සංවිධිත හා ආකර්ශනීය ආකාරයකින් අල් කුර්ආනය පාරායනය කිරීමට සහ මෙනෙහි කිරීමට පහසුකම් "
+"සැලසීම අරමුණු කරගත් ඒකාබද්ධ ඩිජිටල් වේදිකාවකි. එය විවිධ ආඛ්‍යාන සමඟ මුෂාෆ් පිරික්සීම, පාරායනය "
+"කරන්නන්ට සවන් දීම සහ විශ්වාසදායක තෆ්සීර් කියවීම වැනි සේවාවන් සපයයි. එය පරිශීලකයින්ට ඔවුන්ගේ දෛනික "
+"Wird අනුගමනය කිරීමට සහ කටපාඩම් කිරීම සහ සංශෝධනය කිරීමේදී ඔවුන්ගේ ප්‍රගතිය නිරීක්ෂණය කිරීමට ඉඩ "
+"සලසයි. මෙම වේදිකාවේ අරමුණ වන්නේ අල් කුර්ආන් ව්‍යාපෘතියට සහාය වීම සහ පහසු සහ ඒකාබද්ධ ඩිජිටල් "
+"අත්දැකීමක් හරහා එය සමඟ ඇති සම්බන්ධතාවය ශක්තිමත් කිරීමයි."
+
+msgid "wird"
+msgstr "විර්ඩ්"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "අල් කුර්ආනය සමඟ ඔබේ දෛනික වයිඩ්"
+
+msgid "home_hero_title1"
+msgstr "අල් කුර්ආනය කියවීම සඳහා සන්සුන් අත්දැකීමක්"
+
+msgid "home_hero_title2"
+msgstr "සහ සවන්දීම සහ පරාවර්තනය"
+
+msgid "home_hero_desc"
+msgstr ""
+"කියවීම, පාරායනය, තෆ්සීර්, පරිවර්තන සහ වචන අර්ථ එක් පහසු සහ සංවිධානාත්මක අත්දැකීමකට ගෙන එන "
+"වේදිකාවක්."
+
+msgid "home_start_reading"
+msgstr "කියවීම ආරම්භ කරන්න"
+
+msgid "home_explore_recitations"
+msgstr "කියවීම් ගවේෂණය කරන්න"
+
+msgid "home_calm_recitation"
+msgstr "සන්සුන් පාරායනය"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "විශේෂාංග"
+
+msgid "home_features_title"
+msgstr "ඔබට අවශ්‍ය සියල්ල එකම තැනකින්"
+
+msgid "home_features_desc"
+msgstr ""
+"අවධානය වෙනතකට යොමු නොකර කියවීමට, සවන් දීමට සහ පරාවර්තනය කිරීමට ඔබට උපකාර කිරීමට සන්සුන් "
+"මෙවලම්."
+
+msgid "home_feature_quran_title"
+msgstr "කුරානය කියවන්න"
+
+msgid "home_feature_quran_desc"
+msgstr "ඇසට කියවීම පහසු සහ පහසු කරන අලංකාර Mushaf අතුරු මුහුණතක්."
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "ඔබට අවශ්‍ය සියල්ල එකම තැනකින්"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"අවධානය වෙනතකට යොමු නොකර කියවීමට, සවන් දීමට සහ පරාවර්තනය කිරීමට ඔබට උපකාර කිරීමට සන්සුන් "
+"මෙවලම්."
+
+msgid "home_feature_listen_title"
+msgstr "සජ්ඣායනාවලට සවන් දෙන්න"
+
+msgid "home_feature_listen_desc"
+msgstr "පිරිසිදු කටහඬක් සහ සන්සුන් සවන්දීමේ අත්දැකීමක් සහිත පාරායනය කරන්නන් තෝරා ගැනීමක්."
+
+msgid "home_feature_tafsir_title"
+msgstr "තෆ්සීර්"
+
+msgid "home_feature_tafsir_desc"
+msgstr ""
+"පරාවර්තනය සහ අවබෝධය සඳහා උපකාර කිරීම සඳහා සංවිධානාත්මක සංදර්ශකයක් සහිත විශ්වසනීය තෆ්සර්."
+
+msgid "home_feature_trans_title"
+msgstr "පරිවර්තන"
+
+msgid "home_feature_trans_desc"
+msgstr "සෘජුවම ayah සමඟ බහු භාෂාවලින් අර්ථ පරිවර්තන."
+
+msgid "home_feature_words_title"
+msgstr "වචන අර්ථ"
+
+msgid "home_feature_words_desc"
+msgstr "පිටුවෙන් ඉවත් නොවී එක ස්පර්ශයකින් ඕනෑම වචනයක තේරුම සොයන්න."
+
+msgid "home_feature_daily_title"
+msgstr "ඩේලි වර්ඩ්"
+
+msgid "home_feature_daily_desc"
+msgstr "ඔබගේ දෛනික Wird සංවිධානය කර ඔබගේ අඛණ්ඩතාව සන්සුන්ව සහ නිතිපතා නිරීක්ෂණය කරන්න."
+
+msgid "surah_2"
+msgstr "අල්-බකරහ්"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "ඩේලි වර්ඩ්"
+
+msgid "home_daily_title"
+msgstr "සන්සුන් පුරුද්දක්, ඔබ සමඟ දිනෙන් දින වර්ධනය වේ"
+
+msgid "home_daily_desc"
+msgstr ""
+"ඔබේ දවසට ගැළපෙන පරිදි ඔබේ Wird සකසන්න, පීඩනයකින් තොරව ඔබේ අඛණ්ඩතාව නිරීක්ෂණය කරන්න. මෘදු "
+"සිහිගැන්වීමක්, සංවිධානාත්මක සංදර්ශණයක් සහ සරල ලුහුබැඳීමක් ඔබව අල්ලාහ්ගේ පොතට සැමවිටම සම්බන්ධ "
+"කරයි."
+
+msgid "home_gentle_tracking"
+msgstr "මෘදු ලුහුබැඳීම"
+
+msgid "home_flexible_reminder"
+msgstr "නම්‍යශීලී මතක් කිරීම"
+
+msgid "home_no_pressure"
+msgstr "පීඩනයක් නැත"
+
+msgid "tilawa"
+msgstr "පාරායනය"
+
+msgid "home_recitation_title"
+msgstr "හදවත සන්සුන් කරන හඬකින් සවන් දෙන්න"
+
+msgid "home_recitation_desc"
+msgstr ""
+"ඔබේ ආත්මය ස්පර්ශ කරන පාරායනය තෝරන්න, සන්සුන් හා අවධානය වෙනතකට යොමු නොවන අත්දැකීමක් සමඟ "
+"සවන් දෙන්න."
+
+msgid "home_now_playing"
+msgstr "දැන් සෙල්ලම් කරනවා"
+
+msgid "home_reciter_label"
+msgstr "කියවන්නා"
+
+msgid "home_current_surah"
+msgstr "වත්මන් සූරතය"
+
+msgid "home_prev"
+msgstr "පෙර"
+
+msgid "home_play_pause"
+msgstr "වාදනය / විරාමය"
+
+msgid "home_next"
+msgstr "ඊළඟ"
+
+msgid "home_reading_label"
+msgstr "තෆ්සීර් සහ පරිවර්තන"
+
+msgid "home_reading_title"
+msgstr "ගැඹුරින් සහ පැහැදිලිව අර්ථ ගැන මෙනෙහි කරන්න"
+
+msgid "home_reading_desc"
+msgstr "පොතකට සමාන අත්දැකීමක්: අයා එහි ස්ථානයේ, සහ එහි අර්ථය ඒ අසල."
+
+msgid "home_easy_tafsir"
+msgstr "පහසු තෆ්සීර්"
+
+msgid "home_meaning_badge"
+msgstr "අර්ථය"
+
+msgid "home_meaning_label"
+msgstr "අර්ථය"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "රහස්යතා ප්රතිපත්තිය"
+
+msgid "Wird — Privacy Policy"
+msgstr ""
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr ""
+
+msgid "Last updated: May 2026"
+msgstr ""
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+
+msgid "translations"
+msgstr "පරිවර්තන"
+
+msgid "translation_page_title"
+msgstr "පරිවර්තනය"
+
+msgid "surahs"
+msgstr "සූරත"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "කියවීමේ ස්ථානය සුරකින්න"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "පාදක සබැඳි"
+
+msgid "about"
+msgstr "ගැන"
+
+msgid "contact_us"
+msgstr "අපව අමතන්න"
+
+msgid "download_android"
+msgstr "Android සඳහා බාගන්න"
+
+msgid "download_ios"
+msgstr "iOS සඳහා බාගන්න"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "මෙනුව"
+
+msgid "home"
+msgstr "නිවස"
+
+msgid "read_quran"
+msgstr "කුරානය කියවන්න"
+
+msgid "hifz_quran"
+msgstr "අල් කුර්ආනය කටපාඩම් කිරීම"
+
+msgid "notifications"
+msgstr "දැනුම්දීම්"
+
+msgid "logout"
+msgstr "පිටවීම"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "පැතිකඩ"
+
+msgid "SECTION 1"
+msgstr ""
+
+msgid "Information We Collect"
+msgstr ""
+
+msgid "a. Account Information (if you sign in)"
+msgstr ""
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr ""
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+
+msgid "c. Contact Messages"
+msgstr ""
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+
+msgid "SECTION 2"
+msgstr ""
+
+msgid "Data Stored Only on Your Device"
+msgstr ""
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr ""
+
+msgid "Azkar completion progress"
+msgstr ""
+
+msgid "Notification schedule and preferences"
+msgstr ""
+
+msgid "Selected reciter and Mushaf style"
+msgstr ""
+
+msgid "Accessibility and display settings"
+msgstr ""
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr ""
+
+msgid "The Quran database"
+msgstr ""
+
+msgid "SECTION 3"
+msgstr ""
+
+msgid "Microphone Access"
+msgstr ""
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+
+msgid "SECTION 4"
+msgstr ""
+
+msgid "Third-Party Services"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Purpose"
+msgstr ""
+
+msgid "Push notifications"
+msgstr ""
+
+msgid "App initialisation"
+msgstr ""
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr ""
+
+msgid "SECTION 5"
+msgstr ""
+
+msgid "Analytics and Crash Reporting"
+msgstr ""
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr ""
+
+msgid "Data Sharing"
+msgstr ""
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+
+msgid "SECTION 7"
+msgstr ""
+
+msgid "Data Security"
+msgstr ""
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+
+msgid "All communication with our server uses HTTPS."
+msgstr ""
+
+msgid "SECTION 8"
+msgstr ""
+
+msgid "Your Rights"
+msgstr ""
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr ""
+
+msgid "Audience"
+msgstr ""
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+
+msgid "SECTION 10"
+msgstr ""
+
+msgid "Changes to This Policy"
+msgstr ""
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr ""
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "රහස්යතා ප්රතිපත්තිය"
+
+msgid "Last updated May 2026"
+msgstr ""
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "support"
+#~ msgstr "සහාය"
+
+#~ msgid "web_wrd"
+#~ msgstr "විර්ඩ්"
+
+#~ msgid "system_description"
+#~ msgstr ""
+#~ "අල් කුර්ආනය කියවීම, පාරායනය කිරීමට සවන් දීම සහ තෆ්සීර් පහසුවෙන් ගවේෂණය කිරීම සඳහා වේදිකාවක්."
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird යනු සංවිධිත හා ආකර්ශනීය ආකාරයකින් අල් කුර්ආනය පාරායනය කිරීමට සහ මෙනෙහි කිරීමට පහසුකම් "
+#~ "සැලසීම අරමුණු කරගත් ඒකාබද්ධ ඩිජිටල් වේදිකාවකි."
+
+#~ msgid "hifz"
+#~ msgstr "කටපාඩම් කිරීම"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "Juz %(අංක)s"
+
+#~ msgid "juz_number"
+#~ msgstr "Juz %(අංක)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "අති කාරුණික, දයාන්විත අල්ලාහ්ගේ නාමයෙන්"
+
+#~ msgid "open_mushaf"
+#~ msgstr "මුෂාෆ් විවෘත කරන්න"
+
+#~ msgid "hafs"
+#~ msgstr "හෆ්ස්"
+
+#~ msgid "warsh"
+#~ msgstr "Warsh"
+
+#~ msgid "qaloun"
+#~ msgstr "කාලෝන්"
+
+#~ msgid "douri"
+#~ msgstr "අල්-ඩෝරි"
+
+#~ msgid "shuba"
+#~ msgstr "ෂුබාහ්"
+
+#~ msgid "sousi"
+#~ msgstr "අල්-සුසි"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "බොහෝ මුෂාෆ්වරුන්ගෙන්"
+
+#~ msgid "complex"
+#~ msgstr "කිං ෆාඩ් ග්ලෝරියස් අල් කුර්ආන් මුද්‍රණ සංකීර්ණය"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "තෆ්සීර් නොමැත"
+
+#~ msgid "tajweed"
+#~ msgstr "ටජ්වීඩ්"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "වචනවල තේරුම පෙන්වන්න"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "වචනවල තේරුම සඟවන්න"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "වචන අරුත් පූරණය කරමින්..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "වචන අරුත් පූරණය කරමින්"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "වචන අර්ථ පූරණය කිරීමට අසමත් විය"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "මෙම Ayah සඳහා කිසිදු අර්ථයක් නොමැත"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "පාරායනය ආරම්භ වන විට වචන අර්ථයන් දිස්වනු ඇත"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "මක්කන්"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "මෙඩිනන්"
+
+#~ msgid "start"
+#~ msgstr "ආරම්භ කරන්න"
+
+#~ msgid "selected_ayah"
+#~ msgstr "තෝරාගත් Ayah"
+
+#~ msgid "analysis_result"
+#~ msgstr "ප්රතිඵලය"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "මුලින්ම ayah එකක් තෝරන්න"
+
+#~ msgid "browse_reciters"
+#~ msgstr "Reciters බ්‍රවුස් කරන්න"
+
+#~ msgid "next_wirds"
+#~ msgstr "ඉදිරියට එන Wirds"
+
+#~ msgid "previous_wirds"
+#~ msgstr "පෙර වයර්"
+
+#~ msgid "one_juz"
+#~ msgstr "1 Juz"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "සංදර්ශක මෙවලම්"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "සාමාන්ය සංදර්ශකය"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "Ayah පුනරාවර්තනය"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "පුනරාවර්තනයකින් තොරව"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "දෙපාරක්"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "ටයිම්ස්"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "මුෂාෆ් විශාලනය කරන්න"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "දෛනික ඛත්මා සඳහා පහසුකම් සැලසීම සඳහා නියමිත කාලසීමාව සහ ප්‍රමාණය මත පදනම්ව කුර්ආනය "
+#~ "බෙදනු ලැබේ."
+
+#~ msgid "resume_reading"
+#~ msgstr "කියවීම නැවත ආරම්භ කරන්න"
+
+#~ msgid "percentage"
+#~ msgstr "ප්‍රගති ප්‍රතිශතය"
+
+#~ msgid "progress"
+#~ msgstr "ප්‍රගතිය"
+
+#~ msgid "from_page"
+#~ msgstr "ආරම්භක පිටුව"
+
+#~ msgid "to_page"
+#~ msgstr "අවසන් පිටුව"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "සිට"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "වෙත"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "සූරා අල්-බකරහ් - ආයා 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "සූරා අල්-බකරහ් - ආයා 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "වත්මන් Ayah අංකය"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "ඉදිරියට යාමට පුරනය වන්න හෝ ගිණුමක් සාදන්න"
+
+#~ msgid "welcome"
+#~ msgstr "සාදරයෙන් පිළිගනිමු"
+
+#~ msgid "welcome_message"
+#~ msgstr "Wird කුර්ආන් වේදිකාව වෙත සාදරයෙන් පිළිගනිමු"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "ආපසු සාදරයෙන් පිළිගනිමු"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "ඔබගේ පැතිකඩ යාවත්කාලීන කර ඇත"
+
+#~ msgid "accounts_settings"
+#~ msgstr "සැකසීම්"
+
+#~ msgid "login_settings"
+#~ msgstr "පිවිසුම් සැකසුම්"
+
+#~ msgid "confirm_password"
+#~ msgstr "මුරපදය තහවුරු කරන්න"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "නව මුරපදය"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "මුරපදය පෙන්වන්න හෝ සඟවන්න"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "පරිශීලක නාමය අවශ්ය වේ"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "පරිශීලක නාමය දැනටමත් ගෙන ඇත"
+
+#~ msgid "enter_email"
+#~ msgstr "ඔබගේ විද්‍යුත් තැපෑල ඇතුලත් කරන්න"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "විද්‍යුත් තැපෑල අවශ්‍යයි"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "විද්‍යුත් තැපෑල දැනටමත් භාවිතයේ පවතී"
+
+#~ msgid "invalid_email"
+#~ msgstr "වලංගු නොවන ඊමේල් ආකෘතිය"
+
+#~ msgid "full_name"
+#~ msgstr "සම්පූර්ණ නම"
+
+#~ msgid "phone"
+#~ msgstr "දුරකථන අංකය"
+
+#~ msgid "invalid_phone"
+#~ msgstr "වලංගු නොවන දුරකථන අංකයක්"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "දුරකථන අංකය දැනටමත් භාවිතයේ ඇත"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "රැකියා තනතුර"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "පිරිමි"
+
+#~ msgid "accounts_female"
+#~ msgstr "ගැහැණු"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "ඔබගේ ගිණුම සාර්ථකව නිර්මාණය කර ඇත"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr ""
+#~ "ඔබගේ ගිණුම සාර්ථකව නිර්මාණය කර ඇත. ඔබ නැවට පැමිණීම ගැන අපි සතුටු වන අතර ඔබට වෙනස් "
+#~ "අත්දැකීමක් ප්‍රාර්ථනා කරමු."
+
+#~ msgid "login_failed"
+#~ msgstr "වලංගු නොවන පිවිසුම් අක්තපත්‍ර"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "මුරපද නොගැලපේ"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "මුරපදය අවම වශයෙන් අක්ෂර 8 ක් විය යුතුය"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "වෙනස්කම් සාර්ථකව සුරකින ලදී"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "ඔබගේ දත්ත සාර්ථකව සුරැකී ඇත"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "දත්ත සුරකින ලද සහ මුරපදය සාර්ථකව යාවත්කාලීන කරන ලදී"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "පුරනය වීමේ සැකසුම් සාර්ථකව යාවත්කාලීන කරන ලදී"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr ""
+#~ "නැවත සාදරයෙන් පිළිගනිමු, ඔබගේ ගිණුම අනුමත කර ඇති අතර ඔබට දැන් ව්‍යාපෘති සඳහා අයදුම් කළ "
+#~ "හැක"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr ""
+#~ "නවෝත්පාදන මධ්‍යස්ථානය වෙත සාදරයෙන් පිළිගනිමු, අපි ඔබට විශිෂ්ට අත්දැකීමක් ප්‍රාර්ථනා කරමු"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "නවෝත්පාදන මධ්යස්ථාන කළමනාකරණය"
+
+#~ msgid "accounts_local"
+#~ msgstr "දේශීය"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "ඒකාබද්ධ පිවිසුම"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "බාහිර සත්‍යාපනය සක්‍රීය කරන්න"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "පද්ධතිය තුළ අවසර ලබා දෙන සත්‍යාපන ක්‍රම පාලනය"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "පද්ධති දත්ත ගබඩාවෙන්"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "ඊයේ"
+
+#~ msgid "accounts_saah"
+#~ msgstr "පැයකට පෙර"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "මිනිත්තු 10 කට පෙර"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "මිනිත්තු 5 කට පෙර"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "අපව අමතන්න"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "සම්බන්ධතා පෝරමය හරහා අප හා සම්බන්ධ වන්න"
+
+#~ msgid "contact_description"
+#~ msgstr "ඕනෑම විමසීමක් හෝ සහායක් සඳහා ඔබට අප හා සම්බන්ධ විය හැක"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr "ස්තූතියි, අපි ඔබේ පණිවිඩය සමාලෝචනය කර ඉක්මනින් ඔබව සම්බන්ධ කර ගන්නෙමු"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "ඔබගේ පණිවිඩය සාර්ථකව යවා ඇත"
+
+#~ msgid "write_message"
+#~ msgstr "ඔබේ පණිවිඩය මෙහි ලියන්න"
+
+#~ msgid "contact_message"
+#~ msgstr "පණිවිඩය"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "පණිවිඩයක් අවශ්‍යයි"
+
+#~ msgid "contact_name_required"
+#~ msgstr "නම අවශ්‍යයි"
+
+#~ msgid "contact_email_required"
+#~ msgstr "විද්‍යුත් තැපෑල අවශ්‍යයි"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "වලංගු නොවන ඊමේල්"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "දුරකථන"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "ජංගම"
+
+#~ msgid "contact_email"
+#~ msgstr "ඊමේල් කරන්න"
+
+#~ msgid "contact_date"
+#~ msgstr "දිනය"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "සියලුම පණිවිඩ"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "සම්බන්ධතා පණිවිඩ"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "සම්බන්ධතා පණිවිඩ කළමනාකරණය කරන්න"
+
+#~ msgid "contact_message_details"
+#~ msgstr "පණිවිඩ විස්තර"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "සම්බන්ධතා පණිවිඩ විස්තර"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "පණිවිඩ විස්තර විවෘත කරන්න"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "එහි විස්තර බැලීමට පණිවිඩය මත කෙලින්ම ක්ලික් කරන්න"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "නම, ඊමේල් හෝ පණිවිඩය අනුව සොයන්න"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "දැනට පණිවිඩ නොමැත"
+
+#~ msgid "contact_reply"
+#~ msgstr "පිළිතුරු දුන්නා"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "පණිවිඩයට පිළිතුරු දෙන්න"
+
+#~ msgid "write_reply"
+#~ msgstr "පිළිතුර ලියා කෙලින්ම එවන්න"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "පිළිතුර යවන්න"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "පිළිතුරු පෙළ"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "පිළිතුරු මාතෘකාව"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "අවසන් වරට සුරැකි පිළිතුර"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "අපගේ වෙබ් අඩවියේ ඔබගේ පණිවිඩයට පිළිතුරු දෙන්න"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "අප අමතන්න වෙතින් නව පණිවිඩයක්"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "අලුත්"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "නොකියවූ"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "කියවන්න"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "යවමින්..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "මෑතකදී යවන ලදී, කරුණාකර ටික වේලාවකින් නැවත උත්සාහ කරන්න"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr "පිළිතුරක් මොහොතකට පෙර යවා ඇත, ටික වේලාවකින් නැවත උත්සාහ කරන්න"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr "ඔබට කිසියම් ගැටළුවක් ඇත්නම්, අප හා සම්බන්ධ වීමට පසුබට නොවන්න"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "සහාය කණ්ඩායම"
+
+#~ msgid "subscribe"
+#~ msgstr "දායක වන්න"
+
+#~ msgid "subscriptions"
+#~ msgstr "දායකත්ව"
+
+#~ msgid "subscription_active"
+#~ msgstr "සබල කර ඇත"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "ක්රියාකාරී"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "නැවැත්තුවා"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "තහවුරු කළ ග්‍රාහකයින්"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "මුළු ග්‍රාහකයින්"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "සියලුම ග්‍රාහකයින්"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "ක්රියාකාරී ග්රාහකයින්"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "සබල කර ඇත"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "තහවුරු කර ඇත"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "තහවුරු කර නැත"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "තහවුරු කර ඇත"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "පුවත් පත්‍රිකා ග්‍රාහකයින්"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "පුවත් පත්‍රිකා ග්‍රාහකයා"
+
+#~ msgid "subscription_message"
+#~ msgstr "අපගේ පණිවිඩ ලබා ගැනීමට දායක වන්න"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "දැනට ග්‍රාහකයින් නොමැත"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "දායක නොවන්න"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "විද්‍යුත් තැපැල් දායකත්වය අවලංගු කරන ලදී"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Wird කුර්ආන් පණිවිඩ වලින් දායක නොවන්න"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Wird කුර්ආන් පණිවිඩ වලින්"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "දායකත්ව කළමනාකරණය කරන්න"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "දායකත්ව බලන්න"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "දායකත්ව සාරාංශය"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "දායකත්ව මධ්යස්ථානය"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "පුවත් පත්‍රිකා ග්‍රාහකයින්ගේ දළ විශ්ලේෂණය"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr "පුවත් පත්‍රිකා සහ පණිවිඩ ලැබීමට ලියාපදිංචි ඊමේල් ලැයිස්තුව"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "දායක දිනය"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "දායකත්වයෙන් ඉවත් වූ දිනය"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "විද්‍යුත් තැපෑලෙන් සොයන්න"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "පණිවිඩයක් සාදන්න"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr "සියලුම ක්‍රියාකාරී සහ තහවුරු කරන ලද ග්‍රාහකයින් වෙත විද්‍යුත් තැපෑල යවන්න"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "උපකරණ පුවරුව දළ විශ්ලේෂණය"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "අභ්යන්තර පාලන පැනලය"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "ප්‍රධාන මොඩියුල සහ සැකසුම් පිළිබඳ ඉක්මන් දළ විශ්ලේෂණය"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "පද්ධතියේ සාමාන්ය සංඛ්යා සහ දර්ශකවල සාරාංශය"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "අඩවි සංඛ්යා ලේඛන"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "පිටු සංඛ්යා ලේඛන"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "ශ්රව්ය සංඛ්යා ලේඛන"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "තෆ්සීර් සංඛ්යා ලේඛන"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "මුෂාෆ් සංඛ්යා ලේඛන"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "මුළු අමුත්තන්"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "මුළු පිටු බැලීම්"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "වැඩිපුරම නැරඹූ පිටු"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "පිටු බැලීම්"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "පසුගිය දින 7 තුළ සංචාරයන්"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "පසුගිය දින 30 තුළ සංචාරයන්"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "පසුගිය දින 7 තුළ අමුත්තන්"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "පසුගිය දිනවල සංචාරයන්"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "ශ්‍රව්‍ය වාදන"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "පසුගිය දින 7 තුළ ශ්‍රව්‍ය වාදනය වේ"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "සම්පූර්ණ සවන්දීමේ තත්පර"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "වැඩිපුරම සවන් දුන් පිටු"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "වැඩිපුරම වාදනය කරන ලද සූරත"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "වැඩිපුරම වාදනය කරන ලද කියවන්නන්"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "පිටු පෙරළීම"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "වැඩිපුරම පෙරළන ලද මුෂාෆ් පිටු"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "සම්පූර්ණ Tafsir විවෘත වේ"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "Tafsir පසුගිය දින 7 තුළ විවෘත වේ"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "වැඩිපුරම විවෘත වූ තෆ්සීර් පොත්"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "වැඩිපුරම භාවිතා කරන පොත"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "වැඩිපුරම විවෘත වූ තෆ්සීර් පිටු"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "වැඩිපුරම විවෘත වූ Tafsir පිටුව"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "වඩාත්ම අර්ථකථනය කරන ලද සූරතය"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "වඩාත්ම අර්ථකථනය කරන ලද සූරත"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "තෆ්සීර් හි වැඩිපුරම විවෘත වූ අයයි"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "නවතම අන්තර්ක්‍රියා"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr "අමුත්තන්, පිටු, ශ්‍රව්‍ය වාදන, සහ මුෂාෆ් පිටු පෙරළීම් ලුහුබැඳීම"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr "ටෆ්සීර් ලුහුබැඳීම විවෘත වේ, වැඩිපුරම භාවිතා කරන පොත්, පිටු, සූරත සහ සම්බන්ධිත අය"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "සජීවී උපකරණ පුවරුව"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "තවමත් දත්ත නොමැත"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "තවමත් අන්තර්ක්‍රියා නොමැත"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "අය්යා"
+
+#~ msgid "analytics_audio"
+#~ msgstr "ශ්රව්ය උපකරණ"
+
+#~ msgid "analytics_page"
+#~ msgstr "පිටුව"
+
+#~ msgid "analytics_pages"
+#~ msgstr "පිටු"
+
+#~ msgid "analytics_surah"
+#~ msgstr "සූරතය"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "මුෂාෆ්"
+
+#~ msgid "analytics_time"
+#~ msgstr "කාලය"
+
+#~ msgid "analytics_type"
+#~ msgstr "ටයිප් කරන්න"
+
+#~ msgid "analytics_path"
+#~ msgstr "මාර්ගය"
+
+#~ msgid "analytics_add"
+#~ msgstr "ගණන් කරන්න"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "අද්විතීය"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "සංචාරයන්"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "සෙල්ලම් කරයි"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "ශ්‍රව්‍ය සම්පූර්ණ කිරීම්"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "තෆ්සීර් විවෘත"
+
+#~ msgid "roles"
+#~ msgstr "භූමිකාවන්"
+
+#~ msgid "permissions"
+#~ msgstr "අවසර"
+
+#~ msgid "users"
+#~ msgstr "පරිශීලකයන්"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "පරිශීලකයන් කළමනාකරණය කරන්න"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "භූමිකාවන් කළමනාකරණය කරන්න"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "අවසර කළමනාකරණය කරන්න"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "පරිශීලක ගිණුම්, භූමිකාවන් සහ අවසර කළමනාකරණය කරන්න"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "පරිශීලක සහ අවසර කළමනාකරණ පද්ධතිය"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "අවසර කළමනාකරණය කරන්න"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "පද්ධති භූමිකාවන් සහ ආශ්‍රිත අවසර කළමනාකරණය කරන්න"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "පරිශීලකයන් කළමනාකරණය කර භූමිකාවන් පැවරීම"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "පරිශීලක එකතු කරන්න"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "නව පරිශීලක එකතු කරන්න"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "පරිශීලක විස්තර"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "පරිශීලක විස්තර බලන්න"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "පරිශීලක දත්ත බලන්න සහ භූමිකාවන් පවරන්න"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "භූමිකාව එක් කරන්න"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "භූමිකාව සංස්කරණය කරන්න"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "භූමිකාව මකන්න"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "භූමිකාව සුරකින්න"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "භූමිකාවේ නම"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "වත්මන් භූමිකාව"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "වත්මන් භූමිකාවන්"
+
+#~ msgid "rbac_role"
+#~ msgstr "භූමිකාව"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "අවසර එකතු කරන්න"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "අවසරය සංස්කරණය කරන්න"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "අවසරය මකන්න"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "අවසරය සුරකින්න"
+
+#~ msgid "rbac_permission"
+#~ msgstr "අවසරය"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "අවසරය"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "අවසර නාමය"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "අවසර කේතය"
+
+#~ msgid "rbac_module"
+#~ msgstr "මොඩියුලය"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "අවසර සඳහා භූමිකාවන් සම්බන්ධ කරන්න"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "භූමිකාවන්ට අවසර සම්බන්ධ කරන්න"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr "පරිශීලකයා සාර්ථකව සාදන ලද අතර, පිවිසුම් විස්තර ඔවුන්ගේ විද්‍යුත් තැපෑලට යවා ඇත"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "පරිශීලකයා සාර්ථකව නිර්මාණය කළ නමුත් ඊමේල් යැවීමට අසමත් විය. තැපැල් සැකසුම් පරීක්ෂා කරන්න"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "භූමිකාව සාර්ථකව නිර්මාණය කරන ලදී"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "අවසරය සාර්ථකව සාදන ලදී"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "භූමිකාව සාර්ථකව යාවත්කාලීන කරන ලදී"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "අවසරය සාර්ථකව යාවත්කාලීන කරන ලදී"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "භූමිකාව සාර්ථකව මකා දමන ලදී"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "අවසරය සාර්ථකව මකා ඇත"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "අවසරය භූමිකාවට සාර්ථකව සම්බන්ධ විය"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "භූමිකාවෙන් අවසරය සාර්ථකව ඉවත් කරන ලදී"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "පරිශීලක භූමිකාවන් සාර්ථකව යාවත්කාලීන කරන ලදී"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "භූමිකාව මකාදැමීම තහවුරු කරන්න"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "අවසර මකාදැමීම තහවුරු කරන්න"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "ඔබ භූමිකාව මකා දැමීමට සූදානම් වේ"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "ඔබ අවසරය මකා දැමීමට ආසන්නයි"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "මූලික භූමිකාව මකා දැමිය නොහැක"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "මූලික අවසරය මකා දැමිය නොහැක"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "මූලික භූමිකාව කේතය සංස්කරණය කළ නොහැක"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "මූලික අවසර කේතය සංස්කරණය කළ නොහැක"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr "මෙම අතුරු මුහුණතෙන් ප්‍රාථමික පරිශීලක භූමිකාවන් සංස්කරණය කළ නොහැක"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "මෙම භූමිකාවෙන් මූලික අවසරය ඉවත් කළ නොහැක"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "මෙම ක්‍රියාව පසුගමනය කළ නොහැක"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "පරිශීලක නාමය හෝ භූමිකාව අනුව සොයන්න"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "පරිශීලක නාමය හෝ අවසර ගණන අනුව සොයන්න"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr "අවසර බැලීමට සහ සම්බන්ධ කිරීමට වම් මෙනුවෙන් භූමිකාවක් තෝරන්න"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr "ලැයිස්තුවෙන් භූමිකාවක් තෝරන්න, පසුව පිරික්සුම් කොටු හරහා අවසර සක්රිය හෝ අක්රිය කරන්න"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "භූමිකාවන් තෝරන්න"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "මෙම පරිශීලකයාට භූමිකාවන් පවරා නැත"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "දැනට භූමිකාවන් නොමැත"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "දැනට පරිශීලකයන් නොමැත"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "කරුණාකර භූමිකාවේ නම සහ කේතය ඇතුළත් කරන්න"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "කරුණාකර අවසර කේතය සහ නම ඇතුළත් කරන්න"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "කරුණාකර කේතය සහ අවසරයේ නම ඇතුළත් කරන්න"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr "පරිශීලක දත්ත පුරවන්න; ගිණුමක් සාදා ඔවුන්ගේ විද්‍යුත් තැපෑලට පිවිසුම් විස්තර යවනු ලැබේ"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "භූමිකාව දත්ත පුරවා වෙනස්කම් සුරකින්න"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "අවසර දත්ත පුරවා වෙනස්කම් සුරකින්න"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr "පරිශීලකයා සඳහා අහඹු මුරපදයක් ජනනය කර ඔවුන්ගේ විද්‍යුත් තැපෑලට යවනු ලැබේ"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "ඔබගේ ගිණුම වේදිකාව මත නිර්මාණය කර ඇත"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "වේදිකාවේ ඔබගේ ගිණුම් දත්ත"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr "පුරනය වීමෙන් පසු ඔබගේ මුරපදය වෙනස් කිරීමට අපි නිර්දේශ කරමු"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr "පද්ධතියේ මෙම භූමිකාවේ කාර්යයන් පෙන්වන කෙටි විස්තරයක්"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr "පද්ධතිය තුළ මෙම අවසරය භාවිතා කරන විට පෙන්වන කෙටි විස්තරයක්"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "පිවිසුම් විස්තර යැවීමට විද්‍යුත් තැපෑල අවශ්‍ය වේ"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "දැනටමත් භාවිත කේත, කරුණාකර වෙනත් එකක් තෝරන්න"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "මෙම කේතය දැනටමත් වෙනත් අවසරයක් සඳහා භාවිතා කර ඇත"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr "දත්ත සමුදායේ අනුපිටපත් කේතය හේතුවෙන් අවසරය සුරැකීමට අසමත් විය"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "ඉල්ලීම සැකසීමේ දෝෂයකි: භූමිකාව හෝ අවසර දත්ත අතුරුදහන්"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "සම්පූර්ණ නම අවශ්‍යයි"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "පරිශීලක නාමය දැනටමත් භාවිතයේ ඇත"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "විද්‍යුත් තැපෑල දැනටමත් භාවිතයේ පවතී"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "දුරකථන අංකය දැනටමත් භාවිතයේ ඇත"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "මෙම පරිශීලක නාමය වෙන් කර ඇති අතර භාවිතා කළ නොහැක"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "මොඩියුලය අනුව අවසර කාණ්ඩගත කර ඇත"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "ක්රියාකාරී පරිශීලක"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "අක්රියයි"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "පරිශීලක තත්ත්වය යාවත්කාලීන කරන ලදී"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "අවසන් පිවිසුම"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "සබැඳි භූමිකාවන්"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "භූමිකාවන් වෙත ආපසු"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "අවසර වෙත ආපසු"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "පරිශීලක ලැයිස්තුව වෙත ආපසු"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "පරිශීලක ලැයිස්තුව වෙත ආපසු"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "පරිශීලක භූමිකාව (උදා."
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "නිශ්චිත අවසරය (උදා."
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "උදා., පද්ධති පරිපාලක"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "උදා."
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "වැනි කේතයන්හි භාවිතා වේ"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "ඇතුළත පරිශීලක අවසරය තහවුරු කිරීමට"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "පරිශීලකයා සඳහා ස්වයංක්‍රීයව"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr ", සහ එය ස්වයංක්‍රීයව ඒකාබද්ධ ආකෘතියකින් සුරකිනු ඇත"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "රටාව වඩාත් කැමති වේ"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "ඔබට ඕනෑම ආකෘතියකින් අංකය ඇතුළත් කළ හැකිය (05/5 /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "විකල්ප"
+
+#~ msgid "rbac_aw"
+#~ msgstr "හෝ"
+
+#~ msgid "rbac_aam"
+#~ msgstr "ජෙනරාල්"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "හවුල්කරු"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "සහභාගිකයා"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "සුපරීක්ෂක"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "කාර්යභාරයක් පැවරෙනු ඇත"
+
+#~ msgid "rbac_5"
+#~ msgstr "හෝ 5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "පරිශීලකයන් බලන්න"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "භූමිකාවන් බලන්න"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "අවසර බලන්න"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "පරිශීලක සංස්කරණය කරන්න"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "පරිශීලක මකන්න"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "භූමිකාව සංස්කරණය කරන්න"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "භූමිකාව මකන්න"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "අවසරය සංස්කරණය කරන්න"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "අවසරය මකන්න"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "ප්රවේශ උපකරණ පුවරුව"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "ප්‍රවේශ විශ්ලේෂණ"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "Quran Studio වෙත පිවිසෙන්න"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "ප්රවේශ සන්නිවේදනය"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "ප්‍රවේශ දායකත්ව"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "ප්රවේශ දැනුම්දීම්"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "යැවීමේ නාලිකා වෙත පිවිසෙන්න"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "පිවිසුම් සැකසුම් කළමනාකරණය කරන්න"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "ව්‍යාපාර බලන්න"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "පණිවිඩ බලන්න"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "සම්බන්ධතා පණිවිඩ බලන්න"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "WhatsApp පණිවිඩ බලන්න"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "අභ්‍යන්තර දැනුම්දීම් බලන්න"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "Dispatch Log බලන්න"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "ග්‍රාහකයින් බලන්න"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "ඊමේල් බලන්න"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "ව්යාපෘති කළමනාකරණය කරන්න"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "සම්බන්ධතා පණිවිඩයක් සාදන්න"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "දැනුම්දීම යවන්න"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "Reciter එකතු කරන්න"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "Reciter දත්ත සංස්කරණය කරන්න"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "Reciter දත්ත මකන්න"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "අල් කුර්ආන් ඛණ්ඩාංක"
+
+#~ msgid "rbac_action"
+#~ msgstr "මෙම ක්රියාව"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "පරිශීලක ගණන"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "භූමිකා ගණන"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "අවසර ගණන"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "ලියාපදිංචි පරිශීලකයන්"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "ව්‍යුහගත භූමිකාවන්"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "ක්රියාකාරී අවසර"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr "භූමිකාව ව්‍යුහය සංවිධානය කිරීම සහ පද්ධතිය තුළ වගකීම් බෙදා හැරීම"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "සැකසීම්"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "දායකත්ව"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "මොඩියුල සහ සියුම් මෙහෙයුම් සඳහා ප්රවේශය පාලනය කරන්න"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "පරිශීලක නාමය සහ මුරපදය අවශ්‍ය වේ"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "පද්ධති සාමාන්‍යාධිකාරී"
+
+#~ msgid "accounts_system"
+#~ msgstr "පද්ධතිය"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "අනතුරු ඇඟවීමේ මධ්යස්ථානය"
+
+#~ msgid "notification_new"
+#~ msgstr "අලුත්"
+
+#~ msgid "notification_alert"
+#~ msgstr "අනතුරු ඇඟවීම"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "කියවන්න"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "දැනුම්දීම කියවා ඇත"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "දැනුම්දීම යවන්න"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "අනතුරු ඇඟවීම යවන්න"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "නව දැනුම්දීමක් සාදන්න"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "දැනුම්දීම කළමනාකරණය කරන්න"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "පද්ධතියේ පරිශීලකයින්ට අභ්‍යන්තර දැනුම්දීම් යවන්න"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "දැනුම්දීම් පෙළ මෙහි ලියන්න"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "සාර්ථකව යවන ලදී"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "දැනුම්දීම් සාරාංශය"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "දැනුම්දීම් සාරාංශය"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "දැනට දැනුම්දීම් නොමැත"
+
+#~ msgid "notification_no_text"
+#~ msgstr "පෙළ නැත"
+
+#~ msgid "notification_alns"
+#~ msgstr "පෙළ"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "පද්ධතිය තුළ"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "පද්ධති දැනුම්දීම්"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "පද්ධතිය සහ අන්තර් ක්රියාකාරී දැනුම්දීම්"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "පද්ධතිය තුළ සිට පරිශීලකයාට දැනුම්දීම් යවනු ලැබේ"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "විවිධ නාලිකා හරහා යවන ලද දැනුම්දීම් පිළිබඳ ඉක්මන් දළ විශ්ලේෂණය"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "මෙම පිටුවෙහි දැනුම්දීම් ගණන් කෙරේ"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "ගැළපෙන ලබන්නන් නැත"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "දැන් ලැබෙන පණිවිඩ වලින් නොවේ"
+
+#~ msgid "notifications_latest"
+#~ msgstr "පද්ධතිය තුළ ලැබුණු නවතම දැනුම්දීම් (නවතම පළමු, උපරිම 10)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "දැනුම්දීමේ මධ්යස්ථානය"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "දැනුම්දීම් යවා ඇත"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "දැනුම්දීම් සාරාංශය"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "විවිධ නාලිකා හරහා යවන ලද දැනුම්දීම් පිළිබඳ ඉක්මන් දළ විශ්ලේෂණය"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "දැනුම්දීම යවන්න"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "අභ්‍යන්තර දැනුම්දීම සාර්ථකව යවා ඇත"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "උද්ඝෝෂණ"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "ප්‍රචාරණ යවා ඇත"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "මුළු ව්‍යාපාර"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "ව්‍යාපාරයේ මාතෘකාව"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "ව්‍යාපාරය සාර්ථකව නිර්මාණය කරන ලදී"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "ව්‍යාපාරය සාර්ථකව යවා ඇත"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr "මෙම ව්‍යාපාරය සඳහා ටෙලිග්‍රාම් නාලිකාවක් හෝ කණ්ඩායමක් සබල කර නැත"
+
+#~ msgid "communication_message_text"
+#~ msgstr "පණිවිඩ පෙළ"
+
+#~ msgid "communication_title_message"
+#~ msgstr "පණිවිඩ මාතෘකාව"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "රූපය (විකල්ප)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "එහි රූපයක් තිබේ නම්"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "රූපයක් නැත්නම්"
+
+#~ msgid "communication_send_post"
+#~ msgstr "තැපැල් යවන්න"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "ටෙලිග්‍රාම් යවන්න"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "ටෙලිග්‍රාම් - නාලිකාව"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "විදුලි පණිවුඩ - කණ්ඩායම"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "කණ්ඩායම සහ නාලිකාව සඳහා"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "ෆේස්බුක්"
+
+#~ msgid "communication_platform"
+#~ msgstr "වේදිකාව"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "නාලිකාව"
+
+#~ msgid "communication_channels"
+#~ msgstr "නාලිකා"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "සමාජ සන්නිවේදනය"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "සමාජ සන්නිවේදනය කළමනාකරණය කරන්න"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "සමාජ සන්නිවේදන සාරාංශය"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "මාතෘකාව හෝ පෙළ අනුව සොයන්න"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "මාතෘකාව හෝ නාලිකාව අනුව සොයන්න"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "දිනය යවන්න"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "තත්ත්වය යවන්න"
+
+#~ msgid "communication_sent"
+#~ msgstr "යවා ඇත"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "යවා ඇත"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "කෙටුම්පත"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "කාලසටහන්ගත කර ඇත"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "යවමින්..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "යැවීමට අසමත් විය"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "බලාගෙන ඉන්නවා"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "දෝෂය (ඇත්නම්)"
+
+#~ msgid "communication_log"
+#~ msgstr "ලොග් කරන්න"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "බෙදාහැරීමේ ලොගය"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr "එක් එක් ව්‍යාපාරය සහ සම්බන්ධතා නාලිකාව සඳහා යැවීමේ මෙහෙයුම් ලොගය"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "දැනට යැවීමේ ලඝු-සටහන් නොමැත"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "භාවිතා කරන්න"
+
+#~ msgid "communication_drafts"
+#~ msgstr "කෙටුම්පත්"
+
+#~ msgid "communication_qryba"
+#~ msgstr "ඉක්මනින්"
+
+#~ msgid "messages"
+#~ msgstr "පණිවිඩ"
+
+#~ msgid "messaging_messages"
+#~ msgstr "පණිවිඩ"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "සාමූහික පණිවිඩය"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "සාමූහික පණිවිඩ"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "කෙටි පණිවිඩය"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "ජංගම පණිවිඩය"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "SMS පණිවිඩ"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "ජංගම පණිවිඩ විස්තර"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "දැනට ජංගම පණිවිඩ නොමැත"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "WhatsApp පණිවිඩය"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "WhatsApp පණිවිඩ විස්තර"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "WhatsApp දැනුම්දීම්"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "දැනට ලොගයේ WhatsApp පණිවිඩ නොමැත"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr "පරිශීලකයින්ට අදාළ පද්ධතිය හරහා යවන ලද WhatsApp පණිවිඩ වල ලොගය බලන්න"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "ඊමේල් කරන්න"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "සාමාන්ය ඊමේල් පණිවිඩය"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "සාමාන්‍ය විද්‍යුත් තැපැල් පණිවිඩයක් සාදන්න"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "දැනට ඊමේල් පණිවිඩ නොමැත"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "පණිවිඩ පෙළ (ඊමේල්)"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "ඊමේල් යවා ඇත"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "විද්‍යුත් තැපෑල සාදා යැවීමට බලා සිටී"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "මෙම පණිවිඩය ඊමේල් එකක් ලෙස පමණක් යවනු ලැබේ; ඔබට හැඩතල ගැන්වීම, ලැයිස්තු සහ සබැඳි "
+#~ "භාවිතා කළ හැක"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr ""
+#~ "මෙම පණිවිඩය මූලික වශයෙන් ඉලක්ක කර ඇත්තේ පද්ධතියේ ලියාපදිංචි වී ඇති පුවත් පත්‍රිකා ග්‍රාහකයින් "
+#~ "වෙතය"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "සියලුම පද්ධති භාවිතා කරන්නන් එකතු කිරීමේ විකල්පය සමඟ පුවත් පත්‍රිකා ග්‍රාහකයින්ට සාමාන්‍ය විද්‍යුත් "
+#~ "තැපැල් සටහනක් යවන්න"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "නව පණිවිඩයක් සාදන්න"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "පණිවිඩයක් යවන්න"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "පණිවිඩ අන්තර්ගතය"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "මෙම පණිවිඩයේ අන්තර්ගතය නැත"
+
+#~ msgid "messaging_subject"
+#~ msgstr "විෂය"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "මාතෘකාව සහ දත්ත"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "මාතෘකාව සහ පණිවිඩ පෙළ ඇතුළත් කළ යුතුය"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "පණිවිඩ පෙළ මෙහි ලියන්න"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "ඊමේල් පණිවිඩ පෙළ මෙහි ලියන්න"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "පණිවිඩ වර්ගය"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "මාතෘකා රහිත"
+
+#~ msgid "messaging_sender"
+#~ msgstr "යවන්නා"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "යවන්නා"
+
+#~ msgid "messaging_user"
+#~ msgstr "පරිශීලක"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "ලබන්නන්"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "ලබන්නන්ගේ ලැයිස්තුව"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "ලබන්නන් බලන්න"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "පරිශීලකයන් තෝරන්න"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "සියලුම පරිශීලකයින්"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "පුවත් පත්‍රිකා ග්‍රාහකයින් (පෙරනිමියෙන්)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "විශේෂිත පරිශීලකයින්"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "ලැයිස්තුවෙන් පරිශීලකයින් එකක් හෝ කිහිපයක් තෝරන්න"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "අතිරේක ලබන්නන්ගේ විකල්ප"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr "ප්‍රවෘත්ති පත්‍ර ග්‍රාහකයින් සමඟ සියලුම පද්ධති පරිශීලකයින් එක් කරන්න"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr ""
+#~ "ඔබට පණිවිඩය සියලුම ලියාපදිංචි පද්ධති පරිශීලකයන් වෙත ළඟා වීමට අවශ්‍ය නම් මෙම විකල්පය සක්‍රීය "
+#~ "කරන්න"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "ලබන්නන් නැත"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "මෙම පණිවිඩය සඳහා ලබන්නන් නැත"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "පණිවිඩය යැවීමට ලබන්නන් නැත"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "කිසිම ලබන්නෙකුට ඊමේල් ලිපිනයක් නොමැත"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "යැවීමට බලා සිටින ලබන්නන් නැත"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "නිශ්චිත නිර්ණායකවලට ගැලපෙන ලබන්නන් නැත"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "ලබන්නන් ගණන"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "යවන්නා, මාතෘකාව හෝ පෙළ අනුව සොයන්න"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "යැවීමේ නාලිකාව"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "යැවීමේ නාලිකා"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "යැවීමේ නාලිකා කළමනාකරණය කරන්න"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr "ඊමේල් සහ අභ්‍යන්තර පද්ධති ඇඟවීම් හරහා දැනුම්දීම් කළමනාකරණය කර යැවීම"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "යැවීමේ ලඝු-සටහන්"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "දැනුම්දීම් ලොග"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "තවම යැවීමේ ලඝු-සටහන් නොමැත"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "යැවීමේ වේලාව"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "පණිවිඩ දත්ත, ලබන්නන්, සහ යැවීමේ තත්ත්වය බලන්න"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "ජංගම පණිවිඩ දත්ත සහ අන්තර්ගතය බලන්න"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "WhatsApp පණිවිඩ දත්ත සහ අන්තර්ගතය බලන්න"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "ලබන්නන් ගණන සහ තත්ත්‍වය සමඟ තොග ඊමේල් පණිවිඩ බලන්න"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "තත්ත්‍වය සමඟ එක් එක් ලබන්නා සඳහා සියලු යැවීමේ උත්සාහයන් බලන්න"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "පණිවිඩ බෙදා හැරීම"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "පණිවිඩ බෙදාහැරීම්"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "කියවන්න"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "නොකියවූ"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "දෝෂ පණිවිඩය"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "අසාර්ථකත්වය පවතී"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "ව්‍යාපාරය"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "පණිවිඩ ලොගය"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "පද්ධතිය හරහා පරිශීලකයින්ට යවනු ලැබේ"
+
+#~ msgid "messaging_action"
+#~ msgstr "ක්‍රියාව"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "ඊමේල් / හැඳුනුම්කාරකය"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "ප්‍රාථමික කාණ්ඩය"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "තනි පුද්ගල"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "සාමූහික"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "නිශ්චිතව දක්වා නැත"
+
+#~ msgid "messaging_first"
+#~ msgstr "පළමුව"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "උත්සාහ කරන්න"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "සැපයුම්කරු වෙත යවා ඇති පරිදි මුද්‍රණ ඉල්ලීම"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "අමු පිළිතුර මුද්‍රණය කරන්න"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "පිළිතුර පාඨමය නම්"
+
+#~ msgid "quran_studio"
+#~ msgstr "කුර්ආන් චිත්‍රාගාරය"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "කුර්ආන් ස්ටුඩියෝ කළමනාකරණය කරන්න"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "Reciters දත්ත කළමනාකරණය කරන්න"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "පද්ධතිය තුළ ඇති පාඨකයන්ගේ දත්ත කළමනාකරණය කරන්න"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "Reciters දත්ත"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "Reciters පිටුව"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "දැනට කියවන දත්ත නොමැත"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "Reciter සාර්ථකව එකතු කරන ලදී"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "Reciter දත්ත සාර්ථකව යාවත්කාලීන කරන ලදී"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "Reciter සාර්ථකව මකන ලදී"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "Reciter මකන්න"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "ඔබට මෙම පාඨකයා මැකීමට අවශ්‍ය බව විශ්වාසද?"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "අරාබි නම"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "ඉංග්රීසි නම"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "කේතය"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "කේතය සහ අරාබි නම අවශ්ය වේ"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "Ayah ඛණ්ඩාංක සංස්කාරක"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "ඛණ්ඩාංක සංස්කාරක පිටුව"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "ඛණ්ඩාංක"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "ඛණ්ඩාංක සකසන්න"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "ලෝඩ් ඛණ්ඩාංක"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "ඛණ්ඩාංක ලබා ගන්න"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "ඛණ්ඩාංක සුරකින්න"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "සුරැකි ඛණ්ඩාංක සංස්කරණය කරන්න"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "සංස්කරණය සුරකින්න"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "අලුතින් සුරකින්න"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "පිටුවෙහි ayah ඛණ්ඩාංක යාවත්කාලීන කිරීම"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "මෙම පිටුවෙහි මෙම ayah සඳහා ඛණ්ඩාංක කිසිවක් සුරැක නැත"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "සූරා සහ ayah අංකය ඇතුළත් කර \"Load Coordinates\" ක්ලික් කරන්න. මෙම ayah සඳහා "
+#~ "ගබඩා කර ඇති සෘජුකෝණාස්‍ර සංස්කරණය කිරීම සහ සුරැකීම සඳහා මෙම පිටුවේ ප්‍රදර්ශනය කෙරේ."
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "ayah හි කොටසක් නියෝජනය කරන සෘජුකෝණාස්රයක් ඇඳීමට Mushaf මත මූසිකය අදින්න. ඔබට එකම "
+#~ "ayah සඳහා සෘජුකෝණාස්රා කිහිපයක් ඇඳිය ​​හැකිය."
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "කරුණාකර සූරා සහ අයා අංකය ඇතුළත් කරන්න"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "පූරණය කිරීමට පෙර කරුණාකර සූරතය සහ අයා අංකය ඇතුළත් කරන්න"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "පැහැදිලි සෘජුකෝණාස්ර"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "සුරැකීමට සෘජුකෝණාස්‍ර නැත"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "සූරත අංකය"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "Ayah අංකය"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "මුෂාෆ් පිටුව"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "වත්මන් පිටුව"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "ඊළඟ පිටුව"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "පෙර පිටුව"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "රූපය"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "ක්රියාවන්"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "උදා., 2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "උදා., 6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "මුල් පිටුව"
+
+#~ msgid "overview"
+#~ msgstr "දළ විශ්ලේෂණය"
+
+#~ msgid "summary"
+#~ msgstr "සාරාංශය"
+
+#~ msgid "important_services"
+#~ msgstr "ප්රධාන සේවා"
+
+#~ msgid "status"
+#~ msgstr "තත්ත්වය"
+
+#~ msgid "actions"
+#~ msgstr "ක්රියාවන්"
+
+#~ msgid "content"
+#~ msgstr "අන්තර්ගතය"
+
+#~ msgid "title"
+#~ msgstr "මාතෘකාව"
+
+#~ msgid "created_at"
+#~ msgstr "නිර්මාණය කරන දිනය"
+
+#~ msgid "updated_at"
+#~ msgstr "අවසන් වරට යාවත්කාලීන කරන ලදී"
+
+#~ msgid "next"
+#~ msgstr "ඊළඟ"
+
+#~ msgid "previous"
+#~ msgstr "පෙර"
+
+#~ msgid "back"
+#~ msgstr "ආපසු"
+
+#~ msgid "save"
+#~ msgstr "සුරකින්න"
+
+#~ msgid "save_changes"
+#~ msgstr "වෙනස්කම් සුරකින්න"
+
+#~ msgid "add"
+#~ msgstr "එකතු කරන්න"
+
+#~ msgid "create"
+#~ msgstr "නිර්මාණය කරන්න"
+
+#~ msgid "update"
+#~ msgstr "යාවත්කාලීන කරන්න"
+
+#~ msgid "edit"
+#~ msgstr "සංස්කරණය කරන්න"
+
+#~ msgid "delete"
+#~ msgstr "මකන්න"
+
+#~ msgid "cancel"
+#~ msgstr "අවලංගු කරන්න"
+
+#~ msgid "confirm"
+#~ msgstr "තහවුරු කරන්න"
+
+#~ msgid "view"
+#~ msgstr "බලන්න"
+
+#~ msgid "send"
+#~ msgstr "යවන්න"
+
+#~ msgid "send_now"
+#~ msgstr "දැන් එවන්න"
+
+#~ msgid "sent"
+#~ msgstr "යවා ඇත"
+
+#~ msgid "failed"
+#~ msgstr "අසාර්ථකයි"
+
+#~ msgid "pending"
+#~ msgstr "පොරොත්තුවෙන්"
+
+#~ msgid "no_data"
+#~ msgstr "දත්ත නැත"
+
+#~ msgid "settings"
+#~ msgstr "සැකසීම්"
+
+#~ msgid "system_settings"
+#~ msgstr "පද්ධති සැකසුම්"
+
+#~ msgid "security"
+#~ msgstr "ආරක්ෂාව"
+
+#~ msgid "zoom_out"
+#~ msgstr "විශාලනය කරන්න"
+
+#~ msgid "app_arabic"
+#~ msgstr "අරාබි"
+
+#~ msgid "app_urdu"
+#~ msgstr "උර්දු"
+
+#~ msgid "web_alkl"
+#~ msgstr "සියල්ල"
+
+#~ msgid "web_fqt"
+#~ msgstr "පමණයි"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "පමණක්, හෝ"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "පමණක්, හෝ දෙකම"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "සියලු හිමිකම් ඇවිරිණි"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "කුර්ආන් වෙබ් අඩවිය"
+
+#~ msgid "required_field"
+#~ msgstr "මෙම ක්ෂේත්රය අවශ්යයි"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "දුරකථන අංකය අවශ්‍යයි"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "වලංගු නොවන දුරකථන අංක ආකෘතිය"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "වලංගු නොවන දුරකථන අංකයක්"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "දුරකථන අංකය කළ නොහැක"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "වලංගු නොවන ජංගම දුරකථන අංක ආකෘතිය"
+
+#~ msgid "core_ay"
+#~ msgstr "හෝ ඕනෑම"
+
+#~ msgid "core_mnasb"
+#~ msgstr "සුදුසුයි"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr "අපි ගණන් කරන්නේ පොදු පැමිණීම් පමණි (උදා. මුල් පිටුව)"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "පිටුවකට පේළි ගණන"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "වාර්තා ගණන"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "සමාවන්න, ඔබට මෙම පිටුවට ප්‍රවේශ වීමට අවසර නැත"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "ප්‍රවේශය තහනම්"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "තීරු උස (දෘෂ්‍ය පාලනය)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "ටෝස්ට් සඳහා පෙරනිමි කාලසීමාව මිලි තත්පර වලින්"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "මෙම ටෝස්ට් සඳහා නිශ්චිත කාල සීමාව (පෙරනිමිය අභිබවා යයි)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "පෙරනිමි උපරිම දසුන (උදා. 20)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "ස්ථාවර පළල (භාවිතා කිරීමට හිස්ව තබන්න)"
+
+#~ msgid "web_notification"
+#~ msgstr "දැනුම්දීම"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "පසුතිරය ක්ලික් මත වසන්න"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "අවසාන යාවත්කාලීනයෙන් තත්පර 5කට පසුව සමමුහුර්ත කරන්න"
+
+#~ msgid "quran_nav"
+#~ msgstr "කුරානය"
+
+#~ msgid "quran_text"
+#~ msgstr "පෙළ"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "පෙළ බෙදන්න"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "ඉතිරි පෙළ"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "අතර"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "අප අමතන්න පෝරමයෙන් නව පණිවිඩයක්"
+
+#~ msgid "services_message_text"
+#~ msgstr "පණිවිඩ පෙළ:"
+
+#~ msgid "surah_3"
+#~ msgstr "අලි ඉම්රාන්"
+
+#~ msgid "surah_4"
+#~ msgstr "අන්-නිසා'"
+
+#~ msgid "surah_5"
+#~ msgstr "අල්-මායිදා"
+
+#~ msgid "surah_6"
+#~ msgstr "අල්-අනාම්"
+
+#~ msgid "surah_7"
+#~ msgstr "අල්-අරාෆ්"
+
+#~ msgid "surah_8"
+#~ msgstr "අල්-අන්ෆාල්"
+
+#~ msgid "surah_9"
+#~ msgstr "අත්-තව්බා"
+
+#~ msgid "surah_10"
+#~ msgstr "යුනුස්"
+
+#~ msgid "surah_11"
+#~ msgstr "හඩ්"
+
+#~ msgid "surah_12"
+#~ msgstr "යූසුෆ්"
+
+#~ msgid "surah_13"
+#~ msgstr "අර්-රාඩ්"
+
+#~ msgid "surah_14"
+#~ msgstr "ඉබ්‍රාහිම්"
+
+#~ msgid "surah_15"
+#~ msgstr "අල්-හිජ්ර්"
+
+#~ msgid "surah_16"
+#~ msgstr "අන්-නාල්"
+
+#~ msgid "surah_17"
+#~ msgstr "අල්-ඉස්රා'"
+
+#~ msgid "surah_18"
+#~ msgstr "අල්-කහ්ෆ්"
+
+#~ msgid "surah_19"
+#~ msgstr "මරියම්"
+
+#~ msgid "surah_20"
+#~ msgstr "ටහා"
+
+#~ msgid "surah_21"
+#~ msgstr "අල්-අන්බියා'"
+
+#~ msgid "surah_22"
+#~ msgstr "අල්-හජ්"
+
+#~ msgid "surah_23"
+#~ msgstr "අල්-මුමිනුන්"
+
+#~ msgid "surah_24"
+#~ msgstr "අන්-නූර්"
+
+#~ msgid "surah_25"
+#~ msgstr "අල්-ෆුර්කාන්"
+
+#~ msgid "surah_26"
+#~ msgstr "අෂ්-ෂුආරා"
+
+#~ msgid "surah_27"
+#~ msgstr "අන්-නාම්ල්"
+
+#~ msgid "surah_28"
+#~ msgstr "අල්-කසාස්"
+
+#~ msgid "surah_29"
+#~ msgstr "Al-'Ankabut"
+
+#~ msgid "surah_30"
+#~ msgstr "Ar-Rum"
+
+#~ msgid "surah_31"
+#~ msgstr "ලුක්මාන්"
+
+#~ msgid "surah_32"
+#~ msgstr "අස්-සජ්දා"
+
+#~ msgid "surah_33"
+#~ msgstr "අල්-අහ්සාබ්"
+
+#~ msgid "surah_34"
+#~ msgstr "සබා'"
+
+#~ msgid "surah_35"
+#~ msgstr "Fatir"
+
+#~ msgid "surah_36"
+#~ msgstr "යා-සින්"
+
+#~ msgid "surah_37"
+#~ msgstr "As-Saffat"
+
+#~ msgid "surah_38"
+#~ msgstr "දුකයි"
+
+#~ msgid "surah_39"
+#~ msgstr "අස්-සුමාර්"
+
+#~ msgid "surah_40"
+#~ msgstr "ගෆීර්"
+
+#~ msgid "surah_41"
+#~ msgstr "ෆුසිලට්"
+
+#~ msgid "surah_42"
+#~ msgstr "අෂ්-ෂුරා"
+
+#~ msgid "surah_43"
+#~ msgstr "අස්-සුක්රුෆ්"
+
+#~ msgid "surah_44"
+#~ msgstr "අද්-දුඛාන්"
+
+#~ msgid "surah_45"
+#~ msgstr "අල්-ජාතිය"
+
+#~ msgid "surah_46"
+#~ msgstr "අල්-අහ්කාෆ්"
+
+#~ msgid "surah_47"
+#~ msgstr "මුහම්මද්"
+
+#~ msgid "surah_48"
+#~ msgstr "අල්-ෆාත්"
+
+#~ msgid "surah_49"
+#~ msgstr "අල්-හුජුරාත්"
+
+#~ msgid "surah_50"
+#~ msgstr "කාෆ්"
+
+#~ msgid "surah_51"
+#~ msgstr "Adh-Dhariyat"
+
+#~ msgid "surah_52"
+#~ msgstr "At-Tur"
+
+#~ msgid "surah_53"
+#~ msgstr "අන්-නජ්ම්"
+
+#~ msgid "surah_54"
+#~ msgstr "අල්-කමර්"
+
+#~ msgid "surah_55"
+#~ msgstr "අර්-රහ්මාන්"
+
+#~ msgid "surah_56"
+#~ msgstr "අල්-වාකියා"
+
+#~ msgid "surah_57"
+#~ msgstr "අල්-හදීඩ්"
+
+#~ msgid "surah_58"
+#~ msgstr "අල්-මුජාඩිලා"
+
+#~ msgid "surah_59"
+#~ msgstr "අල්-හෂ්ර්"
+
+#~ msgid "surah_60"
+#~ msgstr "අල්-මුම්තානාහ්"
+
+#~ msgid "surah_61"
+#~ msgstr "As-Saff"
+
+#~ msgid "surah_62"
+#~ msgstr "අල්-ජුමුආ"
+
+#~ msgid "surah_63"
+#~ msgstr "අල්-මුනාෆිකුන්"
+
+#~ msgid "surah_64"
+#~ msgstr "At-Taghabun"
+
+#~ msgid "surah_65"
+#~ msgstr "අත්-තලාක්"
+
+#~ msgid "surah_66"
+#~ msgstr "At-Tahrim"
+
+#~ msgid "surah_67"
+#~ msgstr "අල්-මුල්ක්"
+
+#~ msgid "surah_68"
+#~ msgstr "අල්-කලාම්"
+
+#~ msgid "surah_69"
+#~ msgstr "අල්-හකාහ්"
+
+#~ msgid "surah_70"
+#~ msgstr "අල්-මආරිජ්"
+
+#~ msgid "surah_71"
+#~ msgstr "නූහ්"
+
+#~ msgid "surah_72"
+#~ msgstr "අල්-ජින්"
+
+#~ msgid "surah_73"
+#~ msgstr "අල්-මුසම්මිල්"
+
+#~ msgid "surah_74"
+#~ msgstr "අල්-මුද්දත්තීර්"
+
+#~ msgid "surah_75"
+#~ msgstr "අල්-කියාමා"
+
+#~ msgid "surah_76"
+#~ msgstr "අල්-ඉන්සාන්"
+
+#~ msgid "surah_77"
+#~ msgstr "අල්-මුර්සලාත්"
+
+#~ msgid "surah_78"
+#~ msgstr "අන්-නබා'"
+
+#~ msgid "surah_79"
+#~ msgstr "අන්-නාසිඅත්"
+
+#~ msgid "surah_80"
+#~ msgstr "'අබස"
+
+#~ msgid "surah_81"
+#~ msgstr "අත්-තක්විර්"
+
+#~ msgid "surah_82"
+#~ msgstr "අල්-ඉන්ෆිටාර්"
+
+#~ msgid "surah_83"
+#~ msgstr "අල්-මුටාෆිෆින්"
+
+#~ msgid "surah_84"
+#~ msgstr "අල්-ඉන්ෂිකාක්"
+
+#~ msgid "surah_85"
+#~ msgstr "අල්-බුරුජ්"
+
+#~ msgid "surah_86"
+#~ msgstr "අත්-තාරික්"
+
+#~ msgid "surah_87"
+#~ msgstr "අල්-අ'ලා"
+
+#~ msgid "surah_88"
+#~ msgstr "අල්-ගෂියා"
+
+#~ msgid "surah_89"
+#~ msgstr "අල්-ෆජ්ර්"
+
+#~ msgid "surah_90"
+#~ msgstr "අල්-බලාඩ්"
+
+#~ msgid "surah_91"
+#~ msgstr "අෂ්-ෂාම්ස්"
+
+#~ msgid "surah_92"
+#~ msgstr "අල්-ලයිල්"
+
+#~ msgid "surah_93"
+#~ msgstr "අද්-දුහා"
+
+#~ msgid "surah_94"
+#~ msgstr "Ash-Sharh"
+
+#~ msgid "surah_95"
+#~ msgstr "ඇට්-ටින්"
+
+#~ msgid "surah_96"
+#~ msgstr "අල්-අලක්"
+
+#~ msgid "surah_97"
+#~ msgstr "අල්-කද්ර්"
+
+#~ msgid "surah_98"
+#~ msgstr "අල්-බයිනා"
+
+#~ msgid "surah_99"
+#~ msgstr "Az-Zalzalah"
+
+#~ msgid "surah_100"
+#~ msgstr "අල්-අදියත්"
+
+#~ msgid "surah_101"
+#~ msgstr "අල්-කරියා"
+
+#~ msgid "surah_102"
+#~ msgstr "අට්-ටකතුර්"
+
+#~ msgid "surah_103"
+#~ msgstr "අල්-'අසර්"
+
+#~ msgid "surah_104"
+#~ msgstr "අල්-හුමාසා"
+
+#~ msgid "surah_105"
+#~ msgstr "අල්-ෆිල්"
+
+#~ msgid "surah_106"
+#~ msgstr "කුරේෂ්"
+
+#~ msgid "surah_107"
+#~ msgstr "අල්-මඋන්"
+
+#~ msgid "surah_108"
+#~ msgstr "අල්-කවුතාර්"
+
+#~ msgid "surah_109"
+#~ msgstr "අල්-කෆිරුන්"
+
+#~ msgid "surah_110"
+#~ msgstr "අන්-නසර්"
+
+#~ msgid "surah_111"
+#~ msgstr "අල්-මසාඩ්"
+
+#~ msgid "surah_112"
+#~ msgstr "අල්-ඉක්ලාස්"
+
+#~ msgid "surah_113"
+#~ msgstr "අල්-ෆලාක්"
+
+#~ msgid "surah_114"
+#~ msgstr "අන්-නාස්"
+
+#~ msgid "contents"
+#~ msgstr "අන්තර්ගතය"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "ප්‍රවේශ්‍යතාව"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "අකුරු ප්‍රමාණය වැඩි කරන්න"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "අකුරු ප්‍රමාණය අඩු කරන්න"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "ඉහළ පරස්පරතාව"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "අඳුරු මාදිලිය"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "කියවීමේ මාදිලිය"
+
+#~ msgid "a11y_reset"
+#~ msgstr "සැකසුම් යළි පිහිටුවන්න"
+
+#~ msgid "select_translation"
+#~ msgstr "පරිවර්තනය තෝරන්න"
+
+#~ msgid "select_surah"
+#~ msgstr "සූරතය තෝරන්න"
+
+#~ msgid "copy_ayah"
+#~ msgstr "පදය පිටපත් කරන්න"
+
+#~ msgid "share_ayah"
+#~ msgstr "පදය බෙදා ගන්න"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "පිටු සලකුණු පදය"
+
+#~ msgid "play_ayah"
+#~ msgstr "ශ්‍රව්‍ය වාදනය කරන්න"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "පදය සුරකින ලදී"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "සුරැකීමෙන් ඉවත් කරන ලදී"
+
+#~ msgid "no_translation_available"
+#~ msgstr "පරිවර්තනයක් නොමැත"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "ආරම්භ කිරීමට සූරතයක් තෝරන්න"
+
+#~ msgid "app_download_title"
+#~ msgstr "Wird යෙදුම බාගන්න"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "ඔබගේ උපාංගයේ සම්පූර්ණ කුර්ආන් අත්දැකීමක්"
+
+#~ msgid "audio_language"
+#~ msgstr "ශ්රව්ය භාෂාව"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "අද වයිර්ඩ්"
+
+#~ msgid "home_this_week"
+#~ msgstr "මෙම සතිය"
+
+#~ msgid "home_your_wird"
+#~ msgstr "ඔබේ වයිර්ඩ්"
+
+#~ msgid "home_progress"
+#~ msgstr "ප්‍රගතිය"
+
+#~ msgid "home_days_progress"
+#~ msgstr "දින 7න් 4ක්"
+
+#~ msgid "day_sat"
+#~ msgstr "සෙනසුරාදා"
+
+#~ msgid "day_sun"
+#~ msgstr "හිරු"
+
+#~ msgid "day_mon"
+#~ msgstr "සඳු"
+
+#~ msgid "day_tue"
+#~ msgstr "අඟහරුවාදා"
+
+#~ msgid "day_wed"
+#~ msgstr "බදාදා"
+
+#~ msgid "day_thu"
+#~ msgstr "බ්රහස්පතින්දා"
+
+#~ msgid "day_fri"
+#~ msgstr "සිකු"
+
+#~ msgid "home_today_wird"
+#~ msgstr "අද වයිර්ඩ්"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "විසින් පාරායනය වාදනය කරන්න"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "පිරිසිදු හඬ"
+
+#~ msgid "home_tarteel"
+#~ msgstr "ටාටෙල් පාරායනය"
+
+#~ msgid "home_khashi"
+#~ msgstr "කැප වූ පාරායනය"

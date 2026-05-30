@@ -1,0 +1,3612 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "Liên hệ với chúng tôi"
+
+msgid "contact_page_description"
+msgstr "Hãy liên hệ với chúng tôi, chúng tôi sẵn sàng phục vụ bạn"
+
+msgid "contact_intro_text"
+msgstr ""
+"Chúng tôi rất vui khi bạn liên hệ với nền tảng Wird Qur'an. Chúng tôi cố "
+"gắng phục vụ Sách của Allah và tạo điều kiện cho việc đọc nó."
+
+msgid "name"
+msgstr "Tên"
+
+msgid "enter_your_name"
+msgstr "Nhập tên của bạn"
+
+msgid "email"
+msgstr "E-mail"
+
+msgid "your_message"
+msgstr "Tin nhắn của bạn"
+
+msgid "write_your_message_here"
+msgstr "Viết yêu cầu hoặc tin nhắn của bạn ở đây"
+
+msgid "send_message"
+msgstr "Gửi tin nhắn"
+
+msgid "message_sent"
+msgstr "Đã gửi tin nhắn"
+
+msgid "message_sent_successfully"
+msgstr "Tin nhắn đã được gửi thành công"
+
+msgid "thank_you_contact"
+msgstr "Cảm ơn bạn đã liên hệ với chúng tôi"
+
+msgid "contact_success_message"
+msgstr ""
+"Tin nhắn của bạn đã được nhận thành công. Nhóm Wird Qur'an sẽ xem xét và "
+"liên hệ với bạn trong thời gian sớm nhất để hỗ trợ dịch vụ Kinh Qur'an."
+
+msgid "back_to_home"
+msgstr "Quay lại trang chủ"
+
+msgid "quran_recitation_prompt"
+msgstr "Đọc Kinh Qur'an bằng tiếng Ả Rập"
+
+msgid "save_stop"
+msgstr "Lưu vị trí đọc"
+
+msgid "cancel_stop"
+msgstr "Xóa vị trí đọc"
+
+msgid "hifz_audio_recording"
+msgstr "Ghi âm"
+
+msgid "hifz_enable_hiding"
+msgstr "Ẩn Ayah"
+
+msgid "hifz_segmentation_thematic"
+msgstr "Phân đoạn theo chủ đề"
+
+msgid "hifz_writing"
+msgstr "Viết"
+
+msgid "zoom_in"
+msgstr "Phóng to"
+
+msgid "repeat"
+msgstr "Lặp lại"
+
+msgid "page"
+msgstr "Trang"
+
+msgid "play_audio"
+msgstr "Phát âm thanh"
+
+msgid "word_meanings"
+msgstr "Ý nghĩa của từ"
+
+msgid "brief_tafsir"
+msgstr "Tóm tắt Tafsir"
+
+msgid "playback_tools"
+msgstr "Công cụ phát lại"
+
+msgid "audio"
+msgstr "Âm thanh"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"Để phát âm thanh trong khi ghi nhớ, hãy nhấn vào ayah để hiển thị nút phát "
+"và tạm dừng. Sau đó, bạn có thể điều khiển âm lượng từ đây, phóng to màn "
+"hình để dễ đọc hơn mà không bị phân tâm và tăng số lần lặp lại ayah."
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "Hai trang"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr "Chuyển đổi giữa một trang hoặc hai trang đối diện trong mushaf"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "Một trang"
+
+msgid "hifz_memorization_tools"
+msgstr "Kỹ thuật ghi nhớ"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"Các công cụ ghi nhớ giúp bạn tăng cường khả năng hồi tưởng và rèn luyện trí "
+"nhớ. Bạn có thể ẩn ayah để luyện tập ghi nhớ chúng. Khi bạn di chuột qua "
+"ayah, nó sẽ xuất hiện nhẹ nhàng để hướng dẫn bạn và khi bạn nhấp vào nó, nó "
+"sẽ xuất hiện đầy đủ. Phân đoạn theo chủ đề cũng có sẵn, nhóm các ayah liên "
+"quan thành các chủ đề để giúp ghi nhớ và hiểu dễ dàng hơn."
+
+msgid "hifz_play"
+msgstr "Chơi"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "Dừng hoàn toàn"
+
+msgid "hifz_mstwa_audio"
+msgstr "Mức âm lượng"
+
+msgid "mushaf"
+msgstr "Mushaf"
+
+msgid "reciter"
+msgstr "người đọc thuộc lòng"
+
+msgid "search"
+msgstr "Tìm kiếm"
+
+msgid "stop_audio"
+msgstr "Dừng âm thanh"
+
+msgid "recitation_correction"
+msgstr "Sửa lỗi đọc thuộc lòng"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"Đầu tiên, chọn một ayah. Sau đó nút ghi sẽ xuất hiện. Nhấn nó và ghi lại "
+"việc đọc thuộc lòng ayah đã chọn của bạn để âm thanh của bạn có thể được "
+"phân tích và việc đọc thuộc lòng của bạn được sửa chữa. Bạn sẽ thấy phần "
+"trăm độ chính xác của việc đọc thuộc lòng và bạn sẽ tìm thấy một nút để nghe "
+"giọng nói đã ghi âm của mình."
+
+msgid "recitation_accuracy_percentage"
+msgstr "Độ chính xác của việc đọc thuộc lòng"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "Âm thanh Shaykh"
+
+msgid "my_recorded_audio"
+msgstr "Bản ghi của tôi"
+
+msgid "mushaf_hafs"
+msgstr "Hafs Mushaf"
+
+msgid "mushaf_warsh"
+msgstr "Warsh Mushaf"
+
+msgid "mushaf_qaloun"
+msgstr "Qaloun Mushaf"
+
+msgid "mushaf_douri"
+msgstr "Al Douri Mushaf"
+
+msgid "mushaf_shuba"
+msgstr "Shu'bah Mushaf"
+
+msgid "mushaf_sousi"
+msgstr "Al-Sousi Mushaf"
+
+msgid "tafsir_almuyasser"
+msgstr "Al-Muyassar"
+
+msgid "tafsir_alkatheer"
+msgstr "Ibn Kathir"
+
+msgid "tafsir_albaghawy"
+msgstr "Al-Baghawi"
+
+msgid "tafsir_altabary"
+msgstr "Al-Tabari"
+
+msgid "tafsir_alqortoby"
+msgstr "Al-Qurtubi"
+
+msgid "tafsir_alsa3dy"
+msgstr "Al-Sa'di"
+
+#, python-format
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Tafsir của trang %(page)s từ Kinh Qur'an | Kinh Qur'an"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "Surah %(surah_name)s | Đọc và nghe - Wird Qur'an"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "Nghe Kinh Qur'an được đọc bởi %(qari_name)s | Kinh Qur'an"
+
+#, python-format
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Trang %(page)s từ Kinh Qur'an | Kinh Qur'an"
+
+#, python-format
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"Đọc tafsir của trang %(page)s từ Kinh Qur'an một cách dễ dàng, với các ayah "
+"được hiển thị và liên kết với tafsir trên nền tảng Wird Qur'an."
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"Đọc Surah %(surah_name)s từ Kinh Qur'an, nghe và duyệt dễ dàng trên nền tảng "
+"Wird Qur'an."
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"Nghe Kinh Qur'an do %(qari_name)s đọc với chất lượng cao, dễ dàng điều hướng "
+"giữa surah và ayah."
+
+#, python-format
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"Duyệt qua trang %(page)s từ Kinh Qur'an với giao diện thoải mái và dễ dàng, "
+"khả năng đọc mượt mà và điều hướng nhanh chóng trên nền tảng Wird Qur'an."
+
+msgid "no_word_meanings"
+msgstr "Không có ý nghĩa từ nào cho điều này Ayah"
+
+msgid "hide_word_meanings"
+msgstr "Ẩn ý nghĩa của từ"
+
+msgid "show_word_meanings"
+msgstr "Hiển thị ý nghĩa của từ"
+
+msgid "word_meanings_hint"
+msgstr "Ý nghĩa của từ sẽ xuất hiện khi bắt đầu đọc thuộc lòng"
+
+msgid "error_word_meanings"
+msgstr "Không thể tải nghĩa của từ"
+
+msgid "surah"
+msgstr "Surah"
+
+msgid "ayah"
+msgstr "Ayah"
+
+msgid "show_thematic_segmentation"
+msgstr "Hiển thị phân đoạn theo chủ đề"
+
+msgid "hide_thematic_segmentation"
+msgstr "Ẩn phân đoạn theo chủ đề"
+
+msgid "daily_quran_reading"
+msgstr "Cuộc sống hàng ngày của tôi"
+
+msgid "new_khatma"
+msgstr "Khatma mới"
+
+msgid "close"
+msgstr "Đóng"
+
+msgid "current_khatma"
+msgstr "Khatma hiện tại"
+
+msgid "Juz"
+msgstr "Juz"
+
+msgid "remaining_wirds"
+msgstr "Dây còn lại"
+
+msgid "khatma_count"
+msgstr "Đếm Khatma"
+
+msgid "current_wird"
+msgstr "Dây hiện tại"
+
+msgid "from"
+msgstr "Từ"
+
+msgid "to"
+msgstr "ĐẾN"
+
+msgid "congratulations"
+msgstr "Chúc mừng"
+
+msgid "you_finished_current_khatma"
+msgstr "Bạn đã hoàn thành thành công Khatma này"
+
+msgid "continue_reading"
+msgstr "Tiếp tục đọc Dây"
+
+msgid "finish_wird"
+msgstr "Dây đã hoàn thành"
+
+msgid "choose_mushaf"
+msgstr "Chọn Mushaf"
+
+msgid "current"
+msgstr "Hiện hành"
+
+msgid "start_new_khatma"
+msgstr "Bắt đầu Khatma mới"
+
+msgid "start_from"
+msgstr "Bắt đầu từ"
+
+msgid "mushaf_start"
+msgstr "Sự khởi đầu của Mushaf"
+
+msgid "duration_days"
+msgstr "Thời lượng Khatma (Ngày)"
+
+msgid "day"
+msgstr "Ngày"
+
+msgid "daily_amount"
+msgstr "Số tiền điện hàng ngày"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "Tóm tắt Khatma"
+
+msgid "start_khatma"
+msgstr "Bắt đầu Khatma"
+
+msgid "reciters"
+msgstr "Người đọc"
+
+msgid "search_reciter"
+msgstr "Tìm kiếm người đọc theo tên"
+
+msgid "loading"
+msgstr "Đang tải"
+
+msgid "tafasir"
+msgstr "Sách Tafsir"
+
+msgid "no_tafsir_available"
+msgstr "Hiện tại không có Tafsirs nào"
+
+msgid "quran"
+msgstr "Kinh Qur'an"
+
+msgid "tafsir"
+msgstr "Tafsir"
+
+msgid "surah_1"
+msgstr "Al-Fatihah"
+
+msgid "mushafs"
+msgstr "Mushaf"
+
+msgid "reading_mode"
+msgstr "Chế độ đọc"
+
+msgid "current_reciter"
+msgstr "Người ghi hiện tại"
+
+msgid "coming_soon"
+msgstr "Sắp ra mắt"
+
+msgid "current_mushaf"
+msgstr "Mushaf hiện tại"
+
+msgid "tafsir_loading_message"
+msgstr "Tafsir sẽ được tải khi bạn mở trang này"
+
+msgid "title_and_body_required"
+msgstr "Tiêu đề và nội dung thư là bắt buộc"
+
+msgid "no_subscribers_available"
+msgstr "Không có người đăng ký nào có thể gửi"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "Bạn đã đăng ký nhận tin nhắn Wird Qur'an"
+
+msgid "unsubscribe_label"
+msgstr "Để hủy đăng ký"
+
+msgid "message_sent_to_subscribers"
+msgstr "Tin nhắn đã được gửi tới người đăng ký %(count)s"
+
+msgid "message_sent_with_failures"
+msgstr ""
+"Đã gửi tin nhắn tới %(sent_count)s người đăng ký và không gửi được tin nhắn "
+"trong %(failed_count)s"
+
+msgid "message_send_failed"
+msgstr "Không gửi được tin nhắn"
+
+msgid "please_enter_email"
+msgstr "Vui lòng nhập email của bạn"
+
+msgid "newsletter_welcome_subject"
+msgstr "Cảm ơn bạn đã đăng ký Wird Qur'an"
+
+msgid "newsletter_greeting"
+msgstr "Bình an, lòng thương xót và phước lành của Allah sẽ đến với bạn,"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "Cảm ơn bạn đã đăng ký nhận tin nhắn Wird Qur'an"
+
+msgid "newsletter_joined_successfully"
+msgstr ""
+"Chúng tôi rất vui khi bạn tham gia cùng chúng tôi, bạn sẽ nhận được thông "
+"tin cập nhật qua email của mình"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr ""
+"Nếu bạn muốn hủy đăng ký bất cứ lúc nào, bạn có thể sử dụng liên kết sau"
+
+msgid "newsletter_closing"
+msgstr "Với lời cảm ơn chân thành và sự đánh giá cao"
+
+msgid "wird quran"
+msgstr "Wird Al-Qur'an Al-Kareem"
+
+msgid "newsletter_subscription_success"
+msgstr "Cảm ơn bạn, bạn đã đăng ký thành công tin nhắn Wird Qur'an"
+
+msgid "newsletter_subscription_reactivated"
+msgstr ""
+"Cảm ơn bạn, đăng ký nhận tin nhắn Wird Qur'an của bạn đã được kích hoạt lại"
+
+msgid "email_already_subscribed"
+msgstr "Email này đã được đăng ký"
+
+msgid "unsubscribe_success_message"
+msgstr "Hủy đăng ký thành công"
+
+msgid "unsubscribe_already_done"
+msgstr "Đã hủy đăng ký"
+
+msgid "qari_list_title"
+msgstr "Nghe Kinh Qur'an Thánh"
+
+msgid "qari_list_description"
+msgstr ""
+"Duyệt qua những người đọc thuộc lòng và chọn bài đọc yêu thích của bạn từ "
+"một bộ sưu tập đa dạng những người đọc thuộc lòng với giọng hát hay."
+
+msgid "listen_quran"
+msgstr "Nghe Kinh Qur'an"
+
+msgid "view_surahs"
+msgstr "Xem Surah"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "Nghe Kinh Qur'an bằng cách"
+
+msgid "tilawa_wrd_quran"
+msgstr "Kinh Qur'an"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "Nghe toàn bộ Kinh Qur'an được đọc bởi"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "với chất lượng cao, dễ dàng điều hướng giữa các Surah"
+
+msgid "all_reciters"
+msgstr "Tất cả người đọc"
+
+msgid "select_surah_player"
+msgstr "Chọn một Surah"
+
+msgid "prev_surah"
+msgstr "Surah trước"
+
+msgid "next_surah"
+msgstr "Surah tiếp theo"
+
+msgid "search_surah"
+msgstr "Tìm kiếm Surah theo tên hoặc số"
+
+msgid "ayah_counter"
+msgstr "Ayah"
+
+msgid "stop_playback"
+msgstr "Dừng phát lại"
+
+msgid "username_password_required"
+msgstr "Tên người dùng và mật khẩu là bắt buộc."
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "Tài khoản cần kích hoạt"
+
+msgid "invalid_login_credentials"
+msgstr "Thông tin đăng nhập không hợp lệ."
+
+msgid "dashboard"
+msgstr "Trang tổng quan"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "Đăng nhập hoặc tạo tài khoản để tiếp tục"
+
+msgid "login"
+msgstr "Đăng nhập"
+
+msgid "register"
+msgstr "Tạo tài khoản"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "Tên người dùng đã được sử dụng."
+
+msgid "enter_username"
+msgstr "Nhập tên người dùng"
+
+msgid "password"
+msgstr "Mật khẩu"
+
+msgid "enter_password"
+msgstr "Nhập mật khẩu"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "Quên mật khẩu?"
+
+msgid "create_account"
+msgstr "Tạo tài khoản"
+
+msgid "username_required"
+msgstr "Tên người dùng là bắt buộc."
+
+msgid "username_taken"
+msgstr "Tên người dùng đã được sử dụng."
+
+msgid "email_required"
+msgstr "Email là bắt buộc."
+
+msgid "email_taken"
+msgstr "Email đã được sử dụng."
+
+msgid "password_required"
+msgstr "Mật khẩu là bắt buộc."
+
+msgid "register_success"
+msgstr ""
+"Chào mừng 🌿 Tài khoản của bạn đã được tạo thành công. Chúng tôi rất vui khi "
+"có bạn trên tàu. Chúc bạn có những trải nghiệm khác biệt và hiệu quả."
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"Wird Qur'an là một nền tảng tích hợp để đọc Kinh Qur'an, nghe các bài đọc "
+"của những người đọc nổi tiếng và duyệt sách Tafsir một cách dễ dàng và không "
+"có quảng cáo."
+
+msgid "success"
+msgstr "Thành công"
+
+msgid "error"
+msgstr "Lỗi"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "Về Wird Al-Qur'an Al-Kareem"
+
+msgid "long_about_text"
+msgstr ""
+"Wird là một nền tảng kỹ thuật số tích hợp nhằm tạo điều kiện thuận lợi cho "
+"việc đọc và suy ngẫm Kinh Qur'an một cách có tổ chức và hấp dẫn. Nó cung cấp "
+"các dịch vụ như duyệt nhiều Mushaf khác nhau, nghe người đọc và đọc sách "
+"Tafsir đích thực."
+
+msgid "about_wird"
+msgstr ""
+"Wird là một nền tảng kỹ thuật số tích hợp nhằm tạo điều kiện thuận lợi cho "
+"việc đọc và suy ngẫm Kinh Qur'an một cách có tổ chức và hấp dẫn. Nó cung cấp "
+"các dịch vụ như duyệt Mushafs với nhiều lời kể khác nhau, nghe người đọc và "
+"đọc Tafsirs đáng tin cậy. Nó cũng cho phép người dùng theo dõi Wird hàng "
+"ngày của họ và theo dõi tiến trình ghi nhớ và ôn tập của họ. Nền tảng này "
+"nhằm mục đích hỗ trợ dự án Kinh Qur'an và tăng cường kết nối với dự án đó "
+"thông qua trải nghiệm kỹ thuật số tích hợp và dễ dàng."
+
+msgid "wird"
+msgstr "dây"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "Wid hàng ngày của bạn với Kinh Qur'an"
+
+msgid "home_hero_title1"
+msgstr "Trải nghiệm bình tĩnh khi đọc Kinh Qur'an"
+
+msgid "home_hero_title2"
+msgstr "Và lắng nghe và suy ngẫm"
+
+msgid "home_hero_desc"
+msgstr ""
+"Một nền tảng đưa việc đọc, đọc thuộc lòng, Tafsir, bản dịch và nghĩa của từ "
+"thành một trải nghiệm dễ dàng và có tổ chức."
+
+msgid "home_start_reading"
+msgstr "Bắt đầu đọc"
+
+msgid "home_explore_recitations"
+msgstr "Khám phá các bài tụng"
+
+msgid "home_calm_recitation"
+msgstr "Niệm bình tĩnh"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "Đặc trưng"
+
+msgid "home_features_title"
+msgstr "Mọi thứ bạn cần ở một nơi"
+
+msgid "home_features_desc"
+msgstr ""
+"Các công cụ bình tĩnh giúp bạn đọc, nghe và suy ngẫm mà không bị phân tâm."
+
+msgid "home_feature_quran_title"
+msgstr "Đọc Kinh Qur'an"
+
+msgid "home_feature_quran_desc"
+msgstr "Giao diện Mushaf trang nhã giúp việc đọc trở nên thoải mái và dễ nhìn."
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "Mọi thứ bạn cần ở một nơi"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"Các công cụ bình tĩnh giúp bạn đọc, nghe và suy ngẫm mà không bị phân tâm."
+
+msgid "home_feature_listen_title"
+msgstr "Nghe tụng kinh"
+
+msgid "home_feature_listen_desc"
+msgstr ""
+"Tuyển chọn những người đọc thuộc lòng với giọng nói thuần khiết và trải "
+"nghiệm nghe bình tĩnh."
+
+msgid "home_feature_tafsir_title"
+msgstr "Tafsir"
+
+msgid "home_feature_tafsir_desc"
+msgstr ""
+"Tafsir đáng tin cậy với cách trình bày có tổ chức để giúp suy ngẫm và hiểu "
+"biết."
+
+msgid "home_feature_trans_title"
+msgstr "Bản dịch"
+
+msgid "home_feature_trans_desc"
+msgstr "Bản dịch ý nghĩa bằng nhiều ngôn ngữ cùng với ayah trực tiếp."
+
+msgid "home_feature_words_title"
+msgstr "Ý nghĩa của từ"
+
+msgid "home_feature_words_desc"
+msgstr ""
+"Tra cứu nghĩa của bất kỳ từ nào chỉ bằng một cú chạm mà không cần rời khỏi "
+"trang."
+
+msgid "home_feature_daily_title"
+msgstr "Dây hàng ngày"
+
+msgid "home_feature_daily_desc"
+msgstr ""
+"Sắp xếp Wird hàng ngày của bạn và theo dõi tính liên tục của bạn một cách "
+"bình tĩnh và thường xuyên."
+
+msgid "surah_2"
+msgstr "Al-Baqarah"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "Dây hàng ngày"
+
+msgid "home_daily_title"
+msgstr "Một thói quen bình tĩnh, cùng bạn lớn lên từng ngày"
+
+msgid "home_daily_desc"
+msgstr ""
+"Sắp xếp Wird của bạn để phù hợp với ngày của bạn và theo dõi tính liên tục "
+"của bạn mà không bị áp lực. Lời nhắc nhở nhẹ nhàng, màn hình hiển thị có tổ "
+"chức và tính năng theo dõi đơn giản giúp bạn luôn kết nối với Sách của Allah."
+
+msgid "home_gentle_tracking"
+msgstr "Theo dõi nhẹ nhàng"
+
+msgid "home_flexible_reminder"
+msgstr "Nhắc nhở linh hoạt"
+
+msgid "home_no_pressure"
+msgstr "Không có áp lực"
+
+msgid "tilawa"
+msgstr "Niệm"
+
+msgid "home_recitation_title"
+msgstr "Lắng nghe với giọng nói làm dịu trái tim"
+
+msgid "home_recitation_desc"
+msgstr ""
+"Chọn người đọc thuộc lòng chạm đến tâm hồn bạn và lắng nghe với trải nghiệm "
+"bình tĩnh và không bị phân tâm."
+
+msgid "home_now_playing"
+msgstr "Đang phát"
+
+msgid "home_reciter_label"
+msgstr "người đọc thuộc lòng"
+
+msgid "home_current_surah"
+msgstr "Surah hiện tại"
+
+msgid "home_prev"
+msgstr "Trước"
+
+msgid "home_play_pause"
+msgstr "Phát / Tạm dừng"
+
+msgid "home_next"
+msgstr "Kế tiếp"
+
+msgid "home_reading_label"
+msgstr "Tafsir & Bản dịch"
+
+msgid "home_reading_title"
+msgstr "Suy ngẫm về ý nghĩa một cách sâu sắc và rõ ràng"
+
+msgid "home_reading_desc"
+msgstr ""
+"Một trải nghiệm tương tự như một cuốn sách: ayah ở vị trí của nó và ý nghĩa "
+"của nó bên cạnh nó."
+
+msgid "home_easy_tafsir"
+msgstr "Dễ dàng Tafsir"
+
+msgid "home_meaning_badge"
+msgstr "Nghĩa"
+
+msgid "home_meaning_label"
+msgstr "Nghĩa"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "Chính sách bảo mật"
+
+msgid "Wird — Privacy Policy"
+msgstr "Wird — Chính sách Bảo mật"
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr "Người bạn đồng hành hàng ngày trong hành trình cùng Kinh Quran"
+
+msgid "Last updated: May 2026"
+msgstr "Cập nhật lần cuối: Tháng 5 năm 2026"
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+"Chính sách này giải thích cách Wird xử lý dữ liệu của bạn. Chúng tôi giữ nó "
+"ngắn gọn và trung thực."
+
+msgid "translations"
+msgstr "Bản dịch"
+
+msgid "translation_page_title"
+msgstr "Dịch thuật"
+
+msgid "surahs"
+msgstr "Surah"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "Lưu vị trí đọc"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "Liên kết chân trang"
+
+msgid "about"
+msgstr "Về"
+
+msgid "contact_us"
+msgstr "Liên hệ với chúng tôi"
+
+msgid "download_android"
+msgstr "Tải xuống cho Android"
+
+msgid "download_ios"
+msgstr "Tải xuống cho iOS"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "Thực đơn"
+
+msgid "home"
+msgstr "Trang chủ"
+
+msgid "read_quran"
+msgstr "Đọc Kinh Qur'an"
+
+msgid "hifz_quran"
+msgstr "Ghi nhớ Kinh Qur'an"
+
+msgid "notifications"
+msgstr "Thông báo"
+
+msgid "logout"
+msgstr "Đăng xuất"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "Hồ sơ"
+
+msgid "SECTION 1"
+msgstr ""
+
+msgid "Information We Collect"
+msgstr "Thông tin chúng tôi thu thập"
+
+msgid "a. Account Information (if you sign in)"
+msgstr ""
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr ""
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+
+msgid "c. Contact Messages"
+msgstr ""
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+
+msgid "SECTION 2"
+msgstr ""
+
+msgid "Data Stored Only on Your Device"
+msgstr "Dữ liệu chỉ được lưu trữ trên thiết bị của bạn"
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr ""
+
+msgid "Azkar completion progress"
+msgstr ""
+
+msgid "Notification schedule and preferences"
+msgstr ""
+
+msgid "Selected reciter and Mushaf style"
+msgstr ""
+
+msgid "Accessibility and display settings"
+msgstr ""
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr ""
+
+msgid "The Quran database"
+msgstr ""
+
+msgid "SECTION 3"
+msgstr ""
+
+msgid "Microphone Access"
+msgstr "Truy cập Micrô"
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+
+msgid "SECTION 4"
+msgstr ""
+
+msgid "Third-Party Services"
+msgstr "Dịch vụ của bên thứ ba"
+
+msgid "Service"
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Purpose"
+msgstr ""
+
+msgid "Push notifications"
+msgstr ""
+
+msgid "App initialisation"
+msgstr ""
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr ""
+
+msgid "SECTION 5"
+msgstr ""
+
+msgid "Analytics and Crash Reporting"
+msgstr ""
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr ""
+
+msgid "Data Sharing"
+msgstr "Chia sẻ dữ liệu"
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+
+msgid "SECTION 7"
+msgstr ""
+
+msgid "Data Security"
+msgstr "Bảo mật dữ liệu"
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+
+msgid "All communication with our server uses HTTPS."
+msgstr ""
+
+msgid "SECTION 8"
+msgstr ""
+
+msgid "Your Rights"
+msgstr "Quyền của bạn"
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr ""
+
+msgid "Audience"
+msgstr "Đối tượng"
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+
+msgid "SECTION 10"
+msgstr ""
+
+msgid "Changes to This Policy"
+msgstr "Thay đổi chính sách này"
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr "Ứng dụng Wird"
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "Chính sách bảo mật"
+
+msgid "Last updated May 2026"
+msgstr "Cập nhật lần cuối tháng 5 năm 2026"
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "support"
+#~ msgstr "Ủng hộ"
+
+#~ msgid "web_wrd"
+#~ msgstr "dây"
+
+#~ msgid "system_description"
+#~ msgstr ""
+#~ "Một nền tảng để đọc Kinh Qur'an, nghe các bài tụng và khám phá Tafsir một "
+#~ "cách dễ dàng."
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird là một nền tảng kỹ thuật số tích hợp nhằm tạo điều kiện thuận lợi "
+#~ "cho việc đọc và suy ngẫm Kinh Qur'an một cách có tổ chức và hấp dẫn."
+
+#~ msgid "hifz"
+#~ msgstr "Ghi nhớ"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "Vì %(number)s"
+
+#~ msgid "juz_number"
+#~ msgstr "Vì %(number)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "Nhân danh Allah, Đấng Rất mực Độ lượng, Đấng Rất mực Khoan dung"
+
+#~ msgid "open_mushaf"
+#~ msgstr "Mở Mushaf"
+
+#~ msgid "hafs"
+#~ msgstr "Hafs"
+
+#~ msgid "warsh"
+#~ msgstr "Warsh"
+
+#~ msgid "qaloun"
+#~ msgstr "Qaloun"
+
+#~ msgid "douri"
+#~ msgstr "Al-Douri"
+
+#~ msgid "shuba"
+#~ msgstr "Shu'bah"
+
+#~ msgid "sousi"
+#~ msgstr "Al-Sousi"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "Hầu hết Mushaf đều đến từ"
+
+#~ msgid "complex"
+#~ msgstr "Khu liên hợp in ấn Kinh Qur'an vinh quang của King Fahd"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "Không có Tafsir"
+
+#~ msgid "tajweed"
+#~ msgstr "cây Tajweed"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "Hiển thị nghĩa của từ"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "Ẩn nghĩa của từ"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "Đang tải nghĩa của từ..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "Đang tải nghĩa của từ"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "Không thể tải nghĩa của từ"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "Không có ý nghĩa nào cho điều này Ayah"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "Ý nghĩa của từ sẽ xuất hiện khi bắt đầu đọc thuộc lòng"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "Meccan"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "Medinan"
+
+#~ msgid "start"
+#~ msgstr "Bắt đầu"
+
+#~ msgid "selected_ayah"
+#~ msgstr "Đã chọn Ayah"
+
+#~ msgid "analysis_result"
+#~ msgstr "Kết quả"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "Chọn ayah trước"
+
+#~ msgid "browse_reciters"
+#~ msgstr "Duyệt người đọc"
+
+#~ msgid "next_wirds"
+#~ msgstr "Dây sắp tới"
+
+#~ msgid "previous_wirds"
+#~ msgstr "Dây trước"
+
+#~ msgid "one_juz"
+#~ msgstr "1 Juz"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "Công cụ hiển thị"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "Hiển thị bình thường"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "Ayah lặp lại"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "Không lặp lại"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "Hai lần"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "lần"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "Thu phóng"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "Kinh Qur'an sẽ được chia dựa trên thời lượng và số lượng quy định để tạo "
+#~ "điều kiện thuận lợi cho Khatma hàng ngày."
+
+#~ msgid "resume_reading"
+#~ msgstr "Tiếp tục đọc"
+
+#~ msgid "percentage"
+#~ msgstr "Phần trăm tiến độ"
+
+#~ msgid "progress"
+#~ msgstr "Tiến triển"
+
+#~ msgid "from_page"
+#~ msgstr "Trang bắt đầu"
+
+#~ msgid "to_page"
+#~ msgstr "Trang cuối"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "Từ"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "ĐẾN"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "Surah Al-Baqarah - Ayah 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "Surah Al-Baqarah - Ayah 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "Số Ayah hiện tại"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "Đăng nhập hoặc tạo tài khoản để tiếp tục"
+
+#~ msgid "welcome"
+#~ msgstr "Chào mừng"
+
+#~ msgid "welcome_message"
+#~ msgstr "Chào mừng bạn đến với Nền tảng Wird Qur'an"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "Chào mừng trở lại"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "Hồ sơ của bạn đã được cập nhật"
+
+#~ msgid "accounts_settings"
+#~ msgstr "Cài đặt"
+
+#~ msgid "login_settings"
+#~ msgstr "Cài đặt đăng nhập"
+
+#~ msgid "confirm_password"
+#~ msgstr "Xác nhận mật khẩu"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "Mật khẩu mới"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "Hiển thị hoặc ẩn mật khẩu"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "Tên người dùng là bắt buộc"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "Tên người dùng đã được sử dụng"
+
+#~ msgid "enter_email"
+#~ msgstr "Nhập email của bạn"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "Email là bắt buộc"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "Email đã được sử dụng"
+
+#~ msgid "invalid_email"
+#~ msgstr "Định dạng email không hợp lệ"
+
+#~ msgid "full_name"
+#~ msgstr "Tên đầy đủ"
+
+#~ msgid "phone"
+#~ msgstr "Số điện thoại"
+
+#~ msgid "invalid_phone"
+#~ msgstr "Số điện thoại không hợp lệ"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "Số điện thoại đã được sử dụng"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "Chức danh"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "Nam giới"
+
+#~ msgid "accounts_female"
+#~ msgstr "Nữ giới"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "Tài khoản của bạn đã được tạo thành công"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr ""
+#~ "Tài khoản của bạn đã được tạo thành công. Chúng tôi rất vui khi có bạn "
+#~ "tham gia và chúc bạn có trải nghiệm khác biệt."
+
+#~ msgid "login_failed"
+#~ msgstr "Thông tin đăng nhập không hợp lệ"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "Mật khẩu không khớp"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "Mật khẩu phải có ít nhất 8 ký tự"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "Đã lưu thay đổi thành công"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "Dữ liệu của bạn đã được lưu thành công"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "Đã lưu dữ liệu và cập nhật mật khẩu thành công"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "Đã cập nhật cài đặt đăng nhập thành công"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr ""
+#~ "Chào mừng bạn quay lại, tài khoản của bạn đã được phê duyệt và bây giờ "
+#~ "bạn có thể đăng ký dự án"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr ""
+#~ "Chào mừng bạn đến với Trung tâm đổi mới, chúng tôi chúc bạn có trải "
+#~ "nghiệm tuyệt vời"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "Quản lý trung tâm đổi mới"
+
+#~ msgid "accounts_local"
+#~ msgstr "Địa phương"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "Đăng nhập hợp nhất"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "Bật xác thực bên ngoài"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "Kiểm soát các phương thức xác thực được phép trong hệ thống"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "Từ cơ sở dữ liệu hệ thống"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "Hôm qua"
+
+#~ msgid "accounts_saah"
+#~ msgstr "Một giờ trước"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "10 phút trước"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "5 phút trước"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "Liên hệ với chúng tôi"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "Liên hệ với chúng tôi qua mẫu liên hệ"
+
+#~ msgid "contact_description"
+#~ msgstr ""
+#~ "Bạn có thể liên hệ với chúng tôi nếu có bất kỳ yêu cầu hoặc hỗ trợ nào"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr ""
+#~ "Cảm ơn bạn, chúng tôi sẽ xem xét tin nhắn của bạn và liên hệ với bạn sớm"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "Tin nhắn của bạn đã được gửi thành công"
+
+#~ msgid "write_message"
+#~ msgstr "Viết tin nhắn của bạn ở đây"
+
+#~ msgid "contact_message"
+#~ msgstr "Tin nhắn"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "Tin nhắn là bắt buộc"
+
+#~ msgid "contact_name_required"
+#~ msgstr "Tên là bắt buộc"
+
+#~ msgid "contact_email_required"
+#~ msgstr "Email là bắt buộc"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "Email không hợp lệ"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "Điện thoại"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "Điện thoại di động"
+
+#~ msgid "contact_email"
+#~ msgstr "E-mail"
+
+#~ msgid "contact_date"
+#~ msgstr "Ngày"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "Tất cả tin nhắn"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "Tin nhắn liên hệ"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "Quản lý tin nhắn liên hệ"
+
+#~ msgid "contact_message_details"
+#~ msgstr "Chi tiết tin nhắn"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "Chi tiết tin nhắn liên hệ"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "Mở chi tiết tin nhắn"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "Click trực tiếp vào tin nhắn để xem chi tiết"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "Tìm kiếm theo tên, email hoặc tin nhắn"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "Hiện tại không có tin nhắn nào"
+
+#~ msgid "contact_reply"
+#~ msgstr "đã trả lời"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "Trả lời tin nhắn"
+
+#~ msgid "write_reply"
+#~ msgstr "Viết câu trả lời và gửi trực tiếp"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "Gửi trả lời"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "Trả lời văn bản"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "Trả lời Tiêu đề"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "Trả lời được lưu lần cuối"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "Trả lời tin nhắn của bạn trên trang web của chúng tôi"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "Tin nhắn mới từ Liên hệ với chúng tôi"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "Mới"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "Chưa đọc"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "Đọc"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "Đang gửi..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "Đã gửi gần đây, vui lòng thử lại sau một lát"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr "Câu trả lời đã được gửi cách đây ít phút, hãy thử lại sau một lát"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr "Nếu bạn gặp bất kỳ vấn đề gì, đừng ngần ngại liên hệ với chúng tôi"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "Nhóm hỗ trợ"
+
+#~ msgid "subscribe"
+#~ msgstr "Đặt mua"
+
+#~ msgid "subscriptions"
+#~ msgstr "Đăng ký"
+
+#~ msgid "subscription_active"
+#~ msgstr "Đã bật"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "Tích cực"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "Đã dừng"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "Người đăng ký đã được xác nhận"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "Tổng số người đăng ký"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "Tất cả người đăng ký"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "Người đăng ký đang hoạt động"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "Đã bật"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "Đã xác nhận"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "Chưa được xác nhận"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "Đã xác nhận"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "Người đăng ký nhận bản tin"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "Người đăng ký nhận bản tin"
+
+#~ msgid "subscription_message"
+#~ msgstr "Đăng ký để nhận tin nhắn của chúng tôi"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "Hiện tại không có người đăng ký"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "Hủy đăng ký"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "Đã hủy đăng ký email"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Hủy đăng ký nhận tin nhắn Wird Qur'an"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Từ tin nhắn Wird Qur'an"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "Quản lý đăng ký"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "Xem đăng ký"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "Tóm tắt đăng ký"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "Trung tâm đăng ký"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "Tổng quan về người đăng ký nhận bản tin"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr "Danh sách email đăng ký nhận bản tin, tin nhắn"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "Ngày đăng ký"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "Ngày hủy đăng ký"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "Tìm kiếm bằng email"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "Tạo tin nhắn"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr ""
+#~ "Gửi email đến tất cả người đăng ký đang hoạt động và đã được xác nhận"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "Tổng quan về trang tổng quan"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "Bảng điều khiển nội bộ"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "Tổng quan nhanh về các mô-đun chính và cài đặt"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "Tổng hợp các con số, chỉ tiêu chung trong hệ thống"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "Thống kê trang web"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "Thống kê trang"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "Thống kê âm thanh"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "Thống kê Tafsir"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "Thống kê Mushaf"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "Tổng số khách truy cập"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "Tổng số lượt truy cập trang"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "Trang được truy cập nhiều nhất"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "Lượt truy cập trang"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "Lượt truy cập trong 7 ngày qua"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "Số lượt truy cập trong 30 ngày qua"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "Khách truy cập trong 7 ngày qua"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "Số lượt truy cập trong những ngày gần đây"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "Phát âm thanh"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "Âm thanh phát trong 7 ngày qua"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "Tổng số giây nghe"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "Trang được nghe nhiều nhất"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "Surah được chơi nhiều nhất"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "Người đọc được chơi nhiều nhất"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "Lật trang"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "Trang Mushaf được lật nhiều nhất"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "Tổng số Tafsir mở"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "Tafsir mở cửa trong 7 ngày qua"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "Sách Tafsir được mở nhiều nhất"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "Sách được sử dụng nhiều nhất"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "Trang Tafsir được mở nhiều nhất"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "Trang Tafsir được mở nhiều nhất"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "Surah được giải thích nhiều nhất"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "Surah được giải thích nhiều nhất"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "Ayah được mở nhiều nhất ở Tafsir"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "Tương tác mới nhất"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr ""
+#~ "Theo dõi khách truy cập, trang, lượt phát âm thanh và lượt lật trang "
+#~ "Mushaf"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr ""
+#~ "Theo dõi Tafsir mở ra, sách, trang, surah và ayah được liên kết được sử "
+#~ "dụng nhiều nhất"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "Trang tổng quan trực tiếp"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "Chưa có dữ liệu"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "Chưa có tương tác nào"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "Ayah"
+
+#~ msgid "analytics_audio"
+#~ msgstr "Âm thanh"
+
+#~ msgid "analytics_page"
+#~ msgstr "Trang"
+
+#~ msgid "analytics_pages"
+#~ msgstr "Trang"
+
+#~ msgid "analytics_surah"
+#~ msgstr "Surah"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "Mushaf"
+
+#~ msgid "analytics_time"
+#~ msgstr "Thời gian"
+
+#~ msgid "analytics_type"
+#~ msgstr "Kiểu"
+
+#~ msgid "analytics_path"
+#~ msgstr "Con đường"
+
+#~ msgid "analytics_add"
+#~ msgstr "Đếm"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "Độc nhất"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "lượt truy cập"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "Lượt chơi"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "Hoàn thành âm thanh"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "Tafsir mở rộng"
+
+#~ msgid "roles"
+#~ msgstr "Vai trò"
+
+#~ msgid "permissions"
+#~ msgstr "Quyền"
+
+#~ msgid "users"
+#~ msgstr "Người dùng"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "Quản lý người dùng"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "Quản lý vai trò"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "Quản lý quyền"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "Quản lý tài khoản người dùng, vai trò và quyền"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "Hệ thống quản lý người dùng và quyền"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "Quản lý quyền"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "Quản lý vai trò hệ thống và các quyền liên quan"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "Quản lý người dùng và phân công vai trò"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "Thêm người dùng"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "Thêm người dùng mới"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "Chi tiết người dùng"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "Xem chi tiết người dùng"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "Xem dữ liệu người dùng và phân công vai trò"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "Thêm vai trò"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "Chỉnh sửa vai trò"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "Xóa vai trò"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "Lưu vai trò"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "Tên vai trò"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "Vai trò hiện tại"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "Vai trò hiện tại"
+
+#~ msgid "rbac_role"
+#~ msgstr "Vai trò"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "Thêm quyền"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "Chỉnh sửa quyền"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "Xóa quyền"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "Lưu quyền"
+
+#~ msgid "rbac_permission"
+#~ msgstr "Sự cho phép"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "Sự cho phép"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "Tên quyền"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "Mã giấy phép"
+
+#~ msgid "rbac_module"
+#~ msgstr "mô-đun"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "Liên kết vai trò với quyền"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "Liên kết quyền với vai trò"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr ""
+#~ "Người dùng đã tạo thành công và chi tiết đăng nhập được gửi đến email của "
+#~ "họ"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "Người dùng đã tạo thành công nhưng không gửi được email. Kiểm tra cài đặt "
+#~ "thư"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "Đã tạo vai trò thành công"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "Đã tạo quyền thành công"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "Đã cập nhật vai trò thành công"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "Đã cập nhật quyền thành công"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "Đã xóa vai trò thành công"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "Đã xóa quyền thành công"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "Quyền được liên kết với vai trò thành công"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "Đã xóa quyền khỏi vai trò thành công"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "Vai trò người dùng đã được cập nhật thành công"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "Xác nhận xóa vai trò"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "Xác nhận xóa quyền"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "Bạn sắp xóa vai trò"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "Bạn sắp xóa quyền"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "Không thể xóa vai trò chính"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "Không thể xóa quyền chính"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "Mã vai trò chính không thể chỉnh sửa được"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "Mã quyền chính không thể chỉnh sửa được"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr "Không thể chỉnh sửa vai trò người dùng chính từ giao diện này"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "Không thể xóa quyền chính khỏi vai trò này"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "Không thể hoàn tác hành động này"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "Tìm kiếm theo tên người dùng hoặc vai trò"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "Tìm kiếm theo tên người dùng hoặc số lượng quyền"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr "Chọn một vai trò từ menu bên trái để xem và liên kết các quyền"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr ""
+#~ "Chọn một vai trò từ danh sách, sau đó bật hoặc tắt quyền thông qua các "
+#~ "hộp kiểm"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "Chọn vai trò"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "Không có vai trò nào được chỉ định cho người dùng này"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "Hiện tại không có vai trò nào"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "Hiện tại không có người dùng nào"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "Vui lòng nhập tên vai trò và mã"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "Vui lòng nhập mã quyền và tên"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "Vui lòng nhập mã và tên của quyền"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Điền dữ liệu người dùng; một tài khoản sẽ được tạo và chi tiết đăng nhập "
+#~ "sẽ được gửi đến email của họ"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "Điền dữ liệu vai trò sau đó lưu thay đổi"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "Điền dữ liệu quyền sau đó lưu thay đổi"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Một mật khẩu ngẫu nhiên sẽ được tạo cho người dùng và gửi đến email của họ"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "Tài khoản của bạn đã được tạo trên nền tảng"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "Dữ liệu tài khoản của bạn trên nền tảng"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr "Chúng tôi khuyên bạn nên thay đổi mật khẩu sau khi đăng nhập"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr "Mô tả ngắn gọn thể hiện nhiệm vụ của vai trò này trong hệ thống"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr ""
+#~ "Mô tả ngắn gọn cho biết khi nào quyền này được sử dụng trong hệ thống"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "Cần có email để gửi chi tiết đăng nhập"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "Mã vai trò đã được sử dụng, vui lòng chọn mã vai trò khác"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "Mã này đã được sử dụng cho một quyền khác"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr "Không lưu được quyền do mã trùng lặp trong cơ sở dữ liệu"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "Lỗi xử lý yêu cầu: thiếu dữ liệu vai trò hoặc quyền"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "Tên đầy đủ là bắt buộc"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "Tên người dùng đã được sử dụng"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "Email đã được sử dụng"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "Số điện thoại đã được sử dụng"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "Tên người dùng này được bảo lưu và không thể sử dụng"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "Quyền được nhóm theo mô-đun"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "Người dùng đang hoạt động"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "Không hoạt động"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "Đã cập nhật trạng thái người dùng"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "Đăng nhập lần cuối"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "Liên kết vai trò"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "Quay lại Vai trò"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "Quay lại Quyền"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "Quay lại danh sách Người dùng"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "Quay lại danh sách Người dùng"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "Vai trò của người dùng (ví dụ:"
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "Sự cho phép cụ thể (ví dụ:"
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "ví dụ: Quản trị viên hệ thống"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "ví dụ."
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "Được sử dụng trong mã như"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "Để xác minh sự cho phép của người dùng bên trong"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "Tự động cho người dùng"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr "và nó sẽ được lưu tự động ở định dạng thống nhất"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "Mẫu được ưu tiên"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "Bạn có thể nhập số ở bất kỳ định dạng nào (05/5/"
+
+#~ msgid "rbac_optional"
+#~ msgstr "Không bắt buộc"
+
+#~ msgid "rbac_aw"
+#~ msgstr "hoặc"
+
+#~ msgid "rbac_aam"
+#~ msgstr "Tổng quan"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "Cộng sự"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "Người tham gia"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "Người giám sát"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "Một vai trò sẽ được giao"
+
+#~ msgid "rbac_5"
+#~ msgstr "hoặc 5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "Xem người dùng"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "Xem vai trò"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "Xem quyền"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "Chỉnh sửa người dùng"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "Xóa người dùng"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "Chỉnh sửa vai trò"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "Xóa vai trò"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "Chỉnh sửa quyền"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "Xóa quyền"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "Truy cập trang tổng quan"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "Truy cập phân tích"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "Truy cập Kinh Qur'an Studio"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "Truy cập thông tin liên lạc"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "Truy cập đăng ký"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "Truy cập thông báo"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "Truy cập các kênh gửi"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "Quản lý cài đặt đăng nhập"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "Xem chiến dịch"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "Xem tin nhắn"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "Xem tin nhắn liên hệ"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "Xem tin nhắn WhatsApp"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "Xem thông báo nội bộ"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "Xem nhật ký gửi hàng"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "Xem người đăng ký"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "Xem email"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "Quản lý dự án"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "Tạo tin nhắn liên hệ"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "Gửi thông báo"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "Thêm người đọc"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "Chỉnh sửa dữ liệu người ghi"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "Xóa dữ liệu người ghi"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "Tọa độ Kinh Qur'an"
+
+#~ msgid "rbac_action"
+#~ msgstr "Hành động này"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "Số lượng người dùng"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "Số lượng vai trò"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "Số lượng quyền"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "Người dùng đã đăng ký"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "Vai trò có cấu trúc"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "Quyền hoạt động"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr "Tổ chức cơ cấu vai trò và phân bổ trách nhiệm trong hệ thống"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "Cài đặt"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "Đăng ký"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "Kiểm soát quyền truy cập vào các mô-đun và hoạt động chi tiết"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "Tên người dùng và mật khẩu là bắt buộc"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "Tổng Giám đốc hệ thống"
+
+#~ msgid "accounts_system"
+#~ msgstr "Hệ thống"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "Trung tâm cảnh báo"
+
+#~ msgid "notification_new"
+#~ msgstr "Mới"
+
+#~ msgid "notification_alert"
+#~ msgstr "Báo động"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "Đọc"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "Đã đọc thông báo"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "Gửi thông báo"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "Gửi thông báo"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "Tạo thông báo mới"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "Quản lý thông báo"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "Gửi thông báo nội bộ tới người dùng trong hệ thống"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "Viết văn bản thông báo ở đây"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "Đã gửi thành công"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "Tóm tắt thông báo"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "Tóm tắt thông báo"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "Hiện tại không có thông báo"
+
+#~ msgid "notification_no_text"
+#~ msgstr "Không có văn bản"
+
+#~ msgid "notification_alns"
+#~ msgstr "Chữ"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "Trong hệ thống"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "Thông báo hệ thống"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "Thông báo hệ thống và tương tác"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "Thông báo được gửi đến người dùng từ trong hệ thống"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "Tổng quan nhanh về thông báo được gửi qua nhiều kênh khác nhau"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "Số lượng thông báo trên trang này"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "Không có người nhận phù hợp"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "Tin nhắn bây giờ không phải từ"
+
+#~ msgid "notifications_latest"
+#~ msgstr ""
+#~ "Thông báo mới nhất nhận được trong hệ thống (mới nhất trước, tối đa 10)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "Trung tâm thông báo"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "Thông báo đã gửi"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "Tóm tắt thông báo"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "Tổng quan nhanh về thông báo được gửi qua nhiều kênh khác nhau"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "Gửi thông báo"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "Đã gửi thông báo nội bộ thành công"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "Chiến dịch"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "Chiến dịch đã gửi"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "Tổng số chiến dịch"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "Tiêu đề chiến dịch"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "Chiến dịch được tạo thành công"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "Chiến dịch đã được gửi thành công"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr ""
+#~ "Không có kênh hoặc nhóm Telegram nào được kích hoạt cho chiến dịch này"
+
+#~ msgid "communication_message_text"
+#~ msgstr "Tin nhắn văn bản"
+
+#~ msgid "communication_title_message"
+#~ msgstr "Tiêu đề tin nhắn"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "Hình ảnh (Tùy chọn)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "Nếu nó có một hình ảnh"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "Nếu nó không có hình ảnh"
+
+#~ msgid "communication_send_post"
+#~ msgstr "Gửi bài viết"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "Gửi điện tín"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "Telegram - Kênh"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "Telegram - Nhóm"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "Dành cho nhóm và kênh"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "Facebook"
+
+#~ msgid "communication_platform"
+#~ msgstr "Nền tảng"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "Kênh"
+
+#~ msgid "communication_channels"
+#~ msgstr "Kênh"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "Truyền thông xã hội"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "Quản lý truyền thông xã hội"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "Tóm tắt truyền thông xã hội"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "Tìm kiếm theo tiêu đề hoặc văn bản"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "Tìm kiếm theo tiêu đề hoặc kênh"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "Ngày gửi"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "Gửi trạng thái"
+
+#~ msgid "communication_sent"
+#~ msgstr "Đã gửi"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "Đã gửi"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "Bản nháp"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "Đã lên lịch"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "Đang gửi..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "Không gửi được"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "Chờ"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "Lỗi (nếu có)"
+
+#~ msgid "communication_log"
+#~ msgstr "Nhật ký"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "Nhật ký giao hàng"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr "Nhật ký hoạt động điều phối cho từng chiến dịch và kênh liên hệ"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "Hiện tại không có nhật ký công văn"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "Sử dụng"
+
+#~ msgid "communication_drafts"
+#~ msgstr "Bản nháp"
+
+#~ msgid "communication_qryba"
+#~ msgstr "Sớm"
+
+#~ msgid "messages"
+#~ msgstr "Tin nhắn"
+
+#~ msgid "messaging_messages"
+#~ msgstr "Tin nhắn"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "Tin nhắn tập thể"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "Tin nhắn tập thể"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "Tin nhắn văn bản"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "Tin nhắn di động"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "Tin nhắn SMS"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "Chi tiết tin nhắn di động"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "Hiện tại không có tin nhắn di động"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "Tin nhắn WhatsApp"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "Chi tiết tin nhắn WhatsApp"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "Thông báo WhatsApp"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "Hiện không có tin nhắn WhatsApp nào trong nhật ký"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr ""
+#~ "Xem nhật ký tin nhắn WhatsApp gửi qua hệ thống liên quan đến người dùng"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "E-mail"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "Tin nhắn email chung"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "Tạo tin nhắn email chung"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "Hiện tại không có email nào"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "Nội dung tin nhắn (Email)"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "Đã gửi email"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "Email đã được tạo và đang chờ gửi"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "Tin nhắn này sẽ chỉ được gửi dưới dạng email; bạn có thể sử dụng định "
+#~ "dạng, danh sách và liên kết"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr ""
+#~ "Tin nhắn này chủ yếu nhằm vào những người đăng ký nhận bản tin đã đăng ký "
+#~ "trong hệ thống"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "Gửi bài đăng email chung cho người đăng ký bản tin với tùy chọn thêm tất "
+#~ "cả người dùng hệ thống"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "Tạo tin nhắn mới"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "Gửi tin nhắn"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "Nội dung tin nhắn"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "Không có nội dung trong tin nhắn này"
+
+#~ msgid "messaging_subject"
+#~ msgstr "Chủ thể"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "Tiêu đề và dữ liệu"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "Tiêu đề và nội dung tin nhắn phải được nhập"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "Viết nội dung tin nhắn ở đây"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "Viết nội dung tin nhắn email ở đây"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "Loại tin nhắn"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "Không có tiêu đề"
+
+#~ msgid "messaging_sender"
+#~ msgstr "Người gửi"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "Người gửi"
+
+#~ msgid "messaging_user"
+#~ msgstr "người dùng"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "Người nhận"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "Danh sách người nhận"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "Xem người nhận"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "Chọn người dùng"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "Tất cả người dùng"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "Người đăng ký bản tin (theo mặc định)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "Người dùng cụ thể"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "Chọn một hoặc nhiều người dùng từ danh sách"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "Tùy chọn người nhận bổ sung"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr "Thêm tất cả người dùng hệ thống có người đăng ký nhận bản tin"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr ""
+#~ "Bật tùy chọn này nếu bạn muốn tin nhắn đến được với tất cả người dùng hệ "
+#~ "thống đã đăng ký"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "Không có người nhận"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "Không có người nhận cho tin nhắn này"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "Không có người nhận để gửi tin nhắn"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "Không người nhận nào có địa chỉ email"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "Không có người nhận đang chờ gửi"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "Không có người nhận nào phù hợp với tiêu chí đã chỉ định"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "Số người nhận"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "Tìm kiếm theo người gửi, tiêu đề hoặc văn bản"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "Kênh điều phối"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "Kênh điều phối"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "Quản lý kênh điều phối"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr "Quản lý và gửi thông báo qua email và cảnh báo hệ thống nội bộ"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "Nhật ký gửi hàng"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "Nhật ký thông báo"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "Chưa có nhật ký gửi đi"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "Thời gian gửi hàng"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "Xem dữ liệu tin nhắn, người nhận và trạng thái gửi"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "Xem dữ liệu và nội dung tin nhắn di động"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "Xem dữ liệu và nội dung tin nhắn WhatsApp"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "Xem tin nhắn email hàng loạt với số lượng và trạng thái người nhận"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "Xem tất cả các lần gửi đi cho từng người nhận có trạng thái"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "Gửi tin nhắn"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "Gửi tin nhắn"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "Đọc"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "Chưa đọc"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "Thông báo lỗi"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "Lỗi tồn tại"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "Chiến dịch"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "Nhật ký tin nhắn"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "Gửi tới người dùng qua hệ thống"
+
+#~ msgid "messaging_action"
+#~ msgstr "Hoạt động"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "Email/Số nhận dạng"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "Danh mục chính"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "Cá nhân"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "tập thể"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "Không xác định"
+
+#~ msgid "messaging_first"
+#~ msgstr "Đầu tiên"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "Thử"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "Yêu cầu in được gửi đến nhà cung cấp"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "In trả lời thô"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "Nếu trả lời bằng văn bản"
+
+#~ msgid "quran_studio"
+#~ msgstr "Xưởng Kinh Qur'an"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "Quản lý Kinh Qur'an Studio"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "Quản lý dữ liệu người đọc"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "Quản lý dữ liệu người đọc có sẵn trong hệ thống"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "Dữ liệu người đọc"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "Trang người đọc"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "Hiện tại không có dữ liệu người đọc"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "Người đọc được thêm thành công"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "Dữ liệu người đọc được cập nhật thành công"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "Người đọc đã xóa thành công"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "Xóa người ghi"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "Bạn có chắc chắn muốn xóa người đọc này?"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "Tên tiếng Ả Rập"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "Tên tiếng Anh"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "Mã số"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "Mã và tên tiếng Ả Rập là bắt buộc"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "Biên tập viên tọa độ Ayah"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "Trang soạn thảo tọa độ"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "tọa độ"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "Đặt tọa độ"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "Tải tọa độ"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "Tìm nạp tọa độ"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "Lưu tọa độ"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "Chỉnh sửa tọa độ đã lưu"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "Lưu Chỉnh sửa"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "Lưu mới vào"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "Cập nhật tọa độ ayah trên trang"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "Không có tọa độ nào được lưu cho ayah này trên trang này"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "Nhập số surah và ayah sau đó nhấp vào \"Tải tọa độ\". Các hình chữ nhật "
+#~ "được lưu trữ cho ayah này sẽ được hiển thị trên trang này để chỉnh sửa và "
+#~ "lưu."
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "Kéo chuột qua Mushaf để vẽ một hình chữ nhật tượng trưng cho một phần của "
+#~ "ayah. Bạn có thể vẽ nhiều hình chữ nhật cho cùng một ayah."
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "Vui lòng nhập số surah và ayah"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "Vui lòng nhập số surah và ayah trước khi tải"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "Xóa hình chữ nhật"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "Không có hình chữ nhật nào để lưu"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "Số Surah"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "Số Ayah"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "trang Mushaf"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "Trang hiện tại"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "Trang tiếp theo"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "Trang trước"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "Hình ảnh"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "hành động"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "ví dụ: 2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "ví dụ: 6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "Trang chủ"
+
+#~ msgid "overview"
+#~ msgstr "Tổng quan"
+
+#~ msgid "summary"
+#~ msgstr "Bản tóm tắt"
+
+#~ msgid "important_services"
+#~ msgstr "Dịch vụ chính"
+
+#~ msgid "status"
+#~ msgstr "Trạng thái"
+
+#~ msgid "actions"
+#~ msgstr "hành động"
+
+#~ msgid "content"
+#~ msgstr "Nội dung"
+
+#~ msgid "title"
+#~ msgstr "Tiêu đề"
+
+#~ msgid "created_at"
+#~ msgstr "Ngày tạo"
+
+#~ msgid "updated_at"
+#~ msgstr "Cập nhật lần cuối"
+
+#~ msgid "next"
+#~ msgstr "Kế tiếp"
+
+#~ msgid "previous"
+#~ msgstr "Trước"
+
+#~ msgid "back"
+#~ msgstr "Mặt sau"
+
+#~ msgid "save"
+#~ msgstr "Cứu"
+
+#~ msgid "save_changes"
+#~ msgstr "Lưu thay đổi"
+
+#~ msgid "add"
+#~ msgstr "Thêm vào"
+
+#~ msgid "create"
+#~ msgstr "Tạo nên"
+
+#~ msgid "update"
+#~ msgstr "Cập nhật"
+
+#~ msgid "edit"
+#~ msgstr "Biên tập"
+
+#~ msgid "delete"
+#~ msgstr "Xóa bỏ"
+
+#~ msgid "cancel"
+#~ msgstr "Hủy bỏ"
+
+#~ msgid "confirm"
+#~ msgstr "Xác nhận"
+
+#~ msgid "view"
+#~ msgstr "Xem"
+
+#~ msgid "send"
+#~ msgstr "Gửi"
+
+#~ msgid "send_now"
+#~ msgstr "Gửi ngay"
+
+#~ msgid "sent"
+#~ msgstr "Đã gửi"
+
+#~ msgid "failed"
+#~ msgstr "Thất bại"
+
+#~ msgid "pending"
+#~ msgstr "Chưa giải quyết"
+
+#~ msgid "no_data"
+#~ msgstr "Không có dữ liệu"
+
+#~ msgid "settings"
+#~ msgstr "Cài đặt"
+
+#~ msgid "system_settings"
+#~ msgstr "Cài đặt hệ thống"
+
+#~ msgid "security"
+#~ msgstr "Bảo vệ"
+
+#~ msgid "zoom_out"
+#~ msgstr "Thu nhỏ"
+
+#~ msgid "app_arabic"
+#~ msgstr "tiếng Ả Rập"
+
+#~ msgid "app_urdu"
+#~ msgstr "tiếng Urdu"
+
+#~ msgid "web_alkl"
+#~ msgstr "Tất cả"
+
+#~ msgid "web_fqt"
+#~ msgstr "Chỉ một"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "Chỉ, hoặc"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "Chỉ hoặc cả hai"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "Đã đăng ký Bản quyền"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "Trang web Kinh Qur'an"
+
+#~ msgid "required_field"
+#~ msgstr "Trường này là bắt buộc"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "Số điện thoại là bắt buộc"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "Định dạng số điện thoại không hợp lệ"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "Số điện thoại không hợp lệ"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "Số điện thoại không thể"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "Định dạng số điện thoại di động không hợp lệ"
+
+#~ msgid "core_ay"
+#~ msgstr "Hoặc bất kỳ"
+
+#~ msgid "core_mnasb"
+#~ msgstr "Phù hợp"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr "Chúng tôi chỉ tính các lượt truy cập công khai (ví dụ: Trang chủ)"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "Số hàng trên mỗi trang"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "Số lượng hồ sơ"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "Xin lỗi, bạn không có quyền truy cập trang này"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "Truy cập bị cấm"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "Chiều cao thanh (điều khiển trực quan)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "Thời lượng mặc định để nâng ly chúc mừng tính bằng mili giây"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "Thời lượng cụ thể cho thông báo này (ghi đè mặc định)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "Chế độ xem tối đa mặc định (ví dụ: 20)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "Chiều rộng cố định (để trống để sử dụng)"
+
+#~ msgid "web_notification"
+#~ msgstr "Thông báo"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "Đóng trên phông nền nhấp chuột"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "Đồng bộ hóa sau 5 giây kể từ lần cập nhật cuối cùng"
+
+#~ msgid "quran_nav"
+#~ msgstr "Kinh Qur'an"
+
+#~ msgid "quran_text"
+#~ msgstr "Chữ"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "Chia văn bản thành"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "Phần còn lại của văn bản"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "Giữa"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "Tin nhắn mới từ biểu mẫu Liên hệ với chúng tôi"
+
+#~ msgid "services_message_text"
+#~ msgstr "Nội dung tin nhắn:"
+
+#~ msgid "surah_3"
+#~ msgstr "Ali 'Imran"
+
+#~ msgid "surah_4"
+#~ msgstr "An-Nisa'"
+
+#~ msgid "surah_5"
+#~ msgstr "Al-Ma'idah"
+
+#~ msgid "surah_6"
+#~ msgstr "Al-An'am"
+
+#~ msgid "surah_7"
+#~ msgstr "Al-A'raf"
+
+#~ msgid "surah_8"
+#~ msgstr "Al-Anfal"
+
+#~ msgid "surah_9"
+#~ msgstr "Tại-Tawbah"
+
+#~ msgid "surah_10"
+#~ msgstr "Yunus"
+
+#~ msgid "surah_11"
+#~ msgstr "Hud"
+
+#~ msgid "surah_12"
+#~ msgstr "Yusuf"
+
+#~ msgid "surah_13"
+#~ msgstr "Ar-Ra'd"
+
+#~ msgid "surah_14"
+#~ msgstr "Ibrahim"
+
+#~ msgid "surah_15"
+#~ msgstr "Al-Hijr"
+
+#~ msgid "surah_16"
+#~ msgstr "An-Nahl"
+
+#~ msgid "surah_17"
+#~ msgstr "Al-Isra'"
+
+#~ msgid "surah_18"
+#~ msgstr "Al-Kahf"
+
+#~ msgid "surah_19"
+#~ msgstr "Maryam"
+
+#~ msgid "surah_20"
+#~ msgstr "Taha"
+
+#~ msgid "surah_21"
+#~ msgstr "Al-Anbiya'"
+
+#~ msgid "surah_22"
+#~ msgstr "Al-Hajj"
+
+#~ msgid "surah_23"
+#~ msgstr "Al-Mu'minun"
+
+#~ msgid "surah_24"
+#~ msgstr "An-Nur"
+
+#~ msgid "surah_25"
+#~ msgstr "Al-Furqan"
+
+#~ msgid "surah_26"
+#~ msgstr "Ash-Shu'ara'"
+
+#~ msgid "surah_27"
+#~ msgstr "An-Naml"
+
+#~ msgid "surah_28"
+#~ msgstr "Al-Qasas"
+
+#~ msgid "surah_29"
+#~ msgstr "Al-'Ankabut"
+
+#~ msgid "surah_30"
+#~ msgstr "Ar-Rum"
+
+#~ msgid "surah_31"
+#~ msgstr "Luqman"
+
+#~ msgid "surah_32"
+#~ msgstr "As-Sajdah"
+
+#~ msgid "surah_33"
+#~ msgstr "Al-Ahzab"
+
+#~ msgid "surah_34"
+#~ msgstr "Saba'"
+
+#~ msgid "surah_35"
+#~ msgstr "Fatir"
+
+#~ msgid "surah_36"
+#~ msgstr "Ya-Sin"
+
+#~ msgid "surah_37"
+#~ msgstr "As-Saffat"
+
+#~ msgid "surah_38"
+#~ msgstr "Buồn"
+
+#~ msgid "surah_39"
+#~ msgstr "Az-Zumar"
+
+#~ msgid "surah_40"
+#~ msgstr "Ghafir"
+
+#~ msgid "surah_41"
+#~ msgstr "Fussilat"
+
+#~ msgid "surah_42"
+#~ msgstr "Ash-Shura"
+
+#~ msgid "surah_43"
+#~ msgstr "Az-Zukhruf"
+
+#~ msgid "surah_44"
+#~ msgstr "Ad-Dukhan"
+
+#~ msgid "surah_45"
+#~ msgstr "Al-Jathiyah"
+
+#~ msgid "surah_46"
+#~ msgstr "Al-Ahqaf"
+
+#~ msgid "surah_47"
+#~ msgstr "Muhammad"
+
+#~ msgid "surah_48"
+#~ msgstr "Al-Fath"
+
+#~ msgid "surah_49"
+#~ msgstr "Al-Hujurat"
+
+#~ msgid "surah_50"
+#~ msgstr "Qaf"
+
+#~ msgid "surah_51"
+#~ msgstr "Adh-Dhariyat"
+
+#~ msgid "surah_52"
+#~ msgstr "At-Tur"
+
+#~ msgid "surah_53"
+#~ msgstr "An-Najm"
+
+#~ msgid "surah_54"
+#~ msgstr "Al-Qamar"
+
+#~ msgid "surah_55"
+#~ msgstr "Ar-Rahman"
+
+#~ msgid "surah_56"
+#~ msgstr "Al-Waqi'ah"
+
+#~ msgid "surah_57"
+#~ msgstr "Al-Hadid"
+
+#~ msgid "surah_58"
+#~ msgstr "Al-Mujadilah"
+
+#~ msgid "surah_59"
+#~ msgstr "Al-Hashr"
+
+#~ msgid "surah_60"
+#~ msgstr "Al-Mumtahanah"
+
+#~ msgid "surah_61"
+#~ msgstr "As-Saff"
+
+#~ msgid "surah_62"
+#~ msgstr "Al-Jumu'ah"
+
+#~ msgid "surah_63"
+#~ msgstr "Al-Munafiqun"
+
+#~ msgid "surah_64"
+#~ msgstr "Tại-Taghabun"
+
+#~ msgid "surah_65"
+#~ msgstr "Tại-Talaq"
+
+#~ msgid "surah_66"
+#~ msgstr "At-Tahrim"
+
+#~ msgid "surah_67"
+#~ msgstr "Al-Mulk"
+
+#~ msgid "surah_68"
+#~ msgstr "Al-Qalam"
+
+#~ msgid "surah_69"
+#~ msgstr "Al-Haqqah"
+
+#~ msgid "surah_70"
+#~ msgstr "Al-Ma'arij"
+
+#~ msgid "surah_71"
+#~ msgstr "Không"
+
+#~ msgid "surah_72"
+#~ msgstr "Al-Jinn"
+
+#~ msgid "surah_73"
+#~ msgstr "Al-Muzzammil"
+
+#~ msgid "surah_74"
+#~ msgstr "Al-Muddaththir"
+
+#~ msgid "surah_75"
+#~ msgstr "Al-Qiyamah"
+
+#~ msgid "surah_76"
+#~ msgstr "Al-Insan"
+
+#~ msgid "surah_77"
+#~ msgstr "Al-Mursalat"
+
+#~ msgid "surah_78"
+#~ msgstr "An-Naba'"
+
+#~ msgid "surah_79"
+#~ msgstr "An-Nazi'at"
+
+#~ msgid "surah_80"
+#~ msgstr "'Abasa"
+
+#~ msgid "surah_81"
+#~ msgstr "Tại-Takvir"
+
+#~ msgid "surah_82"
+#~ msgstr "Al-Infitar"
+
+#~ msgid "surah_83"
+#~ msgstr "Al-Mutaffifin"
+
+#~ msgid "surah_84"
+#~ msgstr "Al-Inshiqaq"
+
+#~ msgid "surah_85"
+#~ msgstr "Al-Buruj"
+
+#~ msgid "surah_86"
+#~ msgstr "Tại-Tariq"
+
+#~ msgid "surah_87"
+#~ msgstr "Al-A'la"
+
+#~ msgid "surah_88"
+#~ msgstr "Al-Ghashiyah"
+
+#~ msgid "surah_89"
+#~ msgstr "Al-Fajr"
+
+#~ msgid "surah_90"
+#~ msgstr "Al-Balad"
+
+#~ msgid "surah_91"
+#~ msgstr "Ash-Shams"
+
+#~ msgid "surah_92"
+#~ msgstr "Al-Layl"
+
+#~ msgid "surah_93"
+#~ msgstr "Ad-Duha"
+
+#~ msgid "surah_94"
+#~ msgstr "Ash-Sharh"
+
+#~ msgid "surah_95"
+#~ msgstr "At-Tin"
+
+#~ msgid "surah_96"
+#~ msgstr "Al-'Alaq"
+
+#~ msgid "surah_97"
+#~ msgstr "Al-Qadr"
+
+#~ msgid "surah_98"
+#~ msgstr "Al-Bayyinah"
+
+#~ msgid "surah_99"
+#~ msgstr "Az-Zalzalah"
+
+#~ msgid "surah_100"
+#~ msgstr "Al-'Adiyat"
+
+#~ msgid "surah_101"
+#~ msgstr "Al-Qari'ah"
+
+#~ msgid "surah_102"
+#~ msgstr "Tại-Takathur"
+
+#~ msgid "surah_103"
+#~ msgstr "Al-'Asr"
+
+#~ msgid "surah_104"
+#~ msgstr "Al-Humazah"
+
+#~ msgid "surah_105"
+#~ msgstr "Al-Fil"
+
+#~ msgid "surah_106"
+#~ msgstr "Quraysh"
+
+#~ msgid "surah_107"
+#~ msgstr "Al-Ma'un"
+
+#~ msgid "surah_108"
+#~ msgstr "Al-Kawthar"
+
+#~ msgid "surah_109"
+#~ msgstr "Al-Kafirun"
+
+#~ msgid "surah_110"
+#~ msgstr "An-Nasr"
+
+#~ msgid "surah_111"
+#~ msgstr "Al-Masad"
+
+#~ msgid "surah_112"
+#~ msgstr "Al-Ikhlas"
+
+#~ msgid "surah_113"
+#~ msgstr "Al-Falaq"
+
+#~ msgid "surah_114"
+#~ msgstr "An-Nas"
+
+#~ msgid "contents"
+#~ msgstr "Nội dung"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "Khả năng tiếp cận"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "Tăng cỡ chữ"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "Giảm cỡ chữ"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "Độ tương phản cao"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "Chế độ tối"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "Chế độ đọc"
+
+#~ msgid "a11y_reset"
+#~ msgstr "Đặt lại cài đặt"
+
+#~ msgid "select_translation"
+#~ msgstr "Chọn bản dịch"
+
+#~ msgid "select_surah"
+#~ msgstr "Chọn Surah"
+
+#~ msgid "copy_ayah"
+#~ msgstr "Sao chép câu thơ"
+
+#~ msgid "share_ayah"
+#~ msgstr "Chia sẻ câu thơ"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "Đánh dấu câu thơ"
+
+#~ msgid "play_ayah"
+#~ msgstr "Phát âm thanh"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "Đã lưu câu thơ"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "Đã xóa khỏi đã lưu"
+
+#~ msgid "no_translation_available"
+#~ msgstr "Không có bản dịch"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "Chọn một Surah để bắt đầu"
+
+#~ msgid "app_download_title"
+#~ msgstr "Tải xuống ứng dụng Wird"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "Trải nghiệm Kinh Qur'an hoàn chỉnh trên thiết bị của bạn"
+
+#~ msgid "audio_language"
+#~ msgstr "Ngôn ngữ âm thanh"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "Wid hôm nay"
+
+#~ msgid "home_this_week"
+#~ msgstr "Tuần này"
+
+#~ msgid "home_your_wird"
+#~ msgstr "Dây của bạn"
+
+#~ msgid "home_progress"
+#~ msgstr "Tiến triển"
+
+#~ msgid "home_days_progress"
+#~ msgstr "4 trong 7 ngày"
+
+#~ msgid "day_sat"
+#~ msgstr "Đã ngồi"
+
+#~ msgid "day_sun"
+#~ msgstr "Mặt trời"
+
+#~ msgid "day_mon"
+#~ msgstr "Thứ hai"
+
+#~ msgid "day_tue"
+#~ msgstr "thứ ba"
+
+#~ msgid "day_wed"
+#~ msgstr "Thứ tư"
+
+#~ msgid "day_thu"
+#~ msgstr "Thứ năm"
+
+#~ msgid "day_fri"
+#~ msgstr "Thứ sáu"
+
+#~ msgid "home_today_wird"
+#~ msgstr "Wid hôm nay"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "Chơi ngâm thơ bằng"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "Giọng nói thuần khiết"
+
+#~ msgid "home_tarteel"
+#~ msgstr "Niệm Tarteel"
+
+#~ msgid "home_khashi"
+#~ msgstr "Tụng Kinh Cống Hiến"

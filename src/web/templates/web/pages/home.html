@@ -1,0 +1,553 @@
+{% extends "web/layouts/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "wird" %}{% endblock %}
+{% block description %}{% trans "home_hero_summary" %}{% endblock %}
+
+{% block layout %}
+<main class="wird-home">
+  <section class="wird-hero-section">
+    <div class="wird-container">
+      <div class="wird-hero-grid">
+        <div class="wird-hero-copy">
+          <div class="wird-eyebrow">
+            <span></span>
+            {% trans "home_eyebrow" %}
+          </div>
+
+          <h1 class="wird-hero-title">
+            {% trans "home_hero_title1" %}
+            <span>{% trans "home_hero_title2" %}</span>
+          </h1>
+
+          <p class="wird-hero-description">
+            {% trans "home_hero_desc" %}
+          </p>
+
+          <div class="wird-hero-actions">
+            <a href="{% url 'quran:quran' %}" class="wird-btn wird-btn-primary">
+              <span>{% trans "home_start_reading" %}</span>
+              <i class="bi {% if LANGUAGE_BIDI %}bi-arrow-left{% else %}bi-arrow-right{% endif %}"></i>
+            </a>
+            <a href="{% url 'tilawa:qari_list' %}" class="wird-btn wird-btn-secondary">
+              <span>{% trans "home_explore_recitations" %}</span>
+              <i class="bi bi-play"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="wird-hero-visual" aria-hidden="true">
+          <div class="wird-quran-card">
+            <div class="wird-floating-reciter">
+              <span>{% trans "home_calm_recitation" %}</span>
+              <strong id="heroReciterName">{% if is_arabic %}{{ hero_reciter_ar }}{% else %}{{ hero_reciter_en }}{% endif %}</strong>
+            </div>
+
+            <div class="wird-ornament wird-ornament-one"></div>
+            <div class="wird-ornament wird-ornament-two"></div>
+            <div class="wird-ornament wird-ornament-three"></div>
+
+            <img src="{% static 'images/quran.png' %}" alt="" class="wird-quran-image">
+
+            <div class="wird-floating-daily wird-floating-audio">
+              <audio id="heroAudio" preload="none"></audio>
+              <button type="button" id="heroPlayBtn" class="wird-hero-audio-btn wird-hero-play-btn"
+                      aria-label="{% trans 'play' %}">
+                <i class="bi bi-play-fill"></i>
+              </button>
+              <button type="button" id="heroStopBtn" class="wird-hero-audio-btn wird-hero-stop-btn"
+                      aria-label="{% trans 'stop_playback' %}" style="display:none">
+                <i class="bi bi-stop-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wird-section wird-features-section" id="features">
+    <div class="wird-container">
+      <div class="wird-section-heading">
+        <span>{% trans "home_features_label" %}</span>
+        <h2>{% trans "home_features_title" %}</h2>
+        <p>{% trans "home_features_desc" %}</p>
+      </div>
+
+      <div class="wird-features-grid">
+        <a href="{% url 'quran:quran' %}" class="wird-feature-card">
+          <span class="wird-feature-icon"><i class="bi bi-book"></i></span>
+          <h3>{% trans "home_feature_quran_title" %}</h3>
+          <p>{% trans "home_feature_quran_desc" %}</p>
+        </a>
+
+        <a href="{% url 'quran:quran' %}" class="wird-feature-card">
+          <span class="wird-feature-icon"><i class="bi bi-mortarboard"></i></span>
+          <h3>{% trans "home_feature_hifz_title" %}</h3>
+          <p>{% trans "home_feature_hifz_desc" %}</p>
+        </a>
+
+        <a href="{% url 'tilawa:qari_list' %}" class="wird-feature-card">
+          <span class="wird-feature-icon"><i class="bi bi-headphones"></i></span>
+          <h3>{% trans "home_feature_listen_title" %}</h3>
+          <p>{% trans "home_feature_listen_desc" %}</p>
+        </a>
+
+        <a href="/quran/tafsir/3/?mushaf=hafs&qari=maher_almuaiqly&page=1&mode=tafsir" class="wird-feature-card">
+          <span class="wird-feature-icon"><i class="bi bi-journal-text"></i></span>
+          <h3>{% trans "home_feature_tafsir_title" %}</h3>
+          <p>{% trans "home_feature_tafsir_desc" %}</p>
+        </a>
+
+        <a href="{% url 'web:translation' %}" class="wird-feature-card">
+          <span class="wird-feature-icon"><i class="bi bi-translate"></i></span>
+          <h3>{% trans "home_feature_trans_title" %}</h3>
+          <p>{% trans "home_feature_trans_desc" %}</p>
+        </a>
+
+        <a href="{% url 'quran:quran' %}" class="wird-feature-card">
+          <span class="wird-feature-icon"><i class="bi bi-stars"></i></span>
+          <h3>{% trans "home_feature_words_title" %}</h3>
+          <p>{% trans "home_feature_words_desc" %}</p>
+        </a>
+
+        <a href="{% url 'quran:quran' %}" onclick="try{localStorage.setItem('wird_open_daily_reading','1');}catch(e){}" class="wird-feature-card">
+          <span class="wird-feature-icon"><i class="bi bi-calendar2-heart"></i></span>
+          <h3>{% trans "home_feature_daily_title" %}</h3>
+          <p>{% trans "home_feature_daily_desc" %}</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wird-section wird-daily-section">
+    <div class="wird-container">
+      <div class="wird-split-grid">
+        <!-- Khatma showcase — mirrors daily reading modal design -->
+        <div class="wird-khatma-showcase">
+          <div class="wird-ks-grid">
+
+            <!-- Left: ختمة الحالية -->
+            <div class="wird-ks-khatma">
+              <div class="wird-ks-row-header">
+                <span class="wird-ks-section-label">{% trans "current_khatma" %}</span>
+                <span class="wird-ks-percent">0%</span>
+              </div>
+              <div class="wird-ks-bar"><span></span></div>
+              <div class="wird-ks-ayah-box">
+                <div class="wird-ks-ayah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                <div class="wird-ks-meta">
+                  <span>{% trans "ayah" %} <strong>1</strong></span>
+                  <span>{% trans "page" %} <strong>1</strong></span>
+                  <span>{% trans "Juz" %} <strong>1</strong></span>
+                </div>
+              </div>
+              <div class="wird-ks-remaining">
+                <span>{% trans "remaining_wirds" %}</span>
+                <strong>1 / 30</strong>
+              </div>
+            </div>
+
+            <!-- Right: الورد الحالي -->
+            <div class="wird-ks-wird">
+              <div class="wird-ks-row-header">
+                <span class="wird-ks-wird-label">{% trans "current_wird" %}</span>
+                <span class="wird-ks-wird-badge">1</span>
+              </div>
+              <div class="wird-ks-table">
+                <div class="wird-ks-table-head">
+                  <span>—</span>
+                  <span>{% trans "surah" %}</span>
+                  <span>{% trans "ayah" %}</span>
+                </div>
+                <div class="wird-ks-table-row">
+                  <span class="wird-ks-td-label">{% trans "from" %}</span>
+                  <span class="wird-ks-surah">{% translate "surah_1" %}</span>
+                  <span>1</span>
+                </div>
+                <div class="wird-ks-table-row">
+                  <span class="wird-ks-td-label">{% trans "to" %}</span>
+                  <span class="wird-ks-surah">{% translate "surah_2" %}</span>
+                  <span>141</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Footer: tracking toggle + buttons -->
+          <div class="wird-ks-footer">
+            <div class="wird-ks-tracking">
+              <span class="wird-ks-tracking-state">{% trans "tracking_manual" %}</span>
+              <span class="wird-ks-toggle"><span class="wird-ks-toggle-knob"></span></span>
+            </div>
+            <div class="wird-ks-actions">
+              <a href="{% url 'quran:quran' %}" class="wird-ks-btn wird-ks-btn-finish">{% trans "finish_wird" %}</a>
+              <a href="{% url 'quran:quran' %}" onclick="try{localStorage.setItem('wird_open_daily_reading','1');}catch(e){}"
+                 class="wird-ks-btn wird-ks-btn-continue">{% trans "continue_reading" %}</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="wird-section-copy">
+          <span>{% trans "daily_wird" %}</span>
+          <h2>{% trans "home_daily_title" %}</h2>
+          <p>{% trans "home_daily_desc" %}</p>
+          <div class="wird-copy-points">
+            <span><i></i> {% trans "home_gentle_tracking" %}</span>
+            <span><i></i> {% trans "home_flexible_reminder" %}</span>
+            <span><i></i> {% trans "home_no_pressure" %}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wird-section wird-recitation-section">
+    <div class="wird-container">
+      <div class="wird-section-heading">
+        <span>{% trans "tilawa" %}</span>
+        <h2>{% trans "home_recitation_title" %}</h2>
+        <p>{% trans "home_recitation_desc" %}</p>
+      </div>
+
+      <div class="wird-audio-grid">
+        <div class="wird-player-card">
+          <div class="wird-player-top">
+            <span>{% trans "home_now_playing" %}</span>
+            <div><span>{% trans "home_reciter_label" %}</span><strong id="wirdPlayerQari"></strong></div>
+          </div>
+
+          <div class="wird-current-surah">
+            <span>{% trans "home_current_surah" %}</span>
+            <strong id="wirdPlayerSurah"></strong>
+            <small id="wirdPlayerAyah"></small>
+          </div>
+
+          <div class="wird-audio-progress" id="wirdProgressBar"><span id="wirdProgressFill"></span></div>
+          <div class="wird-player-times"><span id="wirdPlayerEnd">--:--</span><span id="wirdPlayerStart">00:00</span></div>
+
+          <audio id="wirdHomeAudio" preload="none"></audio>
+
+          <div class="wird-player-controls">
+            <button type="button" id="wirdPrevBtn" aria-label="{% trans 'home_prev' %}"><i class="bi bi-skip-backward"></i></button>
+            <button type="button" class="is-main" id="wirdPlayerToggle" aria-label="{% trans 'home_play_pause' %}"><i class="bi bi-play-fill"></i></button>
+            <button type="button" id="wirdNextBtn" aria-label="{% trans 'home_next' %}"><i class="bi bi-skip-forward"></i></button>
+          </div>
+        </div>
+
+        <div class="wird-reciter-list" id="wirdReciterList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wird-section wird-reading-section">
+    <div class="wird-container">
+      <div class="wird-section-heading">
+        <span>{% trans "home_reading_label" %}</span>
+        <h2>{% trans "home_reading_title" %}</h2>
+        <p>{% trans "home_reading_desc" %}</p>
+      </div>
+
+      {% if show_tafsir %}
+      <div class="wird-reading-grid">
+        <a href="/quran/tafsir/3/?mushaf=hafs&qari=maher_almuaiqly&page=1&mode=tafsir" class="wird-reading-card wird-reading-link" dir="rtl">
+          <div class="wird-reading-card-header"><h3 id="wirdTafsirBookName">{% trans "home_easy_tafsir" %}</h3><span id="wirdTafsirBadge">{% trans "tafsir" %}</span></div>
+          <div class="wird-ayah-box"><span id="wirdTafsirAyah"></span><small id="wirdTafsirRef"></small></div>
+          <p id="wirdTafsirText"></p>
+        </a>
+
+        <div class="wird-reading-card" dir="rtl">
+          <div class="wird-reading-card-header"><h3>{% trans "home_feature_words_title" %}</h3><span>{% trans "home_meaning_badge" %}</span></div>
+          <div class="wird-ayah-box"><span id="wirdMeaningWord">الصراط</span><small id="wirdMeaningRef">سورة الفاتحة — الآية 6</small></div>
+          <div class="wird-translation-lines">
+            <span>{% trans "home_meaning_label" %}</span>
+            <p id="wirdMeaningText">الطريق الواضح المستقيم.</p>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="wird-reading-grid wird-reading-grid-single">
+        <a href="{% url 'web:translation' %}" class="wird-reading-card wird-reading-link">
+          <div class="wird-reading-card-header"><h3 id="wirdTransTitle">{% trans "home_feature_trans_title" %}</h3></div>
+          <div class="wird-trans-ayah-compact">
+            <span id="wirdTransAyah" dir="rtl"></span>
+            <small id="wirdTransRef"></small>
+          </div>
+          <div class="wird-trans-body">
+            <p id="wirdTransText" class="wird-trans-main"></p>
+            {% if translation_audio_folder %}
+            <button type="button" id="wirdTransAudioBtn" class="wird-trans-audio-btn" aria-label="Play translation audio">
+              <i class="bi bi-play-fill"></i>
+            </button>
+            {% endif %}
+          </div>
+          <audio id="wirdTransAudio" preload="none"></audio>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var IS_ARABIC = {{ is_arabic|yesno:"true,false" }};
+  var IS_RTL = IS_ARABIC;
+  var SHOW_TAFSIR = {{ show_tafsir|yesno:"true,false" }};
+  var RECITERS = {{ reciters_json|safe }};
+  var TAFSIR_SAMPLES = {{ tafsir_samples_json|safe }};
+  var TRANS_SAMPLES = {{ translation_samples_json|safe }};
+  var TRANS_AUDIO_FOLDER = "{{ translation_audio_folder }}";
+
+  // i18n strings for JS
+  var I18N = {
+    ayah: "{% trans 'ayah_counter' %}",
+  };
+
+  function pad3(n) { return String(n).padStart(3, "0"); }
+  function fmtTime(s) {
+    if (!isFinite(s) || s <= 0) return "--:--";
+    var m = Math.floor(s / 60);
+    return m + ":" + String(Math.floor(s % 60)).padStart(2, "0");
+  }
+
+  // ── Reading section ────────────────────────────────────────────────
+  if (SHOW_TAFSIR && TAFSIR_SAMPLES.length) {
+    var ts = TAFSIR_SAMPLES[Math.floor(Math.random() * TAFSIR_SAMPLES.length)];
+    var bookEl = document.getElementById("wirdTafsirBookName");
+    var ayahEl = document.getElementById("wirdTafsirAyah");
+    var refEl  = document.getElementById("wirdTafsirRef");
+    var txtEl  = document.getElementById("wirdTafsirText");
+    if (bookEl) bookEl.textContent = ts.book_name;
+    if (ayahEl && ts.ayah_text) ayahEl.textContent = "﴿ " + ts.ayah_text + " ﴾";
+    if (refEl)  refEl.textContent  = ts.surah_name_ar + " — " + I18N.ayah + " " + ts.ayah_number;
+    if (txtEl)  txtEl.textContent  = ts.tafsir_text;
+  }
+  if (!SHOW_TAFSIR && TRANS_SAMPLES.length) {
+    var tr = TRANS_SAMPLES[Math.floor(Math.random() * TRANS_SAMPLES.length)];
+    var tAyah  = document.getElementById("wirdTransAyah");
+    var tRef   = document.getElementById("wirdTransRef");
+    var tText  = document.getElementById("wirdTransText");
+    var tAudioEl = document.getElementById("wirdTransAudio");
+    var tAudioBtn = document.getElementById("wirdTransAudioBtn");
+    if (tAyah && tr.ayah_text) tAyah.textContent = "﴿ " + tr.ayah_text + " ﴾";
+    if (tRef)  tRef.textContent  = (IS_RTL ? tr.surah_name_ar : (tr.surah_name_en || tr.surah_name_ar)) + " — " + I18N.ayah + " " + tr.ayah_number;
+    if (tText) tText.textContent = tr.translation;
+    if (tAudioEl && tAudioBtn && TRANS_AUDIO_FOLDER) {
+      var s = String(tr.surah_number).padStart(3, "0");
+      var a = String(tr.ayah_number).padStart(3, "0");
+      tAudioEl.src = "{{ MEDIA_URL }}translations/" + TRANS_AUDIO_FOLDER + "/" + s + "/" + s + a + ".mp3";
+      tAudioBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (tAudioEl.paused) {
+          tAudioEl.play().catch(function () {});
+          tAudioBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+        } else {
+          tAudioEl.pause();
+          tAudioBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+        }
+      });
+      tAudioEl.addEventListener("ended", function () {
+        tAudioBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+      });
+    }
+  }
+
+  // ── Player ─────────────────────────────────────────────────────────
+  var qariEl    = document.getElementById("wirdPlayerQari");
+  var surahEl   = document.getElementById("wirdPlayerSurah");
+  var ayahSmEl  = document.getElementById("wirdPlayerAyah");
+  var audioEl   = document.getElementById("wirdHomeAudio");
+  var endEl     = document.getElementById("wirdPlayerEnd");
+  var startEl   = document.getElementById("wirdPlayerStart");
+  var toggleEl  = document.getElementById("wirdPlayerToggle");
+  var progressBar  = document.getElementById("wirdProgressBar");
+  var progressFill = document.getElementById("wirdProgressFill");
+  var reciterList  = document.getElementById("wirdReciterList");
+  var prevBtn   = document.getElementById("wirdPrevBtn");
+  var nextBtn   = document.getElementById("wirdNextBtn");
+
+  var currentReciterIdx = 0;
+  var currentAyah = 1;
+  var isPlaying = false;
+
+  function reciterName(r) {
+    if (IS_ARABIC) return r.name_ar;
+    return r.name_en || r.name_ar;
+  }
+
+  function buildReciterList() {
+    if (!reciterList) return;
+    reciterList.innerHTML = "";
+    RECITERS.forEach(function (r, i) {
+      var div = document.createElement("div");
+      div.dataset.index = i;
+      if (i === 0) div.classList.add("is-active");
+      var surahDisplay = IS_RTL ? (r.surah_name_ar || "") : (r.surah_name_en || r.surah_name_ar || "");
+      div.innerHTML =
+        '<div><strong>' + reciterName(r) + '</strong>' +
+        '<span>' + surahDisplay + '</span></div>' +
+        '<button type="button" aria-label="play"><i class="bi ' + (i === 0 ? "bi-play-fill" : "bi-play") + '"></i></button>';
+      div.addEventListener("click", function () { selectReciter(i); });
+      reciterList.appendChild(div);
+    });
+  }
+
+  function updateReciterListUI(activeIdx) {
+    if (!reciterList) return;
+    Array.from(reciterList.children).forEach(function (row, i) {
+      row.classList.toggle("is-active", i === activeIdx);
+      var icon = row.querySelector("i");
+      if (icon) icon.className = "bi " + (i === activeIdx ? "bi-play-fill" : "bi-play");
+    });
+  }
+
+  function selectReciter(idx) {
+    currentReciterIdx = idx;
+    currentAyah = 1;
+    var r = RECITERS[idx];
+    updateReciterListUI(idx);
+    if (qariEl) qariEl.textContent = reciterName(r);
+    if (surahEl) surahEl.textContent = IS_RTL ? (r.surah_name_ar || "") : (r.surah_name_en || r.surah_name_ar || "");
+    if (ayahSmEl) ayahSmEl.textContent = "1 / " + r.ayah_count;
+    if (endEl) endEl.textContent = "--:--";
+    if (startEl) startEl.textContent = "00:00";
+    if (progressFill) progressFill.style.width = "0%";
+    if (audioEl) {
+      audioEl.src = ayahSrc(r.code, r.surah_number, 1);
+      audioEl.load();
+      audioEl.play().catch(function () {});
+      isPlaying = true;
+      if (toggleEl) toggleEl.innerHTML = '<i class="bi bi-pause-fill"></i>';
+    }
+  }
+
+  function ayahSrc(reciterCode, surahNum, ayahNum) {
+    return "{{ MEDIA_URL }}audio/hafs/" + reciterCode + "/" + pad3(surahNum) + "/" + pad3(surahNum) + pad3(ayahNum) + ".mp3";
+  }
+
+  function loadAyah(reciterIdx, ayahNum) {
+    var r = RECITERS[reciterIdx];
+    if (!r || !audioEl) return;
+    currentAyah = ayahNum;
+    audioEl.src = ayahSrc(r.code, r.surah_number, ayahNum);
+    if (ayahSmEl) ayahSmEl.textContent = ayahNum + " / " + r.ayah_count;
+    if (isPlaying) {
+      audioEl.load();
+      audioEl.play().catch(function () {});
+    }
+  }
+
+  function playToggle() {
+    if (!audioEl) return;
+    if (audioEl.paused) {
+      if (!audioEl.src || audioEl.src === window.location.href) {
+        loadAyah(currentReciterIdx, 1);
+      }
+      audioEl.play().catch(function () {});
+      isPlaying = true;
+      if (toggleEl) toggleEl.innerHTML = '<i class="bi bi-pause-fill"></i>';
+    } else {
+      audioEl.pause();
+      isPlaying = false;
+      if (toggleEl) toggleEl.innerHTML = '<i class="bi bi-play-fill"></i>';
+    }
+  }
+
+  if (audioEl) {
+    audioEl.addEventListener("ended", function () {
+      var r = RECITERS[currentReciterIdx];
+      if (!r) return;
+      var next = currentAyah + 1;
+      if (next <= r.ayah_count) {
+        loadAyah(currentReciterIdx, next);
+        audioEl.play().catch(function () {});
+      } else {
+        isPlaying = false;
+        currentAyah = 1;
+        if (toggleEl) toggleEl.innerHTML = '<i class="bi bi-play-fill"></i>';
+        if (progressFill) progressFill.style.width = "0%";
+      }
+    });
+
+    audioEl.addEventListener("timeupdate", function () {
+      if (!audioEl.duration) return;
+      var pct = (audioEl.currentTime / audioEl.duration) * 100;
+      if (progressFill) progressFill.style.width = pct + "%";
+      if (startEl) startEl.textContent = fmtTime(audioEl.currentTime);
+    });
+
+    audioEl.addEventListener("durationchange", function () {
+      if (endEl) endEl.textContent = fmtTime(audioEl.duration);
+    });
+  }
+
+  if (progressBar) {
+    progressBar.style.cursor = "pointer";
+    progressBar.addEventListener("click", function (e) {
+      if (!audioEl || !audioEl.duration) return;
+      var rect = progressBar.getBoundingClientRect();
+      var pct = (e.clientX - rect.left) / rect.width;
+      audioEl.currentTime = pct * audioEl.duration;
+    });
+  }
+
+  if (toggleEl) toggleEl.addEventListener("click", playToggle);
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", function () {
+      var prev = currentAyah > 1 ? currentAyah - 1 : 1;
+      loadAyah(currentReciterIdx, prev);
+      if (isPlaying) audioEl.play().catch(function () {});
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      var r = RECITERS[currentReciterIdx];
+      var next = r && currentAyah < r.ayah_count ? currentAyah + 1 : currentAyah;
+      loadAyah(currentReciterIdx, next);
+      if (isPlaying) audioEl.play().catch(function () {});
+    });
+  }
+
+  // ── Hero audio buttons ────────────────────────────────────────────
+  (function () {
+    var heroAudio = document.getElementById("heroAudio");
+    var playBtn   = document.getElementById("heroPlayBtn");
+    var stopBtn   = document.getElementById("heroStopBtn");
+    if (!heroAudio || !playBtn || !stopBtn || !RECITERS.length) return;
+    var r = RECITERS[0];
+    heroAudio.src = "{{ MEDIA_URL }}audio/hafs/" + r.code + "/" + pad3(r.surah_number) + "/" + pad3(r.surah_number) + pad3(1) + ".mp3";
+    playBtn.addEventListener("click", function () {
+      heroAudio.play().catch(function () {});
+      playBtn.style.display = "none";
+      stopBtn.style.display = "";
+    });
+    stopBtn.addEventListener("click", function () {
+      heroAudio.pause();
+      heroAudio.currentTime = 0;
+      stopBtn.style.display = "none";
+      playBtn.style.display = "";
+    });
+    heroAudio.addEventListener("ended", function () {
+      stopBtn.style.display = "none";
+      playBtn.style.display = "";
+    });
+  }());
+
+  buildReciterList();
+  // Init without auto-play — only play when user clicks
+  (function initPlayer() {
+    var r = RECITERS[0];
+    if (!r) return;
+    updateReciterListUI(0);
+    if (qariEl) qariEl.textContent = reciterName(r);
+    if (surahEl) surahEl.textContent = IS_RTL ? (r.surah_name_ar || "") : (r.surah_name_en || r.surah_name_ar || "");
+    if (ayahSmEl) ayahSmEl.textContent = "1 / " + r.ayah_count;
+    if (audioEl) audioEl.src = ayahSrc(r.code, r.surah_number, 1);
+  }());
+}());
+</script>
+{% endblock %}

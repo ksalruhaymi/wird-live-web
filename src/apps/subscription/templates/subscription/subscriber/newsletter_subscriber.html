@@ -1,0 +1,104 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} مشتركو النشرة البريدية {% endblock %}
+{% block description %} مشتركو النشرة البريدية {% endblock %}
+{% block dashboard_content %}
+{% if request.user|can_access:"subscription.subscriber" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "subscription/includes/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+        مشتركو النشرة البريدية
+      </h1>
+      <p class="mt-1 text-[11px] text-slate-500">
+        قائمة الإيميلات المسجلة لاستقبال النشرات والرسائل.
+      </p>
+    </div>
+  </div>
+
+  <!-- Controls row -->
+  <div class="flex items-center justify-between gap-4">
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_subscribers %}
+    </div>
+
+    <div class="flex justify-center flex-1">
+      {% include "web/components/table_search_input.html" with search_key="newsletter" placeholder="بحث بالبريد الإلكتروني" %}
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page %}
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto bg-white border border-slate-200 rounded-2xl shadow-sm">
+    {% if subscribers %}
+      <table class="js-search-table min-w-full text-[12px]">
+        <thead class="bg-slate-50 text-[11px] text-slate-500">
+          <tr class="dir-text">
+            <th class="px-4 py-3 font-bold w-[5%]">#</th>
+            <th class="px-4 py-3 font-bold">البريد الإلكتروني</th>
+            <th class="px-4 py-3 font-bold w-[15%] text-center">الحالة</th>
+            <th class="px-4 py-3 font-bold w-[15%] text-center">التأكيد</th>
+            <th class="px-4 py-3 font-bold w-[20%] text-center">تاريخ الاشتراك</th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-slate-100">
+          {% for s in subscribers %}
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-4 py-3 text-slate-500">
+              {{ forloop.counter }}
+            </td>
+
+            <td class="px-4 py-3 font-semibold text-slate-800">
+              {{ s.email }}
+            </td>
+
+            <td class="px-4 py-3 text-center">
+              {% if s.is_active %}
+                <span class="text-green-600 font-bold text-[11px]">مفعل</span>
+              {% else %}
+                <span class="text-red-600 font-bold text-[11px]">موقوف</span>
+              {% endif %}
+            </td>
+
+            <td class="px-4 py-3 text-center">
+              {% if s.is_confirmed %}
+                <span class="text-blue-600 font-bold text-[11px]">مؤكد</span>
+              {% else %}
+                <span class="text-amber-600 font-bold text-[11px]">غير مؤكد</span>
+              {% endif %}
+            </td>
+
+            <td class="px-4 py-3 text-center text-[11px] text-slate-400 whitespace-nowrap">
+              {{ s.subscribed_at|date:"Y-m-d" }}<br>
+              {{ s.subscribed_at|time:"H:i" }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="py-10 text-center text-[12px] text-slate-400">
+        لا يوجد مشتركين حالياً.
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Pagination row -->
+  <div class="flex items-center justify-between">
+    {% include "web/components/pagination.html" with page_obj=subscribers page_numbers=subscribers_page_numbers tab="subscribers" per_page=per_page %}
+  </div>
+
+</div>
+
+{% endif %}
+{% endblock %}

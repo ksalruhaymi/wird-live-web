@@ -1,0 +1,80 @@
+{% extends "web/layouts/base.html" %}
+{% load static i18n  %}
+
+{% block title %}لوحة التحكم{% endblock %}
+
+{% block body_class %}
+font-sans text-gray-800
+{% endblock %}
+
+{% block layout %}
+  <div class="overflow-x-hidden" dir-text>
+
+    <!-- Mobile top bar -->
+    <div class="lg:hidden px-4 pt-4">
+      <button id="openSidebarBtn"
+              type="button"
+              class="inline-flex items-center gap-2 px-3 py-2 rounded-md border site-border site-surface">
+        <i class="bi bi-list text-2xl"></i>
+        <span>{% trans "dashboard" %}</span>
+      </button>
+    </div>
+
+    <!-- Overlay -->
+    <div id="sidebarOverlay"
+         class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden"></div>
+
+    <div class="flex mt-4 lg:mt-10">
+
+      {% include "dashboard/layouts/sidebar.html" %}
+
+      <main class="flex-1 px-4 lg:px-6 mb-20">
+        {% block dashboard_content %}{% endblock %}
+      </main>
+
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "web/partials/footers/footer_dashboard.html" %}
+{% endblock %}
+
+{% block extra_js %}
+  {{ block.super }}
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const sidebar = document.getElementById("dashboardSidebar");
+      const overlay = document.getElementById("sidebarOverlay");
+      const openBtn = document.getElementById("openSidebarBtn");
+      const closeBtn = document.getElementById("closeSidebarBtn");
+      const mobileLogo = document.getElementById("mobileLogo");
+      const navToggleBtn = document.getElementById("navToggleBtn"); // همبرقر النافبار
+
+      function openSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.remove("translate-x-full");
+        if (overlay) overlay.classList.remove("hidden");
+
+        // 🔥 اخفاء الشعار + همبرقر النافبار فقط وقت الفتح
+        if (mobileLogo) mobileLogo.classList.add("hidden");
+        if (navToggleBtn) navToggleBtn.classList.add("hidden");
+      }
+
+      function closeSidebar() {
+        if (!sidebar) return;
+        sidebar.classList.add("translate-x-full");
+        if (overlay) overlay.classList.add("hidden");
+
+        // 🔥 يرجعون بعد الاغلاق
+        if (mobileLogo) mobileLogo.classList.remove("hidden");
+        if (navToggleBtn) navToggleBtn.classList.remove("hidden");
+      }
+
+      if (openBtn) openBtn.addEventListener("click", openSidebar);
+      if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+      if (overlay) overlay.addEventListener("click", closeSidebar);
+    });
+  </script>
+{% endblock %}

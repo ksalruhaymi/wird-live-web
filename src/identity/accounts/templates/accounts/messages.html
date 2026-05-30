@@ -1,0 +1,58 @@
+{% extends "web/layouts/base.html" %}
+
+{% block title %}الرسائل{% endblock %}
+
+{% block content %}
+
+<div class="pt-24 container mx-auto px-4">
+
+  <div class="max-w-2xl mx-auto p-6">
+
+    <!-- Title -->
+    <div class="mb-6 dir-text">
+      <h1 class="site-title-md">
+        الرسائل
+      </h1>
+      <div class="mt-2 border site-border"></div>
+    </div>
+
+    <!-- Messages List -->
+    <div class="space-y-4 text-sm">
+
+      <!-- Message Item -->
+      <a href="#" class="block site-card p-4 hover:site-surface transition">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-bold site-text">
+            إدارة مركز الابتكار
+          </span>
+          <span class="text-xs site-text-muted">
+            قبل 10 دقائق
+          </span>
+        </div>
+        <p class="site-text-muted">
+          مرحبًا بك، تم اعتماد حسابك ويمكنك الآن التقديم على المشاريع.
+        </p>
+      </a>
+
+      <!-- Message Item -->
+      <a href="#" class="block site-card p-4 hover:site-surface transition">
+        <div class="flex items-center justify-between mb-1">
+          <span class="font-bold site-text">
+            فريق الدعم
+          </span>
+          <span class="text-xs site-text-muted">
+            أمس
+          </span>
+        </div>
+        <p class="site-text-muted">
+          في حال واجهت أي مشكلة، لا تتردد في التواصل معنا.
+        </p>
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"roles.list" %}
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "rbac/partials/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-5">
+    <div>
+      <h2 class="site-title-md">
+        الأدوار
+      </h2>
+      <p class="text-[11px] site-text-muted mt-0.5">
+        إدارة أدوار النظام والصلاحيات المرتبطة بها
+      </p>
+    </div>
+
+    <!-- Add Role Button -->
+    {% if request.user|can_access:"roles.create" %}
+    <a href="{% url 'rbac:role_create' %}"
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+              site-btn-primary
+              text-[12px] font-bold
+              shadow-sm hover:shadow-md
+              active:scale-95 transition">
+      <i class="bi bi-plus-lg text-sm"></i>
+      إضافة دور
+    </a>
+    {% endif %}
+  </div>
+
+  <!-- Controls row -->
+  <div class="flex items-center justify-between gap-4">
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_roles %}
+    </div>
+
+    <div class="flex justify-center flex-1">
+      {% include "web/components/table_search_input.html" with search_key="roles" placeholder="بحث باسم المستخدم أو عدد الصلاحيات" %}
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page %}
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto site-card">
+    <table class="js-search-table min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text-muted">
+        <tr class="dir-text">
+          <th class="px-4 py-3 font-bold">اسم الدور</th>
+          <th class="px-4 py-3 font-bold">عدد الصلاحيات</th>
+          {% if request.user|can_any:"roles.update,roles.delete" %}
+            <th class="px-4 py-3 font-bold">إجراءات</th>
+          {% endif %}
+        </tr>
+      </thead>
+
+      <tbody class="divide-site">
+        {% for role in roles %}
+        <tr class="hover:site-surface transition">
+          <td class="px-4 py-1.5 font-semibold site-text">
+            {{ role.name }}
+          </td>
+
+          <td class="px-4 py-1.5">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full
+                         site-surface site-text-muted text-[11px] font-bold border site-border">
+              {{ role.permissions.count }}
+            </span>
+          </td>
+
+          <!-- Actions -->
+          {% if request.user|can_any:"roles.update,roles.delete" %}
+          <td class="px-4 py-1.5">
+            <div class="flex items-center gap-2 dir-row">
+
+              <!-- Edit -->
+              {% if request.user|can_access:"roles.update" %}
+              <a href="{% url 'rbac:role_update' role.id %}"
+                 class="inline-flex items-center justify-center w-8 h-8 rounded-full
+                        site-surface site-link-primary
+                        hover:site-surface transition border site-border"
+                 title="تعديل">
+                <i class="bi bi-pencil"></i>
+              </a>
+              {% endif %}
+
+              <!-- Delete -->
+              {% if request.user|can_access:"roles.delete" %}
+              <a href="{% url 'rbac:role_delete' role.id %}"
+                 class="inline-flex items-center justify-center w-8 h-8 rounded-full
+                        bg-red-50 text-red-600
+                        hover:bg-red-100 hover:text-red-700
+                        transition"
+                 title="حذف">
+                <i class="bi bi-trash"></i>
+              </a>
+              {% endif %}
+
+            </div>
+          </td>
+          {% endif %}
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="3"
+              class="px-4 py-6 text-center site-text-muted text-[12px]">
+            لا توجد أدوار حاليًا.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% include "web/components/pagination.html" with page_obj=roles page_numbers=roles_page_numbers tab="roles" per_page=per_page %}
+
+</div>
+{% endif %}
+
+{% endblock %}

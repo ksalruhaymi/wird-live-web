@@ -1,0 +1,56 @@
+{% if messages %}
+  <!-- تحكّم افتراضي/عام من الحاوية (اختياري) -->
+  <div id="toast-container"
+       class="fixed top-5 left-1/2 -translate-x-1/2 z-50 space-y-3"
+       data-default-duration="6000"      {# مدة افتراضية لكل التوستات بالمللي ثانية #}
+       data-default-maxw="50rem"         {# عرض أقصى افتراضي (مثلاً 20rem ≈ max-w-xs) #}
+       data-default-width="50rem"             {# عرض ثابت (اتركه فاضي لاستخدام max فقط) #}
+  >
+   {% for m in messages %}
+    {% if 'toast' in m.tags %}
+      <div
+        class="toast pointer-events-auto w-full bg-white shadow-lg rounded-lg ring-1 ring-black/10 overflow-hidden transform transition duration-300 ease-out opacity-0 translate-y-2"
+        role="alert"
+
+        {# مدة خاصة بهذا التوست (تتغلب على الافتراضية) #}
+        data-duration="2500"
+
+        {# تحكّم فردي بالعروض: إمّا تضع max فقط، أو width فقط، أو الاثنين #}
+        data-maxw="24rem"     {# مثال: أكبر شوية من max-w-xs #}
+        data-width=""         {# مثال: "22rem" لو تبغى عرضًا ثابتًا #}
+
+        {# ارتفاع الشريط (تحكم شكلي) #}
+        data-progress-h="4px"
+      >
+        <div class="p-4 flex items-start gap-3">
+          <div class="pt-0.5">
+            {% if m.tags == 'success' %}
+              <i class="bi bi-check-circle-fill text-green-500 text-xl"></i>
+            {% elif m.tags == 'error' %}
+              <i class="bi bi-x-circle-fill text-red-500 text-xl"></i>
+            {% else %}
+              <i class="bi bi-info-circle-fill text-blue-500 text-xl"></i>
+            {% endif %}
+          </div>
+
+         <div class="text-sm text-gray-900 flex-1">
+            {{ m.message|default:m }}
+         </div>
+
+
+          <button type="button" class="toast-close text-gray-400 hover:text-gray-600">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <div class="h-[var(--progress-h,3px)] bg-gray-100">
+          <div class="toast-progress h-[var(--progress-h,3px)]
+            {% if m.tags == 'success' %} bg-green-500 {% elif m.tags == 'error' %} bg-red-500 {% else %} bg-blue-500 {% endif %}"
+            style="width: 100%;">
+          </div>
+        </div>
+      </div>
+        {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

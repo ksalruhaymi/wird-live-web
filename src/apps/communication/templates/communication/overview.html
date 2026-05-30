@@ -1,0 +1,38 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"communication.access" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "communication/includes/tabs_header.html" %}
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+      <div class="text-[11px] text-slate-500">إجمالي الحملات</div>
+      <div class="mt-2 text-2xl font-extrabold text-slate-800">
+        {{ total_campaigns }}
+      </div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+      <div class="text-[11px] text-slate-500">الحملات المرسلة</div>
+      <div class="mt-2 text-2xl font-extrabold text-green-600">
+        {{ sent_campaigns }}
+      </div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+      <div class="text-[11px] text-slate-500">المسودات</div>
+      <div class="mt-2 text-2xl font-extrabold text-amber-600">
+        {{ draft_campaigns }}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endif %}
+{% endblock %}

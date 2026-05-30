@@ -1,0 +1,50 @@
+{# Smart pagination partial: expects page_obj, page_numbers, tab #}
+{% if page_obj.paginator.num_pages > 1 %}
+<div class="flex items-center justify-center mt-4 gap-1 text-[14px] font-bold" dir="ltr">
+
+  {# Previous #}
+  {% if page_obj.has_previous %}
+    <a href="?tab={{ tab }}&page=1"
+       class="px-3 py-1 border rounded-sm site-border hover:site-surface"
+       title="First">
+      «
+    </a>
+    <a href="?tab={{ tab }}&page={{ page_obj.previous_page_number }}"
+       class="px-3 py-1 border rounded-sm site-border hover:site-surface">
+      ‹
+    </a>
+  {% endif %}
+
+  {# Page numbers and ellipsis #}
+  {% for num in page_numbers %}
+    {% if num %}
+      {% if num == page_obj.number %}
+        <span class="px-3 py-1 rounded-sm site-btn-primary">
+          {{ num }}
+        </span>
+      {% else %}
+        <a href="?tab={{ tab }}&page={{ num }}"
+           class="px-3 py-1 border rounded-sm site-border hover:site-surface">
+          {{ num }}
+        </a>
+      {% endif %}
+    {% else %}
+      <span class="px-2 site-text-muted select-none">…</span>
+    {% endif %}
+  {% endfor %}
+
+  {# Next #}
+  {% if page_obj.has_next %}
+    <a href="?tab={{ tab }}&page={{ page_obj.next_page_number }}"
+       class="px-3 py-1 border rounded-sm site-border hover:site-surface">
+      ›
+    </a>
+    <a href="?tab={{ tab }}&page={{ page_obj.paginator.num_pages }}"
+       class="px-3 py-1 border rounded-sm site-border hover:site-surface"
+       title="Last">
+      »
+    </a>
+  {% endif %}
+
+</div>
+{% endif %}

@@ -1,0 +1,3635 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "Neem contact met ons op"
+
+msgid "contact_page_description"
+msgstr "Neem contact met ons op, wij zijn er om u van dienst te zijn"
+
+msgid "contact_intro_text"
+msgstr ""
+"Wij zijn blij dat u contact opneemt met het Wird Quran-platform. Wij streven "
+"ernaar het Boek van Allah te dienen en de recitatie ervan te "
+"vergemakkelijken."
+
+msgid "name"
+msgstr "Naam"
+
+msgid "enter_your_name"
+msgstr "Voer uw naam in"
+
+msgid "email"
+msgstr "E-mail"
+
+msgid "your_message"
+msgstr "Jouw bericht"
+
+msgid "write_your_message_here"
+msgstr "Schrijf hier uw vraag of bericht"
+
+msgid "send_message"
+msgstr "Bericht verzenden"
+
+msgid "message_sent"
+msgstr "Bericht verzonden"
+
+msgid "message_sent_successfully"
+msgstr "Bericht succesvol verzonden"
+
+msgid "thank_you_contact"
+msgstr "Bedankt dat u contact met ons opneemt"
+
+msgid "contact_success_message"
+msgstr ""
+"Uw bericht is succesvol ontvangen. Het Wird Quran-team zal het beoordelen en "
+"zo snel mogelijk contact met u opnemen om de service van de Koran te "
+"ondersteunen."
+
+msgid "back_to_home"
+msgstr "Terug naar Thuis"
+
+msgid "quran_recitation_prompt"
+msgstr "Recitatie van de Koran in het Arabisch"
+
+msgid "save_stop"
+msgstr "Leespositie opslaan"
+
+msgid "cancel_stop"
+msgstr "Leespositie verwijderen"
+
+msgid "hifz_audio_recording"
+msgstr "Audio-opname"
+
+msgid "hifz_enable_hiding"
+msgstr "Ayah's verbergen"
+
+msgid "hifz_segmentation_thematic"
+msgstr "Thematische segmentatie"
+
+msgid "hifz_writing"
+msgstr "Schrijven"
+
+msgid "zoom_in"
+msgstr "Inzoomen"
+
+msgid "repeat"
+msgstr "Herhaal"
+
+msgid "page"
+msgstr "Pagina"
+
+msgid "play_audio"
+msgstr "Audio afspelen"
+
+msgid "word_meanings"
+msgstr "Woordbetekenissen"
+
+msgid "brief_tafsir"
+msgstr "Korte Tafsir"
+
+msgid "playback_tools"
+msgstr "Afspeelhulpmiddelen"
+
+msgid "audio"
+msgstr "Audio"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"Om audio af te spelen tijdens het onthouden, tikt u op een ayah om de "
+"afspeel- en pauzeknop weer te geven. Vervolgens kunt u vanaf hier het volume "
+"regelen, het scherm vergroten zodat u gemakkelijker zonder afleiding kunt "
+"lezen, en het aantal herhalingen van de ayah vergroten."
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "Twee pagina's"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr ""
+"Wissel tussen één pagina of twee tegenover elkaar liggende pagina's in de "
+"mushaf"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "Eén pagina"
+
+msgid "hifz_memorization_tools"
+msgstr "Memorisatietechnieken"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"Memorisatiehulpmiddelen helpen u de herinnering te versterken en uw geheugen "
+"te trainen. Je kunt ayahs verbergen om te oefenen met het onthouden ervan. "
+"Als je over een ayah zweeft, lijkt het alsof het je licht begeleidt, en als "
+"je erop klikt, verschijnt het volledig. Er is ook thematische segmentatie "
+"beschikbaar, waarbij gerelateerde ayahs in onderwerpen worden gegroepeerd om "
+"het onthouden en begrijpen gemakkelijker te maken."
+
+msgid "hifz_play"
+msgstr "Spelen"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "Volledige stop"
+
+msgid "hifz_mstwa_audio"
+msgstr "Volumeniveau"
+
+msgid "mushaf"
+msgstr "Mushaf"
+
+msgid "reciter"
+msgstr "Voordrager"
+
+msgid "search"
+msgstr "Zoeken"
+
+msgid "stop_audio"
+msgstr "Audio stoppen"
+
+msgid "recitation_correction"
+msgstr "Recitatiecorrectie"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"Selecteer eerst een aya. Vervolgens verschijnt de opnameknop. Druk erop en "
+"neem uw recitatie van de geselecteerde ayah op, zodat uw audio kan worden "
+"geanalyseerd en uw recitatie kan worden gecorrigeerd. U ziet het "
+"nauwkeurigheidspercentage van de recitatie en u vindt een knop om naar uw "
+"opgenomen stem te luisteren."
+
+msgid "recitation_accuracy_percentage"
+msgstr "Recitatienauwkeurigheid"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "Sheikh Audio"
+
+msgid "my_recorded_audio"
+msgstr "Mijn opname"
+
+msgid "mushaf_hafs"
+msgstr "Haf Mushaf"
+
+msgid "mushaf_warsh"
+msgstr "Warsh Mushaf"
+
+msgid "mushaf_qaloun"
+msgstr "Qaloun Mushaf"
+
+msgid "mushaf_douri"
+msgstr "Al-Douri Mushaf"
+
+msgid "mushaf_shuba"
+msgstr "Shu’bah Mushaf"
+
+msgid "mushaf_sousi"
+msgstr "Al-Sousi Mushaf"
+
+msgid "tafsir_almuyasser"
+msgstr "Al-Muyassar"
+
+msgid "tafsir_alkatheer"
+msgstr "Ibn Kathir"
+
+msgid "tafsir_albaghawy"
+msgstr "Al-Baghawi"
+
+msgid "tafsir_altabary"
+msgstr "Al-Tabari"
+
+msgid "tafsir_alqortoby"
+msgstr "Al Qurtubi"
+
+msgid "tafsir_alsa3dy"
+msgstr "Al-Sa'di"
+
+#, python-format
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Tafsir van pagina %(page)s uit de Koran | Wilde Koran"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "Soera %(surah_name)s | Lees en luister - Wird Koran"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "Luister naar de Koran gereciteerd door %(qari_name)s | Wilde Koran"
+
+#, fuzzy, python-format
+#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Pagina %(pagina)s uit de Koran | Wilde Koran"
+
+#, python-format
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"Lees eenvoudig de tafsir van pagina %(page)s uit de Koran, waarbij de ayahs "
+"worden weergegeven en aan tafsir zijn gekoppeld op het Wird Quran-platform."
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"Lees Surah %(surah_name)s uit de Koran, met eenvoudig luisteren en bladeren "
+"op het Wird Quran-platform."
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"Luister naar de Koran gereciteerd door %(qari_name)s in hoge kwaliteit, met "
+"gemakkelijke navigatie tussen soera's en ayahs."
+
+#, python-format
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"Blader door pagina %(page)s uit de Koran met een comfortabele en "
+"gemakkelijke interface, met soepel lezen en snelle navigatie op het Wird "
+"Quran-platform."
+
+msgid "no_word_meanings"
+msgstr "Er zijn geen woordbetekenissen beschikbaar voor deze Ayah"
+
+msgid "hide_word_meanings"
+msgstr "Woordbetekenissen verbergen"
+
+msgid "show_word_meanings"
+msgstr "Toon woordbetekenissen"
+
+msgid "word_meanings_hint"
+msgstr "De betekenis van de woorden verschijnt zodra de recitatie begint"
+
+msgid "error_word_meanings"
+msgstr "Kan woordbetekenissen niet laden"
+
+msgid "surah"
+msgstr "Soera"
+
+msgid "ayah"
+msgstr "Jaa"
+
+msgid "show_thematic_segmentation"
+msgstr "Toon thematische segmentatie"
+
+msgid "hide_thematic_segmentation"
+msgstr "Thematische segmentatie verbergen"
+
+msgid "daily_quran_reading"
+msgstr "Mijn dagelijkse draad"
+
+msgid "new_khatma"
+msgstr "Nieuwe Khatma"
+
+msgid "close"
+msgstr "Sluiten"
+
+msgid "current_khatma"
+msgstr "Huidige Khatma"
+
+msgid "Juz"
+msgstr "Juz"
+
+msgid "remaining_wirds"
+msgstr "Resterende Wirds"
+
+msgid "khatma_count"
+msgstr "Graaf Khatma"
+
+msgid "current_wird"
+msgstr "Huidige Wird"
+
+msgid "from"
+msgstr "Van"
+
+msgid "to"
+msgstr "Aan"
+
+msgid "congratulations"
+msgstr "Gefeliciteerd"
+
+msgid "you_finished_current_khatma"
+msgstr "Je hebt deze Khatma met succes afgerond"
+
+msgid "continue_reading"
+msgstr "Lees verder Wird"
+
+msgid "finish_wird"
+msgstr "Wird voltooid"
+
+msgid "choose_mushaf"
+msgstr "Kies Mushaf"
+
+msgid "current"
+msgstr "Huidig"
+
+msgid "start_new_khatma"
+msgstr "Begin nieuwe Khatma"
+
+msgid "start_from"
+msgstr "Begin vanaf"
+
+msgid "mushaf_start"
+msgstr "Begin van Mushaf"
+
+msgid "duration_days"
+msgstr "Khatma-duur (dagen)"
+
+msgid "day"
+msgstr "Dag"
+
+msgid "daily_amount"
+msgstr "Dagelijkse hoeveelheid"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "Khatma-samenvatting"
+
+msgid "start_khatma"
+msgstr "Begin Khatma"
+
+msgid "reciters"
+msgstr "Voordragers"
+
+msgid "search_reciter"
+msgstr "Zoek voordrager op naam"
+
+msgid "loading"
+msgstr "Laden"
+
+msgid "tafasir"
+msgstr "Tafsir-boeken"
+
+msgid "no_tafsir_available"
+msgstr "Er zijn momenteel geen Tafsir's beschikbaar"
+
+msgid "quran"
+msgstr "Koran"
+
+msgid "tafsir"
+msgstr "Tafsir"
+
+msgid "surah_1"
+msgstr "Al-Fatihah"
+
+msgid "mushafs"
+msgstr "Mushafs"
+
+msgid "reading_mode"
+msgstr "Leesmodus"
+
+msgid "current_reciter"
+msgstr "Huidige voordrager"
+
+msgid "coming_soon"
+msgstr "Binnenkort beschikbaar"
+
+msgid "current_mushaf"
+msgstr "Huidige Mushaf"
+
+msgid "tafsir_loading_message"
+msgstr "Tafsir wordt geladen wanneer u deze pagina opent"
+
+msgid "title_and_body_required"
+msgstr "Titel en berichttekst zijn vereist"
+
+msgid "no_subscribers_available"
+msgstr "Er zijn geen abonnees beschikbaar voor verzending"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "U bent geabonneerd op Wird Quran-berichten"
+
+msgid "unsubscribe_label"
+msgstr "Om u af te melden"
+
+msgid "message_sent_to_subscribers"
+msgstr "Bericht verzonden naar %(count)s abonnees"
+
+msgid "message_sent_with_failures"
+msgstr ""
+"Bericht verzonden naar %(sent_count)s abonnees en mislukt voor %"
+"(failed_count)s"
+
+msgid "message_send_failed"
+msgstr "Kan bericht niet verzenden"
+
+msgid "please_enter_email"
+msgstr "Voer uw e-mailadres in"
+
+msgid "newsletter_welcome_subject"
+msgstr "Bedankt voor uw abonnement op Wird Quran"
+
+msgid "newsletter_greeting"
+msgstr "Vrede, genade en zegeningen van Allah zij met jou,"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "Bedankt voor het abonneren op Wird Quran-berichten"
+
+msgid "newsletter_joined_successfully"
+msgstr ""
+"We zijn blij dat u zich bij ons aansluit, u ontvangt updates per e-mail"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr ""
+"Indien u zich op enig moment wilt afmelden, kunt u de volgende link gebruiken"
+
+msgid "newsletter_closing"
+msgstr "Met oprechte dank en waardering"
+
+msgid "wird quran"
+msgstr "Wird Al-Quran Al-Kareem"
+
+msgid "newsletter_subscription_success"
+msgstr "Bedankt, je hebt je succesvol geabonneerd op Wird Quran-berichten"
+
+msgid "newsletter_subscription_reactivated"
+msgstr "Bedankt, uw abonnement op Wird Quran-berichten is opnieuw geactiveerd"
+
+msgid "email_already_subscribed"
+msgstr "Op deze e-mail is al geabonneerd"
+
+msgid "unsubscribe_success_message"
+msgstr "Afgemeld"
+
+msgid "unsubscribe_already_done"
+msgstr "Al uitgeschreven"
+
+msgid "qari_list_title"
+msgstr "Luister naar de Heilige Koran"
+
+msgid "qari_list_description"
+msgstr ""
+"Blader door voordragers en kies je favoriete recitatie uit een gevarieerde "
+"verzameling voordragers met prachtige stemmen."
+
+msgid "listen_quran"
+msgstr "Luister naar de Koran"
+
+msgid "view_surahs"
+msgstr "Bekijk soera's"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "Luisteren naar de Koran door"
+
+msgid "tilawa_wrd_quran"
+msgstr "Wilde Koran"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "Luister naar de volledige Koran gereciteerd door"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "in hoge kwaliteit, met eenvoudige navigatie tussen soera's"
+
+msgid "all_reciters"
+msgstr "Alle voordragers"
+
+msgid "select_surah_player"
+msgstr "Selecteer een soera"
+
+msgid "prev_surah"
+msgstr "Vorige Soera"
+
+msgid "next_surah"
+msgstr "Volgende Soera"
+
+msgid "search_surah"
+msgstr "Zoek soera op naam of nummer"
+
+msgid "ayah_counter"
+msgstr "Jaa"
+
+msgid "stop_playback"
+msgstr "Stop het afspelen"
+
+msgid "username_password_required"
+msgstr "Gebruikersnaam en wachtwoord zijn vereist."
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "Account moet worden geactiveerd"
+
+msgid "invalid_login_credentials"
+msgstr "Ongeldige inloggegevens."
+
+msgid "dashboard"
+msgstr "Dashboard"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "Log in of maak een account aan om door te gaan"
+
+msgid "login"
+msgstr "Inloggen"
+
+msgid "register"
+msgstr "Account aanmaken"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "Gebruikersnaam is al in gebruik."
+
+msgid "enter_username"
+msgstr "Voer gebruikersnaam in"
+
+msgid "password"
+msgstr "Wachtwoord"
+
+msgid "enter_password"
+msgstr "Voer wachtwoord in"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "Wachtwoord vergeten?"
+
+msgid "create_account"
+msgstr "Account aanmaken"
+
+msgid "username_required"
+msgstr "Gebruikersnaam is vereist."
+
+msgid "username_taken"
+msgstr "Gebruikersnaam is al in gebruik."
+
+msgid "email_required"
+msgstr "E-mail is vereist."
+
+msgid "email_taken"
+msgstr "E-mail is al in gebruik."
+
+msgid "password_required"
+msgstr "Wachtwoord is vereist."
+
+msgid "register_success"
+msgstr ""
+"Welkom 🌿 Uw account is succesvol aangemaakt. Wij zijn blij u aan boord te "
+"hebben. Wij wensen u een bijzondere en vruchtbare ervaring."
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"Wird Quran is een geïntegreerd platform voor het lezen van de Koran, het "
+"luisteren naar recitaties van beroemde recitanten en het eenvoudig en zonder "
+"advertenties door Tafsir-boeken bladeren."
+
+msgid "success"
+msgstr "Succes"
+
+msgid "error"
+msgstr "Fout"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "Over Wird Al-Quran Al-Kareem"
+
+msgid "long_about_text"
+msgstr ""
+"Wird is een geïntegreerd digitaal platform dat tot doel heeft de recitatie "
+"en contemplatie van de Koran op een georganiseerde en aantrekkelijke manier "
+"te faciliteren. Het biedt diensten zoals het bladeren door verschillende "
+"Mushafs, het luisteren naar voordragers en het lezen van authentieke Tafsir-"
+"boeken."
+
+msgid "about_wird"
+msgstr ""
+"Wird is een geïntegreerd digitaal platform dat tot doel heeft de recitatie "
+"en contemplatie van de Koran op een georganiseerde en aantrekkelijke manier "
+"te faciliteren. Het biedt diensten zoals het bladeren door Mushafs met "
+"verschillende vertellingen, het luisteren naar voordragers en het lezen van "
+"betrouwbare Tafsirs. Het stelt gebruikers ook in staat hun dagelijkse Wird "
+"te volgen en hun voortgang bij het onthouden en herzien te volgen. Het "
+"platform heeft tot doel het Koranproject te ondersteunen en de verbinding "
+"ermee te versterken door middel van een gemakkelijke en geïntegreerde "
+"digitale ervaring."
+
+msgid "wird"
+msgstr "Wird"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "Uw dagelijkse draad met de Koran"
+
+msgid "home_hero_title1"
+msgstr "Een rustige ervaring voor het lezen van de Koran"
+
+msgid "home_hero_title2"
+msgstr "En luisteren en reflecteren"
+
+msgid "home_hero_desc"
+msgstr ""
+"Een platform dat lezen, reciteren, Tafsir, vertalingen en woordbetekenissen "
+"samenbrengt in één eenvoudige en georganiseerde ervaring."
+
+msgid "home_start_reading"
+msgstr "Begin met lezen"
+
+msgid "home_explore_recitations"
+msgstr "Ontdek recitaties"
+
+msgid "home_calm_recitation"
+msgstr "Rustige recitatie"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "Kenmerken"
+
+msgid "home_features_title"
+msgstr "Alles wat u nodig heeft op één plek"
+
+msgid "home_features_desc"
+msgstr ""
+"Kalmtehulpmiddelen waarmee u zonder afleiding kunt lezen, luisteren en "
+"reflecteren."
+
+msgid "home_feature_quran_title"
+msgstr "Lees de Koran"
+
+msgid "home_feature_quran_desc"
+msgstr ""
+"Een elegante Mushaf-interface die het lezen comfortabel en prettig voor de "
+"ogen maakt."
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "Alles wat u nodig heeft op één plek"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"Kalmtehulpmiddelen waarmee u zonder afleiding kunt lezen, luisteren en "
+"reflecteren."
+
+msgid "home_feature_listen_title"
+msgstr "Luister naar recitaties"
+
+msgid "home_feature_listen_desc"
+msgstr ""
+"Een selectie voordragers met een zuivere stem en een rustige luisterervaring."
+
+msgid "home_feature_tafsir_title"
+msgstr "Tafsir"
+
+msgid "home_feature_tafsir_desc"
+msgstr ""
+"Betrouwbare Tafsirs met een georganiseerde weergave om te helpen bij "
+"reflectie en begrip."
+
+msgid "home_feature_trans_title"
+msgstr "Vertalingen"
+
+msgid "home_feature_trans_desc"
+msgstr "Vertalingen van betekenissen in meerdere talen direct naast de ayah."
+
+msgid "home_feature_words_title"
+msgstr "Woordbetekenissen"
+
+msgid "home_feature_words_desc"
+msgstr ""
+"Zoek de betekenis van elk woord op met één aanraking zonder de pagina te "
+"verlaten."
+
+msgid "home_feature_daily_title"
+msgstr "Dagelijkse draad"
+
+msgid "home_feature_daily_desc"
+msgstr ""
+"Organiseer uw dagelijkse Wird en volg uw continuïteit rustig en regelmatig."
+
+msgid "surah_2"
+msgstr "Al-Baqarah"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "Dagelijkse draad"
+
+msgid "home_daily_title"
+msgstr "Een rustige gewoonte, die dag na dag met u meegroeit"
+
+msgid "home_daily_desc"
+msgstr ""
+"Richt uw Wird in op uw dag en volg uw continuïteit zonder druk. Een "
+"vriendelijke herinnering, een georganiseerde weergave en eenvoudige tracking "
+"zorgen ervoor dat u altijd verbonden bent met het Boek van Allah."
+
+msgid "home_gentle_tracking"
+msgstr "Zachte tracking"
+
+msgid "home_flexible_reminder"
+msgstr "Flexibele herinnering"
+
+msgid "home_no_pressure"
+msgstr "Geen druk"
+
+msgid "tilawa"
+msgstr "Recitatie"
+
+msgid "home_recitation_title"
+msgstr "Luister met een stem die het hart kalmeert"
+
+msgid "home_recitation_desc"
+msgstr ""
+"Kies de voordrager die je ziel raakt, en luister met een kalme en "
+"afleidingsvrije ervaring."
+
+msgid "home_now_playing"
+msgstr "Nu aan het spelen"
+
+msgid "home_reciter_label"
+msgstr "Voordrager"
+
+msgid "home_current_surah"
+msgstr "Huidige soera"
+
+msgid "home_prev"
+msgstr "Vorige"
+
+msgid "home_play_pause"
+msgstr "Afspelen / pauzeren"
+
+msgid "home_next"
+msgstr "Volgende"
+
+msgid "home_reading_label"
+msgstr "Tafsir & vertalingen"
+
+msgid "home_reading_title"
+msgstr "Denk diep en duidelijk na over betekenissen"
+
+msgid "home_reading_desc"
+msgstr ""
+"Een ervaring vergelijkbaar met een boek: de ayah op zijn plaats, en de "
+"betekenis ervan ernaast."
+
+msgid "home_easy_tafsir"
+msgstr "Makkelijk Tafsir"
+
+msgid "home_meaning_badge"
+msgstr "Betekenis"
+
+msgid "home_meaning_label"
+msgstr "Betekenis"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "Privacybeleid"
+
+msgid "Wird — Privacy Policy"
+msgstr "Wird — Privacybeleid"
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr "Uw dagelijkse metgezel op uw reis met de Koran"
+
+msgid "Last updated: May 2026"
+msgstr "Laatste update: mei 2026"
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+"Dit beleid legt uit hoe Wird uw gegevens verwerkt. We houden het kort en "
+"eerlijk."
+
+msgid "translations"
+msgstr "Vertalingen"
+
+msgid "translation_page_title"
+msgstr "Vertaling"
+
+msgid "surahs"
+msgstr "Soera's"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "Leespositie opslaan"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "Voettekstlinks"
+
+msgid "about"
+msgstr "Over"
+
+msgid "contact_us"
+msgstr "Neem contact met ons op"
+
+msgid "download_android"
+msgstr "Downloaden voor Android"
+
+msgid "download_ios"
+msgstr "Downloaden voor iOS"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "Menukaart"
+
+msgid "home"
+msgstr "Thuis"
+
+msgid "read_quran"
+msgstr "Lees Koran"
+
+msgid "hifz_quran"
+msgstr "Koran memoriseren"
+
+msgid "notifications"
+msgstr "Meldingen"
+
+msgid "logout"
+msgstr "Uitloggen"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "Profiel"
+
+msgid "SECTION 1"
+msgstr "SECTIE 1"
+
+msgid "Information We Collect"
+msgstr "Informatie die wij verzamelen"
+
+msgid "a. Account Information (if you sign in)"
+msgstr ""
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr ""
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+
+msgid "c. Contact Messages"
+msgstr ""
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+
+msgid "SECTION 2"
+msgstr "SECTIE 2"
+
+msgid "Data Stored Only on Your Device"
+msgstr "Gegevens alleen opgeslagen op uw apparaat"
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr ""
+
+msgid "Azkar completion progress"
+msgstr ""
+
+msgid "Notification schedule and preferences"
+msgstr ""
+
+msgid "Selected reciter and Mushaf style"
+msgstr ""
+
+msgid "Accessibility and display settings"
+msgstr ""
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr ""
+
+msgid "The Quran database"
+msgstr ""
+
+msgid "SECTION 3"
+msgstr "SECTIE 3"
+
+msgid "Microphone Access"
+msgstr "Microfoontoegang"
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+
+msgid "SECTION 4"
+msgstr "SECTIE 4"
+
+msgid "Third-Party Services"
+msgstr "Diensten van derden"
+
+msgid "Service"
+msgstr "Dienst"
+
+msgid "Provider"
+msgstr "Aanbieder"
+
+msgid "Purpose"
+msgstr "Doel"
+
+msgid "Push notifications"
+msgstr "Pushmeldingen"
+
+msgid "App initialisation"
+msgstr "App-initialisatie"
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr ""
+
+msgid "SECTION 5"
+msgstr "SECTIE 5"
+
+msgid "Analytics and Crash Reporting"
+msgstr "Analyses en crashrapportage"
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr "SECTIE 6"
+
+msgid "Data Sharing"
+msgstr "Gegevens delen"
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+
+msgid "SECTION 7"
+msgstr "SECTIE 7"
+
+msgid "Data Security"
+msgstr "Gegevensbeveiliging"
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+
+msgid "All communication with our server uses HTTPS."
+msgstr ""
+
+msgid "SECTION 8"
+msgstr "SECTIE 8"
+
+msgid "Your Rights"
+msgstr "Uw rechten"
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr "SECTIE 9"
+
+msgid "Audience"
+msgstr "Doelgroep"
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+
+msgid "SECTION 10"
+msgstr "SECTIE 10"
+
+msgid "Changes to This Policy"
+msgstr "Wijzigingen in dit beleid"
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr "Wird-app"
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "Privacybeleid"
+
+msgid "Last updated May 2026"
+msgstr "Laatste update mei 2026"
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "support"
+#~ msgstr "Steun"
+
+#~ msgid "web_wrd"
+#~ msgstr "Wird"
+
+#~ msgid "system_description"
+#~ msgstr ""
+#~ "Een platform om de Koran te lezen, naar recitaties te luisteren en Tafsir "
+#~ "gemakkelijk te verkennen."
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird is een geïntegreerd digitaal platform dat tot doel heeft de "
+#~ "recitatie en contemplatie van de Koran op een georganiseerde en "
+#~ "aantrekkelijke manier te faciliteren."
+
+#~ msgid "hifz"
+#~ msgstr "Memoriseren"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "Juz %(getal)s"
+
+#~ msgid "juz_number"
+#~ msgstr "Juz %(getal)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "In de naam van Allah, de Barmhartige, de Meest Barmhartige"
+
+#~ msgid "open_mushaf"
+#~ msgstr "Mushaf openen"
+
+#~ msgid "hafs"
+#~ msgstr "Hafs"
+
+#~ msgid "warsh"
+#~ msgstr "Warsh"
+
+#~ msgid "qaloun"
+#~ msgstr "Qaloun"
+
+#~ msgid "douri"
+#~ msgstr "Al-Douri"
+
+#~ msgid "shuba"
+#~ msgstr "Shu'bah"
+
+#~ msgid "sousi"
+#~ msgstr "Al-Sousi"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "De meeste Mushafs komen uit"
+
+#~ msgid "complex"
+#~ msgstr "King Fahd Glorious Qur'an Printing Complex"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "Geen Tafsir beschikbaar"
+
+#~ msgid "tajweed"
+#~ msgstr "Tajweed"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "Laat woordbetekenissen zien"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "Woordbetekenissen verbergen"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "Woordbetekenissen laden..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "Woordbetekenissen laden"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "Kan woordbetekenissen niet laden"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "Er zijn geen betekenissen beschikbaar voor deze Ayah"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "De betekenis van de woorden verschijnt zodra de recitatie begint"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "Mekkaans"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "Medina"
+
+#~ msgid "start"
+#~ msgstr "Begin"
+
+#~ msgid "selected_ayah"
+#~ msgstr "Aya geselecteerd"
+
+#~ msgid "analysis_result"
+#~ msgstr "Resultaat"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "Selecteer eerst een aya"
+
+#~ msgid "browse_reciters"
+#~ msgstr "Blader door voordragers"
+
+#~ msgid "next_wirds"
+#~ msgstr "Aankomende Wirds"
+
+#~ msgid "previous_wirds"
+#~ msgstr "Vorige Wirds"
+
+#~ msgid "one_juz"
+#~ msgstr "1 Juz"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "Weergavehulpmiddelen"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "Normale weergave"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "Ayah herhaling"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "Zonder herhaling"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "Twee keer"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "Tijden"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "Zoom Mushaf"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "De Koran zal worden verdeeld op basis van de gespecificeerde duur en "
+#~ "hoeveelheid om de dagelijkse Khatma te vergemakkelijken."
+
+#~ msgid "resume_reading"
+#~ msgstr "Hervat het lezen"
+
+#~ msgid "percentage"
+#~ msgstr "Vooruitgangspercentage"
+
+#~ msgid "progress"
+#~ msgstr "Vooruitgang"
+
+#~ msgid "from_page"
+#~ msgstr "Startpagina"
+
+#~ msgid "to_page"
+#~ msgstr "Eindpagina"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "Van"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "Aan"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "Soera Al-Baqarah - Ayah 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "Soera Al-Baqarah - Ayah 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "Huidig Ayah-nummer"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "Log in of maak een account aan om door te gaan"
+
+#~ msgid "welcome"
+#~ msgstr "Welkom"
+
+#~ msgid "welcome_message"
+#~ msgstr "Welkom bij het Wird Koran-platform"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "Welkom terug"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "Je profiel is bijgewerkt"
+
+#~ msgid "accounts_settings"
+#~ msgstr "Instellingen"
+
+#~ msgid "login_settings"
+#~ msgstr "Login-instellingen"
+
+#~ msgid "confirm_password"
+#~ msgstr "Bevestig wachtwoord"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "Nieuw wachtwoord"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "Wachtwoord tonen of verbergen"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "Gebruikersnaam is vereist"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "Gebruikersnaam is al in gebruik"
+
+#~ msgid "enter_email"
+#~ msgstr "Voer uw e-mailadres in"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "E-mail is vereist"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "E-mail is al in gebruik"
+
+#~ msgid "invalid_email"
+#~ msgstr "Ongeldig e-mailformaat"
+
+#~ msgid "full_name"
+#~ msgstr "Volledige naam"
+
+#~ msgid "phone"
+#~ msgstr "Telefoonnummer"
+
+#~ msgid "invalid_phone"
+#~ msgstr "Ongeldig telefoonnummer"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "Telefoonnummer is al in gebruik"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "Functietitel"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "Mannetje"
+
+#~ msgid "accounts_female"
+#~ msgstr "Vrouw"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "Uw account is succesvol aangemaakt"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr ""
+#~ "Uw account is succesvol aangemaakt. Wij zijn blij u aan boord te hebben "
+#~ "en wensen u een bijzondere ervaring."
+
+#~ msgid "login_failed"
+#~ msgstr "Ongeldige inloggegevens"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "Wachtwoorden komen niet overeen"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "Wachtwoord moet minimaal 8 tekens lang zijn"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "Wijzigingen zijn succesvol opgeslagen"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "Uw gegevens zijn succesvol opgeslagen"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "Gegevens opgeslagen en wachtwoord succesvol bijgewerkt"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "Inloginstellingen zijn succesvol bijgewerkt"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr ""
+#~ "Welkom terug, uw account is goedgekeurd en u kunt nu projecten aanvragen"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr ""
+#~ "Welkom bij het Innovation Center, wij wensen u een geweldige ervaring"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "Management van het Innovatiecentrum"
+
+#~ msgid "accounts_local"
+#~ msgstr "Lokaal"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "Uniforme aanmelding"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "Schakel externe authenticatie in"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "Beheer toegestane authenticatiemethoden in het systeem"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "Uit systeemdatabase"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "Gisteren"
+
+#~ msgid "accounts_saah"
+#~ msgstr "Een uur geleden"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "10 minuten geleden"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "5 minuten geleden"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "Neem contact met ons op"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "Neem contact met ons op via het contactformulier"
+
+#~ msgid "contact_description"
+#~ msgstr "Voor vragen of ondersteuning kunt u contact met ons opnemen"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr ""
+#~ "Bedankt, wij zullen uw bericht beoordelen en spoedig contact met u opnemen"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "Uw bericht is succesvol verzonden"
+
+#~ msgid "write_message"
+#~ msgstr "Schrijf hier uw bericht"
+
+#~ msgid "contact_message"
+#~ msgstr "Bericht"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "Bericht is vereist"
+
+#~ msgid "contact_name_required"
+#~ msgstr "Naam is vereist"
+
+#~ msgid "contact_email_required"
+#~ msgstr "E-mail is vereist"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "Ongeldig e-mailadres"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "Telefoon"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "Mobiel"
+
+#~ msgid "contact_email"
+#~ msgstr "E-mail"
+
+#~ msgid "contact_date"
+#~ msgstr "Datum"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "Alle berichten"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "Contactberichten"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "Beheer contactberichten"
+
+#~ msgid "contact_message_details"
+#~ msgstr "Berichtdetails"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "Contactberichtdetails"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "Berichtdetails openen"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "Klik direct op het bericht om de details ervan te bekijken"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "Zoek op naam, e-mailadres of bericht"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "Momenteel geen berichten"
+
+#~ msgid "contact_reply"
+#~ msgstr "Beantwoord"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "Beantwoord bericht"
+
+#~ msgid "write_reply"
+#~ msgstr "Schrijf het antwoord en verzend het direct"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "Stuur antwoord"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "Antwoordtekst"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "Titel van antwoord"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "Laatst opgeslagen antwoord"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "Reageer op uw bericht op onze site"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "Nieuw bericht van Contacteer ons"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "Nieuw"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "Ongelezen"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "Lees"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "Verzenden..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "Onlangs verzonden. Probeer het over een tijdje opnieuw"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr ""
+#~ "Er is zojuist een antwoord verzonden. Probeer het over een tijdje opnieuw"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr ""
+#~ "Als u een probleem tegenkomt, aarzel dan niet om contact met ons op te "
+#~ "nemen"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "Ondersteuningsteam"
+
+#~ msgid "subscribe"
+#~ msgstr "Abonneer je"
+
+#~ msgid "subscriptions"
+#~ msgstr "Abonnementen"
+
+#~ msgid "subscription_active"
+#~ msgstr "Ingeschakeld"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "Actief"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "Gestopt"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "Bevestigde abonnees"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "Totaal aantal abonnees"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "Alle abonnees"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "Actieve abonnees"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "Ingeschakeld"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "Bevestigd"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "Onbevestigd"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "Bevestigd"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "Nieuwsbriefabonnees"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "Nieuwsbriefabonnee"
+
+#~ msgid "subscription_message"
+#~ msgstr "Schrijf u in om onze berichten te ontvangen"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "Momenteel geen abonnees"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "Afmelden"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "E-mailabonnement opgezegd"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Afmelden voor Wird Quran-berichten"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Uit Wird Koran-berichten"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "Beheer abonnementen"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "Bekijk abonnementen"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "Samenvatting van abonnementen"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "Abonnementencentrum"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "Overzicht van nieuwsbriefabonnees"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr ""
+#~ "Lijst met e-mailadressen die zijn geregistreerd om nieuwsbrieven en "
+#~ "berichten te ontvangen"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "Abonnementsdatum"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "Afmelddatum"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "Zoek per e-mail"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "Bericht maken"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr "Stuur een e-mail naar alle actieve en bevestigde abonnees"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "Dashboardoverzicht"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "Intern controlepaneel"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "Snel overzicht van de belangrijkste modules en instellingen"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "Samenvatting van algemene cijfers en indicatoren in het systeem"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "Sitestatistieken"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "Paginastatistieken"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "Audiostatistieken"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "Tafsir-statistieken"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "Mushaf-statistieken"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "Totaal aantal bezoekers"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "Totaal aantal paginabezoeken"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "Meest bezochte pagina's"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "Paginabezoeken"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "Bezoeken in de afgelopen 7 dagen"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "Bezoeken in de afgelopen 30 dagen"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "Bezoekers in de afgelopen 7 dagen"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "Bezoeken de afgelopen dagen"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "Audio wordt afgespeeld"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "Audio afgespeeld in de afgelopen 7 dagen"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "Totaal luisterseconden"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "Meest beluisterde pagina's"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "Meest gespeelde soera's"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "Meest gespeelde voordragers"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "Paginaomslagen"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "De meeste omgedraaide Mushaf-pagina's"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "Total Tafsir wordt geopend"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "Tafsir is in de afgelopen 7 dagen geopend"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "Meest geopende Tafsir-boeken"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "Meest gebruikte boek"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "Meest geopende Tafsir-pagina's"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "Meest geopende Tafsir-pagina"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "Meest geïnterpreteerde soera"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "Meest geïnterpreteerde soera's"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "Meest geopende aya's in Tafsir"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "Laatste interacties"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr ""
+#~ "Het bijhouden van bezoekers, pagina's, audiospelen en Mushaf-pagina's"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr ""
+#~ "Het volgen van Tafsir opent de meest gebruikte boeken, pagina's, soera's "
+#~ "en gekoppelde ayahs"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "Live-dashboard"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "Nog geen gegevens"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "Nog geen interacties"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "Jaa"
+
+#~ msgid "analytics_audio"
+#~ msgstr "Audio"
+
+#~ msgid "analytics_page"
+#~ msgstr "Pagina"
+
+#~ msgid "analytics_pages"
+#~ msgstr "Pagina's"
+
+#~ msgid "analytics_surah"
+#~ msgstr "Soera"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "Mushaf"
+
+#~ msgid "analytics_time"
+#~ msgstr "Tijd"
+
+#~ msgid "analytics_type"
+#~ msgstr "Typ"
+
+#~ msgid "analytics_path"
+#~ msgstr "Pad"
+
+#~ msgid "analytics_add"
+#~ msgstr "Tel"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "Uniek"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "Bezoeken"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "Speelt"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "Audio-voltooiingen"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "Tafsir geopend"
+
+#~ msgid "roles"
+#~ msgstr "Rollen"
+
+#~ msgid "permissions"
+#~ msgstr "Machtigingen"
+
+#~ msgid "users"
+#~ msgstr "Gebruikers"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "Beheer gebruikers"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "Beheer rollen"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "Beheer machtigingen"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "Beheer gebruikersaccounts, rollen en machtigingen"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "Gebruikers- en machtigingsbeheersysteem"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "Beheer machtigingen"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "Beheer systeemrollen en bijbehorende machtigingen"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "Beheer gebruikers en wijs rollen toe"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "Gebruiker toevoegen"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "Nieuwe gebruiker toevoegen"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "Gebruikersgegevens"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "Bekijk gebruikersgegevens"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "Bekijk gebruikersgegevens en wijs rollen toe"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "Rol toevoegen"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "Rol bewerken"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "Rol verwijderen"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "Rol opslaan"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "Rolnaam"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "Huidige rol"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "Huidige rollen"
+
+#~ msgid "rbac_role"
+#~ msgstr "Rol"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "Toestemming toevoegen"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "Toestemming bewerken"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "Toestemming verwijderen"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "Toestemming opslaan"
+
+#~ msgid "rbac_permission"
+#~ msgstr "Toestemming"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "Toestemming"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "Toestemmingsnaam"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "Toestemmingscode"
+
+#~ msgid "rbac_module"
+#~ msgstr "Module"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "Koppel rollen aan rechten"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "Koppel rechten aan rollen"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr ""
+#~ "De gebruiker is succesvol aangemaakt en de inloggegevens zijn naar hun e-"
+#~ "mailadres verzonden"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "Gebruiker is succesvol aangemaakt, maar e-mail kan niet worden verzonden. "
+#~ "Controleer de mailinstellingen"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "Rol is succesvol aangemaakt"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "Toestemming aangemaakt"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "Rol succesvol bijgewerkt"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "Toestemming bijgewerkt"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "Rol succesvol verwijderd"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "Toestemming succesvol verwijderd"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "Toestemming gekoppeld aan rol succesvol"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "Toestemming verwijderd uit rol"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "Gebruikersrollen zijn succesvol bijgewerkt"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "Bevestig het verwijderen van de rol"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "Bevestig het verwijderen van de toestemming"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "U staat op het punt de rol te verwijderen"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "U staat op het punt de toestemming te verwijderen"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "De primaire rol kan niet worden verwijderd"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "Primaire toestemming kan niet worden verwijderd"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "De primaire rolcode kan niet worden bewerkt"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "De primaire toestemmingscode kan niet worden bewerkt"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr ""
+#~ "Primaire gebruikersrollen kunnen niet vanuit deze interface worden bewerkt"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "Primaire toestemming kan niet worden verwijderd uit deze rol"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "Deze actie kan niet ongedaan worden gemaakt"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "Zoek op gebruikersnaam of rol"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "Zoek op gebruikersnaam of aantal machtigingen"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr ""
+#~ "Kies een rol in het linkermenu om machtigingen te bekijken en te koppelen"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr ""
+#~ "Kies een rol uit de lijst en schakel vervolgens de machtigingen in of uit "
+#~ "via selectievakjes"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "Kies Rollen"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "Er zijn geen rollen toegewezen aan deze gebruiker"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "Momenteel geen rollen"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "Momenteel geen gebruikers"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "Voer de rolnaam en code in"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "Voer de toestemmingscode en naam in"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "Voer de code en de naam van de toestemming in"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Vul de gebruikersgegevens in; Er wordt een account aangemaakt en de "
+#~ "inloggegevens worden naar hun e-mailadres verzonden"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "Vul de rolgegevens in en sla de wijzigingen op"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "Vul de toestemmingsgegevens in en sla de wijzigingen op"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Er wordt een willekeurig wachtwoord voor de gebruiker gegenereerd en naar "
+#~ "zijn e-mailadres verzonden"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "Uw account is aangemaakt op het platform"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "Uw accountgegevens op het platform"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr "Wij raden u aan uw wachtwoord te wijzigen nadat u bent ingelogd"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr ""
+#~ "Een korte beschrijving die de taken van deze rol in het systeem laat zien"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr ""
+#~ "Een korte beschrijving die laat zien wanneer deze toestemming binnen het "
+#~ "systeem wordt gebruikt"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "E-mail is vereist om inloggegevens te verzenden"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "Rolcode is al in gebruik, kies een andere"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "Deze code wordt al gebruikt voor een andere toestemming"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr "Kan de toestemming niet opslaan vanwege dubbele code in de database"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "Fout bij verwerken verzoek: rol- of toestemmingsgegevens ontbreken"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "Volledige naam is vereist"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "Gebruikersnaam is al in gebruik"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "E-mail is al in gebruik"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "Telefoonnummer is al in gebruik"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "Deze gebruikersnaam is gereserveerd en kan niet worden gebruikt"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "Machtigingen gegroepeerd per module"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "Actieve gebruiker"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "Inactief"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "Gebruikersstatus bijgewerkt"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "Laatste aanmelding"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "Rollen koppelen"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "Terug naar Rollen"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "Terug naar Machtigingen"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "Terug naar Gebruikerslijst"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "Terug naar Gebruikerslijst"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "Gebruikersrol (bijv."
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "Specifieke toestemming (bijv."
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "bijvoorbeeld Systeembeheerder"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "bijv."
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "Gebruikt in code zoals"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "Om de gebruikerstoestemming binnen te verifiëren"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "Automatisch voor de gebruiker"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr ", en het wordt automatisch in een uniform formaat opgeslagen"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "Patroon heeft de voorkeur"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "U kunt het nummer in elk gewenst formaat invoeren (05 / 5 /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "Optioneel"
+
+#~ msgid "rbac_aw"
+#~ msgstr "of"
+
+#~ msgid "rbac_aam"
+#~ msgstr "Algemeen"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "Partner"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "Deelnemer"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "Toezichthouder"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "Er zal een rol worden toegewezen"
+
+#~ msgid "rbac_5"
+#~ msgstr "of 5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "Bekijk gebruikers"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "Bekijk rollen"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "Bekijk machtigingen"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "Gebruiker bewerken"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "Gebruiker verwijderen"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "Rol bewerken"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "Rol verwijderen"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "Toestemming bewerken"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "Toestemming verwijderen"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "Toegang tot Dashboard"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "Toegang tot Analytics"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "Toegang tot Koran Studio"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "Toegang tot communicatie"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "Toegang tot abonnementen"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "Toegang tot meldingen"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "Toegang tot verzendkanalen"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "Beheer inloginstellingen"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "Campagnes bekijken"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "Bekijk berichten"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "Contactberichten bekijken"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "Bekijk WhatsApp-berichten"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "Bekijk interne meldingen"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "Bekijk verzendlogboek"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "Bekijk Abonnees"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "E-mail bekijken"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "Beheer projecten"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "Contactbericht maken"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "Melding verzenden"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "Voordrager toevoegen"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "Voordragergegevens bewerken"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "Voordragergegevens verwijderen"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "Koran coördinaten"
+
+#~ msgid "rbac_action"
+#~ msgstr "Deze actie"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "Aantal gebruikers"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "Roltelling"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "Aantal machtigingen"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "Geregistreerde gebruikers"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "Gestructureerde rollen"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "Actieve machtigingen"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr ""
+#~ "Het organiseren van de rollenstructuur en het verdelen van "
+#~ "verantwoordelijkheden binnen het systeem"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "Instellingen"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "Abonnementen"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "Beheer de toegang tot modules en gedetailleerde bewerkingen"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "Gebruikersnaam en wachtwoord zijn vereist"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "Systeem algemeen manager"
+
+#~ msgid "accounts_system"
+#~ msgstr "Systeem"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "Waarschuwingscentrum"
+
+#~ msgid "notification_new"
+#~ msgstr "Nieuw"
+
+#~ msgid "notification_alert"
+#~ msgstr "Waarschuw"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "Lees"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "Melding gelezen"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "Melding verzenden"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "Waarschuwing verzenden"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "Nieuwe melding maken"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "Beheer melding"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "Stuur een interne melding naar gebruikers in het systeem"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "Schrijf hier een meldingstekst"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "Succesvol verzonden"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "Samenvatting van de melding"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "Samenvatting van meldingen"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "Momenteel geen meldingen"
+
+#~ msgid "notification_no_text"
+#~ msgstr "Geen tekst"
+
+#~ msgid "notification_alns"
+#~ msgstr "Tekst"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "Binnen systeem"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "Systeemmeldingen"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "Systeem- en interactieve meldingen"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "Meldingen verzonden naar de gebruiker vanuit het systeem"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "Snel overzicht van meldingen verzonden via verschillende kanalen"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "Meldingen tellen mee op deze pagina"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "Geen overeenkomende ontvangers"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "Berichten zijn nu niet van"
+
+#~ msgid "notifications_latest"
+#~ msgstr ""
+#~ "Laatste meldingen ontvangen binnen het systeem (nieuwste eerst, max. 10)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "Meldingscentrum"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "Verzonden meldingen"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "Samenvatting van meldingen"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "Snel overzicht van meldingen verzonden via verschillende kanalen"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "Melding verzenden"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "Interne melding succesvol verzonden"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "Campagnes"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "Verzonden campagnes"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "Totaal aantal campagnes"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "Campagnetitel"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "Campagne is succesvol aangemaakt"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "Campagne succesvol verzonden"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr ""
+#~ "Er is geen Telegram-kanaal of -groep ingeschakeld voor deze campagne"
+
+#~ msgid "communication_message_text"
+#~ msgstr "Berichttekst"
+
+#~ msgid "communication_title_message"
+#~ msgstr "Berichttitel"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "Afbeelding (optioneel)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "Als er een afbeelding bij zit"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "Als er geen afbeelding is"
+
+#~ msgid "communication_send_post"
+#~ msgstr "Bericht verzenden"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "Telegram versturen"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "Telegram - Kanaal"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "Telegram - Groep"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "Voor groep en kanaal"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "Facebook"
+
+#~ msgid "communication_platform"
+#~ msgstr "Platform"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "Kanaal"
+
+#~ msgid "communication_channels"
+#~ msgstr "Kanalen"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "Sociale communicatie"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "Beheer sociale communicatie"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "Samenvatting sociale communicatie"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "Zoek op titel of tekst"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "Zoek op titel of kanaal"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "Datum verzenden"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "Status verzenden"
+
+#~ msgid "communication_sent"
+#~ msgstr "Verzonden"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "Verzonden"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "Voorlopige versie"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "Gepland"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "Verzenden..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "Kan niet verzenden"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "Wachten"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "Fout (indien aanwezig)"
+
+#~ msgid "communication_log"
+#~ msgstr "Logboek"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "Leveringslogboek"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr ""
+#~ "Logboek van verzendingsactiviteiten voor elke campagne en contactkanaal"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "Er zijn momenteel geen verzendlogboeken"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "Gebruik"
+
+#~ msgid "communication_drafts"
+#~ msgstr "Concepten"
+
+#~ msgid "communication_qryba"
+#~ msgstr "Binnenkort"
+
+#~ msgid "messages"
+#~ msgstr "Berichten"
+
+#~ msgid "messaging_messages"
+#~ msgstr "Berichten"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "Collectieve boodschap"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "Collectieve berichten"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "Tekstbericht"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "Mobiel bericht"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "SMS-berichten"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "Details van mobiele berichten"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "Momenteel geen mobiele berichten"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "WhatsAppen"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "WhatsAppen"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "WhatsApp-bericht"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "WhatsApp-berichtdetails"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "WhatsApp-meldingen"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "Er staan momenteel geen WhatsApp-berichten in het logboek"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr ""
+#~ "Bekijk het logboek van WhatsApp-berichten die via het systeem zijn "
+#~ "verzonden en betrekking hebben op gebruikers"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "E-mail"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "Algemeen e-mailbericht"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "Maak een algemeen e-mailbericht"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "Momenteel geen e-mailberichten"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "Berichttekst (e-mail)"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "E-mail verzonden"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "E-mail aangemaakt en wacht op verzending"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "Dit bericht wordt alleen als e-mail verzonden; u kunt opmaak, lijsten en "
+#~ "koppelingen gebruiken"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr ""
+#~ "Dit bericht is primair gericht op de nieuwsbriefabonnees die in het "
+#~ "systeem zijn geregistreerd"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "Stuur algemene e-mailberichten naar nieuwsbriefabonnees met de optie om "
+#~ "alle systeemgebruikers toe te voegen"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "Nieuw bericht maken"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "Bericht verzenden"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "Berichtinhoud"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "Geen inhoud in dit bericht"
+
+#~ msgid "messaging_subject"
+#~ msgstr "Onderwerp"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "Titel en gegevens"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "Titel en berichttekst moeten worden ingevoerd"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "Schrijf hier de berichttekst"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "Schrijf hier de tekst van het e-mailbericht"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "Berichttype"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "Zonder titel"
+
+#~ msgid "messaging_sender"
+#~ msgstr "Afzender"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "Afzender"
+
+#~ msgid "messaging_user"
+#~ msgstr "Gebruiker"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "Ontvangers"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "Ontvangerslijst"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "Ontvangers bekijken"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "Selecteer Gebruikers"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "Alle gebruikers"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "Nieuwsbriefabonnees (standaard)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "Specifieke gebruikers"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "Kies een of meer gebruikers uit de lijst"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "Extra ontvangeropties"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr "Voeg alle systeemgebruikers met nieuwsbriefabonnees toe"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr ""
+#~ "Schakel deze optie in als u wilt dat het bericht ook alle geregistreerde "
+#~ "systeemgebruikers bereikt"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "Geen ontvangers"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "Geen ontvangers voor dit bericht"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "Geen ontvangers om het bericht te verzenden"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "Er zijn geen ontvangers met een e-mailadres"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "Er wachten geen ontvangers op verzending"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "Er zijn geen ontvangers die voldoen aan de opgegeven criteria"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "Ontvangers tellen"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "Zoek op afzender, titel of tekst"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "Verzendkanaal"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "Verzendingskanalen"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "Beheer verzendkanalen"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr ""
+#~ "Beheer en verzend meldingen via e-mail en interne systeemwaarschuwingen"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "Verzendlogboeken"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "Meldingslogboeken"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "Nog geen verzendlogboeken"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "Verzendingstijd"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "Bekijk berichtgegevens, ontvangers en verzendstatus"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "Bekijk mobiele berichtgegevens en inhoud"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "Bekijk WhatsApp-berichtgegevens en inhoud"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "Bekijk bulk-e-mailberichten met het aantal ontvangers en de status"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "Bekijk alle verzendpogingen voor elke ontvanger met status"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "Berichtbezorging"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "Berichtbezorgingen"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "Lees"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "Ongelezen"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "Foutmelding"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "Er bestaat een mislukking"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "Campagne"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "Berichtenlogboek"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "Verzonden naar gebruikers via het systeem"
+
+#~ msgid "messaging_action"
+#~ msgstr "Actie"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "E-mail / identificatie"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "Primaire categorie"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "Individueel"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "Collectief"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "Niet gespecificeerd"
+
+#~ msgid "messaging_first"
+#~ msgstr "Ten eerste"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "Probeer"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "Printverzoek zoals verzonden naar provider"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "Druk het onbewerkte antwoord af"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "Als het antwoord tekstueel is"
+
+#~ msgid "quran_studio"
+#~ msgstr "Koran Studio"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "Beheer Koran Studio"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "Beheer voordragergegevens"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "Beheer gegevens van voordragers die beschikbaar zijn in het systeem"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "Voordragersgegevens"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "Voordragerspagina"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "Momenteel geen voordragergegevens"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "Voordrager succesvol toegevoegd"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "Voordragergegevens zijn succesvol bijgewerkt"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "Voordrager succesvol verwijderd"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "Voordrager verwijderen"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "Weet je zeker dat je deze voordrager wilt verwijderen?"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "Arabische naam"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "Engelse naam"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "Codeer"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "Code en Arabische naam zijn vereist"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "Ayah coördineert redacteur"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "Coördineert Editor-pagina"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "Coördinaten"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "Coördinaten instellen"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "Coördinaten laden"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "Coördinaten ophalen"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "Coördinaten opslaan"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "Bewerk opgeslagen coördinaten"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "Bewaar Bewerken"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "Opslaan Nieuw binnen"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "Ayah-coördinaten op pagina bijwerken"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "Er zijn geen coördinaten opgeslagen voor deze ayah op deze pagina"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "Voer het soera- en ayah-nummer in en klik vervolgens op \"Coördinaten "
+#~ "laden\". Opgeslagen rechthoeken voor deze ayah worden op deze pagina "
+#~ "weergegeven om te bewerken en op te slaan."
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "Sleep de muis over de Mushaf om een ​​rechthoek te tekenen die een deel van "
+#~ "de ayah voorstelt. Je kunt meerdere rechthoeken tekenen voor dezelfde "
+#~ "ayah."
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "Voer het soera- en ayah-nummer in"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "Voer het soera- en ayah-nummer in voordat u gaat laden"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "Duidelijke rechthoeken"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "Geen rechthoeken om op te slaan"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "Surah nummer"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "Ayah nummer"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "Mushaf-pagina"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "Huidige pagina"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "Volgende pagina"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "Vorige pagina"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "Afbeelding"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "Acties"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "bijvoorbeeld 2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "bijvoorbeeld 6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "Startpagina"
+
+#~ msgid "overview"
+#~ msgstr "Overzicht"
+
+#~ msgid "summary"
+#~ msgstr "Samenvatting"
+
+#~ msgid "important_services"
+#~ msgstr "Belangrijkste diensten"
+
+#~ msgid "status"
+#~ msgstr "Status"
+
+#~ msgid "actions"
+#~ msgstr "Acties"
+
+#~ msgid "content"
+#~ msgstr "Inhoud"
+
+#~ msgid "title"
+#~ msgstr "Titel"
+
+#~ msgid "created_at"
+#~ msgstr "Aanmaakdatum"
+
+#~ msgid "updated_at"
+#~ msgstr "Laatst bijgewerkt"
+
+#~ msgid "next"
+#~ msgstr "Volgende"
+
+#~ msgid "previous"
+#~ msgstr "Vorige"
+
+#~ msgid "back"
+#~ msgstr "Terug"
+
+#~ msgid "save"
+#~ msgstr "Opslaan"
+
+#~ msgid "save_changes"
+#~ msgstr "Wijzigingen opslaan"
+
+#~ msgid "add"
+#~ msgstr "Toevoegen"
+
+#~ msgid "create"
+#~ msgstr "Creëer"
+
+#~ msgid "update"
+#~ msgstr "Bijwerken"
+
+#~ msgid "edit"
+#~ msgstr "Bewerken"
+
+#~ msgid "delete"
+#~ msgstr "Verwijderen"
+
+#~ msgid "cancel"
+#~ msgstr "Annuleer"
+
+#~ msgid "confirm"
+#~ msgstr "Bevestigen"
+
+#~ msgid "view"
+#~ msgstr "Bekijk"
+
+#~ msgid "send"
+#~ msgstr "Verzenden"
+
+#~ msgid "send_now"
+#~ msgstr "Verzend nu"
+
+#~ msgid "sent"
+#~ msgstr "Verzonden"
+
+#~ msgid "failed"
+#~ msgstr "Mislukt"
+
+#~ msgid "pending"
+#~ msgstr "In behandeling"
+
+#~ msgid "no_data"
+#~ msgstr "Geen gegevens"
+
+#~ msgid "settings"
+#~ msgstr "Instellingen"
+
+#~ msgid "system_settings"
+#~ msgstr "Systeeminstellingen"
+
+#~ msgid "security"
+#~ msgstr "Beveiliging"
+
+#~ msgid "zoom_out"
+#~ msgstr "Uitzoomen"
+
+#~ msgid "app_arabic"
+#~ msgstr "Arabisch"
+
+#~ msgid "app_urdu"
+#~ msgstr "Urdu"
+
+#~ msgid "web_alkl"
+#~ msgstr "Allemaal"
+
+#~ msgid "web_fqt"
+#~ msgstr "Alleen"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "Alleen, of"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "Alleen, of allebei"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "Alle rechten voorbehouden"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "Koran-website"
+
+#~ msgid "required_field"
+#~ msgstr "Dit veld is verplicht"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "Telefoonnummer is vereist"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "Ongeldig telefoonnummerformaat"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "Ongeldig telefoonnummer"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "Telefoonnummer is niet mogelijk"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "Ongeldig mobiel nummerformaat"
+
+#~ msgid "core_ay"
+#~ msgstr "Of wat dan ook"
+
+#~ msgid "core_mnasb"
+#~ msgstr "Geschikt"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr "We tellen alleen openbare bezoeken (bijvoorbeeld de startpagina)"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "Aantal rijen per pagina"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "Aantal records"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "Sorry, u heeft geen toestemming om deze pagina te openen"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "Toegang verboden"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "Staafhoogte (visuele controle)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "Standaardduur voor toast in milliseconden"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "Specifieke duur voor deze toast (overschrijft standaard)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "Standaard maximale weergave (bijvoorbeeld 20)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "Vaste breedte (laat leeg om te gebruiken)"
+
+#~ msgid "web_notification"
+#~ msgstr "Kennisgeving"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "Sluiten door op de achtergrond te klikken"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "Synchroniseer na 5 seconden na de laatste update"
+
+#~ msgid "quran_nav"
+#~ msgstr "Koran"
+
+#~ msgid "quran_text"
+#~ msgstr "Tekst"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "Tekst splitsen in"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "Rest van de tekst"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "Tussen"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "Nieuw bericht van het contactformulier"
+
+#~ msgid "services_message_text"
+#~ msgstr "Berichttekst:"
+
+#~ msgid "surah_3"
+#~ msgstr "Ali 'Imran"
+
+#~ msgid "surah_4"
+#~ msgstr "An-Nisa'"
+
+#~ msgid "surah_5"
+#~ msgstr "Al-Ma'idah"
+
+#~ msgid "surah_6"
+#~ msgstr "Al-An'am"
+
+#~ msgid "surah_7"
+#~ msgstr "Al-A'raf"
+
+#~ msgid "surah_8"
+#~ msgstr "Al-Anfal"
+
+#~ msgid "surah_9"
+#~ msgstr "At-Tawbah"
+
+#~ msgid "surah_10"
+#~ msgstr "Yunus"
+
+#~ msgid "surah_11"
+#~ msgstr "Hoed"
+
+#~ msgid "surah_12"
+#~ msgstr "Yusuf"
+
+#~ msgid "surah_13"
+#~ msgstr "Ar-Ra'd"
+
+#~ msgid "surah_14"
+#~ msgstr "Ibrahim"
+
+#~ msgid "surah_15"
+#~ msgstr "Al-Hijr"
+
+#~ msgid "surah_16"
+#~ msgstr "An-Nahl"
+
+#~ msgid "surah_17"
+#~ msgstr "Al-Isra'"
+
+#~ msgid "surah_18"
+#~ msgstr "Al-Kahf"
+
+#~ msgid "surah_19"
+#~ msgstr "Maryam"
+
+#~ msgid "surah_20"
+#~ msgstr "Taha"
+
+#~ msgid "surah_21"
+#~ msgstr "Al-Anbiya'"
+
+#~ msgid "surah_22"
+#~ msgstr "Al-Hajj"
+
+#~ msgid "surah_23"
+#~ msgstr "Al-Mu'minun"
+
+#~ msgid "surah_24"
+#~ msgstr "An-Nur"
+
+#~ msgid "surah_25"
+#~ msgstr "Al-Furqan"
+
+#~ msgid "surah_26"
+#~ msgstr "Ash-Shu'ara'"
+
+#~ msgid "surah_27"
+#~ msgstr "An-Naml"
+
+#~ msgid "surah_28"
+#~ msgstr "Al-Qasas"
+
+#~ msgid "surah_29"
+#~ msgstr "Al-'Ankabut"
+
+#~ msgid "surah_30"
+#~ msgstr "Ar-Rum"
+
+#~ msgid "surah_31"
+#~ msgstr "Luqman"
+
+#~ msgid "surah_32"
+#~ msgstr "As-Sajdah"
+
+#~ msgid "surah_33"
+#~ msgstr "Al-Ahzab"
+
+#~ msgid "surah_34"
+#~ msgstr "Saba'"
+
+#~ msgid "surah_35"
+#~ msgstr "Fatir"
+
+#~ msgid "surah_36"
+#~ msgstr "Ya-Sin"
+
+#~ msgid "surah_37"
+#~ msgstr "As-Saffat"
+
+#~ msgid "surah_38"
+#~ msgstr "Triest"
+
+#~ msgid "surah_39"
+#~ msgstr "Az-Zumar"
+
+#~ msgid "surah_40"
+#~ msgstr "Ghafir"
+
+#~ msgid "surah_41"
+#~ msgstr "Fussilat"
+
+#~ msgid "surah_42"
+#~ msgstr "As-Shura"
+
+#~ msgid "surah_43"
+#~ msgstr "Az-Zukhruf"
+
+#~ msgid "surah_44"
+#~ msgstr "Ad-Dukhan"
+
+#~ msgid "surah_45"
+#~ msgstr "Al-Jathiyah"
+
+#~ msgid "surah_46"
+#~ msgstr "Al-Ahqaf"
+
+#~ msgid "surah_47"
+#~ msgstr "Mohammed"
+
+#~ msgid "surah_48"
+#~ msgstr "Al-Fath"
+
+#~ msgid "surah_49"
+#~ msgstr "Al-Hujurat"
+
+#~ msgid "surah_50"
+#~ msgstr "Qaf"
+
+#~ msgid "surah_51"
+#~ msgstr "Adh-Dhariyat"
+
+#~ msgid "surah_52"
+#~ msgstr "Bij-Tur"
+
+#~ msgid "surah_53"
+#~ msgstr "An-Najm"
+
+#~ msgid "surah_54"
+#~ msgstr "Al-Qamar"
+
+#~ msgid "surah_55"
+#~ msgstr "Ar-Rahman"
+
+#~ msgid "surah_56"
+#~ msgstr "Al-Waqi'ah"
+
+#~ msgid "surah_57"
+#~ msgstr "Al Hadid"
+
+#~ msgid "surah_58"
+#~ msgstr "Al Mujadilah"
+
+#~ msgid "surah_59"
+#~ msgstr "Al-Hashr"
+
+#~ msgid "surah_60"
+#~ msgstr "Al-Mumtahanah"
+
+#~ msgid "surah_61"
+#~ msgstr "As-Saff"
+
+#~ msgid "surah_62"
+#~ msgstr "Al-Jumu'ah"
+
+#~ msgid "surah_63"
+#~ msgstr "Al-Munafiqun"
+
+#~ msgid "surah_64"
+#~ msgstr "At-Taghabun"
+
+#~ msgid "surah_65"
+#~ msgstr "At-Talaq"
+
+#~ msgid "surah_66"
+#~ msgstr "At-Tahrim"
+
+#~ msgid "surah_67"
+#~ msgstr "Al-Mulk"
+
+#~ msgid "surah_68"
+#~ msgstr "Al-Qalam"
+
+#~ msgid "surah_69"
+#~ msgstr "Al-Haqqah"
+
+#~ msgid "surah_70"
+#~ msgstr "Al-Ma'arij"
+
+#~ msgid "surah_71"
+#~ msgstr "Nee"
+
+#~ msgid "surah_72"
+#~ msgstr "Al-Jinn"
+
+#~ msgid "surah_73"
+#~ msgstr "Al Muzzammil"
+
+#~ msgid "surah_74"
+#~ msgstr "Al-Muddaththir"
+
+#~ msgid "surah_75"
+#~ msgstr "Al-Qiyamah"
+
+#~ msgid "surah_76"
+#~ msgstr "Al-Insan"
+
+#~ msgid "surah_77"
+#~ msgstr "Al Mursalat"
+
+#~ msgid "surah_78"
+#~ msgstr "An-Naba'"
+
+#~ msgid "surah_79"
+#~ msgstr "An-nazi'at"
+
+#~ msgid "surah_80"
+#~ msgstr "'Abasa"
+
+#~ msgid "surah_81"
+#~ msgstr "At-Takwir"
+
+#~ msgid "surah_82"
+#~ msgstr "Al-Infitar"
+
+#~ msgid "surah_83"
+#~ msgstr "Al-Mutaffifin"
+
+#~ msgid "surah_84"
+#~ msgstr "Al-Inshiqaq"
+
+#~ msgid "surah_85"
+#~ msgstr "Al-Buruj"
+
+#~ msgid "surah_86"
+#~ msgstr "At-Tariq"
+
+#~ msgid "surah_87"
+#~ msgstr "Al-A'la"
+
+#~ msgid "surah_88"
+#~ msgstr "Al-Ghashiyah"
+
+#~ msgid "surah_89"
+#~ msgstr "Al Fajr"
+
+#~ msgid "surah_90"
+#~ msgstr "Al-Balad"
+
+#~ msgid "surah_91"
+#~ msgstr "As-Shams"
+
+#~ msgid "surah_92"
+#~ msgstr "Al-Layl"
+
+#~ msgid "surah_93"
+#~ msgstr "Ad-Duha"
+
+#~ msgid "surah_94"
+#~ msgstr "As-Sharh"
+
+#~ msgid "surah_95"
+#~ msgstr "At-Tin"
+
+#~ msgid "surah_96"
+#~ msgstr "Al-'Alaq"
+
+#~ msgid "surah_97"
+#~ msgstr "Al-Qadr"
+
+#~ msgid "surah_98"
+#~ msgstr "Al-Bayyinah"
+
+#~ msgid "surah_99"
+#~ msgstr "Az-Zalzalah"
+
+#~ msgid "surah_100"
+#~ msgstr "Al-'Adiyat"
+
+#~ msgid "surah_101"
+#~ msgstr "Al-Qari'ah"
+
+#~ msgid "surah_102"
+#~ msgstr "At-Takathur"
+
+#~ msgid "surah_103"
+#~ msgstr "Al-'Asr"
+
+#~ msgid "surah_104"
+#~ msgstr "Al-Humazah"
+
+#~ msgid "surah_105"
+#~ msgstr "Al-Fil"
+
+#~ msgid "surah_106"
+#~ msgstr "Qoeraisj"
+
+#~ msgid "surah_107"
+#~ msgstr "Al-Ma'un"
+
+#~ msgid "surah_108"
+#~ msgstr "Al-Kawthar"
+
+#~ msgid "surah_109"
+#~ msgstr "Al Kafirun"
+
+#~ msgid "surah_110"
+#~ msgstr "An-Nasr"
+
+#~ msgid "surah_111"
+#~ msgstr "Al-Masad"
+
+#~ msgid "surah_112"
+#~ msgstr "Al-Ikhlas"
+
+#~ msgid "surah_113"
+#~ msgstr "Al Falaq"
+
+#~ msgid "surah_114"
+#~ msgstr "An-Nas"
+
+#~ msgid "contents"
+#~ msgstr "Inhoud"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "Toegankelijkheid"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "Vergroot de lettergrootte"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "Verklein de lettergrootte"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "Hoog contrast"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "Donkere modus"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "Leesmodus"
+
+#~ msgid "a11y_reset"
+#~ msgstr "Instellingen resetten"
+
+#~ msgid "select_translation"
+#~ msgstr "Selecteer Vertaling"
+
+#~ msgid "select_surah"
+#~ msgstr "Selecteer Soera"
+
+#~ msgid "copy_ayah"
+#~ msgstr "Kopieer vers"
+
+#~ msgid "share_ayah"
+#~ msgstr "Deel vers"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "Maak een bladwijzer van vers"
+
+#~ msgid "play_ayah"
+#~ msgstr "Audio afspelen"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "Vers opgeslagen"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "Verwijderd uit opgeslagen"
+
+#~ msgid "no_translation_available"
+#~ msgstr "Geen vertaling beschikbaar"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "Selecteer een soera om te beginnen"
+
+#~ msgid "app_download_title"
+#~ msgstr "Download de Wird-app"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "Een complete koranervaring op uw apparaat"
+
+#~ msgid "audio_language"
+#~ msgstr "Audiotaal"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "De Wird van vandaag"
+
+#~ msgid "home_this_week"
+#~ msgstr "Deze week"
+
+#~ msgid "home_your_wird"
+#~ msgstr "Jouw Wird"
+
+#~ msgid "home_progress"
+#~ msgstr "Vooruitgang"
+
+#~ msgid "home_days_progress"
+#~ msgstr "4 van 7 dagen"
+
+#~ msgid "day_sat"
+#~ msgstr "Zat"
+
+#~ msgid "day_sun"
+#~ msgstr "Zon"
+
+#~ msgid "day_mon"
+#~ msgstr "ma"
+
+#~ msgid "day_tue"
+#~ msgstr "di"
+
+#~ msgid "day_wed"
+#~ msgstr "wo"
+
+#~ msgid "day_thu"
+#~ msgstr "Do"
+
+#~ msgid "day_fri"
+#~ msgstr "Vr"
+
+#~ msgid "home_today_wird"
+#~ msgstr "De Wird van vandaag"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "Speel recitatie door"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "Zuivere stem"
+
+#~ msgid "home_tarteel"
+#~ msgstr "Tarteel-recitatie"
+
+#~ msgid "home_khashi"
+#~ msgstr "Toegewijde recitatie"

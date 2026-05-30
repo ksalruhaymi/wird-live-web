@@ -1,0 +1,3589 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "お問い合わせ"
+
+msgid "contact_page_description"
+msgstr "お問い合わせください。お手伝いいたします。"
+
+msgid "contact_intro_text"
+msgstr ""
+"Wird Quran プラットフォームにご連絡いただければ幸いです。私たちはアッラーの書"
+"に仕え、その朗読を促進するよう努めます。"
+
+msgid "name"
+msgstr "名前"
+
+msgid "enter_your_name"
+msgstr "あなたの名前を入力してください"
+
+msgid "email"
+msgstr "電子メール"
+
+msgid "your_message"
+msgstr "あなたのメッセージ"
+
+msgid "write_your_message_here"
+msgstr "お問い合わせやメッセージをここに書いてください"
+
+msgid "send_message"
+msgstr "メッセージを送信する"
+
+msgid "message_sent"
+msgstr "メッセージが送信されました"
+
+msgid "message_sent_successfully"
+msgstr "メッセージは正常に送信されました"
+
+msgid "thank_you_contact"
+msgstr "ご連絡いただきありがとうございます"
+
+msgid "contact_success_message"
+msgstr ""
+"あなたのメッセージは正常に受信されました。 Wird Quran チームが内容を確認し、"
+"コーランの奉仕をサポートするためにできるだけ早くご連絡いたします。"
+
+msgid "back_to_home"
+msgstr "ホームに戻る"
+
+msgid "quran_recitation_prompt"
+msgstr "アラビア語でコーランを朗読"
+
+msgid "save_stop"
+msgstr "読み取り位置の保存"
+
+msgid "cancel_stop"
+msgstr "読み取り位置の削除"
+
+msgid "hifz_audio_recording"
+msgstr "音声録音"
+
+msgid "hifz_enable_hiding"
+msgstr "アヤスを隠す"
+
+msgid "hifz_segmentation_thematic"
+msgstr "テーマ別のセグメンテーション"
+
+msgid "hifz_writing"
+msgstr "書き込み"
+
+msgid "zoom_in"
+msgstr "ズームイン"
+
+msgid "repeat"
+msgstr "繰り返す"
+
+msgid "page"
+msgstr "ページ"
+
+msgid "play_audio"
+msgstr "オーディオを再生する"
+
+msgid "word_meanings"
+msgstr "言葉の意味"
+
+msgid "brief_tafsir"
+msgstr "ブリーフ・タフシル"
+
+msgid "playback_tools"
+msgstr "再生ツール"
+
+msgid "audio"
+msgstr "オーディオ"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"記憶中に音声を再生するには、アーヤをタップして再生および一時停止ボタンを表示"
+"します。次に、ここから音量を制御したり、気が散ることなく読みやすくするために"
+"画面を拡大したり、アーヤの繰り返しの回数を増やしたりすることができます。"
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "2ページ"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr "ムシャフの 1 ページまたは見開き 2 ページを切り替える"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "1ページ"
+
+msgid "hifz_memorization_tools"
+msgstr "暗記テクニック"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"暗記ツールは、思い出しを強化し、記憶力を鍛えるのに役立ちます。アーヤを非表示"
+"にして、覚える練習をすることができます。アーヤの上にマウスを移動すると、ガイ"
+"ドとして軽く表示され、クリックすると完全に表示されます。テーマ別の分割も可能"
+"で、関連するアーヤをトピックにグループ化して、記憶と理解を容易にします。"
+
+msgid "hifz_play"
+msgstr "遊ぶ"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "フルストップ"
+
+msgid "hifz_mstwa_audio"
+msgstr "音量レベル"
+
+msgid "mushaf"
+msgstr "ムシャフ"
+
+msgid "reciter"
+msgstr "朗読者"
+
+msgid "search"
+msgstr "検索"
+
+msgid "stop_audio"
+msgstr "音声を停止する"
+
+msgid "recitation_correction"
+msgstr "朗読添削"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"まず、アヤを選択します。すると録音ボタンが表示されます。それを押して、選択し"
+"たアーヤの朗読を録音すると、音声を分析して朗読を修正できます。暗唱の正解率が"
+"表示され、録音した音声を聞くボタンが表示されます。"
+
+msgid "recitation_accuracy_percentage"
+msgstr "暗唱の正確さ"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "シェイクオーディオ"
+
+msgid "my_recorded_audio"
+msgstr "私の録音"
+
+msgid "mushaf_hafs"
+msgstr "ハフス・ムシャフ"
+
+msgid "mushaf_warsh"
+msgstr "ウォーシュ・ムシャフ"
+
+msgid "mushaf_qaloun"
+msgstr "カローン・ムシャフ"
+
+msgid "mushaf_douri"
+msgstr "アル・ドゥーリ・ムシャフ"
+
+msgid "mushaf_shuba"
+msgstr "シュバ・ムシャフ"
+
+msgid "mushaf_sousi"
+msgstr "アル・スーシ・ムシャフ"
+
+msgid "tafsir_almuyasser"
+msgstr "アル・ムヤッサル"
+
+msgid "tafsir_alkatheer"
+msgstr "イブン・カスィール"
+
+msgid "tafsir_albaghawy"
+msgstr "アル・バガウィ"
+
+msgid "tafsir_altabary"
+msgstr "アル・タバリ"
+
+msgid "tafsir_alqortoby"
+msgstr "アル・クルトゥビ"
+
+msgid "tafsir_alsa3dy"
+msgstr "アル・サディ"
+
+#, python-format
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "コーランのページ %(page)s のタフシル |コーラン"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "スーラ %(surah_name)s |読んで聞いてください - コーラン"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "%(qari_name)s が朗読するコーランを聞いてください |コーラン"
+
+#, python-format
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "コーランのページ %(page)s |コーラン"
+
+#, python-format
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"コーランのページ %(page)s のタフシールを簡単に読み、アーヤを表示し、Wird "
+"Quran プラットフォーム上のタフシールにリンクします。"
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"Wird Quran プラットフォームで簡単に聞いたり閲覧したりして、コーランのスーラ "
+"%(surah_name)s を読みましょう。"
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"%(qari_name)s が朗読するコーランを高品質で聞いてください。スーラとアーヤの間"
+"を簡単に移動できます。"
+
+#, python-format
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"Wird Quran プラットフォームでのスムーズな読み取りと迅速なナビゲーションを備え"
+"た快適で簡単なインターフェイスを使用して、コーランのページ %(page)s を参照し"
+"ます。"
+
+msgid "no_word_meanings"
+msgstr "このアヤには単語の意味がありません"
+
+msgid "hide_word_meanings"
+msgstr "単語の意味を隠す"
+
+msgid "show_word_meanings"
+msgstr "単語の意味を表示"
+
+msgid "word_meanings_hint"
+msgstr "朗読が始まると単語の意味が表示されます"
+
+msgid "error_word_meanings"
+msgstr "単語の意味を読み込めませんでした"
+
+msgid "surah"
+msgstr "スーラ"
+
+msgid "ayah"
+msgstr "アヤ"
+
+msgid "show_thematic_segmentation"
+msgstr "テーマ別セグメンテーションを表示"
+
+msgid "hide_thematic_segmentation"
+msgstr "テーマ別セグメンテーションを非表示にする"
+
+msgid "daily_quran_reading"
+msgstr "私の毎日の言葉"
+
+msgid "new_khatma"
+msgstr "ニュー・ハトマ"
+
+msgid "close"
+msgstr "近い"
+
+msgid "current_khatma"
+msgstr "現在のハトマ"
+
+msgid "Juz"
+msgstr "ジュズ"
+
+msgid "remaining_wirds"
+msgstr "残りの単語"
+
+msgid "khatma_count"
+msgstr "ハトマ カウント"
+
+msgid "current_wird"
+msgstr "現在のワード"
+
+msgid "from"
+msgstr "から"
+
+msgid "to"
+msgstr "に"
+
+msgid "congratulations"
+msgstr "おめでとう"
+
+msgid "you_finished_current_khatma"
+msgstr "このハトマを正常に完了しました"
+
+msgid "continue_reading"
+msgstr "続きを読む"
+
+msgid "finish_wird"
+msgstr "ワードが完了しました"
+
+msgid "choose_mushaf"
+msgstr "ムシャフを選択"
+
+msgid "current"
+msgstr "現在"
+
+msgid "start_new_khatma"
+msgstr "新しいハトマを始める"
+
+msgid "start_from"
+msgstr "開始日"
+
+msgid "mushaf_start"
+msgstr "ムシャフの始まり"
+
+msgid "duration_days"
+msgstr "ハトマ期間 (日)"
+
+msgid "day"
+msgstr "日"
+
+msgid "daily_amount"
+msgstr "1 日あたりのワード量"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "ハトマの概要"
+
+msgid "start_khatma"
+msgstr "ハトマを開始"
+
+msgid "reciters"
+msgstr "朗読者"
+
+msgid "search_reciter"
+msgstr "朗読者を名前で検索"
+
+msgid "loading"
+msgstr "読み込み中"
+
+msgid "tafasir"
+msgstr "タフシル本"
+
+msgid "no_tafsir_available"
+msgstr "現在利用可能なタフシールはありません"
+
+msgid "quran"
+msgstr "コーラン"
+
+msgid "tafsir"
+msgstr "タフシル"
+
+msgid "surah_1"
+msgstr "アル・ファティハ"
+
+msgid "mushafs"
+msgstr "ムシャフス"
+
+msgid "reading_mode"
+msgstr "読書モード"
+
+msgid "current_reciter"
+msgstr "現在の朗読者"
+
+msgid "coming_soon"
+msgstr "近日公開"
+
+msgid "current_mushaf"
+msgstr "現在のムシャフ"
+
+msgid "tafsir_loading_message"
+msgstr "このページを開くと Tafsir がロードされます"
+
+msgid "title_and_body_required"
+msgstr "タイトルとメッセージ本文は必須です"
+
+msgid "no_subscribers_available"
+msgstr "送信できる購読者がいません"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "あなたは Wid Quran メッセージを購読しています"
+
+msgid "unsubscribe_label"
+msgstr "購読を解除するには"
+
+msgid "message_sent_to_subscribers"
+msgstr "%(count)s 人の購読者にメッセージが送信されました"
+
+msgid "message_sent_with_failures"
+msgstr ""
+"メッセージは %(sent_count)s 人の購読者に送信され、%(failed_count)s 回失敗しま"
+"した"
+
+msgid "message_send_failed"
+msgstr "メッセージの送信に失敗しました"
+
+msgid "please_enter_email"
+msgstr "メールアドレスを入力してください"
+
+msgid "newsletter_welcome_subject"
+msgstr "Wird Quranをご購読いただきありがとうございます"
+
+msgid "newsletter_greeting"
+msgstr "アッラーの平安と慈悲と祝福があなたにありますように。"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "Wird Quran メッセージをご購読いただきありがとうございます"
+
+msgid "newsletter_joined_successfully"
+msgstr "ぜひご参加ください。最新情報はメールでお知らせします"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr "いつでも購読を解除したい場合は、次のリンクを使用してください。"
+
+msgid "newsletter_closing"
+msgstr "心からの感謝と感謝を込めて"
+
+msgid "wird quran"
+msgstr "ウィード アル コーラン アル カリーム"
+
+msgid "newsletter_subscription_success"
+msgstr "ありがとうございます。Wird Quran メッセージの購読に成功しました"
+
+msgid "newsletter_subscription_reactivated"
+msgstr "ありがとうございます。Wird Quran メッセージの購読が再開されました"
+
+msgid "email_already_subscribed"
+msgstr "このメールはすでに購読されています"
+
+msgid "unsubscribe_success_message"
+msgstr "正常に購読解除されました"
+
+msgid "unsubscribe_already_done"
+msgstr "すでに購読を解除しています"
+
+msgid "qari_list_title"
+msgstr "聖なるコーランを聞いてください"
+
+msgid "qari_list_description"
+msgstr ""
+"朗読家を閲覧し、美しい声を持つ多様な朗読家コレクションからお気に入りの朗読を"
+"選択してください。"
+
+msgid "listen_quran"
+msgstr "コーランを聞いてください"
+
+msgid "view_surahs"
+msgstr "スーラを見る"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "コーランを聞くことで、"
+
+msgid "tilawa_wrd_quran"
+msgstr "コーラン"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "コーランの朗読全文を聞いてください。"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "高品質で、スーラ間を簡単に移動できます"
+
+msgid "all_reciters"
+msgstr "すべての朗読者"
+
+msgid "select_surah_player"
+msgstr "スーラを選択してください"
+
+msgid "prev_surah"
+msgstr "前のスーラ"
+
+msgid "next_surah"
+msgstr "次のスーラ"
+
+msgid "search_surah"
+msgstr "名前または番号でスーラを検索"
+
+msgid "ayah_counter"
+msgstr "アヤ"
+
+msgid "stop_playback"
+msgstr "再生を停止する"
+
+msgid "username_password_required"
+msgstr "ユーザー名とパスワードは必須です。"
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "アカウントのアクティベーションが必要です"
+
+msgid "invalid_login_credentials"
+msgstr "無効なログイン資格情報です。"
+
+msgid "dashboard"
+msgstr "ダッシュボード"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "続行するにはログインするかアカウントを作成してください"
+
+msgid "login"
+msgstr "ログイン"
+
+msgid "register"
+msgstr "アカウントを作成する"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "ユーザー名はすでに使用されています。"
+
+msgid "enter_username"
+msgstr "ユーザー名を入力してください"
+
+msgid "password"
+msgstr "パスワード"
+
+msgid "enter_password"
+msgstr "パスワードを入力してください"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "パスワードをお忘れですか？"
+
+msgid "create_account"
+msgstr "アカウントを作成"
+
+msgid "username_required"
+msgstr "ユーザー名は必須です。"
+
+msgid "username_taken"
+msgstr "ユーザー名はすでに使用されています。"
+
+msgid "email_required"
+msgstr "電子メールは必須です。"
+
+msgid "email_taken"
+msgstr "電子メールはすでに使用されています。"
+
+msgid "password_required"
+msgstr "パスワードが必要です。"
+
+msgid "register_success"
+msgstr ""
+"ようこそ 🌿 アカウントは正常に作成されました。ぜひご参加ください。私たちはあ"
+"なたが独特で実りある経験をできることを願っています。"
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"Wird Quran は、コーランを読んだり、有名な朗読家による朗読を聞いたり、タフシー"
+"ルの書籍を広告なしで簡単に閲覧したりするための統合プラットフォームです。"
+
+msgid "success"
+msgstr "成功"
+
+msgid "error"
+msgstr "エラー"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "ウィード アル コーラン アル カリームについて"
+
+msgid "long_about_text"
+msgstr ""
+"Wird は、組織的かつ魅力的な方法でコーランの暗唱と熟考を促進することを目的とし"
+"た統合デジタル プラットフォームです。さまざまなムシャフ書を閲覧したり、朗読を"
+"聞いたり、本物のタフスィル書の朗読などのサービスを提供しています。"
+
+msgid "about_wird"
+msgstr ""
+"Wird は、組織的かつ魅力的な方法でコーランの暗唱と熟考を促進することを目的とし"
+"た統合デジタル プラットフォームです。さまざまなナレーション付きのムシャフ書を"
+"閲覧したり、朗読を聞いたり、信頼できるタフスィル書を読んだりするなどのサービ"
+"スを提供しています。また、ユーザーは毎日の Wird を追跡し、暗記と復習の進捗状"
+"況を追跡することもできます。このプラットフォームは、コーラン プロジェクトをサ"
+"ポートし、簡単で統合されたデジタル エクスペリエンスを通じてコーラン プロジェ"
+"クトとのつながりを強化することを目的としています。"
+
+msgid "wird"
+msgstr "ウィルド"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "コーランに関する毎日の言葉"
+
+msgid "home_hero_title1"
+msgstr "コーランを読む穏やかな体験"
+
+msgid "home_hero_title2"
+msgstr "そして傾聴と反省"
+
+msgid "home_hero_desc"
+msgstr ""
+"読書、朗読、タフシール、翻訳、単語の意味を 1 つの簡単で体系的な体験にまとめた"
+"プラットフォームです。"
+
+msgid "home_start_reading"
+msgstr "読み始める"
+
+msgid "home_explore_recitations"
+msgstr "朗読を探る"
+
+msgid "home_calm_recitation"
+msgstr "穏やかな朗読"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "特徴"
+
+msgid "home_features_title"
+msgstr "必要なものすべてを 1 か所に"
+
+msgid "home_features_desc"
+msgstr ""
+"気を散らすことなく、読んだり、聞いたり、考えたりするための落ち着いたツール。"
+
+msgid "home_feature_quran_title"
+msgstr "コーランを読む"
+
+msgid "home_feature_quran_desc"
+msgstr "快適で目に優しい読書を可能にするエレガントな Mushaf インターフェイス。"
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "必要なものすべてを 1 か所に"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"気を散らすことなく、読んだり、聞いたり、考えたりするための落ち着いたツール。"
+
+msgid "home_feature_listen_title"
+msgstr "朗読を聴く"
+
+msgid "home_feature_listen_desc"
+msgstr "清らかな声と穏やかな聴き心地を持つ朗読家を厳選しました。"
+
+msgid "home_feature_tafsir_title"
+msgstr "タフシル"
+
+msgid "home_feature_tafsir_desc"
+msgstr "熟考と理解を助けるために整理された表示を備えた信頼できるタフシール。"
+
+msgid "home_feature_trans_title"
+msgstr "翻訳"
+
+msgid "home_feature_trans_desc"
+msgstr "アーヤと直接並んで複数の言語で意味を翻訳します。"
+
+msgid "home_feature_words_title"
+msgstr "言葉の意味"
+
+msgid "home_feature_words_desc"
+msgstr "ページを離れることなく、ワンタッチで単語の意味を調べることができます。"
+
+msgid "home_feature_daily_title"
+msgstr "デイリーワード"
+
+msgid "home_feature_daily_desc"
+msgstr "毎日の Wird を整理し、冷静かつ定期的に継続性を追跡します。"
+
+msgid "surah_2"
+msgstr "アル・バカラ"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "デイリーワード"
+
+msgid "home_daily_title"
+msgstr "穏やかな習慣、あなたとともに日々成長"
+
+msgid "home_daily_desc"
+msgstr ""
+"一日に合わせて Wird をアレンジし、プレッシャーをかけずに継続性を追跡しましょ"
+"う。穏やかなリマインダー、整理された表示、簡単な追跡により、あなたは常にアッ"
+"ラーの書とつながっています。"
+
+msgid "home_gentle_tracking"
+msgstr "ジェントルトラッキング"
+
+msgid "home_flexible_reminder"
+msgstr "柔軟なリマインダー"
+
+msgid "home_no_pressure"
+msgstr "プレッシャーなし"
+
+msgid "tilawa"
+msgstr "朗読"
+
+msgid "home_recitation_title"
+msgstr "心を落ち着かせる声で聴く"
+
+msgid "home_recitation_desc"
+msgstr ""
+"あなたの魂に響く朗読家を選んで、気を散らすことなく落ち着いて聴いてください。"
+
+msgid "home_now_playing"
+msgstr "プレイ中"
+
+msgid "home_reciter_label"
+msgstr "朗読者"
+
+msgid "home_current_surah"
+msgstr "現在のスーラ"
+
+msgid "home_prev"
+msgstr "前の"
+
+msgid "home_play_pause"
+msgstr "再生/一時停止"
+
+msgid "home_next"
+msgstr "次"
+
+msgid "home_reading_label"
+msgstr "タフシールと翻訳"
+
+msgid "home_reading_title"
+msgstr "意味を深く明確に考える"
+
+msgid "home_reading_desc"
+msgstr "本に似た体験: アーヤがその場所にあり、その意味がその横にあります。"
+
+msgid "home_easy_tafsir"
+msgstr "イージー・タフシル"
+
+msgid "home_meaning_badge"
+msgstr "意味"
+
+msgid "home_meaning_label"
+msgstr "意味"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "プライバシーポリシー"
+
+msgid "Wird — Privacy Policy"
+msgstr "Wird — プライバシーポリシー"
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr "クルアーンの旅のあなたの毎日の伴"
+
+msgid "Last updated: May 2026"
+msgstr "最終更新：2026年5月"
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+"このポリシーはWirdがデータをどのように扱うかを説明します。簡潔かつ誠実に保ち"
+"ます。"
+
+msgid "translations"
+msgstr "翻訳"
+
+msgid "translation_page_title"
+msgstr "翻訳"
+
+msgid "surahs"
+msgstr "スーラ"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "読み取り位置の保存"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "フッターリンク"
+
+msgid "about"
+msgstr "について"
+
+msgid "contact_us"
+msgstr "お問い合わせ"
+
+msgid "download_android"
+msgstr "Android 用ダウンロード"
+
+msgid "download_ios"
+msgstr "iOS用のダウンロード"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "メニュー"
+
+msgid "home"
+msgstr "家"
+
+msgid "read_quran"
+msgstr "コーランを読む"
+
+msgid "hifz_quran"
+msgstr "コーランの暗記"
+
+msgid "notifications"
+msgstr "通知"
+
+msgid "logout"
+msgstr "ログアウト"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "プロフィール"
+
+msgid "SECTION 1"
+msgstr "セクション1"
+
+msgid "Information We Collect"
+msgstr "収集する情報"
+
+msgid "a. Account Information (if you sign in)"
+msgstr ""
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr ""
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+
+msgid "c. Contact Messages"
+msgstr ""
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+
+msgid "SECTION 2"
+msgstr "セクション2"
+
+msgid "Data Stored Only on Your Device"
+msgstr "デバイスにのみ保存されるデータ"
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr ""
+
+msgid "Azkar completion progress"
+msgstr ""
+
+msgid "Notification schedule and preferences"
+msgstr ""
+
+msgid "Selected reciter and Mushaf style"
+msgstr ""
+
+msgid "Accessibility and display settings"
+msgstr ""
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr ""
+
+msgid "The Quran database"
+msgstr ""
+
+msgid "SECTION 3"
+msgstr "セクション3"
+
+msgid "Microphone Access"
+msgstr "マイクへのアクセス"
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+
+msgid "SECTION 4"
+msgstr "セクション4"
+
+msgid "Third-Party Services"
+msgstr "サードパーティサービス"
+
+msgid "Service"
+msgstr "サービス"
+
+msgid "Provider"
+msgstr "プロバイダー"
+
+msgid "Purpose"
+msgstr "目的"
+
+msgid "Push notifications"
+msgstr "プッシュ通知"
+
+msgid "App initialisation"
+msgstr "アプリの初期化"
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr ""
+
+msgid "SECTION 5"
+msgstr "セクション5"
+
+msgid "Analytics and Crash Reporting"
+msgstr "分析とクラッシュレポート"
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr "セクション6"
+
+msgid "Data Sharing"
+msgstr "データ共有"
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+
+msgid "SECTION 7"
+msgstr "セクション7"
+
+msgid "Data Security"
+msgstr "データセキュリティ"
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+
+msgid "All communication with our server uses HTTPS."
+msgstr ""
+
+msgid "SECTION 8"
+msgstr "セクション8"
+
+msgid "Your Rights"
+msgstr "あなたの権利"
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr "セクション9"
+
+msgid "Audience"
+msgstr "対象ユーザー"
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+
+msgid "SECTION 10"
+msgstr "セクション10"
+
+msgid "Changes to This Policy"
+msgstr "このポリシーの変更"
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr "Wird アプリ"
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "プライバシーポリシー"
+
+msgid "Last updated May 2026"
+msgstr "最終更新 2026年5月"
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "web_wrd"
+#~ msgstr "ウィルド"
+
+#~ msgid "system_description"
+#~ msgstr ""
+#~ "コーランを読み、朗読を聞き、タフシールを簡単に探索するためのプラットフォー"
+#~ "ム。"
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird は、組織的かつ魅力的な方法でコーランの暗唱と熟考を促進することを目的"
+#~ "とした統合デジタル プラットフォームです。"
+
+#~ msgid "hifz"
+#~ msgstr "暗記"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "ジュズ %(数値)s"
+
+#~ msgid "juz_number"
+#~ msgstr "ジュズ %(数値)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "最も慈悲深く、最も慈悲深いアッラーの御名において"
+
+#~ msgid "open_mushaf"
+#~ msgstr "ムシャフを開く"
+
+#~ msgid "hafs"
+#~ msgstr "ハフス"
+
+#~ msgid "warsh"
+#~ msgstr "ウォーシュ"
+
+#~ msgid "qaloun"
+#~ msgstr "カローン"
+
+#~ msgid "douri"
+#~ msgstr "アル・ドゥリ"
+
+#~ msgid "shuba"
+#~ msgstr "シュバ"
+
+#~ msgid "sousi"
+#~ msgstr "アル・スーシ"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "ほとんどのムシャフは"
+
+#~ msgid "complex"
+#~ msgstr "キング ファハド グロリアス コーラン印刷施設"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "利用可能なタフシルはありません"
+
+#~ msgid "tajweed"
+#~ msgstr "タジウィード"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "単語の意味を表示する"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "単語の意味を隠す"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "単語の意味を読み込んでいます..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "単語の意味を読み込んでいます"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "単語の意味を読み込めませんでした"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "このアヤには意味がありません"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "朗読が始まると単語の意味が表示されます"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "メッカ"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "メディナン"
+
+#~ msgid "start"
+#~ msgstr "始める"
+
+#~ msgid "selected_ayah"
+#~ msgstr "選択されたアヤ"
+
+#~ msgid "analysis_result"
+#~ msgstr "結果"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "最初にアヤを選択してください"
+
+#~ msgid "browse_reciters"
+#~ msgstr "朗読家を閲覧する"
+
+#~ msgid "next_wirds"
+#~ msgstr "今後のニュース"
+
+#~ msgid "previous_wirds"
+#~ msgstr "前の単語"
+
+#~ msgid "one_juz"
+#~ msgstr "1ジュズ"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "表示ツール"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "通常表示"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "アヤの繰り返し"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "繰り返しなし"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "2回"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "回"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "ズーム・ムシャフ"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "コーランは、毎日のハトマを促進するために、指定された期間と量に基づいて分割"
+#~ "されます。"
+
+#~ msgid "resume_reading"
+#~ msgstr "読書を再開する"
+
+#~ msgid "percentage"
+#~ msgstr "進捗率"
+
+#~ msgid "progress"
+#~ msgstr "進捗"
+
+#~ msgid "from_page"
+#~ msgstr "スタートページ"
+
+#~ msgid "to_page"
+#~ msgstr "終了ページ"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "から"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "に"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "スーラ アル バカラ - アヤ 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "スーラ アル バカラ - アヤ 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "現在のアヤ番号"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "続行するにはログインするかアカウントを作成してください"
+
+#~ msgid "welcome"
+#~ msgstr "いらっしゃいませ"
+
+#~ msgid "welcome_message"
+#~ msgstr "Wird Quran プラットフォームへようこそ"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "おかえり"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "プロフィールが更新されました"
+
+#~ msgid "accounts_settings"
+#~ msgstr "設定"
+
+#~ msgid "login_settings"
+#~ msgstr "ログイン設定"
+
+#~ msgid "confirm_password"
+#~ msgstr "パスワードを認証する"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "新しいパスワード"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "パスワードを表示または非表示にする"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "ユーザー名は必須です"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "ユーザー名はすでに使用されています"
+
+#~ msgid "enter_email"
+#~ msgstr "メールアドレスを入力してください"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "メールアドレスは必須です"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "電子メールはすでに使用されています"
+
+#~ msgid "invalid_email"
+#~ msgstr "無効な電子メール形式"
+
+#~ msgid "full_name"
+#~ msgstr "フルネーム"
+
+#~ msgid "phone"
+#~ msgstr "電話番号"
+
+#~ msgid "invalid_phone"
+#~ msgstr "無効な電話番号"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "電話番号はすでに使用されています"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "役職"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "男"
+
+#~ msgid "accounts_female"
+#~ msgstr "女性"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "アカウントが正常に作成されました"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr ""
+#~ "アカウントは正常に作成されました。皆様のご乗車を嬉しく思い、独特の体験をお"
+#~ "楽しみいただけることを願っております。"
+
+#~ msgid "login_failed"
+#~ msgstr "無効なログイン認証情報"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "パスワードが一致しません"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "パスワードは8文字以上である必要があります"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "変更は正常に保存されました"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "データは正常に保存されました"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "データが保存され、パスワードが正常に更新されました"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "ログイン設定が正常に更新されました"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr ""
+#~ "おかえりなさい。あなたのアカウントが承認され、プロジェクトに応募できるよう"
+#~ "になりました。"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr ""
+#~ "イノベーション センターへようこそ。素晴らしい体験ができることを願っていま"
+#~ "す"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "イノベーションセンター運営"
+
+#~ msgid "accounts_local"
+#~ msgstr "地元"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "統合ログイン"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "外部認証を有効にする"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "システムで許可される認証方法を制御する"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "システムデータベースから"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "昨日"
+
+#~ msgid "accounts_saah"
+#~ msgstr "1時間前"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "10分前"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "5分前"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "お問い合わせ"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "お問い合わせフォームからお問い合わせください"
+
+#~ msgid "contact_description"
+#~ msgstr "お問い合わせやサポートについては、お気軽にお問い合わせください"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr "ありがとうございます。メッセージを確認し、すぐにご連絡いたします"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "メッセージは正常に送信されました"
+
+#~ msgid "write_message"
+#~ msgstr "ここにメッセージを書いてください"
+
+#~ msgid "contact_message"
+#~ msgstr "メッセージ"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "メッセージは必須です"
+
+#~ msgid "contact_name_required"
+#~ msgstr "名前は必須です"
+
+#~ msgid "contact_email_required"
+#~ msgstr "メールアドレスは必須です"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "無効な電子メール"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "電話"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "携帯"
+
+#~ msgid "contact_email"
+#~ msgstr "電子メール"
+
+#~ msgid "contact_date"
+#~ msgstr "日付"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "すべてのメッセージ"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "連絡先メッセージ"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "連絡先メッセージの管理"
+
+#~ msgid "contact_message_details"
+#~ msgstr "メッセージの詳細"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "連絡先メッセージの詳細"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "メッセージの詳細を開く"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "メッセージを直接クリックして詳細を表示します"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "名前、メールアドレス、メッセージで検索"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "現在メッセージはありません"
+
+#~ msgid "contact_reply"
+#~ msgstr "返信しました"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "メッセージに返信する"
+
+#~ msgid "write_reply"
+#~ msgstr "返信を書いて直接送信してください"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "返信を送信"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "返信テキスト"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "返信タイトル"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "最後に保存された返信"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "私たちのサイト上のメッセージに返信してください"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "お問い合わせからの新しいメッセージ"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "新しい"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "未読"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "読む"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "送信中..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "最近送信されました。しばらくしてからもう一度お試しください"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr "先ほど返信が送信されました。しばらくしてからもう一度お試しください"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr "何か問題が発生した場合は、お気軽にお問い合わせください"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "サポートチーム"
+
+#~ msgid "subscribe"
+#~ msgstr "購読する"
+
+#~ msgid "subscriptions"
+#~ msgstr "定期購入"
+
+#~ msgid "subscription_active"
+#~ msgstr "有効"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "アクティブ"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "停止しました"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "確認済みの購読者"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "総購読者数"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "すべての購読者"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "アクティブな購読者"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "有効"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "確認済み"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "未確認"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "確認済み"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "ニュースレター購読者"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "ニュースレター購読者"
+
+#~ msgid "subscription_message"
+#~ msgstr "メッセージを受信するには購読してください"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "現在購読者はいません"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "購読を解除する"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "メール購読がキャンセルされました"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Wird Quran メッセージの購読を解除する"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "コーランのメッセージより"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "サブスクリプションの管理"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "サブスクリプションを表示する"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "サブスクリプションの概要"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "サブスクリプションセンター"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "ニュースレター購読者の概要"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr ""
+#~ "ニュースレターやメッセージを受信するために登録されているメールアドレスのリ"
+#~ "スト"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "購読日"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "購読解除日"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "メールで検索"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "メッセージの作成"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr "すべてのアクティブな確認済み購読者に電子メールを送信する"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "ダッシュボードの概要"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "内部制御パネル"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "主要なモジュールと設定の概要"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "システム内の一般的な数値と指標の概要"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "サイト統計"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "ページ統計"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "オーディオ統計"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "タフシルの統計"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "ムシャフの統計"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "総来場者数"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "合計ページ訪問数"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "よくアクセスされるページ"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "ページ訪問数"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "過去 7 日間の訪問数"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "過去 30 日間の訪問数"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "過去 7 日間の訪問者"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "最近の訪問数"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "オーディオ再生"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "過去 7 日間に音声が再生される"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "合計リスニング秒数"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "最もよく聞かれたページ"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "最もプレイされたスーラ"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "最も演奏された朗読家"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "ページめくり"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "最もめくられたムシャフ ページ"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "トータル・タフシルがオープン"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "過去 7 日間にタフシルがオープン"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "最も開かれたタフシール書"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "最もよく使われた本"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "最も開かれたタフシールのページ"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "最も開かれたタフシール ページ"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "最も解釈されたスーラ"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "最も解釈されたスーラ"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "タフシルで最も開かれたアーヤ"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "最新のやり取り"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr "訪問者、ページ、オーディオ再生、ムシャフのページめくりの追跡"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr ""
+#~ "タフシルのオープン、最も使用された書籍、ページ、スーラ、およびリンクされた"
+#~ "アーヤを追跡します"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "ライブダッシュボード"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "まだデータがありません"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "まだインタラクションはありません"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "アヤ"
+
+#~ msgid "analytics_audio"
+#~ msgstr "オーディオ"
+
+#~ msgid "analytics_page"
+#~ msgstr "ページ"
+
+#~ msgid "analytics_pages"
+#~ msgstr "ページ"
+
+#~ msgid "analytics_surah"
+#~ msgstr "スーラ"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "ムシャフ"
+
+#~ msgid "analytics_time"
+#~ msgstr "時間"
+
+#~ msgid "analytics_type"
+#~ msgstr "タイプ"
+
+#~ msgid "analytics_path"
+#~ msgstr "パス"
+
+#~ msgid "analytics_add"
+#~ msgstr "カウント"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "個性的"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "訪問"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "演劇"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "オーディオ補完"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "タフシル・オープン"
+
+#~ msgid "roles"
+#~ msgstr "役割"
+
+#~ msgid "permissions"
+#~ msgstr "権限"
+
+#~ msgid "users"
+#~ msgstr "ユーザー"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "ユーザーの管理"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "役割の管理"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "権限の管理"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "ユーザーアカウント、ロール、権限を管理する"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "ユーザーおよび権限管理システム"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "権限の管理"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "システムの役割と関連する権限を管理する"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "ユーザーを管理し、役割を割り当てる"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "ユーザーの追加"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "新しいユーザーを追加"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "ユーザーの詳細"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "ユーザーの詳細を表示する"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "ユーザーデータの表示と役割の割り当て"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "役割の追加"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "役割の編集"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "役割の削除"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "役割の保存"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "役割名"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "現在の役割"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "現在の役割"
+
+#~ msgid "rbac_role"
+#~ msgstr "役割"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "権限の追加"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "編集権限"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "削除権限"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "保存権限"
+
+#~ msgid "rbac_permission"
+#~ msgstr "許可"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "許可"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "権限名"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "許可コード"
+
+#~ msgid "rbac_module"
+#~ msgstr "モジュール"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "役割を権限にリンクする"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "権限をロールにリンクする"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr ""
+#~ "ユーザーが正常に作成され、ログインの詳細が電子メールに送信されました"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "ユーザーは正常に作成されましたが、電子メールの送信に失敗しました。メール設"
+#~ "定を確認する"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "ロールが正常に作成されました"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "権限が正常に作成されました"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "役割が正常に更新されました"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "権限が正常に更新されました"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "ロールが正常に削除されました"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "権限が正常に削除されました"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "権限がロールに正常にリンクされました"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "権限がロールから正常に削除されました"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "ユーザーの役割が正常に更新されました"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "役割の削除を確認する"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "権限の削除を確認する"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "ロールを削除しようとしています"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "権限を削除しようとしています"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "プライマリロールは削除できません"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "プライマリ権限は削除できません"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "プライマリロールコードは編集できません"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "プライマリ許可コードは編集できません"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr "プライマリ ユーザー ロールはこのインターフェイスから編集できません"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "このロールからプライマリ権限を削除することはできません"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "この操作は元に戻せません"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "ユーザー名またはロールで検索"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "ユーザー名または権限数で検索"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr "左側のメニューからロールを選択して、権限を表示およびリンクします"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr ""
+#~ "リストから役割を選択し、チェックボックスで権限を有効または無効にします。"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "役割の選択"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "このユーザーには役割が割り当てられていません"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "現在役割はありません"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "現在ユーザーはいません"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "ロール名とコードを入力してください"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "許可コードと名前を入力してください"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "権限のコードと名前を入力してください"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "ユーザーデータを入力します。アカウントが作成され、ログインの詳細が電子メー"
+#~ "ルに送信されます"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "役割データを入力して変更を保存します"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "権限データを入力して変更を保存します"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "ユーザー用にランダムなパスワードが生成され、ユーザーの電子メールに送信され"
+#~ "ます"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "あなたのアカウントはプラットフォーム上に作成されました"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "プラットフォーム上のアカウントデータ"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr "ログイン後にパスワードを変更することをお勧めします"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr "システムにおけるこの役割のタスクを示す簡単な説明"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr "この権限がシステム内でいつ使用されるかを示す簡単な説明"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "ログインの詳細を送信するには電子メールが必要です"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr ""
+#~ "ロール コードはすでに使用されています。別のロール コードを選択してください"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "このコードはすでに別の権限に使用されています"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr ""
+#~ "データベース内のコードが重複しているため、権限を保存できませんでした"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "リクエスト処理エラー: ロールまたは権限データが欠落しています"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "フルネームは必須です"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "ユーザー名はすでに使用されています"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "電子メールはすでに使用されています"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "電話番号はすでに使用されています"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "このユーザー名は予約されているため使用できません"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "モジュールごとにグループ化された権限"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "アクティブユーザー"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "非アクティブ"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "ユーザーステータスが更新されました"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "最終ログイン"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "リンクの役割"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "役割に戻る"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "権限に戻る"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "ユーザーリストに戻る"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "ユーザーリストに戻る"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "ユーザーの役割 (例:"
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "特定の許可 (例:"
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "例: システム管理者"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "例えば"
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "次のようなコードで使用されます"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "内部のユーザー権限を確認するには"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "ユーザーに対して自動的に"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr "、統一された形式で自動的に保存されます"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "パターンが優先されます"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "任意の形式で数値を入力できます (05 / 5 /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "オプション"
+
+#~ msgid "rbac_aw"
+#~ msgstr "または"
+
+#~ msgid "rbac_aam"
+#~ msgstr "一般的な"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "パートナー"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "参加者"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "スーパーバイザー"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "役割が割り当てられます"
+
+#~ msgid "rbac_5"
+#~ msgstr "または5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "ユーザーの表示"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "役割を表示する"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "権限の表示"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "ユーザーの編集"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "ユーザーの削除"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "役割の編集"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "役割の削除"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "編集権限"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "削除権限"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "ダッシュボードにアクセスする"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "アクセス解析"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "コーランスタジオへのアクセス"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "アクセス通信"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "サブスクリプションにアクセスする"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "アクセス通知"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "送信チャンネルへのアクセス"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "ログイン設定の管理"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "キャンペーンを見る"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "メッセージを見る"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "連絡先メッセージを表示する"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "WhatsApp メッセージを表示する"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "内部通知を表示する"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "ディスパッチログの表示"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "購読者を表示"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "メールを見る"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "プロジェクトの管理"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "連絡先メッセージの作成"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "通知を送信する"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "朗読者を追加"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "朗読者データの編集"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "朗読者データの削除"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "コーランの座標"
+
+#~ msgid "rbac_action"
+#~ msgstr "このアクション"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "ユーザー数"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "役割の数"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "許可数"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "登録ユーザー"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "構造化された役割"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "アクティブな権限"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr "システム内での役割構造の整理と責任の分散"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "設定"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "定期購入"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "モジュールへのアクセスと詳細な操作を制御"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "ユーザー名とパスワードは必須です"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "システム部長"
+
+#~ msgid "accounts_system"
+#~ msgstr "システム"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "アラートセンター"
+
+#~ msgid "notification_new"
+#~ msgstr "新しい"
+
+#~ msgid "notification_alert"
+#~ msgstr "アラート"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "読む"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "通知を読んだ"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "通知を送信する"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "アラートの送信"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "新しい通知を作成する"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "通知の管理"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "システム内のユーザーに内部通知を送信する"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "ここに通知テキストを入力します"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "正常に送信されました"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "通知の概要"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "通知の概要"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "現在通知はありません"
+
+#~ msgid "notification_no_text"
+#~ msgstr "テキストなし"
+
+#~ msgid "notification_alns"
+#~ msgstr "文章"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "システム内"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "システム通知"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "システム通知とインタラクティブ通知"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "システム内からユーザーに送信される通知"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "さまざまなチャネル経由で送信される通知の概要"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "このページの通知数はカウントされます"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "一致する受信者がいません"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "現在のメッセージは次からのものではありません"
+
+#~ msgid "notifications_latest"
+#~ msgstr "システム内で受信した最新の通知 (新しいものから順、最大 10 件)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "通知センター"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "送信された通知"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "通知の概要"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "さまざまなチャネル経由で送信される通知の概要"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "通知を送信する"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "内部通知が正常に送信されました"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "キャンペーン"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "送信されたキャンペーン"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "キャンペーンの合計数"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "キャンペーンタイトル"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "キャンペーンが正常に作成されました"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "キャンペーンは正常に送信されました"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr ""
+#~ "このキャンペーンに対して有効な Telegram チャネルまたはグループはありません"
+
+#~ msgid "communication_message_text"
+#~ msgstr "メッセージテキスト"
+
+#~ msgid "communication_title_message"
+#~ msgstr "メッセージのタイトル"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "画像 (オプション)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "画像があれば"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "画像が無い場合は"
+
+#~ msgid "communication_send_post"
+#~ msgstr "投稿を送信する"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "電報を送信する"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "電報 - チャネル"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "電報 - グループ"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "グループとチャンネルの場合"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "フェイスブック"
+
+#~ msgid "communication_platform"
+#~ msgstr "プラットフォーム"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "チャネル"
+
+#~ msgid "communication_channels"
+#~ msgstr "チャンネル"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "ソーシャルコミュニケーション"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "ソーシャルコミュニケーションを管理する"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "ソーシャルコミュニケーションの概要"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "タイトルまたは本文で検索"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "タイトルやチャンネルから探す"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "送信日"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "送信ステータス"
+
+#~ msgid "communication_sent"
+#~ msgstr "送信済み"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "送信済み"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "下書き"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "予定されている"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "送信中..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "送信に失敗しました"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "待っている"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "エラー (ある場合)"
+
+#~ msgid "communication_log"
+#~ msgstr "ログ"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "配信ログ"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr "各キャンペーンおよびコンタクトチャネルごとの派遣操作のログ"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "現在ディスパッチログはありません"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "使用"
+
+#~ msgid "communication_drafts"
+#~ msgstr "下書き"
+
+#~ msgid "communication_qryba"
+#~ msgstr "すぐ"
+
+#~ msgid "messages"
+#~ msgstr "メッセージ"
+
+#~ msgid "messaging_messages"
+#~ msgstr "メッセージ"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "集合メッセージ"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "集合メッセージ"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "テキストメッセージ"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "モバイルメッセージ"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "SMSメッセージ"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "モバイルメッセージの詳細"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "現在モバイルメッセージはありません"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "ワッツアップ"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "ワッツアップ"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "WhatsApp メッセージ"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "WhatsApp メッセージの詳細"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "WhatsApp通知"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "現在ログに WhatsApp メッセージはありません"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr ""
+#~ "ユーザーに関連するシステム経由で送信された WhatsApp メッセージのログを表示"
+#~ "する"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "電子メール"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "一般的な電子メールメッセージ"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "一般的な電子メールメッセージの作成"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "現在メールメッセージはありません"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "メッセージ本文（メール）"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "メールを送信しました"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "電子メールが作成され、送信を待機しています"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "このメッセージは電子メールとしてのみ送信されます。書式設定、リスト、リンク"
+#~ "を使用できます"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr ""
+#~ "このメッセージは主にシステムに登録されているニュースレター購読者を対象とし"
+#~ "ています。"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "すべてのシステム ユーザーを追加するオプションを使用して、ニュースレター購"
+#~ "読者に一般的な電子メール投稿を送信します"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "新しいメッセージの作成"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "メッセージを送信する"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "メッセージの内容"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "このメッセージには内容がありません"
+
+#~ msgid "messaging_subject"
+#~ msgstr "主題"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "タイトルとデータ"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "タイトルとメッセージテキストを入力する必要があります"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "ここにメッセージテキストを記入してください"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "ここに電子メール メッセージのテキストを入力します"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "メッセージの種類"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "無題"
+
+#~ msgid "messaging_sender"
+#~ msgstr "送信者"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "送信者"
+
+#~ msgid "messaging_user"
+#~ msgstr "ユーザー"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "受信者"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "受信者リスト"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "受信者の表示"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "ユーザーの選択"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "すべてのユーザー"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "ニュースレター購読者 (デフォルト)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "特定のユーザー"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "リストから 1 人以上のユーザーを選択します"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "追加の受信者オプション"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr "すべてのシステム ユーザーをニュースレター購読者に追加します"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr ""
+#~ "登録されているすべてのシステム ユーザーにもメッセージが届くようにする場合"
+#~ "は、このオプションを有効にします。"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "受信者がいません"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "このメッセージの受信者はいません"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "メッセージを送信する受信者がいません"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "電子メール アドレスを持っている受信者はいません"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "発送を待っている受信者はいません"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "指定された条件に一致する受信者がいません"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "受信者の数"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "送信者、件名、本文で検索"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "ディスパッチチャンネル"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "派遣チャンネル"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "ディスパッチチャネルの管理"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr "電子メールおよび内部システム アラートによる通知の管理と送信"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "ディスパッチログ"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "通知ログ"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "ディスパッチログはまだありません"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "派遣時間"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "メッセージ データ、受信者、およびディスパッチ ステータスを表示する"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "モバイルメッセージのデータとコンテンツを表示する"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "WhatsApp メッセージのデータとコンテンツを表示する"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "受信者の数とステータスを含む一括メール メッセージを表示する"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "各受信者のすべてのディスパッチ試行をステータスとともに表示します"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "メッセージ配信"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "メッセージの配信"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "読む"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "未読"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "エラーメッセージ"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "障害が存在します"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "キャンペーン"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "メッセージログ"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "システム経由でユーザーに送信される"
+
+#~ msgid "messaging_action"
+#~ msgstr "アクション"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "電子メール / 識別子"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "主なカテゴリ"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "個人"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "集団的"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "不特定"
+
+#~ msgid "messaging_first"
+#~ msgstr "初め"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "試す"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "プロバイダーに送信された印刷要求"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "生の返信を印刷する"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "返信がテキストの場合"
+
+#~ msgid "quran_studio"
+#~ msgstr "コーラン スタジオ"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "Quran Studio の管理"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "朗読者データの管理"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "システム内で利用可能な朗読者のデータを管理する"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "朗読者データ"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "朗読家ページ"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "現在朗読データはありません"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "朗読者が正常に追加されました"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "朗読者データが正常に更新されました"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "朗読者が正常に削除されました"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "朗読者の削除"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "この朗読者を削除してもよろしいですか?"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "アラビア語の名前"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "英語名"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "コード"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "コードとアラビア語名は必須です"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "アヤ座標編集者"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "座標エディター ページ"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "座標"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "座標を設定する"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "座標をロードする"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "座標の取得"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "座標の保存"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "保存された座標を編集する"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "編集を保存"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "新規保存"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "ページ上のアヤ座標を更新しています"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "このページにはこのアヤの座標が保存されていません"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "スーラとアヤの番号を入力し、「座標をロード」をクリックします。この ayah に"
+#~ "保存されている四角形は、編集および保存のためにこのページに表示されます。"
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "マウスをムシャフの上にドラッグして、アーヤの一部を表す四角形を描きます。同"
+#~ "じアヤに対して複数の長方形を描画できます。"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "スーラとアヤの番号を入力してください"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "ロードする前にスーラとアヤの番号を入力してください"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "透明な長方形"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "保存する四角形がありません"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "スーラ番号"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "アヤ番号"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "ムシャフ・ペイジ"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "現在のページ"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "次のページ"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "前のページ"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "画像"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "アクション"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "例: 2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "例: 6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "ホームページ"
+
+#~ msgid "overview"
+#~ msgstr "概要"
+
+#~ msgid "summary"
+#~ msgstr "まとめ"
+
+#~ msgid "important_services"
+#~ msgstr "主なサービス"
+
+#~ msgid "status"
+#~ msgstr "状態"
+
+#~ msgid "actions"
+#~ msgstr "アクション"
+
+#~ msgid "content"
+#~ msgstr "コンテンツ"
+
+#~ msgid "title"
+#~ msgstr "タイトル"
+
+#~ msgid "created_at"
+#~ msgstr "作成日"
+
+#~ msgid "updated_at"
+#~ msgstr "最終更新日"
+
+#~ msgid "next"
+#~ msgstr "次"
+
+#~ msgid "previous"
+#~ msgstr "前の"
+
+#~ msgid "back"
+#~ msgstr "戻る"
+
+#~ msgid "save"
+#~ msgstr "保存"
+
+#~ msgid "save_changes"
+#~ msgstr "変更を保存"
+
+#~ msgid "add"
+#~ msgstr "追加"
+
+#~ msgid "create"
+#~ msgstr "作成する"
+
+#~ msgid "update"
+#~ msgstr "アップデート"
+
+#~ msgid "edit"
+#~ msgstr "編集"
+
+#~ msgid "delete"
+#~ msgstr "消去"
+
+#~ msgid "cancel"
+#~ msgstr "キャンセル"
+
+#~ msgid "confirm"
+#~ msgstr "確認する"
+
+#~ msgid "view"
+#~ msgstr "ビュー"
+
+#~ msgid "send"
+#~ msgstr "送信"
+
+#~ msgid "send_now"
+#~ msgstr "今すぐ送信"
+
+#~ msgid "sent"
+#~ msgstr "送信済み"
+
+#~ msgid "failed"
+#~ msgstr "失敗した"
+
+#~ msgid "pending"
+#~ msgstr "保留中"
+
+#~ msgid "no_data"
+#~ msgstr "データなし"
+
+#~ msgid "settings"
+#~ msgstr "設定"
+
+#~ msgid "system_settings"
+#~ msgstr "システム設定"
+
+#~ msgid "security"
+#~ msgstr "安全"
+
+#~ msgid "zoom_out"
+#~ msgstr "ズームアウト"
+
+#~ msgid "app_arabic"
+#~ msgstr "アラビア語"
+
+#~ msgid "app_urdu"
+#~ msgstr "ウルドゥー語"
+
+#~ msgid "web_alkl"
+#~ msgstr "全て"
+
+#~ msgid "web_fqt"
+#~ msgstr "のみ"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "のみ、または"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "のみ、または両方"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "無断転載を禁じます"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "コーランのウェブサイト"
+
+#~ msgid "required_field"
+#~ msgstr "この項目は必須です"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "電話番号は必須です"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "電話番号の形式が無効です"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "無効な電話番号"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "電話番号は不可"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "携帯電話番号の形式が無効です"
+
+#~ msgid "core_ay"
+#~ msgstr "あるいはどれでも"
+
+#~ msgid "core_mnasb"
+#~ msgstr "適切な"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr "一般の訪問 (ホームページなど) のみをカウントします。"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "ページあたりの行数"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "レコード数"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "申し訳ありませんが、このページにアクセスする権限がありません"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "アクセス禁止"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "バーの高さ (視覚制御)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "トーストのデフォルトの長さ (ミリ秒)"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "このトーストの特定の長さ (デフォルトをオーバーライド)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "デフォルトの最大ビュー (例: 20)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "固定幅 (空のままにして使用します)"
+
+#~ msgid "web_notification"
+#~ msgstr "通知"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "背景クリックで閉じる"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "最後の更新から 5 秒後に同期します"
+
+#~ msgid "quran_nav"
+#~ msgstr "コーラン"
+
+#~ msgid "quran_text"
+#~ msgstr "文章"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "テキストを分割する"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "残りのテキスト"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "間"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "お問い合わせフォームからの新しいメッセージ"
+
+#~ msgid "services_message_text"
+#~ msgstr "メッセージテキスト:"
+
+#~ msgid "surah_3"
+#~ msgstr "アリ・イムラン"
+
+#~ msgid "surah_4"
+#~ msgstr "アン・ニサ"
+
+#~ msgid "surah_5"
+#~ msgstr "アルマイダ"
+
+#~ msgid "surah_6"
+#~ msgstr "アルアンアム"
+
+#~ msgid "surah_7"
+#~ msgstr "アル・アラフ"
+
+#~ msgid "surah_8"
+#~ msgstr "アルアンファル"
+
+#~ msgid "surah_9"
+#~ msgstr "アット・トーバ"
+
+#~ msgid "surah_10"
+#~ msgstr "ユヌス"
+
+#~ msgid "surah_11"
+#~ msgstr "ハッド"
+
+#~ msgid "surah_12"
+#~ msgstr "ユスフ"
+
+#~ msgid "surah_13"
+#~ msgstr "アラド"
+
+#~ msgid "surah_14"
+#~ msgstr "イブラヒム"
+
+#~ msgid "surah_15"
+#~ msgstr "アル・ヒジュル"
+
+#~ msgid "surah_16"
+#~ msgstr "アン・ナール"
+
+#~ msgid "surah_17"
+#~ msgstr "アル・イスラ"
+
+#~ msgid "surah_18"
+#~ msgstr "アル・カーフ"
+
+#~ msgid "surah_19"
+#~ msgstr "マリアム"
+
+#~ msgid "surah_20"
+#~ msgstr "タハ"
+
+#~ msgid "surah_21"
+#~ msgstr "アルアンビヤ"
+
+#~ msgid "surah_22"
+#~ msgstr "アルハッジ"
+
+#~ msgid "surah_23"
+#~ msgstr "アル・ムミヌン"
+
+#~ msgid "surah_24"
+#~ msgstr "アンヌール"
+
+#~ msgid "surah_25"
+#~ msgstr "アル・フルカン"
+
+#~ msgid "surah_26"
+#~ msgstr "アシュ・シュアラ"
+
+#~ msgid "surah_27"
+#~ msgstr "アン・ナムル"
+
+#~ msgid "surah_28"
+#~ msgstr "アル・カサス"
+
+#~ msgid "surah_29"
+#~ msgstr "アルアンカブト"
+
+#~ msgid "surah_30"
+#~ msgstr "アルム"
+
+#~ msgid "surah_31"
+#~ msgstr "ルクマン"
+
+#~ msgid "surah_32"
+#~ msgstr "アズ・サジダ"
+
+#~ msgid "surah_33"
+#~ msgstr "アル・アザブ"
+
+#~ msgid "surah_34"
+#~ msgstr "サバ」"
+
+#~ msgid "surah_35"
+#~ msgstr "ファティール"
+
+#~ msgid "surah_36"
+#~ msgstr "ヤシン"
+
+#~ msgid "surah_37"
+#~ msgstr "アズサファット"
+
+#~ msgid "surah_38"
+#~ msgstr "悲しい"
+
+#~ msgid "surah_39"
+#~ msgstr "アズ・ズマル"
+
+#~ msgid "surah_40"
+#~ msgstr "ガフィール"
+
+#~ msgid "surah_41"
+#~ msgstr "フシラット"
+
+#~ msgid "surah_42"
+#~ msgstr "灰修羅"
+
+#~ msgid "surah_43"
+#~ msgstr "アズ・ツクラフ"
+
+#~ msgid "surah_44"
+#~ msgstr "アド・ドゥカン"
+
+#~ msgid "surah_45"
+#~ msgstr "アル・ジャティヤ"
+
+#~ msgid "surah_46"
+#~ msgstr "アル・アフカフ"
+
+#~ msgid "surah_47"
+#~ msgstr "ムハンマド"
+
+#~ msgid "surah_48"
+#~ msgstr "アル・ファス"
+
+#~ msgid "surah_49"
+#~ msgstr "アル・フジュラト"
+
+#~ msgid "surah_50"
+#~ msgstr "カフ"
+
+#~ msgid "surah_51"
+#~ msgstr "アドゥ・ダリヤット"
+
+#~ msgid "surah_52"
+#~ msgstr "アトゥール"
+
+#~ msgid "surah_53"
+#~ msgstr "アン・ナジム"
+
+#~ msgid "surah_54"
+#~ msgstr "アル・カマル"
+
+#~ msgid "surah_55"
+#~ msgstr "アルラフマン"
+
+#~ msgid "surah_56"
+#~ msgstr "アル・ワキーア"
+
+#~ msgid "surah_57"
+#~ msgstr "アル・ハディド"
+
+#~ msgid "surah_58"
+#~ msgstr "アル・ムジャディラ"
+
+#~ msgid "surah_59"
+#~ msgstr "アル・ハシュル"
+
+#~ msgid "surah_60"
+#~ msgstr "アル・ムムタハナ"
+
+#~ msgid "surah_61"
+#~ msgstr "アズサフ"
+
+#~ msgid "surah_62"
+#~ msgstr "アル・ジュムア"
+
+#~ msgid "surah_63"
+#~ msgstr "アル・ムナフィクン"
+
+#~ msgid "surah_64"
+#~ msgstr "アット・タガブン"
+
+#~ msgid "surah_65"
+#~ msgstr "アット・タラク"
+
+#~ msgid "surah_66"
+#~ msgstr "アタハリム"
+
+#~ msgid "surah_67"
+#~ msgstr "アル・マルク"
+
+#~ msgid "surah_68"
+#~ msgstr "アル・カーラム"
+
+#~ msgid "surah_69"
+#~ msgstr "アルハッカ"
+
+#~ msgid "surah_70"
+#~ msgstr "アル・マーリジ"
+
+#~ msgid "surah_71"
+#~ msgstr "いやー"
+
+#~ msgid "surah_72"
+#~ msgstr "アルジン"
+
+#~ msgid "surah_73"
+#~ msgstr "アル・ムザミル"
+
+#~ msgid "surah_74"
+#~ msgstr "アル・ムダスティール"
+
+#~ msgid "surah_75"
+#~ msgstr "アル・キヤマ"
+
+#~ msgid "surah_76"
+#~ msgstr "アルインサン"
+
+#~ msgid "surah_77"
+#~ msgstr "アル・ムルサラート"
+
+#~ msgid "surah_78"
+#~ msgstr "アンナバ』"
+
+#~ msgid "surah_79"
+#~ msgstr "アンナチス"
+
+#~ msgid "surah_80"
+#~ msgstr "「アバサ」"
+
+#~ msgid "surah_81"
+#~ msgstr "アットタクウィル"
+
+#~ msgid "surah_82"
+#~ msgstr "アル・インフィタル"
+
+#~ msgid "surah_83"
+#~ msgstr "アル・ムタフィン"
+
+#~ msgid "surah_84"
+#~ msgstr "アル・インシクアク"
+
+#~ msgid "surah_85"
+#~ msgstr "アル・ブルジ"
+
+#~ msgid "surah_86"
+#~ msgstr "アタリク"
+
+#~ msgid "surah_87"
+#~ msgstr "アル・アラ"
+
+#~ msgid "surah_88"
+#~ msgstr "アル・ガシヤ"
+
+#~ msgid "surah_89"
+#~ msgstr "アル・ファジル"
+
+#~ msgid "surah_90"
+#~ msgstr "アル・バラド"
+
+#~ msgid "surah_91"
+#~ msgstr "アッシュ・シャムズ"
+
+#~ msgid "surah_92"
+#~ msgstr "アルライル"
+
+#~ msgid "surah_93"
+#~ msgstr "アドドゥハ"
+
+#~ msgid "surah_94"
+#~ msgstr "アッシュ・シャー"
+
+#~ msgid "surah_95"
+#~ msgstr "アットティン"
+
+#~ msgid "surah_96"
+#~ msgstr "アルアラク"
+
+#~ msgid "surah_97"
+#~ msgstr "アル・カドル"
+
+#~ msgid "surah_98"
+#~ msgstr "アル・バイーナ"
+
+#~ msgid "surah_99"
+#~ msgstr "アズ・ザルザラ"
+
+#~ msgid "surah_100"
+#~ msgstr "アル・アディヤット"
+
+#~ msgid "surah_101"
+#~ msgstr "アル・カリーア"
+
+#~ msgid "surah_102"
+#~ msgstr "アットタカトゥール"
+
+#~ msgid "surah_103"
+#~ msgstr "アルアスル"
+
+#~ msgid "surah_104"
+#~ msgstr "アル・フマザ"
+
+#~ msgid "surah_105"
+#~ msgstr "アルフィル"
+
+#~ msgid "surah_106"
+#~ msgstr "クライシュ語"
+
+#~ msgid "surah_107"
+#~ msgstr "アルマウン"
+
+#~ msgid "surah_108"
+#~ msgstr "アル・カウサル"
+
+#~ msgid "surah_109"
+#~ msgstr "アル・カフィルン"
+
+#~ msgid "surah_110"
+#~ msgstr "アン・ナスル"
+
+#~ msgid "surah_111"
+#~ msgstr "アル・マサド"
+
+#~ msgid "surah_112"
+#~ msgstr "アル・イクラス"
+
+#~ msgid "surah_113"
+#~ msgstr "アル・ファラク"
+
+#~ msgid "surah_114"
+#~ msgstr "アンナス"
+
+#~ msgid "contents"
+#~ msgstr "コンテンツ"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "アクセシビリティ"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "フォントサイズを大きくする"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "フォントサイズを小さくする"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "ハイコントラスト"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "ダークモード"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "読書モード"
+
+#~ msgid "a11y_reset"
+#~ msgstr "設定をリセットする"
+
+#~ msgid "select_translation"
+#~ msgstr "翻訳を選択"
+
+#~ msgid "select_surah"
+#~ msgstr "スーラを選択"
+
+#~ msgid "copy_ayah"
+#~ msgstr "詩をコピーする"
+
+#~ msgid "share_ayah"
+#~ msgstr "詩をシェアする"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "ブックマークの詩"
+
+#~ msgid "play_ayah"
+#~ msgstr "オーディオを再生する"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "詩が保存されました"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "保存済みから削除されました"
+
+#~ msgid "no_translation_available"
+#~ msgstr "利用可能な翻訳はありません"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "開始するスーラを選択してください"
+
+#~ msgid "app_download_title"
+#~ msgstr "Wirdアプリをダウンロード"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "あなたのデバイスで完全なコーラン体験を"
+
+#~ msgid "audio_language"
+#~ msgstr "音声言語"
+
+#~ msgid "support"
+#~ msgstr "サポート"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "今日の話題"
+
+#~ msgid "home_this_week"
+#~ msgstr "今週"
+
+#~ msgid "home_your_wird"
+#~ msgstr "あなたの言葉"
+
+#~ msgid "home_progress"
+#~ msgstr "進捗"
+
+#~ msgid "home_days_progress"
+#~ msgstr "7 日中 4 日"
+
+#~ msgid "day_sat"
+#~ msgstr "土"
+
+#~ msgid "day_sun"
+#~ msgstr "太陽"
+
+#~ msgid "day_mon"
+#~ msgstr "月"
+
+#~ msgid "day_tue"
+#~ msgstr "火"
+
+#~ msgid "day_wed"
+#~ msgstr "水"
+
+#~ msgid "day_thu"
+#~ msgstr "木"
+
+#~ msgid "day_fri"
+#~ msgstr "金"
+
+#~ msgid "home_today_wird"
+#~ msgstr "今日の話題"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "による朗読劇を上演する"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "ピュアボイス"
+
+#~ msgid "home_tarteel"
+#~ msgstr "ターティール朗読"
+
+#~ msgid "home_khashi"
+#~ msgstr "献身的な朗読"

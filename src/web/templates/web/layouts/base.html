@@ -1,0 +1,46 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{% block extra_head %}
+  {{ block.super }}
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+  <script>
+    (function () {
+      document.addEventListener("input", function (e) {
+        var input = e.target.closest(".js-table-search");
+        if (!input) return;
+
+        var table = document.querySelector(".js-search-table");
+        if (!table) return;
+
+        var rows = table.querySelectorAll("tbody tr");
+        var q = input.value.trim().toLowerCase();
+
+        rows.forEach(function (row) {
+          var text = row.textContent.toLowerCase();
+          row.style.display = q === "" || text.includes(q) ? "" : "none";
+        });
+      });
+    })();
+  </script>
+{% endblock %}
+
+{% block body %}
+  {% include "web/partials/toast.html" %}
+
+
+  <div class="app-wrapper">
+    {% include "web/partials/navbar.html" %}
+
+    {% block layout %}
+      <main class="flex-1 container mx-auto  app-content ">
+        {% block content %}{% endblock %}
+      </main>
+    {% endblock %}
+
+    {% block footer %}
+      {% include "web/partials/footers/footer_public.html" %}
+    {% endblock %}
+  </div>
+{% endblock %}

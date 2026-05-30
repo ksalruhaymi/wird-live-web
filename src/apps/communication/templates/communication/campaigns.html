@@ -1,0 +1,85 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"communication.campaigns" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "communication/includes/tabs_header.html" %}
+
+  <div class="flex items-center justify-between gap-4">
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_campaigns %}
+    </div>
+
+    <div class="flex justify-center flex-1">
+      {% include "web/components/table_search_input.html" with search_key="campaigns" placeholder="بحث بالعنوان أو النص" %}
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page %}
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto site-card">
+
+    <table class="min-w-full text-[12px]">
+
+      <thead class="site-surface text-[11px] site-text-muted">
+        <tr class="dir-text">
+          <th class="px-4 py-3">#</th>
+          <th class="px-4 py-3">العنوان</th>
+          <th class="px-4 py-3">القنوات</th>
+          <th class="px-4 py-3 text-center">الحالة</th>
+          <th class="px-4 py-3 text-center">إجراءات</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for c in campaigns %}
+        <tr class="border-b site-border hover:site-surface">
+
+          <td class="px-4 py-3">{{ forloop.counter }}</td>
+
+          <td class="px-4 py-3 font-semibold site-text">
+            {{ c.title }}
+          </td>
+
+          <td class="px-4 py-3">
+            {% for ch in c.channels.all %}
+              <span class="text-[11px] px-2 py-0.5 border rounded site-border site-text-muted">
+                {{ ch.get_channel_display }}
+              </span>
+            {% endfor %}
+          </td>
+
+          <td class="px-4 py-3 text-center text-[11px] site-text-muted">
+            {{ c.get_status_display }}
+          </td>
+
+          <td class="px-4 py-3 text-center">
+            {% if c.status == "draft" %}
+              <a href="{% url 'apps.communication:send_campaign' c.id %}"
+                 class="site-btn-primary px-3 py-1 text-[11px]">
+                إرسال تيليجرام
+              </a>
+            {% endif %}
+          </td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+
+  </div>
+
+  {% include "web/components/pagination.html" with page_obj=campaigns page_numbers=campaigns_page_numbers tab="campaigns" per_page=per_page %}
+
+</div>
+
+{% endif %}
+{% endblock %}

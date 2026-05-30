@@ -1,0 +1,167 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+
+{% block title %}إحصائيات الموقع{% endblock %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-5" dir-text>
+  {% include "analytics/include/tabs_header.html" %}
+
+  <div class="site-card p-5 md:p-6 flex items-center justify-between gap-4">
+    <div>
+      <h1 class=".site-titleflex items-center gap-2">
+        <i class="bi bi-bar-chart-line-fill site-link-primary text-xl"></i>
+        <span>إحصائيات الموقع</span>
+      </h1>
+      <p class="mt-1 text-sm site-text-muted">
+        متابعة الزوار، الصفحات، تشغيل الصوت، وتقليب صفحات المصحف.
+      </p>
+    </div>
+
+    <div class="hidden md:flex flex-col items-end text-[11px] site-text-muted">
+      <span class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-emerald-700 font-semibold">
+        <i class="bi bi-activity"></i>
+        <span>لوحة حية</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-4">
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-2"><i class="bi bi-people"></i><span>إجمالي الزوار</span></p>
+      <p class="mt-3 text-3xl font-black text-blue-600">{{ total_visitors }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-2"><i class="bi bi-file-earmark-text"></i><span>إجمالي زيارات الصفحات</span></p>
+      <p class="mt-3 text-3xl font-black text-emerald-600">{{ total_page_views }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-2"><i class="bi bi-play-circle"></i><span>تشغيلات الصوت</span></p>
+      <p class="mt-3 text-3xl font-black text-amber-600">{{ total_audio_plays }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-2"><i class="bi bi-book"></i><span>تقليب الصفحات</span></p>
+      <p class="mt-3 text-3xl font-black text-indigo-600">{{ total_page_flips }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-2"><i class="bi bi-check2-circle"></i><span>إكمالات الصوت</span></p>
+      <p class="mt-3 text-3xl font-black text-rose-600">{{ total_audio_completions }}</p>
+    </div>
+     <div class="site-card p-4">
+       <p class="text-xs font-semibold site-text-muted flex items-center gap-2">
+       <i class="bi bi-diagram-3"></i>
+       <span>عدد IP الفريدة</span>
+      </p>
+      <p class="mt-3 text-3xl font-black text-cyan-600">{{ unique_ip_visitors }}</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">زوار آخر 7 أيام</p>
+      <p class="mt-2 text-2xl font-extrabold site-link-primary">{{ unique_visitors_7_days }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">زيارات آخر 7 أيام</p>
+      <p class="mt-2 text-2xl font-extrabold text-emerald-600">{{ page_views_7_days }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">زيارات آخر 30 يوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-violet-600">{{ page_views_30_days }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">إجمالي ثواني الاستماع</p>
+      <p class="mt-2 text-2xl font-extrabold text-orange-600">{{ total_listen_seconds }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">زوار اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-blue-700">{{ visitors_today }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">من صحّح التلاوة اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-emerald-700">{{ recitation_corrections_today }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">مستخدمي الورد اليومي اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-amber-700">{{ daily_wird_users_today }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">تغييرات اللغة اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-violet-700">{{ language_changes_today }}</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+    <div class="site-card p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="site-title-md flex items-center gap-2"><i class="bi bi-graph-up"></i><span>زيارات الأيام الأخيرة</span></h2>
+      </div>
+      <div class="h-48">
+        <canvas id="pageViewsChart"></canvas>
+      </div>
+    </div>
+
+    <div class="site-card p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="site-title-md flex items-center gap-2"><i class="bi bi-volume-up"></i><span>تشغيلات الصوت آخر 7 أيام</span></h2>
+      </div>
+      <div class="h-48">
+        <canvas id="audioPlaysChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="h-36"></div>
+{% endblock %}
+
+{% block extra_js %}
+  {{ block.super }}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const pageViewLabels = [{% for item in daily_page_views %}"{{ item.day|date:'m-d' }}"{% if not forloop.last %}, {% endif %}{% endfor %}];
+    const pageViewData = [{% for item in daily_page_views %}{{ item.total }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+    const audioPlayLabels = [{% for item in daily_audio_plays %}"{{ item.day|date:'m-d' }}"{% if not forloop.last %}, {% endif %}{% endfor %}];
+    const audioPlayData = [{% for item in daily_audio_plays %}{{ item.total }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+    function buildSimpleChart(canvasId, labels, values, label) {
+      const el = document.getElementById(canvasId);
+      if (!el) return;
+
+      new Chart(el, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: label,
+            data: values,
+            borderWidth: 2,
+            tension: 0.35,
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                precision: 0
+              }
+            }
+          }
+        }
+      });
+    }
+
+    buildSimpleChart('pageViewsChart', pageViewLabels, pageViewData, 'زيارات الصفحات');
+    buildSimpleChart('audioPlaysChart', audioPlayLabels, audioPlayData, 'تشغيلات الصوت');
+  </script>
+{% endblock %}

@@ -1,0 +1,82 @@
+{# RBAC tabs header card #}
+{% load rbac_tags %}
+{% if request.user|can_access:"rbac.access" %}
+
+<div class="site-card p-4">
+
+  <!-- Top row -->
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-shield-lock-fill site-link-primary"></i>
+        <span>إدارة الصلاحيات (RBAC)</span>
+      </h2>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 text-[11px] site-text-muted">
+      <i class="bi bi-diagram-3"></i>
+      <span>Roles • Permissions • Users</span>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+      {% if request.user|can_access:"users.list" %}
+      <a href="{% url 'rbac:users_list' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'users' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-people-fill ml-1"></i>
+        <span>المستخدمون</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"roles.list" %}
+      <a href="{% url 'rbac:roles_list' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'roles' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-diagram-3-fill ml-1"></i>
+        <span>الأدوار</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"permissions.list" %}
+      <a href="{% url 'rbac:permissions_list' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'permissions' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-key-fill ml-1"></i>
+        <span>الصلاحيات</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"permissions.assign_roles" %}
+      <a href="{% url 'rbac:linking_list' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'linking' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-link-45deg ml-1"></i>
+        <span>ربط الأدوار</span>
+      </a>
+      {% endif %}
+
+    </nav>
+  </div>
+
+</div>
+{% endif %}

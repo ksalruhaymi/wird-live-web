@@ -1,0 +1,63 @@
+{# web/components/table_search_input.html #}
+<form method="get" class="w-full max-w-xs md:max-w-sm js-server-search-form">
+
+  {% if tab %}
+    <input type="hidden" name="tab" value="{{ tab }}">
+  {% endif %}
+
+  {% if per_page %}
+    <input type="hidden" name="per_page" value="{{ per_page }}">
+  {% endif %}
+
+  <input
+    type="search"
+    name="q"
+    class="js-server-search-input w-full site-input px-3 py-2 text-[12px]
+           focus:outline-none focus:ring-2 focus:ring-primary"
+    placeholder="{{ placeholder }}"
+    value="{{ q|default:''|escape }}"
+    autocomplete="off"
+  >
+</form>
+
+<script>
+  (function () {
+
+    const forms = document.querySelectorAll(".js-server-search-form");
+
+    forms.forEach(function (form) {
+      const input = form.querySelector(".js-server-search-input");
+
+      if (!input) return;
+
+      let timer = null;
+
+      input.addEventListener("input", function () {
+        const value = input.value.trim();
+
+        clearTimeout(timer);
+
+        if (value.length > 0 && value.length < 3) {
+          return;
+        }
+
+        timer = setTimeout(function () {
+          sessionStorage.setItem("server_search_focus", "1");
+          form.submit();
+        }, 400);
+      });
+
+      if (sessionStorage.getItem("server_search_focus") === "1") {
+        input.focus();
+
+        const val = input.value;
+        input.value = "";
+        input.value = val;
+
+        sessionStorage.removeItem("server_search_focus");
+      }
+
+    });
+
+  })();
+</script>

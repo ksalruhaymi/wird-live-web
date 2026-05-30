@@ -1,0 +1,139 @@
+{# dashboard/notification_inapp.html #}
+{% extends "web/layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto space-y-5" dir-text>
+
+  <!-- Header Card -->
+  <div
+    class="bg-white border border-slate-200 rounded-2xl
+           p-5 md:p-6 shadow-sm
+           flex items-center justify-between gap-4"
+  >
+    <div>
+      <h1 class="text-lg md:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+        <i class="bi bi-bell-fill text-red-500 text-xl"></i>
+        <span>التنبيهات</span>
+
+        {# عدد التنبيهات في هذه الصفحة #}
+        {% if notification %}
+          <span
+            class="inline-flex items-center justify-center
+                   min-w-[1.8rem] h-6 px-2
+                   rounded-full bg-slate-100 text-slate-700
+                   text-[11px] font-bold"
+          >
+            {{ notification|length }}
+          </span>
+        {% endif %}
+      </h1>
+
+      <p class="mt-1 text-sm text-slate-500">
+        آخر التنبيهات التي وصلتك داخل النظام (الأحدث في الأعلى، بحد أقصى ١٠).
+      </p>
+    </div>
+
+    <div class="hidden md:flex flex-col items-end text-[11px] text-slate-400">
+      <span class="flex items-center gap-1">
+        <i class="bi bi-info-circle"></i>
+        <span>تنبيهات النظام والتنبيهات التفاعلية</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Notifications -->
+  <div class="bg-white">
+    {% if notification %}
+      <ul class="space-y-6 text-[13px]">
+
+        {% for n in notification %}
+          <li
+            class="
+              px-6 py-4 rounded-xl border
+              {% if n.id in unread_ids %}
+                bg-red-50 border-red-300
+              {% else %}
+                bg-slate-50 border-slate-200
+              {% endif %}
+            "
+          >
+            <div class="flex items-start justify-between gap-6">
+
+              <!-- Content -->
+              <div class="flex-1 space-y-2">
+                <div class="flex items-center gap-2 dir-row">
+
+                  {% if n.id in unread_ids %}
+                    <span class="inline-flex w-2 h-2 rounded-full bg-red-500"></span>
+                    <span class="text-[11px] font-semibold text-red-600">جديد</span>
+                  {% else %}
+                    <span class="inline-flex w-2 h-2 rounded-full bg-slate-400"></span>
+                    <span class="text-[11px] font-semibold text-slate-600">
+                      تنبيه مقروء
+                    </span>
+                  {% endif %}
+
+                  <span
+                    class="
+                      font-semibold leading-relaxed
+                      {% if n.id in unread_ids %}
+                        text-red-800
+                      {% else %}
+                        text-slate-800
+                      {% endif %}
+                    "
+                  >
+                    {{ n.title }}
+                  </span>
+                </div>
+
+                {% if n.body %}
+                  <p
+                    class="
+                      text-[12px] leading-loose
+                      {% if n.id in unread_ids %}
+                        text-red-700
+                      {% else %}
+                        text-slate-600
+                      {% endif %}
+                    "
+                  >
+                    {{ n.body }}
+                  </p>
+                {% endif %}
+              </div>
+
+              <!-- Date -->
+              <div
+                class="
+                  dir-start text-[11px] whitespace-nowrap
+                  {% if n.id in unread_ids %}
+                    text-red-500
+                  {% else %}
+                    text-slate-400
+                  {% endif %}
+                "
+              >
+                {{ n.created_at|date:"Y-m-d" }}<br>
+                {{ n.created_at|time:"H:i" }}
+              </div>
+
+            </div>
+          </li>
+        {% endfor %}
+
+      </ul>
+    {% else %}
+      <div class="py-12 text-center text-[12px] text-slate-400">
+        لا توجد تنبيهات حاليًا.
+      </div>
+    {% endif %}
+  </div>
+
+</div>
+
+<div class="h-36"></div>
+
+{% endblock %}

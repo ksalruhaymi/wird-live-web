@@ -1,0 +1,65 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+
+{% if request.user|can_access:"permissions.delete" %}
+
+<div class="max-w-lg mx-auto mt-24 px-4" dir-text>
+
+  <div class="site-card p-6 space-y-4 border border-red-200">
+
+    <!-- Header -->
+    <div class="flex items-center gap-2 text-red-600">
+      <i class="bi bi-exclamation-triangle-fill text-xl"></i>
+      <h1 class="text-base font-extrabold">
+        تأكيد حذف الصلاحية
+      </h1>
+    </div>
+
+    <!-- Warning message -->
+    <p class="text-sm site-text-muted leading-relaxed">
+      أنت على وشك حذف الصلاحية:
+      <span class="font-mono font-bold site-text">
+        {{ permission.code }}
+      </span>
+      <br>
+      هذا الإجراء
+      <span class="text-red-600 font-semibold">
+        لا يمكن التراجع عنه
+      </span>.
+    </p>
+
+    <!-- Actions -->
+    <form method="post"
+          class="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 pt-2">
+      {% csrf_token %}
+
+      <!-- Cancel -->
+      <a href="{% url 'rbac:linking_list' %}?tab=permissions"
+         class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full
+                border site-border text-sm font-semibold site-text
+                hover:site-surface transition">
+        <i class="bi bi-arrow-right"></i>
+        <span>إلغاء</span>
+      </a>
+
+      <!-- Delete -->
+      <button type="submit"
+              class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full
+                     bg-gradient-to-br from-red-600 to-red-500
+                     text-white text-sm font-bold
+                     shadow-sm hover:shadow-md
+                     hover:from-red-700 hover:to-red-600
+                     active:scale-95
+                     transition">
+        <i class="bi bi-trash-fill"></i>
+        <span>حذف الصلاحية</span>
+      </button>
+    </form>
+
+  </div>
+
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} تفاصيل رسالة الجوال {% endblock %}
+{% block description %} تفاصيل رسالة الجوال {% endblock %}
+{% block dashboard_content %}
+{% if request.user|can_access:"messaging.sms" %}
+
+<div class="max-w-6xl mx-auto space-y-5" dir-text>
+  {% include "messaging/includes/tabs_header.html" %}
+
+  <!-- ===== Header Card ===== -->
+  <div class="bg-white border border-slate-200 rounded-2xl p-5 md:p-6 shadow-sm
+              flex items-center justify-between gap-4">
+    <div>
+      <h1 class="text-lg md:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+        <i class="bi bi-chat-dots-fill text-indigo-500 text-xl"></i>
+        <span>تفاصيل رسالة الجوال (SMS)</span>
+      </h1>
+      <p class="mt-1 text-sm text-slate-500">
+        عرض بيانات رسالة الجوال ومحتواها.
+      </p>
+    </div>
+
+    <a href="{% url 'apps.messaging:messagings_sms' %}"
+       class="inline-flex items-center gap-1 px-4 py-2 rounded-xl
+              border border-slate-200 text-[12px] text-slate-700
+              hover:bg-slate-50">
+      <i class="bi bi-arrow-right-short"></i>
+      رجوع
+    </a>
+  </div>
+
+  <!-- ===== Message Card ===== -->
+  <div class="bg-white border border-slate-200 rounded-2xl p-5">
+
+    <!-- العنوان والبيانات -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-[13px]">
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">عنوان الرسالة</div>
+        <div class="font-semibold text-slate-800">
+          {{ message.title|default:"(بدون عنوان)" }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">المُرسل</div>
+        <div class="font-semibold text-slate-800">
+          {{ message.broadcast.created_by.get_full_name|default:message.broadcast.created_by.username }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">تاريخ الإرسال</div>
+        <div class="text-[12px] text-slate-700">
+          {{ message.created_at|date:"Y-m-d H:i" }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">الحالة</div>
+        <div class="text-[12px]">
+          {% if message.is_read %}
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full
+                         bg-emerald-50 text-emerald-700">
+              مقروءة
+            </span>
+          {% else %}
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full
+                         bg-red-50 text-red-700">
+              غير مقروءة
+            </span>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- محتوى الرسالة -->
+    <div class="border-t border-slate-100 pt-4 mt-2">
+      <div class="text-slate-500 text-[11px] mb-2">
+        نص الرسالة
+      </div>
+
+      <div class="text-[13px] leading-relaxed text-slate-700 whitespace-pre-wrap dir-text" dir-text>
+        {{ message.body|default:"لا يوجد محتوى في هذه الرسالة." }}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endif %}
+{% endblock %}

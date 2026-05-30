@@ -1,0 +1,328 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block title %}الإشعارات الفورية{% endblock %}
+{% block description %}إرسال إشعارات لأجهزة التطبيق{% endblock %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"push.access" %}
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+
+  <!-- Tabs header -->
+  <div class="site-card p-4">
+    <div class="flex items-center justify-between gap-3">
+      <h2 class="text-sm font-extrabold site-text flex items-center gap-2">
+        <i class="bi bi-phone-fill site-link-primary"></i>
+        <span>الإشعارات الفورية</span>
+      </h2>
+    </div>
+    <div class="mt-4">
+      <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+        <a href="{% url 'push:dashboard' %}?tab=summary"
+           class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+           {% if tab == 'summary' %}site-link-primary site-surface shadow-sm{% else %}site-text hover:site-surface{% endif %}">
+          {% if tab == 'summary' %}<i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>{% endif %}
+          <i class="bi bi-grid-fill ml-1"></i>
+          ملخص التنبيهات
+        </a>
+
+        <a href="{% url 'push:dashboard' %}?tab=send"
+           class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+           {% if tab == 'send' %}site-link-primary site-surface shadow-sm{% else %}site-text hover:site-surface{% endif %}">
+          {% if tab == 'send' %}<i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>{% endif %}
+          <i class="bi bi-send-fill ml-1"></i>
+          إرسال تنبيه
+        </a>
+
+        <a href="{% url 'push:dashboard' %}?tab=history"
+           class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+           {% if tab == 'history' %}site-link-primary site-surface shadow-sm{% else %}site-text hover:site-surface{% endif %}">
+          {% if tab == 'history' %}<i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>{% endif %}
+          <i class="bi bi-clock-history ml-1"></i>
+          التنبيهات
+        </a>
+
+      </nav>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  {% if messages %}
+    {% for msg in messages %}
+      <div class="rounded-xl px-4 py-3 text-sm font-medium border
+        {% if msg.tags == 'success' %}bg-emerald-50 text-emerald-700 border-emerald-200
+        {% else %}bg-red-50 text-red-700 border-red-200{% endif %}">
+        {{ msg }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
+  <!-- ═══════════════════════════════════════════════════
+       TAB: ملخص التنبيهات
+  ═══════════════════════════════════════════════════ -->
+  {% if tab == 'summary' %}
+
+  <div>
+    <h1 class="text-base md:text-lg font-extrabold site-text">ملخص التنبيهات</h1>
+    <p class="mt-1 text-[11px] site-text">إحصائيات الأجهزة المسجلة في التطبيق.</p>
+  </div>
+
+  <!-- Stat blocks -->
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+    <div class="site-card p-5">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-1">
+        <i class="bi bi-phone site-text-muted"></i>
+        <span>إجمالي الأجهزة</span>
+      </p>
+      <p class="mt-3 text-3xl font-extrabold site-text">{{ device_count }}</p>
+      <p class="mt-1 text-[11px] site-text-muted">جهاز نشط</p>
+    </div>
+
+    <div class="site-card p-5">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-1">
+        <i class="bi bi-android2 site-text-muted"></i>
+        <span>Android</span>
+      </p>
+      <p class="mt-3 text-3xl font-extrabold site-text">{{ android_count }}</p>
+      <p class="mt-1 text-[11px] site-text-muted">جهاز أندرويد</p>
+    </div>
+
+    <div class="site-card p-5">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-1">
+        <i class="bi bi-apple site-text-muted"></i>
+        <span>iOS</span>
+      </p>
+      <p class="mt-3 text-3xl font-extrabold site-text">{{ ios_count }}</p>
+      <p class="mt-1 text-[11px] site-text-muted">جهاز آيفون</p>
+    </div>
+
+    <div class="site-card p-5">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-1">
+        <i class="bi bi-clock-history site-text-muted"></i>
+        <span>توكنات قديمة</span>
+      </p>
+      <p class="mt-3 text-3xl font-extrabold {% if stale_count > 0 %}text-amber-500{% else %}site-text{% endif %}">{{ stale_count }}</p>
+      <p class="mt-1 text-[11px] site-text-muted">لم تُستخدم منذ {{ stale_days }} يوم+</p>
+    </div>
+
+  </div>
+
+  <!-- Stale tokens cleanup -->
+  <div class="site-card p-4 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <i class="bi bi-trash3-fill text-amber-500 text-lg"></i>
+      <div>
+        <p class="text-sm font-bold site-text">تنظيف التوكنات القديمة</p>
+        <p class="text-[11px] site-text-muted">
+          {% if stale_count > 0 %}
+            يوجد {{ stale_count }} توكن لم يُستخدم منذ {{ stale_days }} يوماً أو أكثر.
+          {% else %}
+            لا توجد توكنات قديمة تحتاج تعطيلاً.
+          {% endif %}
+        </p>
+      </div>
+    </div>
+    <form method="post" onsubmit="return confirm('هل أنت متأكد من تعطيل {{ stale_count }} توكن قديم؟');">
+      {% csrf_token %}
+      <input type="hidden" name="action" value="cleanup_stale">
+      <button type="submit" {% if stale_count == 0 %}disabled{% endif %}
+        class="rounded-xl px-4 py-2 text-xs font-bold transition whitespace-nowrap
+               {% if stale_count > 0 %}bg-amber-500 hover:bg-amber-600 text-white{% else %}site-surface site-text opacity-50 cursor-not-allowed{% endif %}">
+        <i class="bi bi-trash3-fill me-1"></i>
+        تعطيل التوكنات القديمة
+      </button>
+    </form>
+  </div>
+
+  <!-- Devices table -->
+  {% if devices %}
+  <div class="overflow-x-auto site-card">
+    <table class="min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text">
+        <tr class="dir-text">
+          <th class="px-4 py-3 font-bold">#</th>
+          <th class="px-4 py-3 font-bold">المنصة</th>
+          <th class="px-4 py-3 font-bold">FCM Token</th>
+          <th class="px-4 py-3 font-bold dir-start">تاريخ التسجيل</th>
+        </tr>
+      </thead>
+      <tbody class="divide-site">
+        {% for d in devices %}
+        <tr class="hover:site-surface transition">
+          <td class="px-4 py-3 site-text font-bold">{{ forloop.counter }}</td>
+          <td class="px-4 py-3">
+            <span class="inline-flex items-center gap-1 rounded-full px-3 py-1 text-[11px] font-bold
+              {% if d.platform == 'android' %}bg-emerald-100 text-emerald-700{% else %}site-surface site-text{% endif %}">
+              {% if d.platform == 'android' %}
+                <i class="bi bi-android2"></i> Android
+              {% else %}
+                <i class="bi bi-apple"></i> iOS
+              {% endif %}
+            </span>
+          </td>
+          <td class="px-4 py-3 site-text font-mono text-[11px]">{{ d.fcm_token|truncatechars:40 }}</td>
+          <td class="px-4 py-3 dir-start text-[11px] text-slate-400 whitespace-nowrap">
+            {{ d.created_at|date:"Y-m-d" }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="site-card p-8 text-center site-text text-sm">
+    لا توجد أجهزة مسجلة بعد
+  </div>
+  {% endif %}
+
+  {% endif %}
+  <!-- end summary tab -->
+
+
+  <!-- ═══════════════════════════════════════════════════
+       TAB: إرسال تنبيه
+  ═══════════════════════════════════════════════════ -->
+  {% if tab == 'send' %}
+
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <h1 class="text-base md:text-lg font-extrabold site-text">إرسال تنبيه</h1>
+      <p class="mt-1 text-[11px] site-text">سيُرسل الإشعار لجميع الأجهزة المسجلة ({{ device_count }} جهاز).</p>
+    </div>
+  </div>
+
+  <div class="site-card p-5 space-y-4">
+    <form method="post" autocomplete="off" novalidate id="pushForm">
+      {% csrf_token %}
+      <input type="hidden" name="tab" value="send">
+
+      <div class="space-y-4">
+
+        <div>
+          <label for="push-title" class="block text-xs font-bold site-text mb-1">عنوان الإشعار</label>
+          <input
+            id="push-title"
+            type="text"
+            name="title"
+            maxlength="255"
+            required
+            spellcheck="false"
+            placeholder="مثال: تحديث جديد في وِرد"
+            class="w-full site-input rounded-xl px-3 py-2 text-sm outline-none"
+          >
+        </div>
+
+        <div>
+          <label for="push-body" class="block text-xs font-bold site-text mb-1">نص الإشعار</label>
+          <textarea
+            id="push-body"
+            name="body"
+            rows="4"
+            maxlength="1000"
+            required
+            spellcheck="true"
+            placeholder="اكتب تفاصيل الإشعار هنا..."
+            class="w-full site-input rounded-xl px-3 py-2 text-sm outline-none"
+          ></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-1">
+          <button
+            type="button"
+            onclick="document.getElementById('push-title').value=''; document.getElementById('push-body').value='';"
+            class="rounded-xl border site-border px-4 py-2 text-sm font-bold site-text hover:site-surface transition"
+          >
+            مسح
+          </button>
+          <button
+            id="sendBtn"
+            type="submit"
+            class="site-btn-primary px-5 py-2 text-sm font-bold disabled:opacity-60 disabled:cursor-not-allowed"
+            {% if device_count == 0 %}disabled title="لا توجد أجهزة مسجلة"{% endif %}
+          >
+            إرسال الإشعار
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+  {% endif %}
+  <!-- end send tab -->
+
+
+  <!-- ═══════════════════════════════════════════════════
+       TAB: التنبيهات
+  ═══════════════════════════════════════════════════ -->
+  {% if tab == 'history' %}
+
+  <div>
+    <h1 class="text-base md:text-lg font-extrabold site-text">التنبيهات المرسلة</h1>
+    <p class="mt-1 text-[11px] site-text">سجل جميع الإشعارات التي تم إرسالها.</p>
+  </div>
+
+  <div class="overflow-x-auto site-card">
+    <table class="min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text">
+        <tr class="dir-text">
+          <th class="px-4 py-3 font-bold">العنوان</th>
+          <th class="px-4 py-3 font-bold">الحالة</th>
+          <th class="px-4 py-3 font-bold">الأجهزة</th>
+          <th class="px-4 py-3 font-bold">وصل</th>
+          <th class="px-4 py-3 font-bold">فشل</th>
+          <th class="px-4 py-3 font-bold dir-start">التاريخ</th>
+        </tr>
+      </thead>
+      <tbody class="divide-site">
+        {% for b in broadcasts %}
+        <tr class="hover:site-surface transition">
+          <td class="px-4 py-3 font-semibold site-text">{{ b.title|truncatechars:45 }}</td>
+          <td class="px-4 py-3">
+            <span class="inline-flex rounded-full px-3 py-1 text-[11px] font-bold
+              {% if b.status == 'sent' %}bg-emerald-100 text-emerald-700
+              {% elif b.status == 'failed' %}bg-red-100 text-red-700
+              {% else %}site-surface site-text{% endif %}">
+              {{ b.get_status_display }}
+            </span>
+          </td>
+          <td class="px-4 py-3 text-center site-text">{{ b.total_devices }}</td>
+          <td class="px-4 py-3 text-center font-bold site-text">{{ b.success_count }}</td>
+          <td class="px-4 py-3 text-center font-bold site-text">{{ b.failure_count }}</td>
+          <td class="px-4 py-3 dir-start text-[11px] text-slate-400 whitespace-nowrap">
+            {{ b.created_at|date:"Y-m-d" }}
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="p-6 text-center site-text">لا توجد إشعارات مرسلة بعد</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% endif %}
+  <!-- end history tab -->
+
+</div>
+
+<div class="h-36"></div>
+
+<script>
+  const form = document.getElementById("pushForm");
+  if (form) {
+    form.addEventListener("submit", function () {
+      const btn = document.getElementById("sendBtn");
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "جاري الإرسال...";
+      }
+    });
+  }
+</script>
+
+{% endif %}
+{% endblock %}

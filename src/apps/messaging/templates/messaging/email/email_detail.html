@@ -1,0 +1,247 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} تفاصيل الرسالة {% endblock %}
+{% block description %}{% endblock %}
+{% block dashboard_content %}
+
+{% if request.user|can_access:"messaging.email" %}
+
+<div class="max-w-6xl mx-auto space-y-5" dir-text>
+  {% include "messaging/includes/tabs_header.html" %}
+
+  <div class="bg-white p-5 md:p-6 flex items-center justify-between gap-4">
+    <div>
+      <h1 class="text-lg md:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+        <i class="bi bi-envelope-open-fill text-blue-600 text-xl"></i>
+        <span>تفاصيل الرسالة</span>
+      </h1>
+      <p class="mt-1 text-sm text-slate-500">
+        عرض بيانات الرسالة والمستلمين وحالة الإرسال.
+      </p>
+    </div>
+
+    <a href="{% url 'apps.messaging:email' %}"
+       class="inline-flex items-center gap-1 px-4 py-2 rounded-xl border border-slate-200 text-[12px] text-slate-700 hover:bg-slate-50">
+      <i class="bi bi-arrow-right-short"></i>
+      رجوع
+    </a>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-2xl p-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-[13px]">
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">عنوان الرسالة</div>
+        <div class="font-semibold text-slate-800">
+          {{ broadcast.title|default:"(بدون عنوان)" }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">المرسل</div>
+        <div class="font-semibold text-slate-800">
+          {{ broadcast.created_by.get_full_name|default:broadcast.created_by.username }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">نوع الرسالة</div>
+        <div class="text-[12px] text-slate-700">
+          {% if broadcast.is_bulk %}
+            جماعية
+          {% else %}
+            فردية
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">عدد المستلمين</div>
+        <div class="flex items-center gap-2 text-[12px] text-slate-700">
+          <span>{{ broadcast.recipients_count }}</span>
+
+          <button
+            type="button"
+            id="open-recipients-modal"
+            class="inline-flex items-center justify-center w-8 h-8 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-blue-600"
+            title="عرض المستلمين"
+          >
+            <i class="bi bi-eye"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">تاريخ الإنشاء</div>
+        <div class="text-[12px] text-slate-700">
+          {{ broadcast.created_at|date:"Y-m-d H:i" }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-slate-500 text-[11px]">الحالة</div>
+        <div class="text-[12px]">
+          {% if broadcast.has_pending %}
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700">
+              قيد الانتظار
+            </span>
+          {% elif broadcast.has_failed %}
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-red-100 text-red-700">
+              يوجد فشل
+            </span>
+          {% elif broadcast.has_sent %}
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">
+              تم الإرسال
+            </span>
+          {% else %}
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+              غير محدد
+            </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-100 pt-4 mt-2">
+      <div class="text-slate-500 text-[11px] mb-2">
+        نص الرسالة
+      </div>
+
+      <div class="text-[13px] leading-relaxed text-slate-700">
+        <div dir-text class="ql-editor dir-text">
+          {{ broadcast.body|safe }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white ">
+    <div class="flex items-center justify-end mb-4">
+
+      {% if broadcast.has_pending %}
+        <form method="post" action="{% url 'apps.messaging:send_email_broadcast' broadcast.id %}">
+          {% csrf_token %}
+          <button type="submit"
+                  class="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-blue-600 text-white hover:bg-blue-700 text-[12px] font-bold">
+            <i class="bi bi-send-fill"></i>
+            إرسال
+          </button>
+        </form>
+      {% endif %}
+    </div>
+
+    
+  </div>
+</div>
+
+<div id="recipients-modal" class="fixed inset-0 z-50 hidden">
+  <div id="recipients-modal-overlay" class="absolute inset-0 bg-black/40"></div>
+
+  <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+    <div class="w-full max-w-2xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100">
+        <div>
+          <h3 class="text-sm font-extrabold text-slate-800">قائمة المستلمين</h3>
+          <p class="text-[11px] text-slate-500 mt-1">
+            عدد المستلمين: {{ broadcast.recipients_count }}
+          </p>
+        </div>
+
+        <button
+          type="button"
+          id="close-recipients-modal"
+          class="inline-flex items-center justify-center w-8 h-8 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-5 max-h-[70vh] overflow-y-auto">
+        {% if deliveries %}
+          <div class="space-y-2">
+            {% for d in deliveries %}
+              <div class="flex items-center justify-between gap-3 border border-slate-100 rounded-xl px-3 py-2">
+                <div class="min-w-0">
+                  <div class="text-[12px] font-semibold text-slate-800">
+                    {% if d.user %}
+                      {{ d.user.username }}
+                    {% else %}
+                      —
+                    {% endif %}
+                  </div>
+
+                  <div class="text-[11px] text-slate-500 truncate">
+                    {{ d.email }}
+                  </div>
+                </div>
+
+                <div class="shrink-0">
+                  {% if d.status == "sent" %}
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-green-100 text-green-700">
+                      <i class="bi bi-check-circle-fill"></i>
+                      تم الإرسال
+                    </span>
+                  {% elif d.status == "failed" %}
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-red-100 text-red-700">
+                      <i class="bi bi-x-circle-fill"></i>
+                      فشل
+                    </span>
+                  {% else %}
+                    <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold bg-yellow-100 text-yellow-700">
+                      <i class="bi bi-clock-fill"></i>
+                      قيد الانتظار
+                    </span>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="py-8 text-center text-[12px] text-slate-400">
+            لا يوجد مستلمون لهذه الرسالة.
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("recipients-modal");
+  const openBtn = document.getElementById("open-recipients-modal");
+  const closeBtn = document.getElementById("close-recipients-modal");
+  const overlay = document.getElementById("recipients-modal-overlay");
+
+  function openModal() {
+    modal.classList.remove("hidden");
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  if (openBtn) {
+    openBtn.addEventListener("click", openModal);
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+
+  if (overlay) {
+    overlay.addEventListener("click", closeModal);
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
+});
+</script>
+
+{% endif %}
+
+{% endblock %}

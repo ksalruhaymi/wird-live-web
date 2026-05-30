@@ -1,0 +1,49 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+
+{% block title %}إحصائيات الصفحات{% endblock %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-5" dir-text>
+  {% include "analytics/include/tabs_header.html" %}
+
+  <div class="site-card overflow-hidden">
+    <div class="p-5 border-b site-border">
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-list-stars"></i>
+        <span>أكثر الصفحات زيارة</span>
+      </h2>
+      <p class="mt-2 text-xs site-text-muted">عدد السجلات: {{ top_pages_total_count }}</p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="px-4 py-3 text-right">الصفحة</th>
+            <th class="px-4 py-3 text-center">الزيارات</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in top_pages %}
+          <tr class="border-t site-border">
+            <td class="px-4 py-3 font-medium text-slate-700">{{ item.path }}</td>
+            <td class="px-4 py-3 text-center font-bold site-link-primary">{{ item.total }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="2" class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pb-4">
+      {% include "web/components/pagination.html" with page_obj=top_pages_page_obj page_numbers=top_pages_page_numbers tab="pages" %}
+    </div>
+  </div>
+</div>
+
+<div class="h-36"></div>
+{% endblock %}

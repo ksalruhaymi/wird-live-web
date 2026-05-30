@@ -1,0 +1,1087 @@
+{% load static i18n l10n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+
+<div
+  id="mushafArea"
+  class="hifz-mushaf-area relative w-full flex flex-col items-center"
+  data-hifz-spread="single"
+  style="
+    --mushaf-page-width: {{ mushaf_dimensions.normal.page_width|unlocalize }}px;
+    --mushaf-page-height: {{ mushaf_dimensions.normal.page_height|unlocalize }}px;
+    --mushaf-min-width: {{ mushaf_dimensions.normal.min_width|unlocalize }}px;
+    --mushaf-max-width: {{ mushaf_dimensions.normal.max_width|unlocalize }}px;
+    --mushaf-min-height: {{ mushaf_dimensions.normal.min_height|unlocalize }}px;
+    --mushaf-max-height: {{ mushaf_dimensions.normal.max_height|unlocalize }}px;
+    --mushaf-fullscreen-width-vw: {{ mushaf_dimensions.fullscreen.width_vw|unlocalize }};
+    --mushaf-fullscreen-height-ratio: {{ mushaf_dimensions.fullscreen.height_ratio|unlocalize }};
+    --mushaf-fullscreen-max-width-vw: {{ mushaf_dimensions.fullscreen.max_width_vw|unlocalize }};
+    --mushaf-fullscreen-max-height-vh: {{ mushaf_dimensions.fullscreen.max_height_vh|unlocalize }};
+  "
+>
+  {% include "hifz/partials/hifz_toolbar.html" with mode="mushaf" raw_page=raw_page current_mushaf=current_mushaf %}
+  <div id="hifzMobilePanelIcons" class="hidden items-center justify-center gap-2 w-full mt-2 mb-1" onclick="event.stopPropagation()">
+    <button type="button" id="hifzMobileRecordingBtn" class="hifz-mobile-panel-btn" aria-label="{% trans 'hifz_audio_recording' %}" aria-pressed="false">
+      <i class="bi bi-mic-fill"></i>
+    </button>
+    <button type="button" id="hifzMobileHideAyahsBtn" class="hifz-mobile-panel-btn" aria-label="{% trans 'hifz_enable_hiding' %}">
+      <i class="bi bi-eye-slash"></i>
+    </button>
+    <button type="button" id="hifzMobileSegmentBtn" class="hifz-mobile-panel-btn" aria-label="{% trans 'hifz_segmentation_thematic' %}" aria-pressed="false">
+      <i class="bi bi-diagram-3"></i>
+    </button>
+    <button type="button" id="hifzMobileWritingBtn" class="hifz-mobile-panel-btn" aria-label="{% trans 'hifz_writing' %}" aria-pressed="false">
+      <i class="bi bi-pencil-square"></i>
+    </button>
+    <button type="button" id="hifzMobileFullscreenIconBtn" class="hifz-mobile-panel-btn" aria-label="{% trans 'zoom_in' %}">
+      <i class="bi bi-arrows-fullscreen"></i>
+    </button>
+    <button type="button" id="hifzMobileRepeatMinusBtn" class="hifz-mobile-panel-btn" aria-label="{% trans 'repeat' %}">
+      <i class="bi bi-dash"></i>
+    </button>
+    <button type="button" id="hifzMobileRepeatCountBtn" class="hifz-mobile-panel-btn" aria-label="{% trans 'repeat' %}">
+      <span id="hifzMobileRepeatCountText">0</span>
+    </button>
+    <button type="button" id="hifzMobileRepeatPlusBtn" class="hifz-mobile-panel-btn" aria-label="{% trans 'repeat' %}">
+      <i class="bi bi-plus"></i>
+    </button>
+    <div class="inline-flex items-center gap-1 rounded-full bg-black/80 px-2 py-1">
+      <i class="bi bi-volume-up-fill text-[10px] leading-none text-white"></i>
+      <input
+        id="hifzMobileVolume"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="1"
+        class="mushaf-volume-range w-12"
+        onclick="event.stopPropagation();"
+      >
+    </div>
+  </div>
+
+  <div id="mushafLoadingSpinner" style="position:fixed;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;z-index:50;background:rgba(255,255,255,0.6);">
+    <div style="width:48px;height:48px;border-radius:50%;border:4px solid #e5e7eb;border-top-color:#d97706;animation:mushafSpin 0.8s linear infinite;"></div>
+  </div>
+  <style>@keyframes mushafSpin{to{transform:rotate(360deg);}}</style>
+
+  <div id="mushafFlipContainer" class="relative inline-flex items-center w-full justify-center hidden">
+    <div class="w-full flex justify-center">
+      <div id="mushafZoomWrapper" class="relative mushaf-stage">
+  <div
+    id="hifzWritingToolsBar"
+    class="hifz-writing-tools-bar hidden"
+    onclick="event.stopPropagation()"
+    data-no-flip="true"
+    aria-label="أدوات الكتابة"
+  >
+    <button
+      id="hifzWritingClearAllBtn"
+      type="button"
+      class="hifz-writing-tool-btn hifz-writing-tool-btn-danger"
+      title="مسح الكتابة من الكل"
+      aria-label="مسح الكتابة من الكل"
+      data-no-flip="true"
+    >
+      <i class="bi bi-trash3-fill"></i>
+    </button>
+
+    <button
+      id="hifzWritingShowAllBtn"
+      type="button"
+      class="hifz-writing-tool-btn hifz-writing-tool-btn-primary"
+      title="إظهار الكتابة للكل"
+      aria-label="إظهار الكتابة للكل"
+      aria-pressed="false"
+      data-no-flip="true"
+    >
+      <i class="bi bi-eye-fill"></i>
+    </button>
+  </div>
+
+
+        <div
+          id="mushafFlipBook"
+          class="st-page-flip w-full mx-auto rounded-3xl overflow-hidden bg-white shadow-2xl"
+          style="max-width: var(--mushaf-max-width);"
+        >
+          {% for p in pages reversed %}
+          <div
+            class="page {% if forloop.counter0|divisibleby:2 %}page-right{% else %}page-left{% endif %}"
+            data-density="hard"
+            data-page="{{ p }}"
+          >
+            <div class="page-content relative w-full h-full">
+              <div class="w-full h-full flex items-center justify-center p-5">
+                <div class="relative inline-block w-full">
+                  <img
+                  class="mushaf-page-img block w-full h-auto opacity-0 transition-opacity duration-300 ease-out"
+                  data-page="{{ p }}"
+                  data-src="{{ MEDIA_URL }}{{ mushaf.image_prefix }}{{ p|add:page_offset|stringformat:'03d' }}.webp"
+                  {% if p == right_page or p == left_page %}
+                  src="{{ MEDIA_URL }}{{ mushaf.image_prefix }}{{ p|add:page_offset|stringformat:'03d' }}.webp"
+                  loading="eager"
+                  fetchpriority="high"
+                  {% else %}
+                  loading="lazy"
+                  {% endif %}
+                  alt="{% trans 'page' %} {{ p }}"
+                  decoding="async"
+                />
+
+                  <svg
+                    class="ayah-svg absolute inset-0 w-full h-full pointer-events-none"
+                    data-page="{{ p }}"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                  ></svg>
+
+                  <div class="ayah-layer absolute inset-0" data-page="{{ p }}"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="ayahMenu"
+    data-reading-hide="true"
+    class="hidden fixed z-50 bg-white border border-gray-200 rounded-xl shadow-lg p-2 text-sm ayah-menu"
+    dir-text
+  >
+    <button
+      type="button"
+      onclick="event.preventDefault(); event.stopPropagation(); ayahMenuPlay()"
+      class="ayah-menu-action w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg hover:bg-emerald-50"
+    >
+      <span class="flex items-center gap-2">
+        <i class="bi bi-play-circle text-emerald-600"></i>
+        <span class="ayah-menu-label">{% trans "play_audio" %}</span>
+      </span>
+    </button>
+
+    {% if CURRENT_LANGUAGE == 'ar' %}
+      <button
+        type="button"
+        onclick="ayahMenuWords()"
+        class="ayah-menu-action w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg hover:bg-blue-50"
+      >
+        <span class="flex items-center gap-2">
+          <i class="bi bi-translate text-blue-600"></i>
+          <span class="ayah-menu-label">{% trans "word_meanings" %}</span>
+        </span>
+      </button>
+    {% endif %}
+
+    <button
+      type="button"
+      onclick="ayahMenuTafsir()"
+      class="ayah-menu-action w-full flex items-center justify-between gap-2 px-3 py-1.5 rounded-lg hover:bg-amber-50"
+    >
+      <span class="flex items-center gap-2">
+        <i class="bi bi-journal-text text-amber-600"></i>
+        <span class="ayah-menu-label">{% trans "brief_tafsir" %}</span>
+      </span>
+    </button>
+
+    <button
+      type="button"
+      onclick="ayahMenuBookmark()"
+      class="ayah-menu-action flex w-full items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 transition"
+    >
+      <i id="ayahBookmarkIcon" class="bi bi-heart text-red-600 text-base"></i>
+      <span id="ayahBookmarkText" class="ayah-menu-label">{% trans "save_stop" %}</span>
+    </button>
+  </div>
+
+  <button
+    id="hifzAyahPlayBtn"
+    type="button"
+    class="hidden fixed z-[9999] items-center justify-center rounded-full bg-black text-white w-7 h-7 md:w-9 md:h-9 shrink-0 cursor-pointer"
+    aria-label="Play selected ayah"
+  >
+    <i class="bi bi-play-fill text-base md:text-lg leading-none"></i>
+  </button>
+
+  <button
+    id="hifzAyahReciteBtn"
+    type="button"
+    class="hidden fixed z-[9999] items-center justify-center rounded-full bg-red-600 text-white w-7 h-7 md:w-9 md:h-9 shrink-0 cursor-pointer"
+    aria-label="Recitation correction"
+  >
+    <i id="hifzAyahReciteIcon" class="bi bi-mic-fill text-base md:text-lg leading-none"></i>
+  </button>
+</div>
+
+<script>
+  window.MUSHAF_DIMENSIONS = {
+    pageWidth:  {{ mushaf_dimensions.normal.page_width|unlocalize }},
+    pageHeight: {{ mushaf_dimensions.normal.page_height|unlocalize }},
+    minWidth:   {{ mushaf_dimensions.normal.min_width|unlocalize }},
+    maxWidth:   {{ mushaf_dimensions.normal.max_width|unlocalize }},
+    minHeight:  {{ mushaf_dimensions.normal.min_height|unlocalize }},
+    maxHeight:  {{ mushaf_dimensions.normal.max_height|unlocalize }},
+    fullscreen: {
+      widthVW:    {{ mushaf_dimensions.fullscreen.width_vw|unlocalize }},
+      heightRatio:{{ mushaf_dimensions.fullscreen.height_ratio|unlocalize }},
+      maxWidthVW: {{ mushaf_dimensions.fullscreen.max_width_vw|unlocalize }},
+      maxHeightVH:{{ mushaf_dimensions.fullscreen.max_height_vh|unlocalize }}
+    }
+  };
+
+  window.MUSHAF_PAGE_WIDTH = window.MUSHAF_DIMENSIONS.pageWidth;
+  window.MUSHAF_PAGE_HEIGHT = window.MUSHAF_DIMENSIONS.pageHeight;
+  window.MUSHAF_MIN_WIDTH = window.MUSHAF_DIMENSIONS.minWidth;
+  window.MUSHAF_MAX_WIDTH = window.MUSHAF_DIMENSIONS.maxWidth;
+  window.MUSHAF_MIN_HEIGHT = window.MUSHAF_DIMENSIONS.minHeight;
+  window.MUSHAF_MAX_HEIGHT = window.MUSHAF_DIMENSIONS.maxHeight;
+
+  window.MUSHAF_FULLSCREEN_WIDTH_VW = window.MUSHAF_DIMENSIONS.fullscreen.widthVW;
+  window.MUSHAF_FULLSCREEN_HEIGHT_RATIO = window.MUSHAF_DIMENSIONS.fullscreen.heightRatio;
+  window.MUSHAF_FULLSCREEN_MAX_WIDTH_VW = window.MUSHAF_DIMENSIONS.fullscreen.maxWidthVW;
+  window.MUSHAF_FULLSCREEN_MAX_HEIGHT_VH = window.MUSHAF_DIMENSIONS.fullscreen.maxHeightVH;
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const isSmall = () => window.matchMedia("(max-width: 991px)").matches;
+    const recordingBtn = document.getElementById("hifzMobileRecordingBtn");
+    const hideBtn = document.getElementById("hifzMobileHideAyahsBtn");
+    const segmentBtn = document.getElementById("hifzMobileSegmentBtn");
+    const writingBtn = document.getElementById("hifzMobileWritingBtn");
+    const fsBtn = document.getElementById("hifzMobileFullscreenIconBtn");
+    const repeatMinusBtn = document.getElementById("hifzMobileRepeatMinusBtn");
+    const repeatPlusBtn = document.getElementById("hifzMobileRepeatPlusBtn");
+    const repeatCountText = document.getElementById("hifzMobileRepeatCountText");
+    const miniVolume = document.getElementById("miniVolume");
+    const mobileVolume = document.getElementById("hifzMobileVolume");
+    const recordingCheckbox = document.getElementById("toggleRecording");
+    const hideCheckbox = document.getElementById("toggleHideAyahs");
+    const segmentCheckbox = document.getElementById("toggleSegment");
+    const writingCheckbox = document.getElementById("toggleWriting");
+    const recitationCard = document.getElementById("recitationCorrectionResultCard");
+    const recitationCloseBtn = document.getElementById("hifzRecitationPopoverCloseBtn");
+    const toolbarRepeatText = document.getElementById("hifzToolbarRepeatCountText");
+    if (!miniVolume || !mobileVolume || !repeatCountText) return;
+
+    function syncToggleButtonState() {
+      if (recordingBtn && recordingCheckbox) {
+        recordingBtn.classList.toggle("is-active", recordingCheckbox.checked);
+        recordingBtn.setAttribute("aria-pressed", recordingCheckbox.checked ? "true" : "false");
+      }
+      if (hideBtn && hideCheckbox) {
+        hideBtn.classList.toggle("is-active", hideCheckbox.checked);
+        hideBtn.setAttribute("aria-pressed", hideCheckbox.checked ? "true" : "false");
+      }
+      if (segmentBtn && segmentCheckbox) {
+        segmentBtn.classList.toggle("is-active", segmentCheckbox.checked);
+        segmentBtn.setAttribute("aria-pressed", segmentCheckbox.checked ? "true" : "false");
+      }
+      if (writingBtn && writingCheckbox) {
+        writingBtn.classList.toggle("is-active", writingCheckbox.checked);
+        writingBtn.setAttribute("aria-pressed", writingCheckbox.checked ? "true" : "false");
+      }
+    }
+
+    function getRepeatCount() {
+      const value = parseInt((toolbarRepeatText && toolbarRepeatText.textContent) || repeatCountText.textContent || "0", 10);
+      return Number.isNaN(value) ? 0 : Math.max(0, value);
+    }
+
+    function setRepeatCount(value) {
+      const safe = Math.max(0, parseInt(String(value), 10) || 0);
+      repeatCountText.textContent = String(safe);
+      if (toolbarRepeatText) toolbarRepeatText.textContent = String(safe);
+      if (typeof window.setRepeatCount === "function") {
+        window.setRepeatCount(safe);
+      }
+    }
+
+    function closeRecitationPopover() {
+      if (!recitationCard) return;
+      if (isSmall()) {
+        const shaykhCompareAudio = document.getElementById("shaykhCompareAudio");
+        const userCompareAudio = document.getElementById("userCompareAudio");
+        [shaykhCompareAudio, userCompareAudio].forEach(function (audioEl) {
+          if (!audioEl) return;
+          try {
+            audioEl.pause();
+            audioEl.currentTime = 0;
+          } catch (err) {}
+        });
+      }
+      recitationCard.classList.remove("hifz-mobile-recitation-popover-active");
+      recitationCard.style.left = "";
+      recitationCard.style.top = "";
+    }
+
+    function openRecitationPopoverNearAyah(detail) {
+      if (!recitationCard || !isSmall()) return;
+      recitationCard.classList.add("hifz-mobile-recitation-popover-active");
+      const mushafArea = document.getElementById("mushafArea");
+      const mushafRect =
+        mushafArea && typeof mushafArea.getBoundingClientRect === "function"
+          ? mushafArea.getBoundingClientRect()
+          : null;
+      const width = Math.min(window.innerWidth - 18, 360);
+      const left = mushafRect
+        ? Math.max(9, Math.min(mushafRect.left + (mushafRect.width / 2) - (width / 2), window.innerWidth - width - 9))
+        : Math.max(9, (window.innerWidth - width) / 2);
+
+      const cardHeight = Math.min(Math.max(recitationCard.offsetHeight || 280, 220), 460);
+      const targetCenterY = mushafRect
+        ? mushafRect.top + (mushafRect.height / 2)
+        : (window.innerHeight * 0.5);
+      const top = Math.max(66, Math.min(targetCenterY - (cardHeight / 2), window.innerHeight - cardHeight - 12));
+      recitationCard.style.left = left + "px";
+      recitationCard.style.top = top + "px";
+    }
+
+    if (recordingBtn && recordingCheckbox) {
+      recordingBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.setHifzTechniqueMode === "function") {
+          window.setHifzTechniqueMode("recording");
+        } else {
+          recordingCheckbox.checked = true;
+          recordingCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      });
+      recordingCheckbox.addEventListener("change", syncToggleButtonState);
+    }
+
+    if (hideBtn && hideCheckbox) {
+      hideBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.setHifzTechniqueMode === "function") {
+          window.setHifzTechniqueMode("hide");
+        } else {
+          hideCheckbox.checked = true;
+          hideCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      });
+      hideCheckbox.addEventListener("change", syncToggleButtonState);
+    }
+
+    if (segmentBtn && segmentCheckbox && !segmentBtn.disabled && !segmentCheckbox.disabled) {
+      segmentBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.setHifzTechniqueMode === "function") {
+          window.setHifzTechniqueMode("segment");
+        } else {
+          segmentCheckbox.checked = true;
+          segmentCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      });
+      segmentCheckbox.addEventListener("change", syncToggleButtonState);
+    }
+
+    if (writingBtn && writingCheckbox) {
+      writingBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.setHifzTechniqueMode === "function") {
+          window.setHifzTechniqueMode("writing");
+        } else {
+          writingCheckbox.checked = true;
+          writingCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      });
+      writingCheckbox.addEventListener("change", syncToggleButtonState);
+    }
+
+    if (fsBtn) {
+      fsBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.toggleMushafFullscreen === "function") {
+          window.toggleMushafFullscreen();
+        }
+      });
+    }
+
+    if (repeatMinusBtn) {
+      repeatMinusBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        setRepeatCount(getRepeatCount() - 1);
+      });
+    }
+
+    if (repeatPlusBtn) {
+      repeatPlusBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        setRepeatCount(getRepeatCount() + 1);
+      });
+    }
+
+    mobileVolume.value = miniVolume.value || "1";
+    mobileVolume.addEventListener("input", function (e) {
+      e.stopPropagation();
+      miniVolume.value = mobileVolume.value;
+      miniVolume.dispatchEvent(new Event("input", { bubbles: true }));
+      miniVolume.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+    miniVolume.addEventListener("input", function () {
+      mobileVolume.value = miniVolume.value;
+    });
+
+    document.addEventListener("hifz-recitation-stop", function (e) {
+      openRecitationPopoverNearAyah(e.detail || null);
+    });
+
+    if (recitationCloseBtn) {
+      recitationCloseBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeRecitationPopover();
+      });
+    }
+
+    document.addEventListener("click", function (e) {
+      if (!isSmall()) return;
+      if (e.target.closest("#recitationCorrectionResultCard")) return;
+      if (e.target.closest("#hifzAyahReciteBtn")) return;
+      closeRecitationPopover();
+    });
+
+    window.addEventListener("resize", function () {
+      if (!isSmall()) closeRecitationPopover();
+    });
+
+    syncToggleButtonState();
+    setRepeatCount(getRepeatCount());
+  });
+</script>
+
+<script>
+  function getLastPageStorageKey() {
+    return "quran_last_page__" + (window.QURAN_MUSHAF_KEY || "hafs");
+  }
+
+  function saveLastVisitedPage(pageNumber) {
+    if (!pageNumber || pageNumber < 1) return;
+
+    try {
+      localStorage.setItem(getLastPageStorageKey(), String(pageNumber));
+    } catch (err) {}
+
+    try {
+      var mushafKey = window.QURAN_MUSHAF_KEY || "hafs";
+      var cookieKey = "quran_last_page__" + mushafKey;
+
+      document.cookie =
+        cookieKey +
+        "=" +
+        encodeURIComponent(String(pageNumber)) +
+        "; path=/; max-age=31536000; SameSite=Lax";
+    } catch (err) {}
+  }
+
+  function getMushafImageElement(quranPage) {
+    if (!quranPage) return null;
+
+    var selector = '#mushafFlipBook img.mushaf-page-img[data-page="' + quranPage + '"]';
+    return document.querySelector(selector);
+  }
+
+  function loadMushafPageImage(quranPage) {
+    if (!quranPage) return;
+
+    var img = getMushafImageElement(quranPage);
+    if (!img) return;
+
+    if (img.getAttribute("data-loaded") === "1") return;
+
+    var realSrc = img.getAttribute("data-src");
+    if (!realSrc) return;
+
+    img.addEventListener(
+      "load",
+      function () {
+        img.classList.remove("opacity-0");
+      },
+      { once: true }
+    );
+
+    if (!img.getAttribute("src")) {
+      img.src = realSrc;
+    }
+
+    if (img.complete) {
+      img.classList.remove("opacity-0");
+    }
+
+    img.setAttribute("data-loaded", "1");
+  }
+
+  function unloadMushafPageImage(quranPage) {
+    if (!quranPage) return;
+
+    var img = getMushafImageElement(quranPage);
+    if (!img) return;
+
+    if (img.getAttribute("data-locked") === "1") return;
+    if (img.getAttribute("data-loaded") !== "1") return;
+
+    img.removeAttribute("src");
+    img.removeAttribute("data-loaded");
+    img.classList.add("opacity-0");
+  }
+
+  function getPreloadIndices(index, mode) {
+    var indices = [index];
+
+    if (mode === "initial") {
+      for (var offset = 1; offset <= 4; offset++) {
+        indices.push(index + offset);
+        indices.push(index - offset);
+      }
+      return indices;
+    }
+
+    for (var nextOffset = 1; nextOffset <= 4; nextOffset++) {
+      indices.push(index + nextOffset);
+    }
+
+    for (var prevOffset = 1; prevOffset <= 4; prevOffset++) {
+      indices.push(index - prevOffset);
+    }
+
+    return indices;
+  }
+
+  function preloadMushafAroundIndex(index, mode) {
+    if (!Array.isArray(window.QURAN_PAGE_MAP) || !window.QURAN_PAGE_MAP.length) return;
+    if (typeof index !== "number" || isNaN(index)) index = 0;
+
+    var keepIndices = new Set();
+    var preloadIndices = getPreloadIndices(index, mode);
+
+    preloadIndices.forEach(function (i) {
+      if (i < 0 || i >= window.QURAN_PAGE_MAP.length) return;
+      keepIndices.add(i);
+
+      var quranPage = window.QURAN_PAGE_MAP[i];
+      if (!quranPage) return;
+
+      loadMushafPageImage(quranPage);
+    });
+
+    window.QURAN_PAGE_MAP.forEach(function (quranPage, i) {
+      if (!quranPage) return;
+      if (keepIndices.has(i)) return;
+      if (Math.abs(i - index) <= 6) return;
+
+      unloadMushafPageImage(quranPage);
+    });
+  }
+
+  function initMushafImageLoader() {
+    try {
+      if (typeof flipBook === "undefined" || !flipBook) return;
+      if (initMushafImageLoader.__done) return;
+      initMushafImageLoader.__done = true;
+
+      var currentIndex = 0;
+      if (typeof flipBook.getCurrentPageIndex === "function") {
+        currentIndex = flipBook.getCurrentPageIndex();
+      }
+
+      preloadMushafAroundIndex(currentIndex, "initial");
+
+      if (Array.isArray(window.QURAN_PAGE_MAP)) {
+        var initialPage = window.QURAN_PAGE_MAP[currentIndex];
+        if (initialPage) {
+          saveLastVisitedPage(initialPage);
+        }
+      }
+
+      flipBook.on("flip", function (e) {
+        var idx = e.data;
+        preloadMushafAroundIndex(idx, "flip");
+
+        if (Array.isArray(window.QURAN_PAGE_MAP)) {
+          var currentPage = window.QURAN_PAGE_MAP[idx];
+          if (currentPage) {
+            saveLastVisitedPage(currentPage);
+          }
+        }
+      });
+    } catch (e) {
+      console.error("initMushafImageLoader error:", e);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initMushafImageLoader();
+
+    var tries = 0;
+    var maxTries = 40;
+    var timer = setInterval(function () {
+      if (initMushafImageLoader.__done) {
+        clearInterval(timer);
+        return;
+      }
+      tries += 1;
+      initMushafImageLoader();
+      if (tries >= maxTries) {
+        clearInterval(timer);
+      }
+    }, 100);
+  });
+</script>
+
+<script>
+  window.QURAN_PAGE_MAP = [
+    {% for p in pages reversed %}
+      {{ p }}{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+
+  window.QURAN_DEFAULT_PAGE = {{ raw_page|default:"null" }};
+  window.QURAN_MUSHAF_KEY = "{{ current_mushaf|default:''|escapejs }}";
+  window.CURRENT_MUSHAF_KEY = window.QURAN_MUSHAF_KEY;
+  window.CURRENT_QARI_FOLDER = "{{ current_qari_folder|default:''|escapejs }}";
+  window.CURRENT_QARI_CODE = window.CURRENT_QARI_FOLDER;
+  window.QURAN_AUDIO_EVENT_URL = "{% url 'quran:audio_listen_event' %}";
+  window.QURAN_POSITIONS_URL_TEMPLATE = "{% url 'quran:page_positions_json' 999999 %}";
+  const TOTAL_PAGES = {{ total_pages|default:604 }};
+
+  if (window.QURAN_DEFAULT_PAGE) {
+    saveLastVisitedPage(window.QURAN_DEFAULT_PAGE);
+  }
+</script>
+
+<script>
+  (function () {
+    if (window.__changeQariInitialized) return;
+    window.__changeQariInitialized = true;
+
+    function getQariStorageKey() {
+      return "quran_selected_qari__" + (window.QURAN_MUSHAF_KEY || "hafs");
+    }
+
+    function getAvailableQariCodes() {
+      return [{% for q in qurra %}"{{ q.code|escapejs }}"{% if not forloop.last %}, {% endif %}{% endfor %}];
+    }
+
+    function isAvailableQari(folder) {
+      if (!folder) return false;
+      const available = getAvailableQariCodes();
+      return !available.length || available.includes(folder);
+    }
+
+    function saveSelectedQari(folder) {
+      if (!folder) return;
+
+      try {
+        localStorage.setItem(getQariStorageKey(), folder);
+      } catch (err) {}
+
+      try {
+        var mushafKey = window.QURAN_MUSHAF_KEY || "hafs";
+        var cookieKey = "quran_selected_qari__" + mushafKey;
+
+        document.cookie =
+          cookieKey +
+          "=" +
+          encodeURIComponent(folder) +
+          "; path=/; max-age=31536000; SameSite=Lax";
+      } catch (err) {}
+    }
+
+    function getSavedQari() {
+      try {
+        return localStorage.getItem(getQariStorageKey()) || "";
+      } catch (err) {
+        return "";
+      }
+    }
+
+    function removeSavedQari() {
+      try {
+        localStorage.removeItem(getQariStorageKey());
+      } catch (err) {}
+    }
+
+    function changeQariFolder(newFolder) {
+      if (!newFolder || !isAvailableQari(newFolder)) return;
+
+      const previousFolder = window.CURRENT_QARI_FOLDER || "";
+      const items = window.QURAN_AUDIO_ITEMS || [];
+
+      items.forEach((item) => {
+        if (!item.audio) return;
+
+        const parts = item.audio.split("/audio/");
+        if (parts.length < 2) return;
+
+        const restParts = parts[1].split("/");
+        if (restParts.length < 2) return;
+
+        restParts[1] = newFolder;
+        item.audio = parts[0] + "/audio/" + restParts.join("/");
+      });
+
+      if (window.currentAyahItem && window.currentAyahItem.audio) {
+        window.currentAyahItem.audio = window.currentAyahItem.audio.replace(
+          /\/media\/audio\/([^/]+)\/([^/]+)\//,
+          "{{ MEDIA_URL }}audio/$1/" + newFolder + "/"
+        );
+      }
+
+      const audioEl = document.getElementById("ayahAudio");
+      if (audioEl) {
+        const src = audioEl.getAttribute("src") || audioEl.src || "";
+        const hasOldFolder = previousFolder && src.includes("/" + previousFolder + "/");
+        if (src && hasOldFolder) {
+          const wasPlaying = !audioEl.paused;
+          const currentTime = audioEl.currentTime || 0;
+          const nextSrc = src.replace(
+            /\/media\/audio\/([^/]+)\/([^/]+)\//,
+            "{{ MEDIA_URL }}audio/$1/" + newFolder + "/"
+          );
+
+          audioEl.pause();
+          audioEl.src = nextSrc;
+          audioEl.load();
+          audioEl.addEventListener(
+            "loadedmetadata",
+            function () {
+              try {
+                audioEl.currentTime = currentTime;
+              } catch (e) {}
+              if (wasPlaying) {
+                audioEl.play().catch(function () {});
+              }
+            },
+            { once: true }
+          );
+        }
+      }
+
+      window.CURRENT_QARI_FOLDER = newFolder;
+      window.CURRENT_QARI_CODE = newFolder;
+    }
+
+    window.changeQariFolder = changeQariFolder;
+
+    window.applyPersistedQari = function () {
+      const savedQari = getSavedQari();
+      const currentQari = window.CURRENT_QARI_FOLDER || "";
+
+      if (savedQari) {
+        if (isAvailableQari(savedQari)) {
+          changeQariFolder(savedQari);
+          return;
+        }
+        removeSavedQari();
+      }
+
+      if (currentQari && isAvailableQari(currentQari)) {
+        saveSelectedQari(currentQari);
+      }
+    };
+
+    document.addEventListener("click", function (e) {
+      const btn = e.target.closest("[data-folder]");
+      if (!btn) return;
+
+      const folder = btn.dataset.folder;
+      if (!folder || !isAvailableQari(folder)) return;
+
+      saveSelectedQari(folder);
+      changeQariFolder(folder);
+    });
+  })();
+</script>
+
+<script>
+  window.QURAN_AUDIO_ITEMS = [
+    {% for a in audio_items %}
+      {
+        surah: {{ a.surah_number }},
+        ayah: {{ a.ayah_number }},
+        page: {{ a.page_number }},
+        audio: "{{ MEDIA_URL }}audio/{{ current_mushaf|escapejs }}/{{ current_qari_folder|escapejs }}/{{ a.surah_number|stringformat:'03d' }}/{{ a.surah_number|stringformat:'03d' }}{{ a.ayah_number|stringformat:'03d' }}.mp3"
+      }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ];
+
+  (function () {
+    function applyQariWhenReady() {
+      if (
+        typeof window.applyPersistedQari === "function" &&
+        Array.isArray(window.QURAN_AUDIO_ITEMS) &&
+        window.QURAN_AUDIO_ITEMS.length > 0
+      ) {
+        window.applyPersistedQari();
+        return;
+      }
+
+      setTimeout(applyQariWhenReady, 50);
+    }
+
+    applyQariWhenReady();
+  })();
+</script>
+
+<script>
+  (function () {
+    function getCurrentRightPage() {
+      try {
+        if (typeof flipBook !== "undefined" && Array.isArray(window.QURAN_PAGE_MAP)) {
+          var idx = flipBook.getCurrentPageIndex();
+          var right = window.QURAN_PAGE_MAP[idx];
+          if (right) return right;
+        }
+      } catch (e) {}
+
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var p = parseInt(params.get("page") || "0", 10);
+        if (p > 0) return p;
+      } catch (e) {}
+
+      return window.QURAN_DEFAULT_PAGE || 1;
+    }
+
+    function openTafsirMode() {
+      var rightPage = getCurrentRightPage();
+      var leftPage = rightPage + 1;
+
+      if (typeof TOTAL_PAGES !== "undefined" && leftPage > TOTAL_PAGES) {
+        leftPage = rightPage;
+      }
+
+      var newUrl = "/quran/tafsir/" + leftPage + "/";
+
+      if (window.QURAN_MUSHAF_KEY) {
+        newUrl += "?mushaf=" + encodeURIComponent(window.QURAN_MUSHAF_KEY);
+      }
+
+      if (window.WirdAnalytics && typeof window.WirdAnalytics.track === "function") {
+        window.WirdAnalytics.track("tafsir_open", {
+          page: leftPage,
+          tafsir: window.CURRENT_TAFSIR_KEY || ""
+        });
+      }
+
+      window.location.href = newUrl;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var btn = document.getElementById("openTafsirModeBtn");
+      if (!btn) return;
+
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        try {
+          var area = document.getElementById("mushafArea");
+          if (area && area.classList.contains("reading-mode")) {
+            area.classList.remove("reading-mode");
+          }
+
+          try {
+            localStorage.setItem("quran_reading_mode", "off");
+          } catch (err2) {
+            console.warn("Failed to update localStorage for reading mode:", err2);
+          }
+        } catch (err) {
+          console.warn("Failed to reset reading mode before tafsir:", err);
+        }
+
+        openTafsirMode();
+      });
+    });
+  })();
+</script>
+
+<script>
+  (function () {
+    function getResumeTargetFromUrl() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var surah = params.get("surah");
+        var ayah = params.get("ayah");
+
+        if (!surah || !ayah) return null;
+
+        return {
+          surah: String(surah),
+          ayah: String(ayah),
+        };
+      } catch (err) {
+        return null;
+      }
+    }
+
+    function getResumePageFromUrl() {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var page = parseInt(params.get("resume_page") || params.get("page") || "0", 10);
+        return page > 0 ? page : null;
+      } catch (err) {
+        return null;
+      }
+    }
+
+    function findPageIndexByNumber(pageNumber) {
+      if (!pageNumber || !Array.isArray(window.QURAN_PAGE_MAP)) return -1;
+      return window.QURAN_PAGE_MAP.indexOf(pageNumber);
+    }
+
+    function goToResumePageIfNeeded() {
+      var pageNumber = getResumePageFromUrl();
+      if (!pageNumber) return false;
+
+      try {
+        if (typeof flipBook === "undefined" || !flipBook) return false;
+
+        var targetIndex = findPageIndexByNumber(pageNumber);
+        if (targetIndex < 0) return false;
+
+        if (typeof flipBook.getCurrentPageIndex === "function") {
+          var currentIndex = flipBook.getCurrentPageIndex();
+          if (currentIndex === targetIndex) return true;
+        }
+
+        if (typeof flipBook.flip === "function") {
+          flipBook.flip(targetIndex);
+          return true;
+        }
+
+        if (typeof flipBook.turnToPage === "function") {
+          flipBook.turnToPage(targetIndex);
+          return true;
+        }
+
+        if (typeof flipBook.loadFromHTML === "function" && typeof window.goToLogicalPage === "function") {
+          window.goToLogicalPage(pageNumber);
+          return true;
+        }
+      } catch (err) {
+        console.error("goToResumePageIfNeeded error:", err);
+      }
+
+      return false;
+    }
+
+    function findAyahOverlayElement(pageNumber, surah, ayah) {
+      var pageSelector = '.ayah-layer[data-page="' + pageNumber + '"] [data-surah="' + surah + '"][data-ayah="' + ayah + '"]';
+      var exact = document.querySelector(pageSelector);
+      if (exact) return exact;
+
+      var genericSelector = '[data-page="' + pageNumber + '"][data-surah="' + surah + '"][data-ayah="' + ayah + '"]';
+      return document.querySelector(genericSelector);
+    }
+
+    function highlightAyahElement(element) {
+      if (!element) return;
+
+      element.classList.add("resume-ayah-target");
+
+      setTimeout(function () {
+        element.classList.remove("resume-ayah-target");
+      }, 2400);
+    }
+
+    function tryHighlightResumeAyah() {
+      var target = getResumeTargetFromUrl();
+      var pageNumber = getResumePageFromUrl() || window.QURAN_DEFAULT_PAGE;
+
+      if (!target || !pageNumber) return false;
+
+      var overlayEl = findAyahOverlayElement(pageNumber, target.surah, target.ayah);
+      if (overlayEl) {
+        highlightAyahElement(overlayEl);
+        return true;
+      }
+
+      if (typeof window.highlightCurrentAyah === "function") {
+        try {
+          window.highlightCurrentAyah(Number(target.surah), Number(target.ayah));
+          return true;
+        } catch (err) {}
+      }
+
+      return false;
+    }
+
+    function tryResumePlaybackAtTarget() {
+      var target = getResumeTargetFromUrl();
+      if (!target) return false;
+
+      if (!Array.isArray(window.QURAN_AUDIO_ITEMS) || !window.QURAN_AUDIO_ITEMS.length) {
+        return false;
+      }
+
+      var matchedItem = window.QURAN_AUDIO_ITEMS.find(function (item) {
+        return (
+          String(item.surah) === String(target.surah) &&
+          String(item.ayah) === String(target.ayah)
+        );
+      });
+
+      if (!matchedItem) return false;
+
+      window.currentAyahItem = matchedItem;
+
+      if (typeof window.setCurrentAyahItem === "function") {
+        try {
+          window.setCurrentAyahItem(matchedItem);
+        } catch (err) {}
+      }
+
+      return true;
+    }
+
+    function tryResumeToAyahFromUrl() {
+      var target = getResumeTargetFromUrl();
+      if (!target) return;
+
+      goToResumePageIfNeeded();
+
+      var attempts = 0;
+      var maxAttempts = 40;
+
+      var timer = setInterval(function () {
+        attempts += 1;
+
+        goToResumePageIfNeeded();
+
+        var done = false;
+
+        if (tryResumePlaybackAtTarget()) {
+          done = true;
+        }
+
+        if (tryHighlightResumeAyah()) {
+          done = true;
+        }
+
+        if (done || attempts >= maxAttempts) {
+          clearInterval(timer);
+        }
+      }, 250);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tryResumeToAyahFromUrl();
+    });
+
+    document.addEventListener("quran-page-flipped", function () {
+      tryResumeToAyahFromUrl();
+    });
+
+    window.tryResumeToAyahFromUrl = tryResumeToAyahFromUrl;
+  })();
+</script>

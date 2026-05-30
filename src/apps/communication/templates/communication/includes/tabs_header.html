@@ -1,0 +1,93 @@
+{% load rbac_tags %}
+{% if request.user|can_access:"communication.access" %}
+
+<div class="site-card p-4">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-megaphone-fill site-link-primary"></i>
+        <span>إدارة التواصل الإجتماعي</span>
+      </h2>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 text-[11px] site-text-muted">
+      <i class="bi bi-share-fill"></i>
+      <span>X • Facebook • Telegram </span>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+      {% if request.user|can_access:"communication.access" %}
+      <a href="{% url 'apps.communication:overview' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'overview' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'overview' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-grid-1x2-fill ml-1"></i>
+        <span>ملخص التواصل الإجتماعي</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"communication.create" %}
+      <a href="{% url 'apps.communication:create' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'create' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'create' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-plus-circle-fill ml-1"></i>
+        <span>إرسال منشور</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"communication.campaigns" %}
+      <a href="{% url 'apps.communication:campaigns' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'campaigns' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'campaigns' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-layers-fill ml-1"></i>
+        <span>الحملات</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"communication.logs" %}
+      <a href="{% url 'apps.communication:logs' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'logs' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'logs' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-clock-history ml-1"></i>
+        <span>السجل</span>
+      </a>
+      {% endif %}
+
+    </nav>
+  </div>
+
+</div>
+{% endif %}

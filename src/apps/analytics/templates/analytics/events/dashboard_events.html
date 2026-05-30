@@ -1,0 +1,59 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+
+{% block title %}آخر التفاعلات{% endblock %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-5" dir-text>
+  {% include "analytics/include/tabs_header.html" %}
+
+  <div class="site-card overflow-hidden">
+    <div class="p-5 border-b site-border">
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-clock-history"></i>
+        <span>آخر التفاعلات</span>
+      </h2>
+      <p class="mt-2 text-xs site-text-muted">عدد السجلات: {{ events_total_count }}</p>
+    </div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="px-4 py-3 text-right">النوع</th>
+            <th class="px-4 py-3 text-right">المسار</th>
+            <th class="px-4 py-3 text-center">الصفحة</th>
+            <th class="px-4 py-3 text-center">السورة</th>
+            <th class="px-4 py-3 text-center">الآية</th>
+            <th class="px-4 py-3 text-center">القارئ</th>
+            <th class="px-4 py-3 text-center">الوقت</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for event in recent_events %}
+          <tr class="border-t site-border">
+            <td class="px-4 py-3 font-semibold text-slate-700">{{ event.get_event_type_display }}</td>
+            <td class="px-4 py-3 text-slate-600">{{ event.path }}</td>
+            <td class="px-4 py-3 text-center">{{ event.page_number|default:"-" }}</td>
+            <td class="px-4 py-3 text-center">{{ event.surah_number|default:"-" }}</td>
+            <td class="px-4 py-3 text-center">{{ event.ayah_number|default:"-" }}</td>
+            <td class="px-4 py-3 text-center">{{ event.qari|default:"-" }}</td>
+            <td class="px-4 py-3 text-center text-xs site-text-muted">{{ event.created_at|date:"Y-m-d H:i" }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="7" class="px-4 py-6 text-center site-text-muted">لا توجد تفاعلات بعد</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pb-4">
+      {% include "web/components/pagination.html" with page_obj=events_page_obj page_numbers=events_page_numbers tab="events" %}
+    </div>
+  </div>
+</div>
+
+<div class="h-36"></div>
+{% endblock %}

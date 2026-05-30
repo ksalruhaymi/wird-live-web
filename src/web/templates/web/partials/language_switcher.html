@@ -1,0 +1,367 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<div class="language-switcher wird-language-switcher relative inline-block min-w-[150px] flex-none" data-language-switcher>
+  <button
+    type="button"
+    class="wird-lang-button inline-flex w-full items-center justify-between gap-2 rounded-xl border site-border bg-white/95 px-3 py-2 text-sm font-bold site-text shadow-sm transition hover:bg-emerald-700 hover:text-white"
+    aria-label="{% trans 'language' %}"
+    aria-haspopup="menu"
+    aria-expanded="false"
+    data-current-language="{{ LANGUAGE_CODE }}">
+    <span class="inline-flex min-w-0 items-center gap-2">
+      <i class="bi bi-translate text-base"></i>
+      <span class="truncate">
+        {% if LANGUAGE_CODE == "ar" %}العربية
+        {% elif LANGUAGE_CODE == "en" %}English
+        {% elif LANGUAGE_CODE == "de" %}Deutsch
+        {% elif LANGUAGE_CODE == "es" %}Español
+        {% elif LANGUAGE_CODE == "hi" %}हिन्दी
+        {% elif LANGUAGE_CODE == "ur" %}اردو
+        {% elif LANGUAGE_CODE == "fa" %}فارسی
+        {% elif LANGUAGE_CODE == "id" %}Indonesia
+        {% elif LANGUAGE_CODE == "fr" %}Français
+        {% elif LANGUAGE_CODE == "ja" %}日本語
+        {% elif LANGUAGE_CODE == "zh" %}中文
+        {% elif LANGUAGE_CODE == "nl" %}Nederlands
+        {% elif LANGUAGE_CODE == "fil" %}Filipino
+        {% elif LANGUAGE_CODE == "vi" %}Tiếng Việt
+        {% elif LANGUAGE_CODE == "as" %}অসমীয়া
+        {% elif LANGUAGE_CODE == "si" %}සිංහල
+        {% elif LANGUAGE_CODE == "so" %}Soomaali
+        {% else %}Language{% endif %}
+      </span>
+    </span>
+    <i class="bi bi-chevron-down text-xs opacity-75"></i>
+  </button>
+
+  <template class="wird-lang-template">
+    <div class="wird-lang-panel" role="menu" aria-label="{% trans 'language' %}">
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="rtl">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="ar"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'ar' %}is-active{% endif %}"><span>العربية</span>{% if LANGUAGE_CODE == 'ar' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="en"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'en' %}is-active{% endif %}"><span>English</span>{% if LANGUAGE_CODE == 'en' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="de"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'de' %}is-active{% endif %}"><span>Deutsch</span>{% if LANGUAGE_CODE == 'de' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="es"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'es' %}is-active{% endif %}"><span>Español</span>{% if LANGUAGE_CODE == 'es' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="hi"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'hi' %}is-active{% endif %}"><span>हिन्दी</span>{% if LANGUAGE_CODE == 'hi' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="rtl">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="ur"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'ur' %}is-active{% endif %}"><span>اردو</span>{% if LANGUAGE_CODE == 'ur' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="rtl">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="fa"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'fa' %}is-active{% endif %}"><span>فارسی</span>{% if LANGUAGE_CODE == 'fa' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="id"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'id' %}is-active{% endif %}"><span>Indonesia</span>{% if LANGUAGE_CODE == 'id' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="fr"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'fr' %}is-active{% endif %}"><span>Français</span>{% if LANGUAGE_CODE == 'fr' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="ja"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'ja' %}is-active{% endif %}"><span>日本語</span>{% if LANGUAGE_CODE == 'ja' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="zh"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'zh' %}is-active{% endif %}"><span>中文</span>{% if LANGUAGE_CODE == 'zh' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="nl"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'nl' %}is-active{% endif %}"><span>Nederlands</span>{% if LANGUAGE_CODE == 'nl' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="fil"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'fil' %}is-active{% endif %}"><span>Filipino</span>{% if LANGUAGE_CODE == 'fil' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="vi"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'vi' %}is-active{% endif %}"><span>Tiếng Việt</span>{% if LANGUAGE_CODE == 'vi' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="as"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'as' %}is-active{% endif %}"><span>অসমীয়া</span>{% if LANGUAGE_CODE == 'as' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="si"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'si' %}is-active{% endif %}"><span>සිංහල</span>{% if LANGUAGE_CODE == 'si' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="so"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'so' %}is-active{% endif %}"><span>Soomaali</span>{% if LANGUAGE_CODE == 'so' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+    </div>
+  </template>
+
+  <div class="wird-lang-fallback" role="menu" aria-label="{% trans 'language' %}">
+    <div class="wird-lang-fallback-inner">
+      <div class="wird-lang-fallback-note">{% trans "language" %}</div>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="rtl">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="ar"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'ar' %}is-active{% endif %}"><span>العربية</span>{% if LANGUAGE_CODE == 'ar' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="en"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'en' %}is-active{% endif %}"><span>English</span>{% if LANGUAGE_CODE == 'en' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="de"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'de' %}is-active{% endif %}"><span>Deutsch</span>{% if LANGUAGE_CODE == 'de' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="es"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'es' %}is-active{% endif %}"><span>Español</span>{% if LANGUAGE_CODE == 'es' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="hi"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'hi' %}is-active{% endif %}"><span>हिन्दी</span>{% if LANGUAGE_CODE == 'hi' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="rtl">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="ur"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'ur' %}is-active{% endif %}"><span>اردو</span>{% if LANGUAGE_CODE == 'ur' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="rtl">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="fa"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'fa' %}is-active{% endif %}"><span>فارسی</span>{% if LANGUAGE_CODE == 'fa' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="id"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'id' %}is-active{% endif %}"><span>Indonesia</span>{% if LANGUAGE_CODE == 'id' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="fr"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'fr' %}is-active{% endif %}"><span>Français</span>{% if LANGUAGE_CODE == 'fr' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="ja"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'ja' %}is-active{% endif %}"><span>日本語</span>{% if LANGUAGE_CODE == 'ja' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="zh"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'zh' %}is-active{% endif %}"><span>中文</span>{% if LANGUAGE_CODE == 'zh' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="nl"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'nl' %}is-active{% endif %}"><span>Nederlands</span>{% if LANGUAGE_CODE == 'nl' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="fil"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'fil' %}is-active{% endif %}"><span>Filipino</span>{% if LANGUAGE_CODE == 'fil' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="vi"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'vi' %}is-active{% endif %}"><span>Tiếng Việt</span>{% if LANGUAGE_CODE == 'vi' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="as"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'as' %}is-active{% endif %}"><span>অসমীয়া</span>{% if LANGUAGE_CODE == 'as' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="si"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'si' %}is-active{% endif %}"><span>සිංහල</span>{% if LANGUAGE_CODE == 'si' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+      <form method="post" action="{% url 'set_language' %}" class="wird-lang-form" dir="ltr">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="so"><button type="submit" class="wird-lang-option {% if LANGUAGE_CODE == 'so' %}is-active{% endif %}"><span>Soomaali</span>{% if LANGUAGE_CODE == 'so' %}<i class="bi bi-check2"></i>{% endif %}</button></form>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var root = null;
+  var activeButton = null;
+  var activeSwitcher = null;
+
+  function safeClosest(target, selector) {
+    return target && target.nodeType === 1 && typeof target.closest === "function" ? target.closest(selector) : null;
+  }
+
+  function getDirection() {
+    return document.documentElement.getAttribute("dir") || "rtl";
+  }
+
+  function createRoot() {
+    if (root && document.body && document.body.contains(root)) return root;
+    if (!document.body) return null;
+
+    root = document.createElement("div");
+    root.id = "wirdLanguageDropdownRoot";
+    root.setAttribute("data-wird-language-root", "1");
+    root.style.cssText = "position:fixed !important;display:none !important;visibility:hidden !important;opacity:0 !important;z-index:2147483647 !important;top:0 !important;left:0 !important;width:220px !important;max-height:220px !important;overflow-y:auto !important;overflow-x:hidden !important;background:#fff !important;border:1px solid rgba(15,23,42,.14) !important;border-radius:16px !important;box-shadow:0 20px 50px rgba(0,0,0,.22) !important;isolation:isolate !important;pointer-events:auto !important;contain:none !important;transform:none !important;filter:none !important;backdrop-filter:none !important;";
+    document.body.appendChild(root);
+    return root;
+  }
+
+  function placeRoot(button) {
+    var dropdown = createRoot();
+    if (!dropdown || !button) return;
+
+    var rect = button.getBoundingClientRect();
+    var viewportWidth = window.innerWidth || document.documentElement.clientWidth || 1024;
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 768;
+    var margin = 12;
+    var gap = 10;
+    var width = 220;
+    var top = rect.bottom + gap;
+    var left;
+
+    if (getDirection() === "rtl") {
+      left = rect.right - width;
+    } else {
+      left = rect.left;
+    }
+
+    left = Math.max(margin, Math.min(left, viewportWidth - width - margin));
+
+    dropdown.style.setProperty("width", width + "px", "important");
+    dropdown.style.setProperty("top", Math.round(top) + "px", "important");
+    dropdown.style.setProperty("left", Math.round(left) + "px", "important");
+    dropdown.style.setProperty("max-height", "220px", "important");
+  }
+
+  function openDropdown(button) {
+    var switcher = safeClosest(button, "[data-language-switcher]");
+    if (!switcher) return;
+
+    var template = switcher.querySelector(".wird-lang-template");
+    var dropdown = createRoot();
+    if (!template || !dropdown) return;
+
+    dropdown.innerHTML = template.innerHTML;
+    dropdown.dir = getDirection();
+    dropdown.style.setProperty("display", "block", "important");
+    dropdown.style.setProperty("visibility", "visible", "important");
+    dropdown.style.setProperty("opacity", "1", "important");
+    dropdown.style.setProperty("pointer-events", "auto", "important");
+    dropdown.style.setProperty("z-index", "2147483647", "important");
+
+    placeRoot(button);
+
+    if (activeButton && activeButton !== button) {
+      activeButton.setAttribute("aria-expanded", "false");
+    }
+
+    activeButton = button;
+    activeSwitcher = switcher;
+    activeButton.setAttribute("aria-expanded", "true");
+    document.documentElement.classList.add("wird-language-open");
+  }
+
+  function closeDropdown() {
+    if (root) {
+      root.style.setProperty("display", "none", "important");
+      root.style.setProperty("visibility", "hidden", "important");
+      root.style.setProperty("opacity", "0", "important");
+      root.innerHTML = "";
+    }
+
+    if (activeButton) activeButton.setAttribute("aria-expanded", "false");
+    activeButton = null;
+    activeSwitcher = null;
+    document.documentElement.classList.remove("wird-language-open");
+  }
+
+  function isOpen() {
+    return root && root.style.display === "block";
+  }
+
+  function toggleDropdown(button) {
+    if (isOpen() && activeButton === button) closeDropdown();
+    else openDropdown(button);
+  }
+
+  function bindSwitcher(switcher) {
+    if (!switcher || switcher.getAttribute("data-wird-lang-ready") === "1") return;
+    switcher.setAttribute("data-wird-lang-ready", "1");
+
+    var button = switcher.querySelector(".wird-lang-button");
+    if (!button) return;
+
+    button.addEventListener("pointerdown", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      if (typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+      toggleDropdown(button);
+    }, true);
+
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }, true);
+  }
+
+  function init() {
+    var switchers = document.querySelectorAll("[data-language-switcher]");
+    for (var i = 0; i < switchers.length; i += 1) bindSwitcher(switchers[i]);
+  }
+
+  document.addEventListener("pointerdown", function (event) {
+    var insideDropdown = safeClosest(event.target, "#wirdLanguageDropdownRoot");
+    var insideSwitcher = safeClosest(event.target, "[data-language-switcher]");
+
+    if (insideDropdown) {
+      event.stopPropagation();
+      return;
+    }
+
+    if (!insideSwitcher) closeDropdown();
+  }, true);
+
+  document.addEventListener("click", function (event) {
+    var insideDropdown = safeClosest(event.target, "#wirdLanguageDropdownRoot");
+    if (insideDropdown) {
+      event.stopPropagation();
+    }
+  }, true);
+
+  window.addEventListener("resize", function () {
+    if (activeButton && isOpen()) placeRoot(activeButton);
+  });
+
+  window.addEventListener("scroll", function () {
+    if (activeButton && isOpen()) placeRoot(activeButton);
+  }, true);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeDropdown();
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+  window.WirdLanguageSwitcher = {
+    init: init,
+    close: closeDropdown,
+    open: openDropdown,
+    version: "final-navbar-portal-v7"
+  };
+}());
+</script>
+
+<style>
+  .wird-language-switcher,
+  .wird-language-switcher * {
+    box-sizing: border-box !important;
+  }
+
+  .wird-language-switcher {
+    position: relative !important;
+    overflow: visible !important;
+    z-index: 1000000 !important;
+  }
+
+  .wird-lang-button {
+    position: relative !important;
+    z-index: 1000001 !important;
+  }
+
+  #wirdLanguageDropdownRoot,
+  #wirdLanguageDropdownRoot * {
+    box-sizing: border-box !important;
+    font-family: inherit !important;
+  }
+
+  #wirdLanguageDropdownRoot {
+    z-index: 2147483647 !important;
+  }
+
+  #wirdLanguageDropdownRoot .wird-lang-panel,
+  .wird-lang-fallback-inner {
+    display: block !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+    border-radius: 20px !important;
+  }
+
+  #wirdLanguageDropdownRoot .wird-lang-form,
+  .wird-lang-fallback .wird-lang-form {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #wirdLanguageDropdownRoot .wird-lang-form + .wird-lang-form,
+  .wird-lang-fallback .wird-lang-form + .wird-lang-form {
+    border-top: 1px solid rgba(15, 23, 42, .07) !important;
+  }
+
+  #wirdLanguageDropdownRoot .wird-lang-option,
+  .wird-lang-fallback .wird-lang-option {
+    display: flex !important;
+    width: 100% !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    padding: 12px 16px !important;
+    border: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 1.45 !important;
+    cursor: pointer !important;
+    text-align: start !important;
+    min-height: 46px !important;
+  }
+
+  #wirdLanguageDropdownRoot .wird-lang-option:hover,
+  #wirdLanguageDropdownRoot .wird-lang-option.is-active,
+  .wird-lang-fallback .wird-lang-option:hover,
+  .wird-lang-fallback .wird-lang-option.is-active {
+    background: #ecfdf5 !important;
+    color: #065f46 !important;
+  }
+
+  .wird-lang-fallback {
+    display: none !important;
+    position: fixed !important;
+    top: 86px !important;
+    inset-inline-start: 16px !important;
+    width: min(320px, calc(100vw - 32px)) !important;
+    max-height: calc(100vh - 110px) !important;
+    overflow: auto !important;
+    z-index: 2147483647 !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, .14) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 35px 90px rgba(0,0,0,.38) !important;
+  }
+
+  .wird-lang-fallback-note {
+    padding: 12px 16px !important;
+    color: #047857 !important;
+    background: #f0fdf4 !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    border-bottom: 1px solid rgba(15, 23, 42, .07) !important;
+  }
+
+  .wird-language-switcher:focus-within .wird-lang-fallback {
+    display: block !important;
+  }
+
+  html.wird-language-open .wird-lang-fallback {
+    display: none !important;
+  }
+</style>

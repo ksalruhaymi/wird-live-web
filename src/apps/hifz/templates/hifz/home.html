@@ -1,0 +1,97 @@
+{% extends "web/layouts/base.html" %}
+{% load static i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+
+{% block title %}Hifz{% endblock %}
+
+{% block content %}
+
+{% get_current_language as CURRENT_LANGUAGE %}
+
+<link rel="stylesheet" href="{% static 'quran/css/quran.css' %}">
+<link rel="stylesheet" href="{% static 'hifz/css/hifz-hide-ayahs.css' %}">
+<link rel="stylesheet" href="{% static 'hifz/css/hifz-writing.css' %}?v=writing-module-10">
+<link rel="stylesheet" href="{% static 'hifz/css/hifz-toolbar-normal.css' %}?v=hifz-side-panels-10">
+<link rel="stylesheet" href="{% static 'hifz/css/hifz-toolbar-fullscreen.css' %}">
+
+<div class="mt-4 grid grid-cols-12 gap-4 lg:gap-6 mb-10">
+
+  <div id="sidebarMenuWrapper" class="mt-14 col-span-12 lg:col-span-2 order-2 lg:order-1">
+    {% include "hifz/partials/hifz_options_panel.html" %}
+  </div>
+
+  <div id="centerColumn" class="col-span-12 lg:col-span-8 order-1 lg:order-2 flex justify-center">
+    <div class="w-full">
+      <div id="mushafModeWrapper" class="{% if mode != 'mushaf' %}hidden{% endif %}">
+        {% include "hifz/partials/hifz_area.html" %}
+      </div>
+    </div>
+  </div>
+
+  <div id="recitationPanelWrapper" class="mt-14 col-span-12 lg:col-span-2 order-3">
+    {% include "hifz/partials/recitation_correction_result.html" %}
+  </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+
+<script>
+  window.TRANSLATIONS = window.TRANSLATIONS || {};
+  window.HIFZ_ARABIC_FEATURES_ENABLED = "{{ CURRENT_LANGUAGE|escapejs }}" === "ar";
+  window.TRANSLATIONS.saveStop = "{% trans 'save_stop' %}";
+  window.TRANSLATIONS.cancelStop = "{% trans 'cancel_stop' %}";
+  window.QURAN_PAGE_MAP = [{% for p in pages reversed %}{{ p }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+  window.QURAN_MUSHAF_KEY = "{{ current_mushaf|default:''|escapejs }}";
+  window.QURAN_START_PAGE_INDEX = {{ pages|length }} - 1 - {{ current_index|default:0 }};
+  window.RIGHT_PAGE = {{ right_page|default:"null" }};
+  window.LEFT_PAGE = {{ left_page|default:"null" }};
+  window.HIFZ_MODE = true;
+  (function initHifzMushafSpreadPref() {
+    try {
+      var v = localStorage.getItem("hifz_mushaf_spread");
+      window.HIFZ_MUSHAF_SPREAD = v === "double" ? "double" : "single";
+    } catch (e) {
+      window.HIFZ_MUSHAF_SPREAD = "single";
+    }
+    function applySpreadDataAttr() {
+      var el = document.getElementById("mushafArea");
+      if (el) {
+        el.setAttribute("data-hifz-spread", window.HIFZ_MUSHAF_SPREAD);
+      }
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", applySpreadDataAttr);
+    } else {
+      applySpreadDataAttr();
+    }
+  })();
+</script>
+
+{{ hifz_thematic_ayahs|json_script:"hifzThematicAyahsData" }}
+<script src="{% static 'hifz/js/hifz-thematic-segmentation.js' %}?v=all-lang-segment-1"></script>
+<script src="{% static 'hifz/js/hifz-hide-ayahs.js' %}"></script>
+<script src="{% static 'quran/js/quran-page.js' %}"></script>
+<script src="{% static 'quran/js/modals.js' %}"></script>
+<script src="{% static 'quran/js/ayah-highlight.js' %}"></script>
+<script src="{% static 'quran/js/global-click.js' %}"></script>
+<script src="{% static 'quran/js/ayah-audio.js' %}?v=4"></script>
+<script src="{% static 'quran/js/audio-listen-tracker.js' %}"></script>
+<script src="{% static 'quran/js/reading-mode.js' %}"></script>
+<script src="{% static 'hifz/js/repeat-audio.js' %}"></script>
+<script src="{% static 'hifz/js/hifz-fullscreen.js' %}"></script>
+<script src="{% static 'hifz/js/hifz-display-mode.js' %}"></script>
+<script src="{% static 'hifz/js/hifz-floating-controls.js' %}"></script>
+<script src="{% static 'hifz/js/hifz-writing.js' %}?v=recording-buttons-2"></script>
+<script src="{% static 'hifz/js/hifz-ayah-play-button.js' %}?v=recording-buttons-2"></script>
+
+<script>
+  window.addEventListener("load", function () {
+    if (window.initMushafFlipBook) {
+      window.initMushafFlipBook();
+    }
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,182 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block title %}رسائل التواصل{% endblock %}
+{% block description %}إدارة رسائل التواصل{% endblock %}
+
+{% block dashboard_content %}
+
+{% if request.user|can_access:"contact.access" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+
+  {% include "dashboard/include/tabs_header.html" with tab=tab %}
+
+  <div>
+    <h1 class="text-base md:text-lg font-extrabold site-text">رسائل التواصل</h1>
+    <p class="mt-1 text-[11px] site-text">اضغط على الرسالة مباشرة لفتح تفاصيلها.</p>
+  </div>
+
+  <!-- Controls -->
+  <div class="flex items-center justify-between gap-4">
+
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_messages %}
+    </div>
+
+    <div class="flex justify-center flex-1">
+      {% include "web/components/table_search_input.html" with placeholder="بحث بالاسم أو البريد أو الرسالة" tab=tab per_page=per_page q=q %}
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page tab=tab %}
+    </div>
+
+  </div>
+
+  <div class="overflow-x-auto site-card">
+    <table class="min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text">
+        <tr class="dir-text">
+          <th class="px-4 py-3 font-bold">الاسم</th>
+          <th class="px-4 py-3 font-bold">البريد</th>
+          <th class="px-4 py-3 font-bold">المصدر</th>
+          <th class="px-4 py-3 font-bold">الحالة</th>
+          <th class="px-4 py-3 font-bold dir-start">التاريخ</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-site">
+        {% for m in contact_messages %}
+        <tr class="hover:site-surface transition">
+          <td class="px-4 py-3 font-semibold site-text">
+            <a
+              href="{% url 'contact:dashboard_detail' m.id %}"
+              class="block w-full text-inherit no-underline break-words"
+              aria-label="فتح تفاصيل رسالة {{ m.full_name|default:'—'|escape }}"
+            >
+              {{ m.full_name|default:"—"|escape }}
+            </a>
+          </td>
+
+          <td class="px-4 py-3 site-text">
+            <a
+              href="{% url 'contact:dashboard_detail' m.id %}"
+              class="block w-full text-inherit no-underline break-words"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              {{ m.email|default:"—"|escape }}
+            </a>
+          </td>
+
+          <td class="px-4 py-3">
+            <a
+              href="{% url 'contact:dashboard_detail' m.id %}"
+              class="block w-full text-inherit no-underline"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <span class="inline-flex items-center gap-1 rounded-full px-3 py-1 text-[11px] font-bold
+                {% if m.source == 'app' %}
+                  bg-blue-100 text-blue-700
+                {% else %}
+                  bg-gray-100 text-gray-600
+                {% endif %}
+              ">
+                {% if m.source == 'app' %}📱 جوال{% else %}🌐 ويب{% endif %}
+              </span>
+            </a>
+          </td>
+
+          <td class="px-4 py-3">
+            <a
+              href="{% url 'contact:dashboard_detail' m.id %}"
+              class="block w-full text-inherit no-underline"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <span class="inline-flex rounded-full px-3 py-1 text-[11px] font-bold
+                {% if m.status == 'new' %}
+                  bg-red-100 text-red-700
+                {% elif m.status == 'replied' %}
+                  bg-green-100 text-green-700
+                {% elif m.status == 'pending' %}
+                  bg-yellow-100 text-yellow-700
+                {% else %}
+                  site-surface site-text
+                {% endif %}
+              ">
+                {{ m.get_status_display|default:"—"|escape }}
+              </span>
+            </a>
+          </td>
+
+          <td class="px-4 py-3 dir-start text-[11px] text-slate-400 whitespace-nowrap">
+            <a
+              href="{% url 'contact:dashboard_detail' m.id %}"
+              class="block w-full text-inherit no-underline"
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              {{ m.created_at|date:"Y-m-d" }}
+            </a>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4" class="p-6 text-center site-text">لا توجد رسائل حالياً</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  {% if per_page != "all" %}
+    {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers tab=tab q=q per_page=per_page %}
+  {% endif %}
+
+</div>
+
+<script>
+  (function () {
+    const form = document.getElementById("contactSearchForm");
+    const input = document.getElementById("contactSearchInput");
+
+    if (!form || !input) {
+      return;
+    }
+
+    let timer = null;
+
+    input.addEventListener("input", function () {
+      const value = input.value.trim();
+
+      clearTimeout(timer);
+
+      if (value.length > 0 && value.length < 3) {
+        return;
+      }
+
+      timer = setTimeout(function () {
+        sessionStorage.setItem("contact_search_focus", "1");
+        form.submit();
+      }, 400);
+    });
+
+    if (sessionStorage.getItem("contact_search_focus") === "1") {
+      input.focus();
+
+      const val = input.value;
+      input.value = "";
+      input.value = val;
+
+      sessionStorage.removeItem("contact_search_focus");
+    }
+  })();
+</script>
+{% endif %}
+{% endblock %}

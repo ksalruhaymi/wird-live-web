@@ -1,0 +1,110 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"communication.logs" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "communication/includes/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="site-title-md">
+        سجل الإرسال
+      </h1>
+      <p class="mt-1 text-[11px] site-text-muted">
+        سجل عمليات الإرسال لكل حملة ولكل قناة تواصل.
+      </p>
+    </div>
+  </div>
+
+  <!-- Controls row -->
+  <div class="flex items-center justify-between gap-4">
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_logs %}
+    </div>
+
+    <div class="flex justify-center flex-1">
+      {% include "web/components/table_search_input.html" with search_key="logs" placeholder="بحث بالعنوان أو القناة" %}
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page %}
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto site-card">
+    {% if logs %}
+      <table class="js-search-table min-w-full text-[12px]">
+        <thead class="site-surface text-[11px] site-text-muted">
+          <tr class="dir-text">
+            <th class="px-4 py-3 font-bold w-[5%]">#</th>
+            <th class="px-4 py-3 font-bold w-[30%]">عنوان الحملة</th>
+            <th class="px-4 py-3 font-bold w-[15%]">القناة</th>
+            <th class="px-4 py-3 font-bold w-[10%] text-center">حالة الإرسال</th>
+            <th class="px-4 py-3 font-bold w-[15%] text-center">تاريخ الإرسال</th>
+            <th class="px-4 py-3 font-bold">الخطأ (إن وجد)</th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-slate-100">
+          {% for row in logs %}
+          <tr class="hover:site-surface transition">
+            <td class="px-4 py-3 site-text-muted">
+              {{ forloop.counter }}
+            </td>
+
+            <td class="px-4 py-3 font-semibold site-text">
+              {{ row.campaign.title }}
+            </td>
+
+            <td class="px-4 py-3 site-text">
+              {{ row.get_channel_display }}
+            </td>
+
+            <td class="px-4 py-3 text-center text-[11px]">
+              {% if row.send_status == "sent" %}
+                <span class="text-green-600 font-bold">مرسلة</span>
+              {% elif row.send_status == "failed" %}
+                <span class="text-red-600 font-bold">فشل</span>
+              {% else %}
+                <span class="site-text-muted font-bold">في الانتظار</span>
+              {% endif %}
+            </td>
+
+            <td class="px-4 py-3 text-center text-[11px] site-text-muted whitespace-nowrap">
+              {% if row.sent_at %}
+                {{ row.sent_at|date:"Y-m-d" }}<br>
+                {{ row.sent_at|time:"H:i" }}
+              {% else %}
+                -
+              {% endif %}
+            </td>
+
+            <td class="px-4 py-3 text-[11px] site-text-muted">
+              {{ row.error_message|default:"-" }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="py-10 text-center text-[12px] site-text-muted">
+        لا يوجد سجلات إرسال حالياً.
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Pagination row -->
+  <div class="flex items-center justify-between">
+    {% include "web/components/pagination.html" with page_obj=logs page_numbers=logs_page_numbers tab="logs" per_page=per_page %}
+  </div>
+
+</div>
+
+{% endif %}
+{% endblock %}

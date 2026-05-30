@@ -1,0 +1,340 @@
+"""
+Django base settings for core project.
+
+Shared settings between dev and prod.
+"""
+
+from pathlib import Path
+import os
+
+import dj_database_url
+from dotenv import load_dotenv
+
+
+# ------------------------------------------------------------------------------
+# Core paths and environment
+# ------------------------------------------------------------------------------
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+app_env = os.getenv("APP_ENV", "dev").lower()
+
+if app_env == "prod":
+    env_path = BASE_DIR / ".env.prod"
+else:
+    env_path = BASE_DIR / ".env.dev"
+
+load_dotenv(env_path)
+
+
+# ------------------------------------------------------------------------------
+# Helpers
+# ------------------------------------------------------------------------------
+def env_bool(name: str, default: bool = False) -> bool:
+    return os.getenv(name, str(default)).strip().lower() in ("true", "1", "yes", "on")
+
+
+def env_list(name: str, default: list[str] | None = None) -> list[str]:
+    value = os.getenv(name, "")
+    if not value:
+        return default or []
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+
+# ------------------------------------------------------------------------------
+# Security
+# ------------------------------------------------------------------------------
+SECRET_KEY = os.getenv("SECRET_KEY")
+if not SECRET_KEY:
+    raise RuntimeError("SECRET_KEY is not set in environment variables.")
+
+DEBUG = env_bool("DEBUG", False)
+
+ALLOWED_HOSTS = env_list(
+    "ALLOWED_HOSTS",
+    default=[
+        "wird.me",
+        "www.wird.me",
+        "127.0.0.1",
+        "localhost",
+        "0.0.0.0",
+        "10.0.2.2",
+    ],
+)
+
+
+# ------------------------------------------------------------------------------
+# Authentication
+# ------------------------------------------------------------------------------
+AUTH_USER_MODEL = "accounts.User"
+
+AUTHENTICATION_BACKENDS: list[str] = [
+    "axes.backends.AxesStandaloneBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
+
+
+# ------------------------------------------------------------------------------
+# Applications
+# ------------------------------------------------------------------------------
+DJANGO_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    'django.contrib.sitemaps',
+]
+
+LOCAL_APPS = [
+    "config",
+    "core",
+    "identity.accounts",
+    "identity.rbac",
+    "dashboard",
+    "web",
+    "apps.notification",
+    "apps.messaging",
+    "apps.communication",
+    "apps.contact",
+    "apps.subscription",
+    "apps.quran",
+    "apps.quran_studio",
+    "apps.tilawa",
+    "apps.analytics",
+    "apps.hifz",
+    "apps.push",
+    "apps.wird",
+]
+
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "axes",
+    "csp",
+]
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
+
+
+# ------------------------------------------------------------------------------
+# Middleware
+# ------------------------------------------------------------------------------
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "csp.middleware.CSPMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "core.middleware.force_logout_inactive.ForceLogoutInactiveUserMiddleware",
+    "core.middleware.visitor_counter.VisitorCounterMiddleware",
+    "apps.analytics.middleware.SiteAnalyticsMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "axes.middleware.AxesMiddleware",
+]
+
+
+# ------------------------------------------------------------------------------
+# URLs / WSGI / ASGI
+# ------------------------------------------------------------------------------
+ROOT_URLCONF = "config.urls"
+WSGI_APPLICATION = "config.wsgi.application"
+ASGI_APPLICATION = "config.asgi.application"
+
+
+# ------------------------------------------------------------------------------
+# Templates
+# ------------------------------------------------------------------------------
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.template.context_processors.i18n",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",
+                "apps.notification.context_processors.notifications_counts",
+                "apps.notification.context_processors.messages_counts",
+            ],
+        },
+    },
+]
+
+
+# ------------------------------------------------------------------------------
+# Database
+# ------------------------------------------------------------------------------
+DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(
+            DATABASE_URL,
+            conn_max_age=600,
+            ssl_require=False,
+        )
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("POSTGRES_DB", "quran"),
+            "USER": os.getenv("POSTGRES_USER", "postgres"),
+            "PASSWORD": os.getenv("POSTGRES_PASSWORD", ""),
+            "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+            "PORT": os.getenv("POSTGRES_PORT", "5432"),
+        }
+    }
+
+
+# ------------------------------------------------------------------------------
+# Password validation
+# ------------------------------------------------------------------------------
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+    },
+    {
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+    },
+]
+
+
+# ------------------------------------------------------------------------------
+# Languages and localization
+# ------------------------------------------------------------------------------
+LANGUAGE_CODE = "ar"
+TIME_ZONE = "Asia/Riyadh"
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+
+LANGUAGES = [
+    ("ar", "العربية"),
+    ("en", "English"),
+    ("de", "Deutsch"),
+    ("es", "Español"),
+    ("hi", "हिन्दी"),
+    ("ur", "اردو"),
+    ("fa", "فارسی"),
+    ("id", "Indonesia"),
+    ("fr", "Français"),
+    ("ja", "日本語"),
+    ("zh", "中文"),
+    ("nl", "Nederlands"),
+    ("fil", "Filipino"),
+    ("vi", "Tiếng Việt"),
+    ("as", "অসমীয়া"),
+    ("si", "සිංහල"),
+    ("so", "Soomaali"),
+]
+
+LOCALE_PATHS = [BASE_DIR / "locale"]
+
+
+# ------------------------------------------------------------------------------
+# Static / Media
+# ------------------------------------------------------------------------------
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+MEDIA_SOURCE = os.getenv("MEDIA_SOURCE", "local").strip().lower()
+if MEDIA_SOURCE not in ("local", "server"):
+    MEDIA_SOURCE = "local"
+
+LOCAL_MEDIA_URL = os.getenv("LOCAL_MEDIA_URL", "/media/").strip() or "/media/"
+SERVER_MEDIA_URL = os.getenv("SERVER_MEDIA_URL", "https://wird.me/media/").strip()
+
+MEDIA_URL = SERVER_MEDIA_URL if MEDIA_SOURCE == "server" else LOCAL_MEDIA_URL
+MEDIA_ROOT = BASE_DIR.parent / "media"
+
+AUDIO_CATALOG_URL = os.getenv("AUDIO_CATALOG_URL", "").strip()
+AUDIO_CATALOG_API_KEY = os.getenv("AUDIO_CATALOG_API_KEY", "").strip()
+AUDIO_CATALOG_TIMEOUT = int(os.getenv("AUDIO_CATALOG_TIMEOUT", "5"))
+AUDIO_CATALOG_CACHE_SECONDS = int(os.getenv("AUDIO_CATALOG_CACHE_SECONDS", "60"))
+
+# ------------------------------------------------------------------------------
+# Default primary key field type
+# ------------------------------------------------------------------------------
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# ------------------------------------------------------------------------------
+# Quran API keys
+# ------------------------------------------------------------------------------
+QURAN_API_KEYS = env_list("QURAN_API_KEYS", default=[])
+
+
+# ------------------------------------------------------------------------------
+# Email Hostinger
+# ------------------------------------------------------------------------------
+EMAIL_BACKEND = os.getenv(
+    "EMAIL_BACKEND",
+    "django.core.mail.backends.smtp.EmailBackend",
+)
+
+EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.hostinger.com")
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", "465"))
+
+EMAIL_USE_TLS = env_bool("EMAIL_USE_TLS", False)
+EMAIL_USE_SSL = env_bool("EMAIL_USE_SSL", True)
+
+EMAIL_TIMEOUT = int(os.getenv("EMAIL_TIMEOUT", "20"))
+
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
+
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
+CONTACT_RECIPIENT_EMAIL = os.getenv("CONTACT_RECIPIENT_EMAIL", DEFAULT_FROM_EMAIL)
+
+
+
+# ------------------------------------------------------------------------------
+# Telegram Bot
+# ------------------------------------------------------------------------------
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
+TELEGRAM_CHANNEL_USERNAME = os.environ.get("TELEGRAM_CHANNEL_USERNAME", "")
+# ------------------------------------------------------------------------------
+# WhatsApp
+# ------------------------------------------------------------------------------
+WHATSAPP_API_URL = os.getenv("WHATSAPP_API_URL", "https://graph.facebook.com/v19.0")
+WHATSAPP_API_TOKEN = os.getenv("WHATSAPP_API_TOKEN", "")
+WHATSAPP_PHONE_NUMBER_ID = os.getenv("WHATSAPP_PHONE_NUMBER_ID", "")
+WHATSAPP_ENABLED = env_bool("WHATSAPP_ENABLED", False)
+
+
+# ------------------------------------------------------------------------------
+# SMS
+# ------------------------------------------------------------------------------
+SMS_API_URL = os.getenv("SMS_API_URL", "")
+SMS_TOKEN = os.getenv("SMS_TOKEN", "")
+SMS_TIMEOUT = int(os.getenv("SMS_TIMEOUT", "10"))
+
+
+# ------------------------------------------------------------------------------
+# Axes
+# ------------------------------------------------------------------------------
+AXES_ENABLED = env_bool("AXES_ENABLED", True)
+AXES_FAILURE_LIMIT = int(os.getenv("AXES_FAILURE_LIMIT", "5"))
+AXES_COOLOFF_TIME = int(os.getenv("AXES_COOLOFF_TIME", "1"))
+AXES_RESET_ON_SUCCESS = True
+
+
+# ------------------------------------------------------------------------------
+# Firebase / FCM
+# ------------------------------------------------------------------------------
+FIREBASE_CREDENTIALS_PATH = os.getenv("FIREBASE_CREDENTIALS_PATH", "")

@@ -1,0 +1,189 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+
+{% block title %}إحصائيات الزوار{% endblock %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-5" dir-text>
+  {% include "analytics/include/tabs_header.html" %}
+
+  <div class="site-card p-5 md:p-6">
+    <h1 class="site-title-md flex items-center gap-2">
+      <i class="bi bi-people-fill site-link-primary text-xl"></i>
+      <span>تفاصيل الزوار</span>
+    </h1>
+    <p class="mt-1 text-sm site-text-muted">
+      عرض اسم المستخدم أو زائر، عنوان IP، نظام التشغيل، عدد الصفحات، ومدة البقاء.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">إجمالي الزوار</p>
+      <p class="mt-2 text-2xl font-extrabold site-link-primary">{{ total_visitors }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">عدد IP الفريدة</p>
+      <p class="mt-2 text-2xl font-extrabold text-cyan-600">{{ unique_ip_visitors }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">زيارات الصفحات (آخر 7 أيام)</p>
+      <p class="mt-2 text-2xl font-extrabold text-emerald-600">{{ page_views_7_days }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">زوار آخر 7 أيام</p>
+      <p class="mt-2 text-2xl font-extrabold text-indigo-600">{{ unique_visitors_7_days }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">زوار اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-blue-700">{{ visitors_today }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">IP فريدة اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-cyan-700">{{ unique_ip_visitors_today }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">من صحّح التلاوة اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-emerald-700">{{ recitation_corrections_today }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">من استخدم الورد اليومي اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-amber-700">{{ daily_wird_users_today }}</p>
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">تغييرات اللغة اليوم</p>
+      <p class="mt-2 text-2xl font-extrabold text-violet-700">{{ language_changes_today }}</p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+    <div class="site-card overflow-hidden">
+      <div class="p-5 border-b site-border">
+        <h2 class="site-title-md flex items-center gap-2"><i class="bi bi-windows"></i><span>توزيع أنظمة التشغيل</span></h2>
+      </div>
+      <div class="divide-y site-border">
+        {% for item in os_breakdown %}
+          <div class="px-4 py-3 flex items-center justify-between gap-3">
+            <span class="font-medium text-slate-700">{{ item.os_name|default:"Other" }}</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-cyan-50 text-cyan-700 min-w-9 px-2 py-1 text-xs font-bold">{{ item.total }}</span>
+          </div>
+        {% empty %}
+          <div class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="site-card overflow-hidden">
+      <div class="p-5 border-b site-border">
+        <h2 class="site-title-md flex items-center gap-2"><i class="bi bi-browser-chrome"></i><span>توزيع المتصفحات</span></h2>
+      </div>
+      <div class="divide-y site-border">
+        {% for item in browser_breakdown %}
+          <div class="px-4 py-3 flex items-center justify-between gap-3">
+            <span class="font-medium text-slate-700">{{ item.browser_name|default:"Other" }}</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-indigo-50 text-indigo-700 min-w-9 px-2 py-1 text-xs font-bold">{{ item.total }}</span>
+          </div>
+        {% empty %}
+          <div class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+    <div class="site-card overflow-hidden">
+      <div class="p-5 border-b site-border">
+        <h2 class="site-title-md flex items-center gap-2"><i class="bi bi-geo-alt"></i><span>الدول حسب IP</span></h2>
+      </div>
+      <div class="divide-y site-border">
+        {% for item in country_breakdown %}
+          <div class="px-4 py-3 flex items-center justify-between gap-3">
+            <span class="font-medium text-slate-700">{{ item.country_name }}</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-blue-50 text-blue-700 min-w-9 px-2 py-1 text-xs font-bold">{{ item.total }}</span>
+          </div>
+        {% empty %}
+          <div class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="site-card overflow-hidden">
+      <div class="p-5 border-b site-border">
+        <h2 class="site-title-md flex items-center gap-2"><i class="bi bi-translate"></i><span>اللغات المستخدمة</span></h2>
+      </div>
+      <div class="divide-y site-border">
+        {% for item in language_breakdown %}
+          <div class="px-4 py-3 flex items-center justify-between gap-3">
+            <span class="font-medium text-slate-700">{{ item.last_language }}</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-violet-50 text-violet-700 min-w-9 px-2 py-1 text-xs font-bold">{{ item.total }}</span>
+          </div>
+        {% empty %}
+          <div class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="site-card overflow-hidden">
+    <div class="p-5 border-b site-border">
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-person-vcard"></i>
+        <span>الزوار المسجلون وغير المسجلين</span>
+      </h2>
+      <p class="mt-2 text-xs site-text-muted">عدد السجلات: {{ visitors_total_count }}</p>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="px-4 py-3 text-right">الاسم</th>
+            <th class="px-4 py-3 text-center">الحالة</th>
+            <th class="px-4 py-3 text-center">IP</th>
+            <th class="px-4 py-3 text-center">الدولة</th>
+            <th class="px-4 py-3 text-center">اللغة</th>
+            <th class="px-4 py-3 text-center">نظام التشغيل</th>
+            <th class="px-4 py-3 text-center">المتصفح</th>
+            <th class="px-4 py-3 text-center">الجهاز</th>
+            <th class="px-4 py-3 text-center">عدد الصفحات</th>
+            <th class="px-4 py-3 text-center">مدة البقاء</th>
+            <th class="px-4 py-3 text-center">آخر ظهور</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in visitor_rows %}
+          <tr class="border-t site-border">
+            <td class="px-4 py-3 font-semibold text-slate-700">{{ item.name }}</td>
+            <td class="px-4 py-3 text-center">
+              {% if item.is_authenticated %}
+                <span class="inline-flex items-center rounded-full bg-emerald-50 px-2 py-1 text-[11px] font-bold text-emerald-700">مسجل</span>
+              {% else %}
+                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-[11px] font-bold text-slate-600">زائر</span>
+              {% endif %}
+            </td>
+            <td class="px-4 py-3 text-center font-mono text-[12px]">{{ item.ip_address }}</td>
+            <td class="px-4 py-3 text-center">{{ item.country }}</td>
+            <td class="px-4 py-3 text-center">{{ item.language }}</td>
+            <td class="px-4 py-3 text-center">{{ item.os_name }} {{ item.os_version }}</td>
+            <td class="px-4 py-3 text-center">{{ item.browser_name }} {{ item.browser_version }}</td>
+            <td class="px-4 py-3 text-center">{{ item.device_type }}</td>
+            <td class="px-4 py-3 text-center font-bold">{{ item.pages_count }}</td>
+            <td class="px-4 py-3 text-center font-semibold text-indigo-700">{{ item.stay_label }}</td>
+            <td class="px-4 py-3 text-center text-xs site-text-muted">{{ item.last_seen_at|date:"Y-m-d H:i" }}</td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="11" class="px-4 py-6 text-center site-text-muted">لا توجد بيانات زوار بعد</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pb-4">
+      {% include "web/components/pagination.html" with page_obj=visitors_page_obj page_numbers=visitors_page_numbers tab="visitors" %}
+    </div>
+  </div>
+</div>
+
+<div class="h-36"></div>
+{% endblock %}

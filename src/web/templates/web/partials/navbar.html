@@ -1,0 +1,118 @@
+{% load static i18n rbac_tags %}
+
+<nav id="mainNavbar" class="wird-navbar">
+  <div class="wird-container">
+    <div class="wird-navbar-inner">
+      <a href="{% url 'web:home' %}" id="mobileLogo" class="wird-brand" aria-label="وِرْد">
+        <img src="{% static 'images/wird.svg' %}" alt="وِرد" class="wird-brand-image">
+      </a>
+
+      <button id="navToggleBtn" type="button" class="wird-mobile-toggle" aria-label="{% trans 'menu' %}">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="wird-desktop-nav">
+        <div class="wird-nav-links">
+          <a href="{% url 'web:home' %}" class="{% if request.resolver_match and request.resolver_match.namespace == 'web' and request.resolver_match.url_name == 'home' %}is-active{% endif %}">{% trans "home" %}</a>
+          <a href="{% url 'quran:quran' %}" class="{% if request.resolver_match and request.resolver_match.namespace == 'quran' %}is-active{% endif %}">{% trans "read_quran" %}</a>
+          <a href="{% url 'tilawa:qari_list' %}" class="{% if request.resolver_match and request.resolver_match.namespace == 'tilawa' %}is-active{% endif %}">{% trans "tilawa" %}</a>
+          <a href="{% url 'hifz:home' %}" class="{% if request.resolver_match and request.resolver_match.namespace == 'hifz' %}is-active{% endif %}">{% trans "hifz_quran" %}</a>
+          <a href="{% url 'web:translation' %}" class="{% if request.resolver_match and request.resolver_match.url_name == 'translation' or request.resolver_match.url_name == 'translation_surah' %}is-active{% endif %}">{% trans "translations" %}</a>
+          <a href="{% url 'quran:quran' %}" onclick="try{localStorage.setItem('wird_open_daily_reading','1');}catch(e){} if(typeof openDailyReadingModal==='function'){event.preventDefault();localStorage.removeItem('wird_open_daily_reading');openDailyReadingModal();}">{% trans "daily_wird" %}</a>
+        </div>
+
+        <div class="wird-nav-actions">
+          {% include "web/partials/language_switcher.html" %}
+
+          {% if request.user.is_authenticated %}
+            {% if request.user|can_access:"dashboard.access" %}
+              <a href="{% url 'dashboard:manage' %}" class="wird-login-link">{% trans "dashboard" %}</a>
+            {% endif %}
+            <a href="{% url 'apps.notification:notifications_inbox' %}" class="wird-nav-icon {% if notifications_unread_count %}has-unread{% endif %}" aria-label="{% trans 'notifications' %}">
+              <i class="bi bi-bell"></i>
+              {% if notifications_unread_count %}<span>{{ notifications_unread_count }}</span>{% endif %}
+            </a>
+            <a href="{% url 'accounts:profile' %}" class="wird-account-avatar">{{ request.user.username|first|upper }}</a>
+            <form method="post" action="{% url 'accounts:logout' %}" class="wird-logout-form">
+              {% csrf_token %}
+              <button
+                type="submit"
+                class="wird-nav-icon wird-logout-icon"
+                title="{% trans 'logout' %}"
+                aria-label="{% trans 'logout' %}">
+                <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+              </button>
+            </form>
+          {% else %}
+            <a href="{% url 'accounts:login' %}" class="wird-login-link">{% trans "login" %}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="mobileMenu" class="wird-mobile-menu hidden">
+  <div class="wird-mobile-menu-header">
+    <a href="{% url 'web:home' %}" class="wird-brand" aria-label="وِرْد">
+      <img src="{% static 'images/wird.svg' %}" alt="وِرد" class="wird-brand-image">
+    </a>
+    <button id="navCloseBtn" type="button" class="wird-mobile-toggle" aria-label="{% trans 'close' %}">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <div class="wird-mobile-language">
+    {% include "web/partials/language_switcher.html" %}
+  </div>
+
+  <div class="wird-mobile-links">
+    <a href="{% url 'web:home' %}">{% trans "home" %}</a>
+    <a href="{% url 'quran:quran' %}">{% trans "read_quran" %}</a>
+    <a href="{% url 'tilawa:qari_list' %}">{% trans "tilawa" %}</a>
+    <a href="{% url 'hifz:home' %}">{% trans "hifz_quran" %}</a>
+    <a href="{% url 'web:translation' %}">{% trans "translations" %}</a>
+    <a href="{% url 'quran:quran' %}" onclick="try{localStorage.setItem('wird_open_daily_reading','1');}catch(e){}">{% trans "daily_wird" %}</a>
+    <a href="{% url 'web:about' %}">{% trans "about" %}</a>
+    <a href="{% url 'contact:contact' %}">{% trans "contact_us" %}</a>
+
+    {% if request.user.is_authenticated %}
+      {% if request.user|can_access:"dashboard.access" %}
+        <a href="{% url 'dashboard:manage' %}">{% trans "dashboard" %}</a>
+      {% endif %}
+      <a href="{% url 'accounts:profile' %}">{% trans "profile" %}</a>
+      <form method="post" action="{% url 'accounts:logout' %}">
+        {% csrf_token %}
+        <button type="submit">{% trans "logout" %}</button>
+      </form>
+    {% else %}
+      <a href="{% url 'accounts:login' %}" class="wird-mobile-login">{% trans "login" %}</a>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("navToggleBtn");
+    const closeBtn = document.getElementById("navCloseBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    function openMobileMenu() {
+      if (!mobileMenu) return;
+      mobileMenu.classList.remove("hidden");
+      document.body.classList.add("overflow-hidden");
+    }
+
+    function closeMobileMenu() {
+      if (!mobileMenu) return;
+      mobileMenu.classList.add("hidden");
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    if (toggleBtn) toggleBtn.addEventListener("click", openMobileMenu);
+    if (closeBtn) closeBtn.addEventListener("click", closeMobileMenu);
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") closeMobileMenu();
+    });
+  });
+</script>

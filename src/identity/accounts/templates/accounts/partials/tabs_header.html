@@ -1,0 +1,54 @@
+{# Settings tabs header card #}
+{% load static i18n rbac_tags %}
+
+<div class="site-card p-4">
+
+  <!-- Top row -->
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-gear-fill site-link-primary"></i>
+        <span>إعدادات النظام</span>
+      </h2>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 text-[11px] site-text-muted">
+      <i class="bi bi-sliders"></i>
+      <span>Authentication • Security • System</span>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+      <!-- Auth settings -->
+      <a href="{% url 'accounts:login_settings' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'auth' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-shield-lock-fill ml-1"></i>
+        <span>{% trans "login" %}</span>
+      </a>
+
+      <!-- Security (future) -->
+      <span class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+                   site-text-muted site-surface cursor-not-allowed opacity-60">
+        <i class="bi bi-shield-check ml-1"></i>
+        <span>الأمان</span>
+      </span>
+
+      <!-- System (future) -->
+      <span class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+                   site-text-muted site-surface cursor-not-allowed opacity-60">
+        <i class="bi bi-cpu-fill ml-1"></i>
+        <span>النظام</span>
+      </span>
+
+    </nav>
+  </div>
+
+</div>

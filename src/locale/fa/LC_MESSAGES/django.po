@@ -1,0 +1,3616 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "تماس با ما"
+
+msgid "contact_page_description"
+msgstr "با ما تماس بگیرید، ما در خدمت شما هستیم"
+
+msgid "contact_intro_text"
+msgstr ""
+"از تماس شما با پلتفرم قرآن وایرد خرسندیم. ما در خدمت کتاب خدا و تسهیل تلاوت "
+"آن می کوشیم."
+
+msgid "name"
+msgstr "نام"
+
+msgid "enter_your_name"
+msgstr "نام خود را وارد کنید"
+
+msgid "email"
+msgstr "ایمیل"
+
+msgid "your_message"
+msgstr "پیام شما"
+
+msgid "write_your_message_here"
+msgstr "درخواست یا پیام خود را اینجا بنویسید"
+
+msgid "send_message"
+msgstr "ارسال پیام"
+
+msgid "message_sent"
+msgstr "پیام ارسال شد"
+
+msgid "message_sent_successfully"
+msgstr "پیام با موفقیت ارسال شد"
+
+msgid "thank_you_contact"
+msgstr "از اینکه با ما تماس گرفتید متشکریم"
+
+msgid "contact_success_message"
+msgstr ""
+"پیام شما با موفقیت دریافت شد. تیم قرآن وایرد آن را بررسی کرده و در اسرع وقت "
+"برای پشتیبانی از خدمات قرآن با شما تماس خواهد گرفت."
+
+msgid "back_to_home"
+msgstr "بازگشت به خانه"
+
+msgid "quran_recitation_prompt"
+msgstr "تلاوت قرآن به زبان عربی"
+
+msgid "save_stop"
+msgstr "ذخیره موقعیت خواندن"
+
+msgid "cancel_stop"
+msgstr "موقعیت خواندن را بردارید"
+
+msgid "hifz_audio_recording"
+msgstr "ضبط صدا"
+
+msgid "hifz_enable_hiding"
+msgstr "آیات را پنهان کنید"
+
+msgid "hifz_segmentation_thematic"
+msgstr "تقسیم بندی موضوعی"
+
+msgid "hifz_writing"
+msgstr "نوشتن"
+
+msgid "zoom_in"
+msgstr "بزرگنمایی"
+
+msgid "repeat"
+msgstr "تکرار کنید"
+
+msgid "page"
+msgstr "صفحه"
+
+msgid "play_audio"
+msgstr "پخش صدا"
+
+msgid "word_meanings"
+msgstr "معانی کلمه"
+
+msgid "brief_tafsir"
+msgstr "تفسیر مختصر"
+
+msgid "playback_tools"
+msgstr "ابزار پخش"
+
+msgid "audio"
+msgstr "صوتی"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"برای پخش صدا در حین حفظ کردن، روی یک آیه ضربه بزنید تا دکمه پخش و مکث نمایش "
+"داده شود. سپس می‌توانید صدا را از اینجا کنترل کنید، صفحه را برای خواندن "
+"راحت‌تر بدون حواس‌پرتی بزرگ کنید و تعداد تکرار آیه را افزایش دهید."
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "دو صفحه"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr "بین یک صفحه یا دو صفحه روبه‌رو در مصحف جابه‌جا شوید"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "یک صفحه"
+
+msgid "hifz_memorization_tools"
+msgstr "تکنیک های حفظ کردن"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"ابزارهای حفظ کردن به شما کمک می کند تا حافظه خود را تقویت کرده و حافظه خود "
+"را آموزش دهید. برای تمرین به خاطر سپردن آنها می توانید آیات را پنهان کنید. "
+"هنگامی که ماوس را روی یک آیه نگه می‌دارید، به آرامی نشان داده می‌شود که شما را "
+"راهنمایی می‌کند، و وقتی روی آن کلیک می‌کنید، کاملاً ظاهر می‌شود. تقسیم بندی "
+"موضوعی نیز در دسترس است، و آیات مرتبط را در موضوعات گروه بندی می کند تا به "
+"خاطر سپردن و درک آسان تر شود."
+
+msgid "hifz_play"
+msgstr "بازی کنید"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "توقف کامل"
+
+msgid "hifz_mstwa_audio"
+msgstr "سطح صدا"
+
+msgid "mushaf"
+msgstr "مصحف"
+
+msgid "reciter"
+msgstr "قاری"
+
+msgid "search"
+msgstr "جستجو کنید"
+
+msgid "stop_audio"
+msgstr "توقف صدا"
+
+msgid "recitation_correction"
+msgstr "تصحیح تلاوت"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"ابتدا یک آیه را انتخاب کنید. سپس دکمه ضبط ظاهر می شود. آن را فشار دهید و "
+"تلاوت خود را از آیه انتخابی ضبط کنید تا صدای شما تجزیه و تحلیل شود و تلاوت "
+"شما تصحیح شود. درصد دقت تلاوت را مشاهده خواهید کرد و دکمه ای برای گوش دادن "
+"به صدای ضبط شده خود خواهید یافت."
+
+msgid "recitation_accuracy_percentage"
+msgstr "دقت تلاوت"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "صوتی شیخ"
+
+msgid "my_recorded_audio"
+msgstr "ضبط من"
+
+msgid "mushaf_hafs"
+msgstr "حفص مصحف"
+
+msgid "mushaf_warsh"
+msgstr "وارش مصحف"
+
+msgid "mushaf_qaloun"
+msgstr "قلون مصحف"
+
+msgid "mushaf_douri"
+msgstr "الدوری مصحف"
+
+msgid "mushaf_shuba"
+msgstr "شعبه مصحف"
+
+msgid "mushaf_sousi"
+msgstr "مصحف السوسی"
+
+msgid "tafsir_almuyasser"
+msgstr "المیسر"
+
+msgid "tafsir_alkatheer"
+msgstr "ابن کثیر"
+
+msgid "tafsir_albaghawy"
+msgstr "البغاوی"
+
+msgid "tafsir_altabary"
+msgstr "الطبری"
+
+msgid "tafsir_alqortoby"
+msgstr "القرطبی"
+
+msgid "tafsir_alsa3dy"
+msgstr "السعدی"
+
+#, fuzzy, python-format
+#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "تفسیر صفحه %(صفحه)s از قرآن | قرآن وایرد"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "سوره %(surah_name)s | بخوان و گوش کن - وایرد قرآن"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "گوش دادن به قرآن تلاوت %(qari_name)s | قرآن وایرد"
+
+#, fuzzy, python-format
+#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "صفحه %(صفحه)s از قرآن | قرآن وایرد"
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+#| "displayed and linked to tafsir on the Wird Quran platform."
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"تفسیر صفحه %(صفحه)s از قرآن را به راحتی بخوانید، با آیات نمایش داده شده و "
+"پیوند به تفسیر در پلتفرم Wird Quran."
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"سوره %(surah_name)s را از قرآن بخوانید، با گوش دادن و مرور آسان در بستر قرآن "
+"Wird."
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"قرآن تلاوت شده توسط %(qari_name)s را با کیفیت بالا و با پیمایش آسان بین سوره "
+"ها و آیات گوش دهید."
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Browse page %(page)s from the Holy Quran with a comfortable and easy "
+#| "interface, with smooth reading and quick navigation on the Wird Quran "
+#| "platform."
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"صفحه %(صفحه)s از قرآن را با رابط کاربری راحت و آسان، با خواندن روان و پیمایش "
+"سریع در پلت فرم Wird Quran مرور کنید."
+
+msgid "no_word_meanings"
+msgstr "هیچ معانی کلمه ای برای این آیه در دسترس نیست"
+
+msgid "hide_word_meanings"
+msgstr "مخفی کردن معانی کلمات"
+
+msgid "show_word_meanings"
+msgstr "نمایش معانی کلمات"
+
+msgid "word_meanings_hint"
+msgstr "معانی کلمات با شروع تلاوت ظاهر می شود"
+
+msgid "error_word_meanings"
+msgstr "معانی کلمه بارگیری نشد"
+
+msgid "surah"
+msgstr "سوره"
+
+msgid "ayah"
+msgstr "آیه"
+
+msgid "show_thematic_segmentation"
+msgstr "نمایش بخش بندی موضوعی"
+
+msgid "hide_thematic_segmentation"
+msgstr "پنهان کردن بخش بندی موضوعی"
+
+msgid "daily_quran_reading"
+msgstr "وایرد روزانه من"
+
+msgid "new_khatma"
+msgstr "خاتم جدید"
+
+msgid "close"
+msgstr "بستن"
+
+msgid "current_khatma"
+msgstr "خاتم فعلی"
+
+msgid "Juz"
+msgstr "جوز"
+
+msgid "remaining_wirds"
+msgstr "Wirds باقی مانده"
+
+msgid "khatma_count"
+msgstr "خاتما کنت"
+
+msgid "current_wird"
+msgstr "وایرد فعلی"
+
+msgid "from"
+msgstr "از"
+
+msgid "to"
+msgstr "به"
+
+msgid "congratulations"
+msgstr "تبریک میگم"
+
+msgid "you_finished_current_khatma"
+msgstr "شما این ختم را با موفقیت به پایان رساندید"
+
+msgid "continue_reading"
+msgstr "به خواندن Wird ادامه دهید"
+
+msgid "finish_wird"
+msgstr "Wird تکمیل شد"
+
+msgid "choose_mushaf"
+msgstr "مصحف را انتخاب کنید"
+
+msgid "current"
+msgstr "فعلی"
+
+msgid "start_new_khatma"
+msgstr "خاتما جدید را شروع کنید"
+
+msgid "start_from"
+msgstr "شروع از"
+
+msgid "mushaf_start"
+msgstr "شروع مصحف"
+
+msgid "duration_days"
+msgstr "مدت زمان ختم (روزها)"
+
+msgid "day"
+msgstr "روز"
+
+msgid "daily_amount"
+msgstr "مقدار وایرد روزانه"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "خلاصه ختم"
+
+msgid "start_khatma"
+msgstr "خاتما را شروع کنید"
+
+msgid "reciters"
+msgstr "قاریان"
+
+msgid "search_reciter"
+msgstr "قاری را با نام جستجو کنید"
+
+msgid "loading"
+msgstr "در حال بارگذاری"
+
+msgid "tafasir"
+msgstr "کتب تفسیر"
+
+msgid "no_tafsir_available"
+msgstr "در حال حاضر هیچ تفسیری موجود نیست"
+
+msgid "quran"
+msgstr "قرآن"
+
+msgid "tafsir"
+msgstr "تفسیر"
+
+msgid "surah_1"
+msgstr "الفاتحه"
+
+msgid "mushafs"
+msgstr "مصحف ها"
+
+msgid "reading_mode"
+msgstr "حالت خواندن"
+
+msgid "current_reciter"
+msgstr "قاری فعلی"
+
+msgid "coming_soon"
+msgstr "به زودی"
+
+msgid "current_mushaf"
+msgstr "مصحف فعلی"
+
+msgid "tafsir_loading_message"
+msgstr "وقتی این صفحه را باز کنید، تفسیر بارگذاری می شود"
+
+msgid "title_and_body_required"
+msgstr "عنوان و متن پیام مورد نیاز است"
+
+msgid "no_subscribers_available"
+msgstr "هیچ مشترکی برای ارسال موجود نیست"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "شما مشترک پیام های قرآن وایرد هستید"
+
+msgid "unsubscribe_label"
+msgstr "برای لغو اشتراک"
+
+msgid "message_sent_to_subscribers"
+msgstr "پیام به %(count)s مشترک ارسال شد"
+
+msgid "message_sent_with_failures"
+msgstr ""
+"پیام به %(sent_count)s مشترک ارسال شد و برای %(failed_count)s ناموفق بود"
+
+msgid "message_send_failed"
+msgstr "پیام ارسال نشد"
+
+msgid "please_enter_email"
+msgstr "لطفا ایمیل خود را وارد کنید"
+
+msgid "newsletter_welcome_subject"
+msgstr "با تشکر از شما برای اشتراک در قرآن وایرد"
+
+msgid "newsletter_greeting"
+msgstr "سلام و رحمت و برکات خداوند بر شما باد"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "با تشکر از شما برای اشتراک در پیام های قرآن وایرد"
+
+msgid "newsletter_joined_successfully"
+msgstr ""
+"خوشحالیم که به ما ملحق می شوید، به روز رسانی ها را در ایمیل خود دریافت "
+"خواهید کرد"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr ""
+"در صورت تمایل به لغو اشتراک در هر زمانی می توانید از لینک زیر استفاده کنید"
+
+msgid "newsletter_closing"
+msgstr "با تشکر و قدردانی صمیمانه"
+
+msgid "wird quran"
+msgstr "وایرد القرآن الکریم"
+
+msgid "newsletter_subscription_success"
+msgstr "با تشکر از شما، شما با موفقیت مشترک پیام های قرآن وایرد شدید"
+
+msgid "newsletter_subscription_reactivated"
+msgstr "با تشکر از شما، اشتراک شما در پیام های قرآن وایرد دوباره فعال شد"
+
+msgid "email_already_subscribed"
+msgstr "این ایمیل قبلاً مشترک شده است"
+
+msgid "unsubscribe_success_message"
+msgstr "اشتراک با موفقیت لغو شد"
+
+msgid "unsubscribe_already_done"
+msgstr "قبلاً اشتراک لغو شده است"
+
+msgid "qari_list_title"
+msgstr "به قرآن کریم گوش دهید"
+
+msgid "qari_list_description"
+msgstr ""
+"قاری ها را مرور کنید و تلاوت مورد علاقه خود را از میان مجموعه متنوعی از "
+"قاریان با صدای زیبا انتخاب کنید."
+
+msgid "listen_quran"
+msgstr "به قرآن گوش کن"
+
+msgid "view_surahs"
+msgstr "مشاهده سوره ها"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "گوش دادن به قرآن توسط"
+
+msgid "tilawa_wrd_quran"
+msgstr "قرآن وایرد"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "به تلاوت کامل قرآن توسط"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "با کیفیت بالا با پیمایش آسان بین سوره ها"
+
+msgid "all_reciters"
+msgstr "همه قاریان"
+
+msgid "select_surah_player"
+msgstr "یک سوره انتخاب کنید"
+
+msgid "prev_surah"
+msgstr "سوره قبلی"
+
+msgid "next_surah"
+msgstr "سوره بعدی"
+
+msgid "search_surah"
+msgstr "سوره را با نام یا شماره جستجو کنید"
+
+msgid "ayah_counter"
+msgstr "آیه"
+
+msgid "stop_playback"
+msgstr "پخش را متوقف کنید"
+
+msgid "username_password_required"
+msgstr "نام کاربری و رمز عبور لازم است."
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "حساب نیاز به فعال سازی دارد"
+
+msgid "invalid_login_credentials"
+msgstr "اعتبار ورود نامعتبر است."
+
+msgid "dashboard"
+msgstr "داشبورد"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "برای ادامه وارد شوید یا یک حساب کاربری ایجاد کنید"
+
+msgid "login"
+msgstr "وارد شوید"
+
+msgid "register"
+msgstr "ایجاد حساب کاربری"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "نام کاربری قبلاً گرفته شده است."
+
+msgid "enter_username"
+msgstr "نام کاربری را وارد کنید"
+
+msgid "password"
+msgstr "رمز عبور"
+
+msgid "enter_password"
+msgstr "رمز عبور را وارد کنید"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "رمز عبور را فراموش کرده اید؟"
+
+msgid "create_account"
+msgstr "ایجاد حساب"
+
+msgid "username_required"
+msgstr "نام کاربری مورد نیاز است."
+
+msgid "username_taken"
+msgstr "نام کاربری قبلاً گرفته شده است."
+
+msgid "email_required"
+msgstr "ایمیل مورد نیاز است."
+
+msgid "email_taken"
+msgstr "ایمیل در حال حاضر در حال استفاده است."
+
+msgid "password_required"
+msgstr "رمز عبور لازم است."
+
+msgid "register_success"
+msgstr ""
+"خوش آمدید 🌿 حساب شما با موفقیت ایجاد شد. از حضور شما خوشحالیم. ما برای شما "
+"آرزوی تجربه ای متمایز و پربار داریم."
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"وایرد قرآن بستری یکپارچه برای خواندن قرآن، گوش دادن به تلاوت قاریان معروف و "
+"مرور کتاب های تفسیر به راحتی و بدون آگهی است."
+
+msgid "success"
+msgstr "موفقیت"
+
+msgid "error"
+msgstr "خطا"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "درباره ورد القرآن الکریم"
+
+msgid "long_about_text"
+msgstr ""
+"Wird یک پلتفرم دیجیتال یکپارچه است که هدف آن تسهیل تلاوت و تدبر در قرآن به "
+"صورت سازمان یافته و جذاب است. خدماتی مانند مرور مصحف های مختلف، گوش دادن به "
+"قاریان و خواندن کتب معتبر تفسیری را ارائه می دهد."
+
+msgid "about_wird"
+msgstr ""
+"Wird یک پلتفرم دیجیتال یکپارچه است که هدف آن تسهیل تلاوت و تدبر در قرآن به "
+"صورت سازمان یافته و جذاب است. خدماتی مانند مرور مصحف با روایات مختلف، گوش "
+"دادن به قاریان و خواندن تفسیرهای معتبر ارائه می دهد. همچنین به کاربران اجازه "
+"می دهد تا Wird روزانه خود را دنبال کنند و پیشرفت خود را در حفظ و بازبینی "
+"دنبال کنند. هدف این پلتفرم حمایت از پروژه قرآن و تقویت ارتباط با آن از طریق "
+"یک تجربه دیجیتالی آسان و یکپارچه است."
+
+msgid "wird"
+msgstr "وایرد"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "ارتباط روزانه شما با قرآن"
+
+msgid "home_hero_title1"
+msgstr "تجربه ای آرام برای خواندن قرآن"
+
+msgid "home_hero_title2"
+msgstr "و گوش دادن و بازتاب"
+
+msgid "home_hero_desc"
+msgstr ""
+"بستری که خواندن، تلاوت، تفسیر، ترجمه ها و معانی کلمات را در یک تجربه آسان و "
+"سازمان یافته به ارمغان می آورد."
+
+msgid "home_start_reading"
+msgstr "شروع به خواندن کنید"
+
+msgid "home_explore_recitations"
+msgstr "تلاوت ها را کاوش کنید"
+
+msgid "home_calm_recitation"
+msgstr "تلاوت آرام"
+
+msgid "play"
+msgstr "پخش"
+
+msgid "home_features_label"
+msgstr "ویژگی ها"
+
+msgid "home_features_title"
+msgstr "هر آنچه شما نیاز دارید در یک مکان"
+
+msgid "home_features_desc"
+msgstr ""
+"ابزارهای آرامی که به شما کمک می کند بدون حواس پرتی بخوانید، گوش دهید و فکر "
+"کنید."
+
+msgid "home_feature_quran_title"
+msgstr "قرآن بخوانید"
+
+msgid "home_feature_quran_desc"
+msgstr "رابط زیبای مصحف که خواندن را برای چشم راحت و آسان می کند."
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "هر آنچه شما نیاز دارید در یک مکان"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"ابزارهای آرامی که به شما کمک می کند بدون حواس پرتی بخوانید، گوش دهید و فکر "
+"کنید."
+
+msgid "home_feature_listen_title"
+msgstr "به تلاوت ها گوش دهید"
+
+msgid "home_feature_listen_desc"
+msgstr "منتخبی از قاریان با صدایی ناب و تجربه شنیداری آرام."
+
+msgid "home_feature_tafsir_title"
+msgstr "تفسیر"
+
+msgid "home_feature_tafsir_desc"
+msgstr "تفسیرهای قابل اعتماد با نمایشگر سازمان یافته برای کمک به تأمل و درک."
+
+msgid "home_feature_trans_title"
+msgstr "ترجمه ها"
+
+msgid "home_feature_trans_desc"
+msgstr "ترجمه معانی به چندین زبان در کنار آیه به طور مستقیم."
+
+msgid "home_feature_words_title"
+msgstr "معانی کلمه"
+
+msgid "home_feature_words_desc"
+msgstr "معنی هر کلمه را با یک لمس بدون خروج از صفحه جستجو کنید."
+
+msgid "home_feature_daily_title"
+msgstr "دیلی وایرد"
+
+msgid "home_feature_daily_desc"
+msgstr ""
+"Wird روزانه خود را سازماندهی کنید و تداوم خود را با آرامش و به طور منظم "
+"دنبال کنید."
+
+msgid "surah_2"
+msgstr "البقره"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "دیلی وایرد"
+
+msgid "home_daily_title"
+msgstr "یک عادت آرام که روز به روز با شما رشد می کند"
+
+msgid "home_daily_desc"
+msgstr ""
+"Wird خود را متناسب با روزتان مرتب کنید و تداوم خود را بدون فشار دنبال کنید. "
+"یک یادآوری ملایم، یک نمایشگر سازمان یافته، و ردیابی ساده شما را همیشه به "
+"کتاب خدا متصل می کند."
+
+msgid "home_gentle_tracking"
+msgstr "ردیابی ملایم"
+
+msgid "home_flexible_reminder"
+msgstr "یادآوری انعطاف پذیر"
+
+msgid "home_no_pressure"
+msgstr "بدون فشار"
+
+msgid "tilawa"
+msgstr "تلاوت"
+
+msgid "home_recitation_title"
+msgstr "با صدایی که قلب را آرام می کند گوش کنید"
+
+msgid "home_recitation_desc"
+msgstr ""
+"قاری را انتخاب کنید که روح شما را لمس کند و با تجربه ای آرام و بدون حواس "
+"پرتی گوش دهید."
+
+msgid "home_now_playing"
+msgstr "در حال پخش"
+
+msgid "home_reciter_label"
+msgstr "قاری"
+
+msgid "home_current_surah"
+msgstr "سوره فعلی"
+
+msgid "home_prev"
+msgstr "قبلی"
+
+msgid "home_play_pause"
+msgstr "پخش / مکث"
+
+msgid "home_next"
+msgstr "بعدی"
+
+msgid "home_reading_label"
+msgstr "تفسیر و ترجمه"
+
+msgid "home_reading_title"
+msgstr "در معانی عمیق و واضح فکر کنید"
+
+msgid "home_reading_desc"
+msgstr "تجربه ای شبیه به کتاب: آیه در جای خود و معنای آن در کنار آن."
+
+msgid "home_easy_tafsir"
+msgstr "تفسیر آسان"
+
+msgid "home_meaning_badge"
+msgstr "معنی"
+
+msgid "home_meaning_label"
+msgstr "معنی"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "ترجمه در دسترس نیست"
+
+msgid "privacy_policy"
+msgstr "سیاست حفظ حریم خصوصی"
+
+msgid "Wird — Privacy Policy"
+msgstr "وِرد — سیاست حریم خصوصی"
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr "همراه روزانه شما در سفر با قرآن کریم"
+
+msgid "Last updated: May 2026"
+msgstr "آخرین بروزرسانی: می ۲۰۲۶"
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+"این سیاست توضیح می‌دهد که برنامه وِرد چگونه با داده‌های شما رفتار می‌کند. ما به "
+"شفافیت و اختصار اهمیت می‌دهیم."
+
+msgid "translations"
+msgstr "ترجمه ها"
+
+msgid "translation_page_title"
+msgstr "ترجمه"
+
+msgid "surahs"
+msgstr "سوره ها"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "ذخیره موقعیت خواندن"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "کپی"
+
+msgid "share"
+msgstr "اشتراک‌گذاری"
+
+msgid "footer_links"
+msgstr "لینک های پاورقی"
+
+msgid "about"
+msgstr "درباره"
+
+msgid "contact_us"
+msgstr "تماس با ما"
+
+msgid "download_android"
+msgstr "دانلود برای اندروید"
+
+msgid "download_ios"
+msgstr "دانلود برای iOS"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "زبان‌ها"
+
+msgid "menu"
+msgstr "منو"
+
+msgid "home"
+msgstr "صفحه اصلی"
+
+msgid "read_quran"
+msgstr "قرآن بخوانید"
+
+msgid "hifz_quran"
+msgstr "حفظ قرآن"
+
+msgid "notifications"
+msgstr "اطلاعیه ها"
+
+msgid "logout"
+msgstr "خروج از سیستم"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "نمایه"
+
+msgid "SECTION 1"
+msgstr "بخش ۱"
+
+msgid "Information We Collect"
+msgstr "اطلاعاتی که جمع‌آوری می‌کنیم"
+
+msgid "a. Account Information (if you sign in)"
+msgstr "الف. اطلاعات حساب (در صورت ورود)"
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr "ب. توکن دستگاه Firebase (FCM)"
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+"از Firebase Cloud Messaging گوگل برای ارسال اعلان‌ها استفاده می‌کنیم. یک توکن "
+"دستگاه ناشناس توسط Firebase ایجاد و به سرور ما ارسال می‌شود. این توکن هویت "
+"شما را مشخص نمی‌کند و فقط برای ارسال اعلان استفاده می‌شود."
+
+msgid "c. Contact Messages"
+msgstr "ج. پیام‌های تماس"
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+"اگر از ویژگی تماس با ما استفاده کنید، پیام و ایمیل شما را دریافت می‌کنیم."
+
+msgid "SECTION 2"
+msgstr "بخش ۲"
+
+msgid "Data Stored Only on Your Device"
+msgstr "داده‌های ذخیره‌شده فقط در دستگاه شما"
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr "پیشرفت مطالعه، برنامه ختم قرآن و موقعیت ورد"
+
+msgid "Azkar completion progress"
+msgstr "پیشرفت اذکار"
+
+msgid "Notification schedule and preferences"
+msgstr "برنامه اعلان‌ها و تنظیمات"
+
+msgid "Selected reciter and Mushaf style"
+msgstr "قاری و سبک مصحف انتخابی"
+
+msgid "Accessibility and display settings"
+msgstr "تنظیمات دسترسی و نمایش"
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr "تصاویر مصحف و فایل‌های صوتی دانلود شده"
+
+msgid "The Quran database"
+msgstr "پایگاه داده قرآن کریم"
+
+msgid "SECTION 3"
+msgstr "بخش ۳"
+
+msgid "Microphone Access"
+msgstr "دسترسی به میکروفون"
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+"تمام پردازش صوتی به صورت محلی روی دستگاه شما انجام می‌شود. هیچ صوتی به سرورها "
+"یا اشخاص ثالث ارسال نمی‌شود."
+
+msgid "SECTION 4"
+msgstr "بخش ۴"
+
+msgid "Third-Party Services"
+msgstr "خدمات شخص ثالث"
+
+msgid "Service"
+msgstr "سرویس"
+
+msgid "Provider"
+msgstr "ارائه‌دهنده"
+
+msgid "Purpose"
+msgstr "هدف"
+
+msgid "Push notifications"
+msgstr "اعلان‌های فوری"
+
+msgid "App initialisation"
+msgstr "راه‌اندازی برنامه"
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr "مشمول سیاست حریم خصوصی Google:"
+
+msgid "SECTION 5"
+msgstr "بخش ۵"
+
+msgid "Analytics and Crash Reporting"
+msgstr "تحلیل‌ها و گزارش‌های خرابی"
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr "بخش ۶"
+
+msgid "Data Sharing"
+msgstr "اشتراک‌گذاری داده"
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+"داده‌های شخصی شما را نمی‌فروشیم یا با اشخاص ثالث برای اهداف تبلیغاتی به اشتراک "
+"نمی‌گذاریم. داده فقط با Firebase برای ارسال اعلان به اشتراک گذاشته می‌شود."
+
+msgid "SECTION 7"
+msgstr "بخش ۷"
+
+msgid "Data Security"
+msgstr "امنیت داده"
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+"توکن‌های احراز هویت با استفاده از فضای ذخیره‌سازی رمزگذاری شده در سطح پلتفرم "
+"(Android Keystore) ذخیره می‌شوند."
+
+msgid "All communication with our server uses HTTPS."
+msgstr "تمام ارتباطات با سرور از طریق HTTPS انجام می‌شود."
+
+msgid "SECTION 8"
+msgstr "بخش ۸"
+
+msgid "Your Rights"
+msgstr "حقوق شما"
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr "بخش ۹"
+
+msgid "Audience"
+msgstr "مخاطبان"
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+"این برنامه برای مخاطبان عمومی طراحی شده است. هیچ محتوای بزرگسالانه، خشونت یا "
+"تبلیغاتی ندارد."
+
+msgid "SECTION 10"
+msgstr "بخش ۱۰"
+
+msgid "Changes to This Policy"
+msgstr "تغییرات این سیاست"
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr "برنامه وِرد"
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "سیاست حفظ حریم خصوصی"
+
+msgid "Last updated May 2026"
+msgstr "آخرین بروزرسانی می ۲۰۲۶"
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "زبان فعلی"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "ویژگی‌ها"
+
+#~ msgid "bookmark"
+#~ msgstr "نشانک"
+
+#~ msgid "web_wrd"
+#~ msgstr "وایرد"
+
+#~ msgid "system_description"
+#~ msgstr "بستری برای خواندن قرآن، گوش دادن به تلاوت و کاوش در تفسیر با سهولت."
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird یک پلتفرم دیجیتال یکپارچه است که هدف آن تسهیل تلاوت و تدبر در قرآن "
+#~ "به صورت سازمان یافته و جذاب است."
+
+#~ msgid "hifz"
+#~ msgstr "حفظ کردن"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "Juz %(number)s"
+
+#~ msgid "juz_number"
+#~ msgstr "Juz %(number)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "بسم الله الرحمن الرحیم"
+
+#~ msgid "open_mushaf"
+#~ msgstr "مصحف را باز کن"
+
+#~ msgid "hafs"
+#~ msgstr "حفص"
+
+#~ msgid "warsh"
+#~ msgstr "وارش"
+
+#~ msgid "qaloun"
+#~ msgstr "قلون"
+
+#~ msgid "douri"
+#~ msgstr "الدوری"
+
+#~ msgid "shuba"
+#~ msgstr "شعبه"
+
+#~ msgid "sousi"
+#~ msgstr "السوسی"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "بیشتر مصحف ها از"
+
+#~ msgid "complex"
+#~ msgstr "مجتمع چاپ قرآن مجید ملک فهد"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "هیچ تفسیری در دسترس نیست"
+
+#~ msgid "tajweed"
+#~ msgstr "تجوید"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "نمایش معانی کلمات"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "مخفی کردن معانی کلمات"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "در حال بارگیری معانی کلمات..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "بارگیری معانی کلمات"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "معانی کلمه بارگیری نشد"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "هیچ معنایی برای این آیه در دسترس نیست"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "معانی کلمات با شروع تلاوت ظاهر می شود"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "مکه"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "مدینه"
+
+#~ msgid "start"
+#~ msgstr "شروع کنید"
+
+#~ msgid "selected_ayah"
+#~ msgstr "آیه برگزیده"
+
+#~ msgid "analysis_result"
+#~ msgstr "نتیجه"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "ابتدا یک آیه را انتخاب کنید"
+
+#~ msgid "browse_reciters"
+#~ msgstr "مرور قاریان"
+
+#~ msgid "next_wirds"
+#~ msgstr "Wirds آینده"
+
+#~ msgid "previous_wirds"
+#~ msgstr "وایردهای قبلی"
+
+#~ msgid "one_juz"
+#~ msgstr "1 جوز"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "ابزارهای نمایش"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "نمایشگر عادی"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "آیه تکرار"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "بدون تکرار"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "دوبار"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "بار"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "زوم مصحف"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "قرآن بر اساس مدت و مقدار تعیین شده برای تسهیل ختم روزانه تقسیم می شود."
+
+#~ msgid "resume_reading"
+#~ msgstr "Resume Reading"
+
+#~ msgid "percentage"
+#~ msgstr "درصد پیشرفت"
+
+#~ msgid "progress"
+#~ msgstr "پیشرفت"
+
+#~ msgid "from_page"
+#~ msgstr "صفحه شروع"
+
+#~ msgid "to_page"
+#~ msgstr "صفحه پایانی"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "از"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "به"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "سوره بقره - آیه 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "سوره بقره آیه 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "شماره آیه فعلی"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "برای ادامه وارد شوید یا یک حساب کاربری ایجاد کنید"
+
+#~ msgid "welcome"
+#~ msgstr "خوش آمدید"
+
+#~ msgid "welcome_message"
+#~ msgstr "به بستر قرآن وایرد خوش آمدید"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "خوش آمدید"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "نمایه شما به روز شده است"
+
+#~ msgid "accounts_settings"
+#~ msgstr "تنظیمات"
+
+#~ msgid "login_settings"
+#~ msgstr "تنظیمات ورود"
+
+#~ msgid "confirm_password"
+#~ msgstr "رمز عبور را تایید کنید"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "رمز عبور جدید"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "نمایش یا پنهان کردن رمز عبور"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "نام کاربری مورد نیاز است"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "نام کاربری قبلاً گرفته شده است"
+
+#~ msgid "enter_email"
+#~ msgstr "ایمیل خود را وارد کنید"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "ایمیل مورد نیاز است"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "ایمیل در حال حاضر در حال استفاده است"
+
+#~ msgid "invalid_email"
+#~ msgstr "قالب ایمیل نامعتبر است"
+
+#~ msgid "full_name"
+#~ msgstr "نام کامل"
+
+#~ msgid "phone"
+#~ msgstr "شماره تلفن"
+
+#~ msgid "invalid_phone"
+#~ msgstr "شماره تلفن نامعتبر است"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "شماره تلفن در حال حاضر در حال استفاده است"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "عنوان شغلی"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "مرد"
+
+#~ msgid "accounts_female"
+#~ msgstr "زن"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "حساب شما با موفقیت ایجاد شد"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr ""
+#~ "حساب شما با موفقیت ایجاد شد. ما از حضور شما خوشحالیم و برای شما آرزوی "
+#~ "تجربه ای متمایز داریم."
+
+#~ msgid "login_failed"
+#~ msgstr "اعتبار ورود نامعتبر است"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "گذرواژه ها مطابقت ندارند"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "رمز عبور باید حداقل 8 کاراکتر باشد"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "تغییرات با موفقیت ذخیره شد"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "اطلاعات شما با موفقیت ذخیره شد"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "داده ها ذخیره شد و رمز عبور با موفقیت به روز شد"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "تنظیمات ورود با موفقیت به روز شد"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr ""
+#~ "خوش آمدید، حساب شما تایید شده است و اکنون می توانید برای پروژه ها درخواست "
+#~ "دهید"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr "به مرکز نوآوری خوش آمدید، برای شما آرزوی یک تجربه عالی داریم"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "مدیریت مرکز نوآوری"
+
+#~ msgid "accounts_local"
+#~ msgstr "محلی"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "ورود یکپارچه"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "احراز هویت خارجی را فعال کنید"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "کنترل روش های احراز هویت مجاز در سیستم است"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "از پایگاه داده سیستم"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "دیروز"
+
+#~ msgid "accounts_saah"
+#~ msgstr "یک ساعت پیش"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "10 دقیقه پیش"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "5 دقیقه پیش"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "تماس با ما"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "از طریق فرم تماس با ما تماس بگیرید"
+
+#~ msgid "contact_description"
+#~ msgstr "برای هرگونه درخواست یا پشتیبانی می توانید با ما تماس بگیرید"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr ""
+#~ "با تشکر از شما، ما پیام شما را بررسی خواهیم کرد و به زودی با شما تماس "
+#~ "خواهیم گرفت"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "پیام شما با موفقیت ارسال شد"
+
+#~ msgid "write_message"
+#~ msgstr "پیام خود را اینجا بنویسید"
+
+#~ msgid "contact_message"
+#~ msgstr "پیام"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "پیام لازم است"
+
+#~ msgid "contact_name_required"
+#~ msgstr "نام الزامی است"
+
+#~ msgid "contact_email_required"
+#~ msgstr "ایمیل مورد نیاز است"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "ایمیل نامعتبر"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "تلفن"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "موبایل"
+
+#~ msgid "contact_email"
+#~ msgstr "ایمیل"
+
+#~ msgid "contact_date"
+#~ msgstr "تاریخ"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "همه پیام ها"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "پیام های تماس"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "مدیریت پیام های تماس"
+
+#~ msgid "contact_message_details"
+#~ msgstr "جزئیات پیام"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "جزئیات پیام تماس"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "باز کردن جزئیات پیام"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "برای مشاهده جزئیات پیام مستقیماً روی آن کلیک کنید"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "جستجو بر اساس نام، ایمیل، یا پیام"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "در حال حاضر هیچ پیامی وجود ندارد"
+
+#~ msgid "contact_reply"
+#~ msgstr "پاسخ داد"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "پاسخ به پیام"
+
+#~ msgid "write_reply"
+#~ msgstr "پاسخ را بنویسید و مستقیما ارسال کنید"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "ارسال پاسخ"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "متن پاسخ"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "عنوان پاسخ"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "آخرین پاسخ ذخیره شده"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "به پیام خود در سایت ما پاسخ دهید"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "پیام جدید از تماس با ما"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "جدید"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "خوانده نشده"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "بخوانید"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "ارسال..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "اخیرا ارسال شده است، لطفاً چند وقت دیگر دوباره امتحان کنید"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr "پاسخی چند لحظه پیش ارسال شد، پس از مدتی دوباره امتحان کنید"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr "در صورت برخورد با هر مشکلی در تماس با ما دریغ نکنید"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "تیم پشتیبانی"
+
+#~ msgid "subscribe"
+#~ msgstr "مشترک شوید"
+
+#~ msgid "subscriptions"
+#~ msgstr "اشتراک ها"
+
+#~ msgid "subscription_active"
+#~ msgstr "فعال شد"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "فعال"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "متوقف شد"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "مشترکین تایید شده"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "کل مشترکین"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "همه مشترکین"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "مشترکین فعال"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "فعال شد"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "تایید شد"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "تایید نشده"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "تایید شد"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "مشترکین خبرنامه"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "مشترک خبرنامه"
+
+#~ msgid "subscription_message"
+#~ msgstr "برای دریافت پیام های ما مشترک شوید"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "در حال حاضر هیچ مشترکی وجود ندارد"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "لغو اشتراک"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "اشتراک ایمیل لغو شد"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "لغو اشتراک پیام های قرآن وایرد"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "از پیام های قرآن وایرد"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "مدیریت اشتراک ها"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "مشاهده اشتراک ها"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "خلاصه اشتراک ها"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "مرکز اشتراک"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "بررسی اجمالی مشترکین خبرنامه"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr "لیست ایمیل های ثبت شده برای دریافت خبرنامه ها و پیام ها"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "تاریخ اشتراک"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "تاریخ لغو اشتراک"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "جستجو با ایمیل"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "ایجاد پیام"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr "برای همه مشترکین فعال و تایید شده ایمیل ارسال کنید"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "نمای کلی داشبورد"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "پنل کنترل داخلی"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "مرور سریع ماژول ها و تنظیمات اصلی"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "خلاصه اعداد و شاخص های عمومی در سیستم"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "آمار سایت"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "آمار صفحه"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "آمار صوتی"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "آمار تفسیر"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "آمار مصحف"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "کل بازدیدکنندگان"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "مجموع بازدید از صفحه"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "پربازدیدترین صفحات"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "بازدید از صفحه"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "بازدید در 7 روز گذشته"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "بازدیدها در 30 روز گذشته"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "بازدیدکنندگان در 7 روز گذشته"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "بازدید در روزهای اخیر"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "پخش های صوتی"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "صدا در 7 روز گذشته پخش می شود"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "مجموع ثانیه های گوش دادن"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "بیشترین صفحات شنیده شده"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "سوره های پخش شده"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "پربازدیدترین قاریان"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "ورق زدن صفحه"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "بیشترین ورق زدن صفحات مصحف"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "کل تفسیر باز می شود"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "تفسیر در 7 روز گذشته باز می شود"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "مفتوح ترین کتاب های تفسیر"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "پر استفاده ترین کتاب"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "بازترین صفحات تفسیر"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "بازترین صفحه تفسیر"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "مفسرترین سوره"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "سوره های تفسیر شده"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "مفتوح ترین آیات در تفسیر"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "آخرین تعاملات"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr "ردیابی بازدیدکنندگان، صفحات، پخش‌های صوتی و تلنگرهای صفحه مصحف"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr ""
+#~ "ردیابی تفسیر باز می‌شود، کتاب‌ها، صفحات، سوره‌ها و آیات مرتبط با بیشترین "
+#~ "استفاده"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "داشبورد زنده"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "هنوز داده ای وجود ندارد"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "هنوز هیچ تعاملی وجود ندارد"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "آیه"
+
+#~ msgid "analytics_audio"
+#~ msgstr "صوتی"
+
+#~ msgid "analytics_page"
+#~ msgstr "صفحه"
+
+#~ msgid "analytics_pages"
+#~ msgstr "صفحات"
+
+#~ msgid "analytics_surah"
+#~ msgstr "سوره"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "مصحف"
+
+#~ msgid "analytics_time"
+#~ msgstr "زمان"
+
+#~ msgid "analytics_type"
+#~ msgstr "تایپ کنید"
+
+#~ msgid "analytics_path"
+#~ msgstr "مسیر"
+
+#~ msgid "analytics_add"
+#~ msgstr "بشمار"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "منحصر به فرد"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "بازدید می کند"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "پخش می کند"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "تکمیل های صوتی"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "تفسیر باز"
+
+#~ msgid "roles"
+#~ msgstr "نقش ها"
+
+#~ msgid "permissions"
+#~ msgstr "مجوزها"
+
+#~ msgid "users"
+#~ msgstr "کاربران"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "مدیریت کاربران"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "نقش ها را مدیریت کنید"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "مدیریت مجوزها"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "حساب‌های کاربری، نقش‌ها و مجوزها را مدیریت کنید"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "سیستم مدیریت کاربر و مجوز"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "مدیریت مجوزها"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "نقش های سیستم و مجوزهای مرتبط را مدیریت کنید"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "مدیریت کاربران و تعیین نقش"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "افزودن کاربر"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "افزودن کاربر جدید"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "مشخصات کاربر"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "مشاهده جزئیات کاربر"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "مشاهده داده های کاربر و اختصاص نقش ها"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "اضافه کردن نقش"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "ویرایش نقش"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "نقش را حذف کنید"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "ذخیره نقش"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "نام نقش"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "نقش فعلی"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "نقش های فعلی"
+
+#~ msgid "rbac_role"
+#~ msgstr "نقش"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "مجوز اضافه کنید"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "مجوز ویرایش"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "حذف مجوز"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "ذخیره مجوز"
+
+#~ msgid "rbac_permission"
+#~ msgstr "اجازه"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "اجازه"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "نام مجوز"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "کد مجوز"
+
+#~ msgid "rbac_module"
+#~ msgstr "ماژول"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "نقش ها را به مجوزها پیوند دهید"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "مجوزها را به نقش‌ها پیوند دهید"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr "کاربر با موفقیت ایجاد شد و جزئیات ورود به ایمیل آنها ارسال شد"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "کاربر با موفقیت ایجاد شد، اما ایمیل ارسال نشد. تنظیمات ایمیل را بررسی کنید"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "نقش با موفقیت ایجاد شد"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "مجوز با موفقیت ایجاد شد"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "نقش با موفقیت به روز شد"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "مجوز با موفقیت به روز شد"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "نقش با موفقیت حذف شد"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "مجوز با موفقیت حذف شد"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "مجوز با موفقیت به نقش مرتبط شد"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "مجوز با موفقیت از نقش حذف شد"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "نقش های کاربر با موفقیت به روز شد"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "حذف نقش را تایید کنید"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "تایید حذف مجوز"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "شما در حال حذف نقش هستید"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "شما در حال حذف مجوز هستید"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "نقش اصلی را نمی توان حذف کرد"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "مجوز اصلی را نمی توان حذف کرد"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "کد نقش اصلی قابل ویرایش نیست"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "کد مجوز اصلی قابل ویرایش نیست"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr "نقش های کاربر اصلی را نمی توان از این رابط ویرایش کرد"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "مجوز اصلی را نمی توان از این نقش حذف کرد"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "این عمل قابل لغو نیست"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "جستجو بر اساس نام کاربری یا نقش"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "جستجو بر اساس نام کاربری یا تعداد مجوز"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr "برای مشاهده و پیوند مجوزها، نقشی را از منوی سمت چپ انتخاب کنید"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr ""
+#~ "یک نقش را از لیست انتخاب کنید، سپس مجوزها را از طریق چک باکس ها فعال یا "
+#~ "غیرفعال کنید"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "نقش ها را انتخاب کنید"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "هیچ نقشی به این کاربر اختصاص داده نشده است"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "در حال حاضر هیچ نقشی وجود ندارد"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "در حال حاضر هیچ کاربری وجود ندارد"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "لطفا نام و کد نقش را وارد کنید"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "لطفا کد و نام مجوز را وارد کنید"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "لطفا کد و نام مجوز را وارد کنید"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "پر کردن اطلاعات کاربر؛ یک حساب کاربری ایجاد می شود و جزئیات ورود به ایمیل "
+#~ "آنها ارسال می شود"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "اطلاعات نقش را پر کنید سپس تغییرات را ذخیره کنید"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "داده های مجوز را پر کنید سپس تغییرات را ذخیره کنید"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "یک رمز عبور تصادفی برای کاربر ایجاد می شود و به ایمیل او ارسال می شود"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "حساب شما در پلتفرم ایجاد شده است"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "اطلاعات حساب شما در پلتفرم"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr "توصیه می کنیم پس از ورود به سیستم رمز عبور خود را تغییر دهید"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr "شرح مختصری که وظایف این نقش را در سیستم نشان می دهد"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr ""
+#~ "توضیح مختصری که نشان می دهد چه زمانی از این مجوز در سیستم استفاده می شود"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "ایمیل برای ارسال جزئیات ورود لازم است"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "کد نقش قبلاً استفاده شده است، لطفاً کد دیگری را انتخاب کنید"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "این کد قبلاً برای مجوز دیگری استفاده شده است"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr "به دلیل کد تکراری در پایگاه داده، مجوز ذخیره نشد"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "خطا در پردازش درخواست: داده های نقش یا مجوز وجود ندارد"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "نام کامل الزامی است"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "نام کاربری در حال حاضر در حال استفاده است"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "ایمیل در حال حاضر در حال استفاده است"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "شماره تلفن در حال حاضر در حال استفاده است"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "این نام کاربری محفوظ است و قابل استفاده نیست"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "مجوزها بر اساس ماژول گروه بندی شده اند"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "کاربر فعال"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "غیر فعال"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "وضعیت کاربر به روز شد"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "آخرین ورود"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "پیوند نقش ها"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "بازگشت به نقش ها"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "بازگشت به مجوزها"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "بازگشت به لیست کاربران"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "بازگشت به لیست کاربران"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "نقش کاربر (به عنوان مثال"
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "مجوز خاص (به عنوان مثال"
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "به عنوان مثال، مدیر سیستم"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "به عنوان مثال"
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "در کدهایی مانند استفاده می شود"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "برای تأیید مجوز کاربر در داخل"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "به صورت خودکار برای کاربر"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr "، و به صورت خودکار در قالب یکپارچه ذخیره می شود"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "الگو ترجیح داده می شود"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "می توانید شماره را در هر قالبی وارد کنید (05 / 5 /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "اختیاری"
+
+#~ msgid "rbac_aw"
+#~ msgstr "یا"
+
+#~ msgid "rbac_aam"
+#~ msgstr "ژنرال"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "شریک"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "شرکت کننده"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "سرپرست"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "نقشی تعیین خواهد شد"
+
+#~ msgid "rbac_5"
+#~ msgstr "یا 5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "مشاهده کاربران"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "مشاهده نقش ها"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "مشاهده مجوزها"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "ویرایش کاربر"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "حذف کاربر"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "ویرایش نقش"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "نقش را حذف کنید"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "مجوز ویرایش"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "حذف مجوز"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "دسترسی به داشبورد"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "دسترسی به تجزیه و تحلیل"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "دسترسی به قرآن استودیو"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "دسترسی به ارتباطات"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "دسترسی به اشتراک ها"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "دسترسی به اطلاعیه ها"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "دسترسی به کانال های ارسال"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "تنظیمات ورود را مدیریت کنید"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "مشاهده کمپین ها"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "مشاهده پیام ها"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "مشاهده پیام های تماس"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "مشاهده پیام های WhatsApp"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "مشاهده اعلان های داخلی"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "مشاهده گزارش اعزام"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "مشاهده مشترکین"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "مشاهده ایمیل"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "مدیریت پروژه ها"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "ایجاد پیام تماس"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "ارسال اعلان"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "قاری اضافه کنید"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "ویرایش داده های خواننده"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "حذف داده های خواننده"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "مختصات قرآن"
+
+#~ msgid "rbac_action"
+#~ msgstr "این اقدام"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "تعداد کاربران"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "تعداد نقش"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "تعداد مجوز"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "کاربران ثبت نام شده"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "نقش های ساختاریافته"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "مجوزهای فعال"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr "سازماندهی ساختار نقش و توزیع مسئولیت ها در داخل سیستم"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "تنظیمات"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "اشتراک ها"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "کنترل دسترسی به ماژول ها و عملیات ریز"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "نام کاربری و رمز عبور لازم است"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "مدیر کل سیستم"
+
+#~ msgid "accounts_system"
+#~ msgstr "سیستم"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "مرکز هشدار"
+
+#~ msgid "notification_new"
+#~ msgstr "جدید"
+
+#~ msgid "notification_alert"
+#~ msgstr "هشدار"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "بخوانید"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "اعلان خوانده شد"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "ارسال اعلان"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "ارسال هشدار"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "اعلان جدید ایجاد کنید"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "مدیریت اعلان"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "ارسال اعلان داخلی به کاربران در سیستم"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "متن اعلان را اینجا بنویسید"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "با موفقیت ارسال شد"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "خلاصه اطلاعیه"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "خلاصه اطلاعیه ها"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "در حال حاضر هیچ اعلانی وجود ندارد"
+
+#~ msgid "notification_no_text"
+#~ msgstr "بدون متن"
+
+#~ msgid "notification_alns"
+#~ msgstr "متن"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "درون سیستم"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "اطلاعیه های سیستم"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "سیستم و اعلان های تعاملی"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "اعلان ها از داخل سیستم برای کاربر ارسال می شود"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "مروری سریع بر اعلان های ارسال شده از طریق کانال های مختلف"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "اعلان ها در این صفحه حساب می شوند"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "هیچ گیرنده منطبقی وجود ندارد"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "پیام‌ها اکنون از طرف نیست"
+
+#~ msgid "notifications_latest"
+#~ msgstr "آخرین اعلان های دریافت شده در سیستم (ابتدا جدیدترین، حداکثر 10)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "مرکز اطلاع رسانی"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "اعلان های ارسال شده"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "خلاصه اطلاعیه ها"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "مروری سریع بر اعلان های ارسال شده از طریق کانال های مختلف"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "ارسال اعلان"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "اعلان داخلی با موفقیت ارسال شد"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "کمپین ها"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "کمپین های ارسالی"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "مجموع کمپین ها"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "عنوان کمپین"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "کمپین با موفقیت ایجاد شد"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "کمپین با موفقیت ارسال شد"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr "هیچ کانال یا گروه تلگرامی برای این کمپین فعال نشده است"
+
+#~ msgid "communication_message_text"
+#~ msgstr "متن پیام"
+
+#~ msgid "communication_title_message"
+#~ msgstr "عنوان پیام"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "تصویر (اختیاری)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "اگر تصویر داشته باشد"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "اگر تصویر نداشته باشد"
+
+#~ msgid "communication_send_post"
+#~ msgstr "ارسال پست"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "تلگرام ارسال کنید"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "تلگرام - کانال"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "تلگرام - گروه"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "برای گروه و کانال"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "فیس بوک"
+
+#~ msgid "communication_platform"
+#~ msgstr "پلت فرم"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "کانال"
+
+#~ msgid "communication_channels"
+#~ msgstr "کانال ها"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "ارتباطات اجتماعی"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "مدیریت ارتباطات اجتماعی"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "خلاصه ارتباطات اجتماعی"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "جستجو بر اساس عنوان یا متن"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "جستجو بر اساس عنوان یا کانال"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "تاریخ ارسال"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "وضعیت ارسال"
+
+#~ msgid "communication_sent"
+#~ msgstr "ارسال شد"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "ارسال شد"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "پیش نویس"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "برنامه ریزی شده است"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "ارسال..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "ارسال نشد"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "در انتظار"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "خطا (در صورت وجود)"
+
+#~ msgid "communication_log"
+#~ msgstr "ورود به سیستم"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "گزارش تحویل"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr "گزارش عملیات اعزام برای هر کمپین و کانال تماس"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "در حال حاضر هیچ گزارش اعزام وجود ندارد"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "استفاده کنید"
+
+#~ msgid "communication_drafts"
+#~ msgstr "پیش نویس ها"
+
+#~ msgid "communication_qryba"
+#~ msgstr "به زودی"
+
+#~ msgid "messages"
+#~ msgstr "پیام ها"
+
+#~ msgid "messaging_messages"
+#~ msgstr "پیام ها"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "پیام جمعی"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "پیام های جمعی"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "پیام متنی"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "پیام موبایل"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "پیام های اس ام اس"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "جزئیات پیام موبایل"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "در حال حاضر هیچ پیام تلفن همراه وجود ندارد"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "واتس اپ"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "واتس اپ"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "پیام واتس اپ"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "جزئیات پیام واتساپ"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "اعلان های واتس اپ"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "هیچ پیام WhatsApp در حال حاضر در گزارش وجود ندارد"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr ""
+#~ "مشاهده گزارش پیام های WhatsApp ارسال شده از طریق سیستم مربوط به کاربران"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "ایمیل"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "پیام ایمیل عمومی"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "ایجاد پیام ایمیل عمومی"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "در حال حاضر هیچ پیام ایمیلی وجود ندارد"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "متن پیام (ایمیل)"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "ایمیل ارسال شد"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "ایمیل ایجاد شده و در انتظار ارسال است"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "این پیام فقط به صورت ایمیل ارسال خواهد شد. می توانید از قالب بندی، لیست "
+#~ "ها و پیوندها استفاده کنید"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr "این پیام در درجه اول برای مشترکین خبرنامه ثبت شده در سیستم است"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "ارسال پست الکترونیکی عمومی برای مشترکین خبرنامه با گزینه ای برای اضافه "
+#~ "کردن همه کاربران سیستم"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "ایجاد پیام جدید"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "ارسال پیام"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "محتوای پیام"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "محتوایی در این پیام وجود ندارد"
+
+#~ msgid "messaging_subject"
+#~ msgstr "موضوع"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "عنوان و داده"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "عنوان و متن پیام باید وارد شود"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "متن پیام را اینجا بنویسید"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "متن پیام ایمیل را اینجا بنویسید"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "نوع پیام"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "بدون عنوان"
+
+#~ msgid "messaging_sender"
+#~ msgstr "فرستنده"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "فرستنده"
+
+#~ msgid "messaging_user"
+#~ msgstr "کاربر"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "گیرندگان"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "لیست گیرندگان"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "مشاهده گیرندگان"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "کاربران را انتخاب کنید"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "همه کاربران"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "مشترکین خبرنامه (به طور پیش فرض)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "کاربران خاص"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "یک یا چند کاربر را از لیست انتخاب کنید"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "گزینه های دریافت کننده اضافی"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr "همه کاربران سیستم با مشترکین خبرنامه را اضافه کنید"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr ""
+#~ "اگر می خواهید پیام به همه کاربران ثبت نام شده سیستم نیز برسد، این گزینه "
+#~ "را فعال کنید"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "هیچ گیرنده ای وجود ندارد"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "هیچ گیرنده ای برای این پیام وجود ندارد"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "هیچ گیرنده ای برای ارسال پیام وجود ندارد"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "هیچ گیرنده ای آدرس ایمیل ندارد"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "هیچ گیرنده ای در انتظار ارسال نیست"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "هیچ گیرنده ای مطابق با معیارهای مشخص شده نیست"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "تعداد گیرندگان"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "جستجو بر اساس فرستنده، عنوان، یا متن"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "کانال اعزام"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "کانال های ارسال"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "مدیریت کانال های ارسال"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr "مدیریت و ارسال اعلان ها از طریق ایمیل و هشدارهای سیستم داخلی"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "سیاهههای مربوط به ارسال"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "گزارش های اعلان"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "هنوز گزارش اعزام وجود ندارد"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "زمان اعزام"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "مشاهده داده های پیام، گیرندگان، و وضعیت ارسال"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "داده ها و محتوای پیام های تلفن همراه را مشاهده کنید"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "داده ها و محتوای پیام WhatsApp را مشاهده کنید"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "پیام های ایمیل انبوه را با تعداد و وضعیت گیرندگان مشاهده کنید"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "مشاهده تمام تلاش های ارسال برای هر گیرنده با وضعیت"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "تحویل پیام"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "تحویل پیام"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "بخوانید"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "خوانده نشده"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "پیغام خطا"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "شکست وجود دارد"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "کمپین"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "گزارش پیام"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "از طریق سیستم برای کاربران ارسال می شود"
+
+#~ msgid "messaging_action"
+#~ msgstr "اقدام"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "ایمیل / شناسه"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "دسته اولیه"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "فردی"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "جمعی"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "نامشخص"
+
+#~ msgid "messaging_first"
+#~ msgstr "اول"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "امتحان کنید"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "درخواست چاپ همانطور که به ارائه دهنده ارسال شده است"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "چاپ پاسخ خام"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "اگر پاسخ متنی است"
+
+#~ msgid "quran_studio"
+#~ msgstr "استودیو قرآن"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "استودیو قرآن را مدیریت کنید"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "مدیریت داده‌های خواننده"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "مدیریت داده های قاریان موجود در سیستم"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "داده های قاریان"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "صفحه قاریان"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "در حال حاضر هیچ داده قاری وجود ندارد"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "قاری با موفقیت اضافه شد"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "داده های قاری با موفقیت به روز شد"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "قاری با موفقیت حذف شد"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "قاری را حذف کنید"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "آیا مطمئنید که می خواهید این قاری را حذف کنید؟"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "نام عربی"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "نام انگلیسی"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "کد"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "کد و نام عربی الزامی است"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "ویرایشگر مختصات آیه"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "صفحه ویرایشگر مختصات"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "مختصات"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "مختصات را تنظیم کنید"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "بارگذاری مختصات"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "واکشی مختصات"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "ذخیره مختصات"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "مختصات ذخیره شده را ویرایش کنید"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "ویرایش را ذخیره کنید"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "ذخیره جدید در"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "به روز رسانی مختصات آیه در صفحه"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "هیچ مختصاتی برای این آیه در این صفحه ذخیره نشده است"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "شماره سوره و آیه را وارد کنید سپس روی \"بارگیری مختصات\" کلیک کنید. "
+#~ "مستطیل های ذخیره شده برای این آیه برای ویرایش و ذخیره در این صفحه نمایش "
+#~ "داده می شود."
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "ماوس را روی مصحف بکشید تا یک مستطیل که نمایانگر بخشی از آیه است بکشید. می "
+#~ "توانید چندین مستطیل برای یک آیه بکشید."
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "لطفا شماره سوره و آیه را وارد کنید"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "لطفا قبل از بارگذاری شماره سوره و آیه را وارد کنید"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "مستطیل ها را پاک کنید"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "بدون مستطیل برای ذخیره"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "شماره سوره"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "شماره آیه"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "مصحف پیج"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "صفحه فعلی"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "صفحه بعدی"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "صفحه قبلی"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "تصویر"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "اقدامات"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "به عنوان مثال، 2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "به عنوان مثال، 6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "overview"
+#~ msgstr "نمای کلی"
+
+#~ msgid "summary"
+#~ msgstr "خلاصه"
+
+#~ msgid "important_services"
+#~ msgstr "خدمات اصلی"
+
+#~ msgid "status"
+#~ msgstr "وضعیت"
+
+#~ msgid "actions"
+#~ msgstr "اقدامات"
+
+#~ msgid "content"
+#~ msgstr "محتوا"
+
+#~ msgid "title"
+#~ msgstr "عنوان"
+
+#~ msgid "created_at"
+#~ msgstr "تاریخ ایجاد"
+
+#~ msgid "updated_at"
+#~ msgstr "آخرین به روز رسانی"
+
+#~ msgid "next"
+#~ msgstr "بعدی"
+
+#~ msgid "previous"
+#~ msgstr "قبلی"
+
+#~ msgid "back"
+#~ msgstr "برگشت"
+
+#~ msgid "save"
+#~ msgstr "ذخیره کنید"
+
+#~ msgid "save_changes"
+#~ msgstr "ذخیره تغییرات"
+
+#~ msgid "add"
+#~ msgstr "اضافه کنید"
+
+#~ msgid "create"
+#~ msgstr "ایجاد کنید"
+
+#~ msgid "update"
+#~ msgstr "به روز رسانی"
+
+#~ msgid "edit"
+#~ msgstr "ویرایش کنید"
+
+#~ msgid "delete"
+#~ msgstr "حذف کنید"
+
+#~ msgid "cancel"
+#~ msgstr "لغو کنید"
+
+#~ msgid "confirm"
+#~ msgstr "تایید کنید"
+
+#~ msgid "view"
+#~ msgstr "مشاهده کنید"
+
+#~ msgid "send"
+#~ msgstr "ارسال کنید"
+
+#~ msgid "send_now"
+#~ msgstr "اکنون ارسال کنید"
+
+#~ msgid "sent"
+#~ msgstr "ارسال شد"
+
+#~ msgid "failed"
+#~ msgstr "شکست خورد"
+
+#~ msgid "pending"
+#~ msgstr "در انتظار"
+
+#~ msgid "no_data"
+#~ msgstr "داده ای وجود ندارد"
+
+#~ msgid "settings"
+#~ msgstr "تنظیمات"
+
+#~ msgid "system_settings"
+#~ msgstr "تنظیمات سیستم"
+
+#~ msgid "security"
+#~ msgstr "امنیت"
+
+#~ msgid "zoom_out"
+#~ msgstr "بزرگنمایی"
+
+#~ msgid "app_arabic"
+#~ msgstr "عربی"
+
+#~ msgid "app_urdu"
+#~ msgstr "اردو"
+
+#~ msgid "web_alkl"
+#~ msgstr "همه"
+
+#~ msgid "web_fqt"
+#~ msgstr "فقط"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "فقط، یا"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "فقط یا هر دو"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "تمامی حقوق محفوظ است"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "وب سایت قرآن"
+
+#~ msgid "required_field"
+#~ msgstr "این فیلد الزامی است"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "شماره تلفن الزامی است"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "قالب شماره تلفن نامعتبر است"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "شماره تلفن نامعتبر است"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "شماره تلفن امکان پذیر نیست"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "قالب شماره موبایل نامعتبر است"
+
+#~ msgid "core_ay"
+#~ msgstr "یا هر کدام"
+
+#~ msgid "core_mnasb"
+#~ msgstr "مناسب"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr "ما فقط بازدیدهای عمومی را می شماریم (به عنوان مثال، صفحه اصلی)"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "تعداد ردیف در هر صفحه"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "تعداد رکوردها"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "با عرض پوزش، شما اجازه دسترسی به این صفحه را ندارید"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "دسترسی ممنوع"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "ارتفاع میله (کنترل بصری)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "مدت زمان پیش‌فرض نان تست بر حسب میلی‌ثانیه"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "مدت زمان مشخص برای این نان تست (پیش‌فرض را لغو می‌کند)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "حداکثر نمای پیش فرض (به عنوان مثال، 20)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "عرض ثابت (برای استفاده خالی بگذارید)"
+
+#~ msgid "web_notification"
+#~ msgstr "اطلاع رسانی"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "بستن در پس زمینه کلیک کنید"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "همگام سازی پس از 5 ثانیه از آخرین به روز رسانی"
+
+#~ msgid "quran_nav"
+#~ msgstr "قرآن"
+
+#~ msgid "quran_text"
+#~ msgstr "متن"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "تقسیم متن به"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "بقیه متن"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "بین"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "پیام جدید از فرم تماس با ما"
+
+#~ msgid "services_message_text"
+#~ msgstr "متن پیام:"
+
+#~ msgid "surah_3"
+#~ msgstr "علی عمران"
+
+#~ msgid "surah_4"
+#~ msgstr "نساء"
+
+#~ msgid "surah_5"
+#~ msgstr "المائده"
+
+#~ msgid "surah_6"
+#~ msgstr "الانعام"
+
+#~ msgid "surah_7"
+#~ msgstr "الاعراف"
+
+#~ msgid "surah_8"
+#~ msgstr "الانفال"
+
+#~ msgid "surah_9"
+#~ msgstr "در توبه"
+
+#~ msgid "surah_10"
+#~ msgstr "یونس"
+
+#~ msgid "surah_11"
+#~ msgstr "هاد"
+
+#~ msgid "surah_12"
+#~ msgstr "یوسف"
+
+#~ msgid "surah_13"
+#~ msgstr "الرعد"
+
+#~ msgid "surah_14"
+#~ msgstr "ابراهیم"
+
+#~ msgid "surah_15"
+#~ msgstr "الحجر"
+
+#~ msgid "surah_16"
+#~ msgstr "النحل"
+
+#~ msgid "surah_17"
+#~ msgstr "الاسراء"
+
+#~ msgid "surah_18"
+#~ msgstr "الکهف"
+
+#~ msgid "surah_19"
+#~ msgstr "مریم"
+
+#~ msgid "surah_20"
+#~ msgstr "طاها"
+
+#~ msgid "surah_21"
+#~ msgstr "الانبیاء"
+
+#~ msgid "surah_22"
+#~ msgstr "الحج"
+
+#~ msgid "surah_23"
+#~ msgstr "المؤمنون"
+
+#~ msgid "surah_24"
+#~ msgstr "النور"
+
+#~ msgid "surah_25"
+#~ msgstr "الفرقان"
+
+#~ msgid "surah_26"
+#~ msgstr "شعرا"
+
+#~ msgid "surah_27"
+#~ msgstr "آن نمل"
+
+#~ msgid "surah_28"
+#~ msgstr "القصص"
+
+#~ msgid "surah_29"
+#~ msgstr "العنکبوت"
+
+#~ msgid "surah_30"
+#~ msgstr "ار-روم"
+
+#~ msgid "surah_31"
+#~ msgstr "لقمان"
+
+#~ msgid "surah_32"
+#~ msgstr "السجده"
+
+#~ msgid "surah_33"
+#~ msgstr "الاحزاب"
+
+#~ msgid "surah_34"
+#~ msgstr "صبا"
+
+#~ msgid "surah_35"
+#~ msgstr "فاطر"
+
+#~ msgid "surah_36"
+#~ msgstr "یا سین"
+
+#~ msgid "surah_37"
+#~ msgstr "الصافات"
+
+#~ msgid "surah_38"
+#~ msgstr "غمگین"
+
+#~ msgid "surah_39"
+#~ msgstr "از زمر"
+
+#~ msgid "surah_40"
+#~ msgstr "غفیر"
+
+#~ msgid "surah_41"
+#~ msgstr "فوسیلات"
+
+#~ msgid "surah_42"
+#~ msgstr "عاشورا"
+
+#~ msgid "surah_43"
+#~ msgstr "از زخرف"
+
+#~ msgid "surah_44"
+#~ msgstr "عد دخان"
+
+#~ msgid "surah_45"
+#~ msgstr "الجاثیه"
+
+#~ msgid "surah_46"
+#~ msgstr "الاحقاف"
+
+#~ msgid "surah_47"
+#~ msgstr "محمد"
+
+#~ msgid "surah_48"
+#~ msgstr "الفتح"
+
+#~ msgid "surah_49"
+#~ msgstr "الحجرات"
+
+#~ msgid "surah_50"
+#~ msgstr "قاف"
+
+#~ msgid "surah_51"
+#~ msgstr "ذاریات"
+
+#~ msgid "surah_52"
+#~ msgstr "در تور"
+
+#~ msgid "surah_53"
+#~ msgstr "النجم"
+
+#~ msgid "surah_54"
+#~ msgstr "القمر"
+
+#~ msgid "surah_55"
+#~ msgstr "الرحمن"
+
+#~ msgid "surah_56"
+#~ msgstr "الواقعه"
+
+#~ msgid "surah_57"
+#~ msgstr "الحدید"
+
+#~ msgid "surah_58"
+#~ msgstr "مجادله"
+
+#~ msgid "surah_59"
+#~ msgstr "الحشر"
+
+#~ msgid "surah_60"
+#~ msgstr "الممتحنه"
+
+#~ msgid "surah_61"
+#~ msgstr "عصف"
+
+#~ msgid "surah_62"
+#~ msgstr "الجمعه"
+
+#~ msgid "surah_63"
+#~ msgstr "المنافقون"
+
+#~ msgid "surah_64"
+#~ msgstr "تغابن"
+
+#~ msgid "surah_65"
+#~ msgstr "الطلاق"
+
+#~ msgid "surah_66"
+#~ msgstr "التحریم"
+
+#~ msgid "surah_67"
+#~ msgstr "الملک"
+
+#~ msgid "surah_68"
+#~ msgstr "القلم"
+
+#~ msgid "surah_69"
+#~ msgstr "الحقاه"
+
+#~ msgid "surah_70"
+#~ msgstr "المعارج"
+
+#~ msgid "surah_71"
+#~ msgstr "نوه"
+
+#~ msgid "surah_72"
+#~ msgstr "الجن"
+
+#~ msgid "surah_73"
+#~ msgstr "المزمل"
+
+#~ msgid "surah_74"
+#~ msgstr "المدثر"
+
+#~ msgid "surah_75"
+#~ msgstr "القیامه"
+
+#~ msgid "surah_76"
+#~ msgstr "الانسان"
+
+#~ msgid "surah_77"
+#~ msgstr "مرسلات"
+
+#~ msgid "surah_78"
+#~ msgstr "النباء"
+
+#~ msgid "surah_79"
+#~ msgstr "النازعات"
+
+#~ msgid "surah_80"
+#~ msgstr "عباسا"
+
+#~ msgid "surah_81"
+#~ msgstr "در تکویر"
+
+#~ msgid "surah_82"
+#~ msgstr "الانفطار"
+
+#~ msgid "surah_83"
+#~ msgstr "المطففین"
+
+#~ msgid "surah_84"
+#~ msgstr "الانشقاق"
+
+#~ msgid "surah_85"
+#~ msgstr "البروج"
+
+#~ msgid "surah_86"
+#~ msgstr "الطارق"
+
+#~ msgid "surah_87"
+#~ msgstr "الاعلاء"
+
+#~ msgid "surah_88"
+#~ msgstr "الغاشیه"
+
+#~ msgid "surah_89"
+#~ msgstr "الفجر"
+
+#~ msgid "surah_90"
+#~ msgstr "البلد"
+
+#~ msgid "surah_91"
+#~ msgstr "آش شمس"
+
+#~ msgid "surah_92"
+#~ msgstr "اللیل"
+
+#~ msgid "surah_93"
+#~ msgstr "الضحی"
+
+#~ msgid "surah_94"
+#~ msgstr "آش شرح"
+
+#~ msgid "surah_95"
+#~ msgstr "آت-تین"
+
+#~ msgid "surah_96"
+#~ msgstr "العلاق"
+
+#~ msgid "surah_97"
+#~ msgstr "القدر"
+
+#~ msgid "surah_98"
+#~ msgstr "البیینه"
+
+#~ msgid "surah_99"
+#~ msgstr "عزلزاله"
+
+#~ msgid "surah_100"
+#~ msgstr "العادیات"
+
+#~ msgid "surah_101"
+#~ msgstr "القریعه"
+
+#~ msgid "surah_102"
+#~ msgstr "آت تاکاثور"
+
+#~ msgid "surah_103"
+#~ msgstr "العصر"
+
+#~ msgid "surah_104"
+#~ msgstr "الحمزه"
+
+#~ msgid "surah_105"
+#~ msgstr "الفیل"
+
+#~ msgid "surah_106"
+#~ msgstr "قریش"
+
+#~ msgid "surah_107"
+#~ msgstr "المعون"
+
+#~ msgid "surah_108"
+#~ msgstr "الکوثر"
+
+#~ msgid "surah_109"
+#~ msgstr "الکافرون"
+
+#~ msgid "surah_110"
+#~ msgstr "النصر"
+
+#~ msgid "surah_111"
+#~ msgstr "المساد"
+
+#~ msgid "surah_112"
+#~ msgstr "الاخلاس"
+
+#~ msgid "surah_113"
+#~ msgstr "الفلق"
+
+#~ msgid "surah_114"
+#~ msgstr "الناس"
+
+#~ msgid "contents"
+#~ msgstr "مطالب"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "قابلیت دسترسی"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "افزایش اندازه قلم"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "اندازه قلم را کاهش دهید"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "کنتراست بالا"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "حالت تاریک"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "حالت خواندن"
+
+#~ msgid "a11y_reset"
+#~ msgstr "تنظیمات را بازنشانی کنید"
+
+#~ msgid "select_translation"
+#~ msgstr "ترجمه را انتخاب کنید"
+
+#~ msgid "select_surah"
+#~ msgstr "سوره را انتخاب کنید"
+
+#~ msgid "copy_ayah"
+#~ msgstr "آیه را کپی کنید"
+
+#~ msgid "share_ayah"
+#~ msgstr "آیه را به اشتراک بگذارید"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "نشانک آیه"
+
+#~ msgid "play_ayah"
+#~ msgstr "پخش صدا"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "آیه ذخیره شد"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "از ذخیره شده حذف شد"
+
+#~ msgid "no_translation_available"
+#~ msgstr "ترجمه ای موجود نیست"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "برای شروع یک سوره را انتخاب کنید"
+
+#~ msgid "app_download_title"
+#~ msgstr "برنامه Wird را دانلود کنید"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "یک تجربه کامل قرآنی در دستگاه شما"
+
+#~ msgid "audio_language"
+#~ msgstr "زبان صوتی"
+
+#~ msgid "support"
+#~ msgstr "پشتیبانی کنید"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "وایرد امروز"
+
+#~ msgid "home_this_week"
+#~ msgstr "این هفته"
+
+#~ msgid "home_your_wird"
+#~ msgstr "وایرد شما"
+
+#~ msgid "home_progress"
+#~ msgstr "پیشرفت"
+
+#~ msgid "home_days_progress"
+#~ msgstr "4 از 7 روز"
+
+#~ msgid "day_sat"
+#~ msgstr "نشست"
+
+#~ msgid "day_sun"
+#~ msgstr "خورشید"
+
+#~ msgid "day_mon"
+#~ msgstr "دوشنبه"
+
+#~ msgid "day_tue"
+#~ msgstr "سه شنبه"
+
+#~ msgid "day_wed"
+#~ msgstr "چهارشنبه"
+
+#~ msgid "day_thu"
+#~ msgstr "پنج شنبه"
+
+#~ msgid "day_fri"
+#~ msgstr "جمعه"
+
+#~ msgid "home_today_wird"
+#~ msgstr "وایرد امروز"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "پخش تلاوت توسط"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "صدای ناب"
+
+#~ msgid "home_tarteel"
+#~ msgstr "ترتیل تلاوت"
+
+#~ msgid "home_khashi"
+#~ msgstr "تلاوت اختصاصی"
+
+#~ msgid ""
+#~ "We may update this policy from time to time. The \"Last updated\" date at "
+#~ "the top reflects the most recent revision. Continued use of the app after "
+#~ "an update constitutes acceptance of the revised policy."
+#~ msgstr ""
+#~ "ممکن است این سیاست را گاهی به‌روز کنیم. تاریخ آخرین بروزرسانی در بالا "
+#~ "آخرین ویرایش را نشان می‌دهد. ادامه استفاده از برنامه پس از به‌روزرسانی به "
+#~ "منزله پذیرش سیاست جدید است."

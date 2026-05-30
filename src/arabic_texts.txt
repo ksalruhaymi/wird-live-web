@@ -1,0 +1,5173 @@
+TEXT: ؀-؅؜۝
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ؅؜۝
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ؆-؈
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ؆-؈؋؎؏۞۩۽۾
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ؉؊،؍؛؝-؟٪-٭۔
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ، وسيتم حفظه بصيغة موحدة تلقائيًا
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: ؎؏۞۩۽۾
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ؐ-ًؚ-ٰٟۖ-ۜ۟-۪ۤۧۨ-ۭ
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ؠ-ؿف-يٮٯٱ-ۓەۮۯۺ-ۼۿ
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ؠ-يٮٯٱ-ۓەۥۦۮۯۺ-ۼۿ
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: آخر التفاعلات
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+FILE: ./apps/analytics/templates/analytics/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: آخر التنبيهات التي وصلتك داخل النظام (الأحدث في الأعلى، بحد أقصى ١٠).
+FILE: ./apps/notification/templates/notification/inbox/notification_inbox.html
+
+------------------------------------------------------------
+
+TEXT: آخر دخول
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: آخر رد محفوظ
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: آية
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+FILE: ./apps/quran/static/quran/js/ayah-audio.js
+FILE: ./apps/quran/static/quran/js/short-tafsir.js
+FILE: ./apps/quran/static/quran/js/word-meanings.js
+FILE: ./staticfiles/quran/js/ayah-audio.js
+FILE: ./staticfiles/quran/js/short-tafsir.js
+FILE: ./staticfiles/quran/js/word-meanings.js
+
+------------------------------------------------------------
+
+TEXT: آية"
+FILE: ./apps/quran/static/quran/js/progress-tracker.js
+FILE: ./staticfiles/quran/js/progress-tracker.js
+
+------------------------------------------------------------
+
+TEXT: آیتم را انتخاب نمایید"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: أ': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: أبسط وأقصر للاستخدام في الواجهة الاستخدام في القالب:
+FILE: ./identity/rbac/templatetags/rbac_tags.py
+
+------------------------------------------------------------
+
+TEXT: أدخل اسم المستخدم"
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: أدخل رقم السورة والآية ثم اضغط "تحميل الإحداثيات". سيتم عرض المستطيلات المخزنة لهذه الآية على هذه الصفحة لتعديلها ثم حفظ التعديل.
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: أدخل كلمة المرور"
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: أدوات العرض
+FILE: ./apps/hifz/templates/hifz/partials/hifz_display_toolsX.html
+
+------------------------------------------------------------
+
+TEXT: أدوار محددة
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: أدوار مهيكلة
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+
+------------------------------------------------------------
+
+TEXT: أكثر الآيات فتحًا في التفسير
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: أكثر السور تشغيلًا
+FILE: ./apps/analytics/templates/analytics/audio/dashboard_audio.html
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+
+------------------------------------------------------------
+
+TEXT: أكثر السور تفسيرًا
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: أكثر الصفحات استماعًا
+FILE: ./apps/analytics/templates/analytics/audio/dashboard_audio.html
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+
+------------------------------------------------------------
+
+TEXT: أكثر الصفحات زيارة
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/pages/dashboard_pages.html
+
+------------------------------------------------------------
+
+TEXT: أكثر القرّاء تشغيلًا
+FILE: ./apps/analytics/templates/analytics/audio/dashboard_audio.html
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+
+------------------------------------------------------------
+
+TEXT: أكثر سورة فُتح تفسيرها
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: أكثر صفحات التفسير فتحًا
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: أكثر صفحات المصحف تقليبًا
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/mushaf/dashboard_mushaf.html
+
+------------------------------------------------------------
+
+TEXT: أكثر صفحة تفسير فتحًا
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: أكثر كتاب استخدامًا
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: أكثر كتب التفسير فتحًا
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: أمس
+FILE: ./identity/accounts/templates/accounts/messages.html
+
+------------------------------------------------------------
+
+TEXT: أنت على وشك حذف الدور:
+FILE: ./identity/rbac/templates/rbac/roles/role_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: أنت على وشك حذف الصلاحية:
+FILE: ./identity/rbac/templates/rbac/permissions/permission_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: أنثى")
+FILE: ./identity/accounts/models.py
+
+------------------------------------------------------------
+
+TEXT: أو
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: أو 5
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: أو أي
+FILE: ./core/models.py
+
+------------------------------------------------------------
+
+TEXT: أولًا
+FILE: ./apps/messaging/utils/send_sms.py
+FILE: ./apps/notification/utils/send_sms.py
+
+------------------------------------------------------------
+
+TEXT: أُرسلت"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: إجراءات
+FILE: ./apps/communication/templates/communication/campaigns.html
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: إجمالي الحملات
+FILE: ./apps/communication/templates/communication/overview.html
+
+------------------------------------------------------------
+
+TEXT: إجمالي الزوار
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: إجمالي المشتركين
+FILE: ./apps/subscription/templates/subscription/overview/overview_subscription.html
+
+------------------------------------------------------------
+
+TEXT: إجمالي ثواني الاستماع
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: إجمالي زيارات الصفحات
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: إجمالي فتحات التفسير
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: إحصائيات التفاسير
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: إحصائيات الصفحات
+FILE: ./apps/analytics/templates/analytics/pages/dashboard_pages.html
+
+------------------------------------------------------------
+
+TEXT: إحصائيات الصوت
+FILE: ./apps/analytics/templates/analytics/audio/dashboard_audio.html
+
+------------------------------------------------------------
+
+TEXT: إحصائيات المصحف
+FILE: ./apps/analytics/templates/analytics/mushaf/dashboard_mushaf.html
+
+------------------------------------------------------------
+
+TEXT: إحصائيات الموقع
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/include/tabs_header.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: إخفاء معاني الكلمات
+FILE: ./apps/quran/templates/quran/partials/wordmeanings_panel.html
+
+------------------------------------------------------------
+
+TEXT: إخفاء معاني الكلمات"
+FILE: ./apps/quran/templates/quran/partials/wordmeanings_panel.html
+
+------------------------------------------------------------
+
+TEXT: إدارة أدوار النظام والصلاحيات المرتبطة بها
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: إدارة إعدادات تسجيل الدخول")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إدارة استديو القرآن
+FILE: ./apps/quran_studio/templates/quran_studio/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إدارة الأدوار
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: إدارة الاشتراكات
+FILE: ./apps/subscription/templates/subscription/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إدارة التواصل الإجتماعي
+FILE: ./apps/communication/templates/communication/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إدارة الصلاحيات
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: إدارة الصلاحيات (
+FILE: ./identity/rbac/templates/rbac/partials/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إدارة الصلاحيات")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إدارة المستخدمين
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: إدارة المستخدمين وتعيين الأدوار.
+FILE: ./identity/rbac/templates/rbac/users/users.html
+
+------------------------------------------------------------
+
+TEXT: إدارة المشاريع"
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: إدارة بيانات القراء
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: إدارة بيانات القراء المتوفرين في النظام.
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: إدارة تنبية
+FILE: ./apps/notification/templates/notification/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إدارة حسابات المستخدمين والأدوار والصلاحيات.
+FILE: ./dashboard/templates/dashboard/pages/home.html
+
+------------------------------------------------------------
+
+TEXT: إدارة رسائل التواصل
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+
+------------------------------------------------------------
+
+TEXT: إدارة قنوات الإرسال
+FILE: ./apps/messaging/templates/messaging/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إدارة مركز الابتكار
+FILE: ./identity/accounts/templates/accounts/messages.html
+
+------------------------------------------------------------
+
+TEXT: إدارة وإرسال الإشعارات عبر البريد الإلكتروني والتنبيهات داخل النظام.
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+
+------------------------------------------------------------
+
+TEXT: إذا فيه صورة
+FILE: ./apps/communication/services.py
+
+------------------------------------------------------------
+
+TEXT: إذا ما فيه صورة
+FILE: ./apps/communication/services.py
+
+------------------------------------------------------------
+
+TEXT: إرسال
+FILE: ./apps/contact/templates/dashboard/contact/contact.html
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: إرسال الآن
+FILE: ./apps/communication/templates/communication/create.html
+
+------------------------------------------------------------
+
+TEXT: إرسال الإشعار
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+
+------------------------------------------------------------
+
+TEXT: إرسال التنبيه
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+
+------------------------------------------------------------
+
+TEXT: إرسال الرد
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: إرسال الرسالة
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: إرسال تنبية
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+FILE: ./apps/notification/templates/notification/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إرسال تنبيه ")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إرسال تنبيه داخلي للمستخدمين داخل النظام.
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+
+------------------------------------------------------------
+
+TEXT: إرسال تيليجرام
+FILE: ./apps/communication/templates/communication/campaigns.html
+
+------------------------------------------------------------
+
+TEXT: إرسال رسالة
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/messaging/templates/messaging/includes/tabs_header.html
+FILE: ./apps/subscription/templates/subscription/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إرسال رسالة بريدية إلى جميع المشتركين النشطين والمؤكدين.
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: إرسال رسالة")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إرسال منشور
+FILE: ./apps/communication/templates/communication/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إرسال منشور بريدية عامة لمشتركي النشرة البريدية مع خيار إضافة جميع مستخدمي النظام.
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: إزالة موضع القراءة"
+FILE: ./apps/quran/static/quran/js/quran-page.js
+FILE: ./staticfiles/quran/js/quran-page.js
+
+------------------------------------------------------------
+
+TEXT: إشعار
+FILE: ./web/templates/web/base.html
+
+------------------------------------------------------------
+
+TEXT: إشعارات مرسلة
+FILE: ./apps/messaging/templates/messaging/overview/messaging_overview.html
+
+------------------------------------------------------------
+
+TEXT: إضافة
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: إضافة جميع مستخدمي النظام مع مشتركي النشرة
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: إضافة دور
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: إضافة دور")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إضافة صلاحية
+FILE: ./identity/rbac/templates/rbac/permissions/permissions.html
+
+------------------------------------------------------------
+
+TEXT: إضافة صلاحية"
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: إضافة صلاحية")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إضافة قارئ")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إضافة مستخدم
+FILE: ./identity/rbac/templates/rbac/users/users.html
+
+------------------------------------------------------------
+
+TEXT: إضافة مستخدم جديد"
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: إضافة مستخدم"
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: إضافة مستخدم")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إظهار أو إخفاء كلمة المرور"
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: إظهار معاني الكلمات"
+FILE: ./apps/quran/templates/quran/partials/wordmeanings_panel.html
+
+------------------------------------------------------------
+
+TEXT: إعدادات
+FILE: ./identity/accounts/templates/accounts/settings/login_settings.html
+
+------------------------------------------------------------
+
+TEXT: إعدادات النظام
+FILE: ./identity/accounts/templates/accounts/partials/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: إغلاق تلقائي
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: إغلاق عند الضغط على الخلفية
+FILE: ./apps/quran/static/quran/js/modals.js
+FILE: ./staticfiles/quran/js/modals.js
+
+------------------------------------------------------------
+
+TEXT: إغلاق يدوي
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: إغلاق"
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+FILE: ./web/templates/web/base.html
+
+------------------------------------------------------------
+
+TEXT: إكمالات الصوت
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: إلغاء
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+FILE: ./identity/rbac/templates/rbac/permissions/permission_confirm_delete.html
+FILE: ./identity/rbac/templates/rbac/roles/role_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: إلغاء الاشتراك
+FILE: ./apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html
+
+------------------------------------------------------------
+
+TEXT: إلغاء الاشتراك من رسائل وِرد القرآن الكريم
+FILE: ./apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html
+
+------------------------------------------------------------
+
+TEXT: إنشاء الحساب
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: إنشاء المجلدات
+FILE: ./scripts/create_app.py
+
+------------------------------------------------------------
+
+TEXT: إنشاء تنبية جديد
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+
+------------------------------------------------------------
+
+TEXT: إنشاء رسالة
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: إنشاء رسالة بريدية عامة
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: إنشاء رسالة تواصل")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إنشاء رسالة جديد
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+
+------------------------------------------------------------
+
+TEXT: إنشاء رسالة")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: إيقاف كامل"
+FILE: ./apps/hifz/templates/hifz/partials/hifz_top_toolbar.html
+
+------------------------------------------------------------
+
+TEXT: اتصل بنا
+FILE: ./apps/contact/templates/dashboard/contact/contact.html
+
+------------------------------------------------------------
+
+TEXT: احداثيات القرآن")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: اختر الأدوار
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: اختر دورًا من القائمة اليمنى لعرض الصلاحيات وربطها.
+FILE: ./identity/rbac/templates/rbac/linking/tab_linking.html
+
+------------------------------------------------------------
+
+TEXT: اختر دورًا من القائمة، ثم فعّل أو ألغِ الصلاحيات من خلال مربعات الاختيار.
+FILE: ./identity/rbac/templates/rbac/linking/tab_linking.html
+
+------------------------------------------------------------
+
+TEXT: اختر مستخدمًا أو أكثر من القائمة.
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+
+------------------------------------------------------------
+
+TEXT: اختيار المستخدمين
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+
+------------------------------------------------------------
+
+TEXT: اختياري)
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: اخفاء الشعار
+FILE: ./dashboard/templates/dashboard/layouts/base.html
+
+------------------------------------------------------------
+
+TEXT: ارتفاع الشريط (تحكم شكلي)
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: اردو
+FILE: ./web/templates/web/partials/language_switcher.html
+
+------------------------------------------------------------
+
+TEXT: اردو")
+FILE: ./config/settings/base.py
+
+------------------------------------------------------------
+
+TEXT: استخدم
+FILE: ./apps/communication/services.py
+
+------------------------------------------------------------
+
+TEXT: استماع القرآن بصوت
+FILE: ./apps/tilawa/templates/tilawa/qari_listen.html
+
+------------------------------------------------------------
+
+TEXT: استمع إلى القرآن الكريم كاملًا بصوت
+FILE: ./apps/tilawa/templates/tilawa/qari_listen.html
+
+------------------------------------------------------------
+
+TEXT: استوديو القرآن
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: اسحب بالفأرة فوق المصحف لرسم مستطيل يمثل جزء الآية. يمكنك رسم أكثر من مستطيل لنفس الآية.
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: اسم الدور
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: اسم الصلاحية
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: اسم المستخدم
+FILE: ./identity/accounts/templates/accounts/auth.html
+FILE: ./identity/accounts/templates/accounts/profile.html
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+FILE: ./identity/rbac/templates/rbac/users/users.html
+
+------------------------------------------------------------
+
+TEXT: اسم المستخدم مستخدم مسبقًا."
+FILE: ./identity/accounts/views/register.py
+
+------------------------------------------------------------
+
+TEXT: اسم المستخدم مستخدم من قبل."
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: اسم المستخدم مطلوب."
+FILE: ./identity/accounts/views/register.py
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: اسم المستخدم هذا محجوز ولا يمكن استخدامه."
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: اسم المستخدم وكلمة المرور مطلوبان.")
+FILE: ./dashboard/login.py
+FILE: ./identity/accounts/views/login.py
+
+------------------------------------------------------------
+
+TEXT: اسم المستخدم:
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: اضغط على الرسالة مباشرة لفتح تفاصيلها.
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+
+------------------------------------------------------------
+
+TEXT: اطبع الرد الخام
+FILE: ./apps/messaging/services/sms.py
+FILE: ./apps/notification/services/sms.py
+
+------------------------------------------------------------
+
+TEXT: اطبع الطلب كما يذهب للمزوّد
+FILE: ./apps/messaging/services/sms.py
+FILE: ./apps/notification/services/sms.py
+
+------------------------------------------------------------
+
+TEXT: افتراضيات من الحاوية (يمكن تركها فارغة)
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: اكتب الرد ثم أرسله مباشرة.
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: اكتب نص التنبيه هنا..."
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+
+------------------------------------------------------------
+
+TEXT: اكتب نص الرسالة البريدية هنا..."
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: اكتب نص الرسالة هنا..."
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: الآيات (من
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: الآية
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+
+------------------------------------------------------------
+
+TEXT: الأدوار
+FILE: ./dashboard/templates/dashboard/pages/home.html
+FILE: ./identity/rbac/templates/rbac/linking/tab_linking.html
+FILE: ./identity/rbac/templates/rbac/partials/tabs_header.html
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+FILE: ./identity/rbac/templates/rbac/users/users.html
+
+------------------------------------------------------------
+
+TEXT: الأدوار الحالية
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: الأعمدة المتوقعة من الملفات:
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: الأمان
+FILE: ./identity/accounts/templates/accounts/partials/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: الإجراء
+FILE: ./apps/messaging/templates/messaging/email/email.html
+
+------------------------------------------------------------
+
+TEXT: الإجراءات
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: الإحداثيات
+FILE: ./apps/quran_studio/templates/quran_studio/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: الإشتراكات
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: الاسم
+FILE: ./apps/contact/templates/dashboard/contact/contact.html
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+FILE: ./identity/accounts/templates/accounts/profile.html
+
+------------------------------------------------------------
+
+TEXT: الاسم الإنجليزي
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: الاسم العربي
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: الاسم الكامل
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: الاسم الكامل مطلوب."
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: الاسم طويل جدًا"
+FILE: ./apps/contact/views/contact_views.py
+
+------------------------------------------------------------
+
+TEXT: الاسم مطلوب"
+FILE: ./apps/contact/services.py
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: الاسم:
+FILE: ./apps/contact/services.py
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: الاشتراكات
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: الاعدادات
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: البريد
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+
+------------------------------------------------------------
+
+TEXT: البريد / المعرف
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+
+------------------------------------------------------------
+
+TEXT: البريد الإلكتروني
+FILE: ./apps/contact/templates/dashboard/contact/contact.html
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/includes/tabs_header.html
+FILE: ./apps/messaging/templates/messaging/overview/messaging_overview.html
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+FILE: ./identity/accounts/templates/accounts/auth.html
+FILE: ./identity/accounts/templates/accounts/profile.html
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: البريد الإلكتروني مستخدم مسبقًا."
+FILE: ./identity/accounts/views/register.py
+
+------------------------------------------------------------
+
+TEXT: البريد الإلكتروني مستخدم من قبل."
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: البريد الإلكتروني مطلوب لإرسال بيانات الدخول."
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: البريد الإلكتروني مطلوب"
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: البريد الإلكتروني مطلوب."
+FILE: ./identity/accounts/views/register.py
+
+------------------------------------------------------------
+
+TEXT: البريد الإلكتروني")
+FILE: ./apps/subscription/models.py
+
+------------------------------------------------------------
+
+TEXT: البريد الإلكتروني:
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: البريد طويل جدًا"
+FILE: ./apps/contact/views/contact_views.py
+
+------------------------------------------------------------
+
+TEXT: البريد مطلوب"
+FILE: ./apps/contact/services.py
+
+------------------------------------------------------------
+
+TEXT: البريد:
+FILE: ./apps/contact/services.py
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: التأكيد
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: التاريخ
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_list.html
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+
+------------------------------------------------------------
+
+TEXT: التحكم في الوصول إلى الوحدات والعمليات الدقيقة.
+FILE: ./dashboard/templates/dashboard/pages/home.html
+
+------------------------------------------------------------
+
+TEXT: التحكم في طرق المصادقة المسموح بها في النظام.
+FILE: ./identity/accounts/templates/accounts/settings/login_settings.html
+
+------------------------------------------------------------
+
+TEXT: التسجيل الموحد
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: التشغيلات
+FILE: ./apps/analytics/templates/analytics/audio/dashboard_audio.html
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+
+------------------------------------------------------------
+
+TEXT: التفاسير
+FILE: ./apps/analytics/templates/analytics/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: التقسيم الموضوعي
+FILE: ./apps/hifz/templates/hifz/partials/hifz_options_panel.html
+
+------------------------------------------------------------
+
+TEXT: التنبيهات
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+FILE: ./apps/notification/templates/notification/inbox/notification_inbox.html
+FILE: ./apps/notification/templates/notification/includes/tabs_header.html
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+FILE: ./identity/accounts/templates/accounts/notifications.html
+
+------------------------------------------------------------
+
+TEXT: التنبيهات المرسلة للمستخدم من داخل النظام
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+
+------------------------------------------------------------
+
+TEXT: التنبيهات"
+FILE: ./apps/notification/apps.py
+FILE: ./apps/notification/models.py
+
+------------------------------------------------------------
+
+TEXT: التواصل الإجتماعي
+FILE: ./apps/communication/templates/communication/create.html
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: الجوال:
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: الحالة
+FILE: ./apps/communication/templates/communication/campaigns.html
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: الحالة:
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: الحد الأدنى لاعتبار الصفحة مقروءة //
+FILE: ./apps/quran/static/quran/js/progress-tracker.js
+FILE: ./staticfiles/quran/js/progress-tracker.js
+
+------------------------------------------------------------
+
+TEXT: الحساب يحتاج تفعيل")
+FILE: ./dashboard/login.py
+FILE: ./identity/accounts/views/login.py
+
+------------------------------------------------------------
+
+TEXT: الحملات
+FILE: ./apps/communication/templates/communication/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: الحملات المرسلة
+FILE: ./apps/communication/templates/communication/overview.html
+
+------------------------------------------------------------
+
+TEXT: الحملة
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+
+------------------------------------------------------------
+
+TEXT: الخطأ (إن وجد)
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: الدور الحالي:
+FILE: ./identity/rbac/templates/rbac/linking/tab_linking.html
+
+------------------------------------------------------------
+
+TEXT: الدور"
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: الرئيسية
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: الرجاء إدخال اسم الدور والكود.")
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: الرجاء إدخال الكود واسم الصلاحية.")
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: الرجاء إدخال كود واسم الصلاحية.")
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: الرجاء إضافة "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: الرجاء حذف "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: الرجوع إلى الصلاحيات
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: الرد على الرسالة
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: الرسائل
+FILE: ./identity/accounts/templates/accounts/messages.html
+
+------------------------------------------------------------
+
+TEXT: الرسائل الآن ليست من
+FILE: ./apps/notification/context_processors.py
+
+------------------------------------------------------------
+
+TEXT: الرسائل الجماعية"
+FILE: ./apps/messaging/models.py
+
+------------------------------------------------------------
+
+TEXT: الرسالة
+FILE: ./apps/contact/templates/dashboard/contact/contact.html
+
+------------------------------------------------------------
+
+TEXT: الرسالة مطلوبة"
+FILE: ./apps/contact/services.py
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: الرسالة:
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: الزيارات
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/pages/dashboard_pages.html
+
+------------------------------------------------------------
+
+TEXT: السجل
+FILE: ./apps/communication/templates/communication/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: السعدي
+FILE: ./apps/quran/static/quran/js/short-tafsir.js
+FILE: ./staticfiles/quran/js/short-tafsir.js
+
+------------------------------------------------------------
+
+TEXT: السعدي") .
+FILE: ./apps/quran/views/tafsir_views.py
+
+------------------------------------------------------------
+
+TEXT: السماح ب
+FILE: ./identity/accounts/templates/accounts/settings/login_settings.html
+
+------------------------------------------------------------
+
+TEXT: السور (من
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: السورة
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+
+------------------------------------------------------------
+
+TEXT: الصفحات
+FILE: ./apps/analytics/templates/analytics/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: الصفحة
+FILE: ./apps/analytics/templates/analytics/audio/dashboard_audio.html
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+FILE: ./apps/analytics/templates/analytics/pages/dashboard_pages.html
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: الصفحة التالية
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: الصفحة الحالية:
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: الصفحة الرئيسية
+FILE: ./dashboard/templates/dashboard/pages/home.html
+
+------------------------------------------------------------
+
+TEXT: الصفحة السابقة
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: الصلاحيات
+FILE: ./dashboard/templates/dashboard/pages/home.html
+FILE: ./identity/rbac/templates/rbac/partials/tabs_header.html
+FILE: ./identity/rbac/templates/rbac/permissions/permissions.html
+
+------------------------------------------------------------
+
+TEXT: الصلاحيات مجمعة حسب الوحدة (
+FILE: ./identity/rbac/templates/rbac/permissions/permissions.html
+
+------------------------------------------------------------
+
+TEXT: الصلاحية"
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: الصوت
+FILE: ./apps/analytics/templates/analytics/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: الصورة
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: العربية
+FILE: ./web/templates/web/partials/language_switcher.html
+
+------------------------------------------------------------
+
+TEXT: العربية")
+FILE: ./config/settings/base.py
+
+------------------------------------------------------------
+
+TEXT: العرض العادي
+FILE: ./apps/hifz/templates/hifz/partials/hifz_display_toolsX.html
+
+------------------------------------------------------------
+
+TEXT: العنوان
+FILE: ./apps/communication/templates/communication/campaigns.html
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: العنوان والبيانات --
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: العنوان ونص الرسالة مطلوبان.")
+FILE: ./apps/messaging/views.py
+
+------------------------------------------------------------
+
+TEXT: العنوان:
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: العودة إلى الأدوار
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: العودة إلى الصفحة الرئيسية
+FILE: ./apps/contact/templates/dashboard/contact/success.html
+FILE: ./apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html
+FILE: ./web/templates/403.html
+
+------------------------------------------------------------
+
+TEXT: الغرض: - التحقق من الصلاحية باستخدام سياق الصفحة (
+FILE: ./identity/rbac/templatetags/rbac_tags.py
+
+------------------------------------------------------------
+
+TEXT: الغرض: - التحقق من الصلاحية مباشرة داخل شرط
+FILE: ./identity/rbac/templatetags/rbac_tags.py
+
+------------------------------------------------------------
+
+TEXT: الفئة الأساسية
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: الفريدة
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: القارئ
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+FILE: ./apps/hifz/templates/hifz/partials/hifz_top_toolbar.html
+
+------------------------------------------------------------
+
+TEXT: القرآن الكريم"
+FILE: ./apps/quran/apps.py
+
+------------------------------------------------------------
+
+TEXT: القراء
+FILE: ./apps/quran_studio/templates/quran_studio/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: القراء")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: القناة
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: القنوات
+FILE: ./apps/communication/templates/communication/campaigns.html
+
+------------------------------------------------------------
+
+TEXT: الكل
+FILE: ./web/templates/web/components/pagination_per_page.html
+
+------------------------------------------------------------
+
+TEXT: الكود
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: الكود (
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: الكود والاسم العربي مطلوبان.")
+FILE: ./apps/quran_studio/views.py
+
+------------------------------------------------------------
+
+TEXT: المحتوى
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_list.html
+
+------------------------------------------------------------
+
+TEXT: المحلي
+FILE: ./identity/accounts/templates/accounts/settings/login_settings.html
+
+------------------------------------------------------------
+
+TEXT: المدير العام للنظام"
+FILE: ./identity/accounts/management/commands/seed_superadmin.py
+
+------------------------------------------------------------
+
+TEXT: المرسل
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_list.html
+
+------------------------------------------------------------
+
+TEXT: المرسلة للمستخدمين عن طريق النظام.
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+
+------------------------------------------------------------
+
+TEXT: المسار
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+
+------------------------------------------------------------
+
+TEXT: المستخدم
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+
+------------------------------------------------------------
+
+TEXT: المستخدمون
+FILE: ./dashboard/templates/dashboard/pages/home.html
+FILE: ./identity/rbac/templates/rbac/partials/tabs_header.html
+FILE: ./identity/rbac/templates/rbac/users/users.html
+
+------------------------------------------------------------
+
+TEXT: المستلمون
+FILE: ./apps/messaging/templates/messaging/email/email.html
+
+------------------------------------------------------------
+
+TEXT: المسودات
+FILE: ./apps/communication/templates/communication/overview.html
+
+------------------------------------------------------------
+
+TEXT: المشتركين النشطين
+FILE: ./apps/subscription/templates/subscription/overview/overview_subscription.html
+
+------------------------------------------------------------
+
+TEXT: المصحف
+FILE: ./apps/analytics/templates/analytics/include/tabs_header.html
+FILE: ./apps/hifz/templates/hifz/partials/hifz_top_toolbar.html
+
+------------------------------------------------------------
+
+TEXT: المفتاح الأساسي
+FILE: ./apps/quran/management/commands/import_qurra.py
+
+------------------------------------------------------------
+
+TEXT: المفعلين
+FILE: ./apps/subscription/templates/subscription/overview/overview_subscription.html
+
+------------------------------------------------------------
+
+TEXT: الملف الشخصي
+FILE: ./identity/accounts/templates/accounts/profile.html
+
+------------------------------------------------------------
+
+TEXT: الموضوع
+FILE: ./apps/messaging/templates/messaging/email/email.html
+
+------------------------------------------------------------
+
+TEXT: المُرسل
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: النص
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+
+------------------------------------------------------------
+
+TEXT: النظام
+FILE: ./identity/accounts/templates/accounts/partials/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: النوع
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+FILE: ./apps/messaging/templates/messaging/email/email.html
+
+------------------------------------------------------------
+
+TEXT: الهاتف:
+FILE: ./apps/contact/services.py
+
+------------------------------------------------------------
+
+TEXT: الوحدة (
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: الوسط: المصحف --
+FILE: ./apps/hifz/templates/hifz/home.html
+
+------------------------------------------------------------
+
+TEXT: الوصف (اختياري)
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: الوصول إلى استوديو القرآن")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: الوصول إلى الاشتراكات")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: الوصول إلى التحليلات")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: الوصول إلى التنبيهات")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: الوصول إلى قنوات الإرسال")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: الوصول إلى لوحة المعلومات")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: الوصول للتواصل")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: الوظيفة
+FILE: ./identity/accounts/templates/accounts/profile.html
+
+------------------------------------------------------------
+
+TEXT: الوقت
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+
+------------------------------------------------------------
+
+TEXT: اليسار: إعدادات --
+FILE: ./apps/hifz/templates/hifz/home.html
+
+------------------------------------------------------------
+
+TEXT: اليمين: تكرار --
+FILE: ./apps/hifz/templates/hifz/home.html
+
+------------------------------------------------------------
+
+TEXT: امکان بارگذاری نتایج وجود ندارد."
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: ای یافت نشد"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: ب': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: باسم ملف
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: بالصيغـة القديمة:
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: بالصيغـة:
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: بالهيكل القديم) ----------
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: بجودة عالية، مع إمكانية التنقل بين السور بسهولة.
+FILE: ./apps/tilawa/templates/tilawa/qari_listen.html
+
+------------------------------------------------------------
+
+TEXT: بحث باسم المستخدم أو عدد الصلاحيات"
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: بحث باسم المستخدم او الدور"
+FILE: ./identity/rbac/templates/rbac/users/users.html
+
+------------------------------------------------------------
+
+TEXT: بحث بالاسم أو البريد أو الرسالة"
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+
+------------------------------------------------------------
+
+TEXT: بحث بالبريد الإلكتروني"
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: بحث بالعنوان أو القناة"
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: بحث بالعنوان أو النص"
+FILE: ./apps/communication/templates/communication/campaigns.html
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+
+------------------------------------------------------------
+
+TEXT: بحث بالمرسل أو العنوان أو النص"
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_list.html
+
+------------------------------------------------------------
+
+TEXT: بدون تكرار
+FILE: ./apps/hifz/templates/hifz/partials/hifz_repeat_panel.html
+
+------------------------------------------------------------
+
+TEXT: بدون تمريرهم يدويًا الاستخدام في القالب:
+FILE: ./identity/rbac/templatetags/rbac_tags.py
+
+------------------------------------------------------------
+
+TEXT: بدون عنوان)"
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: بريد إلكتروني"
+FILE: ./apps/messaging/models.py
+
+------------------------------------------------------------
+
+TEXT: بريد غير صحيح"
+FILE: ./apps/contact/services.py
+
+------------------------------------------------------------
+
+TEXT: بقية النص """
+FILE: ./apps/quran/views/tafsir_views.py
+
+------------------------------------------------------------
+
+TEXT: بنود فقط"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: بيانات القراء
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: بيانات تسجيل الدخول غير صحيحة.")
+FILE: ./dashboard/login.py
+FILE: ./identity/accounts/views/login.py
+
+------------------------------------------------------------
+
+TEXT: بيانات حسابك في المنصة"
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: ت': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: تأكيد حذف الدور
+FILE: ./identity/rbac/templates/rbac/roles/role_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: تأكيد حذف الصلاحية
+FILE: ./identity/rbac/templates/rbac/permissions/permission_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: تأكيد كلمة المرور"
+FILE: ./identity/accounts/templates/accounts/profile.html
+
+------------------------------------------------------------
+
+TEXT: تاج (
+FILE: ./identity/rbac/templatetags/rbac_tags.py
+
+------------------------------------------------------------
+
+TEXT: تاريخ إلغاء الاشتراك")
+FILE: ./apps/subscription/models.py
+
+------------------------------------------------------------
+
+TEXT: تاريخ الإرسال
+FILE: ./apps/communication/templates/communication/logs.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: تاريخ الإنشاء
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: تاريخ الاشتراك
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: تاريخ الاشتراك")
+FILE: ./apps/subscription/models.py
+
+------------------------------------------------------------
+
+TEXT: تاسو يوازي "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: تثبيت ارتفاع اللفّاف مرة واحدة (مثل
+FILE: ./apps/quran/static/quran/js/modals.js
+FILE: ./staticfiles/quran/js/modals.js
+
+------------------------------------------------------------
+
+TEXT: تحديث إحداثيات الآيات في صفحة
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: تحديد الإحداثيات
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: تحريك شريط التقدم
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: تحكّم افتراضي/عام من الحاوية (اختياري) --
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: تحكّم فردي بالعروض: إمّا تضع
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: تحميل الإحداثيات
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: تحميل التفضيل عند فتح الصفحة
+FILE: ./static/js/script.js
+FILE: ./staticfiles/js/script.js
+
+------------------------------------------------------------
+
+TEXT: تستطيع إختيار "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: تسجيل جديد
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: تسليم رسالة"
+FILE: ./apps/messaging/models.py
+
+------------------------------------------------------------
+
+TEXT: تسليمات الرسائل"
+FILE: ./apps/messaging/models.py
+
+------------------------------------------------------------
+
+TEXT: تشغيل"
+FILE: ./apps/hifz/templates/hifz/partials/hifz_top_toolbar.html
+
+------------------------------------------------------------
+
+TEXT: تشغيلات الصوت
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: تشغيلات الصوت آخر 7 أيام
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: تشغيلات الصوت')
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: تصغير"
+FILE: ./apps/quran/static/quran/js/fullscreen.js
+FILE: ./staticfiles/quran/js/fullscreen.js
+
+------------------------------------------------------------
+
+TEXT: تعديل
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: تعديل إحداثيات محفوظة
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: تعديل الصلاحية"
+FILE: ./identity/rbac/templates/rbac/permissions/permissions.html
+
+------------------------------------------------------------
+
+TEXT: تعديل بيانات قارئ")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: تعديل دور"
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: تعديل دور")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: تعديل صلاحية"
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: تعديل صلاحية")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: تعديل مستخدم")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: تعديل"
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: تعذر تحميل معاني الكلمات
+FILE: ./apps/quran/static/quran/js/ayah-audio.js
+FILE: ./staticfiles/quran/js/ayah-audio.js
+
+------------------------------------------------------------
+
+TEXT: تعذر حفظ الصلاحية بسبب تكرار الكود في قاعدة البيانات." )
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: تفاصيل الرسالة
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: تفاصيل المستخدم
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: تفاصيل رسالة التواصل
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: تفاصيل رسالة الجوال
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+
+------------------------------------------------------------
+
+TEXT: تفاصيل رسالة الجوال (
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+
+------------------------------------------------------------
+
+TEXT: تفاصيل رسالة الواتساب
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: تفصل النص إلى: -
+FILE: ./apps/quran/views/tafsir_views.py
+
+------------------------------------------------------------
+
+TEXT: تفعيل الإخفاء
+FILE: ./apps/hifz/templates/hifz/partials/hifz_options_panel.html
+
+------------------------------------------------------------
+
+TEXT: تفعيل المصادقة الخارجية (
+FILE: ./identity/accounts/templates/accounts/settings/login_settings.html
+
+------------------------------------------------------------
+
+TEXT: تقدر تغيّر الافتراضي هنا إذا حاب (مثلاً "5")
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: تقليب الصفحات
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: تقنيات الحفظ
+FILE: ./apps/hifz/templates/hifz/partials/hifz_options_panel.html
+
+------------------------------------------------------------
+
+TEXT: تكبير المصحف
+FILE: ./apps/hifz/templates/hifz/partials/hifz_display_toolsX.html
+
+------------------------------------------------------------
+
+TEXT: تكبير"
+FILE: ./apps/quran/static/quran/js/fullscreen.js
+FILE: ./staticfiles/quran/js/fullscreen.js
+
+------------------------------------------------------------
+
+TEXT: تكرار الآية
+FILE: ./apps/hifz/templates/hifz/partials/hifz_repeat_panel.html
+
+------------------------------------------------------------
+
+TEXT: تم إرسال التنبيه داخل النظام بنجاح.")
+FILE: ./apps/messaging/views.py
+
+------------------------------------------------------------
+
+TEXT: تم إرسال الحملة بنجاح.")
+FILE: ./apps/communication/views.py
+
+------------------------------------------------------------
+
+TEXT: تم إرسال الرسالة البريدية.")
+FILE: ./apps/messaging/views.py
+
+------------------------------------------------------------
+
+TEXT: تم إرسال رد قبل لحظات، حاول مرة أخرى بعد قليل"
+FILE: ./apps/contact/views/dashboard_views.py
+
+------------------------------------------------------------
+
+TEXT: تم إرسال رسالتك بنجاح
+FILE: ./apps/contact/templates/dashboard/contact/success.html
+
+------------------------------------------------------------
+
+TEXT: تم إزالة الصلاحية من الدور بنجاح.")
+FILE: ./identity/rbac/views/linking.py
+
+------------------------------------------------------------
+
+TEXT: تم إلغاء اشتراك البريد:
+FILE: ./apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html
+
+------------------------------------------------------------
+
+TEXT: تم إلغاء الاشتراك بنجاح
+FILE: ./apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء الحملة بنجاح.")
+FILE: ./apps/communication/views.py
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء الدور بنجاح.")
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء الرسالة البريدية وهي بانتظار الإرسال.")
+FILE: ./apps/messaging/views.py
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء الصلاحية بنجاح.")
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء المستخدم بنجاح، وتم إرسال بيانات الدخول إلى بريده الإلكتروني." )
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء المستخدم بنجاح، ولكن تعذّر إرسال البريد الإلكتروني. تأكّد من إعدادات البريد." )
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء حسابك بنجاح
+FILE: ./identity/accounts/templates/accounts/notifications.html
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء حسابك بنجاح، ويسعدنا انضمامك إلى المنصة. نتمنى لك تجربة مميزة ومثمرة." )
+FILE: ./identity/accounts/views/register.py
+
+------------------------------------------------------------
+
+TEXT: تم إنشاء حسابك في المنصة.
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: تم الإرسال
+FILE: ./apps/contact/templates/dashboard/contact/success.html
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: تم الإرسال بنجاح.")
+FILE: ./apps/notification/views.py
+
+------------------------------------------------------------
+
+TEXT: تم الإرسال مؤخرًا، حاول مرة أخرى بعد قليل"
+FILE: ./apps/contact/views/contact_views.py
+
+------------------------------------------------------------
+
+TEXT: تم الإرسال"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: تم التأكيد
+FILE: ./apps/subscription/templates/subscription/overview/overview_subscription.html
+
+------------------------------------------------------------
+
+TEXT: تم التأكيد")
+FILE: ./apps/subscription/models.py
+
+------------------------------------------------------------
+
+TEXT: تم الرد
+FILE: ./apps/contact/templates/dashboard/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: تم الرد"
+FILE: ./apps/contact/models.py
+
+------------------------------------------------------------
+
+TEXT: تم بنجاح
+FILE: ./web/templates/web/base.html
+
+------------------------------------------------------------
+
+TEXT: تم تحديث أدوار المستخدم بنجاح.")
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: تم تحديث إعدادات تسجيل الدخول بنجاح.")
+FILE: ./identity/accounts/views/login_settings.py
+
+------------------------------------------------------------
+
+TEXT: تم تحديث حالة المستخدم.")
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: تم تحديث ملفك الشخصي
+FILE: ./identity/accounts/templates/accounts/notifications.html
+
+------------------------------------------------------------
+
+TEXT: تم تعديل الدور بنجاح.")
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: تم تعديل الصلاحية بنجاح.")
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: تم تعديل بيانات القارئ بنجاح.")
+FILE: ./apps/quran_studio/views.py
+
+------------------------------------------------------------
+
+TEXT: تم حذف الدور بنجاح.")
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: تم حذف الصلاحية بنجاح.")
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: تم حذف القارئ بنجاح.")
+FILE: ./apps/quran_studio/views.py
+
+------------------------------------------------------------
+
+TEXT: تم حفظ البيانات وتحديث كلمة المرور بنجاح.")
+FILE: ./identity/accounts/views/profile.py
+
+------------------------------------------------------------
+
+TEXT: تم حفظ التعديلات بنجاح.")
+FILE: ./identity/accounts/views/profile.py
+
+------------------------------------------------------------
+
+TEXT: تم حفظ بياناتك بنجاح.
+FILE: ./identity/accounts/templates/accounts/notifications.html
+
+------------------------------------------------------------
+
+TEXT: تم ربط الصلاحية بالدور بنجاح.")
+FILE: ./identity/rbac/views/linking.py
+
+------------------------------------------------------------
+
+TEXT: تمت إضافة القارئ بنجاح.")
+FILE: ./apps/quran_studio/views.py
+
+------------------------------------------------------------
+
+TEXT: تمت القراءة"
+FILE: ./apps/contact/models.py
+
+------------------------------------------------------------
+
+TEXT: تنبيه
+FILE: ./web/templates/web/base.html
+
+------------------------------------------------------------
+
+TEXT: تنبيه مقروء
+FILE: ./apps/notification/templates/notification/inbox/notification_inbox.html
+
+------------------------------------------------------------
+
+TEXT: تنبيه"
+FILE: ./apps/notification/models.py
+
+------------------------------------------------------------
+
+TEXT: تنبيهات النظام والتنبيهات التفاعلية
+FILE: ./apps/notification/templates/notification/inbox/notification_inbox.html
+
+------------------------------------------------------------
+
+TEXT: تنبيهات في النظام
+FILE: ./apps/notification/templates/notification/overview/notification_overview.html
+
+------------------------------------------------------------
+
+TEXT: تنبيهات واتساب
+FILE: ./apps/messaging/templates/messaging/overview/messaging_overview.html
+
+------------------------------------------------------------
+
+TEXT: تنظيف حقل البحث
+FILE: ./apps/quran/static/quran/js/modals.js
+FILE: ./staticfiles/quran/js/modals.js
+
+------------------------------------------------------------
+
+TEXT: تنظيم هيكلة الأدوار وتوزيع المسؤوليات داخل النظام.
+FILE: ./dashboard/templates/dashboard/pages/home.html
+
+------------------------------------------------------------
+
+TEXT: تواصل معنا
+FILE: ./web/templates/web/partials/footers/footer_dashboard.html
+
+------------------------------------------------------------
+
+TEXT: تواصل معنا عبر نموذج الاتصال
+FILE: ./apps/contact/templates/dashboard/contact/contact.html
+
+------------------------------------------------------------
+
+TEXT: توانید "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: توري"))
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: توری ړنګ کړئ"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: توری"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: تيليجرام - قروب"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: تيليجرام - قناة"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: ث': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: ج': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: جاري الإرسال..."
+FILE: ./apps/contact/templates/dashboard/contact/contact.html
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: جاري البحث
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: جاري تحميل معاني الكلمات...
+FILE: ./apps/quran/static/quran/js/ayah-audio.js
+FILE: ./staticfiles/quran/js/ayah-audio.js
+
+------------------------------------------------------------
+
+TEXT: جاري تحميل نتائج إضافية..."
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: جديد
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+FILE: ./apps/notification/templates/notification/inbox/notification_inbox.html
+
+------------------------------------------------------------
+
+TEXT: جديدة"
+FILE: ./apps/contact/models.py
+
+------------------------------------------------------------
+
+TEXT: جلب الإحداثيات
+FILE: ./apps/quran_studio/urls.py
+
+------------------------------------------------------------
+
+TEXT: جماعية
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: جميع الحقوق محفوظة
+FILE: ./web/templates/web/partials/footers/footer_dashboard.html
+
+------------------------------------------------------------
+
+TEXT: جميع الرسائل
+FILE: ./apps/contact/templates/dashboard/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: جميع المشتركين
+FILE: ./apps/subscription/templates/subscription/overview/overview_subscription.html
+
+------------------------------------------------------------
+
+TEXT: ح': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: حالة الإرسال
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: حاول
+FILE: ./apps/messaging/utils/send_sms.py
+FILE: ./apps/notification/utils/send_sms.py
+
+------------------------------------------------------------
+
+TEXT: حدث خطأ
+FILE: ./web/templates/web/base.html
+
+------------------------------------------------------------
+
+TEXT: حدث خطأ في معالجة الطلب: بيانات الدور أو الصلاحية مفقودة.")
+FILE: ./identity/rbac/views/linking.py
+
+------------------------------------------------------------
+
+TEXT: حذف
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: حذف الدور
+FILE: ./identity/rbac/templates/rbac/roles/role_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: حذف الصلاحية
+FILE: ./identity/rbac/templates/rbac/permissions/permission_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: حذف الصلاحية"
+FILE: ./identity/rbac/templates/rbac/permissions/permissions.html
+
+------------------------------------------------------------
+
+TEXT: حذف بيانات قارئ")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: حذف دور")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: حذف صلاحية")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: حذف قارئ
+FILE: ./apps/quran_studio/urls.py
+
+------------------------------------------------------------
+
+TEXT: حذف مستخدم")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: حذف"
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: حفظ الإحداثيات
+FILE: ./apps/quran_studio/urls.py
+
+------------------------------------------------------------
+
+TEXT: حفظ الإعدادات
+FILE: ./identity/accounts/templates/accounts/settings/login_settings.html
+
+------------------------------------------------------------
+
+TEXT: حفظ التعديل
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+FILE: ./identity/accounts/templates/accounts/profile.html
+
+------------------------------------------------------------
+
+TEXT: حفظ التغييرات
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: حفظ الدور
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: حفظ الصلاحية
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: حفظ المستخدم
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: حفظ جديد في
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: حفظ موضع القراءة"
+FILE: ./apps/quran/static/quran/js/quran-page.js
+FILE: ./staticfiles/quran/js/quran-page.js
+
+------------------------------------------------------------
+
+TEXT: خ': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: خروج
+FILE: ./web/templates/web/partials/navbar.html
+
+------------------------------------------------------------
+
+TEXT: خزّن اللغة الجديدة //
+FILE: ./static/js/lang.js
+FILE: ./staticfiles/js/lang.js
+
+------------------------------------------------------------
+
+TEXT: خيارات إضافية للمستلمين
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: د مهربانۍ لمخي "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: د': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: داخل النظام
+FILE: ./apps/notification/templates/notification/overview/notification_overview.html
+
+------------------------------------------------------------
+
+TEXT: داخل النظام"
+FILE: ./apps/notification/models.py
+
+------------------------------------------------------------
+
+TEXT: داخل تطبيق
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: دخول أنيميشن
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: در حال بارگذاری نتایج بیشتر..."
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: در حال جستجو..."
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: دور المستخدم (مثل:
+FILE: ./identity/rbac/models.py
+
+------------------------------------------------------------
+
+TEXT: ذ': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: ذكر")
+FILE: ./identity/accounts/models.py
+
+------------------------------------------------------------
+
+TEXT: ر': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: ربط
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: ربط الأدوار
+FILE: ./identity/rbac/templates/rbac/partials/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: ربط الأدوار بالصلاحيات
+FILE: ./identity/rbac/templates/rbac/linking/tab_linking.html
+
+------------------------------------------------------------
+
+TEXT: ربط الصلاحيات بالأدوار")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: رجاءً أدخل رقم السورة والآية قبل التحميل."
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: رجاءً أدخل رقم السورة والآية."
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: رجوع
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: رجوع إلى قائمة المستخدمين
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: رجوع لقائمة المستخدمين
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: رد على رسالتك في موقعنا"
+FILE: ./apps/contact/views/dashboard_views.py
+
+------------------------------------------------------------
+
+TEXT: رسائل
+FILE: ./apps/messaging/templates/messaging/overview/messaging_overview.html
+
+------------------------------------------------------------
+
+TEXT: رسائل التواصل
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+FILE: ./apps/contact/templates/dashboard/include/tabs_header.html
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: رسائل الجوال
+FILE: ./apps/messaging/templates/messaging/includes/tabs_header.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+
+------------------------------------------------------------
+
+TEXT: رسائل نصية
+FILE: ./apps/messaging/templates/messaging/overview/messaging_overview.html
+
+------------------------------------------------------------
+
+TEXT: رسالة الخطأ
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+
+------------------------------------------------------------
+
+TEXT: رسالة بريدية عامة
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: رسالة جديدة من تواصل معنا"
+FILE: ./apps/contact/services.py
+
+------------------------------------------------------------
+
+TEXT: رسالة جديدة من نموذج اتصل بنا"
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: رسالة جماعية"
+FILE: ./apps/messaging/models.py
+
+------------------------------------------------------------
+
+TEXT: رسالة جوال
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+
+------------------------------------------------------------
+
+TEXT: رسالة جوال"
+FILE: ./apps/messaging/models.py
+
+------------------------------------------------------------
+
+TEXT: رسالة نصية (
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+
+------------------------------------------------------------
+
+TEXT: رسالة واتس اب"
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_list.html
+
+------------------------------------------------------------
+
+TEXT: رقم الآية
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: رقم الجوال
+FILE: ./identity/accounts/templates/accounts/profile.html
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: رقم الجوال غير صحيح"
+FILE: ./apps/contact/views/contact_views.py
+
+------------------------------------------------------------
+
+TEXT: رقم الجوال مستخدم مسبقًا.")
+FILE: ./identity/accounts/views/profile.py
+
+------------------------------------------------------------
+
+TEXT: رقم الجوال مستخدم من قبل."
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: رقم الجوال:
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: رقم السورة
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: رقم الهاتف غير صحيح")
+FILE: ./core/services/phone_service.py
+
+------------------------------------------------------------
+
+TEXT: رقم الهاتف غير ممكن")
+FILE: ./core/services/phone_service.py
+
+------------------------------------------------------------
+
+TEXT: رقم الهاتف مطلوب")
+FILE: ./core/services/phone_service.py
+
+------------------------------------------------------------
+
+TEXT: ز': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: زوار آخر 7 أيام
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: زيارات آخر 30 يوم
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: زيارات آخر 7 أيام
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: زيارات الأيام الأخيرة
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: زيارات الصفحات')
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: س': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: ستظهر معاني الكلمات عند تشغيل التلاوة
+FILE: ./apps/quran/static/quran/js/ayah-audio.js
+FILE: ./staticfiles/quran/js/ayah-audio.js
+
+------------------------------------------------------------
+
+TEXT: سجل الإرسال
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: سجل الدخول أو أنشئ حسابًا للمتابعة
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: سجل رسائل
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+
+------------------------------------------------------------
+
+TEXT: سجل عمليات الإرسال لكل حملة ولكل قناة تواصل.
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: سجلات إرسال الإشعارات
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+
+------------------------------------------------------------
+
+TEXT: سجلات الإرسال
+FILE: ./apps/messaging/templates/messaging/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: سورة
+FILE: ./apps/analytics/templates/analytics/audio/dashboard_audio.html
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+FILE: ./apps/quran/static/quran/js/ayah-audio.js
+FILE: ./apps/quran/static/quran/js/short-tafsir.js
+FILE: ./apps/quran/static/quran/js/word-meanings.js
+FILE: ./staticfiles/quran/js/ayah-audio.js
+FILE: ./staticfiles/quran/js/short-tafsir.js
+FILE: ./staticfiles/quran/js/word-meanings.js
+
+------------------------------------------------------------
+
+TEXT: سورة آل عمران": 3
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة إبراهيم": 14
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الأحزاب": 33
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الأحقاف": 46
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الأعراف": 7
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الأعلى": 87
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الأنبياء": 21
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الأنعام": 6
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الأنفال": 8
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الإخلاص": 112
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الإسراء": 17
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الإنسان": 76
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الإنشقاق": 84
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الإنفطار": 82
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة البروج": 85
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة البقرة": 2
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة البلد": 90
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة البينة": 98
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة التحريم": 66
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة التغابن": 64
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة التكاثر": 102
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة التكوير": 81
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة التوبة": 9
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة التين": 95
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الجاثية": 45
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الجمعة": 62
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الجن": 72
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الحاقة": 69
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الحج": 22
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الحجر": 15
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الحجرات": 49
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الحديد": 57
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الحشر": 59
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الدخان": 44
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الذاريات": 51
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الرحمن": 55
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الرعد": 13
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الروم": 30
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الزخرف": 43
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الزلزلة": 99
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الزمر": 39
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة السجدة": 32
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الشرح": 94
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الشعراء": 26
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الشمس": 91
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الشورى": 42
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الصافات": 37
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الصف": 61
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الضحى": 93
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الطارق": 86
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الطلاق": 65
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الطور": 52
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة العاديات": 100
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة العصر": 103
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة العلق": 96
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة العنكبوت": 29
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الغاشية": 88
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الفاتحة": 1
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الفتح": 48
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الفجر": 89
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الفرقان": 25
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الفلق": 113
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الفيل": 105
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة القارعة": 101
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة القدر": 97
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة القصص": 28
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة القلم": 68
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة القمر": 54
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة القيامة": 75
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الكافرون": 109
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الكهف": 18
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الكوثر": 108
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الليل": 92
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المؤمنون": 23
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المائدة": 5
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الماعون": 107
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المجادلة": 58
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المدثر": 74
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المرسلات": 77
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المزمل": 73
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المسد": 111
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المطففين": 83
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المعارج": 70
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الملك": 67
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الممتحنة": 60
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة المنافقون": 63
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة النازعات": 79
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الناس": 114
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة النبأ": 78
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة النجم": 53
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة النحل": 16
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة النساء": 4
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة النصر": 110
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة النمل": 27
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة النور": 24
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الهمزة": 104
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة الواقعة": 56
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة سبإ": 34
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة ص": 38
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة طه": 20
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة عبس": 80
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة غافر": 40
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة فاطر": 35
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة فصلت": 41
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة ق": 50
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة قريش": 106
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة لقمان": 31
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة محمد": 47
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة مريم": 19
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة نوح": 71
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة هود": 11
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة يس": 36
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة يوسف": 12
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سورة يونس": 10
+FILE: ./apps/quran/scripts/improve_hafs_polygon.py
+
+------------------------------------------------------------
+
+TEXT: سيتم تعيين دور
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: سيتم توليد كلمة مرور عشوائية للمستخدم، وإرسال بيانات الدخول إلى بريده الإلكتروني.
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: ش': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: شريط التقدّم - ارتفاع قابل للتغيير
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: شريك
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: شكرًا لك، سنراجع رسالتك ونتواصل معك قريبًا.
+FILE: ./apps/contact/templates/dashboard/contact/success.html
+
+------------------------------------------------------------
+
+TEXT: شما تنها می
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: ص': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: صفحة
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/mushaf/dashboard_mushaf.html
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: صفحة "
+FILE: ./apps/quran/static/quran/js/progress-tracker.js
+FILE: ./staticfiles/quran/js/progress-tracker.js
+
+------------------------------------------------------------
+
+TEXT: صفحة القراء
+FILE: ./apps/quran_studio/urls.py
+
+------------------------------------------------------------
+
+TEXT: صفحة المصحف
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: صفحة محرر الإحداثيات
+FILE: ./apps/quran_studio/urls.py
+
+------------------------------------------------------------
+
+TEXT: صلاحيات مفعّلة
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+
+------------------------------------------------------------
+
+TEXT: صلاحية
+FILE: ./identity/rbac/templates/rbac/linking/tab_linking.html
+FILE: ./identity/rbac/templates/rbac/permissions/permissions.html
+
+------------------------------------------------------------
+
+TEXT: صلاحية محددة (مثل:
+FILE: ./identity/rbac/models.py
+
+------------------------------------------------------------
+
+TEXT: صورة (اختياري)
+FILE: ./apps/communication/templates/communication/create.html
+
+------------------------------------------------------------
+
+TEXT: صيغة البريد الإلكتروني غير صحيحة"
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: صيغة رقم الجوال غير صحيحة"
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: صيغة رقم الهاتف غير صحيحة")
+FILE: ./core/services/phone_service.py
+
+------------------------------------------------------------
+
+TEXT: ض': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: ط': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: طبّق العرض/الماكس عرض إن تم تحديده
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: ظ': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: ع': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: عام"
+FILE: ./identity/rbac/templates/rbac/linking/tab_linking.html
+
+------------------------------------------------------------
+
+TEXT: عبر
+FILE: ./identity/accounts/templates/accounts/settings/login_settings.html
+
+------------------------------------------------------------
+
+TEXT: عدد
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: عدد الأدوار
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+
+------------------------------------------------------------
+
+TEXT: عدد التنبيهات في هذه الصفحة
+FILE: ./apps/notification/templates/notification/inbox/notification_inbox.html
+
+------------------------------------------------------------
+
+TEXT: عدد السجلات:
+FILE: ./web/templates/web/components/pagination_total.html
+
+------------------------------------------------------------
+
+TEXT: عدد الصفوف في الصفحة:
+FILE: ./web/templates/web/components/pagination_per_page.html
+
+------------------------------------------------------------
+
+TEXT: عدد الصلاحيات
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: عدد المستخدمين
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+
+------------------------------------------------------------
+
+TEXT: عدد المستلمين
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: عدد المستلمين:
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: عدّل الأسماء لو مختلفة عندك
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: عذرًا، لا تملك الصلاحية للوصول إلى هذه الصفحة.
+FILE: ./web/templates/403.html
+
+------------------------------------------------------------
+
+TEXT: عرض
+FILE: ./apps/messaging/templates/messaging/email/email.html
+
+------------------------------------------------------------
+
+TEXT: عرض أقصى افتراضي (مثلاً 20
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: عرض الأدوار")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض الاشتراكات
+FILE: ./apps/subscription/templates/subscription/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: عرض البريد الإلكتروني")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض التنبيهات الداخلية")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض الحملات")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض الرسائل البريدية المجمعة مع عدد المستلمين وحالة الإرسال.
+FILE: ./apps/messaging/templates/messaging/email/email.html
+
+------------------------------------------------------------
+
+TEXT: عرض الصلاحيات")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض المستخدمين")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض المستلمين"
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: عرض المشتركين")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض بيانات الرسالة والمستلمين وحالة الإرسال.
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: عرض بيانات المستخدم وتعيين الأدوار له.
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: عرض بيانات رسالة الجوال ومحتواها.
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+
+------------------------------------------------------------
+
+TEXT: عرض بيانات رسالة الواتساب ومحتواها.
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: عرض تفاصيل مستخدم")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض ثابت (اتركه فاضي لاستخدام
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: عرض جميع محاولات الإرسال لكل مستلم مع حالة كل عملية.
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+
+------------------------------------------------------------
+
+TEXT: عرض رسائل
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض رسائل التواصل")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض رسائل واتساب")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض سجل الإرسال")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: عرض سجل رسائل واتس اب المرسلة عن طريق النظام والمتعلقة بالمستخدمين.
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_list.html
+
+------------------------------------------------------------
+
+TEXT: عن وِرْدُ القُرْآنِ الكَرِيمِ
+FILE: ./web/templates/web/pages/about.html
+
+------------------------------------------------------------
+
+TEXT: عناصر"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: عند تحميل الصفحة طبّق التفضيل المخزن //
+FILE: ./static/js/lang.js
+FILE: ./staticfiles/js/lang.js
+
+------------------------------------------------------------
+
+TEXT: عنوان الحملة
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: عنوان الرد
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: عنوان الرد مطلوب"
+FILE: ./apps/contact/views/dashboard_views.py
+
+------------------------------------------------------------
+
+TEXT: عنوان الرسالة
+FILE: ./apps/communication/templates/communication/create.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: غ': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: غير المقروءة
+FILE: ./apps/contact/templates/dashboard/include/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: غير مؤكد
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: غير محدد
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: غير مقروءة
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: غير نشط
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: غيّر اتجاه الصفحة (اختياري) //
+FILE: ./static/js/lang.js
+FILE: ./staticfiles/js/lang.js
+
+------------------------------------------------------------
+
+TEXT: غيّر الأيقونة //
+FILE: ./static/js/lang.js
+FILE: ./staticfiles/js/lang.js
+
+------------------------------------------------------------
+
+TEXT: ـۥۦ
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ف': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: فتح التفاسير آخر 7 أيام
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: فتح التفسير"
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: فتح تفاصيل رسالة
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+
+------------------------------------------------------------
+
+TEXT: فردية
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: فريق الدعم
+FILE: ./identity/accounts/templates/accounts/messages.html
+
+------------------------------------------------------------
+
+TEXT: فشل
+FILE: ./apps/communication/templates/communication/logs.html
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: فشل الإرسال"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: فشل"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: فعّل هذا الخيار إذا رغبت أن تصل الرسالة أيضًا إلى جميع مستخدمي النظام المسجلين.
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: فقط)
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: فقط، أو
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: فقط، أو الاثنين
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: فلتر (
+FILE: ./identity/rbac/templatetags/rbac_tags.py
+
+------------------------------------------------------------
+
+TEXT: فوكس على حقل البحث
+FILE: ./apps/quran/static/quran/js/modals.js
+FILE: ./staticfiles/quran/js/modals.js
+
+------------------------------------------------------------
+
+TEXT: في
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: في الانتظار
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: في الانتظار"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: في حال واجهت أي مشكلة، لا تتردد في التواصل معنا.
+FILE: ./identity/accounts/templates/accounts/messages.html
+
+------------------------------------------------------------
+
+TEXT: فيسبوك"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: ق': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: قائمة الإيميلات المسجلة لاستقبال النشرات والرسائل.
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: قائمة المستلمين
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: قالب أساسي (
+FILE: ./scripts/create_app.py
+
+------------------------------------------------------------
+
+TEXT: قبل 10 دقائق
+FILE: ./identity/accounts/templates/accounts/messages.html
+
+------------------------------------------------------------
+
+TEXT: قبل 5 دقائق
+FILE: ./identity/accounts/templates/accounts/notifications.html
+
+------------------------------------------------------------
+
+TEXT: قبل ساعة
+FILE: ./identity/accounts/templates/accounts/notifications.html
+
+------------------------------------------------------------
+
+TEXT: قراءة إعدادات خاصة لكل توست
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: قريبا
+FILE: ./apps/hifz/templates/hifz/partials/hifz_options_panel.html
+
+------------------------------------------------------------
+
+TEXT: قريبًا)
+FILE: ./apps/communication/templates/communication/create.html
+
+------------------------------------------------------------
+
+TEXT: قلم په نښه کولای سی"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: قلم"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: قلمونه"))
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: قم بإزالة كل العناصر"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: قم بتعبئة بيانات الدور ثم احفظ التغييرات.
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: قم بتعبئة بيانات الصلاحية ثم احفظ التغييرات.
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: قم بتعبئة بيانات المستخدم، وسيتم إنشاء حساب له وإرسال بيانات الدخول إلى بريده الإلكتروني.
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: قناة الإرسال
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+
+------------------------------------------------------------
+
+TEXT: قنوات الإرسال
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: قنوات الإرسال"
+FILE: ./apps/messaging/apps.py
+
+------------------------------------------------------------
+
+TEXT: قيد الإرسال"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: قيد الانتظار
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: ك': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: كل المستخدمين
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+
+------------------------------------------------------------
+
+TEXT: كلمة المرور
+FILE: ./identity/accounts/templates/accounts/auth.html
+FILE: ./identity/accounts/templates/accounts/profile.html
+
+------------------------------------------------------------
+
+TEXT: كلمة المرور الجديدة"
+FILE: ./identity/accounts/templates/accounts/profile.html
+
+------------------------------------------------------------
+
+TEXT: كلمة المرور مطلوبة."
+FILE: ./identity/accounts/views/register.py
+
+------------------------------------------------------------
+
+TEXT: كلمة المرور يجب أن تكون 8 أحرف على الأقل.")
+FILE: ./identity/accounts/views/profile.py
+
+------------------------------------------------------------
+
+TEXT: كلمة المرور:
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: كلمتا المرور غير متطابقتين.")
+FILE: ./identity/accounts/views/profile.py
+
+------------------------------------------------------------
+
+TEXT: كود الدور مستخدم مسبقًا، الرجاء اختيار كود آخر.")
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: كود الصلاحية
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: ل': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: لا تحوّل الفراغ إلى 0
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد أدوار حاليًا.
+FILE: ./identity/rbac/templates/rbac/roles/roles.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد أدوار مضافة لهذا المستخدم.
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد إحداثيات محفوظة لهذه الآية في هذه الصفحة."
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد بيانات بعد
+FILE: ./apps/analytics/templates/analytics/audio/dashboard_audio.html
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/mushaf/dashboard_mushaf.html
+FILE: ./apps/analytics/templates/analytics/pages/dashboard_pages.html
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد بيانات للقراء حالياً.
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد تفاعلات بعد
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/events/dashboard_events.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد تنبيهات حاليًا.
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+FILE: ./apps/notification/templates/notification/inbox/notification_inbox.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد رسائل بريدية حاليًا.
+FILE: ./apps/messaging/templates/messaging/email/email.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد رسائل جوال حالياً.
+FILE: ./apps/messaging/templates/messaging/sms/sms_list.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد رسائل حالياً
+FILE: ./apps/contact/templates/dashboard/contact/list.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد رسائل واتس اب حاليًا في السجل.
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_list.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد سجلات إرسال حتى الآن.
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد قناة تيليجرام أو قروب مفعّل لهذه الحملة.")
+FILE: ./apps/communication/views.py
+
+------------------------------------------------------------
+
+TEXT: لا توجد مستطيلات للحفظ."
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: لا توجد معاني متاحة لهذه الآية."
+FILE: ./apps/quran/static/quran/js/ayah-audio.js
+FILE: ./staticfiles/quran/js/ayah-audio.js
+
+------------------------------------------------------------
+
+TEXT: لا يمكن إزالة هذه الصلاحية الأساسية من هذا الدور.")
+FILE: ./identity/rbac/views/linking.py
+
+------------------------------------------------------------
+
+TEXT: لا يمكن التراجع عنه
+FILE: ./identity/rbac/templates/rbac/permissions/permission_confirm_delete.html
+FILE: ./identity/rbac/templates/rbac/roles/role_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: لا يمكن تحميل النتائج"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: لا يمكن تعديل أدوار هذا المستخدم الأساسي من هذه الواجهة." )
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: لا يمكن تعديل الكود لهذا الدور الأساسي." )
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: لا يمكن تعديل كود هذه الصلاحية الأساسية." )
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: لا يمكن حذف هذا الدور الأساسي.")
+FILE: ./identity/rbac/views/roles.py
+
+------------------------------------------------------------
+
+TEXT: لا يمكن حذف هذه الصلاحية الأساسية.")
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: لا يوجد تفسير.
+FILE: ./apps/quran/static/quran/js/tafsir-page.js
+FILE: ./staticfiles/quran/js/tafsir-page.js
+
+------------------------------------------------------------
+
+TEXT: لا يوجد سجلات إرسال حالياً.
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: لا يوجد محتوى في هذه الرسالة."
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مستخدمون حاليًا.
+FILE: ./identity/rbac/templates/rbac/users/users.html
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مستلمون
+FILE: ./apps/messaging/templates/messaging/email/email.html
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مستلمون بانتظار الإرسال.")
+FILE: ./apps/messaging/views.py
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مستلمون لإرسال الرسالة.")
+FILE: ./apps/messaging/views.py
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مستلمون لديهم بريد إلكتروني.")
+FILE: ./apps/messaging/views.py
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مستلمون لهذه الرسالة.
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مستلمون مطابقون للمعايير المحددة.")
+FILE: ./apps/messaging/views.py
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مستلمون مطابقون.")
+FILE: ./apps/notification/views.py
+
+------------------------------------------------------------
+
+TEXT: لا يوجد مشتركين حالياً.
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: لا يوجد نص
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+
+------------------------------------------------------------
+
+TEXT: لسهولة ضبط الارتفاع في كلا العنصرين
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: لطفاً "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: لطفاً تعداد "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: للتحقق من صلاحية المستخدم داخل
+FILE: ./identity/rbac/mixins.py
+
+------------------------------------------------------------
+
+TEXT: للقروب والقناة)
+FILE: ./apps/communication/services.py
+
+------------------------------------------------------------
+
+TEXT: للمستخدم تلقائيًا.
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: لم يتم العثور على أي نتائج"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ar.js
+
+------------------------------------------------------------
+
+TEXT: لو الرد نصي
+FILE: ./apps/messaging/utils/send_sms.py
+FILE: ./apps/notification/utils/send_sms.py
+
+------------------------------------------------------------
+
+TEXT: لو تبغى عرضًا ثابتًا
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: لو غير مؤشرة لا تُرسل في
+FILE: ./identity/accounts/views/login_settings.py
+
+------------------------------------------------------------
+
+TEXT: لوحة التحكم
+FILE: ./dashboard/templates/dashboard/layouts/base.html
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+
+------------------------------------------------------------
+
+TEXT: لوحة التحكم الداخلية
+FILE: ./dashboard/templates/dashboard/pages/home.html
+
+------------------------------------------------------------
+
+TEXT: لوحة التحكم")
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: لوحة المعلومات
+FILE: ./dashboard/templates/dashboard/layouts/sidebar.html
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+
+------------------------------------------------------------
+
+TEXT: لوحة حية
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: لټول کيږي..."
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: لږ تر لږه "
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: م': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: مؤقتًا: نجعل الجزء 1 (تقدر تربطه لاحقًا من ملف الأجزاء)
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: مؤكد
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: ما بين
+FILE: ./apps/quran/views/tafsir_views.py
+
+------------------------------------------------------------
+
+TEXT: متابعة الزوار، الصفحات، تشغيل الصوت، وتقليب صفحات المصحف.
+FILE: ./apps/analytics/templates/analytics/dashboard/index.html
+FILE: ./apps/analytics/templates/analytics/overview/dashboard_overview.html
+
+------------------------------------------------------------
+
+TEXT: متابعة فتح التفاسير والكتب الأكثر استخدامًا والصفحات والسور والآيات المرتبطة بها.
+FILE: ./apps/analytics/templates/analytics/tafsir/dashboard_tafsir.html
+
+------------------------------------------------------------
+
+TEXT: مثال "20
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: مثال "22
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: مثال:
+FILE: ./identity/accounts/templates/accounts/auth.html
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: مثال: "22
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: مثال: 2"
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: مثال: 6"
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: مثال: أكبر شوية من
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: مثل:
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: مثلاً "4
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: مثلًا: مدير النظام"
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: مجدولة"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: مجلد
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: محتوى الرسالة --
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: محرر إحداثيات الآيات
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: مدة افتراضية لكل التوستات بالمللي ثانية
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: مدة خاصة بهذا التوست (تتغلب على الافتراضية)
+FILE: ./web/templates/web/partials/toast.html
+
+------------------------------------------------------------
+
+TEXT: مدنية")
+FILE: ./apps/quran/models.py
+
+------------------------------------------------------------
+
+TEXT: مرات
+FILE: ./apps/hifz/templates/hifz/partials/hifz_repeat_panel.html
+
+------------------------------------------------------------
+
+TEXT: مرتان
+FILE: ./apps/hifz/templates/hifz/partials/hifz_repeat_panel.html
+
+------------------------------------------------------------
+
+TEXT: مرحبًا
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: مرحبًا بك
+FILE: ./identity/accounts/views/register.py
+
+------------------------------------------------------------
+
+TEXT: مرحبًا بك في مركز الابتكار، نتمنى لك تجربة مميزة.
+FILE: ./identity/accounts/templates/accounts/notifications.html
+
+------------------------------------------------------------
+
+TEXT: مرحبًا بك، تم اعتماد حسابك ويمكنك الآن التقديم على المشاريع.
+FILE: ./identity/accounts/templates/accounts/messages.html
+
+------------------------------------------------------------
+
+TEXT: مرسلة
+FILE: ./apps/communication/templates/communication/logs.html
+
+------------------------------------------------------------
+
+TEXT: مركز الإشعارات
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+
+------------------------------------------------------------
+
+TEXT: مركز الاشتراكات
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: مركز التنبيهات
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+
+------------------------------------------------------------
+
+TEXT: مزامنة بعد 5 ثواني من آخر تحديث
+FILE: ./apps/quran/static/quran/js/progress-tracker.js
+FILE: ./staticfiles/quran/js/progress-tracker.js
+
+------------------------------------------------------------
+
+TEXT: مسار
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: مستخدم فعّال
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: مستخدمون محددون
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+
+------------------------------------------------------------
+
+TEXT: مستخدمون مسجلون
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+
+------------------------------------------------------------
+
+TEXT: مستوى الصوت"
+FILE: ./apps/hifz/templates/hifz/partials/hifz_top_toolbar.html
+
+------------------------------------------------------------
+
+TEXT: مسح المستطيلات
+FILE: ./apps/quran_studio/templates/quran_studio/ayah_editor.html
+
+------------------------------------------------------------
+
+TEXT: مسودة"
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: مشارك"
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: مشترك نشرة بريدية"
+FILE: ./apps/subscription/models.py
+
+------------------------------------------------------------
+
+TEXT: مشتركو النشرة البريدية
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: مشتركو النشرة البريدية (افتراضيًا)
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: مشتركو النشرة البريدية"
+FILE: ./apps/subscription/models.py
+
+------------------------------------------------------------
+
+TEXT: مشتركين مؤكّدين
+FILE: ./apps/subscription/templates/subscription/overview/overview_subscription.html
+
+------------------------------------------------------------
+
+TEXT: مشرف"
+FILE: ./identity/rbac/management/commands/seed_rbac.py
+
+------------------------------------------------------------
+
+TEXT: معاني الكلمات
+FILE: ./apps/quran/templates/quran/partials/wordmeanings_panel.html
+
+------------------------------------------------------------
+
+TEXT: مفعل
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: مفيد عندما نحتاج الوصول إلى
+FILE: ./identity/rbac/templatetags/rbac_tags.py
+
+------------------------------------------------------------
+
+TEXT: مقروء
+FILE: ./apps/notification/templates/notification/inapp/notification_inapp.html
+
+------------------------------------------------------------
+
+TEXT: مقروءة
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+
+------------------------------------------------------------
+
+TEXT: مكية")
+FILE: ./apps/quran/models.py
+
+------------------------------------------------------------
+
+TEXT: ملخص الأرقام والمؤشرات العامة في النظام.
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+
+------------------------------------------------------------
+
+TEXT: ملخص الإشعارات
+FILE: ./apps/messaging/templates/messaging/overview/messaging_overview.html
+
+------------------------------------------------------------
+
+TEXT: ملخص الاشتراكات
+FILE: ./apps/subscription/templates/subscription/includes/tabs_header.html
+FILE: ./apps/subscription/templates/subscription/overview/overview_subscription.html
+
+------------------------------------------------------------
+
+TEXT: ملخص التنبيهات
+FILE: ./apps/notification/templates/notification/overview/notification_overview.html
+
+------------------------------------------------------------
+
+TEXT: ملخص التواصل الإجتماعي
+FILE: ./apps/communication/templates/communication/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: ملخص تنبية
+FILE: ./apps/notification/templates/notification/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: ملفات أساسية
+FILE: ./scripts/create_app.py
+
+------------------------------------------------------------
+
+TEXT: ممنوع الدخول
+FILE: ./web/templates/403.html
+
+------------------------------------------------------------
+
+TEXT: من رسائل وِرد القرآن الكريم.
+FILE: ./apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html
+
+------------------------------------------------------------
+
+TEXT: من قاعدة بيانات النظام.
+FILE: ./identity/accounts/templates/accounts/settings/login_settings.html
+
+------------------------------------------------------------
+
+TEXT: مناسب)
+FILE: ./core/models.py
+
+------------------------------------------------------------
+
+TEXT: منصة
+FILE: ./apps/communication/models.py
+
+------------------------------------------------------------
+
+TEXT: منصة وِرْد هي منصة رقمية متكاملة تهدف إلى تسهيل تلاوة القرآن الكريم وتدبره بطريقة منظمة وجذابة.
+FILE: ./web/templates/web/pages/about.html
+
+------------------------------------------------------------
+
+TEXT: موقع القرآن الكريم
+FILE: ./web/templates/web/partials/footers/footer_dashboard.html
+
+------------------------------------------------------------
+
+TEXT: موقوف
+FILE: ./apps/subscription/templates/subscription/subscriber/newsletter_subscriber.html
+
+------------------------------------------------------------
+
+TEXT: ن': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: نبحث عن
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: نحذف القديم لهذا الكتاب قبل إعادة الاستيراد (اختياري لكن مريح)
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: نحن نهمل
+FILE: ./apps/quran/management/commands/import_tafsir.py
+
+------------------------------------------------------------
+
+TEXT: نستخدم
+FILE: ./static/js/toast.js
+FILE: ./staticfiles/js/toast.js
+
+------------------------------------------------------------
+
+TEXT: نشط
+FILE: ./identity/rbac/templates/rbac/users/user_detail.html
+
+------------------------------------------------------------
+
+TEXT: نشط")
+FILE: ./apps/subscription/models.py
+
+------------------------------------------------------------
+
+TEXT: نص الرد
+FILE: ./apps/contact/templates/dashboard/contact/detail.html
+
+------------------------------------------------------------
+
+TEXT: نص الرد مطلوب"
+FILE: ./apps/contact/views/dashboard_views.py
+
+------------------------------------------------------------
+
+TEXT: نص الرسالة
+FILE: ./apps/communication/templates/communication/create.html
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+FILE: ./apps/messaging/templates/messaging/sms/sms_detail.html
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_detail.html
+FILE: ./apps/notification/templates/notification/create/notification_create.html
+FILE: ./apps/subscription/templates/subscription/create/subscription_create.html
+
+------------------------------------------------------------
+
+TEXT: نص الرسالة (البريد الإلكتروني)
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: نص الرسالة طويل جدًا"
+FILE: ./apps/contact/views/contact_views.py
+
+------------------------------------------------------------
+
+TEXT: نص الرسالة:")
+FILE: ./services/contact_service.py
+
+------------------------------------------------------------
+
+TEXT: نظام إدارة المستخدمين والصلاحيات (
+FILE: ./dashboard/templates/dashboard/pages/overview.html
+
+------------------------------------------------------------
+
+TEXT: نظرة عامة
+FILE: ./apps/analytics/templates/analytics/include/tabs_header.html
+FILE: ./apps/messaging/templates/messaging/includes/tabs_header.html
+
+------------------------------------------------------------
+
+TEXT: نظرة عامة سريعة على أهم الوحدات والإعدادات في النظام.
+FILE: ./dashboard/templates/dashboard/pages/home.html
+
+------------------------------------------------------------
+
+TEXT: نظرة عامة سريعة على الإشعارات المرسلة عبر القنوات المختلفة.
+FILE: ./apps/messaging/templates/messaging/overview/messaging_overview.html
+
+------------------------------------------------------------
+
+TEXT: نظرة عامة سريعة على التنبيهات المرسلة عبر القنوات المختلفة.
+FILE: ./apps/notification/templates/notification/overview/notification_overview.html
+
+------------------------------------------------------------
+
+TEXT: نظرة عامة على المشتركين في النشرة البريدية.
+FILE: ./apps/subscription/templates/subscription/overview/overview_subscription.html
+
+------------------------------------------------------------
+
+TEXT: نعدّ فقط الزيارات العامة (مثلاً الصفحة الرئيسية)
+FILE: ./core/middleware/visitor_counter.py
+
+------------------------------------------------------------
+
+TEXT: ننصح بتغيير كلمة المرور بعد تسجيل الدخول." )
+FILE: ./identity/rbac/views/users.py
+
+------------------------------------------------------------
+
+TEXT: نوري پايلي ترلاسه کيږي..."
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: نوع الرسالة
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: ه': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: هذا الإجراء
+FILE: ./identity/rbac/templates/rbac/permissions/permission_confirm_delete.html
+FILE: ./identity/rbac/templates/rbac/roles/role_confirm_delete.html
+
+------------------------------------------------------------
+
+TEXT: هذا الكود مستخدم بالفعل لصلاحية أخرى.")
+FILE: ./identity/rbac/views/permissions.py
+
+------------------------------------------------------------
+
+TEXT: هذا هو الحل
+FILE: ./apps/hifz/views.py
+
+------------------------------------------------------------
+
+TEXT: هذه الرسالة ستُرسل كبريد إلكتروني فقط، ويمكنك استخدام التنسيق، القوائم، والروابط.
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: هذه الرسالة موجهة أساسًا لمشتركي النشرة البريدية المسجلين في النظام.
+FILE: ./apps/messaging/templates/messaging/general/general_email.html
+
+------------------------------------------------------------
+
+TEXT: هل أنت متأكد من حذف هذا القارئ؟')
+FILE: ./apps/quran_studio/templates/quran_studio/qurra.html
+
+------------------------------------------------------------
+
+TEXT: هل نسيت كلمة السر؟
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: همبرقر النافبار
+FILE: ./dashboard/templates/dashboard/layouts/base.html
+
+------------------------------------------------------------
+
+TEXT: همبرقر النافبار فقط وقت الفتح
+FILE: ./dashboard/templates/dashboard/layouts/base.html
+
+------------------------------------------------------------
+
+TEXT: همه موارد را حذف کنید"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: هیچ نتیجه
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: و': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: واتس اب
+FILE: ./apps/messaging/templates/messaging/whatsapp/whatsapp_list.html
+
+------------------------------------------------------------
+
+TEXT: واتساب
+FILE: ./apps/messaging/templates/messaging/create/messaging_create.html
+FILE: ./apps/messaging/templates/messaging/includes/tabs_header.html
+FILE: ./apps/messaging/templates/messaging/overview/messaging_overview.html
+
+------------------------------------------------------------
+
+TEXT: واتساب"
+FILE: ./apps/messaging/models.py
+
+------------------------------------------------------------
+
+TEXT: وصف مختصر يوضح متى تُستخدم هذه الصلاحية داخل النظام"
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: وصف مختصر يوضح مهام هذا الدور في النظام"
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: وضع القراءة
+FILE: ./apps/hifz/templates/hifz/partials/hifz_display_toolsX.html
+
+------------------------------------------------------------
+
+TEXT: وقت الإرسال
+FILE: ./apps/messaging/templates/messaging/deliveries/deliveries_list.html
+
+------------------------------------------------------------
+
+TEXT: ونحوّلها لموديل
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: وِرد"
+FILE: ./web/templates/web/pages/about.html
+FILE: ./web/templates/web/partials/navbar.html
+
+------------------------------------------------------------
+
+TEXT: وِرْد
+FILE: ./identity/accounts/templates/accounts/auth.html
+
+------------------------------------------------------------
+
+TEXT: وِرْد القرآن
+FILE: ./apps/tilawa/templates/tilawa/qari_listen.html
+
+------------------------------------------------------------
+
+TEXT: وِرْد القرآن منصة متكاملة لقراءة القرآن الكريم، الاستماع للتلاوات بأشهر القراء، وتصفح كتب التفسير بسهولة وبدون إعلانات.
+FILE: ./web/templates/web/base.html
+
+------------------------------------------------------------
+
+TEXT: ي': '
+FILE: ./staticfiles/admin/js/urlify.js
+
+------------------------------------------------------------
+
+TEXT: يا ډېر توري وليکئ"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: يتوقع
+FILE: ./apps/quran/management/commands/import_quran_data.py
+
+------------------------------------------------------------
+
+TEXT: يجب إدخال العنوان ونص الرسالة.")
+FILE: ./apps/messaging/views.py
+FILE: ./apps/notification/views.py
+
+------------------------------------------------------------
+
+TEXT: يرجعون بعد الاغلاق
+FILE: ./dashboard/templates/dashboard/layouts/base.html
+
+------------------------------------------------------------
+
+TEXT: يمكنك إدخال الرقم بأي صيغة (05 / 5 /
+FILE: ./identity/rbac/templates/rbac/users/user_form.html
+
+------------------------------------------------------------
+
+TEXT: يوجد فشل
+FILE: ./apps/messaging/templates/messaging/email/email.html
+FILE: ./apps/messaging/templates/messaging/email/email_detail.html
+
+------------------------------------------------------------
+
+TEXT: يوم"
+FILE: ./apps/quran/static/quran/js/daily_reading_modal.js
+FILE: ./staticfiles/quran/js/daily_reading_modal.js
+
+------------------------------------------------------------
+
+TEXT: يُستخدم في الكود مثل:
+FILE: ./identity/rbac/templates/rbac/roles/role_form.html
+
+------------------------------------------------------------
+
+TEXT: يُفضّل استخدام نمط
+FILE: ./identity/rbac/templates/rbac/permissions/permission_form.html
+
+------------------------------------------------------------
+
+TEXT: ٠-٩۰-۹
+FILE: ./staticfiles/admin/js/vendor/xregexp/xregexp.min.js
+
+------------------------------------------------------------
+
+TEXT: ٪"
+FILE: ./apps/quran/static/quran/js/progress-tracker.js
+FILE: ./staticfiles/quran/js/progress-tracker.js
+
+------------------------------------------------------------
+
+TEXT: ټول توکي لرې کړئ"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: پايلي نه سي ترلاسه کېدای"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: پايلي و نه موندل سوې"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/ps.js
+
+------------------------------------------------------------
+
+TEXT: کاراکتر را حذف نمایید"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+
+TEXT: کاراکتر یا بیشتر وارد نمایید"
+FILE: ./staticfiles/admin/js/vendor/select2/i18n/fa.js
+
+------------------------------------------------------------
+

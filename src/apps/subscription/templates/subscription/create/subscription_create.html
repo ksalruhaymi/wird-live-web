@@ -1,0 +1,97 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block title %} مركز الاشتراكات {% endblock %}
+{% block description %} مركز الاشتراكات {% endblock %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"subscription.create" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "subscription/includes/tabs_header.html" %}
+
+  <!-- Messages -->
+  {% if messages %}
+    <div class="space-y-2">
+      {% for message in messages %}
+        <div
+          class="px-4 py-3 rounded-2xl text-[13px] font-bold border
+          {% if message.tags == 'success' %}
+            bg-green-50 text-green-700 border-green-200
+          {% elif message.tags == 'error' %}
+            bg-red-50 text-red-700 border-red-200
+          {% elif message.tags == 'warning' %}
+            bg-amber-50 text-amber-700 border-amber-200
+          {% else %}
+            bg-slate-50 text-slate-700 border-slate-200
+          {% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- Header -->
+  <div>
+    <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+      الاشتراكات
+    </h1>
+    <p class="mt-1 text-[11px] text-slate-500">
+      إرسال رسالة بريدية إلى جميع المشتركين النشطين والمؤكدين.
+    </p>
+  </div>
+
+  <!-- Form Card -->
+  <div class="bg-white border border-slate-200 rounded-2xl p-4 space-y-4">
+
+    <div class="flex items-center justify-between gap-4">
+      <h2 class="text-[13px] font-bold text-slate-800">
+        إنشاء رسالة
+      </h2>
+
+      <div class="text-[12px] text-slate-500">
+        عدد المستلمين:
+        <span class="font-extrabold text-slate-800">{{ subscribers_count }}</span>
+      </div>
+    </div>
+
+    <form method="post"
+          action="{% url 'apps.subscription:subscription_create' %}"
+          class="space-y-4 text-[13px]">
+      {% csrf_token %}
+
+      <div>
+        <label class="block mb-1 font-bold text-slate-700">العنوان</label>
+      <input
+          type="text"
+          name="title"
+          required
+          class="site-input"
+        >
+      </div>
+
+      <div>
+        <label class="block mb-1 font-bold text-slate-700">نص الرسالة</label>
+        <textarea
+          name="body"
+          required
+          rows="8"
+          class="site-input"
+          placeholder="اكتب نص الرسالة هنا..."
+        ></textarea>
+      </div>
+
+
+      <div class="pt-2 dir-start">
+        <button
+          type="submit"
+          class="px-4 py-2 rounded-xl bg-blue-600 text-white text-[12px] font-bold hover:bg-blue-700 transition">
+          إرسال الرسالة
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endif %}
+{% endblock %}

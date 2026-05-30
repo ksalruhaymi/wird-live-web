@@ -1,0 +1,147 @@
+{% load i18n %}
+
+<div id="newKhatmaModal"
+     class="fixed inset-0 z-[10001] hidden items-center justify-center bg-black/40 backdrop-blur-sm px-4">
+
+  <div class="w-full max-w-lg max-h-[90vh] bg-white rounded-[28px] shadow-2xl border border-gray-200 overflow-y-auto">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+      <div class="w-6"></div>
+      <span class="text-sm font-extrabold text-gray-900">{% trans "start_new_khatma" %}</span>
+      <button type="button" onclick="closeNewKhatmaModal()"
+              class="text-gray-400 hover:text-gray-600 w-6 flex justify-end">
+        <i class="bi bi-x-lg text-sm"></i>
+      </button>
+    </div>
+
+    <div class="px-4 py-3 space-y-2.5">
+
+      <!-- Start from -->
+      <div>
+        <div class="text-xs font-bold text-gray-400 mb-1 text-right">{% trans "start_from" %}</div>
+        <div class="relative">
+          <select id="khatmaStart" onchange="updateKhatmaSummary()"
+                  class="w-full appearance-none bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-xs outline-none text-right">
+            <option value="beginning">{% trans "mushaf_start" %}</option>
+            <option value="1">الجزء 1</option><option value="2">الجزء 2</option>
+            <option value="3">الجزء 3</option><option value="4">الجزء 4</option>
+            <option value="5">الجزء 5</option><option value="6">الجزء 6</option>
+            <option value="7">الجزء 7</option><option value="8">الجزء 8</option>
+            <option value="9">الجزء 9</option><option value="10">الجزء 10</option>
+            <option value="11">الجزء 11</option><option value="12">الجزء 12</option>
+            <option value="13">الجزء 13</option><option value="14">الجزء 14</option>
+            <option value="15">الجزء 15</option><option value="16">الجزء 16</option>
+            <option value="17">الجزء 17</option><option value="18">الجزء 18</option>
+            <option value="19">الجزء 19</option><option value="20">الجزء 20</option>
+            <option value="21">الجزء 21</option><option value="22">الجزء 22</option>
+            <option value="23">الجزء 23</option><option value="24">الجزء 24</option>
+            <option value="25">الجزء 25</option><option value="26">الجزء 26</option>
+            <option value="27">الجزء 27</option><option value="28">الجزء 28</option>
+            <option value="29">الجزء 29</option><option value="30">الجزء 30</option>
+          </select>
+          <span class="pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 text-gray-400" style="font-size:9px">
+            <i class="bi bi-chevron-down"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Duration stepper -->
+      <div>
+        <div class="text-xs font-bold text-gray-400 mb-1 text-right">{% trans "duration_days" %}</div>
+        <div class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg px-2 py-1">
+          <button type="button" onclick="changeDuration(1)"
+                  class="w-8 h-8 rounded-md text-lg font-bold text-gray-700 hover:bg-gray-200 transition leading-none">+</button>
+          <span id="durationValue" class="text-xs font-extrabold text-gray-900">30 {% trans "day" %}</span>
+          <button type="button" onclick="changeDuration(-1)"
+                  class="w-8 h-8 rounded-md text-lg font-bold text-gray-700 hover:bg-gray-200 transition leading-none">−</button>
+        </div>
+      </div>
+
+      <!-- Daily amount: two dropdowns -->
+      <div>
+        <div class="text-xs font-bold text-gray-400 mb-1 text-right">{% trans "daily_amount" %}</div>
+        <div class="grid grid-cols-2 gap-1.5">
+          <div>
+            <div class="text-[11px] text-gray-400 mb-0.5 text-right">{% trans "smaller_division" %}</div>
+            <div class="relative">
+              <select id="khatmaAmountSub" onchange="onSubDivChange()"
+                      class="w-full appearance-none bg-gray-50 border border-gray-200 rounded-lg px-2 py-1.5 text-xs outline-none text-right">
+                <option value="">{% trans "none" %}</option>
+                <option value="rub3">ربع</option>
+                <option value="2rub3">ربعان</option>
+                <option value="3rub3">3 أرباع</option>
+                <option value="hizb">حزب</option>
+                <option value="5rub3">5 أرباع</option>
+                <option value="6rub3">6 أرباع</option>
+                <option value="7rub3">7 أرباع</option>
+              </select>
+              <span class="pointer-events-none absolute left-1.5 top-1/2 -translate-y-1/2 text-gray-400" style="font-size:9px">
+                <i class="bi bi-chevron-down"></i>
+              </span>
+            </div>
+          </div>
+          <div>
+            <div class="text-[11px] text-gray-400 mb-0.5 text-right">{% trans "juz_division" %}</div>
+            <div class="relative">
+              <select id="khatmaAmountJuz" onchange="updateKhatmaSummary()"
+                      class="w-full appearance-none bg-gray-50 border border-gray-200 rounded-lg px-2 py-1.5 text-xs outline-none text-right">
+                <option value="juz">جزء</option>
+                <option value="2juz">جزءان</option>
+                <option value="3juz">3 أجزاء</option>
+                <option value="4juz">4 أجزاء</option>
+                <option value="5juz">5 أجزاء</option>
+                <option value="6juz">6 أجزاء</option>
+                <option value="7juz">7 أجزاء</option>
+                <option value="8juz">8 أجزاء</option>
+                <option value="9juz">9 أجزاء</option>
+                <option value="10juz">10 أجزاء</option>
+              </select>
+              <span class="pointer-events-none absolute left-1.5 top-1/2 -translate-y-1/2 text-gray-400" style="font-size:9px">
+                <i class="bi bi-chevron-down"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Amount preview -->
+        <div class="mt-1.5 bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1.5 text-right">
+          <span id="khatmaAmountPreview" class="text-xs font-bold text-gray-700">📖 جزء يومياً</span>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="bg-emerald-50 border border-emerald-100 rounded-lg px-3 py-2.5">
+        <div class="text-xs font-bold text-gray-600 mb-1.5 text-right border-b border-emerald-100 pb-1.5">
+          {% trans "khatma_summary" %}
+        </div>
+        <div class="space-y-1" style="font-size:11px">
+          <div class="flex items-center justify-between gap-2">
+            <span id="summaryStart" class="font-semibold text-gray-800">{% trans "mushaf_start" %}</span>
+            <span class="text-gray-400 flex items-center gap-1">
+              <i class="bi bi-play-fill text-emerald-500" style="font-size:9px"></i>{% trans "start_from" %}
+            </span>
+          </div>
+          <div class="flex items-center justify-between gap-2">
+            <span id="summaryDuration" class="font-semibold text-gray-800">30 {% trans "day" %}</span>
+            <span class="text-gray-400 flex items-center gap-1">
+              <i class="bi bi-calendar3 text-emerald-500" style="font-size:9px"></i>{% trans "duration_days" %}
+            </span>
+          </div>
+          <div class="flex items-center justify-between gap-2">
+            <span id="summaryAmount" class="font-semibold text-gray-800">جزء</span>
+            <span class="text-gray-400 flex items-center gap-1">
+              <i class="bi bi-book text-emerald-500" style="font-size:9px"></i>{% trans "daily_amount" %}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button type="button" onclick="submitNewKhatma()"
+              class="w-full bg-emerald-500 text-white py-2 rounded-xl font-extrabold text-sm hover:bg-emerald-600 active:bg-emerald-700 transition">
+        {% trans "start_khatma" %}
+      </button>
+
+    </div>
+  </div>
+</div>

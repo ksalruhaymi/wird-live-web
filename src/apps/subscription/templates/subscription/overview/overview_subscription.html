@@ -1,0 +1,57 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block title %} ملخص الاشتراكات {% endblock %}
+{% block description %} ملخص الاشتراكات {% endblock %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"subscription.access" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "subscription/includes/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+        ملخص الاشتراكات
+      </h1>
+      <p class="mt-1 text-[11px] text-slate-500">
+        نظرة عامة على المشتركين في النشرة البريدية.
+      </p>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+      <div class="text-slate-500 mb-1">إجمالي المشتركين</div>
+      <div class="text-xl font-extrabold text-slate-800">
+        {{ total_subscribers }}
+      </div>
+      <div class="text-[11px] text-slate-400 mt-1">جميع المشتركين</div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+      <div class="text-slate-500 mb-1">المشتركين النشطين</div>
+      <div class="text-xl font-extrabold text-green-600">
+        {{ active_subscribers }}
+      </div>
+      <div class="text-[11px] text-slate-400 mt-1">المفعلين</div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+      <div class="text-slate-500 mb-1">تم التأكيد</div>
+      <div class="text-xl font-extrabold text-blue-600">
+        {{ confirmed_subscribers }}
+      </div>
+      <div class="text-[11px] text-slate-400 mt-1">مشتركين مؤكّدين</div>
+    </div>
+
+  </div>
+
+</div>
+
+{% endif %}
+{% endblock %}

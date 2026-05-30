@@ -1,0 +1,37 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} ملخص التنبيهات {% endblock %}
+{% block description %} ملخص التنبيهات {% endblock %}
+{% block dashboard_content %}
+{% if request.user|can_access:"notification.access" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "notification/includes/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+      ملخص التنبيهات
+      </h1>
+      <p class="mt-1 text-[11px] text-slate-500">
+      نظرة عامة سريعة على التنبيهات المرسلة عبر القنوات المختلفة.
+      </p>
+    </div>
+  </div>
+    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+      <div class="text-slate-500 mb-1">داخل النظام</div>
+      <div class="text-xl font-extrabold text-slate-800">
+        {{ stats.in_app }}
+      </div>
+      <div class="text-[11px] text-slate-400 mt-1">تنبيهات في النظام</div>
+    </div>
+  </div>
+ 
+
+   
+
+
+</div>
+{% endif %}
+{% endblock %}

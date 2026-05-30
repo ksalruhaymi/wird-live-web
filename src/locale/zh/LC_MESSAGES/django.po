@@ -1,0 +1,3531 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: zh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "联系我们"
+
+msgid "contact_page_description"
+msgstr "联系我们，我们竭诚为您服务"
+
+msgid "contact_intro_text"
+msgstr "我们很高兴您联系 Wird Quran 平台。我们努力服务真主之书并促进其背诵。"
+
+msgid "name"
+msgstr "姓名"
+
+msgid "enter_your_name"
+msgstr "输入你的名字"
+
+msgid "email"
+msgstr "电子邮件"
+
+msgid "your_message"
+msgstr "您的留言"
+
+msgid "write_your_message_here"
+msgstr "在这里写下您的询问或留言"
+
+msgid "send_message"
+msgstr "发送消息"
+
+msgid "message_sent"
+msgstr "消息已发送"
+
+msgid "message_sent_successfully"
+msgstr "消息发送成功"
+
+msgid "thank_you_contact"
+msgstr "感谢您联系我们"
+
+msgid "contact_success_message"
+msgstr ""
+"您的消息已成功收到。 Wird古兰经团队将审核并尽快与您联系，支持古兰经的服务。"
+
+msgid "back_to_home"
+msgstr "返回首页"
+
+msgid "quran_recitation_prompt"
+msgstr "用阿拉伯语背诵《古兰经》"
+
+msgid "save_stop"
+msgstr "保存阅读位置"
+
+msgid "cancel_stop"
+msgstr "删除阅读位置"
+
+msgid "hifz_audio_recording"
+msgstr "录音"
+
+msgid "hifz_enable_hiding"
+msgstr "隐藏阿亚斯"
+
+msgid "hifz_segmentation_thematic"
+msgstr "主题细分"
+
+msgid "hifz_writing"
+msgstr "写作"
+
+msgid "zoom_in"
+msgstr "放大"
+
+msgid "repeat"
+msgstr "重复"
+
+msgid "page"
+msgstr "页"
+
+msgid "play_audio"
+msgstr "播放音频"
+
+msgid "word_meanings"
+msgstr "词义"
+
+msgid "brief_tafsir"
+msgstr "简短的塔夫西尔"
+
+msgid "playback_tools"
+msgstr "播放工具"
+
+msgid "audio"
+msgstr "声音的"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"要在记忆时播放音频，请点击 ayah 以显示播放和暂停按钮。然后，您可以从这里控制"
+"音量，放大屏幕以便更容易阅读而不会分心，并增加阿雅的重复次数。"
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "两页"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr "在 mushaf 中的一页或两页之间切换"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "一页"
+
+msgid "hifz_memorization_tools"
+msgstr "记忆技巧"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"记忆工具可以帮助您加强回忆并训练记忆力。您可以隐藏阿耶以练习记住它们。当您将"
+"鼠标悬停在 ayah 上时，它会轻轻地显示以引导您，而当您单击它时，它会完全显示。"
+"还可以进行主题分割，将相关的 ayah 分组为主题，以便于记忆和理解。"
+
+msgid "hifz_play"
+msgstr "玩"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "句号"
+
+msgid "hifz_mstwa_audio"
+msgstr "音量级别"
+
+msgid "mushaf"
+msgstr "穆沙夫"
+
+msgid "reciter"
+msgstr "背诵者"
+
+msgid "search"
+msgstr "搜索"
+
+msgid "stop_audio"
+msgstr "停止音频"
+
+msgid "recitation_correction"
+msgstr "背诵批改"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"首先，选择一个ayah。然后就会出现录制按钮。按下它并记录您对所选阿耶的背诵，以"
+"便可以分析您的音频并纠正您的背诵。您将看到背诵准确率百分比，并且您将找到一个"
+"按钮来收听您录制的声音。"
+
+msgid "recitation_accuracy_percentage"
+msgstr "背诵准确率"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "谢赫音频"
+
+msgid "my_recorded_audio"
+msgstr "我的录音"
+
+msgid "mushaf_hafs"
+msgstr "哈夫斯·穆沙夫"
+
+msgid "mushaf_warsh"
+msgstr "沃什·穆沙夫"
+
+msgid "mushaf_qaloun"
+msgstr "卡隆·穆沙夫"
+
+msgid "mushaf_douri"
+msgstr "杜里·穆沙夫"
+
+msgid "mushaf_shuba"
+msgstr "舒巴·穆沙夫"
+
+msgid "mushaf_sousi"
+msgstr "苏西·穆沙夫"
+
+msgid "tafsir_almuyasser"
+msgstr "穆亚萨尔"
+
+msgid "tafsir_alkatheer"
+msgstr "伊本·凯瑟尔"
+
+msgid "tafsir_albaghawy"
+msgstr "巴格哈维"
+
+msgid "tafsir_altabary"
+msgstr "塔巴里"
+
+msgid "tafsir_alqortoby"
+msgstr "库尔图比"
+
+msgid "tafsir_alsa3dy"
+msgstr "萨迪"
+
+#, python-format
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "《古兰经》第 %(page)s 页的 Tafsir |古兰经"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "古兰经 %(surah_name)s |阅读和聆听 - 古兰经"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "聆听 %(qari_name)s 背诵的《古兰经》|古兰经"
+
+#, python-format
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "《古兰经》第 %(page)s 页 |古兰经"
+
+#, python-format
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"轻松阅读《古兰经》第 %(page)s 页的 tafsir，在 Wird Quran 平台上显示 ayahs 并"
+"链接到 tafsir。"
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"阅读《古兰经》中的 Surah %(surah_name)s，在 Wird Quran 平台上轻松收听和浏览。"
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"聆听 %(qari_name)s 背诵的高品质《古兰经》，并可在 surah 和 ayahs 之间轻松导"
+"航。"
+
+#, python-format
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"使用舒适且简单的界面浏览《古兰经》第 %(page)s 页，在 Wird Quran 平台上可实现"
+"流畅的阅读和快速导航。"
+
+msgid "no_word_meanings"
+msgstr "这个 Ayah 没有可用的词义"
+
+msgid "hide_word_meanings"
+msgstr "隐藏单词含义"
+
+msgid "show_word_meanings"
+msgstr "显示单词含义"
+
+msgid "word_meanings_hint"
+msgstr "开始背诵时词义就会出现"
+
+msgid "error_word_meanings"
+msgstr "加载单词含义失败"
+
+msgid "surah"
+msgstr "古兰经"
+
+msgid "ayah"
+msgstr "阿亚"
+
+msgid "show_thematic_segmentation"
+msgstr "显示主题细分"
+
+msgid "hide_thematic_segmentation"
+msgstr "隐藏主题细分"
+
+msgid "daily_quran_reading"
+msgstr "我的日常"
+
+msgid "new_khatma"
+msgstr "新卡特玛"
+
+msgid "close"
+msgstr "关闭"
+
+msgid "current_khatma"
+msgstr "当前的卡特玛"
+
+msgid "Juz"
+msgstr "朱兹"
+
+msgid "remaining_wirds"
+msgstr "剩余线数"
+
+msgid "khatma_count"
+msgstr "卡特玛伯爵"
+
+msgid "current_wird"
+msgstr "当前线路"
+
+msgid "from"
+msgstr "从"
+
+msgid "to"
+msgstr "到"
+
+msgid "congratulations"
+msgstr "恭喜你"
+
+msgid "you_finished_current_khatma"
+msgstr "您已成功完成此 Khatma"
+
+msgid "continue_reading"
+msgstr "继续阅读 线"
+
+msgid "finish_wird"
+msgstr "接线完成"
+
+msgid "choose_mushaf"
+msgstr "选择穆沙夫"
+
+msgid "current"
+msgstr "当前的"
+
+msgid "start_new_khatma"
+msgstr "开始新卡特玛"
+
+msgid "start_from"
+msgstr "开始于"
+
+msgid "mushaf_start"
+msgstr "穆沙夫的开始"
+
+msgid "duration_days"
+msgstr "Khatma 持续时间（天）"
+
+msgid "day"
+msgstr "天"
+
+msgid "daily_amount"
+msgstr "每日汇款金额"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "卡塔玛总结"
+
+msgid "start_khatma"
+msgstr "开始卡特玛"
+
+msgid "reciters"
+msgstr "朗诵者"
+
+msgid "search_reciter"
+msgstr "按姓名搜索朗诵者"
+
+msgid "loading"
+msgstr "加载中"
+
+msgid "tafasir"
+msgstr "塔夫西尔图书"
+
+msgid "no_tafsir_available"
+msgstr "目前没有可用的 Tafsir"
+
+msgid "quran"
+msgstr "古兰经"
+
+msgid "tafsir"
+msgstr "塔夫西尔"
+
+msgid "surah_1"
+msgstr "法提哈节"
+
+msgid "mushafs"
+msgstr "穆沙夫斯"
+
+msgid "reading_mode"
+msgstr "阅读模式"
+
+msgid "current_reciter"
+msgstr "当前朗诵者"
+
+msgid "coming_soon"
+msgstr "即将推出"
+
+msgid "current_mushaf"
+msgstr "现任穆沙夫"
+
+msgid "tafsir_loading_message"
+msgstr "当您打开此页面时，Tafsir 将被加载"
+
+msgid "title_and_body_required"
+msgstr "标题和正文为必填项"
+
+msgid "no_subscribers_available"
+msgstr "没有可供发送的订阅者"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "您订阅了《古兰经》消息"
+
+msgid "unsubscribe_label"
+msgstr "取消订阅"
+
+msgid "message_sent_to_subscribers"
+msgstr "消息已发送给 %(count)s 个订阅者"
+
+msgid "message_sent_with_failures"
+msgstr "消息已发送至 %(sent_count)s 个订阅者，但失败了 %(failed_count)s 个"
+
+msgid "message_send_failed"
+msgstr "发送消息失败"
+
+msgid "please_enter_email"
+msgstr "请输入您的电子邮件"
+
+msgid "newsletter_welcome_subject"
+msgstr "感谢您订阅《古兰经》"
+
+msgid "newsletter_greeting"
+msgstr "愿真主的和平、仁慈和祝福降临到你们身上，"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "感谢您订阅《古兰经》消息"
+
+msgid "newsletter_joined_successfully"
+msgstr "我们很高兴您加入我们，您将在电子邮件中收到更新"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr "如果您想随时取消订阅，可以使用以下链接"
+
+msgid "newsletter_closing"
+msgstr "致以诚挚的感谢和赞赏"
+
+msgid "wird quran"
+msgstr "古兰经卡里姆"
+
+msgid "newsletter_subscription_success"
+msgstr "谢谢，您已成功订阅《古兰经》消息"
+
+msgid "newsletter_subscription_reactivated"
+msgstr "谢谢，您对《古兰经》消息的订阅已重新激活"
+
+msgid "email_already_subscribed"
+msgstr "该电子邮件已被订阅"
+
+msgid "unsubscribe_success_message"
+msgstr "取消订阅成功"
+
+msgid "unsubscribe_already_done"
+msgstr "已经取消订阅"
+
+msgid "qari_list_title"
+msgstr "聆听《古兰经》"
+
+msgid "qari_list_description"
+msgstr "浏览朗诵者，从众多声音优美的朗诵者中选择您最喜欢的朗诵者。"
+
+msgid "listen_quran"
+msgstr "聆听《古兰经》"
+
+msgid "view_surahs"
+msgstr "查看古兰经"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "聆听《古兰经》"
+
+msgid "tilawa_wrd_quran"
+msgstr "古兰经"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "聆听完整的《古兰经》背诵"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "高品质，可在古兰经之间轻松导航"
+
+msgid "all_reciters"
+msgstr "所有朗诵者"
+
+msgid "select_surah_player"
+msgstr "选择一个古兰经"
+
+msgid "prev_surah"
+msgstr "上一章"
+
+msgid "next_surah"
+msgstr "下一个古兰经"
+
+msgid "search_surah"
+msgstr "按姓名或号码搜索古兰经"
+
+msgid "ayah_counter"
+msgstr "阿亚"
+
+msgid "stop_playback"
+msgstr "停止播放"
+
+msgid "username_password_required"
+msgstr "需要用户名和密码。"
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "帐户需要激活"
+
+msgid "invalid_login_credentials"
+msgstr "登录凭据无效。"
+
+msgid "dashboard"
+msgstr "仪表板"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "登录或创建帐户以继续"
+
+msgid "login"
+msgstr "登录"
+
+msgid "register"
+msgstr "创建账户"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "用户名已被占用。"
+
+msgid "enter_username"
+msgstr "输入用户名"
+
+msgid "password"
+msgstr "密码"
+
+msgid "enter_password"
+msgstr "输入密码"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "忘记密码？"
+
+msgid "create_account"
+msgstr "创建账户"
+
+msgid "username_required"
+msgstr "需要用户名。"
+
+msgid "username_taken"
+msgstr "用户名已被占用。"
+
+msgid "email_required"
+msgstr "需要电子邮件。"
+
+msgid "email_taken"
+msgstr "电子邮件已被使用。"
+
+msgid "password_required"
+msgstr "需要密码。"
+
+msgid "register_success"
+msgstr ""
+"欢迎 🌿 您的帐户已成功创建。我们很高兴您的加入。我们祝愿您获得独特且富有成效"
+"的体验。"
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"Wird Quran 是一个阅读古兰经、聆听著名朗诵者朗诵、轻松浏览 Tafsir 书籍的综合平"
+"台，无广告。"
+
+msgid "success"
+msgstr "成功"
+
+msgid "error"
+msgstr "错误"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "关于《古兰经》卡里姆"
+
+msgid "long_about_text"
+msgstr ""
+"Wird 是一个综合数字平台，旨在以有组织且有吸引力的方式促进《古兰经》的背诵和冥"
+"想。它提供浏览各种穆沙夫、聆听朗诵者、阅读正宗塔夫西尔书籍等服务。"
+
+msgid "about_wird"
+msgstr ""
+"Wird 是一个综合数字平台，旨在以有组织且有吸引力的方式促进《古兰经》的背诵和冥"
+"想。它提供的服务包括浏览带有各种叙述的 Mushafs、聆听背诵者的朗诵以及阅读可靠"
+"的 Tafsirs。它还允许用户跟踪他们的日常行为并跟踪他们的记忆和复习进度。该平台"
+"旨在支持《古兰经》项目，并通过简单且集成的数字体验加强与其的联系。"
+
+msgid "wird"
+msgstr "维德"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "每日读古兰经"
+
+msgid "home_hero_title1"
+msgstr "阅读《古兰经》的平静体验"
+
+msgid "home_hero_title2"
+msgstr "以及倾听和反思"
+
+msgid "home_hero_desc"
+msgstr "一个将阅读、背诵、Tafsir、翻译和词义带入一种简单且有组织的体验的平台。"
+
+msgid "home_start_reading"
+msgstr "开始阅读"
+
+msgid "home_explore_recitations"
+msgstr "探索背诵"
+
+msgid "home_calm_recitation"
+msgstr "平静的背诵"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "特征"
+
+msgid "home_features_title"
+msgstr "您所需的一切都集中在一处"
+
+msgid "home_features_desc"
+msgstr "平静的工具可帮助您心无旁骛地阅读、聆听和思考。"
+
+msgid "home_feature_quran_title"
+msgstr "阅读《古兰经》"
+
+msgid "home_feature_quran_desc"
+msgstr "优雅的 Mushaf 界面让阅读变得舒适且养眼。"
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "您所需的一切都集中在一处"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr "平静的工具可帮助您心无旁骛地阅读、聆听和思考。"
+
+msgid "home_feature_listen_title"
+msgstr "聆听朗诵"
+
+msgid "home_feature_listen_desc"
+msgstr "精选朗诵者，声音纯净，聆听体验平静。"
+
+msgid "home_feature_tafsir_title"
+msgstr "塔夫西尔"
+
+msgid "home_feature_tafsir_desc"
+msgstr "可靠的 Tafsir，有组织的展示，有助于反思和理解。"
+
+msgid "home_feature_trans_title"
+msgstr "翻译"
+
+msgid "home_feature_trans_desc"
+msgstr "直接与 ayah 一起翻译多种语言的含义。"
+
+msgid "home_feature_words_title"
+msgstr "词义"
+
+msgid "home_feature_words_desc"
+msgstr "无需离开页面，即可一键查找任何单词的含义。"
+
+msgid "home_feature_daily_title"
+msgstr "每日连线"
+
+msgid "home_feature_daily_desc"
+msgstr "定期整理你的每日生活并平静地跟踪你的连续性。"
+
+msgid "surah_2"
+msgstr "巴卡拉"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "每日连线"
+
+msgid "home_daily_title"
+msgstr "平静的习惯，伴你一天天成长"
+
+msgid "home_daily_desc"
+msgstr ""
+"根据您的一天安排您的 Wird，并毫无压力地跟踪您的连续性。温和的提醒、井然有序的"
+"展示和简单的跟踪让您始终与真主之书保持联系。"
+
+msgid "home_gentle_tracking"
+msgstr "温和追踪"
+
+msgid "home_flexible_reminder"
+msgstr "灵活提醒"
+
+msgid "home_no_pressure"
+msgstr "无压力"
+
+msgid "tilawa"
+msgstr "背诵"
+
+msgid "home_recitation_title"
+msgstr "用平静心灵的声音聆听"
+
+msgid "home_recitation_desc"
+msgstr "选择触动您灵魂的朗诵者，以平静、无干扰的体验聆听。"
+
+msgid "home_now_playing"
+msgstr "正在播放"
+
+msgid "home_reciter_label"
+msgstr "背诵者"
+
+msgid "home_current_surah"
+msgstr "当前古兰经"
+
+msgid "home_prev"
+msgstr "以前的"
+
+msgid "home_play_pause"
+msgstr "播放/暂停"
+
+msgid "home_next"
+msgstr "下一个"
+
+msgid "home_reading_label"
+msgstr "塔夫西尔与翻译"
+
+msgid "home_reading_title"
+msgstr "深刻而清晰地反思意义"
+
+msgid "home_reading_desc"
+msgstr "类似于一本书的体验：阿耶在其位置，其意义在其旁边。"
+
+msgid "home_easy_tafsir"
+msgstr "简单的塔夫西尔"
+
+msgid "home_meaning_badge"
+msgstr "意义"
+
+msgid "home_meaning_label"
+msgstr "意义"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "隐私政策"
+
+msgid "Wird — Privacy Policy"
+msgstr "Wird — 隐私政策"
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr "您在古兰经之旅中的每日伴侣"
+
+msgid "Last updated: May 2026"
+msgstr "最后更新：2026年5月"
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr "本政策说明 Wird 如何处理您的数据。我们力求简洁透明。"
+
+msgid "translations"
+msgstr "翻译"
+
+msgid "translation_page_title"
+msgstr "翻译"
+
+msgid "surahs"
+msgstr "古兰经"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "保存阅读位置"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "页脚链接"
+
+msgid "about"
+msgstr "关于"
+
+msgid "contact_us"
+msgstr "联系我们"
+
+msgid "download_android"
+msgstr "下载安卓版"
+
+msgid "download_ios"
+msgstr "下载 iOS 版"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "菜单"
+
+msgid "home"
+msgstr "家"
+
+msgid "read_quran"
+msgstr "阅读《古兰经》"
+
+msgid "hifz_quran"
+msgstr "古兰经背诵"
+
+msgid "notifications"
+msgstr "通知"
+
+msgid "logout"
+msgstr "退出"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "轮廓"
+
+msgid "SECTION 1"
+msgstr "第1节"
+
+msgid "Information We Collect"
+msgstr "我们收集的信息"
+
+msgid "a. Account Information (if you sign in)"
+msgstr ""
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr ""
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+
+msgid "c. Contact Messages"
+msgstr ""
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+
+msgid "SECTION 2"
+msgstr "第2节"
+
+msgid "Data Stored Only on Your Device"
+msgstr "仅存储在您设备上的数据"
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr ""
+
+msgid "Azkar completion progress"
+msgstr ""
+
+msgid "Notification schedule and preferences"
+msgstr ""
+
+msgid "Selected reciter and Mushaf style"
+msgstr ""
+
+msgid "Accessibility and display settings"
+msgstr ""
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr ""
+
+msgid "The Quran database"
+msgstr ""
+
+msgid "SECTION 3"
+msgstr "第3节"
+
+msgid "Microphone Access"
+msgstr "麦克风访问"
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+
+msgid "SECTION 4"
+msgstr "第4节"
+
+msgid "Third-Party Services"
+msgstr "第三方服务"
+
+msgid "Service"
+msgstr "服务"
+
+msgid "Provider"
+msgstr "提供商"
+
+msgid "Purpose"
+msgstr "用途"
+
+msgid "Push notifications"
+msgstr "推送通知"
+
+msgid "App initialisation"
+msgstr "应用初始化"
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr ""
+
+msgid "SECTION 5"
+msgstr "第5节"
+
+msgid "Analytics and Crash Reporting"
+msgstr "分析与崩溃报告"
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr "第6节"
+
+msgid "Data Sharing"
+msgstr "数据共享"
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+
+msgid "SECTION 7"
+msgstr "第7节"
+
+msgid "Data Security"
+msgstr "数据安全"
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+
+msgid "All communication with our server uses HTTPS."
+msgstr ""
+
+msgid "SECTION 8"
+msgstr "第8节"
+
+msgid "Your Rights"
+msgstr "您的权利"
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr "第9节"
+
+msgid "Audience"
+msgstr "受众"
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+
+msgid "SECTION 10"
+msgstr "第10节"
+
+msgid "Changes to This Policy"
+msgstr "本政策的变更"
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr "Wird 应用"
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "隐私政策"
+
+msgid "Last updated May 2026"
+msgstr "最后更新 2026年5月"
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "support"
+#~ msgstr "支持"
+
+#~ msgid "web_wrd"
+#~ msgstr "维德"
+
+#~ msgid "system_description"
+#~ msgstr "一个轻松阅读古兰经、聆听朗诵和探索 Tafsir 的平台。"
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird 是一个综合数字平台，旨在以有组织且有吸引力的方式促进《古兰经》的背诵"
+#~ "和冥想。"
+
+#~ msgid "hifz"
+#~ msgstr "记忆"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "Juz %(number)s"
+
+#~ msgid "juz_number"
+#~ msgstr "Juz %(number)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "以最仁慈、最仁慈的安拉之名"
+
+#~ msgid "open_mushaf"
+#~ msgstr "打开穆沙夫"
+
+#~ msgid "hafs"
+#~ msgstr "哈夫斯"
+
+#~ msgid "warsh"
+#~ msgstr "沃什"
+
+#~ msgid "qaloun"
+#~ msgstr "卡隆"
+
+#~ msgid "douri"
+#~ msgstr "杜里"
+
+#~ msgid "shuba"
+#~ msgstr "舒巴"
+
+#~ msgid "sousi"
+#~ msgstr "苏西"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "大多数穆沙夫来自"
+
+#~ msgid "complex"
+#~ msgstr "法赫德国王光荣古兰经印刷厂"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "没有可用的 Tafsir"
+
+#~ msgid "tajweed"
+#~ msgstr "泰吉威德"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "显示单词含义"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "隐藏单词含义"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "正在加载单词含义..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "加载单词含义"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "加载单词含义失败"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "此 Ayah 没有可用的含义"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "开始背诵时词义就会出现"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "麦加"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "麦地那"
+
+#~ msgid "start"
+#~ msgstr "开始"
+
+#~ msgid "selected_ayah"
+#~ msgstr "精选阿亚"
+
+#~ msgid "analysis_result"
+#~ msgstr "结果"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "首先选择一个ayah"
+
+#~ msgid "browse_reciters"
+#~ msgstr "浏览背诵者"
+
+#~ msgid "next_wirds"
+#~ msgstr "即将到来的线路"
+
+#~ msgid "previous_wirds"
+#~ msgstr "前几行"
+
+#~ msgid "one_juz"
+#~ msgstr "1 朱兹"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "显示工具"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "正常显示"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "阿亚重复"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "不重复"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "两次"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "时代"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "穆沙夫"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr "《古兰经》将根据指定的持续时间和数量进行划分，以方便日常的 Khatma。"
+
+#~ msgid "resume_reading"
+#~ msgstr "继续阅读"
+
+#~ msgid "percentage"
+#~ msgstr "进度百分比"
+
+#~ msgid "progress"
+#~ msgstr "进步"
+
+#~ msgid "from_page"
+#~ msgstr "起始页"
+
+#~ msgid "to_page"
+#~ msgstr "结束页"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "从"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "到"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "古兰经 - Ayah 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "古兰经 - Ayah 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "当前阿亚号码"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "登录或创建帐户以继续"
+
+#~ msgid "welcome"
+#~ msgstr "欢迎"
+
+#~ msgid "welcome_message"
+#~ msgstr "欢迎来到 Wird Quran 平台"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "欢迎回来"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "您的个人资料已更新"
+
+#~ msgid "accounts_settings"
+#~ msgstr "设置"
+
+#~ msgid "login_settings"
+#~ msgstr "登录设置"
+
+#~ msgid "confirm_password"
+#~ msgstr "确认密码"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "新密码"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "显示或隐藏密码"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "用户名是必需的"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "用户名已被占用"
+
+#~ msgid "enter_email"
+#~ msgstr "输入您的电子邮件"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "电子邮件为必填项"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "电子邮件已被使用"
+
+#~ msgid "invalid_email"
+#~ msgstr "电子邮件格式无效"
+
+#~ msgid "full_name"
+#~ msgstr "姓名"
+
+#~ msgid "phone"
+#~ msgstr "电话号码"
+
+#~ msgid "invalid_phone"
+#~ msgstr "电话号码无效"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "电话号码已被使用"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "职称"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "男性"
+
+#~ msgid "accounts_female"
+#~ msgstr "女性"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "您的账户已创建成功"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr "您的帐户已成功创建。我们很高兴您的加入，并祝您获得独特的体验。"
+
+#~ msgid "login_failed"
+#~ msgstr "登录凭据无效"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "密码不匹配"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "密码必须至少为 8 个字符"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "更改已成功保存"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "您的数据已成功保存"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "数据保存和密码更新成功"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "登录设置更新成功"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr "欢迎回来，您的帐户已获得批准，您现在可以申请项目"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr "欢迎来到创新中心，祝您获得愉快的体验"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "创新中心管理"
+
+#~ msgid "accounts_local"
+#~ msgstr "当地的"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "统一登录"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "启用外部身份验证"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "控制系统中允许的身份验证方法"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "来自系统数据库"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "昨天"
+
+#~ msgid "accounts_saah"
+#~ msgstr "一小时前"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "10 分钟前"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "5 分钟前"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "联系我们"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "通过联系表联系我们"
+
+#~ msgid "contact_description"
+#~ msgstr "您可以联系我们寻求任何咨询或支持"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr "谢谢您，我们会审核您的留言并尽快与您联系"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "您的消息已发送成功"
+
+#~ msgid "write_message"
+#~ msgstr "在这里写下您的留言"
+
+#~ msgid "contact_message"
+#~ msgstr "信息"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "需要留言"
+
+#~ msgid "contact_name_required"
+#~ msgstr "姓名为必填项"
+
+#~ msgid "contact_email_required"
+#~ msgstr "电子邮件为必填项"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "电子邮件无效"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "电话"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "移动的"
+
+#~ msgid "contact_email"
+#~ msgstr "电子邮件"
+
+#~ msgid "contact_date"
+#~ msgstr "日期"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "所有消息"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "联系方式 留言"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "管理联系信息"
+
+#~ msgid "contact_message_details"
+#~ msgstr "留言详情"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "联系方式 留言详情"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "打开消息详情"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "直接点击消息即可查看详细信息"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "按姓名、电子邮件或消息搜索"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "目前没有消息"
+
+#~ msgid "contact_reply"
+#~ msgstr "已回复"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "回复消息"
+
+#~ msgid "write_reply"
+#~ msgstr "写好回复直接发送"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "发送回复"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "回复文字"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "回复标题"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "最后保存的回复"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "在我们的网站上回复您的消息"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "来自联系我们的新消息"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "新的"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "未读"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "读"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "正在发送..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "最近发送，请稍后重试"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr "刚刚已回复，请稍后重试"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr "如果您遇到任何问题，请随时与我们联系"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "支持团队"
+
+#~ msgid "subscribe"
+#~ msgstr "订阅"
+
+#~ msgid "subscriptions"
+#~ msgstr "订阅"
+
+#~ msgid "subscription_active"
+#~ msgstr "启用"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "积极的"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "已停止"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "确认订阅者"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "订阅者总数"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "所有订阅者"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "活跃订阅者"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "启用"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "确认的"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "未证实"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "确认的"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "时事通讯订阅者"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "时事通讯订阅者"
+
+#~ msgid "subscription_message"
+#~ msgstr "订阅以接收我们的消息"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "目前没有订阅者"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "退订"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "电子邮件订阅已取消"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "取消订阅《古兰经》消息"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "来自《古兰经》消息"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "管理订阅"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "查看订阅"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "订阅摘要"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "订阅中心"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "时事通讯订阅者概述"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr "注册接收新闻通讯和消息的电子邮件列表"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "认购日期"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "取消订阅日期"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "通过电子邮件搜索"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "创建消息"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr "向所有活跃和确认的订阅者发送电子邮件"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "仪表板概述"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "内部控制面板"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "主要模块和设置的快速概述"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "系统中通用数字和指标汇总"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "网站统计"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "页面统计"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "音频统计"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "塔夫西尔统计"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "穆沙夫统计"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "访客总数"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "页面总访问量"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "最常访问的页面"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "页面访问量"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "过去 7 天的访问量"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "过去 30 天的访问次数"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "过去 7 天内的访问者"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "近几天的访问量"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "音频播放"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "过去 7 天内播放的音频"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "总收听秒数"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "收听次数最多的页面"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "最常播放的古兰经"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "演奏次数最多的朗诵者"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "翻页"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "最常翻阅的穆沙夫页面"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "总计 Tafsir 打开"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "Tafsir 在过去 7 天内开业"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "最常打开的 Tafsir 书籍"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "最常用的书"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "最常打开的 Tafsir 页面"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "最常打开的 Tafsir 页面"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "最受解释的古兰经"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "最受解释的古兰经"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "塔夫西尔 (Tafsir) 最受欢迎的 Ayahs"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "最新互动"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr "跟踪访客、页面、音频播放和 Mushaf 页面翻转"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr "跟踪 Tafsir 打开、最常用的书籍、页面、古兰经和链接的经文"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "实时仪表板"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "还没有数据"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "还没有互动"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "阿亚"
+
+#~ msgid "analytics_audio"
+#~ msgstr "声音的"
+
+#~ msgid "analytics_page"
+#~ msgstr "页"
+
+#~ msgid "analytics_pages"
+#~ msgstr "页数"
+
+#~ msgid "analytics_surah"
+#~ msgstr "古兰经"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "穆沙夫"
+
+#~ msgid "analytics_time"
+#~ msgstr "时间"
+
+#~ msgid "analytics_type"
+#~ msgstr "类型"
+
+#~ msgid "analytics_path"
+#~ msgstr "小路"
+
+#~ msgid "analytics_add"
+#~ msgstr "数数"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "独特的"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "访问量"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "戏剧"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "音频完成"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "塔夫西尔公开赛"
+
+#~ msgid "roles"
+#~ msgstr "角色"
+
+#~ msgid "permissions"
+#~ msgstr "权限"
+
+#~ msgid "users"
+#~ msgstr "用户"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "管理用户"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "管理角色"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "管理权限"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "管理用户帐户、角色和权限"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "用户及权限管理系统"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "管理权限"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "管理系统角色和相关权限"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "管理用户并分配角色"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "添加用户"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "添加新用户"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "用户详细信息"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "查看用户详细信息"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "查看用户数据并分配角色"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "添加角色"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "编辑角色"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "删除角色"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "保存角色"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "角色名称"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "目前的角色"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "目前的角色"
+
+#~ msgid "rbac_role"
+#~ msgstr "角色"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "添加权限"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "编辑权限"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "删除权限"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "保存权限"
+
+#~ msgid "rbac_permission"
+#~ msgstr "允许"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "允许"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "权限名称"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "权限代码"
+
+#~ msgid "rbac_module"
+#~ msgstr "模块"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "将角色链接到权限"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "将权限链接到角色"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr "用户创建成功，登录详细信息已发送到他们的电子邮件"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr "用户创建成功，但电子邮件发送失败。检查邮件设置"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "角色创建成功"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "权限创建成功"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "角色更新成功"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "权限更新成功"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "角色删除成功"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "权限删除成功"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "权限关联角色成功"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "已成功从角色中删除权限"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "用户角色更新成功"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "确认角色删除"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "确认权限删除"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "您即将删除该角色"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "您即将删除该权限"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "主角色无法删除"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "主权限无法删除"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "主要角色代码无法编辑"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "主权限代码不可编辑"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr "无法从此界面编辑主要用户角色"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "无法从此角色中删除主要权限"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "此操作无法撤消"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "按用户名或角色搜索"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "按用户名或权限计数搜索"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr "从左侧菜单中选择角色以查看和链接权限"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr "从列表中选择一个角色，然后通过复选框启用或禁用权限"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "选择角色"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "没有分配给该用户的角色"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "目前没有角色"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "目前没有用户"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "请输入角色名称和代码"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "请输入权限代码和名称"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "请输入权限代码和名称"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr "填写用户资料；将创建一个帐户并将登录详细信息发送到他们的电子邮件"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "填写角色数据然后保存更改"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "填写权限数据然后保存更改"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr "将为用户生成一个随机密码并发送给他们的电子邮件"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "您的账户已在平台创建"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "您在平台上的帐户数据"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr "我们建议您登录后更改密码"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr "显示该角色在系统中的任务的简要描述"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr "显示系统内何时使用此权限的简要说明"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "需要使用电子邮件发送登录详细信息"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "角色代码已被使用，请选择其他"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "该代码已被用于其他权限"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr "由于数据库中存在重复代码，无法保存权限"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "处理请求时出错：角色或权限数据丢失"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "需要全名"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "用户名已被使用"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "电子邮件已被使用"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "电话号码已被使用"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "该用户名已被保留，无法使用"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "按模块分组的权限"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "活跃用户"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "不活跃"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "用户状态已更新"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "上次登录"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "链接角色"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "返回角色"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "返回权限"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "返回用户列表"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "返回用户列表"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "用户角色（例如"
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "特定许可（例如"
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "例如，系统管理员"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "例如"
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "在类似的代码中使用"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "验证里面的用户权限"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "自动为用户"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr "，并自动以统一格式保存"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "图案优先"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "您可以输入任何格式的号码（05 / 5 /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "选修的"
+
+#~ msgid "rbac_aw"
+#~ msgstr "或者"
+
+#~ msgid "rbac_aam"
+#~ msgstr "一般的"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "伙伴"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "参加者"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "导师"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "将分配一个角色"
+
+#~ msgid "rbac_5"
+#~ msgstr "或 5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "查看用户"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "查看角色"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "查看权限"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "编辑用户"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "删除用户"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "编辑角色"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "删除角色"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "编辑权限"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "删除权限"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "访问仪表板"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "访问分析"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "访问古兰经工作室"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "接入通讯"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "访问订阅"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "访问通知"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "访问发送通道"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "管理登录设置"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "查看活动"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "查看消息"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "查看联系信息"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "查看 WhatsApp 消息"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "查看内部通知"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "查看调度日志"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "查看订阅者"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "查看电子邮件"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "管理项目"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "创建联系信息"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "发送通知"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "添加朗诵者"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "编辑背诵者数据"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "删除背诵者数据"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "古兰经坐标"
+
+#~ msgid "rbac_action"
+#~ msgstr "这个动作"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "用户数"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "角色数"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "权限计数"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "注册用户"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "结构化角色"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "活动权限"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr "组织系统内的角色结构并分配职责"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "设置"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "订阅"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "控制对模块的访问和细粒度操作"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "需要用户名和密码"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "系统总经理"
+
+#~ msgid "accounts_system"
+#~ msgstr "系统"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "警报中心"
+
+#~ msgid "notification_new"
+#~ msgstr "新的"
+
+#~ msgid "notification_alert"
+#~ msgstr "警报"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "读"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "通知已读"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "发送通知"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "发送警报"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "创建新通知"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "管理通知"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "向系统中的用户发送内部通知"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "在此写入通知文本"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "发送成功"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "通知摘要"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "通知摘要"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "目前没有通知"
+
+#~ msgid "notification_no_text"
+#~ msgstr "无文字"
+
+#~ msgid "notification_alns"
+#~ msgstr "文本"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "系统内"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "系统通知"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "系统和交互式通知"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "从系统内部发送给用户的通知"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "快速概览通过各种渠道发送的通知"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "此页面上的通知计数"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "没有匹配的收件人"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "现在的消息不是来自"
+
+#~ msgid "notifications_latest"
+#~ msgstr "系统内收到的最新通知（最新的在前，最多 10 个）"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "通知中心"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "已发送通知"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "通知摘要"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "快速概览通过各种渠道发送的通知"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "发送通知"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "内部通知发送成功"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "活动"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "已发送的营销活动"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "总营销活动"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "活动标题"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "活动创建成功"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "营销活动发送成功"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr "没有为此活动启用 Telegram 频道或群组"
+
+#~ msgid "communication_message_text"
+#~ msgstr "留言内容"
+
+#~ msgid "communication_title_message"
+#~ msgstr "留言标题"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "图片（可选）"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "如果有图像的话"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "如果没有图像"
+
+#~ msgid "communication_send_post"
+#~ msgstr "发送帖子"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "发送电报"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "Telegram - 频道"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "电报 - 群组"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "对于群组和频道"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "Facebook"
+
+#~ msgid "communication_platform"
+#~ msgstr "平台"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "渠道"
+
+#~ msgid "communication_channels"
+#~ msgstr "渠道"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "社交沟通"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "管理社交沟通"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "社交沟通总结"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "按标题或文字搜索"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "按标题或频道搜索"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "发送日期"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "发送状态"
+
+#~ msgid "communication_sent"
+#~ msgstr "发送"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "发送"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "草稿"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "预定"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "正在发送..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "发送失败"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "等待"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "错误（如果有）"
+
+#~ msgid "communication_log"
+#~ msgstr "日志"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "交付日志"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr "每个活动和联系渠道的调度操作日志"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "目前没有调度日志"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "使用"
+
+#~ msgid "communication_drafts"
+#~ msgstr "草稿"
+
+#~ msgid "communication_qryba"
+#~ msgstr "很快"
+
+#~ msgid "messages"
+#~ msgstr "留言"
+
+#~ msgid "messaging_messages"
+#~ msgstr "留言"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "集体留言"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "集体留言"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "短信"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "手机留言"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "短信"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "手机留言详情"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "目前没有手机短信"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "WhatsApp 消息"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "WhatsApp 消息详情"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "WhatsApp 通知"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "日志中当前没有 WhatsApp 消息"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr "查看通过系统发送的与用户相关的 WhatsApp 消息日志"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "电子邮件"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "一般电子邮件消息"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "创建一般电子邮件消息"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "目前没有电子邮件信息"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "消息文本（电子邮件）"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "电子邮件已发送"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "电子邮件已创建并等待发送"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr "此消息将仅作为电子邮件发送；您可以使用格式、列表和链接"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr "此消息主要针对在系统中注册的新闻通讯订阅者"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr "向时事通讯订阅者发送一般电子邮件帖子，并可选择添加所有系统用户"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "创建新消息"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "发送消息"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "留言内容"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "此消息中没有内容"
+
+#~ msgid "messaging_subject"
+#~ msgstr "主题"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "标题和数据"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "必须输入标题和消息文本"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "在此写入消息文本"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "在此写入电子邮件消息文本"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "消息类型"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "无题"
+
+#~ msgid "messaging_sender"
+#~ msgstr "发件人"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "发件人"
+
+#~ msgid "messaging_user"
+#~ msgstr "用户"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "收件人"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "收件人名单"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "查看收件人"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "选择用户"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "所有用户"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "新闻通讯订阅者（默认）"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "特定用户"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "从列表中选择一名或多名用户"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "其他收件人选项"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr "添加具有新闻通讯订阅者的所有系统用户"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr "如果您希望该消息也发送给所有注册的系统用户，请启用此选项"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "没有收件人"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "此消息没有收件人"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "没有收件人发送消息"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "没有收件人有电子邮件地址"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "没有收件人等待发货"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "没有符合指定条件的收件人"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "收件人计数"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "按发件人、标题或文本搜索"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "调度通道"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "调度渠道"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "管理调度渠道"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr "通过电子邮件和内部系统警报管理和发送通知"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "调度日志"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "通知日志"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "还没有发送日志"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "发货时间"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "查看消息数据、收件人和发送状态"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "查看手机消息数据和内容"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "查看 WhatsApp 消息数据和内容"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "查看包含收件人数量和状态的批量电子邮件"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "查看每个收件人的所有派送尝试及其状态"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "消息传递"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "消息传递"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "读"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "未读"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "错误信息"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "存在故障"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "活动"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "消息日志"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "通过系统发送给用户"
+
+#~ msgid "messaging_action"
+#~ msgstr "行动"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "电子邮件/标识符"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "主要类别"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "个人"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "集体"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "未指定"
+
+#~ msgid "messaging_first"
+#~ msgstr "第一的"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "尝试"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "打印发送给提供商的请求"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "打印原始回复"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "如果回复是文字形式"
+
+#~ msgid "quran_studio"
+#~ msgstr "古兰经工作室"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "管理古兰经工作室"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "管理背诵者数据"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "管理系统中可用的背诵者数据"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "背诵者数据"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "背诵者页面"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "目前没有背诵者数据"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "背诵者添加成功"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "背诵者数据更新成功"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "背诵者删除成功"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "删除背诵者"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "您确定要删除该背诵者吗？"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "阿拉伯名字"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "英文名"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "代码"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "代码和阿拉伯名称为必填项"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "Ayah 坐标编辑器"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "坐标编辑器页面"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "坐标"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "设置坐标"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "加载坐标"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "获取坐标"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "保存坐标"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "编辑保存的坐标"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "保存编辑"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "保存新内容于"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "更新页面上的 ayah 坐标"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "此页上没有为该 ayah 保存坐标"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "输入 surah 和 ayah 编号，然后单击“加载坐标”。为该 ayah 存储的矩形将显示在"
+#~ "此页面上以供编辑和保存。"
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "将鼠标拖动到 Mushaf 上以绘制代表 ayah 一部分的矩形。您可以为同一个 ayah 绘"
+#~ "制多个矩形。"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "请输入 surah 和 ayah 编号"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "加载前请输入 surah 和 ayah 编号"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "清晰的矩形"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "没有要保存的矩形"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "古兰经编号"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "阿亚号"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "穆沙夫·佩奇"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "当前页面"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "下一页"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "上一页"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "图像"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "行动"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "例如，2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "例如，6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "主页"
+
+#~ msgid "overview"
+#~ msgstr "概述"
+
+#~ msgid "summary"
+#~ msgstr "概括"
+
+#~ msgid "important_services"
+#~ msgstr "主要服务"
+
+#~ msgid "status"
+#~ msgstr "地位"
+
+#~ msgid "actions"
+#~ msgstr "行动"
+
+#~ msgid "content"
+#~ msgstr "内容"
+
+#~ msgid "title"
+#~ msgstr "标题"
+
+#~ msgid "created_at"
+#~ msgstr "创建日期"
+
+#~ msgid "updated_at"
+#~ msgstr "最后更新"
+
+#~ msgid "next"
+#~ msgstr "下一个"
+
+#~ msgid "previous"
+#~ msgstr "以前的"
+
+#~ msgid "back"
+#~ msgstr "后退"
+
+#~ msgid "save"
+#~ msgstr "节省"
+
+#~ msgid "save_changes"
+#~ msgstr "保存更改"
+
+#~ msgid "add"
+#~ msgstr "添加"
+
+#~ msgid "create"
+#~ msgstr "创造"
+
+#~ msgid "update"
+#~ msgstr "更新"
+
+#~ msgid "edit"
+#~ msgstr "编辑"
+
+#~ msgid "delete"
+#~ msgstr "删除"
+
+#~ msgid "cancel"
+#~ msgstr "取消"
+
+#~ msgid "confirm"
+#~ msgstr "确认"
+
+#~ msgid "view"
+#~ msgstr "看法"
+
+#~ msgid "send"
+#~ msgstr "发送"
+
+#~ msgid "send_now"
+#~ msgstr "立即发送"
+
+#~ msgid "sent"
+#~ msgstr "发送"
+
+#~ msgid "failed"
+#~ msgstr "失败的"
+
+#~ msgid "pending"
+#~ msgstr "待办的"
+
+#~ msgid "no_data"
+#~ msgstr "无数据"
+
+#~ msgid "settings"
+#~ msgstr "设置"
+
+#~ msgid "system_settings"
+#~ msgstr "系统设置"
+
+#~ msgid "security"
+#~ msgstr "安全"
+
+#~ msgid "zoom_out"
+#~ msgstr "缩小"
+
+#~ msgid "app_arabic"
+#~ msgstr "阿拉伯"
+
+#~ msgid "app_urdu"
+#~ msgstr "乌尔都语"
+
+#~ msgid "web_alkl"
+#~ msgstr "全部"
+
+#~ msgid "web_fqt"
+#~ msgstr "仅有的"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "仅，或"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "仅，或两者"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "版权所有"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "古兰经网站"
+
+#~ msgid "required_field"
+#~ msgstr "此字段是必需的"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "电话号码为必填项"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "电话号码格式无效"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "电话号码无效"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "电话号码不可以"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "手机号码格式无效"
+
+#~ msgid "core_ay"
+#~ msgstr "或任何"
+
+#~ msgid "core_mnasb"
+#~ msgstr "合适的"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr "我们仅计算公众访问量（例如主页）"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "每页行数"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "记录数"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "抱歉，您没有权限访问该页面"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "禁止访问"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "条形高度（目视控制）"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "Toast 的默认持续时间（以毫秒为单位）"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "此 Toast 的特定持续时间（覆盖默认值）"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "默认最大视图（例如 20）"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "固定宽度（留空即可使用）"
+
+#~ msgid "web_notification"
+#~ msgstr "通知"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "关闭背景点击"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "距上次更新 5 秒后同步"
+
+#~ msgid "quran_nav"
+#~ msgstr "古兰经"
+
+#~ msgid "quran_text"
+#~ msgstr "文本"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "将文本拆分为"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "其余文字"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "之间"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "来自“联系我们”表单的新消息"
+
+#~ msgid "services_message_text"
+#~ msgstr "留言内容："
+
+#~ msgid "surah_3"
+#~ msgstr "阿里·伊姆兰"
+
+#~ msgid "surah_4"
+#~ msgstr "安尼萨'"
+
+#~ msgid "surah_5"
+#~ msgstr "麦伊达"
+
+#~ msgid "surah_6"
+#~ msgstr "阿尔安姆"
+
+#~ msgid "surah_7"
+#~ msgstr "阿拉夫"
+
+#~ msgid "surah_8"
+#~ msgstr "阿尔安法尔"
+
+#~ msgid "surah_9"
+#~ msgstr "阿特托巴"
+
+#~ msgid "surah_10"
+#~ msgstr "尤努斯"
+
+#~ msgid "surah_11"
+#~ msgstr "平视显示器"
+
+#~ msgid "surah_12"
+#~ msgstr "优素福"
+
+#~ msgid "surah_13"
+#~ msgstr "阿尔拉德"
+
+#~ msgid "surah_14"
+#~ msgstr "易卜拉欣"
+
+#~ msgid "surah_15"
+#~ msgstr "回历"
+
+#~ msgid "surah_16"
+#~ msgstr "安纳尔"
+
+#~ msgid "surah_17"
+#~ msgstr "以色列报"
+
+#~ msgid "surah_18"
+#~ msgstr "阿尔卡夫"
+
+#~ msgid "surah_19"
+#~ msgstr "玛丽亚姆"
+
+#~ msgid "surah_20"
+#~ msgstr "塔哈"
+
+#~ msgid "surah_21"
+#~ msgstr "安比亚'"
+
+#~ msgid "surah_22"
+#~ msgstr "朝觐"
+
+#~ msgid "surah_23"
+#~ msgstr "穆米努"
+
+#~ msgid "surah_24"
+#~ msgstr "安努尔"
+
+#~ msgid "surah_25"
+#~ msgstr "阿尔-福尔坎"
+
+#~ msgid "surah_26"
+#~ msgstr "阿什-舒阿拉"
+
+#~ msgid "surah_27"
+#~ msgstr "安纳姆"
+
+#~ msgid "surah_28"
+#~ msgstr "卡萨斯"
+
+#~ msgid "surah_29"
+#~ msgstr "阿尔安卡布特"
+
+#~ msgid "surah_30"
+#~ msgstr "阿朗姆酒"
+
+#~ msgid "surah_31"
+#~ msgstr "卢克曼"
+
+#~ msgid "surah_32"
+#~ msgstr "阿斯-萨吉达"
+
+#~ msgid "surah_33"
+#~ msgstr "艾哈扎布"
+
+#~ msgid "surah_34"
+#~ msgstr "萨巴'"
+
+#~ msgid "surah_35"
+#~ msgstr "法蒂尔"
+
+#~ msgid "surah_36"
+#~ msgstr "亚辛"
+
+#~ msgid "surah_37"
+#~ msgstr "阿斯-萨法特"
+
+#~ msgid "surah_38"
+#~ msgstr "伤心"
+
+#~ msgid "surah_39"
+#~ msgstr "阿兹-祖玛尔"
+
+#~ msgid "surah_40"
+#~ msgstr "加菲尔"
+
+#~ msgid "surah_41"
+#~ msgstr "富西拉特"
+
+#~ msgid "surah_42"
+#~ msgstr "灰修罗"
+
+#~ msgid "surah_43"
+#~ msgstr "阿兹-祖赫鲁夫"
+
+#~ msgid "surah_44"
+#~ msgstr "阿杜汗"
+
+#~ msgid "surah_45"
+#~ msgstr "贾提耶"
+
+#~ msgid "surah_46"
+#~ msgstr "阿卡夫"
+
+#~ msgid "surah_47"
+#~ msgstr "穆罕默德"
+
+#~ msgid "surah_48"
+#~ msgstr "阿尔法斯"
+
+#~ msgid "surah_49"
+#~ msgstr "胡朱拉特"
+
+#~ msgid "surah_50"
+#~ msgstr "卡夫"
+
+#~ msgid "surah_51"
+#~ msgstr "达里亚特"
+
+#~ msgid "surah_52"
+#~ msgstr "在图尔"
+
+#~ msgid "surah_53"
+#~ msgstr "安纳吉姆"
+
+#~ msgid "surah_54"
+#~ msgstr "卡马尔"
+
+#~ msgid "surah_55"
+#~ msgstr "阿尔拉赫曼"
+
+#~ msgid "surah_56"
+#~ msgstr "瓦其亚"
+
+#~ msgid "surah_57"
+#~ msgstr "哈迪德"
+
+#~ msgid "surah_58"
+#~ msgstr "穆贾迪拉"
+
+#~ msgid "surah_59"
+#~ msgstr "哈什尔"
+
+#~ msgid "surah_60"
+#~ msgstr "穆塔哈纳"
+
+#~ msgid "surah_61"
+#~ msgstr "阿斯-萨夫"
+
+#~ msgid "surah_62"
+#~ msgstr "朱穆阿"
+
+#~ msgid "surah_63"
+#~ msgstr "阿尔-穆纳菲昆"
+
+#~ msgid "surah_64"
+#~ msgstr "塔格哈本"
+
+#~ msgid "surah_65"
+#~ msgstr "塔拉克"
+
+#~ msgid "surah_66"
+#~ msgstr "塔林"
+
+#~ msgid "surah_67"
+#~ msgstr "阿尔穆尔克"
+
+#~ msgid "surah_68"
+#~ msgstr "卡拉姆"
+
+#~ msgid "surah_69"
+#~ msgstr "哈卡组织"
+
+#~ msgid "surah_70"
+#~ msgstr "阿尔马阿里吉"
+
+#~ msgid "surah_71"
+#~ msgstr "努赫"
+
+#~ msgid "surah_72"
+#~ msgstr "阿尔金"
+
+#~ msgid "surah_73"
+#~ msgstr "穆扎米尔"
+
+#~ msgid "surah_74"
+#~ msgstr "穆达提尔"
+
+#~ msgid "surah_75"
+#~ msgstr "齐亚玛"
+
+#~ msgid "surah_76"
+#~ msgstr "阿尔因桑"
+
+#~ msgid "surah_77"
+#~ msgstr "穆尔萨拉特"
+
+#~ msgid "surah_78"
+#~ msgstr "安纳巴'"
+
+#~ msgid "surah_79"
+#~ msgstr "纳粹党"
+
+#~ msgid "surah_80"
+#~ msgstr "阿巴萨"
+
+#~ msgid "surah_81"
+#~ msgstr "塔奎尔"
+
+#~ msgid "surah_82"
+#~ msgstr "阿尔因菲塔尔"
+
+#~ msgid "surah_83"
+#~ msgstr "穆塔菲芬"
+
+#~ msgid "surah_84"
+#~ msgstr "因什卡克"
+
+#~ msgid "surah_85"
+#~ msgstr "布鲁杰"
+
+#~ msgid "surah_86"
+#~ msgstr "塔里克"
+
+#~ msgid "surah_87"
+#~ msgstr "阿拉阿拉"
+
+#~ msgid "surah_88"
+#~ msgstr "加希亚"
+
+#~ msgid "surah_89"
+#~ msgstr "晨礼"
+
+#~ msgid "surah_90"
+#~ msgstr "巴拉德"
+
+#~ msgid "surah_91"
+#~ msgstr "阿什-沙姆斯"
+
+#~ msgid "surah_92"
+#~ msgstr "阿尔莱尔"
+
+#~ msgid "surah_93"
+#~ msgstr "阿德杜哈"
+
+#~ msgid "surah_94"
+#~ msgstr "阿什-沙尔"
+
+#~ msgid "surah_95"
+#~ msgstr "阿特锡"
+
+#~ msgid "surah_96"
+#~ msgstr "阿拉克"
+
+#~ msgid "surah_97"
+#~ msgstr "盖德尔"
+
+#~ msgid "surah_98"
+#~ msgstr "巴伊纳"
+
+#~ msgid "surah_99"
+#~ msgstr "阿兹扎尔扎拉"
+
+#~ msgid "surah_100"
+#~ msgstr "阿迪亚特"
+
+#~ msgid "surah_101"
+#~ msgstr "阿尔卡里阿"
+
+#~ msgid "surah_102"
+#~ msgstr "阿塔卡图尔"
+
+#~ msgid "surah_103"
+#~ msgstr "晡礼"
+
+#~ msgid "surah_104"
+#~ msgstr "胡玛扎"
+
+#~ msgid "surah_105"
+#~ msgstr "阿尔菲尔"
+
+#~ msgid "surah_106"
+#~ msgstr "古莱什"
+
+#~ msgid "surah_107"
+#~ msgstr "阿尔马翁"
+
+#~ msgid "surah_108"
+#~ msgstr "阿尔-考萨"
+
+#~ msgid "surah_109"
+#~ msgstr "卡菲伦"
+
+#~ msgid "surah_110"
+#~ msgstr "安纳斯尔"
+
+#~ msgid "surah_111"
+#~ msgstr "马萨德"
+
+#~ msgid "surah_112"
+#~ msgstr "阿尔-伊赫拉斯"
+
+#~ msgid "surah_113"
+#~ msgstr "法拉克"
+
+#~ msgid "surah_114"
+#~ msgstr "安纳斯"
+
+#~ msgid "contents"
+#~ msgstr "内容"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "无障碍"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "增加字体大小"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "减小字体大小"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "高对比度"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "深色模式"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "阅读模式"
+
+#~ msgid "a11y_reset"
+#~ msgstr "重置设置"
+
+#~ msgid "select_translation"
+#~ msgstr "选择翻译"
+
+#~ msgid "select_surah"
+#~ msgstr "选择古兰经"
+
+#~ msgid "copy_ayah"
+#~ msgstr "复制诗句"
+
+#~ msgid "share_ayah"
+#~ msgstr "分享经文"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "书签诗句"
+
+#~ msgid "play_ayah"
+#~ msgstr "播放音频"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "诗句已保存"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "已从保存中删除"
+
+#~ msgid "no_translation_available"
+#~ msgstr "没有可用的翻译"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "选择古兰经开始"
+
+#~ msgid "app_download_title"
+#~ msgstr "下载有线应用程序"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "在您的设备上享受完整的《古兰经》体验"
+
+#~ msgid "audio_language"
+#~ msgstr "音频语言"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "今日连线"
+
+#~ msgid "home_this_week"
+#~ msgstr "本星期"
+
+#~ msgid "home_your_wird"
+#~ msgstr "你的线路"
+
+#~ msgid "home_progress"
+#~ msgstr "进步"
+
+#~ msgid "home_days_progress"
+#~ msgstr "7 天中的 4 天"
+
+#~ msgid "day_sat"
+#~ msgstr "星期六"
+
+#~ msgid "day_sun"
+#~ msgstr "太阳"
+
+#~ msgid "day_mon"
+#~ msgstr "周一"
+
+#~ msgid "day_tue"
+#~ msgstr "星期二"
+
+#~ msgid "day_wed"
+#~ msgstr "周三"
+
+#~ msgid "day_thu"
+#~ msgstr "星期四"
+
+#~ msgid "day_fri"
+#~ msgstr "周五"
+
+#~ msgid "home_today_wird"
+#~ msgstr "今日连线"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "播放朗诵"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "纯净的声音"
+
+#~ msgid "home_tarteel"
+#~ msgstr "塔尔提尔背诵"
+
+#~ msgid "home_khashi"
+#~ msgstr "虔诚念诵"

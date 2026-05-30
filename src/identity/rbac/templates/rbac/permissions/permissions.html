@@ -1,0 +1,124 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"permissions.list" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+
+  {% include "rbac/partials/tabs_header.html" %}
+
+  <!-- Page Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h2 class="site-title-md">
+        الصلاحيات
+      </h2>
+      <p class="text-[11px] site-text-muted mt-0.5">
+        الصلاحيات مجمعة حسب الوحدة (Module).
+      </p>
+    </div>
+
+    {% if request.user|can_access:"permissions.create" %}
+    <a href="{% url 'rbac:permission_create' %}"
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+              site-btn-primary text-[12px] font-bold
+              shadow-sm hover:shadow-md
+              active:scale-95 transition">
+      <i class="bi bi-plus-circle text-sm"></i>
+      إضافة صلاحية
+    </a>
+    {% endif %}
+  </div>
+
+  <!-- Modules Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+    {% for module, perms in permissions_by_module.items %}
+      <div class="site-card overflow-hidden flex flex-col">
+
+        <!-- Module Header -->
+        <div class="flex items-center justify-between px-4 py-3 site-surface border-b site-border">
+          <div class="flex items-center gap-2 dir-row">
+            <i class="bi bi-folder-fill site-link-primary"></i>
+            <h3 class="text-sm font-extrabold site-text tracking-wide">
+              {{ module|upper }}
+            </h3>
+          </div>
+
+          <span class="inline-flex items-center px-2 py-0.5 rounded-full
+                       site-surface site-text-muted text-[11px] font-semibold border site-border">
+            {{ perms|length }} صلاحية
+          </span>
+        </div>
+
+        <!-- Permissions List -->
+        <div class="divide-site max-h-80 overflow-y-auto">
+
+          {% for perm in perms %}
+            <div class="px-4 py-3 hover:site-surface transition">
+
+              <!-- Code -->
+              <div class="inline-flex items-center gap-1 text-[11px] font-mono site-link-primary">
+                <span class="h-1.5 w-1.5 rounded-full site-primary-bg"></span>
+                <span>{{ perm.code }}</span>
+              </div>
+
+              <!-- Content -->
+              <div class="flex items-start justify-between mt-1.5 gap-3">
+
+                <!-- Name -->
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                  <span class="text-sm font-bold site-text">
+                    {{ perm.name }}
+                  </span>
+
+                  {% if perm.description %}
+                    <span class="text-[11px] site-text-muted">
+                      — {{ perm.description }}
+                    </span>
+                  {% endif %}
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-1.5 text-[11px] shrink-0">
+
+                  {% if request.user|can_access:"permissions.update" %}
+                  <a href="{% url 'rbac:permission_update' perm.id %}"
+                     class="inline-flex items-center justify-center w-8 h-8 rounded-full
+                            border site-border site-text
+                            hover:site-surface transition"
+                     title="تعديل الصلاحية">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  {% endif %}
+
+                  {% if request.user|can_access:"permissions.delete" %}
+                  <a href="{% url 'rbac:permission_delete' perm.id %}"
+                     class="inline-flex items-center justify-center w-8 h-8 rounded-full
+                            border border-red-200 bg-red-50 text-red-600
+                            hover:bg-red-100 hover:border-red-300 hover:text-red-700
+                            transition"
+                     title="حذف الصلاحية">
+                    <i class="bi bi-trash"></i>
+                  </a>
+                  {% endif %}
+
+                </div>
+
+              </div>
+
+            </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    {% endfor %}
+
+  </div>
+
+</div>
+{% endif %}
+
+{% endblock %}

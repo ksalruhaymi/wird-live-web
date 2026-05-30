@@ -1,0 +1,3675 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: fil\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "Makipag-ugnayan sa Amin"
+
+msgid "contact_page_description"
+msgstr "Makipag-ugnayan sa amin, nandito kami para pagsilbihan ka"
+
+msgid "contact_intro_text"
+msgstr ""
+"Ikinalulugod naming makipag-ugnayan ka sa platform ng Wird Quran. "
+"Nagsusumikap kaming maglingkod sa Aklat ng Allah at mapadali ang pagbigkas "
+"nito."
+
+msgid "name"
+msgstr "Pangalan"
+
+msgid "enter_your_name"
+msgstr "Ilagay ang iyong pangalan"
+
+msgid "email"
+msgstr "Email"
+
+msgid "your_message"
+msgstr "Iyong Mensahe"
+
+msgid "write_your_message_here"
+msgstr "Isulat ang iyong katanungan o mensahe dito"
+
+msgid "send_message"
+msgstr "Magpadala ng Mensahe"
+
+msgid "message_sent"
+msgstr "Naipadala ang mensahe"
+
+msgid "message_sent_successfully"
+msgstr "Matagumpay na naipadala ang mensahe"
+
+msgid "thank_you_contact"
+msgstr "Salamat sa pakikipag-ugnayan sa amin"
+
+msgid "contact_success_message"
+msgstr ""
+"Matagumpay na natanggap ang iyong mensahe. Susuriin ito ng koponan ng Wird "
+"Quran at makikipag-ugnayan sa iyo sa lalong madaling panahon upang "
+"suportahan ang serbisyo ng Quran."
+
+msgid "back_to_home"
+msgstr "Bumalik sa Bahay"
+
+msgid "quran_recitation_prompt"
+msgstr "Pagbigkas ng Quran sa Arabic"
+
+msgid "save_stop"
+msgstr "I-save ang Posisyon sa Pagbasa"
+
+msgid "cancel_stop"
+msgstr "Alisin ang Posisyon sa Pagbasa"
+
+msgid "hifz_audio_recording"
+msgstr "Pagre-record ng Audio"
+
+msgid "hifz_enable_hiding"
+msgstr "Itago ang mga Ayah"
+
+msgid "hifz_segmentation_thematic"
+msgstr "Thematic Segmentation"
+
+msgid "hifz_writing"
+msgstr "Pagsusulat"
+
+msgid "zoom_in"
+msgstr "Mag-zoom In"
+
+msgid "repeat"
+msgstr "Ulitin"
+
+msgid "page"
+msgstr "Pahina"
+
+msgid "play_audio"
+msgstr "I-play ang Audio"
+
+msgid "word_meanings"
+msgstr "Mga Kahulugan ng Salita"
+
+msgid "brief_tafsir"
+msgstr "Maikling Tafsir"
+
+msgid "playback_tools"
+msgstr "Mga Tool sa Pag-playback"
+
+msgid "audio"
+msgstr "Audio"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"Para mag-play ng audio habang nagme-memorize, mag-tap sa isang ayah para "
+"ipakita ang play at pause button. Pagkatapos ay maaari mong kontrolin ang "
+"volume mula dito, palakihin ang screen para sa mas madaling pagbabasa nang "
+"walang kaguluhan, at dagdagan ang bilang ng mga pag-uulit ng ayah."
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "Dalawang pahina"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr ""
+"Lumipat sa pagitan ng isang pahina o dalawang nakaharap na pahina sa mushaf"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "Isang pahina"
+
+msgid "hifz_memorization_tools"
+msgstr "Mga Pamamaraan sa Memorization"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"Tinutulungan ka ng mga tool sa pagsasaulo na palakasin ang paggunita at "
+"sanayin ang iyong memorya. Maaari mong itago ang mga ayah upang magsanay sa "
+"pag-alala sa kanila. Kapag nag-hover ka sa isang ayah, lumilitaw ito nang "
+"bahagya upang gabayan ka, at kapag na-click mo ito, lalabas ito nang buo. "
+"Available din ang thematic segmentation, pagsasama-sama ng mga kaugnay na "
+"ayah sa mga paksa upang gawing mas madali ang pagsasaulo at pag-unawa."
+
+msgid "hifz_play"
+msgstr "Maglaro"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "Full Stop"
+
+msgid "hifz_mstwa_audio"
+msgstr "Antas ng Dami"
+
+msgid "mushaf"
+msgstr "Mushaf"
+
+msgid "reciter"
+msgstr "Reciter"
+
+msgid "search"
+msgstr "Maghanap"
+
+msgid "stop_audio"
+msgstr "Ihinto ang Audio"
+
+msgid "recitation_correction"
+msgstr "Pagwawasto sa Pagbigkas"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"Una, pumili ng ama. Pagkatapos ay lilitaw ang pindutan ng record. Pindutin "
+"ito at i-record ang iyong pagbigkas ng napiling ayah upang masuri ang iyong "
+"audio at maitama ang iyong pagbigkas. Makikita mo ang porsyento ng "
+"katumpakan ng pagbigkas, at makakahanap ka ng isang pindutan upang makinig "
+"sa iyong naitala na boses."
+
+msgid "recitation_accuracy_percentage"
+msgstr "Katumpakan ng Pagbigkas"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "Shaykh Audio"
+
+msgid "my_recorded_audio"
+msgstr "Aking Recording"
+
+msgid "mushaf_hafs"
+msgstr "Hafs Mushaf"
+
+msgid "mushaf_warsh"
+msgstr "Warsh Mushaf"
+
+msgid "mushaf_qaloun"
+msgstr "Qaloun Mushaf"
+
+msgid "mushaf_douri"
+msgstr "Al-Douri Mushaf"
+
+msgid "mushaf_shuba"
+msgstr "Shu'bah Mushaf"
+
+msgid "mushaf_sousi"
+msgstr "Al-Sousi Mushaf"
+
+msgid "tafsir_almuyasser"
+msgstr "Al-Muyassar"
+
+msgid "tafsir_alkatheer"
+msgstr "Ibn Kathir"
+
+msgid "tafsir_albaghawy"
+msgstr "Al-Baghawi"
+
+msgid "tafsir_altabary"
+msgstr "Al-Tabari"
+
+msgid "tafsir_alqortoby"
+msgstr "Al-Qurtubi"
+
+msgid "tafsir_alsa3dy"
+msgstr "Al-Sa'di"
+
+#, fuzzy, python-format
+#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Tafsir ng pahina %(pahina)s mula sa Quran | Wird Quran"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "Surah %(surah_name)s | Magbasa at makinig - Wird Quran"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "Makinig sa Quran na binibigkas ni %(qari_name)s | Wird Quran"
+
+#, fuzzy, python-format
+#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Pahina %(pahina)s mula sa Quran | Wird Quran"
+
+#, python-format
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"Basahin ang tafsir ng page %(page)s mula sa Quran nang madali, na may mga "
+"ayah na ipinapakita at naka-link sa tafsir sa Wird Quran platform."
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"Basahin ang Surah %(surah_name)s mula sa Quran, na may madaling pakikinig at "
+"pagba-browse sa Wird Quran platform."
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"Makinig sa Quran na binibigkas ni %(qari_name)s sa mataas na kalidad, na may "
+"madaling pag-navigate sa pagitan ng mga surah at ayah."
+
+#, python-format
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"Mag-browse ng page %(page)s mula sa Quran na may komportable at madaling "
+"interface, na may maayos na pagbabasa at mabilis na pag-navigate sa Wird "
+"Quran platform."
+
+msgid "no_word_meanings"
+msgstr "Walang magagamit na kahulugan ng salita para sa Ayah na ito"
+
+msgid "hide_word_meanings"
+msgstr "Itago ang Kahulugan ng Salita"
+
+msgid "show_word_meanings"
+msgstr "Ipakita ang Kahulugan ng Salita"
+
+msgid "word_meanings_hint"
+msgstr "Lalabas ang mga kahulugan ng salita kapag nagsimula ang pagbigkas"
+
+msgid "error_word_meanings"
+msgstr "Nabigong i-load ang mga kahulugan ng salita"
+
+msgid "surah"
+msgstr "Surah"
+
+msgid "ayah"
+msgstr "Ayah"
+
+msgid "show_thematic_segmentation"
+msgstr "Ipakita ang Thematic Segmentation"
+
+msgid "hide_thematic_segmentation"
+msgstr "Itago ang Thematic Segmentation"
+
+msgid "daily_quran_reading"
+msgstr "Ang Aking Pang-araw-araw na Wird"
+
+msgid "new_khatma"
+msgstr "Bagong Khatma"
+
+msgid "close"
+msgstr "Isara"
+
+msgid "current_khatma"
+msgstr "Kasalukuyang Khatma"
+
+msgid "Juz"
+msgstr "Juz"
+
+msgid "remaining_wirds"
+msgstr "Natitirang Wirds"
+
+msgid "khatma_count"
+msgstr "Bilang ng Khatma"
+
+msgid "current_wird"
+msgstr "Kasalukuyang Wird"
+
+msgid "from"
+msgstr "Mula sa"
+
+msgid "to"
+msgstr "Upang"
+
+msgid "congratulations"
+msgstr "Binabati kita"
+
+msgid "you_finished_current_khatma"
+msgstr "Matagumpay mong natapos ang Khatma na ito"
+
+msgid "continue_reading"
+msgstr "Magpatuloy sa Pagbabasa Wird"
+
+msgid "finish_wird"
+msgstr "Wird Nakumpleto"
+
+msgid "choose_mushaf"
+msgstr "Piliin ang Mushaf"
+
+msgid "current"
+msgstr "Kasalukuyan"
+
+msgid "start_new_khatma"
+msgstr "Magsimula ng Bagong Khatma"
+
+msgid "start_from"
+msgstr "Simulan Mula"
+
+msgid "mushaf_start"
+msgstr "Simula ng Mushaf"
+
+msgid "duration_days"
+msgstr "Tagal ng Khatma (Mga Araw)"
+
+msgid "day"
+msgstr "Araw"
+
+msgid "daily_amount"
+msgstr "Halaga ng Pang-araw-araw na Wird"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "Buod ng Khatma"
+
+msgid "start_khatma"
+msgstr "Simulan ang Khatma"
+
+msgid "reciters"
+msgstr "Mga reciter"
+
+msgid "search_reciter"
+msgstr "Maghanap ng reciter ayon sa pangalan"
+
+msgid "loading"
+msgstr "Naglo-load"
+
+msgid "tafasir"
+msgstr "Mga Aklat sa Tafsir"
+
+msgid "no_tafsir_available"
+msgstr "Walang magagamit na Tafsir sa kasalukuyan"
+
+msgid "quran"
+msgstr "Quran"
+
+msgid "tafsir"
+msgstr "Tafsir"
+
+msgid "surah_1"
+msgstr "Al-Fatihah"
+
+msgid "mushafs"
+msgstr "Mushafs"
+
+msgid "reading_mode"
+msgstr "Reading Mode"
+
+msgid "current_reciter"
+msgstr "Kasalukuyang Reciter"
+
+msgid "coming_soon"
+msgstr "Malapit na"
+
+msgid "current_mushaf"
+msgstr "Kasalukuyang Mushaf"
+
+msgid "tafsir_loading_message"
+msgstr "Ilo-load ang Tafsir kapag binuksan mo ang pahinang ito"
+
+msgid "title_and_body_required"
+msgstr "Kinakailangan ang pamagat at katawan ng mensahe"
+
+msgid "no_subscribers_available"
+msgstr "Walang magagamit na mga subscriber para sa pagpapadala"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "Naka-subscribe ka sa mga mensahe ng Wird Quran"
+
+msgid "unsubscribe_label"
+msgstr "Upang mag-unsubscribe"
+
+msgid "message_sent_to_subscribers"
+msgstr "Ipinadala ang mensahe sa %(count)s na mga subscriber"
+
+msgid "message_sent_with_failures"
+msgstr ""
+"Ipinadala ang mensahe sa %(sent_count)s na mga subscriber at nabigo sa loob "
+"ng %(failed_count)s"
+
+msgid "message_send_failed"
+msgstr "Nabigong magpadala ng mensahe"
+
+msgid "please_enter_email"
+msgstr "Pakilagay ang iyong email"
+
+msgid "newsletter_welcome_subject"
+msgstr "Salamat sa pag-subscribe sa Wird Quran"
+
+msgid "newsletter_greeting"
+msgstr "Ang kapayapaan, awa, at pagpapala ng Allah ay sumainyo,"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "Salamat sa pag-subscribe sa mga mensahe ng Wird Quran"
+
+msgid "newsletter_joined_successfully"
+msgstr ""
+"Ikinagagalak naming sumali ka sa amin, makakatanggap ka ng mga update sa "
+"iyong email"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr ""
+"Kung nais mong mag-unsubscribe anumang oras, maaari mong gamitin ang "
+"sumusunod na link"
+
+msgid "newsletter_closing"
+msgstr "Sa taos-pusong pasasalamat at pagpapahalaga"
+
+msgid "wird quran"
+msgstr "Wird Al-Quran Al-Kareem"
+
+msgid "newsletter_subscription_success"
+msgstr "Salamat, matagumpay kang naka-subscribe sa mga mensahe ng Wird Quran"
+
+msgid "newsletter_subscription_reactivated"
+msgstr ""
+"Salamat, ang iyong subscription sa mga mensahe ng Wird Quran ay muling na-"
+"activate"
+
+msgid "email_already_subscribed"
+msgstr "Naka-subscribe na ang email na ito"
+
+msgid "unsubscribe_success_message"
+msgstr "Matagumpay na nag-unsubscribe"
+
+msgid "unsubscribe_already_done"
+msgstr "Naka-unsubscribe na"
+
+msgid "qari_list_title"
+msgstr "Makinig sa Banal na Quran"
+
+msgid "qari_list_description"
+msgstr ""
+"Mag-browse ng mga reciter at piliin ang iyong paboritong pagbigkas mula sa "
+"magkakaibang koleksyon ng mga reciter na may magagandang boses."
+
+msgid "listen_quran"
+msgstr "Makinig sa Quran"
+
+msgid "view_surahs"
+msgstr "Tingnan ang mga Surah"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "Pakikinig sa Quran sa pamamagitan ng"
+
+msgid "tilawa_wrd_quran"
+msgstr "Wird Quran"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "Makinig sa kumpletong Quran na binibigkas ni"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr ""
+"sa mataas na kalidad, na may madaling pag-navigate sa pagitan ng mga Surah"
+
+msgid "all_reciters"
+msgstr "Lahat ng Reciters"
+
+msgid "select_surah_player"
+msgstr "Pumili ng surah"
+
+msgid "prev_surah"
+msgstr "Nakaraang Surah"
+
+msgid "next_surah"
+msgstr "Sunod na Surah"
+
+msgid "search_surah"
+msgstr "Maghanap ng surah sa pamamagitan ng pangalan o numero"
+
+msgid "ayah_counter"
+msgstr "Ayah"
+
+msgid "stop_playback"
+msgstr "Ihinto ang pag-playback"
+
+msgid "username_password_required"
+msgstr "Username at password ay kinakailangan."
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "Kailangang i-activate ang account"
+
+msgid "invalid_login_credentials"
+msgstr "Di-wastong mga kredensyal sa pag-log in."
+
+msgid "dashboard"
+msgstr "Dashboard"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "Mag-login o gumawa ng account para magpatuloy"
+
+msgid "login"
+msgstr "Mag-login"
+
+msgid "register"
+msgstr "Lumikha ng Account"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "Nakuha na ang username."
+
+msgid "enter_username"
+msgstr "Ipasok ang username"
+
+msgid "password"
+msgstr "Password"
+
+msgid "enter_password"
+msgstr "Ipasok ang password"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "Nakalimutan ang password?"
+
+msgid "create_account"
+msgstr "Gumawa ng account"
+
+msgid "username_required"
+msgstr "Kinakailangan ang username."
+
+msgid "username_taken"
+msgstr "Nakuha na ang username."
+
+msgid "email_required"
+msgstr "Kinakailangan ang email."
+
+msgid "email_taken"
+msgstr "Ginagamit na ang email."
+
+msgid "password_required"
+msgstr "Kinakailangan ang password."
+
+msgid "register_success"
+msgstr ""
+"Maligayang pagdating 🌿 Ang iyong account ay matagumpay na nalikha. Masaya "
+"kaming nakasakay ka. Nais ka naming magkaroon ng kakaiba at mabungang "
+"karanasan."
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"Ang Wird Quran ay isang pinagsama-samang platform para sa pagbabasa ng "
+"Quran, pakikinig sa mga pagbigkas ng mga sikat na reciter, at pag-browse ng "
+"mga aklat ng Tafsir nang madali at walang ad."
+
+msgid "success"
+msgstr "Tagumpay"
+
+msgid "error"
+msgstr "Error"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "Tungkol sa Wird Al-Quran Al-Kareem"
+
+msgid "long_about_text"
+msgstr ""
+"Ang Wird ay isang pinagsamang digital platform na naglalayong mapadali ang "
+"pagbigkas at pagmumuni-muni ng Quran sa isang organisado at kaakit-akit na "
+"paraan. Nagbibigay ito ng mga serbisyo tulad ng pag-browse sa iba't ibang "
+"Mushaf, pakikinig sa mga reciters, at pagbabasa ng mga tunay na aklat ng "
+"Tafsir."
+
+msgid "about_wird"
+msgstr ""
+"Ang Wird ay isang pinagsamang digital platform na naglalayong mapadali ang "
+"pagbigkas at pagmumuni-muni ng Quran sa isang organisado at kaakit-akit na "
+"paraan. Nag-aalok ito ng mga serbisyo tulad ng pagba-browse sa Mushafs na "
+"may iba't ibang mga pagsasalaysay, pakikinig sa mga reciters, at pagbabasa "
+"ng mga maaasahang Tafsir. Pinapayagan din nito ang mga user na sundin ang "
+"kanilang pang-araw-araw na Wird at subaybayan ang kanilang pag-unlad sa "
+"pagsasaulo at rebisyon. Nilalayon ng platform na suportahan ang proyekto ng "
+"Quran at palakasin ang koneksyon dito sa pamamagitan ng madali at "
+"pinagsamang digital na karanasan."
+
+msgid "wird"
+msgstr "Wird"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "Ang iyong Pang-araw-araw na Wird sa Quran"
+
+msgid "home_hero_title1"
+msgstr "Isang Kalmadong Karanasan sa Pagbasa ng Quran"
+
+msgid "home_hero_title2"
+msgstr "At Pakikinig at Pagninilay"
+
+msgid "home_hero_desc"
+msgstr ""
+"Isang platform na nagdadala ng pagbabasa, pagbigkas, Tafsir, pagsasalin, at "
+"mga kahulugan ng salita sa isang madali at organisadong karanasan."
+
+msgid "home_start_reading"
+msgstr "Simulan ang Pagbasa"
+
+msgid "home_explore_recitations"
+msgstr "I-explore ang Recitations"
+
+msgid "home_calm_recitation"
+msgstr "Kalmadong Pagbigkas"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "Mga tampok"
+
+msgid "home_features_title"
+msgstr "Lahat ng Kailangan Mo sa Isang Lugar"
+
+msgid "home_features_desc"
+msgstr ""
+"Mga kalmadong tool upang matulungan kang magbasa, makinig, at magmuni-muni "
+"nang walang kaguluhan."
+
+msgid "home_feature_quran_title"
+msgstr "Basahin ang Quran"
+
+msgid "home_feature_quran_desc"
+msgstr ""
+"Isang eleganteng interface ng Mushaf na ginagawang komportable at madali ang "
+"pagbabasa sa mga mata."
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "Lahat ng Kailangan Mo sa Isang Lugar"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"Mga kalmadong tool upang matulungan kang magbasa, makinig, at magmuni-muni "
+"nang walang kaguluhan."
+
+msgid "home_feature_listen_title"
+msgstr "Makinig sa Recitations"
+
+msgid "home_feature_listen_desc"
+msgstr ""
+"Isang seleksyon ng mga reciter na may dalisay na boses at mahinahong "
+"karanasan sa pakikinig."
+
+msgid "home_feature_tafsir_title"
+msgstr "Tafsir"
+
+msgid "home_feature_tafsir_desc"
+msgstr ""
+"Mga Maaasahang Tafsir na may organisadong display upang makatulong sa "
+"pagmuni-muni at pag-unawa."
+
+msgid "home_feature_trans_title"
+msgstr "Mga pagsasalin"
+
+msgid "home_feature_trans_desc"
+msgstr ""
+"Mga pagsasalin ng mga kahulugan sa maraming wika sa tabi ng ayah nang "
+"direkta."
+
+msgid "home_feature_words_title"
+msgstr "Mga Kahulugan ng Salita"
+
+msgid "home_feature_words_desc"
+msgstr ""
+"Hanapin ang kahulugan ng anumang salita sa isang pagpindot nang hindi "
+"umaalis sa pahina."
+
+msgid "home_feature_daily_title"
+msgstr "Pang-araw-araw na Wird"
+
+msgid "home_feature_daily_desc"
+msgstr ""
+"Ayusin ang iyong pang-araw-araw na Wird at subaybayan ang iyong pagpapatuloy "
+"nang mahinahon at regular."
+
+msgid "surah_2"
+msgstr "Al-Baqarah"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "Pang-araw-araw na Wird"
+
+msgid "home_daily_title"
+msgstr "Isang Kalmadong Ugali, Lumalagong Kasama Mo Araw-araw"
+
+msgid "home_daily_desc"
+msgstr ""
+"Ayusin ang iyong Wird upang umangkop sa iyong araw, at subaybayan ang iyong "
+"pagpapatuloy nang walang pressure. Ang isang banayad na paalala, isang "
+"organisadong display, at simpleng pagsubaybay ay nagpapanatili sa iyong "
+"laging konektado sa Aklat ni Allah."
+
+msgid "home_gentle_tracking"
+msgstr "Magiliw na Pagsubaybay"
+
+msgid "home_flexible_reminder"
+msgstr "Flexible na Paalala"
+
+msgid "home_no_pressure"
+msgstr "Walang Pressure"
+
+msgid "tilawa"
+msgstr "Pagbigkas"
+
+msgid "home_recitation_title"
+msgstr "Makinig sa Isang Boses na Nakakapagpakalma sa Puso"
+
+msgid "home_recitation_desc"
+msgstr ""
+"Piliin ang reciter na umaantig sa iyong kaluluwa, at makinig nang may "
+"kalmado at walang distraction na karanasan."
+
+msgid "home_now_playing"
+msgstr "Naglalaro Ngayon"
+
+msgid "home_reciter_label"
+msgstr "Reciter"
+
+msgid "home_current_surah"
+msgstr "Kasalukuyang Surah"
+
+msgid "home_prev"
+msgstr "Nakaraang"
+
+msgid "home_play_pause"
+msgstr "I-play / I-pause"
+
+msgid "home_next"
+msgstr "Susunod"
+
+msgid "home_reading_label"
+msgstr "Tafsir at Pagsasalin"
+
+msgid "home_reading_title"
+msgstr "Pagnilayan nang Malalim at Malinaw ang Mga Kahulugan"
+
+msgid "home_reading_desc"
+msgstr ""
+"Isang karanasang katulad ng isang aklat: ang ayah sa lugar nito, at ang "
+"kahulugan nito sa tabi nito."
+
+msgid "home_easy_tafsir"
+msgstr "Madaling Tafsir"
+
+msgid "home_meaning_badge"
+msgstr "Ibig sabihin"
+
+msgid "home_meaning_label"
+msgstr "Ibig sabihin"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "Patakaran sa Privacy"
+
+msgid "Wird — Privacy Policy"
+msgstr "Wird — Patakaran sa Privacy"
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr "Ang iyong pang-araw-araw na kasama sa iyong paglalakbay sa Quran"
+
+msgid "Last updated: May 2026"
+msgstr "Huling na-update: Mayo 2026"
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+"Ipinaliliwanag ng patakarang ito kung paano hinahawakan ng Wird ang iyong "
+"data."
+
+msgid "translations"
+msgstr "Mga pagsasalin"
+
+msgid "translation_page_title"
+msgstr "Pagsasalin"
+
+msgid "surahs"
+msgstr "Mga Surah"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "I-save ang Posisyon sa Pagbasa"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "Mga link sa footer"
+
+msgid "about"
+msgstr "Tungkol sa"
+
+msgid "contact_us"
+msgstr "Makipag-ugnayan sa Amin"
+
+msgid "download_android"
+msgstr "I-download para sa Android"
+
+msgid "download_ios"
+msgstr "I-download para sa iOS"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "Menu"
+
+msgid "home"
+msgstr "Bahay"
+
+msgid "read_quran"
+msgstr "Magbasa ng Quran"
+
+msgid "hifz_quran"
+msgstr "Pagsasaulo ng Quran"
+
+msgid "notifications"
+msgstr "Mga abiso"
+
+msgid "logout"
+msgstr "Mag-logout"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "Profile"
+
+msgid "SECTION 1"
+msgstr ""
+
+msgid "Information We Collect"
+msgstr "Impormasyong Kinokolekta Namin"
+
+msgid "a. Account Information (if you sign in)"
+msgstr ""
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr ""
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+
+msgid "c. Contact Messages"
+msgstr ""
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+
+msgid "SECTION 2"
+msgstr ""
+
+msgid "Data Stored Only on Your Device"
+msgstr "Data na Nakaimbak Lamang sa Iyong Device"
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr ""
+
+msgid "Azkar completion progress"
+msgstr ""
+
+msgid "Notification schedule and preferences"
+msgstr ""
+
+msgid "Selected reciter and Mushaf style"
+msgstr ""
+
+msgid "Accessibility and display settings"
+msgstr ""
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr ""
+
+msgid "The Quran database"
+msgstr ""
+
+msgid "SECTION 3"
+msgstr ""
+
+msgid "Microphone Access"
+msgstr ""
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+
+msgid "SECTION 4"
+msgstr ""
+
+msgid "Third-Party Services"
+msgstr "Mga Serbisyo ng Third-Party"
+
+msgid "Service"
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Purpose"
+msgstr ""
+
+msgid "Push notifications"
+msgstr ""
+
+msgid "App initialisation"
+msgstr ""
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr ""
+
+msgid "SECTION 5"
+msgstr ""
+
+msgid "Analytics and Crash Reporting"
+msgstr ""
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr ""
+
+msgid "Data Sharing"
+msgstr ""
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+
+msgid "SECTION 7"
+msgstr ""
+
+msgid "Data Security"
+msgstr "Seguridad ng Data"
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+
+msgid "All communication with our server uses HTTPS."
+msgstr ""
+
+msgid "SECTION 8"
+msgstr ""
+
+msgid "Your Rights"
+msgstr "Iyong mga Karapatan"
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr ""
+
+msgid "Audience"
+msgstr ""
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+
+msgid "SECTION 10"
+msgstr ""
+
+msgid "Changes to This Policy"
+msgstr "Mga Pagbabago sa Patakarang Ito"
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr "Wird App"
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "Patakaran sa Privacy"
+
+msgid "Last updated May 2026"
+msgstr "Huling na-update Mayo 2026"
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "web_wrd"
+#~ msgstr "Wird"
+
+#~ msgid "system_description"
+#~ msgstr ""
+#~ "Isang plataporma para sa pagbabasa ng Quran, pakikinig sa mga pagbigkas, "
+#~ "at paggalugad ng Tafsir nang madali."
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Ang Wird ay isang pinagsamang digital platform na naglalayong mapadali "
+#~ "ang pagbigkas at pagmumuni-muni ng Quran sa isang organisado at kaakit-"
+#~ "akit na paraan."
+
+#~ msgid "hifz"
+#~ msgstr "Pagsasaulo"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "Juz %(number)s"
+
+#~ msgid "juz_number"
+#~ msgstr "Juz %(number)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "Sa ngalan ng Allah, ang Pinakamaawain, ang Pinakamaawain"
+
+#~ msgid "open_mushaf"
+#~ msgstr "Buksan ang Mushaf"
+
+#~ msgid "hafs"
+#~ msgstr "Hafs"
+
+#~ msgid "warsh"
+#~ msgstr "Warsh"
+
+#~ msgid "qaloun"
+#~ msgstr "Qaloun"
+
+#~ msgid "douri"
+#~ msgstr "Al-Douri"
+
+#~ msgid "shuba"
+#~ msgstr "Shu'bah"
+
+#~ msgid "sousi"
+#~ msgstr "Al-Sousi"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "Karamihan sa mga Mushaf ay mula sa"
+
+#~ msgid "complex"
+#~ msgstr "King Fahd Glorious Qur'an Printing Complex"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "Walang magagamit na Tafsir"
+
+#~ msgid "tajweed"
+#~ msgstr "Tajweed"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "Ipakita ang mga kahulugan ng salita"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "Itago ang mga kahulugan ng salita"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "Nilo-load ang mga kahulugan ng salita..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "Naglo-load ng mga kahulugan ng salita"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "Nabigong i-load ang mga kahulugan ng salita"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "Walang magagamit na mga kahulugan para sa Ayah na ito"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "Lalabas ang mga kahulugan ng salita kapag nagsimula ang pagbigkas"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "Meccan"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "Medinan"
+
+#~ msgid "start"
+#~ msgstr "Magsimula"
+
+#~ msgid "selected_ayah"
+#~ msgstr "Napiling Ayah"
+
+#~ msgid "analysis_result"
+#~ msgstr "Resulta"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "Pumili muna ng ama"
+
+#~ msgid "browse_reciters"
+#~ msgstr "I-browse ang mga Reciters"
+
+#~ msgid "next_wirds"
+#~ msgstr "Paparating na Wirds"
+
+#~ msgid "previous_wirds"
+#~ msgstr "Nakaraang Wirds"
+
+#~ msgid "one_juz"
+#~ msgstr "1 Juz"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "Display Tools"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "Normal na Display"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "Pag-uulit ng Ayah"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "Nang walang Pag-uulit"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "Dalawang beses"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "Mga oras"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "Mag-zoom Mushaf"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "Ang Quran ay hahatiin batay sa tinukoy na tagal at halaga upang mapadali "
+#~ "ang araw-araw na Khatma."
+
+#~ msgid "resume_reading"
+#~ msgstr "Ipagpatuloy ang Pagbabasa"
+
+#~ msgid "percentage"
+#~ msgstr "Porsiyento ng Pag-unlad"
+
+#~ msgid "progress"
+#~ msgstr "Pag-unlad"
+
+#~ msgid "from_page"
+#~ msgstr "Panimulang Pahina"
+
+#~ msgid "to_page"
+#~ msgstr "Pangwakas na Pahina"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "Mula sa"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "Upang"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "Surah Al-Baqarah - Ayah 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "Surah Al-Baqarah - Ayah 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "Kasalukuyang Numero ng Ayah"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "Mag-login o gumawa ng account para magpatuloy"
+
+#~ msgid "welcome"
+#~ msgstr "Maligayang pagdating"
+
+#~ msgid "welcome_message"
+#~ msgstr "Maligayang pagdating sa Wird Quran Platform"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "Maligayang pagbabalik"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "Ang iyong profile ay na-update"
+
+#~ msgid "accounts_settings"
+#~ msgstr "Mga setting"
+
+#~ msgid "login_settings"
+#~ msgstr "Mga Setting ng Pag-login"
+
+#~ msgid "confirm_password"
+#~ msgstr "Kumpirmahin ang Password"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "Bagong Password"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "Ipakita o itago ang password"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "Kinakailangan ang username"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "Nakuha na ang username"
+
+#~ msgid "enter_email"
+#~ msgstr "Ilagay ang iyong email"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "Kinakailangan ang email"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "Ginagamit na ang email"
+
+#~ msgid "invalid_email"
+#~ msgstr "Di-wastong format ng email"
+
+#~ msgid "full_name"
+#~ msgstr "Buong Pangalan"
+
+#~ msgid "phone"
+#~ msgstr "Numero ng Telepono"
+
+#~ msgid "invalid_phone"
+#~ msgstr "Di-wastong numero ng telepono"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "Ginagamit na ang numero ng telepono"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "Pamagat ng Trabaho"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "Lalaki"
+
+#~ msgid "accounts_female"
+#~ msgstr "Babae"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "Matagumpay na nalikha ang iyong account"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr ""
+#~ "Matagumpay na nalikha ang iyong account. Masaya kaming nakasakay ka at "
+#~ "hilingin sa iyo ang isang natatanging karanasan."
+
+#~ msgid "login_failed"
+#~ msgstr "Di-wastong mga kredensyal sa pag-log in"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "Hindi tugma ang mga password"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "Dapat na hindi bababa sa 8 character ang password"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "Matagumpay na na-save ang mga pagbabago"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "Matagumpay na na-save ang iyong data"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "Matagumpay na na-save ang data at na-update ang password"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "Matagumpay na na-update ang mga setting sa pag-log in"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr ""
+#~ "Maligayang pagbabalik, ang iyong account ay naaprubahan at maaari ka na "
+#~ "ngayong mag-apply para sa mga proyekto"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr ""
+#~ "Maligayang pagdating sa Innovation Center, hangad namin sa iyo ang "
+#~ "magandang karanasan"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "Pamamahala ng Innovation Center"
+
+#~ msgid "accounts_local"
+#~ msgstr "Lokal"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "Pinag-isang Login"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "I-enable ang External Authentication"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "Pinapayagan ng kontrol ang mga paraan ng pagpapatunay sa system"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "Mula sa database ng system"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "Kahapon"
+
+#~ msgid "accounts_saah"
+#~ msgstr "Isang oras ang nakalipas"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "10 minuto ang nakalipas"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "5 minuto ang nakalipas"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "Makipag-ugnayan sa Amin"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "Makipag-ugnayan sa amin sa pamamagitan ng contact form"
+
+#~ msgid "contact_description"
+#~ msgstr ""
+#~ "Maaari kang makipag-ugnayan sa amin para sa anumang katanungan o suporta"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr ""
+#~ "Salamat, susuriin namin ang iyong mensahe at makipag-ugnayan sa iyo sa "
+#~ "lalong madaling panahon"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "Ang iyong mensahe ay matagumpay na naipadala"
+
+#~ msgid "write_message"
+#~ msgstr "Isulat ang iyong mensahe dito"
+
+#~ msgid "contact_message"
+#~ msgstr "Mensahe"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "Kinakailangan ang mensahe"
+
+#~ msgid "contact_name_required"
+#~ msgstr "Pangalan ang kailangan"
+
+#~ msgid "contact_email_required"
+#~ msgstr "Kinakailangan ang email"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "Di-wastong email"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "Telepono"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "Mobile"
+
+#~ msgid "contact_email"
+#~ msgstr "Email"
+
+#~ msgid "contact_date"
+#~ msgstr "Petsa"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "Lahat ng Mensahe"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "Contact Messages"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "Pamahalaan ang Mga Mensahe sa Pakikipag-ugnayan"
+
+#~ msgid "contact_message_details"
+#~ msgstr "Mga Detalye ng Mensahe"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "Mga Detalye ng Mensahe sa Pakikipag-ugnayan"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "Buksan ang mga detalye ng mensahe"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr ""
+#~ "Mag-click nang direkta sa mensahe upang tingnan ang mga detalye nito"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "Maghanap ayon sa pangalan, email, o mensahe"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "Walang mga mensahe sa kasalukuyan"
+
+#~ msgid "contact_reply"
+#~ msgstr "Sumagot"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "Tumugon sa mensahe"
+
+#~ msgid "write_reply"
+#~ msgstr "Isulat ang tugon at ipadala ito nang direkta"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "Ipadala ang Tugon"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "Reply Text"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "Reply Title"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "Huling na-save na tugon"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "Tumugon sa iyong mensahe sa aming site"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "Bagong mensahe mula sa Contact Us"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "Bago"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "Hindi pa nababasa"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "Basahin"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "Ipinapadala..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "Ipinadala kamakailan, pakisubukang muli sa ilang sandali"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr ""
+#~ "Isang tugon ang ipinadala ilang sandali ang nakalipas, subukang muli sa "
+#~ "ilang sandali"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr ""
+#~ "Kung nakatagpo ka ng anumang problema, huwag mag-atubiling makipag-ugnay "
+#~ "sa amin"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "Support Team"
+
+#~ msgid "subscribe"
+#~ msgstr "Mag-subscribe"
+
+#~ msgid "subscriptions"
+#~ msgstr "Mga subscription"
+
+#~ msgid "subscription_active"
+#~ msgstr "Pinagana"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "Aktibo"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "Huminto"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "Mga Kumpirmadong Subscriber"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "Kabuuang mga Subscriber"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "Lahat ng Subscriber"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "Mga Aktibong Subscriber"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "Pinagana"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "Nakumpirma"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "Hindi kumpirmado"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "Nakumpirma"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "Mga Subscriber sa Newsletter"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "Subscriber ng Newsletter"
+
+#~ msgid "subscription_message"
+#~ msgstr "Mag-subscribe upang matanggap ang aming mga mensahe"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "Walang mga subscriber sa kasalukuyan"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "Mag-unsubscribe"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "Kinansela ang subscription sa email"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Mag-unsubscribe sa mga mensahe ng Wird Quran"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Mula sa mga mensahe ng Wird Quran"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "Pamahalaan ang Mga Subscription"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "Tingnan ang Mga Subscription"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "Buod ng Mga Subscription"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "Sentro ng Subscription"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "Pangkalahatang-ideya ng Mga Subscriber sa Newsletter"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr ""
+#~ "Listahan ng mga email na nakarehistro upang makatanggap ng mga newsletter "
+#~ "at mensahe"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "Petsa ng Subscription"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "Petsa ng Pag-unsubscribe"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "Maghanap sa pamamagitan ng email"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "Lumikha ng Mensahe"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr "Magpadala ng email sa lahat ng aktibo at kumpirmadong subscriber"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "Pangkalahatang-ideya ng Dashboard"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "Panloob na Control Panel"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr ""
+#~ "Mabilis na pangkalahatang-ideya ng mga pangunahing module at setting"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "Buod ng mga pangkalahatang numero at tagapagpahiwatig sa system"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "Mga Istatistika ng Site"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "Mga Istatistika ng Pahina"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "Mga Istatistika ng Audio"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "Istatistika ng Tafsir"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "Mga Istatistika ng Mushaf"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "Kabuuang mga Bisita"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "Kabuuang Mga Pagbisita sa Pahina"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "Mga Pahinang Pinadalaw"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "Mga Pagbisita sa Pahina"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "Mga pagbisita sa huling 7 araw"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "Mga pagbisita sa nakalipas na 30 araw"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "Mga bisita sa huling 7 araw"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "Mga pagbisita sa mga nakaraang araw"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "Mga Pagpapatugtog ng Audio"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "Nagpe-play ang audio sa nakalipas na 7 araw"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "Kabuuang Mga Segundo ng Pakikinig"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "Mga Pahinang Pinakinggan"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "Mga Surah na Pinatugtog"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "Pinaka-Played Reciters"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "Pag-flip ng Pahina"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "Pinaka-Flipped Mushaf Pages"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "Kabuuang Tafsir Nagbubukas"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "Magbubukas ang Tafsir sa huling 7 araw"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "Pinaka Binuksan na Tafsir Books"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "Pinaka Ginamit na Aklat"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "Pinaka Binuksan na Mga Pahina ng Tafsir"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "Pinaka Binuksan na Pahina ng Tafsir"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "Pinaka Naipaliwanag na Surah"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "Karamihan sa mga Nai-interpret na Surah"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "Karamihan sa mga Binuksan na Ayah sa Tafsir"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "Pinakabagong Pakikipag-ugnayan"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr "Pagsubaybay sa mga bisita, page, audio play, at Mushaf page flips"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr ""
+#~ "Ang pagsubaybay sa Tafsir ay nagbubukas, ang pinakaginagamit na mga "
+#~ "aklat, pahina, surah, at naka-link na mga ayah"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "Live na Dashboard"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "Wala pang data"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "Wala pang pakikipag-ugnayan"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "Ayah"
+
+#~ msgid "analytics_audio"
+#~ msgstr "Audio"
+
+#~ msgid "analytics_page"
+#~ msgstr "Pahina"
+
+#~ msgid "analytics_pages"
+#~ msgstr "Mga pahina"
+
+#~ msgid "analytics_surah"
+#~ msgstr "Surah"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "Mushaf"
+
+#~ msgid "analytics_time"
+#~ msgstr "Oras"
+
+#~ msgid "analytics_type"
+#~ msgstr "Uri"
+
+#~ msgid "analytics_path"
+#~ msgstr "Daan"
+
+#~ msgid "analytics_add"
+#~ msgstr "Bilangin"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "Natatangi"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "Mga pagbisita"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "Mga dula"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "Mga Pagkumpleto ng Audio"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "Bukas ang Tafsir"
+
+#~ msgid "roles"
+#~ msgstr "Mga tungkulin"
+
+#~ msgid "permissions"
+#~ msgstr "Mga Pahintulot"
+
+#~ msgid "users"
+#~ msgstr "Mga gumagamit"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "Pamahalaan ang mga User"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "Pamahalaan ang Mga Tungkulin"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "Pamahalaan ang Mga Pahintulot"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "Pamahalaan ang mga user account, tungkulin, at pahintulot"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "Sistema ng Pamamahala ng User at Pahintulot"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "Pamahalaan ang Mga Pahintulot"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr ""
+#~ "Pamahalaan ang mga tungkulin ng system at nauugnay na mga pahintulot"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "Pamahalaan ang mga user at magtalaga ng mga tungkulin"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "Magdagdag ng User"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "Magdagdag ng Bagong User"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "Mga Detalye ng User"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "Tingnan ang mga detalye ng user"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "Tingnan ang data ng user at magtalaga ng mga tungkulin"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "Magdagdag ng Tungkulin"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "I-edit ang Tungkulin"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "Tanggalin ang Tungkulin"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "I-save ang Tungkulin"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "Pangalan ng Tungkulin"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "Kasalukuyang Tungkulin"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "Mga Kasalukuyang Tungkulin"
+
+#~ msgid "rbac_role"
+#~ msgstr "Tungkulin"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "Magdagdag ng Pahintulot"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "I-edit ang Pahintulot"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "Tanggalin ang Pahintulot"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "I-save ang Pahintulot"
+
+#~ msgid "rbac_permission"
+#~ msgstr "Pahintulot"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "Pahintulot"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "Pangalan ng Pahintulot"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "Code ng Pahintulot"
+
+#~ msgid "rbac_module"
+#~ msgstr "Module"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "I-link ang mga tungkulin sa mga pahintulot"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "I-link ang mga pahintulot sa mga tungkulin"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr ""
+#~ "Matagumpay na nalikha ang user, at ipinadala ang mga detalye sa pag-log "
+#~ "in sa kanilang email"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "Matagumpay na nagawa ang user, ngunit nabigong maipadala ang email. "
+#~ "Suriin ang mga setting ng mail"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "Matagumpay na nagawa ang tungkulin"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "Matagumpay na nagawa ang pahintulot"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "Matagumpay na na-update ang tungkulin"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "Matagumpay na na-update ang pahintulot"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "Matagumpay na natanggal ang tungkulin"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "Matagumpay na natanggal ang pahintulot"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "Matagumpay na na-link ang pahintulot sa tungkulin"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "Matagumpay na naalis ang pahintulot sa tungkulin"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "Matagumpay na na-update ang mga tungkulin ng user"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "Kumpirmahin ang pagtanggal ng tungkulin"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "Kumpirmahin ang pagtanggal ng pahintulot"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "Ide-delete mo na ang role"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "Ide-delete mo na ang pahintulot"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "Ang pangunahing tungkulin ay hindi matatanggal"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "Hindi matatanggal ang pangunahing pahintulot"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "Ang code ng pangunahing tungkulin ay hindi maaaring i-edit"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "Hindi maaaring i-edit ang pangunahing code ng pahintulot"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr ""
+#~ "Ang mga pangunahing tungkulin ng user ay hindi maaaring i-edit mula sa "
+#~ "interface na ito"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr ""
+#~ "Ang pangunahing pahintulot ay hindi maaaring alisin sa tungkuling ito"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "Ang pagkilos na ito ay hindi maaaring i-undo"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "Maghanap ayon sa username o tungkulin"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "Maghanap sa pamamagitan ng username o bilang ng pahintulot"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr ""
+#~ "Pumili ng isang tungkulin mula sa kaliwang menu upang tingnan at i-link "
+#~ "ang mga pahintulot"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr ""
+#~ "Pumili ng isang tungkulin mula sa listahan, pagkatapos ay paganahin o "
+#~ "huwag paganahin ang mga pahintulot sa pamamagitan ng mga checkbox"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "Pumili ng Mga Tungkulin"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "Walang mga tungkulin na nakatalaga sa user na ito"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "Walang mga tungkulin sa kasalukuyan"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "Walang gumagamit sa kasalukuyan"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "Pakilagay ang pangalan ng tungkulin at code"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "Mangyaring ipasok ang code ng pahintulot at pangalan"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "Pakipasok ang code at pangalan ng pahintulot"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Punan ang data ng gumagamit; gagawa ng account at ipapadala ang mga "
+#~ "detalye sa pag-log in sa kanilang email"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "Punan ang data ng tungkulin pagkatapos ay i-save ang mga pagbabago"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "Punan ang data ng pahintulot pagkatapos ay i-save ang mga pagbabago"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Isang random na password ang bubuo para sa user at ipapadala sa kanilang "
+#~ "email"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "Nagawa na ang iyong account sa platform"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "Ang data ng iyong account sa platform"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr ""
+#~ "Inirerekomenda naming baguhin ang iyong password pagkatapos mag-log in"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr ""
+#~ "Isang maikling paglalarawan na nagpapakita ng mga gawain ng papel na ito "
+#~ "sa system"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr ""
+#~ "Isang maikling paglalarawan na nagpapakita kung kailan ginamit ang "
+#~ "pahintulot na ito sa loob ng system"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "Kinakailangan ang email upang magpadala ng mga detalye sa pag-login"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "Ginagamit na ang role code, mangyaring pumili ng isa pa"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "Ginagamit na ang code na ito para sa isa pang pahintulot"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr ""
+#~ "Nabigong i-save ang pahintulot dahil sa duplicate na code sa database"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr ""
+#~ "Error sa pagproseso ng kahilingan: nawawala ang data ng tungkulin o "
+#~ "pahintulot"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "Kinakailangan ang buong pangalan"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "Ginagamit na ang username"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "Ginagamit na ang email"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "Ginagamit na ang numero ng telepono"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "Ang username na ito ay nakalaan at hindi magagamit"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "Ang mga pahintulot ay nakapangkat ayon sa module"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "Aktibong User"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "Hindi aktibo"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "Na-update ang status ng user"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "Huling Login"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "Link Mga Tungkulin"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "Bumalik sa Mga Tungkulin"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "Bumalik sa Pahintulot"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "Bumalik sa listahan ng Mga User"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "Bumalik sa listahan ng Mga User"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "Tungkulin ng user (hal."
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "Partikular na pahintulot (hal."
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "hal., System Admin"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "hal."
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "Ginamit sa code tulad ng"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "Para i-verify ang pahintulot ng user sa loob"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "Awtomatikong para sa gumagamit"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr ", at awtomatiko itong ise-save sa isang pinag-isang format"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "Mas gusto ang pattern"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "Maaari mong ipasok ang numero sa anumang format (05 / 5 /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "Opsyonal"
+
+#~ msgid "rbac_aw"
+#~ msgstr "o"
+
+#~ msgid "rbac_aam"
+#~ msgstr "Heneral"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "Kasosyo"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "kalahok"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "Superbisor"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "May itatalagang tungkulin"
+
+#~ msgid "rbac_5"
+#~ msgstr "o 5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "Tingnan ang mga User"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "Tingnan ang Mga Tungkulin"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "Tingnan ang Mga Pahintulot"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "I-edit ang User"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "Tanggalin ang User"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "I-edit ang Tungkulin"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "Tanggalin ang Tungkulin"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "I-edit ang Pahintulot"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "Tanggalin ang Pahintulot"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "I-access ang Dashboard"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "I-access ang Analytics"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "I-access ang Quran Studio"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "I-access ang Komunikasyon"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "I-access ang Mga Subscription"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "I-access ang Mga Notification"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "I-access ang Pagpapadala ng Mga Channel"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "Pamahalaan ang Mga Setting ng Pag-login"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "Tingnan ang Mga Kampanya"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "Tingnan ang Mga Mensahe"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "Tingnan ang Mga Mensahe sa Contact"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "Tingnan ang Mga Mensahe sa WhatsApp"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "Tingnan ang Mga Panloob na Notification"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "Tingnan ang Dispatch Log"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "Tingnan ang Mga Subscriber"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "Tingnan ang Email"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "Pamahalaan ang mga Proyekto"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "Lumikha ng Mensahe sa Pakikipag-ugnayan"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "Magpadala ng Notification"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "Magdagdag ng Reciter"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "I-edit ang Data ng Reciter"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "Tanggalin ang Data ng Reciter"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "Quran Coordinates"
+
+#~ msgid "rbac_action"
+#~ msgstr "Ang Aksyon na ito"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "Bilang ng Gumagamit"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "Bilang ng Tungkulin"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "Bilang ng Pahintulot"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "Mga Rehistradong Gumagamit"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "Mga Structured na Tungkulin"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "Mga Aktibong Pahintulot"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr ""
+#~ "Pag-aayos ng istraktura ng tungkulin at pamamahagi ng mga responsibilidad "
+#~ "sa loob ng system"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "Mga setting"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "Mga subscription"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "Kontrolin ang access sa mga module at fine-grained na operasyon"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "Username at password ay kinakailangan"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "Pangkalahatang Tagapamahala ng System"
+
+#~ msgid "accounts_system"
+#~ msgstr "Sistema"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "Alert Center"
+
+#~ msgid "notification_new"
+#~ msgstr "Bago"
+
+#~ msgid "notification_alert"
+#~ msgstr "Alerto"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "Basahin"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "Binasa ang notification"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "Magpadala ng Notification"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "Magpadala ng Alerto"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "Gumawa ng Bagong Notification"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "Pamahalaan ang Notification"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "Magpadala ng panloob na abiso sa mga user sa system"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "Sumulat ng text ng notification dito"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "Matagumpay na naipadala"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "Buod ng Abiso"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "Buod ng Mga Notification"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "Walang mga notification sa kasalukuyan"
+
+#~ msgid "notification_no_text"
+#~ msgstr "Walang text"
+
+#~ msgid "notification_alns"
+#~ msgstr "Text"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "Sa loob ng System"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "Mga Notification ng System"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "System at interactive na mga notification"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "Mga notification na ipinadala sa user mula sa loob ng system"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr ""
+#~ "Mabilis na pangkalahatang-ideya ng mga notification na ipinadala sa "
+#~ "pamamagitan ng iba't ibang channel"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "Binibilang ang mga notification sa page na ito"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "Walang katugmang mga tatanggap"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "Ang mga mensahe ngayon ay hindi galing"
+
+#~ msgid "notifications_latest"
+#~ msgstr ""
+#~ "Mga pinakabagong notification na natanggap sa loob ng system (pinakabago "
+#~ "muna, max 10)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "Notification Center"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "Nagpadala ng Mga Notification"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "Buod ng Mga Notification"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr ""
+#~ "Mabilis na pangkalahatang-ideya ng mga notification na ipinadala sa "
+#~ "pamamagitan ng iba't ibang channel"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "Magpadala ng Notification"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "Matagumpay na naipadala ang panloob na abiso"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "Mga kampanya"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "Mga Ipinadalang Kampanya"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "Kabuuang Mga Kampanya"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "Pamagat ng Kampanya"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "Matagumpay na nagawa ang kampanya"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "Matagumpay na naipadala ang kampanya"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr ""
+#~ "Walang Telegram channel o pangkat na pinagana para sa kampanyang ito"
+
+#~ msgid "communication_message_text"
+#~ msgstr "Teksto ng Mensahe"
+
+#~ msgid "communication_title_message"
+#~ msgstr "Pamagat ng Mensahe"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "Larawan (Opsyonal)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "Kung ito ay may larawan"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "Kung wala itong imahe"
+
+#~ msgid "communication_send_post"
+#~ msgstr "Ipadala ang Post"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "Magpadala ng Telegram"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "Telegram - Channel"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "Telegram - Grupo"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "Para sa grupo at channel"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "Facebook"
+
+#~ msgid "communication_platform"
+#~ msgstr "Plataporma"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "Channel"
+
+#~ msgid "communication_channels"
+#~ msgstr "Mga channel"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "Komunikasyon sa lipunan"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "Pamahalaan ang Social Communication"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "Buod ng Social Communication"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "Maghanap ayon sa pamagat o teksto"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "Maghanap ayon sa pamagat o channel"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "Petsa ng Ipadala"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "Ipadala ang Katayuan"
+
+#~ msgid "communication_sent"
+#~ msgstr "Ipinadala"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "Ipinadala"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "Draft"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "Naka-iskedyul"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "Ipinapadala..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "Nabigong ipadala"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "Naghihintay"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "Error (kung mayroon man)"
+
+#~ msgid "communication_log"
+#~ msgstr "Log"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "Log ng Paghahatid"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr ""
+#~ "Log ng mga pagpapatakbo ng dispatch para sa bawat campaign at contact "
+#~ "channel"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "Walang mga dispatch log sa kasalukuyan"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "Gamitin"
+
+#~ msgid "communication_drafts"
+#~ msgstr "Mga draft"
+
+#~ msgid "communication_qryba"
+#~ msgstr "Malapit na"
+
+#~ msgid "messages"
+#~ msgstr "Mga mensahe"
+
+#~ msgid "messaging_messages"
+#~ msgstr "Mga mensahe"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "Kolektibong Mensahe"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "Mga Kolektibong Mensahe"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "Text Message"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "Mensahe sa Mobile"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "Mga SMS na Mensahe"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "Mga Detalye ng Mensahe sa Mobile"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "Walang mga mobile na mensahe sa kasalukuyan"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "Mensahe sa WhatsApp"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "Mga Detalye ng Mensahe sa WhatsApp"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "Mga Notification sa WhatsApp"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "Walang mga mensahe sa WhatsApp na kasalukuyang nasa log"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr ""
+#~ "Tingnan ang log ng mga mensahe sa WhatsApp na ipinadala sa pamamagitan ng "
+#~ "system na may kaugnayan sa mga user"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "Email"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "Pangkalahatang Mensahe sa Email"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "Lumikha ng Pangkalahatang Mensahe sa Email"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "Walang mga mensaheng email sa kasalukuyan"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "Teksto ng Mensahe (Email)"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "Ipinadala ang email"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "Nagawa ang email at naghihintay na maipadala"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "Ang mensaheng ito ay ipapadala bilang isang email lamang; maaari mong "
+#~ "gamitin ang pag-format, mga listahan, at mga link"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr ""
+#~ "Ang mensaheng ito ay pangunahing nakatuon sa mga subscriber ng newsletter "
+#~ "na nakarehistro sa system"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "Magpadala ng pangkalahatang post ng email sa mga subscriber ng newsletter "
+#~ "na may opsyong idagdag ang lahat ng user ng system"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "Gumawa ng Bagong Mensahe"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "Magpadala ng Mensahe"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "Nilalaman ng Mensahe"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "Walang nilalaman sa mensaheng ito"
+
+#~ msgid "messaging_subject"
+#~ msgstr "Paksa"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "Pamagat at Data"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "Dapat ilagay ang pamagat at text ng mensahe"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "Sumulat ng text ng mensahe dito"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "Sumulat ng text message sa email dito"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "Uri ng Mensahe"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "Walang pamagat"
+
+#~ msgid "messaging_sender"
+#~ msgstr "Nagpadala"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "Nagpadala"
+
+#~ msgid "messaging_user"
+#~ msgstr "Gumagamit"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "Mga tatanggap"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "Listahan ng mga Tatanggap"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "Tingnan ang Mga Tatanggap"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "Piliin ang Mga User"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "Lahat ng Gumagamit"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "Mga subscriber ng newsletter (bilang default)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "Mga Partikular na Gumagamit"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "Pumili ng isa o higit pang user mula sa listahan"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "Mga karagdagang opsyon sa tatanggap"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr ""
+#~ "Idagdag ang lahat ng user ng system na may mga subscriber ng newsletter"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr ""
+#~ "Paganahin ang opsyong ito kung gusto mong maabot din ng mensahe ang lahat "
+#~ "ng nakarehistrong user ng system"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "Walang tatanggap"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "Walang tatanggap para sa mensaheng ito"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "Walang tatanggap na magpapadala ng mensahe"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "Walang mga tatanggap na may email address"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "Walang mga tatanggap na naghihintay para sa pagpapadala"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "Walang mga tatanggap na tumutugma sa tinukoy na pamantayan"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "Bilang ng mga Tatanggap"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "Maghanap ayon sa nagpadala, pamagat, o teksto"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "Dispatch Channel"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "Dispatch Channels"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "Pamahalaan ang Mga Channel ng Dispatch"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr ""
+#~ "Pamahalaan at magpadala ng mga abiso sa pamamagitan ng email at mga "
+#~ "alerto sa panloob na system"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "Mga Log ng Pagpapadala"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "Mga Log ng Abiso"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "Wala pang mga dispatch log"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "Oras ng Pagpapadala"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr ""
+#~ "Tingnan ang data ng mensahe, mga tatanggap, at katayuan ng pagpapadala"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "Tingnan ang data at nilalaman ng mensahe sa mobile"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "Tingnan ang data at nilalaman ng mensahe ng WhatsApp"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr ""
+#~ "Tingnan ang maramihang mga mensaheng email na may bilang at katayuan ng "
+#~ "tatanggap"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr ""
+#~ "Tingnan ang lahat ng mga pagtatangka sa pagpapadala para sa bawat "
+#~ "tatanggap na may katayuan"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "Paghahatid ng Mensahe"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "Mga Paghahatid ng Mensahe"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "Basahin"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "Hindi pa nababasa"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "Mensahe ng Error"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "Ang kabiguan ay umiiral"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "Kampanya"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "Log ng Mensahe"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "Ipinadala sa mga user sa pamamagitan ng system"
+
+#~ msgid "messaging_action"
+#~ msgstr "Aksyon"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "Email / Identifier"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "Pangunahing Kategorya"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "Indibidwal"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "Sama-sama"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "Hindi natukoy"
+
+#~ msgid "messaging_first"
+#~ msgstr "Una"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "Subukan"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "I-print ang kahilingan bilang ipinadala sa provider"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "I-print ang hilaw na tugon"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "Kung ang sagot ay textual"
+
+#~ msgid "quran_studio"
+#~ msgstr "Studio ng Quran"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "Pamahalaan ang Quran Studio"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "Pamahalaan ang Data ng Reciters"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "Pamahalaan ang data ng mga reciters na magagamit sa system"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "Data ng mga Tagapagbigkas"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "Pahina ng Mga Tagapagbigkas"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "Walang data ng reciter sa kasalukuyan"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "Matagumpay na naidagdag ang reciter"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "Matagumpay na na-update ang data ng reciter"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "Matagumpay na natanggal ang reciter"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "Tanggalin ang Reciter"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "Sigurado ka bang gusto mong tanggalin ang reciter na ito?"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "Pangalan ng Arabe"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "Pangalan sa Ingles"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "Code"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "Kinakailangan ang code at Arabic name"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "Ayah Coordinates Editor"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "Pahina ng Coordinates Editor"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "Mga coordinate"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "Itakda ang mga Coordinate"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "Mag-load ng mga Coordinate"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "Kunin ang mga Coordinate"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "I-save ang Mga Coordinate"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "I-edit ang Mga Nai-save na Coordinate"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "I-save ang I-edit"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "I-save ang Bago sa"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "Ina-update ang mga coordinate ng ayah sa pahina"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "Walang naka-save na coordinate para sa ayah na ito sa page na ito"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "Ilagay ang surah at ayah number pagkatapos ay i-click ang \"Load "
+#~ "Coordinates\". Ang mga naka-imbak na parihaba para sa ayah na ito ay "
+#~ "ipapakita sa pahinang ito para sa pag-edit at pag-save."
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "I-drag ang mouse sa ibabaw ng Mushaf upang gumuhit ng isang parihaba na "
+#~ "kumakatawan sa isang bahagi ng ayah. Maaari kang gumuhit ng maraming "
+#~ "parihaba para sa parehong ayah."
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "Mangyaring ilagay ang surah at numero ng ayah"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "Mangyaring ipasok ang numero ng surah at ayah bago mag-load"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "Maaliwalas na mga Parihaba"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "Walang mga parihaba na ise-save"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "Numero ng Surah"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "Numero ng Ayah"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "Pahina ng Mushaf"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "Kasalukuyang Pahina"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "Susunod na Pahina"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "Nakaraang Pahina"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "Imahe"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "Mga aksyon"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "hal., 2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "hal., 6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "Home Page"
+
+#~ msgid "overview"
+#~ msgstr "Pangkalahatang-ideya"
+
+#~ msgid "summary"
+#~ msgstr "Buod"
+
+#~ msgid "important_services"
+#~ msgstr "Pangunahing Serbisyo"
+
+#~ msgid "status"
+#~ msgstr "Katayuan"
+
+#~ msgid "actions"
+#~ msgstr "Mga aksyon"
+
+#~ msgid "content"
+#~ msgstr "Nilalaman"
+
+#~ msgid "title"
+#~ msgstr "Pamagat"
+
+#~ msgid "created_at"
+#~ msgstr "Petsa ng Paglikha"
+
+#~ msgid "updated_at"
+#~ msgstr "Huling Na-update"
+
+#~ msgid "next"
+#~ msgstr "Susunod"
+
+#~ msgid "previous"
+#~ msgstr "Nakaraang"
+
+#~ msgid "back"
+#~ msgstr "Bumalik"
+
+#~ msgid "save"
+#~ msgstr "I-save"
+
+#~ msgid "save_changes"
+#~ msgstr "I-save ang Mga Pagbabago"
+
+#~ msgid "add"
+#~ msgstr "Idagdag"
+
+#~ msgid "create"
+#~ msgstr "Lumikha"
+
+#~ msgid "update"
+#~ msgstr "Update"
+
+#~ msgid "edit"
+#~ msgstr "I-edit"
+
+#~ msgid "delete"
+#~ msgstr "Tanggalin"
+
+#~ msgid "cancel"
+#~ msgstr "Kanselahin"
+
+#~ msgid "confirm"
+#~ msgstr "Kumpirmahin"
+
+#~ msgid "view"
+#~ msgstr "Tingnan"
+
+#~ msgid "send"
+#~ msgstr "Ipadala"
+
+#~ msgid "send_now"
+#~ msgstr "Ipadala na"
+
+#~ msgid "sent"
+#~ msgstr "Ipinadala"
+
+#~ msgid "failed"
+#~ msgstr "Nabigo"
+
+#~ msgid "pending"
+#~ msgstr "Nakabinbin"
+
+#~ msgid "no_data"
+#~ msgstr "Walang Data"
+
+#~ msgid "settings"
+#~ msgstr "Mga setting"
+
+#~ msgid "system_settings"
+#~ msgstr "Mga Setting ng System"
+
+#~ msgid "security"
+#~ msgstr "Seguridad"
+
+#~ msgid "zoom_out"
+#~ msgstr "Mag-zoom Out"
+
+#~ msgid "app_arabic"
+#~ msgstr "Arabic"
+
+#~ msgid "app_urdu"
+#~ msgstr "Urdu"
+
+#~ msgid "web_alkl"
+#~ msgstr "Lahat"
+
+#~ msgid "web_fqt"
+#~ msgstr "Tanging"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "Tanging, o"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "Tanging, o pareho"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "Lahat ng Karapatan ay Nakalaan"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "Website ng Quran"
+
+#~ msgid "required_field"
+#~ msgstr "Kinakailangan ang field na ito"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "Kinakailangan ang numero ng telepono"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "Di-wastong format ng numero ng telepono"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "Di-wastong numero ng telepono"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "Hindi posible ang numero ng telepono"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "Di-wastong format ng numero ng mobile"
+
+#~ msgid "core_ay"
+#~ msgstr "O kahit ano"
+
+#~ msgid "core_mnasb"
+#~ msgstr "Angkop"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr ""
+#~ "Binibilang lang namin ang mga pampublikong pagbisita (hal., Home Page)"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "Bilang ng mga hilera bawat pahina"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "Bilang ng mga tala"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "Paumanhin, wala kang pahintulot na i-access ang pahinang ito"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "Ipinagbabawal ang Pag-access"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "Taas ng bar (visual control)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "Default na tagal para sa mga toast sa millisecond"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "Partikular na tagal para sa toast na ito (i-override ang default)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "Default na maximum na view (hal., 20)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "Nakapirming lapad (iwang walang laman upang magamit)"
+
+#~ msgid "web_notification"
+#~ msgstr "Abiso"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "Isara sa pag-click sa backdrop"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "I-sync pagkatapos ng 5 segundo mula sa huling pag-update"
+
+#~ msgid "quran_nav"
+#~ msgstr "Quran"
+
+#~ msgid "quran_text"
+#~ msgstr "Text"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "Hatiin ang text sa"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "Ang natitirang bahagi ng teksto"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "sa pagitan ng"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "Bagong mensahe mula sa form ng Contact Us"
+
+#~ msgid "services_message_text"
+#~ msgstr "Teksto ng Mensahe:"
+
+#~ msgid "surah_3"
+#~ msgstr "Ali 'Imran"
+
+#~ msgid "surah_4"
+#~ msgstr "An-Nisa'"
+
+#~ msgid "surah_5"
+#~ msgstr "Al-Ma'idah"
+
+#~ msgid "surah_6"
+#~ msgstr "Al-An'am"
+
+#~ msgid "surah_7"
+#~ msgstr "Al-A'raf"
+
+#~ msgid "surah_8"
+#~ msgstr "Al-Anfal"
+
+#~ msgid "surah_9"
+#~ msgstr "At-Tawbah"
+
+#~ msgid "surah_10"
+#~ msgstr "Yunus"
+
+#~ msgid "surah_11"
+#~ msgstr "Hud"
+
+#~ msgid "surah_12"
+#~ msgstr "Yusuf"
+
+#~ msgid "surah_13"
+#~ msgstr "Ar-Ra'd"
+
+#~ msgid "surah_14"
+#~ msgstr "Ibrahim"
+
+#~ msgid "surah_15"
+#~ msgstr "Al-Hijr"
+
+#~ msgid "surah_16"
+#~ msgstr "An-Nahl"
+
+#~ msgid "surah_17"
+#~ msgstr "Al-Isra'"
+
+#~ msgid "surah_18"
+#~ msgstr "Al-Kahf"
+
+#~ msgid "surah_19"
+#~ msgstr "Maryam"
+
+#~ msgid "surah_20"
+#~ msgstr "Taha"
+
+#~ msgid "surah_21"
+#~ msgstr "Al-Anbiya'"
+
+#~ msgid "surah_22"
+#~ msgstr "Al-Hajj"
+
+#~ msgid "surah_23"
+#~ msgstr "Al-Mu'minun"
+
+#~ msgid "surah_24"
+#~ msgstr "An-Nur"
+
+#~ msgid "surah_25"
+#~ msgstr "Al-Furqan"
+
+#~ msgid "surah_26"
+#~ msgstr "Ash-Shu'ara'"
+
+#~ msgid "surah_27"
+#~ msgstr "An-Naml"
+
+#~ msgid "surah_28"
+#~ msgstr "Al-Qasas"
+
+#~ msgid "surah_29"
+#~ msgstr "Al-'Ankabut"
+
+#~ msgid "surah_30"
+#~ msgstr "Ar-Rum"
+
+#~ msgid "surah_31"
+#~ msgstr "Luqman"
+
+#~ msgid "surah_32"
+#~ msgstr "As-Sajdah"
+
+#~ msgid "surah_33"
+#~ msgstr "Al-Ahzab"
+
+#~ msgid "surah_34"
+#~ msgstr "Saba'"
+
+#~ msgid "surah_35"
+#~ msgstr "Fatir"
+
+#~ msgid "surah_36"
+#~ msgstr "Ya-Sin"
+
+#~ msgid "surah_37"
+#~ msgstr "As-Saffat"
+
+#~ msgid "surah_38"
+#~ msgstr "Malungkot"
+
+#~ msgid "surah_39"
+#~ msgstr "Az-Zumar"
+
+#~ msgid "surah_40"
+#~ msgstr "Ghafir"
+
+#~ msgid "surah_41"
+#~ msgstr "Fussilat"
+
+#~ msgid "surah_42"
+#~ msgstr "Ash-Shura"
+
+#~ msgid "surah_43"
+#~ msgstr "Az-Zukhruf"
+
+#~ msgid "surah_44"
+#~ msgstr "Ad-Dukhan"
+
+#~ msgid "surah_45"
+#~ msgstr "Al-Jathiyah"
+
+#~ msgid "surah_46"
+#~ msgstr "Al-Ahqaf"
+
+#~ msgid "surah_47"
+#~ msgstr "Muhammad"
+
+#~ msgid "surah_48"
+#~ msgstr "Al-Fath"
+
+#~ msgid "surah_49"
+#~ msgstr "Al-Hujurat"
+
+#~ msgid "surah_50"
+#~ msgstr "Qaf"
+
+#~ msgid "surah_51"
+#~ msgstr "Adh-Dhariyat"
+
+#~ msgid "surah_52"
+#~ msgstr "At-Tur"
+
+#~ msgid "surah_53"
+#~ msgstr "An-Najm"
+
+#~ msgid "surah_54"
+#~ msgstr "Al-Qamar"
+
+#~ msgid "surah_55"
+#~ msgstr "Ar-Rahman"
+
+#~ msgid "surah_56"
+#~ msgstr "Al-Waqi'ah"
+
+#~ msgid "surah_57"
+#~ msgstr "Al-Hadid"
+
+#~ msgid "surah_58"
+#~ msgstr "Al-Mujadilah"
+
+#~ msgid "surah_59"
+#~ msgstr "Al-Hashr"
+
+#~ msgid "surah_60"
+#~ msgstr "Al-Mumtahanah"
+
+#~ msgid "surah_61"
+#~ msgstr "As-Saff"
+
+#~ msgid "surah_62"
+#~ msgstr "Al-Jumu'ah"
+
+#~ msgid "surah_63"
+#~ msgstr "Al-Munafiqun"
+
+#~ msgid "surah_64"
+#~ msgstr "At-Taghabun"
+
+#~ msgid "surah_65"
+#~ msgstr "At-Talaq"
+
+#~ msgid "surah_66"
+#~ msgstr "At-Tahrim"
+
+#~ msgid "surah_67"
+#~ msgstr "Al-Mulk"
+
+#~ msgid "surah_68"
+#~ msgstr "Al-Qalam"
+
+#~ msgid "surah_69"
+#~ msgstr "Al-Haqqah"
+
+#~ msgid "surah_70"
+#~ msgstr "Al-Ma'arij"
+
+#~ msgid "surah_71"
+#~ msgstr "Nuh"
+
+#~ msgid "surah_72"
+#~ msgstr "Al-Jinn"
+
+#~ msgid "surah_73"
+#~ msgstr "Al-Muzzammil"
+
+#~ msgid "surah_74"
+#~ msgstr "Al-Muddaththir"
+
+#~ msgid "surah_75"
+#~ msgstr "Al-Qiyamah"
+
+#~ msgid "surah_76"
+#~ msgstr "Al-Insan"
+
+#~ msgid "surah_77"
+#~ msgstr "Al-Mursalat"
+
+#~ msgid "surah_78"
+#~ msgstr "An-Naba'"
+
+#~ msgid "surah_79"
+#~ msgstr "An-Nazi'at"
+
+#~ msgid "surah_80"
+#~ msgstr "'Abasa"
+
+#~ msgid "surah_81"
+#~ msgstr "At-Takwir"
+
+#~ msgid "surah_82"
+#~ msgstr "Al-Infitar"
+
+#~ msgid "surah_83"
+#~ msgstr "Al-Mutaffifin"
+
+#~ msgid "surah_84"
+#~ msgstr "Al-Inshiqaq"
+
+#~ msgid "surah_85"
+#~ msgstr "Al-Buruj"
+
+#~ msgid "surah_86"
+#~ msgstr "At-Tariq"
+
+#~ msgid "surah_87"
+#~ msgstr "Al-A'la"
+
+#~ msgid "surah_88"
+#~ msgstr "Al-Ghashiyah"
+
+#~ msgid "surah_89"
+#~ msgstr "Al-Fajr"
+
+#~ msgid "surah_90"
+#~ msgstr "Al-Balad"
+
+#~ msgid "surah_91"
+#~ msgstr "Ash-Shams"
+
+#~ msgid "surah_92"
+#~ msgstr "Al-Layl"
+
+#~ msgid "surah_93"
+#~ msgstr "Ad-Duha"
+
+#~ msgid "surah_94"
+#~ msgstr "Ash-Sharh"
+
+#~ msgid "surah_95"
+#~ msgstr "At-Tin"
+
+#~ msgid "surah_96"
+#~ msgstr "Al-'Alaq"
+
+#~ msgid "surah_97"
+#~ msgstr "Al-Qadr"
+
+#~ msgid "surah_98"
+#~ msgstr "Al-Bayyinah"
+
+#~ msgid "surah_99"
+#~ msgstr "Az-Zalzalah"
+
+#~ msgid "surah_100"
+#~ msgstr "Al-'Adiyat"
+
+#~ msgid "surah_101"
+#~ msgstr "Al-Qari'ah"
+
+#~ msgid "surah_102"
+#~ msgstr "At-Takathur"
+
+#~ msgid "surah_103"
+#~ msgstr "Al-'Asr"
+
+#~ msgid "surah_104"
+#~ msgstr "Al-Humazah"
+
+#~ msgid "surah_105"
+#~ msgstr "Al-Fil"
+
+#~ msgid "surah_106"
+#~ msgstr "Quraysh"
+
+#~ msgid "surah_107"
+#~ msgstr "Al-Ma'un"
+
+#~ msgid "surah_108"
+#~ msgstr "Al-Kawthar"
+
+#~ msgid "surah_109"
+#~ msgstr "Al-Kafirun"
+
+#~ msgid "surah_110"
+#~ msgstr "An-Nasr"
+
+#~ msgid "surah_111"
+#~ msgstr "Al-Masad"
+
+#~ msgid "surah_112"
+#~ msgstr "Al-Ikhlas"
+
+#~ msgid "surah_113"
+#~ msgstr "Al-Falaq"
+
+#~ msgid "surah_114"
+#~ msgstr "An-Nas"
+
+#~ msgid "contents"
+#~ msgstr "Mga nilalaman"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "Accessibility"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "Palakihin ang Laki ng Font"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "Bawasan ang Laki ng Font"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "Mataas na Contrast"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "Dark Mode"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "Reading Mode"
+
+#~ msgid "a11y_reset"
+#~ msgstr "I-reset ang Mga Setting"
+
+#~ msgid "select_translation"
+#~ msgstr "Piliin ang Pagsasalin"
+
+#~ msgid "select_surah"
+#~ msgstr "Piliin ang Surah"
+
+#~ msgid "copy_ayah"
+#~ msgstr "Kopyahin ang Talata"
+
+#~ msgid "share_ayah"
+#~ msgstr "Share Verse"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "Bookmark Verse"
+
+#~ msgid "play_ayah"
+#~ msgstr "I-play ang Audio"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "Nai-save ang taludtod"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "Inalis mula sa na-save"
+
+#~ msgid "no_translation_available"
+#~ msgstr "Walang available na pagsasalin"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "Pumili ng Surah upang magsimula"
+
+#~ msgid "app_download_title"
+#~ msgstr "I-download ang Wird App"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "Isang kumpletong karanasan sa Quran sa iyong device"
+
+#~ msgid "audio_language"
+#~ msgstr "Wika ng audio"
+
+#~ msgid "support"
+#~ msgstr "Suporta"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "Ang Wird ngayon"
+
+#~ msgid "home_this_week"
+#~ msgstr "Ngayong Linggo"
+
+#~ msgid "home_your_wird"
+#~ msgstr "Ang iyong Wird"
+
+#~ msgid "home_progress"
+#~ msgstr "Pag-unlad"
+
+#~ msgid "home_days_progress"
+#~ msgstr "4 ng 7 araw"
+
+#~ msgid "day_sat"
+#~ msgstr "Sab"
+
+#~ msgid "day_sun"
+#~ msgstr "Araw"
+
+#~ msgid "day_mon"
+#~ msgstr "Mon"
+
+#~ msgid "day_tue"
+#~ msgstr "Tue"
+
+#~ msgid "day_wed"
+#~ msgstr "Wed"
+
+#~ msgid "day_thu"
+#~ msgstr "Huwebes"
+
+#~ msgid "day_fri"
+#~ msgstr "Biyernes"
+
+#~ msgid "home_today_wird"
+#~ msgstr "Ang Wird ngayon"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "I-play ang recitation ni"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "Purong Boses"
+
+#~ msgid "home_tarteel"
+#~ msgstr "Pagbigkas ng Tarteel"
+
+#~ msgid "home_khashi"
+#~ msgstr "Debotong Pagbigkas"

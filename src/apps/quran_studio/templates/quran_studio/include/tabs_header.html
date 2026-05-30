@@ -1,0 +1,65 @@
+{% load rbac_tags %}
+{% if request.user|can_access:"quran_studio.access" %}
+
+<div class="site-card p-4">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-grid-1x2-fill site-link-primary"></i>
+        <span>إدارة استديو القرآن</span>
+      </h2>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 text-[11px] site-text-muted">
+      <i class="bi bi-music-note-beamed"></i>
+      <span>Studio • Qurra</span>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+      {% if request.user|can_access:"quran_studio.coordinate" %}
+      <a href="{% url 'quran_studio:ayah_editor' 1 %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'ayah_editor' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+
+        {% if tab == 'ayah_editor' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+
+        <i class="bi bi-bounding-box ml-1"></i>
+        <span>الإحداثيات</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"quran_studio.qurra" %}
+      <a href="{% url 'quran_studio:qurra_list' %}"
+   class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+   {% if tab == 'qurra' %}
+     site-tab-link-active site-surface shadow-sm
+   {% else %}
+     site-tab-link hover:site-surface
+   {% endif %}">
+
+  {% if tab == 'qurra' %}
+    <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+  {% endif %}
+
+  <i class="bi bi-mic-fill ml-1"></i>
+  <span>القراء</span>
+</a>
+      {% endif %}
+
+    </nav>
+  </div>
+
+</div>
+{% endif %}

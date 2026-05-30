@@ -1,0 +1,119 @@
+{% extends "web/layouts/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "contact" %}{% endblock %}
+{% block description %}{% trans "contact_page_description" %}{% endblock %}
+
+{% block content %}
+
+<section class="min-h-[60vh] flex items-center justify-center px-4 py-16 pb-8" dir-text>
+  <div class="w-full max-w-5xl">
+    <div class="site-card p-6 md:p-8">
+
+      <!-- Header -->
+      <div class="mb-6 dir-text space-y-2">
+        <h1 class="text-xl md:text-2xl font-extrabold site-text flex items-center gap-2">
+          <i class="bi bi-envelope-paper-fill site-link-primary text-xl"></i>
+          <span>{% trans "contact" %}</span>
+        </h1>
+
+        <p class="text-xs md:text-sm site-text">
+          {% trans "contact_intro_text" %}
+        </p>
+
+        <div class="pt-3">
+          <hr class="site-border border">
+        </div>
+      </div>
+
+      {% if messages %}
+      <div class="mb-5 space-y-2">
+        {% for message in messages %}
+        <div class="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dir-text">
+          {{ message }}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="dir-text">
+
+        <form method="post" class="space-y-5">
+          {% csrf_token %}
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div>
+              <label class="block mb-1 text-[11px] font-semibold site-text">
+                {% trans "name" %} <span class="text-red-500">*</span>
+              </label>
+              <input type="text"
+                     name="full_name"
+                     value="{{ data.full_name }}"
+                     class="w-full rounded-lg text-sm px-3 py-2.5 border focus:outline-none
+                     {% if errors.full_name %}
+                       border-red-500 bg-red-50 focus:ring-2 focus:ring-red-500
+                     {% else %}
+                       site-input
+                     {% endif %}"
+                     placeholder="{% trans 'enter_your_name' %}">
+              {% if errors.full_name %}
+              <p class="mt-1 text-[11px] text-red-600">{{ errors.full_name }}</p>
+              {% endif %}
+            </div>
+
+            <div>
+              <label class="block mb-1 text-[11px] font-semibold site-text">
+                {% trans "email" %} <span class="text-red-500">*</span>
+              </label>
+              <input type="email"
+                     name="email"
+                     value="{{ data.email }}"
+                     class="w-full rounded-lg text-sm px-3 py-2.5 border focus:outline-none
+                     {% if errors.email %}
+                       border-red-500 bg-red-50 focus:ring-2 focus:ring-red-500
+                     {% else %}
+                       site-input
+                     {% endif %}"
+                     placeholder="example@email.com">
+              {% if errors.email %}
+              <p class="mt-1 text-[11px] text-red-600">{{ errors.email }}</p>
+              {% endif %}
+            </div>
+
+          </div>
+
+          <div>
+            <label class="block mb-1 text-[11px] font-semibold site-text">
+              {% trans "your_message" %} <span class="text-red-500">*</span>
+            </label>
+            <textarea name="message"
+                      rows="6"
+                      class="w-full rounded-lg text-sm px-3 py-2.5 border focus:outline-none
+                      {% if errors.message %}
+                        border-red-500 bg-red-50 focus:ring-2 focus:ring-red-500
+                      {% else %}
+                        site-input
+                      {% endif %}"
+                      placeholder="{% trans 'write_your_message_here' %}">{{ data.message }}</textarea>
+            {% if errors.message %}
+            <p class="mt-1 text-[11px] text-red-600">{{ errors.message }}</p>
+            {% endif %}
+          </div>
+
+          <div class="pt-2">
+            <button type="submit"
+                    class="site-btn-primary px-6 py-2.5 rounded-lg text-sm font-semibold">
+              {% trans "send_message" %}
+            </button>
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

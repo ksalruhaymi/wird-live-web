@@ -1,0 +1,200 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+
+{% block title %}إحصائيات التفاسير{% endblock %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-5" dir-text>
+  {% include "analytics/include/tabs_header.html" %}
+
+  <div class="site-card p-5 md:p-6">
+    <h1 class=".site-titleflex items-center gap-2">
+      <i class="bi bi-journal-richtext site-link-primary text-xl"></i>
+      <span>إحصائيات التفاسير</span>
+    </h1>
+    <p class="mt-1 text-sm site-text-muted">
+      متابعة فتح التفاسير والكتب الأكثر استخدامًا والصفحات والسور والآيات المرتبطة بها.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">إجمالي فتحات التفسير</p>
+      <p class="mt-2 text-3xl font-black text-orange-600">{{ total_tafsir_opens }}</p>
+    </div>
+
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">أكثر كتاب استخدامًا</p>
+      <p class="mt-2 text-lg font-extrabold text-slate-800">
+        {% if top_tafsir_books %}
+          {{ top_tafsir_books.0.payload__tafsir }}
+        {% else %}
+          -
+        {% endif %}
+      </p>
+    </div>
+
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">أكثر صفحة تفسير فتحًا</p>
+      <p class="mt-2 text-lg font-extrabold text-slate-800">
+        {% if top_tafsir_pages %}
+          صفحة {{ top_tafsir_pages.0.page_number }}
+        {% else %}
+          -
+        {% endif %}
+      </p>
+    </div>
+
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted">أكثر سورة فُتح تفسيرها</p>
+      <p class="mt-2 text-lg font-extrabold text-slate-800">
+        {% if top_tafsir_surahs %}
+          سورة {{ top_tafsir_surahs.0.surah_number }}
+        {% else %}
+          -
+        {% endif %}
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+    <div class="site-card p-5">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="site-title-md flex items-center gap-2">
+          <i class="bi bi-graph-up"></i>
+          <span>فتح التفاسير آخر 7 أيام</span>
+        </h2>
+      </div>
+      <div class="h-48">
+        <canvas id="tafsirOpensChart"></canvas>
+      </div>
+    </div>
+
+    <div class="site-card overflow-hidden">
+      <div class="p-5 border-b site-border">
+        <h2 class="site-title-md flex items-center gap-2">
+          <i class="bi bi-book"></i>
+          <span>أكثر كتب التفسير فتحًا</span>
+        </h2>
+      </div>
+      <div class="divide-y site-border">
+        {% for item in top_tafsir_books %}
+          <div class="px-4 py-3 flex items-center justify-between gap-3">
+            <span class="font-medium text-slate-700">{{ item.payload__tafsir }}</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-orange-50 text-orange-700 min-w-[2.25rem] px-2 py-1 text-xs font-bold">{{ item.total }}</span>
+          </div>
+        {% empty %}
+          <div class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
+    <div class="site-card overflow-hidden">
+      <div class="p-5 border-b site-border">
+        <h2 class="site-title-md flex items-center gap-2">
+          <i class="bi bi-book-half"></i>
+          <span>أكثر صفحات التفسير فتحًا</span>
+        </h2>
+      </div>
+      <div class="divide-y site-border">
+        {% for item in top_tafsir_pages %}
+          <div class="px-4 py-3 flex items-center justify-between gap-3">
+            <span class="font-medium text-slate-700">صفحة {{ item.page_number }}</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-amber-50 text-amber-700 min-w-[2.25rem] px-2 py-1 text-xs font-bold">{{ item.total }}</span>
+          </div>
+        {% empty %}
+          <div class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="site-card overflow-hidden">
+      <div class="p-5 border-b site-border">
+        <h2 class="site-title-md flex items-center gap-2">
+          <i class="bi bi-journal-text"></i>
+          <span>أكثر السور تفسيرًا</span>
+        </h2>
+      </div>
+      <div class="divide-y site-border">
+        {% for item in top_tafsir_surahs %}
+          <div class="px-4 py-3 flex items-center justify-between gap-3">
+            <span class="font-medium text-slate-700">سورة {{ item.surah_number }}</span>
+            <span class="inline-flex items-center justify-center rounded-full bg-emerald-50 text-emerald-700 min-w-[2.25rem] px-2 py-1 text-xs font-bold">{{ item.total }}</span>
+          </div>
+        {% empty %}
+          <div class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="site-card overflow-hidden">
+      <div class="p-5 border-b site-border">
+        <h2 class="site-title-md flex items-center gap-2">
+          <i class="bi bi-list-ol"></i>
+          <span>أكثر الآيات فتحًا في التفسير</span>
+        </h2>
+      </div>
+      <div class="divide-y site-border">
+        {% for item in top_tafsir_ayahs %}
+          <div class="px-4 py-3 flex items-center justify-between gap-3">
+            <span class="font-medium text-slate-700">
+              سورة {{ item.surah_number }} - آية {{ item.ayah_number }}
+            </span>
+            <span class="inline-flex items-center justify-center rounded-full bg-violet-50 text-violet-700 min-w-[2.25rem] px-2 py-1 text-xs font-bold">{{ item.total }}</span>
+          </div>
+        {% empty %}
+          <div class="px-4 py-6 text-center site-text-muted">لا توجد بيانات بعد</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="h-36"></div>
+{% endblock %}
+
+{% block extra_js %}
+  {{ block.super }}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const tafsirLabels = [{% for item in daily_tafsir_opens %}"{{ item.day|date:'m-d' }}"{% if not forloop.last %}, {% endif %}{% endfor %}];
+    const tafsirData = [{% for item in daily_tafsir_opens %}{{ item.total }}{% if not forloop.last %}, {% endif %}{% endfor %}];
+
+    const tafsirCanvas = document.getElementById("tafsirOpensChart");
+
+    if (tafsirCanvas) {
+      new Chart(tafsirCanvas, {
+        type: "line",
+        data: {
+          labels: tafsirLabels,
+          datasets: [{
+            label: "فتح التفسير",
+            data: tafsirData,
+            borderWidth: 2,
+            tension: 0.35,
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                precision: 0
+              }
+            }
+          }
+        }
+      });
+    }
+  </script>
+{% endblock %}

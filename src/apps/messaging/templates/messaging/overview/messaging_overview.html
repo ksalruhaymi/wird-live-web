@@ -1,0 +1,52 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} ملخص الإشعارات {% endblock %}
+{% block description %} ملخص الإشعارات {% endblock %}
+{% block dashboard_content %}
+
+{% if request.user|can_access:"messaging.access" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "messaging/includes/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+      ملخص الإشعارات
+      </h1>
+      <p class="mt-1 text-[11px] text-slate-500">
+      نظرة عامة سريعة على الإشعارات المرسلة عبر القنوات المختلفة.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-[12px]">
+    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+      <div class="text-slate-500 mb-1">البريد الإلكتروني</div>
+      <div class="text-xl font-extrabold text-slate-800">
+        {{ stats.email }}
+      </div>
+      <div class="text-[11px] text-slate-400 mt-1">إشعارات مرسلة</div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+      <div class="text-slate-500 mb-1">رسائل SMS</div>
+      <div class="text-xl font-extrabold text-slate-800">
+        {{ stats.sms }}
+      </div>
+      <div class="text-[11px] text-slate-400 mt-1">رسائل نصية</div>
+    </div>
+
+    <div class="bg-white border border-slate-200 rounded-2xl p-4">
+      <div class="text-slate-500 mb-1">واتساب</div>
+      <div class="text-xl font-extrabold text-slate-800">
+        {{ stats.whatsapp }}
+      </div>
+      <div class="text-[11px] text-slate-400 mt-1">تنبيهات واتساب</div>
+    </div>
+  </div>
+
+</div>
+{% endif %}
+{% endblock %}

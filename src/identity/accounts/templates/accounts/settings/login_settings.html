@@ -1,0 +1,70 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static i18n rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"settings.access" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+
+  {% include "accounts/partials/tabs_header.html" with tab="auth" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-5">
+    <div>
+      <h2 class="site-title-md">
+        إعدادات {% trans "login" %}
+      </h2>
+      <p class="text-[11px] site-text-muted mt-0.5">
+        التحكم في طرق المصادقة المسموح بها في النظام.
+      </p>
+    </div>
+  </div>
+
+  <!-- Settings Card -->
+  <div class="site-card">
+
+    <form method="post" class="divide-site">
+      {% csrf_token %}
+
+      <!-- Local DB Login -->
+      <div class="flex items-center justify-between px-6 py-4">
+        <div>
+          <h4 class="text-[13px] font-bold site-text">
+            {% trans "login" %} المحلي
+          </h4>
+          <p class="text-[11px] site-text-muted">
+            السماح ب{% trans "login" %} من قاعدة بيانات النظام.
+          </p>
+        </div>
+
+        <!-- Switch -->
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox"
+                 name="allow_db_login"
+                 class="sr-only peer"
+                 {% if settings.allow_db_login %}checked{% endif %}>
+
+          <div class="relative w-11 h-6 bg-slate-300 rounded-full
+                      peer-checked:bg-[var(--color-primary)] transition-colors">
+            <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full
+                         transition-transform
+                         peer-checked:-translate-x-5"></span>
+          </div>
+        </label>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex justify-end px-6 py-4 rounded-b-2xl">
+        <button type="submit"
+                class="site-btn-primary inline-flex items-center gap-2 px-5 py-2 rounded-full text-[12px] font-bold active:scale-95 transition">
+          <i class="bi bi-save-fill"></i>
+          حفظ الإعدادات
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+{% endif %}
+{% endblock %}

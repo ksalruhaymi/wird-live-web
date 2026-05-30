@@ -1,0 +1,3595 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: as\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "আমাৰ সৈতে যোগাযোগ কৰক"
+
+msgid "contact_page_description"
+msgstr "আমাৰ সৈতে যোগাযোগ কৰক, আমি আপোনালোকক সেৱা আগবঢ়াবলৈ আহিছো"
+
+msgid "contact_intro_text"
+msgstr ""
+"আপোনালোকে Wird Quran প্লেটফৰ্মৰ সৈতে যোগাযোগ কৰিবলৈ পাই আমি আনন্দিত হৈছো। আমি "
+"আল্লাহৰ কিতাপৰ সেৱা আৰু ইয়াৰ পাঠত সুবিধা কৰি দিবলৈ চেষ্টা কৰোঁ।"
+
+msgid "name"
+msgstr "নাম"
+
+msgid "enter_your_name"
+msgstr "আপোনাৰ নাম লিখক"
+
+msgid "email"
+msgstr "ইমেইল"
+
+msgid "your_message"
+msgstr "আপোনাৰ বাৰ্তা"
+
+msgid "write_your_message_here"
+msgstr "আপোনাৰ অনুসন্ধান বা বাৰ্তা ইয়াত লিখক"
+
+msgid "send_message"
+msgstr "বাৰ্তা প্ৰেৰণ কৰক"
+
+msgid "message_sent"
+msgstr "বাৰ্তা প্ৰেৰণ কৰা হৈছে"
+
+msgid "message_sent_successfully"
+msgstr "সফলভাৱে প্ৰেৰণ কৰা বাৰ্তা"
+
+msgid "thank_you_contact"
+msgstr "আমাৰ লগত যোগাযোগ কৰাৰ বাবে ধন্যবাদ"
+
+msgid "contact_success_message"
+msgstr ""
+"আপোনাৰ বাৰ্তা সফলতাৰে লাভ কৰা হৈছে। উইৰ্ড কোৰআনৰ দলে ইয়াক পৰ্যালোচনা কৰিব আৰু "
+"কোৰআনৰ সেৱাত সহায় কৰিবলৈ যিমান পাৰি সোনকালে আপোনাৰ সৈতে যোগাযোগ কৰিব।"
+
+msgid "back_to_home"
+msgstr "ঘৰলৈ উভতি যাওক"
+
+msgid "quran_recitation_prompt"
+msgstr "আৰবী ভাষাত কোৰআন পাঠ"
+
+msgid "save_stop"
+msgstr "পঢ়াৰ অৱস্থান সংৰক্ষণ কৰক"
+
+msgid "cancel_stop"
+msgstr "পঢ়াৰ অৱস্থান আঁতৰাই পেলাওক"
+
+msgid "hifz_audio_recording"
+msgstr "অডিঅ' ৰেকৰ্ডিং"
+
+msgid "hifz_enable_hiding"
+msgstr "আয়াহ লুকুৱাওক"
+
+msgid "hifz_segmentation_thematic"
+msgstr "বিষয়ভিত্তিক বিভাজন"
+
+msgid "hifz_writing"
+msgstr "লিখনি"
+
+msgid "zoom_in"
+msgstr "জুম ইন কৰক"
+
+msgid "repeat"
+msgstr "পুনৰাবৃত্তি"
+
+msgid "page"
+msgstr "পৃষ্ঠা"
+
+msgid "play_audio"
+msgstr "অডিঅ' প্লে কৰক"
+
+msgid "word_meanings"
+msgstr "শব্দৰ অৰ্থ"
+
+msgid "brief_tafsir"
+msgstr "চমু তাফছিৰ"
+
+msgid "playback_tools"
+msgstr "প্লেবেক সঁজুলিসমূহ"
+
+msgid "audio"
+msgstr "অডিঅ'"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"মুখস্থ কৰাৰ সময়ত অডিঅ' প্লে কৰিবলৈ, প্লে আৰু পজ বুটাম দেখুৱাবলৈ এটা আয়াত টেপ কৰক। "
+"তাৰ পিছত ইয়াৰ পৰা আয়তন নিয়ন্ত্ৰণ কৰিব পাৰিব, বিক্ষিপ্ততা নোহোৱাকৈ সহজ পঢ়াৰ বাবে "
+"পৰ্দাখন ডাঙৰ কৰিব পাৰিব, আৰু আয়াহৰ পুনৰাবৃত্তিৰ সংখ্যা বৃদ্ধি কৰিব পাৰিব।"
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "দুটা পৃষ্ঠা"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr "মুছাফত এটা পৃষ্ঠা বা দুটা মুখামুখি পৃষ্ঠাৰ মাজত চুইচ কৰক"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "এটা পৃষ্ঠা"
+
+msgid "hifz_memorization_tools"
+msgstr "মুখস্থ কৰাৰ কৌশল"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"মুখস্থ কৰাৰ সঁজুলিয়ে আপোনাক স্মৃতিশক্তি শক্তিশালী আৰু স্মৃতিশক্তি প্ৰশিক্ষণ দিয়াত সহায় "
+"কৰে। আপুনি আয়াহ লুকুৱাই ৰাখিব পাৰে সেইবোৰ মনত ৰখাৰ অভ্যাস কৰিবলৈ। যেতিয়া আপুনি "
+"এটা আয়াহৰ ওপৰত হুভাৰ কৰে, ই আপোনাক পথ প্ৰদৰ্শন কৰিবলৈ লাহে লাহে দেখা দিয়ে, আৰু "
+"যেতিয়া আপুনি ইয়াক ক্লিক কৰে, ই সম্পূৰ্ণৰূপে ওলায়। বিষয়ভিত্তিক বিভাজনো উপলব্ধ, "
+"সম্পৰ্কীয় আয়াহসমূহক বিষয়ত গোট কৰি মুখস্থ কৰা আৰু বুজাটো সহজ কৰি তোলা।"
+
+msgid "hifz_play"
+msgstr "খেলা"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "ফুল ষ্টপ"
+
+msgid "hifz_mstwa_audio"
+msgstr "ভলিউম লেভেল"
+
+msgid "mushaf"
+msgstr "মুছাফ"
+
+msgid "reciter"
+msgstr "আবৃত্তিকাৰী"
+
+msgid "search"
+msgstr "সন্ধান"
+
+msgid "stop_audio"
+msgstr "অডিঅ' বন্ধ কৰক"
+
+msgid "recitation_correction"
+msgstr "আবৃত্তি সংশোধন"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"প্ৰথমে এটা আয়াহ বাছি লওক। তাৰ পিছত ৰেকৰ্ড বুটামটো ওলাব। ইয়াক টিপক আৰু নিৰ্বাচিত "
+"আয়াহৰ আবৃত্তি ৰেকৰ্ড কৰক যাতে আপোনাৰ অডিঅ' বিশ্লেষণ কৰিব পাৰি আৰু আপোনাৰ আবৃত্তি "
+"শুধৰণি কৰিব পাৰি। আপুনি আবৃত্তিৰ সঠিকতাৰ শতাংশ দেখিব, আৰু আপোনাৰ ৰেকৰ্ডিং কৰা কণ্ঠ "
+"শুনিবলৈ এটা বুটাম পাব।"
+
+msgid "recitation_accuracy_percentage"
+msgstr "আবৃত্তিৰ সঠিকতা"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "শ্বেইখ অডিঅ'"
+
+msgid "my_recorded_audio"
+msgstr "মোৰ ৰেকৰ্ডিং"
+
+msgid "mushaf_hafs"
+msgstr "হাফছ মুছাফ"
+
+msgid "mushaf_warsh"
+msgstr "ৱাৰ্চ মুছাফ"
+
+msgid "mushaf_qaloun"
+msgstr "কালৌন মুছাফ"
+
+msgid "mushaf_douri"
+msgstr "আল-দৌৰী মুছাফ"
+
+msgid "mushaf_shuba"
+msgstr "শ্বু'বাহ মুছাফ"
+
+msgid "mushaf_sousi"
+msgstr "আল-ছৌছি মুছাফ"
+
+msgid "tafsir_almuyasser"
+msgstr "আল-মুয়াছাৰ"
+
+msgid "tafsir_alkatheer"
+msgstr "ইবনে কাথিৰ"
+
+msgid "tafsir_albaghawy"
+msgstr "আল-বাঘাউই"
+
+msgid "tafsir_altabary"
+msgstr "আল-তাবাৰী"
+
+msgid "tafsir_alqortoby"
+msgstr "আল-কুৰতুবী"
+
+msgid "tafsir_alsa3dy"
+msgstr "আল-ছা'দি"
+
+#, fuzzy, python-format
+#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "কোৰআনৰ পৰা %(পৃষ্ঠা) পৃষ্ঠাৰ তফছিৰ | উইৰ্ড কোৰআন"
+
+#, fuzzy, python-format
+#| msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "চুৰা %(ছুৰা_নাম)ৰ | পঢ়ক আৰু শুনা - Wird Quran"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "%(qari_name)s | উইৰ্ড কোৰআন"
+
+#, fuzzy, python-format
+#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "কোৰআনৰ পৰা পৃষ্ঠা %(পৃষ্ঠা)সমূহ | উইৰ্ড কোৰআন"
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+#| "displayed and linked to tafsir on the Wird Quran platform."
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"কোৰআনৰ পৰা %(পৃষ্ঠা) পৃষ্ঠাৰ তফছিৰ সহজে পঢ়ক, উইৰ্ড কোৰআন প্লেটফৰ্মত আয়াহ প্ৰদৰ্শিত আৰু "
+"তাফছিৰৰ সৈতে সংযুক্ত কৰি।"
+
+#, python-format
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"কোৰআনৰ পৰা চুৰা %(surah_name)s পঢ়ক, Wird কোৰআন প্লেটফৰ্মত সহজ শুনা আৰু ব্ৰাউজিঙৰ "
+"সৈতে।"
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"%(qari_name)s দ্বাৰা পঢ়া কোৰআন উচ্চমানৰ শুনক, চুৰা আৰু আয়াতৰ মাজত সহজ নেভিগেচনৰ "
+"সৈতে।"
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Browse page %(page)s from the Holy Quran with a comfortable and easy "
+#| "interface, with smooth reading and quick navigation on the Wird Quran "
+#| "platform."
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"Wird কোৰআন প্লেটফৰ্মত মসৃণ পঢ়া আৰু দ্ৰুত নেভিগেচনৰ সৈতে, এটা আৰামদায়ক আৰু সহজ "
+"আন্তঃপৃষ্ঠৰ সৈতে কোৰআনৰ পৰা পৃষ্ঠা %(পৃষ্ঠা)সমূহ ব্ৰাউজ কৰক।"
+
+msgid "no_word_meanings"
+msgstr "এই আয়াহৰ বাবে কোনো শব্দৰ অৰ্থ উপলব্ধ নহয়"
+
+msgid "hide_word_meanings"
+msgstr "শব্দৰ অৰ্থ লুকুৱাওক"
+
+msgid "show_word_meanings"
+msgstr "শব্দৰ অৰ্থ দেখুৱাওক"
+
+msgid "word_meanings_hint"
+msgstr "আবৃত্তি আৰম্ভ হ’লে শব্দৰ অৰ্থ ওলাব"
+
+msgid "error_word_meanings"
+msgstr "শব্দৰ অৰ্থ লোড কৰাত ব্যৰ্থ"
+
+msgid "surah"
+msgstr "ছূৰা"
+
+msgid "ayah"
+msgstr "আয়াহ"
+
+msgid "show_thematic_segmentation"
+msgstr "বিষয়ভিত্তিক বিভাজন দেখুৱাওক"
+
+msgid "hide_thematic_segmentation"
+msgstr "বিষয়ভিত্তিক বিভাজন লুকুৱাওক"
+
+msgid "daily_quran_reading"
+msgstr "মোৰ ডেইলী উইৰ্ড"
+
+msgid "new_khatma"
+msgstr "নতুন খাটমা"
+
+msgid "close"
+msgstr "বন্ধ"
+
+msgid "current_khatma"
+msgstr "বৰ্তমান খাটমা"
+
+msgid "Juz"
+msgstr "জুজ"
+
+msgid "remaining_wirds"
+msgstr "বাকী থকা উইৰ্ডছ"
+
+msgid "khatma_count"
+msgstr "খাটমা কাউন্ট"
+
+msgid "current_wird"
+msgstr "বৰ্তমানৰ Wird"
+
+msgid "from"
+msgstr "পৰা"
+
+msgid "to"
+msgstr "লৈ"
+
+msgid "congratulations"
+msgstr "অভিনন্দন"
+
+msgid "you_finished_current_khatma"
+msgstr "আপুনি এই খাটমা সফলতাৰে সম্পূৰ্ণ কৰিলে"
+
+msgid "continue_reading"
+msgstr "Wird পঢ়া অব্যাহত ৰাখক"
+
+msgid "finish_wird"
+msgstr "উইৰ্ড সম্পূৰ্ণ হৈছে"
+
+msgid "choose_mushaf"
+msgstr "মুছাফক বাছি লওক"
+
+msgid "current"
+msgstr "সোঁত"
+
+msgid "start_new_khatma"
+msgstr "নতুন খাটমা আৰম্ভ কৰক"
+
+msgid "start_from"
+msgstr "পৰা আৰম্ভ কৰক"
+
+msgid "mushaf_start"
+msgstr "মুছাফৰ আৰম্ভণি"
+
+msgid "duration_days"
+msgstr "খাটমা সময়সীমা (দিন)"
+
+msgid "day"
+msgstr "দিন"
+
+msgid "daily_amount"
+msgstr "দৈনিক উইৰ্ডৰ পৰিমাণ"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "খাটমা সাৰাংশ"
+
+msgid "start_khatma"
+msgstr "খাটমা আৰম্ভ কৰক"
+
+msgid "reciters"
+msgstr "আবৃত্তিকাৰীসকল"
+
+msgid "search_reciter"
+msgstr "নামেৰে আবৃত্তিকাৰীৰ সন্ধান কৰক"
+
+msgid "loading"
+msgstr "লোড হৈ আছে"
+
+msgid "tafasir"
+msgstr "তফছিৰ কিতাপ"
+
+msgid "no_tafsir_available"
+msgstr "বৰ্তমান কোনো তফছিৰ উপলব্ধ নহয়"
+
+msgid "quran"
+msgstr "কোৰআন"
+
+msgid "tafsir"
+msgstr "তফছিৰ"
+
+msgid "surah_1"
+msgstr "আল-ফাতিহাহ"
+
+msgid "mushafs"
+msgstr "মুছাফসকল"
+
+msgid "reading_mode"
+msgstr "পঢ়াৰ ধৰণ"
+
+msgid "current_reciter"
+msgstr "বৰ্তমানৰ আবৃত্তিকাৰ"
+
+msgid "coming_soon"
+msgstr "আহি আছে"
+
+msgid "current_mushaf"
+msgstr "বৰ্তমানৰ মুছাফ"
+
+msgid "tafsir_loading_message"
+msgstr "এই পৃষ্ঠাটো খুলিলে তফছিৰ লোড হ'ব"
+
+msgid "title_and_body_required"
+msgstr "শিৰোনাম আৰু বাৰ্তাৰ মূখ্য অংশৰ প্ৰয়োজন"
+
+msgid "no_subscribers_available"
+msgstr "প্ৰেৰণৰ বাবে কোনো গ্ৰাহক উপলব্ধ নহয়"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "আপুনি উইৰ্ড কোৰআনৰ বাৰ্তাত চাবস্ক্ৰাইব কৰা হৈছে"
+
+msgid "unsubscribe_label"
+msgstr "আনচাবস্ক্ৰাইব কৰিবলৈ"
+
+msgid "message_sent_to_subscribers"
+msgstr "%(count)s গ্ৰাহকলৈ প্ৰেৰণ কৰা বাৰ্তা"
+
+msgid "message_sent_with_failures"
+msgstr ""
+"%(sent_count)s গ্ৰাহকসকললৈ প্ৰেৰণ কৰা বাৰ্তা আৰু %(failed_count)s ৰ বাবে ব্যৰ্থ"
+
+msgid "message_send_failed"
+msgstr "বাৰ্তা প্ৰেৰণ কৰাত ব্যৰ্থ"
+
+msgid "please_enter_email"
+msgstr "অনুগ্ৰহ কৰি আপোনাৰ ইমেইল দিয়ক"
+
+msgid "newsletter_welcome_subject"
+msgstr "Wird Quran subscribe কৰাৰ বাবে ধন্যবাদ"
+
+msgid "newsletter_greeting"
+msgstr "তোমালোকৰ ওপৰত আল্লাহৰ চাল্লাল্লাহু আলাইহি অছাল্লাম"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "Wird কোৰআনৰ বাৰ্তা চাবস্ক্ৰাইব কৰাৰ বাবে ধন্যবাদ"
+
+msgid "newsletter_joined_successfully"
+msgstr "আপুনি আমাৰ সৈতে যোগদান কৰি আমি সুখী, আপুনি আপোনাৰ ইমেইলত আপডেট লাভ কৰিব"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr ""
+"যদি আপুনি যিকোনো সময়তে আনচাবস্ক্ৰাইব কৰিব বিচাৰে তেন্তে তলৰ লিংকটো ব্যৱহাৰ কৰিব "
+"পাৰে"
+
+msgid "newsletter_closing"
+msgstr "আন্তৰিক ধন্যবাদ আৰু প্ৰশংসাৰে"
+
+msgid "wird quran"
+msgstr "উইৰ্দ আল-কুৰআন আল-কাৰিম"
+
+msgid "newsletter_subscription_success"
+msgstr "ধন্যবাদ, আপোনালোকে Wird Quran বাৰ্তা সফলভাৱে subscribe কৰিছে"
+
+msgid "newsletter_subscription_reactivated"
+msgstr "ধন্যবাদ, Wird Quran বাৰ্তাৰ আপোনাৰ চাবস্ক্ৰিপচন পুনৰ সক্ৰিয় কৰা হৈছে"
+
+msgid "email_already_subscribed"
+msgstr "এই ইমেইলটো ইতিমধ্যে চাবস্ক্ৰাইব কৰা হৈছে"
+
+msgid "unsubscribe_success_message"
+msgstr "সফলতাৰে আনচাবস্ক্ৰাইব কৰা হৈছে"
+
+msgid "unsubscribe_already_done"
+msgstr "ইতিমধ্যে আনচাবস্ক্ৰাইব কৰা হৈছে"
+
+msgid "qari_list_title"
+msgstr "পবিত্ৰ কোৰআন শুনক"
+
+msgid "qari_list_description"
+msgstr ""
+"আবৃত্তিকাৰক ব্ৰাউজ কৰক আৰু সুন্দৰ কণ্ঠৰ আবৃত্তিকাৰৰ বৈচিত্ৰ্যপূৰ্ণ সংকলনৰ পৰা আপোনাৰ প্ৰিয় "
+"আবৃত্তি বাছক।"
+
+msgid "listen_quran"
+msgstr "শুনক কোৰআন"
+
+msgid "view_surahs"
+msgstr "চুৰাসমূহ চাওক"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "কোৰআন শুনা দ্বাৰা"
+
+msgid "tilawa_wrd_quran"
+msgstr "উইৰ্ড কোৰআন"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "দ্বাৰা আবৃত্তি কৰা সম্পূৰ্ণ কোৰআন শুনক"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "উচ্চমানৰ, চুৰাসমূহৰ মাজত সহজ নেভিগেচনৰ সৈতে"
+
+msgid "all_reciters"
+msgstr "সকলো আবৃত্তিকাৰী"
+
+msgid "select_surah_player"
+msgstr "এটা চুৰা বাছি লওক"
+
+msgid "prev_surah"
+msgstr "পূৰ্বৰ ছুৰা"
+
+msgid "next_surah"
+msgstr "পৰৱৰ্তী ছুৰা"
+
+msgid "search_surah"
+msgstr "নাম বা নম্বৰৰ দ্বাৰা ছুৰাত সন্ধান কৰক"
+
+msgid "ayah_counter"
+msgstr "আয়াহ"
+
+msgid "stop_playback"
+msgstr "প্লেবেক বন্ধ কৰক"
+
+msgid "username_password_required"
+msgstr "ব্যৱহাৰকাৰীৰ নাম আৰু পাছৱৰ্ডৰ প্ৰয়োজন।"
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "একাউণ্ট সক্ৰিয় কৰাৰ প্ৰয়োজন"
+
+msgid "invalid_login_credentials"
+msgstr "অবৈধ প্ৰৱেশ প্ৰমাণপত্ৰ।"
+
+msgid "dashboard"
+msgstr "ডেচব'ৰ্ড"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "আগবাঢ়ি যাবলৈ লগইন বা এটা একাউণ্ট সৃষ্টি কৰক"
+
+msgid "login"
+msgstr "লগইন কৰক"
+
+msgid "register"
+msgstr "একাউণ্ট সৃষ্টি কৰক"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "ইতিমধ্যে ব্যৱহাৰকাৰীৰ নাম লোৱা হৈছে।"
+
+msgid "enter_username"
+msgstr "ব্যৱহাৰকাৰীৰ নাম দিয়ক"
+
+msgid "password"
+msgstr "পাছৱৰ্ড"
+
+msgid "enter_password"
+msgstr "পাছৱৰ্ড দিয়ক"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "পাছৱৰ্ড পাহৰিলেনে?"
+
+msgid "create_account"
+msgstr "একাউণ্ট সৃষ্টি কৰক"
+
+msgid "username_required"
+msgstr "ব্যৱহাৰকাৰীৰ নাম প্ৰয়োজনীয়।"
+
+msgid "username_taken"
+msgstr "ইতিমধ্যে ব্যৱহাৰকাৰীৰ নাম লোৱা হৈছে।"
+
+msgid "email_required"
+msgstr "ইমেইলৰ প্ৰয়োজন।"
+
+msgid "email_taken"
+msgstr "ইতিমধ্যে ইমেইল ব্যৱহাৰ কৰা হৈছে।"
+
+msgid "password_required"
+msgstr "পাছৱৰ্ডৰ প্ৰয়োজন।"
+
+msgid "register_success"
+msgstr ""
+"স্বাগতম 🌿 আপোনাৰ একাউণ্ট সফলভাৱে তৈয়াৰ কৰা হৈছে। আপোনালোকক জাহাজত লৈ আমি সুখী "
+"হৈছো। আমি আপোনালোকৰ বাবে এক সুকীয়া আৰু ফলপ্ৰসূ অভিজ্ঞতা কামনা কৰিলোঁ।"
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"উইৰ্ড কোৰআন হৈছে কোৰআন পঢ়া, বিখ্যাত আবৃত্তিকাৰীৰ আবৃত্তি শুনা, আৰু তাফছিৰৰ কিতাপ "
+"সহজে আৰু বিজ্ঞাপনমুক্তভাৱে ব্ৰাউজ কৰাৰ এক সংহত মঞ্চ।"
+
+msgid "success"
+msgstr "সফলতা"
+
+msgid "error"
+msgstr "আঁসোৱাহ"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "উইৰ্দ আল-কোৰআন আল-কাৰিমৰ বিষয়ে"
+
+msgid "long_about_text"
+msgstr ""
+"Wird হৈছে এক সংহত ডিজিটেল প্লেটফৰ্ম যাৰ লক্ষ্য হৈছে কোৰআন আবৃত্তি আৰু চিন্তা-চৰ্চা "
+"সংগঠিত আৰু আকৰ্ষণীয়ভাৱে সহজ কৰি তোলা। ইয়াত বিভিন্ন মুছাফ ব্ৰাউজ কৰা, আবৃত্তিকাৰীৰ "
+"কথা শুনা, আৰু প্ৰামাণিক তফছিৰ কিতাপ পঢ়া আদি সেৱা আগবঢ়োৱা হয়।"
+
+msgid "about_wird"
+msgstr ""
+"Wird হৈছে এক সংহত ডিজিটেল প্লেটফৰ্ম যাৰ লক্ষ্য হৈছে কোৰআন আবৃত্তি আৰু চিন্তা-চৰ্চা "
+"সংগঠিত আৰু আকৰ্ষণীয়ভাৱে সহজ কৰি তোলা। ইয়াত বিভিন্ন নৰেশ্যনৰ সৈতে মুছাফ ব্ৰাউজ কৰা, "
+"আবৃত্তিকাৰী শুনা, আৰু নিৰ্ভৰযোগ্য তফছিৰ পঢ়া আদি সেৱা আগবঢ়োৱা হয়। ইয়াৰ উপৰিও ই "
+"ব্যৱহাৰকাৰীসকলক তেওঁলোকৰ দৈনিক Wird অনুসৰণ কৰিবলৈ আৰু মুখস্থ আৰু পুনৰীক্ষণৰ ক্ষেত্ৰত "
+"তেওঁলোকৰ অগ্ৰগতি অনুসৰণ কৰিবলৈ অনুমতি দিয়ে। এই প্লেটফৰ্মৰ লক্ষ্য হৈছে কোৰআন প্ৰকল্পক "
+"সমৰ্থন কৰা আৰু ইয়াৰ সৈতে সংযোগ শক্তিশালী কৰা এক সহজ আৰু সংহত ডিজিটেল অভিজ্ঞতাৰ "
+"জৰিয়তে।"
+
+msgid "wird"
+msgstr "উইৰ্ড"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "কোৰআনৰ সৈতে আপোনাৰ দৈনিক উইৰ্ড"
+
+msgid "home_hero_title1"
+msgstr "কোৰআন পঢ়াৰ বাবে এক শান্ত অভিজ্ঞতা"
+
+msgid "home_hero_title2"
+msgstr "আৰু শুনা আৰু প্ৰতিফলন"
+
+msgid "home_hero_desc"
+msgstr ""
+"পঢ়া, আবৃত্তি, তফছিৰ, অনুবাদ, আৰু শব্দৰ অৰ্থক এটা সহজ আৰু সংগঠিত অভিজ্ঞতালৈ আনে।"
+
+msgid "home_start_reading"
+msgstr "পঢ়া আৰম্ভ কৰক"
+
+msgid "home_explore_recitations"
+msgstr "আবৃত্তিসমূহ অন্বেষণ কৰক"
+
+msgid "home_calm_recitation"
+msgstr "শান্ত আবৃত্তি"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "বৈশিষ্ট্যসমূহ"
+
+msgid "home_features_title"
+msgstr "এটা ঠাইতে প্ৰয়োজনীয় সকলো বস্তু"
+
+msgid "home_features_desc"
+msgstr ""
+"আপোনাক বিক্ষিপ্ততা নোহোৱাকৈ পঢ়িবলৈ, শুনিবলৈ আৰু চিন্তা কৰাত সহায় কৰিবলৈ শান্ত সঁজুলি।"
+
+msgid "home_feature_quran_title"
+msgstr "কোৰআন পঢ়ক"
+
+msgid "home_feature_quran_desc"
+msgstr "এটা মাৰ্জিত মুছাফ আন্তঃপৃষ্ঠ যিয়ে পঢ়াটো চকুত আৰামদায়ক আৰু সহজ কৰি তোলে।"
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "এটা ঠাইতে প্ৰয়োজনীয় সকলো বস্তু"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"আপোনাক বিক্ষিপ্ততা নোহোৱাকৈ পঢ়িবলৈ, শুনিবলৈ আৰু চিন্তা কৰাত সহায় কৰিবলৈ শান্ত সঁজুলি।"
+
+msgid "home_feature_listen_title"
+msgstr "আবৃত্তি শুনক"
+
+msgid "home_feature_listen_desc"
+msgstr "বিশুদ্ধ কণ্ঠ আৰু শান্ত শুনা অভিজ্ঞতাৰে আবৃত্তিকাৰৰ নিৰ্বাচন।"
+
+msgid "home_feature_tafsir_title"
+msgstr "তফছিৰ"
+
+msgid "home_feature_tafsir_desc"
+msgstr "প্ৰতিফলন আৰু বুজাবুজিত সহায় কৰিবলৈ সংগঠিত প্ৰদৰ্শনৰ সৈতে নিৰ্ভৰযোগ্য তাফছিৰ।"
+
+msgid "home_feature_trans_title"
+msgstr "অনুবাদ"
+
+msgid "home_feature_trans_desc"
+msgstr "আয়াহৰ কাষে কাষে পোনপটীয়াকৈ একাধিক ভাষাত অৰ্থৰ অনুবাদ।"
+
+msgid "home_feature_words_title"
+msgstr "শব্দৰ অৰ্থ"
+
+msgid "home_feature_words_desc"
+msgstr "পৃষ্ঠাৰ পৰা নোযোৱাকৈ এটা স্পৰ্শৰে যিকোনো শব্দৰ অৰ্থ বিচাৰি চাওক।"
+
+msgid "home_feature_daily_title"
+msgstr "ডেইলী উইৰ্ড"
+
+msgid "home_feature_daily_desc"
+msgstr ""
+"আপোনাৰ দৈনিক Wird সংগঠিত কৰক আৰু আপোনাৰ ধাৰাবাহিকতা শান্তভাৱে আৰু নিয়মিতভাৱে "
+"অনুসৰণ কৰক।"
+
+msgid "surah_2"
+msgstr "আল-বাকাৰাহ"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "ডেইলী উইৰ্ড"
+
+msgid "home_daily_title"
+msgstr "এটা শান্ত অভ্যাস, দিনক দিনে আপোনাৰ লগত বৃদ্ধি"
+
+msgid "home_daily_desc"
+msgstr ""
+"আপোনাৰ দিনটোৰ লগত খাপ খুৱাই আপোনাৰ Wird ব্যৱস্থা কৰক, আৰু হেঁচা নোহোৱাকৈ আপোনাৰ "
+"ধাৰাবাহিকতা অনুসৰণ কৰক। এটা কোমল সোঁৱৰণী, এটা সংগঠিত প্ৰদৰ্শন, আৰু সহজ অনুসৰণে "
+"আপোনাক সদায় আল্লাহৰ কিতাপৰ সৈতে সংযুক্ত কৰি ৰাখে।"
+
+msgid "home_gentle_tracking"
+msgstr "কোমল ট্ৰেকিং"
+
+msgid "home_flexible_reminder"
+msgstr "নমনীয় সোঁৱৰাই দিয়া"
+
+msgid "home_no_pressure"
+msgstr "কোনো চাপ নাই"
+
+msgid "tilawa"
+msgstr "আবৃত্তি"
+
+msgid "home_recitation_title"
+msgstr "হৃদয় শান্ত কৰা কণ্ঠৰে শুনা"
+
+msgid "home_recitation_desc"
+msgstr ""
+"আপোনাৰ আত্মাক স্পৰ্শ কৰা আবৃত্তিকাৰজনক বাছি লওক, আৰু শান্ত আৰু বিক্ষিপ্ততামুক্ত "
+"অভিজ্ঞতাৰে শুনা।"
+
+msgid "home_now_playing"
+msgstr "এতিয়া খেলি আছে"
+
+msgid "home_reciter_label"
+msgstr "আবৃত্তিকাৰী"
+
+msgid "home_current_surah"
+msgstr "বৰ্তমানৰ চুৰা"
+
+msgid "home_prev"
+msgstr "পূৰ্ৱবৰ্তী"
+
+msgid "home_play_pause"
+msgstr "খেলা / বিৰতি"
+
+msgid "home_next"
+msgstr "পৰৱৰ্তী"
+
+msgid "home_reading_label"
+msgstr "তফছিৰ আৰু অনুবাদ"
+
+msgid "home_reading_title"
+msgstr "অৰ্থৰ ওপৰত গভীৰ আৰু স্পষ্টভাৱে চিন্তা কৰক"
+
+msgid "home_reading_desc"
+msgstr "কিতাপৰ দৰেই এক অভিজ্ঞতা: ইয়াৰ ঠাইত আয়াহ, আৰু ইয়াৰ কাষত ইয়াৰ অৰ্থ।"
+
+msgid "home_easy_tafsir"
+msgstr "সহজ তফছিৰ"
+
+msgid "home_meaning_badge"
+msgstr "অৰ্থ"
+
+msgid "home_meaning_label"
+msgstr "অৰ্থ"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "গোপনীয়তা নীতি"
+
+msgid "Wird — Privacy Policy"
+msgstr ""
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr ""
+
+msgid "Last updated: May 2026"
+msgstr ""
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+
+msgid "translations"
+msgstr "অনুবাদ"
+
+msgid "translation_page_title"
+msgstr "অনুবাদ"
+
+msgid "surahs"
+msgstr "ছূৰা"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "পঢ়াৰ অৱস্থান সংৰক্ষণ কৰক"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "ফুটাৰ লিংকসমূহ"
+
+msgid "about"
+msgstr "বিষয়ে"
+
+msgid "contact_us"
+msgstr "আমাৰ সৈতে যোগাযোগ কৰক"
+
+msgid "download_android"
+msgstr "এণ্ড্ৰইডৰ বাবে ডাউনলোড কৰক"
+
+msgid "download_ios"
+msgstr "iOS ৰ বাবে ডাউনলোড কৰক"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "মেনু"
+
+msgid "home"
+msgstr "গৃহ"
+
+msgid "read_quran"
+msgstr "কোৰআন পঢ়ক"
+
+msgid "hifz_quran"
+msgstr "কোৰআন মুখস্থ কৰা"
+
+msgid "notifications"
+msgstr "জাননীসমূহ"
+
+msgid "logout"
+msgstr "লগআউট কৰক"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "ৰূপৰেখা"
+
+msgid "SECTION 1"
+msgstr ""
+
+msgid "Information We Collect"
+msgstr ""
+
+msgid "a. Account Information (if you sign in)"
+msgstr ""
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr ""
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+
+msgid "c. Contact Messages"
+msgstr ""
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+
+msgid "SECTION 2"
+msgstr ""
+
+msgid "Data Stored Only on Your Device"
+msgstr ""
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr ""
+
+msgid "Azkar completion progress"
+msgstr ""
+
+msgid "Notification schedule and preferences"
+msgstr ""
+
+msgid "Selected reciter and Mushaf style"
+msgstr ""
+
+msgid "Accessibility and display settings"
+msgstr ""
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr ""
+
+msgid "The Quran database"
+msgstr ""
+
+msgid "SECTION 3"
+msgstr ""
+
+msgid "Microphone Access"
+msgstr ""
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+
+msgid "SECTION 4"
+msgstr ""
+
+msgid "Third-Party Services"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Purpose"
+msgstr ""
+
+msgid "Push notifications"
+msgstr ""
+
+msgid "App initialisation"
+msgstr ""
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr ""
+
+msgid "SECTION 5"
+msgstr ""
+
+msgid "Analytics and Crash Reporting"
+msgstr ""
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr ""
+
+msgid "Data Sharing"
+msgstr ""
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+
+msgid "SECTION 7"
+msgstr ""
+
+msgid "Data Security"
+msgstr ""
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+
+msgid "All communication with our server uses HTTPS."
+msgstr ""
+
+msgid "SECTION 8"
+msgstr ""
+
+msgid "Your Rights"
+msgstr ""
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr ""
+
+msgid "Audience"
+msgstr ""
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+
+msgid "SECTION 10"
+msgstr ""
+
+msgid "Changes to This Policy"
+msgstr ""
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr ""
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "গোপনীয়তা নীতি"
+
+msgid "Last updated May 2026"
+msgstr ""
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "support"
+#~ msgstr "সমৰ্থন"
+
+#~ msgid "web_wrd"
+#~ msgstr "উইৰ্ড"
+
+#~ msgid "system_description"
+#~ msgstr "কোৰআন পঢ়া, আবৃত্তি শুনা, আৰু সহজে তাফছিৰ অন্বেষণ কৰাৰ এক মঞ্চ।"
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird হৈছে এক সংহত ডিজিটেল প্লেটফৰ্ম যাৰ লক্ষ্য হৈছে কোৰআন আবৃত্তি আৰু চিন্তা-চৰ্চা "
+#~ "সংগঠিত আৰু আকৰ্ষণীয়ভাৱে সহজ কৰি তোলা।"
+
+#~ msgid "hifz"
+#~ msgstr "মুখস্থ কৰা"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "জুজ %(সংখ্যা)s"
+
+#~ msgid "juz_number"
+#~ msgstr "জুজ %(সংখ্যা)s"
+
+#~ msgid "basmala_text"
+#~ msgstr "পৰম কৃপাম, ৰহমান আল্লাহৰ নামত"
+
+#~ msgid "open_mushaf"
+#~ msgstr "মুছাফ খুলিব"
+
+#~ msgid "hafs"
+#~ msgstr "হাফছ"
+
+#~ msgid "warsh"
+#~ msgstr "ৱাৰ্চ"
+
+#~ msgid "qaloun"
+#~ msgstr "কালৌন"
+
+#~ msgid "douri"
+#~ msgstr "আল-দৌৰী"
+
+#~ msgid "shuba"
+#~ msgstr "শ্বু'বাহ"
+
+#~ msgid "sousi"
+#~ msgstr "আল-ছৌছি"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "বেছিভাগ মুছাফ ৰ"
+
+#~ msgid "complex"
+#~ msgstr "ৰজা ফাহদ গৌৰৱময় কোৰআন প্ৰিন্টিং কমপ্লেক্স"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "কোনো তফছিৰ উপলব্ধ নহয়"
+
+#~ msgid "tajweed"
+#~ msgstr "তাজৱীদ"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "শব্দৰ অৰ্থ দেখুৱাওক"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "শব্দৰ অৰ্থ লুকুৱাওক"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "শব্দ অর্থ লোড হচ্ছে..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "শব্দৰ অৰ্থ লোড কৰা হৈছে"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "শব্দৰ অৰ্থ লোড কৰাত ব্যৰ্থ"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "এই আয়াহৰ কোনো অৰ্থ উপলব্ধ নহয়"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "আবৃত্তি আৰম্ভ হ’লে শব্দৰ অৰ্থ ওলাব"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "মক্কান"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "মদীনান"
+
+#~ msgid "start"
+#~ msgstr "আৰম্ভ কৰক"
+
+#~ msgid "selected_ayah"
+#~ msgstr "নিৰ্বাচিত আয়াহ"
+
+#~ msgid "analysis_result"
+#~ msgstr "ফলাফল"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "প্ৰথমে এটা আয়াহ বাছি লওক"
+
+#~ msgid "browse_reciters"
+#~ msgstr "আবৃত্তিকাৰক ব্ৰাউজ কৰক"
+
+#~ msgid "next_wirds"
+#~ msgstr "আগন্তুক উইৰ্ডছ"
+
+#~ msgid "previous_wirds"
+#~ msgstr "পূৰ্বৰ উইৰ্ডছ"
+
+#~ msgid "one_juz"
+#~ msgstr "১ জুজ"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "প্ৰদৰ্শন সঁজুলিসমূহ"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "সাধাৰণ প্ৰদৰ্শন"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "আয়াহ পুনৰাবৃত্তি"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "পুনৰাবৃত্তি অবিহনে"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "দুবাৰ"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "টাইমছ"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "জুম মুছাফ"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "দৈনিক খাটমাৰ সুবিধাৰ বাবে নিৰ্দিষ্ট সময়সীমা আৰু পৰিমাণৰ ওপৰত ভিত্তি কৰি কোৰআন "
+#~ "ভাগ কৰা হ’ব।"
+
+#~ msgid "resume_reading"
+#~ msgstr "পঢ়া পুনৰ আৰম্ভ কৰক"
+
+#~ msgid "percentage"
+#~ msgstr "অগ্ৰগতিৰ শতাংশ"
+
+#~ msgid "progress"
+#~ msgstr "প্ৰগতি"
+
+#~ msgid "from_page"
+#~ msgstr "আৰম্ভ পৃষ্ঠা"
+
+#~ msgid "to_page"
+#~ msgstr "শেষ পৃষ্ঠা"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "পৰা"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "লৈ"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "চুৰা আল-বাকাৰাহ - আয়াহ ১"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "চুৰা আল-বাকাৰাহ - আয়াহ ১৪১"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "বৰ্তমানৰ আয়াহ নম্বৰ"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "আগবাঢ়ি যাবলৈ লগইন বা এটা একাউণ্ট সৃষ্টি কৰক"
+
+#~ msgid "welcome"
+#~ msgstr "স্বাগতম"
+
+#~ msgid "welcome_message"
+#~ msgstr "উইৰ্ড কোৰআন প্লেটফৰ্মলৈ আপোনাক স্বাগতম"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "পুনৰ স্বাগতম"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "আপোনাৰ প্ৰফাইল আপডেট কৰা হৈছে"
+
+#~ msgid "accounts_settings"
+#~ msgstr "ছেটিংছ"
+
+#~ msgid "login_settings"
+#~ msgstr "লগইন ছেটিংছ"
+
+#~ msgid "confirm_password"
+#~ msgstr "পাছৱৰ্ড নিশ্চিত কৰক"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "নতুন পাছৱৰ্ড"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "পাছৱৰ্ড দেখুৱাওক বা লুকুৱাওক"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "ব্যৱহাৰকাৰীৰ নাম প্ৰয়োজনীয়"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "ইতিমধ্যে ব্যৱহাৰকাৰীৰ নাম লোৱা হৈছে"
+
+#~ msgid "enter_email"
+#~ msgstr "আপোনাৰ ইমেইল দিয়ক"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "ইমেইলৰ প্ৰয়োজন"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "ইতিমধ্যে ইমেইল ব্যৱহাৰ কৰা হৈছে"
+
+#~ msgid "invalid_email"
+#~ msgstr "অবৈধ ইমেইল বিন্যাস"
+
+#~ msgid "full_name"
+#~ msgstr "সম্পূৰ্ণ নাম"
+
+#~ msgid "phone"
+#~ msgstr "ফোন নম্বৰ"
+
+#~ msgid "invalid_phone"
+#~ msgstr "অবৈধ ফোন নম্বৰ"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "ইতিমধ্যে ফোন নম্বৰ ব্যৱহাৰ কৰা হৈছে"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "চাকৰিৰ পদবী"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "পুৰুষ"
+
+#~ msgid "accounts_female"
+#~ msgstr "মহিলা"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "আপোনাৰ একাউণ্ট সফলভাৱে সৃষ্টি কৰা হৈছে"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr ""
+#~ "আপোনাৰ একাউণ্ট সফলভাৱে সৃষ্টি কৰা হৈছে। আমি আপোনাক জাহাজত লৈ সুখী আৰু "
+#~ "আপোনালোকৰ এক সুকীয়া অভিজ্ঞতা কামনা কৰিছো।"
+
+#~ msgid "login_failed"
+#~ msgstr "অবৈধ প্ৰৱেশ প্ৰমাণপত্ৰ"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "পাছৱৰ্ডৰ মিল নাই"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "পাছৱৰ্ড কমেও ৮টা আখৰ হ’ব লাগিব"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "পৰিবৰ্তনসমূহ সফলতাৰে সংৰক্ষণ কৰা হৈছে"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "আপোনাৰ তথ্য সফলভাৱে সংৰক্ষণ কৰা হৈছে"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr "তথ্য সংৰক্ষণ কৰা হৈছে আৰু পাছৱৰ্ড সফলভাৱে আপডেইট কৰা হৈছে"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "লগইন ছেটিংছ সফলভাৱে আপডেইট কৰা হৈছে"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr ""
+#~ "পুনৰ স্বাগতম, আপোনাৰ একাউণ্ট অনুমোদিত হৈছে আৰু এতিয়া আপুনি প্ৰকল্পৰ বাবে আবেদন "
+#~ "কৰিব পাৰিব"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr ""
+#~ "উদ্ভাৱন কেন্দ্ৰলৈ আপোনাক স্বাগতম, আমি আপোনাক এক সুন্দৰ অভিজ্ঞতা কামনা কৰিলোঁ"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "উদ্ভাৱন কেন্দ্ৰ পৰিচালনা"
+
+#~ msgid "accounts_local"
+#~ msgstr "স্থানীয়"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "ইউনিফাইড লগইন"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "বাহ্যিক প্ৰমাণীকৰণ সামৰ্থবান কৰক"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "নিয়ন্ত্ৰণে চিস্টেমত প্ৰমাণীকৰণ পদ্ধতিসমূহৰ অনুমতি দিছিল"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "চিস্টেম ডাটাবেছৰ পৰা"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "কালি"
+
+#~ msgid "accounts_saah"
+#~ msgstr "এঘণ্টা আগতে"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "১০ মিনিট আগতে"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "৫ মিনিট আগতে"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "আমাৰ সৈতে যোগাযোগ কৰক"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "যোগাযোগ প্ৰ-পত্ৰৰ জৰিয়তে আমাৰ সৈতে যোগাযোগ কৰক"
+
+#~ msgid "contact_description"
+#~ msgstr "যিকোনো অনুসন্ধান বা সমৰ্থনৰ বাবে আপুনি আমাৰ সৈতে যোগাযোগ কৰিব পাৰে"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr "ধন্যবাদ, আমি আপোনাৰ বাৰ্তাটো পৰ্যালোচনা কৰি সোনকালে যোগাযোগ কৰিম"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "আপোনাৰ বাৰ্তা সফলভাৱে প্ৰেৰণ কৰা হৈছে"
+
+#~ msgid "write_message"
+#~ msgstr "আপোনাৰ বাৰ্তা ইয়াত লিখক"
+
+#~ msgid "contact_message"
+#~ msgstr "বাৰ্তা"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "বাৰ্তা প্ৰেৰণৰ প্ৰয়োজন"
+
+#~ msgid "contact_name_required"
+#~ msgstr "নাম দৰকাৰ"
+
+#~ msgid "contact_email_required"
+#~ msgstr "ইমেইলৰ প্ৰয়োজন"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "অবৈধ ইমেইল"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "টেলিফোন"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "ম’বাইল"
+
+#~ msgid "contact_email"
+#~ msgstr "ইমেইল"
+
+#~ msgid "contact_date"
+#~ msgstr "তাৰিখ"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "সকলো বাৰ্তা"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "যোগাযোগৰ বাৰ্তা"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "যোগাযোগ বাৰ্তাসমূহ পৰিচালনা কৰক"
+
+#~ msgid "contact_message_details"
+#~ msgstr "বাৰ্তাৰ বিৱৰণ"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "যোগাযোগ বাৰ্তাৰ বিৱৰণ"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "বাৰ্তাৰ বিৱৰণ খোলক"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "ইয়াৰ সবিশেষ চাবলৈ বাৰ্তাটোত পোনপটীয়াকৈ ক্লিক কৰক"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "নাম, ইমেইল, বা বাৰ্তাৰ দ্বাৰা সন্ধান কৰক"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "বৰ্তমান কোনো বাৰ্তা নাই"
+
+#~ msgid "contact_reply"
+#~ msgstr "উত্তৰ দিলে"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "বাৰ্তাৰ উত্তৰ দিয়ক"
+
+#~ msgid "write_reply"
+#~ msgstr "উত্তৰ লিখি পোনপটীয়াকৈ পঠাওক"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "উত্তৰ পঠাওক"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "উত্তৰ টেক্সট"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "উত্তৰৰ শিৰোনাম"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "শেষত সংৰক্ষিত উত্তৰ"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "আমাৰ চাইটত আপোনাৰ বাৰ্তাৰ উত্তৰ দিয়ক"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "যোগাযোগ কৰক আমাৰ পৰা নতুন বাৰ্তা"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "নতুন"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "অপঠন"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "পঢ়া"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "Sending..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "শেহতীয়াকৈ পঠোৱা হৈছে, অনুগ্ৰহ কৰি কিছু সময়ৰ পিছত পুনৰ চেষ্টা কৰক"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr "কিছু মুহূৰ্তৰ আগতে এটা উত্তৰ পঠিওৱা হৈছিল, অলপ পিছত আকৌ চেষ্টা কৰক"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr ""
+#~ "যদি আপুনি কোনো সমস্যাৰ সন্মুখীন হয় তেন্তে আমাৰ সৈতে যোগাযোগ কৰিবলৈ কুণ্ঠাবোধ "
+#~ "নকৰিব"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "সমৰ্থন দল"
+
+#~ msgid "subscribe"
+#~ msgstr "চাবস্ক্ৰাইব কৰক"
+
+#~ msgid "subscriptions"
+#~ msgstr "চাবস্ক্ৰিপচন"
+
+#~ msgid "subscription_active"
+#~ msgstr "সামৰ্থবান কৰা হৈছে"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "সক্ৰিয়"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "বন্ধ হৈ গ’ল"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "নিশ্চিত গ্ৰাহকসকল"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "মুঠ গ্ৰাহক"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "সকলো গ্ৰাহক"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "সক্ৰিয় গ্ৰাহক"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "সামৰ্থবান কৰা হৈছে"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "নিশ্চিত কৰা হৈছে"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "নিশ্চিত নোহোৱা"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "নিশ্চিত কৰা হৈছে"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "নিউজলেটাৰৰ গ্ৰাহকসকল"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "নিউজলেটাৰৰ গ্ৰাহক"
+
+#~ msgid "subscription_message"
+#~ msgstr "আমাৰ বাৰ্তা লাভ কৰিবলৈ Subscribe কৰক"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "বৰ্তমান কোনো গ্ৰাহক নাই"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "আনচাবস্ক্ৰাইব কৰক"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "ইমেইল চাবস্ক্ৰিপচন বাতিল কৰা হৈছে"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Wird কোৰআনৰ বাৰ্তাৰ পৰা আনচাবস্ক্ৰাইব কৰক"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "উইৰ্ড কোৰআনৰ বাৰ্তাৰ পৰা"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "স্বাক্ষৰণসমূহ পৰিচালনা কৰক"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "চাবস্ক্ৰিপচনসমূহ চাওক"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "চাবস্ক্ৰিপচনৰ সাৰাংশ"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "চাবস্ক্ৰিপচন কেন্দ্ৰ"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "নিউজলেটাৰৰ গ্ৰাহকৰ আভাস"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr "বাতৰি কাকত আৰু বাৰ্তা লাভ কৰিবলৈ পঞ্জীয়ন কৰা ইমেইলৰ তালিকা"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "চাবস্ক্ৰিপচনৰ তাৰিখ"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "আনচাবস্ক্ৰাইব তাৰিখ"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "ইমেইলৰ দ্বাৰা সন্ধান কৰক"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "বাৰ্তা সৃষ্টি কৰক"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr "সকলো সক্ৰিয় আৰু নিশ্চিত গ্ৰাহকলৈ ইমেইল প্ৰেৰণ কৰক"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "ডেচব'ৰ্ড অভাৰভিউ"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "আভ্যন্তৰীণ নিয়ন্ত্ৰণ পেনেল"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "মূল মডিউল আৰু সংহতিসমূহৰ দ্ৰুত আভাস"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "ব্যৱস্থাটোত সাধাৰণ সংখ্যা আৰু সূচকৰ সাৰাংশ"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "ছাইটৰ পৰিসংখ্যা"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "পৃষ্ঠাৰ পৰিসংখ্যা"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "অডিঅ' পৰিসংখ্যা"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "তাফছিৰ পৰিসংখ্যা"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "মুছাফ পৰিসংখ্যা"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "মুঠ দৰ্শক"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "মুঠ পৃষ্ঠা ভ্ৰমণ"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "সৰ্বাধিক দৰ্শন কৰা পৃষ্ঠা"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "পৃষ্ঠা ভ্ৰমণ"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "যোৱা ৭ দিনত ভ্ৰমণ"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "যোৱা ৩০ দিনত ভ্ৰমণ"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "যোৱা ৭ দিনত দৰ্শনাৰ্থী"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "যোৱা কিছুদিনত ভ্ৰমণ"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "অডিঅ' প্লে হয়"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "যোৱা ৭ দিনত অডিঅ' বাজিছে"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "মুঠ শুনা চেকেণ্ড"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "সৰ্বাধিক শুনা পৃষ্ঠা"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "সৰ্বাধিক খেলা চুৰা"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "সৰ্বাধিক খেলা আবৃত্তিকাৰ"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "পৃষ্ঠা ফ্লিপ"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "সৰ্বাধিক ফ্লিপ কৰা মুছাফ পেজ"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "মুঠ তফছিৰ মুকলি"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "যোৱা ৭ দিনত খোলা হৈছে তাফছিৰ"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "সৰ্বাধিক খোলা তফছিৰ কিতাপ"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "সৰ্বাধিক ব্যৱহৃত কিতাপ"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "সৰ্বাধিক খোলা তফছিৰ পৃষ্ঠা"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "সৰ্বাধিক খোলা তফছিৰ পেজ"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "সৰ্বাধিক ব্যাখ্যা কৰা চুৰা"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "সৰ্বাধিক ব্যাখ্যা কৰা চুৰা"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "তাফছিৰত সৰ্বাধিক খোলা আয়াহ"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "শেহতীয়া পাৰস্পৰিক ক্ৰিয়া-কলাপ"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr "দৰ্শক, পৃষ্ঠা, অডিঅ' প্লে, আৰু মুশ্বাফ পৃষ্ঠা ফ্লিপ অনুসৰণ কৰা"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr "তফছিৰ খোলা, বেছিভাগ ব্যৱহৃত কিতাপ, পৃষ্ঠা, চুৰা, আৰু সংযুক্ত আয়াহ অনুসৰণ কৰা"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "লাইভ ডেচব'ৰ্ড"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "এতিয়াও কোনো তথ্য নাই"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "এতিয়াও কোনো ধৰণৰ পাৰস্পৰিক ক্ৰিয়া নাই"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "আয়াহ"
+
+#~ msgid "analytics_audio"
+#~ msgstr "অডিঅ'"
+
+#~ msgid "analytics_page"
+#~ msgstr "পৃষ্ঠা"
+
+#~ msgid "analytics_pages"
+#~ msgstr "পৃষ্ঠাসমূহ"
+
+#~ msgid "analytics_surah"
+#~ msgstr "ছূৰা"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "মুছাফ"
+
+#~ msgid "analytics_time"
+#~ msgstr "সময়"
+
+#~ msgid "analytics_type"
+#~ msgstr "প্ৰকাৰ"
+
+#~ msgid "analytics_path"
+#~ msgstr "পথ"
+
+#~ msgid "analytics_add"
+#~ msgstr "হিচাপ কৰা"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "অনন্য"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "ভ্ৰমণ"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "নাটক কৰে"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "অডিঅ' সম্পূৰ্ণ কৰা"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "তফছিৰ মুকলি"
+
+#~ msgid "roles"
+#~ msgstr "ভূমিকা"
+
+#~ msgid "permissions"
+#~ msgstr "অনুমতিসমূহ"
+
+#~ msgid "users"
+#~ msgstr "ব্যৱহাৰকাৰীসকল"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "ব্যৱহাৰকাৰী পৰিচালনা কৰক"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "ভূমিকাসমূহ পৰিচালনা কৰক"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "অনুমতিসমূহ পৰিচালনা কৰক"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "ব্যৱহাৰকাৰী একাউণ্ট, ভূমিকা, আৰু অনুমতিসমূহ পৰিচালনা কৰক"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "ব্যৱহাৰকাৰী আৰু অনুমতি ব্যৱস্থাপনা ব্যৱস্থাপ্ৰণালী"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "অনুমতিসমূহ পৰিচালনা কৰক"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "ব্যৱস্থাপ্ৰণালীৰ ভূমিকা আৰু সংশ্লিষ্ট অনুমতিসমূহ ব্যৱস্থাপনা কৰক"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "ব্যৱহাৰকাৰীসকলক পৰিচালনা কৰক আৰু ভূমিকা নিযুক্ত কৰক"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "ব্যৱহাৰকাৰী যোগ কৰক"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "নতুন ব্যৱহাৰকাৰী যোগ কৰক"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "ব্যৱহাৰকাৰীৰ বিৱৰণ"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "ব্যৱহাৰকাৰীৰ বিৱৰণ চাওক"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "ব্যৱহাৰকাৰীৰ তথ্য চাওক আৰু ভূমিকা নিযুক্ত কৰক"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "ভূমিকা যোগ কৰক"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "সম্পাদনা ভূমিকা"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "ভূমিকা মচি পেলাওক"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "ভূমিকা সংৰক্ষণ কৰক"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "ভূমিকাৰ নাম"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "বৰ্তমানৰ ভূমিকা"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "বৰ্তমানৰ ভূমিকা"
+
+#~ msgid "rbac_role"
+#~ msgstr "ভূমিকা"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "অনুমতি যোগ কৰক"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "সম্পাদনাৰ অনুমতি"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "অনুমতি মচি পেলাওক"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "অনুমতি সংৰক্ষণ কৰক"
+
+#~ msgid "rbac_permission"
+#~ msgstr "অনুমতি"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "অনুমতি"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "অনুমতিৰ নাম"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "অনুমতি ক'ড"
+
+#~ msgid "rbac_module"
+#~ msgstr "মডিউল"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "অনুমতিসমূহৰ সৈতে ভূমিকাসমূহ সংযোগ কৰক"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "ভূমিকাসমূহৰ সৈতে অনুমতিসমূহ সংযোগ কৰক"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr ""
+#~ "ব্যৱহাৰকাৰীয়ে সফলতাৰে সৃষ্টি কৰা হৈছে, আৰু প্ৰৱেশৰ বিৱৰণ তেওঁলোকৰ ইমেইললৈ প্ৰেৰণ "
+#~ "কৰা হৈছে"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "ব্যৱহাৰকাৰীয়ে সফলতাৰে সৃষ্টি কৰা হৈছে, কিন্তু ইমেইল প্ৰেৰণ কৰাত ব্যৰ্থ হৈছে। মেইল "
+#~ "ছেটিংছ পৰীক্ষা কৰক"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "ভূমিকা সফলতাৰে সৃষ্টি কৰা হৈছে"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "অনুমতি সফলতাৰে সৃষ্টি কৰা হৈছে"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "ভূমিকা সফলতাৰে আপডেট কৰা হৈছে"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "অনুমতি সফলতাৰে আপডেট কৰা হৈছে"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "ভূমিকা সফলতাৰে মচি পেলোৱা হৈছে"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "অনুমতি সফলতাৰে মচি পেলোৱা হৈছে"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "ভূমিকা সফলতাৰে সংযুক্ত কৰা হৈছে"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "ভূমিকাৰ পৰা অনুমতি সফলতাৰে আঁতৰোৱা হৈছে"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "ব্যৱহাৰকাৰী ভূমিকাসমূহ সফলতাৰে আপডেইট কৰা হৈছে"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "ভূমিকা মচি পেলোৱা নিশ্চিত কৰক"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "অনুমতি মচি পেলোৱাটো নিশ্চিত কৰক"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "আপুনি ভূমিকাটো ডিলিট কৰিবলৈ ওলাইছে"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "আপুনি অনুমতিটো মচি পেলাবলৈ ওলাইছে"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "প্ৰাথমিক ভূমিকা মচি পেলাব নোৱাৰি"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "প্ৰাথমিক অনুমতি মচি পেলাব নোৱাৰিব"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "প্ৰাথমিক ভূমিকা ক'ড সম্পাদনা কৰিব নোৱাৰি"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "প্ৰাথমিক অনুমতি ক'ড সম্পাদনা কৰিব নোৱাৰি"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr "এই আন্তঃপৃষ্ঠৰ পৰা প্ৰাথমিক ব্যৱহাৰকাৰী ভূমিকা সম্পাদনা কৰিব নোৱাৰি"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "এই ভূমিকাৰ পৰা প্ৰাথমিক অনুমতি আঁতৰাব নোৱাৰি"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "এই কাৰ্য্য বাতিল কৰিব নোৱাৰি"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "ব্যৱহাৰকাৰীৰ নাম বা ভূমিকা অনুসৰি সন্ধান কৰক"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "ব্যৱহাৰকাৰীৰ নাম বা অনুমতি গণনাৰ দ্বাৰা সন্ধান কৰক"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr "অনুমতিসমূহ চাবলৈ আৰু সংযোগ কৰিবলে বাওঁ মেনুৰ পৰা এটা ভূমিকা নিৰ্ব্বাচন কৰক"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr ""
+#~ "তালিকাৰ পৰা এটা ভূমিকা নিৰ্ব্বাচন কৰক, তাৰ পিছত চেকবক্সসমূহৰ যোগেদি অনুমতিসমূহ "
+#~ "সামৰ্থবান বা নিষ্ক্ৰিয় কৰক"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "ভূমিকাসমূহ বাছক"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "এই ব্যৱহাৰকাৰীক কোনো ভূমিকা নিযুক্ত কৰা হোৱা নাই"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "বৰ্তমান কোনো ভূমিকা নাই"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "বৰ্তমান কোনো ব্যৱহাৰকাৰী নাই"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "অনুগ্ৰহ কৰি ভূমিকাৰ নাম আৰু ক'ড দিয়ক"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "অনুগ্ৰহ কৰি অনুমতি ক'ড আৰু নাম দিয়ক"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "অনুগ্ৰহ কৰি ক'ড আৰু অনুমতিৰ নাম দিয়ক"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "ব্যৱহাৰকাৰীৰ তথ্য পূৰণ কৰক; এটা একাউণ্ট সৃষ্টি কৰা হ'ব আৰু লগইনৰ বিৱৰণ তেওঁলোকৰ "
+#~ "ইমেইললৈ প্ৰেৰণ কৰা হ'ব"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "ভূমিকা তথ্য পূৰণ কৰক তাৰ পিছত পৰিবৰ্তনসমূহ সংৰক্ষণ কৰক"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "অনুমতিৰ তথ্য পূৰণ কৰক তাৰ পিছত পৰিবৰ্তনসমূহ সংৰক্ষণ কৰক"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "ব্যৱহাৰকাৰীৰ বাবে এটা ৰেণ্ডম পাছৱৰ্ড সৃষ্টি কৰা হ'ব আৰু তেওঁলোকৰ ইমেইললৈ প্ৰেৰণ "
+#~ "কৰা হ'ব"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "আপোনাৰ একাউণ্ট প্লেটফৰ্মত সৃষ্টি কৰা হৈছে"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "প্লেটফৰ্মত আপোনাৰ একাউণ্টৰ তথ্য"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr "আমি লগ ইন কৰাৰ পিছত আপোনাৰ পাছৱৰ্ড সলনি কৰিবলৈ পৰামৰ্শ দিওঁ"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr "ব্যৱস্থাটোত এই ভূমিকাৰ কামসমূহ দেখুওৱা এটা চমু বিৱৰণ"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr "এই অনুমতি কেতিয়া চিস্টেমৰ ভিতৰত ব্যৱহাৰ কৰা হয় দেখুৱাই এটা চমু বিৱৰণ"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr "লগইনৰ সবিশেষ প্ৰেৰণ কৰিবলৈ ইমেইলৰ প্ৰয়োজন"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "ইতিমধ্যে ব্যৱহাৰ কৰা ভূমিকা ক'ড, অনুগ্ৰহ কৰি আন এটা বাছক"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "এই ক'ড ইতিমধ্যে অন্য অনুমতিৰ বাবে ব্যৱহাৰ কৰা হৈছে"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr "ডাটাবেছত নকল ক'ডৰ বাবে অনুমতি সংৰক্ষণ কৰাত ব্যৰ্থ"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "ত্ৰুটি প্ৰক্ৰিয়াকৰণ অনুৰোধ: ভূমিকা বা অনুমতি তথ্য অনুপস্থিত"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "সম্পূৰ্ণ নামটো প্ৰয়োজন"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "ব্যৱহাৰকাৰীৰ নাম ইতিমধ্যে ব্যৱহাৰ কৰা হৈছে"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "ইতিমধ্যে ইমেইল ব্যৱহাৰ কৰা হৈছে"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "ইতিমধ্যে ফোন নম্বৰ ব্যৱহাৰ কৰা হৈছে"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "এই ব্যৱহাৰকাৰীনাম সংৰক্ষিত আৰু ব্যৱহাৰ কৰিব নোৱাৰি"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "মডিউলৰ দ্বাৰা গোট কৰা অনুমতিসমূহ"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "সক্ৰিয় ব্যৱহাৰকাৰী"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "নিষ্ক্ৰিয়"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "ব্যৱহাৰকাৰীৰ অৱস্থা আপডেট কৰা হৈছে"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "শেষ প্ৰৱেশ"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "লিংক ভূমিকা"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "ভূমিকাসমূহলৈ উভতি যাওক"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "অনুমতিসমূহলৈ উভতি যাওক"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "ব্যৱহাৰকাৰী তালিকালৈ উভতি যাওক"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "ব্যৱহাৰকাৰী তালিকালৈ উভতি যাওক"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "ব্যৱহাৰকাৰীৰ ভূমিকা (যেনে."
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "নিৰ্দিষ্ট অনুমতি (যেনে-"
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "যেনে, চিস্টেম এডমিন"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "যেনে-"
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "ক'ড লাইকত ব্যৱহাৰ কৰা হয়"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "ভিতৰত ব্যৱহাৰকাৰীৰ অনুমতি পৰীক্ষা কৰিবলৈ"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "ব্যৱহাৰকাৰীৰ বাবে স্বয়ংক্ৰিয়ভাৱে"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr ", আৰু ইয়াক স্বয়ংক্ৰিয়ভাৱে এটা ঐক্যবদ্ধ বিন্যাসত সংৰক্ষণ কৰা হ'ব"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "আৰ্হি পছন্দ কৰা হয়"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "নম্বৰটো যিকোনো ফৰ্মেটত দিব পাৰে (০৫ / ৫ /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "বৈকল্পিক"
+
+#~ msgid "rbac_aw"
+#~ msgstr "অথবা"
+
+#~ msgid "rbac_aam"
+#~ msgstr "সাধাৰণ"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "সংগী"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "অংশগ্ৰহণকাৰী"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "পৰ্যবেক্ষক"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "এটা ভূমিকা নিযুক্ত কৰা হ’ব"
+
+#~ msgid "rbac_5"
+#~ msgstr "বা ৫"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "ব্যৱহাৰকাৰীসকলক চাওক"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "ভূমিকাসমূহ চাওক"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "অনুমতিসমূহ চাওক"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "ব্যৱহাৰকাৰী সম্পাদনা কৰক"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "ব্যৱহাৰকাৰী মচি পেলাওক"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "সম্পাদনা ভূমিকা"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "ভূমিকা মচি পেলাওক"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "সম্পাদনাৰ অনুমতি"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "অনুমতি মচি পেলাওক"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "ডেচব'ৰ্ডত প্ৰৱেশ কৰক"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "অভিগম বিশ্লেষণ"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "কোৰআন ষ্টুডিঅ'ত প্ৰৱেশ কৰক"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "যোগাযোগৰ প্ৰৱেশাধিকাৰ"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "অভিগম চাবস্ক্ৰিপচনসমূহ"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "অভিগম জাননীসমূহ"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "চেনেল প্ৰেৰণ কৰা অভিগম কৰক"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "প্ৰৱেশ সংহতিসমূহ ব্যৱস্থাপনা কৰক"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "অভিযানসমূহ চাওক"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "বাৰ্তাসমূহ চাওক"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "যোগাযোগ বাৰ্তাসমূহ চাওক"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "WhatsApp বাৰ্তা চাওক"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "আভ্যন্তৰীণ জাননীসমূহ চাওক"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "প্ৰেৰণ লগ চাওক"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "গ্ৰাহকসকলক চাওক"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "ইমেইল চাওক"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "প্ৰকল্প পৰিচালনা কৰা"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "যোগাযোগ বাৰ্তা সৃষ্টি কৰক"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "জাননী প্ৰেৰণ কৰক"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "আবৃত্তিকাৰী যোগ কৰক"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "আবৃত্তিকাৰীৰ তথ্য সম্পাদনা কৰক"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "আবৃত্তিকাৰীৰ তথ্য মচি পেলাওক"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "কোৰআনৰ স্থানাংক"
+
+#~ msgid "rbac_action"
+#~ msgstr "এই কাৰ্য্য"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "ব্যৱহাৰকাৰীৰ সংখ্যা"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "ভূমিকা গণনা"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "অনুমতিৰ সংখ্যা"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "পঞ্জীয়নভুক্ত ব্যৱহাৰকাৰী"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "গাঁথনিগত ভূমিকা"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "সক্ৰিয় অনুমতিসমূহ"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr "ভূমিকা গঠন সংগঠিত কৰা আৰু ব্যৱস্থাৰ ভিতৰত দায়িত্ব বিতৰণ কৰা"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "ছেটিংছ"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "চাবস্ক্ৰিপচন"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "মডিউলসমূহ আৰু মিহি-দানাযুক্ত কাৰ্য্যসমূহলে অভিগম নিয়ন্ত্ৰণ কৰক"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "ব্যৱহাৰকাৰীৰ নাম আৰু পাছৱৰ্ডৰ প্ৰয়োজন"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "চিস্টেম সাধাৰণ ব্যৱস্থাপক"
+
+#~ msgid "accounts_system"
+#~ msgstr "পদ্ধতি"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "সতৰ্কতা কেন্দ্ৰ"
+
+#~ msgid "notification_new"
+#~ msgstr "নতুন"
+
+#~ msgid "notification_alert"
+#~ msgstr "সতৰ্ক"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "পঢ়া"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "জাননী পঢ়া"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "জাননী প্ৰেৰণ কৰক"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "সতৰ্কবাণী প্ৰেৰণ কৰক"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "নতুন জাননী সৃষ্টি কৰক"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "জাননী পৰিচালনা কৰক"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "চিস্টেমত ব্যৱহাৰকাৰীসকললৈ আভ্যন্তৰীণ জাননী প্ৰেৰণ কৰক"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "ইয়াত অধিসূচনাৰ পাঠ্য লিখক"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "সফলতাৰে প্ৰেৰণ কৰা হৈছে"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "জাননীৰ সাৰাংশ"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "জাননীসমূহৰ সাৰাংশ"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "বৰ্তমান কোনো জাননী দিয়া হোৱা নাই"
+
+#~ msgid "notification_no_text"
+#~ msgstr "কোনো লিখনী নাই"
+
+#~ msgid "notification_alns"
+#~ msgstr "পাঠ্য"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "চিস্টেমৰ ভিতৰত"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "চিস্টেম জাননীসমূহ"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "চিস্টেম আৰু ইন্টাৰেক্টিভ জাননীসমূহ"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "চিস্টেমৰ ভিতৰৰ পৰা ব্যৱহাৰকাৰীলৈ প্ৰেৰণ কৰা জাননীসমূহ"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "বিভিন্ন চেনেলৰ জৰিয়তে প্ৰেৰণ কৰা জাননীসমূহৰ দ্ৰুত আভাস"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "এই পৃষ্ঠাত জাননী গণনা কৰা হয়"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "কোনো মিল থকা গ্ৰাহক নাই"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "বাৰ্তা এতিয়াৰ পৰা নহয়"
+
+#~ msgid "notifications_latest"
+#~ msgstr "চিস্টেমৰ ভিতৰত লাভ কৰা শেহতীয়া জাননীসমূহ (নতুন প্ৰথম, সৰ্বাধিক 10)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "অধিসূচনা কেন্দ্ৰ"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "প্ৰেৰণ কৰা জাননী"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "জাননীসমূহৰ সাৰাংশ"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr "বিভিন্ন চেনেলৰ জৰিয়তে প্ৰেৰণ কৰা জাননীসমূহৰ দ্ৰুত আভাস"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "জাননী প্ৰেৰণ কৰক"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "আভ্যন্তৰীণ জাননী সফলতাৰে প্ৰেৰণ কৰা হৈছে"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "অভিযান"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "প্ৰেৰণ কৰা অভিযান"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "মুঠ অভিযান"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "অভিযানৰ শিৰোনাম"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "সফলতাৰে সৃষ্টি কৰা অভিযান"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "সফলতাৰে প্ৰেৰণ কৰা অভিযান"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr "এই অভিযানৰ বাবে কোনো টেলিগ্ৰাম চেনেল বা গ্ৰুপ সক্ৰিয় কৰা হোৱা নাই"
+
+#~ msgid "communication_message_text"
+#~ msgstr "বাৰ্তাৰ পাঠ্য"
+
+#~ msgid "communication_title_message"
+#~ msgstr "বাৰ্তাৰ শিৰোনাম"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "ছবি (ঐচ্ছিক)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "যদি ইয়াৰ এটা ছবি থাকে"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "যদি ইয়াৰ কোনো ছবি নাথাকে"
+
+#~ msgid "communication_send_post"
+#~ msgstr "পোষ্ট পঠাওক"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "টেলিগ্ৰাম প্ৰেৰণ কৰক"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "টেলিগ্ৰাম - চেনেল"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "টেলিগ্ৰাম - গ্ৰুপ"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "গ্ৰুপ আৰু চেনেলৰ বাবে"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "ফেচবুক"
+
+#~ msgid "communication_platform"
+#~ msgstr "প্লেটফৰ্ম"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "চেনেল"
+
+#~ msgid "communication_channels"
+#~ msgstr "চেনেল"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "সামাজিক যোগাযোগ"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "সামাজিক যোগাযোগ পৰিচালনা কৰা"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "সামাজিক যোগাযোগৰ সাৰাংশ"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "শিৰোনাম বা লিখনীৰ দ্বাৰা সন্ধান কৰক"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "শিৰোনাম বা চেনেলৰ দ্বাৰা সন্ধান কৰক"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "প্ৰেৰণৰ তাৰিখ"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "ষ্টেটাছ প্ৰেৰণ কৰক"
+
+#~ msgid "communication_sent"
+#~ msgstr "প্ৰেৰণ কৰা"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "প্ৰেৰণ কৰা"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "খচৰা"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "নিৰ্ধাৰিত"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "Sending..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "পঠিয়াব নোৱাৰিলে"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "অপেক্ষা কৰি আছে"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "ত্ৰুটি (যদি আছে)"
+
+#~ msgid "communication_log"
+#~ msgstr "কুণ্ডা"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "ডেলিভাৰী লগ"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr "প্ৰতিটো অভিযান আৰু যোগাযোগ চেনেলৰ বাবে প্ৰেৰণ কাৰ্য্যৰ লগ"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "বৰ্তমান কোনো ডিচপেচ লগ নাই"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "ব্যৱহাৰ"
+
+#~ msgid "communication_drafts"
+#~ msgstr "খচৰা"
+
+#~ msgid "communication_qryba"
+#~ msgstr "সোনকালে"
+
+#~ msgid "messages"
+#~ msgstr "বাৰ্তাসমূহ"
+
+#~ msgid "messaging_messages"
+#~ msgstr "বাৰ্তাসমূহ"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "সামূহিক বাৰ্তা"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "সামূহিক বাৰ্তা"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "টেক্সট বাৰ্তা"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "মোবাইল বাৰ্তা"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "এছএমএছ বাৰ্তা"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "মোবাইল বাৰ্তাৰ সবিশেষ"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "বৰ্তমান কোনো মোবাইল মেছেজ নাই"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "হোৱাটছএপ"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "হোৱাটছএপ"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "হোৱাটছএপ বাৰ্তা"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "হোৱাটছএপ বাৰ্তাৰ সবিশেষ"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "হোৱাটছএপ জাননী"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "বৰ্তমান লগত কোনো হোৱাটছএপ মেছেজ নাই"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr ""
+#~ "ব্যৱহাৰকাৰীৰ সৈতে জড়িত চিষ্টেমৰ জৰিয়তে প্ৰেৰণ কৰা হোৱাটছএপ বাৰ্তাৰ লগ চাওক"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "ইমেইল"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "সাধাৰণ ইমেইল বাৰ্তা"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "সাধাৰণ ইমেইল বাৰ্তা সৃষ্টি কৰক"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "বৰ্তমান কোনো ইমেইল বাৰ্তা নাই"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "বাৰ্তাৰ পাঠ্য (ইমেইল)"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "ইমেইল প্ৰেৰণ কৰা হৈছে"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "ইমেইল সৃষ্টি কৰা হৈছে আৰু প্ৰেৰণ কৰিবলৈ অপেক্ষা কৰি আছে"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "এই বাৰ্তা কেৱল ইমেইল হিচাপে প্ৰেৰণ কৰা হ'ব; আপুনি ফৰ্মেটিং, তালিকাসমূহ, আৰু "
+#~ "সংযোগসমূহ ব্যৱহাৰ কৰিব পাৰে"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr ""
+#~ "এই বাৰ্তাটো মূলতঃ চিষ্টেমত পঞ্জীয়ন কৰা নিউজলেটাৰ গ্ৰাহকসকলক লক্ষ্য কৰি লোৱা হৈছে"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "সকলো চিস্টেম ব্যৱহাৰকাৰী যোগ কৰাৰ বিকল্পৰ সৈতে নিউজলেটাৰ গ্ৰাহকসকললৈ সাধাৰণ "
+#~ "ইমেইল পোষ্ট পঠাওক"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "নতুন বাৰ্তা সৃষ্টি কৰক"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "বাৰ্তা প্ৰেৰণ কৰক"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "বাৰ্তাৰ বিষয়বস্তু"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "এই বাৰ্তাত কোনো বিষয়বস্তু নাই"
+
+#~ msgid "messaging_subject"
+#~ msgstr "বিষয়"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "শিৰোনাম আৰু তথ্য"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "শিৰোনাম আৰু বাৰ্তাৰ লিখনী দিব লাগিব"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "ইয়াত বাৰ্তাৰ টেক্সট লিখক"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "ইয়াত ইমেইল বাৰ্তাৰ টেক্সট লিখক"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "বাৰ্তাৰ ধৰণ"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "শিৰোনামহীন"
+
+#~ msgid "messaging_sender"
+#~ msgstr "প্ৰেৰক"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "প্ৰেৰক"
+
+#~ msgid "messaging_user"
+#~ msgstr "ব্যৱহাৰকাৰী"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "গ্ৰাহকসকল"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "গ্ৰাহকৰ তালিকা"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "গ্ৰাহকসকলক চাওক"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "ব্যৱহাৰকাৰী নিৰ্বাচন কৰক"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "সকলো ব্যৱহাৰকাৰী"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "নিউজলেটাৰৰ গ্ৰাহকসকল (অবিকল্পিতভাৱে)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "নিৰ্দিষ্ট ব্যৱহাৰকাৰী"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "তালিকাৰ পৰা এটা বা অধিক ব্যৱহাৰকাৰী বাছক"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "অতিৰিক্ত গ্ৰাহক বিকল্পসমূহ"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr "নিউজলেটাৰ গ্ৰাহকৰ সৈতে সকলো চিস্টেম ব্যৱহাৰকাৰী যোগ কৰক"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr ""
+#~ "এই বিকল্প সামৰ্থবান কৰক যদি আপুনি বাৰ্তাটো সকলো পঞ্জীয়ন কৰা ব্যৱস্থাপ্ৰণালী "
+#~ "ব্যৱহাৰকাৰীৰ ওচৰলৈও পোৱাটো বিচাৰে"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "কোনো গ্ৰাহক নাই"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "এই বাৰ্তাৰ বাবে কোনো প্ৰাপক নাই"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "বাৰ্তা প্ৰেৰণ কৰিবলৈ কোনো গ্ৰাহক নাই"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "কোনো প্ৰাপকৰ ইমেইল ঠিকনা নাই"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "প্ৰেৰণৰ বাবে অপেক্ষা কৰা কোনো গ্ৰাহক নাই"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "নিৰ্দিষ্ট মাপকাঠীৰ সৈতে মিল থকা কোনো গ্ৰাহক নাই"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "গ্ৰাহকৰ সংখ্যা"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "প্ৰেৰক, শিৰোনাম, বা লিখনীৰ দ্বাৰা সন্ধান কৰক"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "ডিচপেচ চেনেল"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "চেনেলসমূহ প্ৰেৰণ কৰক"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "প্ৰেৰণ চেনেলসমূহ ব্যৱস্থাপনা কৰক"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr ""
+#~ "ইমেইল আৰু অভ্যন্তৰীণ চিস্টেম সতৰ্কবাণীসমূহৰ যোগেদি জাননীসমূহ পৰিচালনা আৰু প্ৰেৰণ "
+#~ "কৰক"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "ডিচপেচ লগসমূহ"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "জাননী লগসমূহ"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "এতিয়াও কোনো ডিচপেচ লগ নাই"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "প্ৰেৰণৰ সময়"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "বাৰ্তাৰ তথ্য, গ্ৰাহক, আৰু প্ৰেৰণৰ অৱস্থা চাওক"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "মোবাইল বাৰ্তাৰ তথ্য আৰু বিষয়বস্তু চাওক"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "WhatsApp বাৰ্তাৰ তথ্য আৰু বিষয়বস্তু চাওক"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "গ্ৰাহকৰ সংখ্যা আৰু অৱস্থাৰ সৈতে বাল্ক ইমেইল বাৰ্তাসমূহ চাওক"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "অৱস্থাৰ সৈতে প্ৰতিজন প্ৰাপকৰ বাবে সকলো প্ৰেৰণৰ প্ৰচেষ্টা চাওক"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "বাৰ্তা প্ৰেৰণ"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "বাৰ্তা ডেলিভাৰী"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "পঢ়া"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "অপঠন"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "ত্ৰুটি বাৰ্তা"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "বিফলতাৰ অস্তিত্ব আছে"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "অভিযান"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "বাৰ্তা লগ"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "ব্যৱস্থাপ্ৰণালীৰ জৰিয়তে ব্যৱহাৰকাৰীসকললৈ প্ৰেৰণ কৰা হৈছে"
+
+#~ msgid "messaging_action"
+#~ msgstr "কাৰ্য কৰা"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "ইমেইল / চিনাক্তকৰ্তা"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "প্ৰাথমিক শ্ৰেণী"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "ব্যক্তিকেন্দ্ৰিক"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "সামূহিক"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "অনিৰ্দিষ্ট"
+
+#~ msgid "messaging_first"
+#~ msgstr "প্ৰথম"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "চেষ্টা কৰা"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "প্ৰদানকাৰীলৈ প্ৰেৰণ কৰা ধৰণে প্ৰিন্ট অনুৰোধ"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "কেঁচা উত্তৰ প্ৰিন্ট কৰক"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "যদি উত্তৰ পাঠ্যগত হয়"
+
+#~ msgid "quran_studio"
+#~ msgstr "কোৰআন ষ্টুডিঅ'"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "কোৰআন ষ্টুডিঅ' পৰিচালনা কৰক"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "আবৃত্তিকাৰীৰ তথ্য পৰিচালনা কৰক"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "ব্যৱস্থাত উপলব্ধ আবৃত্তিকাৰীৰ তথ্য পৰিচালনা কৰা"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "আবৃত্তিকাৰীসকলৰ তথ্য"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "আবৃত্তিকাৰী পৃষ্ঠা"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "বৰ্তমান কোনো আবৃত্তিকাৰীৰ তথ্য নাই"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "আবৃত্তিকাৰে সফলতাৰে যোগ দিলে"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "আবৃত্তিকাৰীৰ তথ্য সফলতাৰে আপডেট কৰা হৈছে"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "আবৃত্তিকাৰী সফলতাৰে মচি পেলালে"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "আবৃত্তিকাৰী মচি পেলাওক"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "এই আবৃত্তিকাৰীটো আপুনি নিশ্চিতভাৱে মচি পেলাব বিচাৰেনে?"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "আৰবী নাম"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "ইংৰাজী নাম"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "ক'ড"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "ক'ড আৰু আৰবী নাম প্ৰয়োজনীয়"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "আয়াহ স্থানাংক সম্পাদক"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "স্থানাংক সম্পাদক পৃষ্ঠা"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "স্থানাংক"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "স্থানাংক নিৰ্ধাৰণ কৰক"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "লোড স্থানাংক"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "স্থানাংক আনিব"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "স্থানাংক সংৰক্ষণ কৰক"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "সংৰক্ষিত স্থানাংক সম্পাদনা কৰক"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "সম্পাদনা সংৰক্ষণ কৰক"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "নতুনকৈ সংৰক্ষণ কৰক"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "পৃষ্ঠাত আয়াহ স্থানাংক আপডেট কৰা"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "এই পৃষ্ঠাত এই আয়াহৰ বাবে কোনো স্থানাংক সংৰক্ষণ কৰা হোৱা নাই"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "চুৰা আৰু আয়াত নম্বৰ দিয়ক তাৰ পিছত \"Load Coordinates\" ক্লিক কৰক। এই আয়াহৰ "
+#~ "বাবে সংৰক্ষিত আয়তক্ষেত্ৰসমূহ সম্পাদনা আৰু সংৰক্ষণৰ বাবে এই পৃষ্ঠাত প্ৰদৰ্শিত হ'ব।"
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "আয়াহৰ এটা অংশক প্ৰতিনিধিত্ব কৰা এটা আয়তক্ষেত্ৰ অংকন কৰিবলৈ মাউছটো মুছাফৰ "
+#~ "ওপৰেৰে টানিব। একেটা আয়াহৰ বাবে আপুনি একাধিক আয়তক্ষেত্ৰ আঁকিব পাৰে।"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "ছুৰা আৰু আয়াত নম্বৰ লিখক"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "লোড কৰাৰ আগতে চুৰা আৰু আয়াতৰ নম্বৰ দিয়ক"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "আয়তক্ষেত্ৰ পৰিষ্কাৰ কৰক"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "সংৰক্ষণ কৰিবলৈ কোনো আয়তক্ষেত্ৰ নাই"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "চুৰা সংখ্যা"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "আয়াহ নম্বৰ"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "মুছাফ পেজ"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "বৰ্তমান পৃষ্ঠা"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "পৰৱৰ্তী পৃষ্ঠা"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "পূৰ্বৰ পৃষ্ঠা"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "ছৱি"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "কাৰ্য্য"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "যেনে, ২"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "যেনে, ৬"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "হোম পেজ"
+
+#~ msgid "overview"
+#~ msgstr "অভাৰভিউ"
+
+#~ msgid "summary"
+#~ msgstr "সাৰাংশ"
+
+#~ msgid "important_services"
+#~ msgstr "মূল সেৱাসমূহ"
+
+#~ msgid "status"
+#~ msgstr "স্থিতি"
+
+#~ msgid "actions"
+#~ msgstr "কাৰ্য্য"
+
+#~ msgid "content"
+#~ msgstr "বিষয়"
+
+#~ msgid "title"
+#~ msgstr "অলপ"
+
+#~ msgid "created_at"
+#~ msgstr "সৃষ্টিৰ তাৰিখ"
+
+#~ msgid "updated_at"
+#~ msgstr "শেষবাৰৰ বাবে আপডেট কৰা হৈছে"
+
+#~ msgid "next"
+#~ msgstr "পৰৱৰ্তী"
+
+#~ msgid "previous"
+#~ msgstr "পূৰ্ৱবৰ্তী"
+
+#~ msgid "back"
+#~ msgstr "পিছলৈ"
+
+#~ msgid "save"
+#~ msgstr "সঞ্চয় কৰা"
+
+#~ msgid "save_changes"
+#~ msgstr "পৰিবৰ্তনসমূহ সংৰক্ষণ কৰক"
+
+#~ msgid "add"
+#~ msgstr "যোগ কৰা"
+
+#~ msgid "create"
+#~ msgstr "সৃষ্টি কৰা"
+
+#~ msgid "update"
+#~ msgstr "নবীকৰণ"
+
+#~ msgid "edit"
+#~ msgstr "সম্পাদনা কৰক"
+
+#~ msgid "delete"
+#~ msgstr "বিলোপ"
+
+#~ msgid "cancel"
+#~ msgstr "বাতিল কৰক"
+
+#~ msgid "confirm"
+#~ msgstr "নিশ্চিত"
+
+#~ msgid "view"
+#~ msgstr "দৰ্শন"
+
+#~ msgid "send"
+#~ msgstr "পঠোৱা"
+
+#~ msgid "send_now"
+#~ msgstr "এতিয়াই পঠাওক"
+
+#~ msgid "sent"
+#~ msgstr "প্ৰেৰণ কৰা"
+
+#~ msgid "failed"
+#~ msgstr "ব্যৰ্থ হৈছিল"
+
+#~ msgid "pending"
+#~ msgstr "বাকী থকা"
+
+#~ msgid "no_data"
+#~ msgstr "কোনো তথ্য নাই"
+
+#~ msgid "settings"
+#~ msgstr "ছেটিংছ"
+
+#~ msgid "system_settings"
+#~ msgstr "চিস্টেম সংহতিসমূহ"
+
+#~ msgid "security"
+#~ msgstr "সুৰক্ষা"
+
+#~ msgid "zoom_out"
+#~ msgstr "জুম আউট কৰক"
+
+#~ msgid "app_arabic"
+#~ msgstr "আৰবী"
+
+#~ msgid "app_urdu"
+#~ msgstr "উৰ্দু"
+
+#~ msgid "web_alkl"
+#~ msgstr "আটাইবোৰ"
+
+#~ msgid "web_fqt"
+#~ msgstr "কেৱল"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "কেৱল, বা"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "কেৱল, বা দুয়োটা"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "সকলো অধিকাৰ সংৰক্ষিত"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "কোৰআনৰ ৱেবছাইট"
+
+#~ msgid "required_field"
+#~ msgstr "এই ক্ষেত্ৰখন প্ৰয়োজনীয়"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "ফোন নম্বৰৰ প্ৰয়োজন"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "অবৈধ ফোন নম্বৰৰ ফৰ্মেট"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "অবৈধ ফোন নম্বৰ"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "ফোন নম্বৰ সম্ভৱ নহয়"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "অবৈধ মোবাইল নম্বৰৰ ফৰ্মেট"
+
+#~ msgid "core_ay"
+#~ msgstr "বা যিকোনো"
+
+#~ msgid "core_mnasb"
+#~ msgstr "যথাযথ"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr "আমি কেৱল ৰাজহুৱা ভ্ৰমণ (যেনে, হোম পেজ) গণনা কৰোঁ"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "প্ৰতি পৃষ্ঠাত শাৰীৰ সংখ্যা"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "ৰেকৰ্ডৰ সংখ্যা"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "ক্ষমা কৰিব, এই পৃষ্ঠাত প্ৰৱেশ কৰাৰ অনুমতি নাই"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "প্ৰৱেশ নিষিদ্ধ"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "বাৰৰ উচ্চতা (দৃশ্য নিয়ন্ত্ৰণ)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "টোষ্টৰ বাবে অবিকল্পিত সময় মিলিছেকেণ্ডত"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "এই টোষ্টৰ বাবে নিৰ্দিষ্ট সময়সীমা (অবিকল্পিত অভাৰৰাইড কৰে)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "অবিকল্পিত সৰ্বোচ্চ দৰ্শন (যেনে, ২০)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "নিৰ্দিষ্ট প্ৰস্থ (ব্যৱহাৰ কৰিবলৈ খালী ৰাখক)"
+
+#~ msgid "web_notification"
+#~ msgstr "জাননী"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "বেকড্ৰপ ক্লিকত বন্ধ কৰক"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr "শেষ আপডেটৰ পৰা ৫ ছেকেণ্ডৰ পিছত ছিঙ্ক কৰক"
+
+#~ msgid "quran_nav"
+#~ msgstr "কোৰআন"
+
+#~ msgid "quran_text"
+#~ msgstr "পাঠ্য"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "লিখনীক বিভক্ত কৰক"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "বাকী লিখনী"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "মাজত"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "Contact Us ফৰ্মৰ পৰা নতুন বাৰ্তা"
+
+#~ msgid "services_message_text"
+#~ msgstr "বাৰ্তাৰ পাঠ্য:"
+
+#~ msgid "surah_3"
+#~ msgstr "আলী ইমৰাণ"
+
+#~ msgid "surah_4"
+#~ msgstr "আন-নিছা'।"
+
+#~ msgid "surah_5"
+#~ msgstr "আল-মাইদাহ"
+
+#~ msgid "surah_6"
+#~ msgstr "আল-আন'ম"
+
+#~ msgid "surah_7"
+#~ msgstr "আল-আ'ৰাফ"
+
+#~ msgid "surah_8"
+#~ msgstr "আল-আনফল"
+
+#~ msgid "surah_9"
+#~ msgstr "আত-তাওবাহ"
+
+#~ msgid "surah_10"
+#~ msgstr "ইউনুছ"
+
+#~ msgid "surah_11"
+#~ msgstr "হুড"
+
+#~ msgid "surah_12"
+#~ msgstr "ইউছুফ"
+
+#~ msgid "surah_13"
+#~ msgstr "আৰ-ৰা'দ"
+
+#~ msgid "surah_14"
+#~ msgstr "ইব্ৰাহিম"
+
+#~ msgid "surah_15"
+#~ msgstr "আল-হিজৰ"
+
+#~ msgid "surah_16"
+#~ msgstr "আন-নাহল"
+
+#~ msgid "surah_17"
+#~ msgstr "আল ইছৰা'"
+
+#~ msgid "surah_18"
+#~ msgstr "আল-কাহফ"
+
+#~ msgid "surah_19"
+#~ msgstr "মৰিয়ম"
+
+#~ msgid "surah_20"
+#~ msgstr "তাহা"
+
+#~ msgid "surah_21"
+#~ msgstr "আল-আনবিয়া'"
+
+#~ msgid "surah_22"
+#~ msgstr "আল-হজ্জ"
+
+#~ msgid "surah_23"
+#~ msgstr "আল-মু'মিনুন"
+
+#~ msgid "surah_24"
+#~ msgstr "আন-নুৰ"
+
+#~ msgid "surah_25"
+#~ msgstr "আল-ফুৰকান"
+
+#~ msgid "surah_26"
+#~ msgstr "এছ-শ্বুআৰা'।"
+
+#~ msgid "surah_27"
+#~ msgstr "আন-নামল"
+
+#~ msgid "surah_28"
+#~ msgstr "আল-কাছাছ"
+
+#~ msgid "surah_29"
+#~ msgstr "আল-'আংকাবুট"
+
+#~ msgid "surah_30"
+#~ msgstr "আৰ-ৰাম"
+
+#~ msgid "surah_31"
+#~ msgstr "লুকমান"
+
+#~ msgid "surah_32"
+#~ msgstr "আছ-ছাজদাহ"
+
+#~ msgid "surah_33"
+#~ msgstr "আল-আহজাব"
+
+#~ msgid "surah_34"
+#~ msgstr "সবা'।"
+
+#~ msgid "surah_35"
+#~ msgstr "ফাতিৰ"
+
+#~ msgid "surah_36"
+#~ msgstr "য়া-চিন"
+
+#~ msgid "surah_37"
+#~ msgstr "আছ-ছাফাট"
+
+#~ msgid "surah_38"
+#~ msgstr "দুখৰ কথা"
+
+#~ msgid "surah_39"
+#~ msgstr "আজ-জুমাৰ"
+
+#~ msgid "surah_40"
+#~ msgstr "গাফিৰ"
+
+#~ msgid "surah_41"
+#~ msgstr "ফুচিলাট"
+
+#~ msgid "surah_42"
+#~ msgstr "এছ-শুৰা"
+
+#~ msgid "surah_43"
+#~ msgstr "আজ-জুখ্ৰুফ"
+
+#~ msgid "surah_44"
+#~ msgstr "আদ-দুখান"
+
+#~ msgid "surah_45"
+#~ msgstr "আল-জাথিয়াহ"
+
+#~ msgid "surah_46"
+#~ msgstr "আল-আহকাফ"
+
+#~ msgid "surah_47"
+#~ msgstr "মহম্মদ"
+
+#~ msgid "surah_48"
+#~ msgstr "আল-ফাথ"
+
+#~ msgid "surah_49"
+#~ msgstr "আল-হুজুৰাত"
+
+#~ msgid "surah_50"
+#~ msgstr "কাফ"
+
+#~ msgid "surah_51"
+#~ msgstr "অধ-ধৰিয়ত"
+
+#~ msgid "surah_52"
+#~ msgstr "এট-টুৰ"
+
+#~ msgid "surah_53"
+#~ msgstr "আন-নাজম"
+
+#~ msgid "surah_54"
+#~ msgstr "আল-কামাৰ"
+
+#~ msgid "surah_55"
+#~ msgstr "আৰ-ৰহমান"
+
+#~ msgid "surah_56"
+#~ msgstr "আল-ৱাকিয়াহ"
+
+#~ msgid "surah_57"
+#~ msgstr "আল-হাদিদ"
+
+#~ msgid "surah_58"
+#~ msgstr "আল-মুজাদিলাহ"
+
+#~ msgid "surah_59"
+#~ msgstr "আল-হাছৰ"
+
+#~ msgid "surah_60"
+#~ msgstr "আল-মুমতাহানাহ"
+
+#~ msgid "surah_61"
+#~ msgstr "আছ-ছাফ"
+
+#~ msgid "surah_62"
+#~ msgstr "আল-জুমুআহ"
+
+#~ msgid "surah_63"
+#~ msgstr "আল-মুনাফিকুন"
+
+#~ msgid "surah_64"
+#~ msgstr "আট-তাঘাবুন"
+
+#~ msgid "surah_65"
+#~ msgstr "আট-তালাক"
+
+#~ msgid "surah_66"
+#~ msgstr "আত-তাহৰিম"
+
+#~ msgid "surah_67"
+#~ msgstr "আল-মুলক"
+
+#~ msgid "surah_68"
+#~ msgstr "আল কালাম"
+
+#~ msgid "surah_69"
+#~ msgstr "আল-হাক্কাহ"
+
+#~ msgid "surah_70"
+#~ msgstr "আল-মা'আৰিজ"
+
+#~ msgid "surah_71"
+#~ msgstr "নুহ"
+
+#~ msgid "surah_72"
+#~ msgstr "আল-জিন"
+
+#~ msgid "surah_73"
+#~ msgstr "আল-মুজ্জামিল"
+
+#~ msgid "surah_74"
+#~ msgstr "আল-মুদ্দাথথিৰ"
+
+#~ msgid "surah_75"
+#~ msgstr "আল-কিয়ামাহ"
+
+#~ msgid "surah_76"
+#~ msgstr "আল-ইনছান"
+
+#~ msgid "surah_77"
+#~ msgstr "আল-মুৰছালাত"
+
+#~ msgid "surah_78"
+#~ msgstr "আন-নবা'।"
+
+#~ msgid "surah_79"
+#~ msgstr "আন-নাজিয়াত"
+
+#~ msgid "surah_80"
+#~ msgstr "'আবাছা।'"
+
+#~ msgid "surah_81"
+#~ msgstr "আট-টাকৱিৰ"
+
+#~ msgid "surah_82"
+#~ msgstr "আল-ইনফিটাৰ"
+
+#~ msgid "surah_83"
+#~ msgstr "আল-মুটাফিফিন"
+
+#~ msgid "surah_84"
+#~ msgstr "আল-ইনছিকাক"
+
+#~ msgid "surah_85"
+#~ msgstr "আল-বুৰুজ"
+
+#~ msgid "surah_86"
+#~ msgstr "আত-তাৰিক"
+
+#~ msgid "surah_87"
+#~ msgstr "আল-আ'লা"
+
+#~ msgid "surah_88"
+#~ msgstr "আল-গাছিয়াহ"
+
+#~ msgid "surah_89"
+#~ msgstr "আল-ফজৰ"
+
+#~ msgid "surah_90"
+#~ msgstr "আল-বালাদ"
+
+#~ msgid "surah_91"
+#~ msgstr "এছ-শ্বামছ"
+
+#~ msgid "surah_92"
+#~ msgstr "আল-লেইল"
+
+#~ msgid "surah_93"
+#~ msgstr "আদ-দুহা"
+
+#~ msgid "surah_94"
+#~ msgstr "এছ-শ্বাৰহ"
+
+#~ msgid "surah_95"
+#~ msgstr "এট-টিন"
+
+#~ msgid "surah_96"
+#~ msgstr "আল-আলাক"
+
+#~ msgid "surah_97"
+#~ msgstr "আল-কাদৰ"
+
+#~ msgid "surah_98"
+#~ msgstr "আল-বাইনাহ"
+
+#~ msgid "surah_99"
+#~ msgstr "আজ-জলজালাহ"
+
+#~ msgid "surah_100"
+#~ msgstr "আল-আদিয়াত"
+
+#~ msgid "surah_101"
+#~ msgstr "আল-কাৰিয়াহ"
+
+#~ msgid "surah_102"
+#~ msgstr "আট-তাকাথুৰ"
+
+#~ msgid "surah_103"
+#~ msgstr "আল-'আছৰ"
+
+#~ msgid "surah_104"
+#~ msgstr "আল-হুমাজাহ"
+
+#~ msgid "surah_105"
+#~ msgstr "আল-ফিল"
+
+#~ msgid "surah_106"
+#~ msgstr "কোৰেইচ"
+
+#~ msgid "surah_107"
+#~ msgstr "আল-মাউন"
+
+#~ msgid "surah_108"
+#~ msgstr "আল-কাউথাৰ"
+
+#~ msgid "surah_109"
+#~ msgstr "আল-কাফিৰুণ"
+
+#~ msgid "surah_110"
+#~ msgstr "আন-নাছৰ"
+
+#~ msgid "surah_111"
+#~ msgstr "আল-মাছাদ"
+
+#~ msgid "surah_112"
+#~ msgstr "আল-ইখলাছ"
+
+#~ msgid "surah_113"
+#~ msgstr "আল-ফালাক"
+
+#~ msgid "surah_114"
+#~ msgstr "আন-নাছ"
+
+#~ msgid "contents"
+#~ msgstr "বিষয়বস্তু"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "অভিগম্যতা"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "ফন্টৰ আকাৰ বৃদ্ধি কৰক"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "ফন্টৰ আকাৰ হ্ৰাস কৰক"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "উচ্চ কনট্ৰাষ্ট"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "ডাৰ্ক মোড"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "পঢ়াৰ ধৰণ"
+
+#~ msgid "a11y_reset"
+#~ msgstr "সংহতিসমূহ পুনৰায় সেট কৰক"
+
+#~ msgid "select_translation"
+#~ msgstr "অনুবাদ নিৰ্ব্বাচন কৰক"
+
+#~ msgid "select_surah"
+#~ msgstr "চুৰা নিৰ্বাচন কৰক"
+
+#~ msgid "copy_ayah"
+#~ msgstr "কপি পদ্য"
+
+#~ msgid "share_ayah"
+#~ msgstr "শ্বেয়াৰ পদ্য"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "বুকমাৰ্ক পদ্য"
+
+#~ msgid "play_ayah"
+#~ msgstr "অডিঅ' প্লে কৰক"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "পদ সংৰক্ষিত"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "সংৰক্ষণৰ পৰা আঁতৰোৱা হৈছে"
+
+#~ msgid "no_translation_available"
+#~ msgstr "কোনো অনুবাদ উপলব্ধ নহয়"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "আৰম্ভ কৰিবলৈ এখন চুৰা বাছি লওক"
+
+#~ msgid "app_download_title"
+#~ msgstr "Wird App ডাউনলোড কৰক"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "আপোনাৰ ডিভাইচত এটা সম্পূৰ্ণ কোৰান অভিজ্ঞতা"
+
+#~ msgid "audio_language"
+#~ msgstr "অডিঅ' ভাষা"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "আজিৰ উইৰ্ড"
+
+#~ msgid "home_this_week"
+#~ msgstr "এই সপ্তাহত"
+
+#~ msgid "home_your_wird"
+#~ msgstr "আপোনাৰ উইৰ্ড"
+
+#~ msgid "home_progress"
+#~ msgstr "প্ৰগতি"
+
+#~ msgid "home_days_progress"
+#~ msgstr "৭ দিনৰ ভিতৰত ৪ টা"
+
+#~ msgid "day_sat"
+#~ msgstr "বহিছিল"
+
+#~ msgid "day_sun"
+#~ msgstr "সূৰ্য"
+
+#~ msgid "day_mon"
+#~ msgstr "সোম"
+
+#~ msgid "day_tue"
+#~ msgstr "মঙলবাৰ"
+
+#~ msgid "day_wed"
+#~ msgstr "বুধবাৰ"
+
+#~ msgid "day_thu"
+#~ msgstr "বৃহস্পতি"
+
+#~ msgid "day_fri"
+#~ msgstr "শুক্ৰবাৰ"
+
+#~ msgid "home_today_wird"
+#~ msgstr "আজিৰ উইৰ্ড"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "দ্বাৰা আবৃত্তি খেলা"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "বিশুদ্ধ কণ্ঠ"
+
+#~ msgid "home_tarteel"
+#~ msgstr "টাৰ্টেল আবৃত্তি"
+
+#~ msgid "home_khashi"
+#~ msgstr "নিষ্ঠাবান আবৃত্তি"

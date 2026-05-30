@@ -1,0 +1,62 @@
+{% load rbac_tags %}
+{% if request.user|can_access:"contact.access" %}
+
+<div class="site-card p-4">
+
+  <div class="flex items-center justify-between gap-3">
+    <h2 class="text-sm font-extrabold site-text flex items-center gap-2">
+      <i class="bi bi-envelope-fill site-link-primary"></i>
+      <span>رسائل التواصل</span>
+    </h2>
+  </div>
+
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+      <a href="{% url 'contact:dashboard_list' %}?tab=list"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'list' %}
+            site-link-primary site-surface shadow-sm
+         {% else %}
+           site-text hover:site-surface
+         {% endif %}">
+        {% if tab == 'list' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-inbox-fill ml-1"></i>
+        جميع الرسائل
+      </a>
+
+      <a href="{% url 'contact:dashboard_list' %}?tab=unread"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'unread' %}
+           site-link-primary site-surface shadow-sm
+         {% else %}
+           site-text hover:site-surface
+         {% endif %}">
+        {% if tab == 'unread' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-envelope-open-fill ml-1"></i>
+        غير المقروءة
+      </a>
+
+      <a href="{% url 'contact:dashboard_list' %}?tab=replied"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'replied' %}
+           site-link-primary site-surface shadow-sm
+         {% else %}
+           site-text hover:site-surface
+         {% endif %}">
+        {% if tab == 'replied' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-reply-fill ml-1"></i>
+        تم الرد
+      </a>
+
+    </nav>
+  </div>
+
+</div>
+{% endif %}

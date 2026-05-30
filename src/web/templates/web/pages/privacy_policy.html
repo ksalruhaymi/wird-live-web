@@ -1,0 +1,50 @@
+{% extends "web/layouts/base.html" %}
+{% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
+{% block title %}{% trans "privacy_policy" %}{% endblock %}
+
+{% block layout %}
+
+<div class="max-w-3xl mx-auto px-4 py-10">
+
+{% if CURRENT_LANGUAGE == 'ar' %}
+
+{# ══ Arabic content ══ #}
+
+  <div class="mb-8 text-center" dir="rtl">
+
+    <h1 class="text-2xl font-bold text-emerald-800">وِرد — سياسة الخصوصية</h1>
+    <p class="text-slate-500 mt-1">رفيقك اليومي في رحلتك مع القرآن الكريم</p>
+    <span class="inline-block mt-3 bg-emerald-50 text-emerald-700 text-xs font-semibold px-4 py-1 rounded-full border border-emerald-200">آخر تحديث: مايو 2026</span>
+  </div>
+
+  <div class="bg-emerald-50 border-r-4 border-emerald-600 rounded-lg px-5 py-3 mb-6 text-emerald-800 text-sm" dir="rtl">
+    توضّح هذه السياسة كيفية تعامل تطبيق وِرد مع بياناتك. نحرص على الشفافية والإيجاز.
+  </div>
+
+  {% include "web/partials/privacy/section_ar.html" %}
+
+{% else %}
+
+{# ══ All other languages ══ #}
+
+  <div class="mb-8 text-center"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+
+    <h1 class="text-2xl font-bold text-emerald-800">{% trans "Wird — Privacy Policy" %}</h1>
+    <p class="text-slate-500 mt-1">{% trans "Your daily companion on your journey with the Quran" %}</p>
+    <span class="inline-block mt-3 bg-emerald-50 text-emerald-700 text-xs font-semibold px-4 py-1 rounded-full border border-emerald-200">{% trans "Last updated: May 2026" %}</span>
+  </div>
+
+  <div class="bg-emerald-50 border-{% if LANGUAGE_BIDI %}r{% else %}l{% endif %}-4 border-emerald-600 rounded-lg px-5 py-3 mb-6 text-emerald-800 text-sm"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
+    {% trans "This policy explains how Wird handles your data. We keep it short and honest." %}
+  </div>
+
+  {% include "web/partials/privacy/section_en.html" %}
+
+{% endif %}
+
+</div>
+
+{% endblock %}

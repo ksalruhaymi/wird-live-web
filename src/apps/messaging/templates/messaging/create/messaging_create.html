@@ -1,0 +1,204 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} مركز الإشعارات {% endblock %}
+{% block description %}مركز الإشعارات{% endblock %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"messaging.create" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "messaging/includes/tabs_header.html" %}
+
+  <div>
+    <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+      إرسال رسالة
+    </h1>
+    <p class="mt-1 text-[11px] text-slate-500">
+      إدارة وإرسال الإشعارات عبر البريد الإلكتروني والتنبيهات داخل النظام.
+    </p>
+  </div>
+
+  <div id="broadcast-form" class="bg-white border border-slate-200 rounded-2xl p-4">
+    <h2 class="text-[13px] font-bold text-slate-800 mb-3">
+      إنشاء رسالة جديد
+    </h2>
+
+    <form method="post"
+          action="{% url 'apps.messaging:messaging_create' %}"
+          class="space-y-4 text-[13px]">
+      {% csrf_token %}
+
+      <div>
+        <label class="block mb-1 font-bold text-slate-700">العنوان</label>
+        <input
+          type="text"
+          name="title"
+          required
+          class="w-full border border-slate-200 rounded-lg px-3 py-2"
+        >
+      </div>
+
+      <div>
+        <label class="block mb-1 font-bold text-slate-700">نص الرسالة</label>
+
+        <div id="editor-wrapper">
+          <div id="editor"
+               class="bg-white border border-slate-200 rounded-lg min-h-[180px] px-3 py-2"></div>
+        </div>
+
+        <textarea
+          id="plain-body"
+          class="w-full border border-slate-200 rounded-lg px-3 py-2 mt-2 hidden"
+          rows="5"
+          placeholder="اكتب نص الرسالة هنا..."
+        ></textarea>
+
+        <input type="hidden" name="body" id="body">
+      </div>
+
+      <div>
+        <label class="block mb-2 font-bold text-slate-700">قناة الإرسال</label>
+
+        <div class="flex items-center gap-4 flex-wrap">
+          <div class="grid grid-cols-3 gap-4">
+
+            <label class="flex items-center justify-start border rounded-xl px-5 py-3 bg-slate-100 border-slate-200 cursor-pointer">
+              <input type="radio" name="channel" value="email" checked>
+              <span class="text-sm font-semibold px-1">البريد الإلكتروني</span>
+            </label>
+
+            <label class="flex items-center justify-start border rounded-xl px-5 py-3 bg-slate-100 border-slate-200 cursor-pointer">
+              <input type="radio" name="channel" value="sms" disabled>
+              <span class="text-sm font-semibold px-1">رسالة جوال</span>
+            </label>
+            <label class="flex items-center justify-start border rounded-xl px-5 py-3 bg-slate-100 border-slate-200 cursor-pointer">
+              <input type="radio" name="channel" value="whatsapp" disabled>
+              <span class="text-sm font-semibold px-1"> واتساب</span>
+            </label>
+          </div>
+
+          <div class="flex items-end gap-3 text-[12px]">
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="target_type" value="all" checked>
+              <span>كل المستخدمين</span>
+            </label>
+
+            <label class="inline-flex items-center gap-2">
+              <input type="radio" name="target_type" value="selected">
+              <span>مستخدمون محددون</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div id="recipients-box">
+        <label class="block mb-1 font-bold text-slate-700">
+          اختيار المستخدمين
+        </label>
+
+        <div class="border border-slate-200 rounded-lg px-3 py-2 h-40 overflow-y-auto space-y-1 text-[13px]">
+          {% for user in users %}
+            {% if not user.is_superuser %}
+              <label class="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  name="recipients"
+                  value="{{ user.id }}"
+                  class="rounded border-slate-300"
+                >
+                <span>{{ user.username }}</span>
+              </label>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <p class="mt-1 text-[11px] text-slate-400">
+          اختر مستخدمًا أو أكثر من القائمة.
+        </p>
+      </div>
+
+      <div class="pt-2 dir-start">
+        <button
+          type="submit"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 text-white text-[12px] font-bold hover:bg-blue-700 shadow-sm"
+        >
+          <i class="bi bi-send-fill"></i>
+          إرسال الإشعار
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const radios = document.querySelectorAll('input[name="target_type"]');
+  const recipientsBox = document.getElementById("recipients-box");
+
+  function toggleRecipients() {
+    const selected = document.querySelector('input[name="target_type"]:checked');
+    recipientsBox.style.display = selected && selected.value === "selected" ? "block" : "none";
+  }
+
+  radios.forEach((radio) => {
+    radio.addEventListener("change", toggleRecipients);
+  });
+  toggleRecipients();
+
+  const form = document.querySelector("#broadcast-form form");
+  const hiddenBody = document.getElementById("body");
+  const channelInputs = document.querySelectorAll('input[name="channel"]');
+  const editorWrapper = document.getElementById("editor-wrapper");
+  const plainBody = document.getElementById("plain-body");
+
+  if (!form || !hiddenBody || !editorWrapper || !plainBody || !channelInputs.length) return;
+
+  const quill = new Quill("#editor", {
+    theme: "snow",
+    placeholder: "اكتب نص الرسالة هنا...",
+    modules: {
+      toolbar: [
+        [{ direction: "rtl" }],
+        [{ align: [] }],
+        ["bold", "italic", "underline"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        ["link"],
+        ["clean"],
+      ],
+    },
+  });
+
+  quill.root.setAttribute("dir", "rtl");
+  quill.root.style.textAlign = "right";
+
+  function getSelectedChannel() {
+    const checked = document.querySelector('input[name="channel"]:checked');
+    return checked ? checked.value : "email";
+  }
+
+  function toggleBodyInput() {
+    if (getSelectedChannel() === "email") {
+      editorWrapper.classList.remove("hidden");
+      plainBody.classList.add("hidden");
+    } else {
+      editorWrapper.classList.add("hidden");
+      plainBody.classList.remove("hidden");
+    }
+  }
+
+  channelInputs.forEach((input) => {
+    input.addEventListener("change", toggleBodyInput);
+  });
+
+  toggleBodyInput();
+
+  form.addEventListener("submit", function () {
+    hiddenBody.value = getSelectedChannel() === "email"
+      ? quill.root.innerHTML
+      : plainBody.value;
+  });
+});
+</script>
+
+{% endif %}
+{% endblock %}

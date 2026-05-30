@@ -1,0 +1,2515 @@
+:root {
+  --wird-ink: #18241d;
+  --wird-muted: #667169;
+  --wird-soft: #f8f7ef;
+  --wird-surface: #fffefa;
+  --wird-line: #e8e4d8;
+  --wird-green: #28563a;
+  --wird-green-soft: #e7f0e7;
+  --wird-gold: #d5ad58;
+  --wird-shadow: 0 28px 70px rgba(24, 36, 29, .08);
+}
+
+body {
+  background: #fffefa;
+}
+
+.wird-container {
+  width: min(100% - 2rem, 1500px);
+  margin-inline: auto;
+}
+
+.wird-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 9998;
+  background: rgba(255, 254, 250, .88);
+  border-bottom: 1px solid rgba(232, 228, 216, .75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.wird-navbar-inner {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wird-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.wird-brand-mark {
+  width: 54px;
+  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--wird-green-soft);
+  color: var(--wird-green);
+  border: 1px solid #d7e2d7;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.wird-brand-image {
+  height: 44px;
+  width: auto;
+}
+
+.wird-desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.wird-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  flex: 1;
+}
+
+.wird-nav-links a {
+  color: #535d55;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .2s ease, transform .2s ease;
+}
+
+.wird-nav-links a:hover,
+.wird-nav-links a.is-active {
+  color: var(--wird-green);
+  transform: translateY(-1px);
+}
+
+.wird-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.wird-nav-actions .wird-language-switcher {
+  min-width: 94px !important;
+}
+
+.wird-nav-actions .wird-lang-button,
+.wird-mobile-language .wird-lang-button {
+  height: 46px !important;
+  min-width: 92px !important;
+  border-radius: 999px !important;
+  border-color: var(--wird-line) !important;
+  color: #4f5a51 !important;
+  background: rgba(255,255,255,.86) !important;
+  box-shadow: none !important;
+}
+
+.wird-login-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--wird-green);
+  color: #ffffff !important;
+  font-size: 17px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 14px 28px rgba(40, 86, 58, .18);
+}
+
+.wird-nav-icon,
+.wird-account-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid var(--wird-line);
+  color: var(--wird-green) !important;
+  position: relative;
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.wird-nav-icon span {
+  position: absolute;
+  top: -5px;
+  inset-inline-end: -5px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wird-logout-form {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+}
+
+.wird-logout-form button.wird-nav-icon {
+  padding: 0;
+  font: inherit;
+  font-weight: 400;
+  color: #b91c1c !important;
+  cursor: pointer;
+}
+
+.wird-logout-form button.wird-nav-icon:hover {
+  background: #fff5f5;
+  border-color: #fecaca;
+}
+
+.wird-mobile-toggle {
+  width: 46px;
+  height: 46px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid var(--wird-line);
+  background: #fff;
+  color: var(--wird-green);
+  font-size: 24px;
+}
+
+.wird-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #fffefa;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.wird-mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wird-mobile-language {
+  margin-top: 24px;
+}
+
+.wird-mobile-links {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wird-mobile-links a,
+.wird-mobile-links button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 52px;
+  padding: 0 16px;
+  border-radius: 18px;
+  border: 1px solid var(--wird-line);
+  background: #fff;
+  color: var(--wird-ink);
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.wird-mobile-links button {
+  width: 100%;
+  cursor: pointer;
+}
+
+.wird-mobile-login {
+  background: var(--wird-green) !important;
+  color: #fff !important;
+  justify-content: center !important;
+}
+
+.wird-home {
+  overflow: hidden;
+  background: #fffefa;
+  color: var(--wird-ink);
+  font-family: "Cairo", "DINNextArabic", system-ui, sans-serif;
+}
+
+.wird-hero-section {
+  position: relative;
+  padding: 120px 0 130px;
+  background:
+    radial-gradient(circle at 22% 42%, rgba(226, 215, 176, .38), transparent 32%),
+    radial-gradient(circle at 78% 36%, rgba(221, 235, 220, .34), transparent 34%),
+    linear-gradient(180deg, #fffefa 0%, #fffefa 76%, #f8f7ef 100%);
+}
+
+.wird-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(460px, .95fr);
+  align-items: center;
+  gap: 92px;
+}
+
+.wird-hero-copy {
+  text-align: start;
+  justify-self: end;
+  max-width: 690px;
+}
+
+.wird-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #eef5ef;
+  color: var(--wird-green);
+  border: 1px solid #d8e3d8;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.wird-eyebrow span {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--wird-gold);
+}
+
+.wird-hero-title {
+  margin: 38px 0 0;
+  color: #16231b;
+  font-size: clamp(46px, 5.4vw, 88px);
+  line-height: 1.28;
+  letter-spacing: -.03em;
+  font-weight: 900;
+}
+
+.wird-hero-title span {
+  display: block;
+  color: var(--wird-green);
+}
+
+.wird-hero-description {
+  margin: 28px 0 0;
+  max-width: 630px;
+  color: var(--wird-muted);
+  font-size: clamp(19px, 1.8vw, 27px);
+  line-height: 2;
+  font-weight: 600;
+}
+
+.wird-hero-actions {
+  margin-top: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+  gap: 20px;
+}
+
+.wird-btn {
+  min-height: 64px;
+  padding: 0 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 19px;
+  font-weight: 900;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.wird-btn:hover {
+  transform: translateY(-3px);
+}
+
+.wird-btn-primary {
+  background: var(--wird-green);
+  color: #fff;
+  box-shadow: 0 22px 40px rgba(40, 86, 58, .22);
+}
+
+.wird-btn-secondary {
+  background: #fff;
+  color: var(--wird-ink);
+  border: 1px solid var(--wird-line);
+}
+
+.wird-hero-visual {
+  justify-self: start;
+  width: 100%;
+}
+
+.wird-quran-card {
+  position: relative;
+  min-height: 590px;
+  border-radius: 42px;
+  background: linear-gradient(145deg, #f7f2df 0%, #fff9ea 62%, #f5fbf4 100%);
+  border: 1px solid #eee6cf;
+  box-shadow: var(--wird-shadow);
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 34px;
+}
+
+.wird-quran-card::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  border-radius: 34px;
+  border: 1px solid rgba(224, 210, 169, .5);
+  background: rgba(255,255,255,.28);
+}
+
+.wird-quran-image {
+  position: relative;
+  z-index: 2;
+  width: min(88%, 560px);
+  object-fit: contain;
+  filter: drop-shadow(0 28px 30px rgba(24,36,29,.18));
+}
+
+.wird-ornament {
+  position: absolute;
+  z-index: 1;
+  width: 132px;
+  height: 132px;
+  opacity: .35;
+  border: 6px double #d7bd70;
+  transform: rotate(45deg);
+}
+
+.wird-ornament-one { top: 185px; right: 135px; }
+.wird-ornament-two { top: 180px; left: 180px; }
+.wird-ornament-three { top: 125px; left: 315px; width: 120px; height: 120px; }
+
+.wird-floating-reciter,
+.wird-floating-daily {
+  position: absolute;
+  z-index: 4;
+  border-radius: 26px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--wird-line);
+  box-shadow: 0 18px 35px rgba(24,36,29,.12);
+  backdrop-filter: blur(16px);
+}
+
+.wird-floating-reciter {
+  top: -40px;
+  right: 36px;
+  min-width: 140px;
+  padding: 18px 22px;
+  text-align: center;
+}
+
+.wird-floating-reciter span,
+.wird-floating-daily span {
+  display: block;
+  color: var(--wird-muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.wird-floating-reciter strong,
+.wird-floating-daily strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--wird-ink);
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.wird-floating-daily {
+  bottom: -34px;
+  left: 36px;
+  min-width: 230px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.wird-floating-dot {
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  background: var(--wird-green-soft);
+}
+
+.wird-section {
+  padding: 120px 0;
+}
+
+.wird-features-section,
+.wird-recitation-section {
+  background: #f8f7ef;
+}
+
+.wird-section-heading {
+  text-align: center;
+  margin-bottom: 62px;
+}
+
+.wird-section-heading span,
+.wird-section-copy > span {
+  display: inline-block;
+  color: var(--wird-gold);
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.wird-section-heading h2,
+.wird-section-copy h2 {
+  margin: 14px 0 0;
+  color: var(--wird-ink);
+  font-size: clamp(38px, 4vw, 64px);
+  line-height: 1.35;
+  font-weight: 900;
+  letter-spacing: -.03em;
+}
+
+.wird-section-heading p,
+.wird-section-copy p {
+  margin: 16px auto 0;
+  color: var(--wird-muted);
+  font-size: 22px;
+  line-height: 2;
+  font-weight: 600;
+  max-width: 820px;
+}
+
+.wird-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.wird-feature-card {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: start;
+  border-radius: 32px;
+  background: #fff;
+  border: 1px solid var(--wird-line);
+  padding: 46px 54px;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 18px 42px rgba(24,36,29,.035);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.wird-feature-card:hover {
+  transform: translateY(-6px);
+  border-color: #d6dccd;
+  box-shadow: 0 28px 60px rgba(24,36,29,.08);
+}
+
+.wird-feature-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 26px;
+  background: var(--wird-green-soft);
+  color: var(--wird-green);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-bottom: 34px;
+}
+
+.wird-feature-card h3 {
+  margin: 0;
+  color: var(--wird-ink);
+  font-size: 30px;
+  line-height: 1.4;
+  font-weight: 900;
+}
+
+.wird-feature-card p {
+  margin: 16px 0 0;
+  color: var(--wird-muted);
+  font-size: 19px;
+  line-height: 1.9;
+  font-weight: 600;
+}
+
+.wird-split-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .98fr) minmax(0, 1.02fr);
+  align-items: center;
+  gap: 92px;
+}
+
+.wird-daily-card,
+.wird-player-card,
+.wird-reciter-list,
+.wird-reading-card {
+  background: #fff;
+  border: 1px solid var(--wird-line);
+  box-shadow: var(--wird-shadow);
+}
+
+.wird-daily-card {
+  border-radius: 34px;
+  padding: 48px;
+}
+
+.wird-daily-card-header,
+.wird-player-top,
+.wird-reading-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.wird-daily-card-header span,
+.wird-player-top span,
+.wird-reading-card-header span {
+  color: var(--wird-muted);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.wird-daily-card-header strong,
+.wird-player-top strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--wird-ink);
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.wird-soft-pill {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--wird-green-soft);
+  color: var(--wird-green) !important;
+}
+
+.wird-progress-row,
+.wird-player-times {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--wird-muted);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.wird-progress-track,
+.wird-audio-progress {
+  height: 12px;
+  margin-top: 12px;
+  border-radius: 999px;
+  background: #f0ebdd;
+  overflow: hidden;
+}
+
+.wird-progress-track span,
+.wird-audio-progress span {
+  display: block;
+  height: 100%;
+  width: 58%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--wird-green), #9a944d);
+}
+
+.wird-days-row {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 18px;
+}
+
+.wird-days-row div {
+  text-align: center;
+  color: var(--wird-muted);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.wird-days-row i {
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  border: 1px solid var(--wird-line);
+  background: #fffefa;
+  color: var(--wird-muted);
+  font-size: 22px;
+}
+
+.wird-days-row .is-done i {
+  background: var(--wird-green);
+  color: #fff;
+  border-color: var(--wird-green);
+}
+
+.wird-days-row .is-current i {
+  color: var(--wird-gold);
+  border-color: #ead29b;
+  background: #fff8e6;
+}
+
+.wird-today-box {
+  margin-top: 44px;
+  border-radius: 28px;
+  background: #fbf8ef;
+  border: 1px solid var(--wird-line);
+  padding: 22px 28px;
+}
+
+.wird-today-box span {
+  display: block;
+  color: var(--wird-muted);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.wird-today-box strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--wird-ink);
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.wird-section-copy {
+  text-align: start;
+}
+
+.wird-copy-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 38px;
+  color: var(--wird-muted);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.wird-copy-points span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wird-copy-points i {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--wird-green);
+}
+
+.wird-copy-points span:nth-child(2) i { background: var(--wird-gold); }
+.wird-copy-points span:nth-child(3) i { background: #b9bdb4; }
+
+.wird-audio-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, .72fr) minmax(0, 1.28fr);
+  gap: 36px;
+  align-items: stretch;
+}
+
+.wird-reciter-list {
+  border-radius: 34px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wird-reciter-list > div {
+  min-height: 100px;
+  border-radius: 28px;
+  padding: 0 26px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.wird-reciter-list .is-active {
+  background: #eef5ef;
+}
+
+.wird-reciter-list button,
+.wird-player-controls button {
+  border: 0;
+  background: #f6f1e5;
+  color: var(--wird-green);
+  cursor: pointer;
+}
+
+.wird-reciter-list button {
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  font-size: 22px;
+}
+
+.wird-reciter-list .is-active button {
+  background: var(--wird-green);
+  color: #fff;
+}
+
+.wird-reciter-list strong {
+  display: block;
+  color: var(--wird-ink);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.wird-reciter-list span {
+  display: block;
+  margin-top: 8px;
+  color: var(--wird-muted);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.wird-player-card {
+  border-radius: 34px;
+  padding: 54px;
+}
+
+.wird-player-top > span,
+.wird-reading-card-header span {
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: #f6efd9;
+  color: var(--wird-ink);
+}
+
+.wird-current-surah {
+  margin-top: 50px;
+  min-height: 190px;
+  border-radius: 34px;
+  background: linear-gradient(110deg, #fbf6e6, #edf5ef);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.wird-current-surah span,
+.wird-current-surah small {
+  color: var(--wird-muted);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.wird-current-surah strong {
+  display: block;
+  margin: 12px 0;
+  color: var(--wird-ink);
+  font-size: clamp(40px, 4vw, 62px);
+  font-weight: 900;
+}
+
+.wird-player-controls {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+
+.wird-player-controls button {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: transparent;
+  font-size: 32px;
+  color: #667169;
+}
+
+.wird-player-controls .is-main {
+  width: 86px;
+  height: 86px;
+  background: var(--wird-green);
+  color: #fff;
+  box-shadow: 0 18px 36px rgba(40,86,58,.25);
+}
+
+.wird-reading-section {
+  background: #fffefa;
+}
+
+.wird-reading-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.wird-reading-card {
+  min-height: 520px;
+  border-radius: 34px;
+  padding: 50px;
+  text-align: start;
+}
+
+.wird-reading-card-header h3 {
+  margin: 0;
+  color: var(--wird-ink);
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.wird-reading-card-header span {
+  background: #eef5ef;
+  color: var(--wird-green);
+}
+
+.wird-ayah-box {
+  margin-top: 42px;
+  border-radius: 28px;
+  background: #fbf8ef;
+  padding: 32px 26px;
+  text-align: center;
+  color: var(--wird-ink);
+  font-size: clamp(17px, 1.4vw, 22px);
+  line-height: 2;
+  font-weight: 800;
+}
+
+.wird-ayah-box small {
+  display: block;
+  margin-top: 18px;
+  color: var(--wird-muted);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.wird-reading-card > p,
+.wird-translation-lines p {
+  margin: 34px 0 0;
+  color: var(--wird-muted);
+  font-size: 20px;
+  line-height: 2.1;
+  font-weight: 700;
+}
+
+.wird-translation-lines {
+  margin-top: 34px;
+  direction: ltr;
+  text-align: left;
+}
+[dir="rtl"] .wird-translation-lines {
+  direction: rtl;
+  text-align: right;
+}
+
+.wird-translation-lines span {
+  display: block;
+  margin-top: 26px;
+  color: #7d857c;
+  letter-spacing: .14em;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.wird-translation-lines p {
+  margin-top: 10px;
+  color: #26312a;
+}
+
+.wird-footer {
+  background: #f8f7ef;
+  border-top: 1px solid var(--wird-line);
+  padding: 78px 0 34px;
+}
+
+.wird-footer-main,
+.wird-footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.wird-footer-brand p {
+  margin: 18px 0 0;
+  color: var(--wird-muted);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.wird-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: flex-end;
+}
+
+.wird-footer-links a {
+  color: #4f5a51;
+  font-size: 17px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.wird-footer-links a:hover {
+  color: var(--wird-green);
+}
+
+.wird-footer-bottom {
+  margin-top: 70px;
+  padding-top: 34px;
+  border-top: 1px solid var(--wird-line);
+  color: var(--wird-muted);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.wird-footer-bottom p {
+  margin: 0;
+}
+
+@media (max-width: 1180px) {
+  .wird-nav-links { gap: 18px; }
+  .wird-nav-links a { font-size: 16px; }
+  .wird-hero-grid,
+  .wird-split-grid { gap: 48px; }
+  .wird-features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 960px) {
+  .wird-desktop-nav { display: none; }
+  .wird-mobile-toggle { display: inline-flex; }
+  .wird-navbar-inner { min-height: 72px; }
+  .wird-brand-mark { width: 46px; height: 46px; }
+  .wird-brand-image { height: 38px; }
+  .wird-hero-section { padding: 62px 0 86px; }
+  .wird-hero-grid,
+  .wird-split-grid,
+  .wird-audio-grid,
+  .wird-reading-grid { grid-template-columns: 1fr; }
+  .wird-hero-copy { justify-self: stretch; max-width: none; }
+  .wird-hero-visual { justify-self: stretch; }
+  .wird-quran-card { min-height: 430px; }
+  .wird-hero-actions { justify-content: flex-start; }
+  .wird-section { padding: 82px 0; }
+  .wird-section-copy { order: -1; }
+  .wird-footer-main,
+  .wird-footer-bottom { flex-direction: column; align-items: flex-start; }
+  .wird-footer-links { justify-content: flex-start; }
+}
+
+@media (max-width: 640px) {
+  .wird-container { width: min(100% - 1.25rem, 1500px); }
+  .wird-hero-title { font-size: 40px; }
+  .wird-hero-description { font-size: 17px; }
+  .wird-hero-actions { flex-direction: column; align-items: stretch; }
+  .wird-btn { width: 100%; min-height: 58px; font-size: 17px; }
+  .wird-quran-card { min-height: 340px; border-radius: 28px; padding: 18px; }
+  .wird-floating-reciter { top: -24px; right: 12px; min-width: 118px; padding: 12px 14px; }
+  .wird-floating-daily { left: 12px; bottom: -26px; min-width: 190px; padding: 12px 14px; }
+  .wird-floating-dot { width: 44px; height: 44px; }
+  .wird-ornament { width: 86px; height: 86px; }
+  .wird-ornament-one { top: 110px; right: 55px; }
+  .wird-ornament-two { top: 115px; left: 55px; }
+  .wird-ornament-three { display: none; }
+  .wird-section-heading { margin-bottom: 34px; }
+  .wird-section-heading h2,
+  .wird-section-copy h2 { font-size: 34px; }
+  .wird-section-heading p,
+  .wird-section-copy p { font-size: 17px; }
+  .wird-features-grid { grid-template-columns: 1fr; }
+  .wird-feature-card { min-height: auto; padding: 30px; border-radius: 26px; }
+  .wird-feature-card h3 { font-size: 24px; }
+  .wird-feature-card p { font-size: 16px; }
+  .wird-feature-icon { width: 58px; height: 58px; border-radius: 20px; font-size: 24px; margin-bottom: 22px; }
+  .wird-daily-card,
+  .wird-player-card,
+  .wird-reciter-list,
+  .wird-reading-card { border-radius: 26px; padding: 24px; }
+  .wird-days-row { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .wird-days-row i { width: 46px; height: 46px; }
+  .wird-today-box strong { font-size: 18px; }
+  .wird-current-surah { min-height: 150px; border-radius: 24px; }
+  .wird-current-surah strong { font-size: 36px; }
+  .wird-player-controls .is-main { width: 68px; height: 68px; }
+  .wird-ayah-box { padding: 24px 16px; font-size: 18px; }
+  .wird-footer { padding-top: 48px; }
+  .wird-footer-links { flex-direction: column; gap: 16px; }
+}
+
+
+/* Final compact corrections */
+.wird-brand-image {
+  height: 40px;
+}
+
+.wird-footer .wird-brand-image {
+  height: 44px;
+}
+
+.wird-hero-title {
+  font-size: clamp(24px, 2.55vw, 36px) !important;
+  line-height: 1.42 !important;
+  letter-spacing: -.02em;
+}
+
+.wird-hero-description {
+  font-size: clamp(13px, 1.05vw, 15px) !important;
+  max-width: 460px;
+}
+
+.wird-floating-reciter strong,
+.wird-floating-daily strong {
+  font-size: 12.5px;
+}
+
+.wird-audio-grid {
+  direction: rtl;
+  grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr);
+}
+
+.wird-reciter-list {
+  grid-column: 1;
+}
+
+.wird-player-card {
+  grid-column: 2;
+}
+
+.wird-reading-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.wird-reading-link:hover {
+  transform: translateY(-2px);
+  border-color: #d6dccd;
+}
+
+.wird-footer-bottom {
+  justify-content: flex-start;
+}
+
+@media (max-width: 960px) {
+  .wird-audio-grid {
+    grid-template-columns: 1fr;
+  }
+  .wird-reciter-list,
+  .wird-player-card {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .wird-brand-image { height: 34px; }
+  .wird-footer .wird-brand-image { height: 38px; }
+  .wird-hero-title { font-size: 23px !important; }
+}
+
+
+/* Ultra compact final sizing */
+.wird-container {
+  width: min(100% - 2rem, 1180px) !important;
+}
+
+.wird-navbar-inner {
+  min-height: 68px !important;
+  gap: 14px !important;
+}
+
+.wird-brand {
+  gap: 7px !important;
+}
+
+.wird-brand-mark {
+  display: none !important;
+}
+
+.wird-brand-image {
+  height: 54px !important;
+  max-width: 150px !important;
+}
+
+.wird-nav-links {
+  gap: 20px !important;
+}
+
+.wird-nav-links a {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+
+.wird-nav-actions .wird-lang-button,
+.wird-mobile-language .wird-lang-button {
+  height: 34px !important;
+  min-width: 70px !important;
+  font-size: 12px !important;
+}
+
+.wird-login-link {
+  height: 36px !important;
+  padding: 0 18px !important;
+  font-size: 13px !important;
+  box-shadow: 0 8px 18px rgba(40, 86, 58, .12) !important;
+}
+
+.wird-nav-icon,
+.wird-account-avatar {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 13px !important;
+}
+
+.wird-hero-section {
+  padding: 46px 0 56px !important;
+}
+
+.wird-hero-grid {
+  grid-template-columns: minmax(0, .98fr) minmax(360px, .82fr) !important;
+  gap: 44px !important;
+}
+
+.wird-hero-copy {
+  max-width: 470px !important;
+}
+
+.wird-eyebrow {
+  padding: 5px 11px !important;
+  gap: 7px !important;
+  font-size: 11px !important;
+}
+
+.wird-eyebrow span {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+.wird-hero-title {
+  margin-top: 18px !important;
+  font-size: clamp(22px, 2.2vw, 32px) !important;
+  line-height: 1.45 !important;
+  letter-spacing: -.015em !important;
+}
+
+.wird-hero-description {
+  margin-top: 12px !important;
+  font-size: clamp(12px, .95vw, 14px) !important;
+  line-height: 1.85 !important;
+  max-width: 430px !important;
+}
+
+.wird-hero-actions {
+  margin-top: 22px !important;
+  gap: 10px !important;
+}
+
+.wird-btn {
+  min-height: 38px !important;
+  padding: 0 18px !important;
+  gap: 8px !important;
+  font-size: 13px !important;
+  box-shadow: none !important;
+}
+
+.wird-quran-card {
+  min-height: 330px !important;
+  border-radius: 26px !important;
+  padding: 18px !important;
+  box-shadow: 0 16px 40px rgba(24, 36, 29, .055) !important;
+}
+
+.wird-quran-card::before {
+  inset: 14px !important;
+  border-radius: 22px !important;
+}
+
+.wird-quran-image {
+  width: min(84%, 390px) !important;
+  filter: drop-shadow(0 16px 18px rgba(24,36,29,.12)) !important;
+}
+
+.wird-ornament {
+  width: 72px !important;
+  height: 72px !important;
+  border-width: 3px !important;
+  opacity: .24 !important;
+}
+
+.wird-ornament-one { top: 120px !important; right: 80px !important; }
+.wird-ornament-two { top: 116px !important; left: 92px !important; }
+.wird-ornament-three { top: 80px !important; left: 180px !important; width: 66px !important; height: 66px !important; }
+
+.wird-floating-reciter,
+.wird-floating-daily {
+  border-radius: 16px !important;
+  box-shadow: 0 10px 24px rgba(24,36,29,.09) !important;
+}
+
+.wird-floating-reciter {
+  top: -20px !important;
+  right: 22px !important;
+  min-width: 110px !important;
+  padding: 10px 14px !important;
+}
+
+.wird-floating-daily {
+  bottom: -22px !important;
+  left: 22px !important;
+  min-width: 155px !important;
+  padding: 10px 14px !important;
+  gap: 10px !important;
+}
+
+.wird-floating-reciter span,
+.wird-floating-daily span {
+  font-size: 10px !important;
+}
+
+.wird-floating-reciter strong,
+.wird-floating-daily strong {
+  margin-top: 3px !important;
+  font-size: 13px !important;
+}
+
+.wird-floating-dot {
+  width: 34px !important;
+  height: 34px !important;
+}
+
+.wird-section {
+  padding: 56px 0 !important;
+}
+
+.wird-section-heading {
+  margin-bottom: 28px !important;
+}
+
+.wird-section-heading span,
+.wird-section-copy > span {
+  font-size: 12px !important;
+}
+
+.wird-section-heading h2,
+.wird-section-copy h2 {
+  margin-top: 8px !important;
+  font-size: clamp(24px, 2.4vw, 34px) !important;
+  line-height: 1.45 !important;
+}
+
+.wird-section-heading p,
+.wird-section-copy p {
+  margin-top: 8px !important;
+  font-size: 13px !important;
+  line-height: 1.8 !important;
+  max-width: 620px !important;
+}
+
+.wird-features-grid {
+  gap: 16px !important;
+}
+
+.wird-feature-card {
+  min-height: 145px !important;
+  border-radius: 20px !important;
+  padding: 22px 26px !important;
+  box-shadow: 0 10px 24px rgba(24,36,29,.025) !important;
+}
+
+.wird-feature-card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 34px rgba(24,36,29,.055) !important;
+}
+
+.wird-feature-icon {
+  width: 42px !important;
+  height: 42px !important;
+  border-radius: 15px !important;
+  font-size: 18px !important;
+  margin-bottom: 15px !important;
+}
+
+.wird-feature-card h3 {
+  font-size: 18px !important;
+  line-height: 1.35 !important;
+}
+
+.wird-feature-card p {
+  margin-top: 8px !important;
+  font-size: 12.5px !important;
+  line-height: 1.75 !important;
+}
+
+.wird-split-grid {
+  gap: 44px !important;
+}
+
+.wird-daily-card,
+.wird-player-card,
+.wird-reciter-list,
+.wird-reading-card {
+  border-radius: 22px !important;
+  box-shadow: 0 16px 40px rgba(24, 36, 29, .055) !important;
+}
+
+.wird-daily-card {
+  padding: 26px !important;
+}
+
+.wird-daily-card-header span,
+.wird-player-top span,
+.wird-reading-card-header span {
+  font-size: 11.5px !important;
+}
+
+.wird-daily-card-header strong,
+.wird-player-top strong {
+  margin-top: 4px !important;
+  font-size: 17px !important;
+}
+
+.wird-soft-pill,
+.wird-player-top > span,
+.wird-reading-card-header span {
+  padding: 6px 12px !important;
+  font-size: 11px !important;
+}
+
+.wird-progress-row,
+.wird-player-times {
+  margin-top: 20px !important;
+  font-size: 11.5px !important;
+}
+
+.wird-progress-track,
+.wird-audio-progress {
+  height: 7px !important;
+  margin-top: 8px !important;
+}
+
+.wird-days-row {
+  margin-top: 22px !important;
+  gap: 9px !important;
+}
+
+.wird-days-row div {
+  font-size: 10.5px !important;
+}
+
+.wird-days-row i {
+  width: 34px !important;
+  height: 34px !important;
+  margin-bottom: 7px !important;
+  font-size: 14px !important;
+}
+
+.wird-today-box {
+  margin-top: 24px !important;
+  border-radius: 16px !important;
+  padding: 13px 16px !important;
+}
+
+.wird-today-box span {
+  font-size: 10.5px !important;
+}
+
+.wird-today-box strong {
+  margin-top: 5px !important;
+  font-size: 16px !important;
+}
+
+.wird-copy-points {
+  gap: 16px !important;
+  margin-top: 20px !important;
+  font-size: 12.5px !important;
+}
+
+.wird-copy-points span {
+  gap: 7px !important;
+}
+
+.wird-copy-points i {
+  width: 7px !important;
+  height: 7px !important;
+}
+
+.wird-audio-grid {
+  grid-template-columns: minmax(260px, .62fr) minmax(0, 1.38fr) !important;
+  gap: 22px !important;
+}
+
+.wird-reciter-list {
+  border-radius: 22px !important;
+  padding: 12px !important;
+  gap: 8px !important;
+}
+
+.wird-reciter-list > div {
+  min-height: 62px !important;
+  border-radius: 17px !important;
+  padding: 0 15px !important;
+  gap: 10px !important;
+}
+
+.wird-reciter-list button {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 14px !important;
+}
+
+.wird-reciter-list strong {
+  font-size: 14px !important;
+}
+
+.wird-reciter-list span {
+  margin-top: 3px !important;
+  font-size: 10.5px !important;
+}
+
+.wird-player-card {
+  padding: 28px !important;
+}
+
+.wird-current-surah {
+  margin-top: 26px !important;
+  min-height: 112px !important;
+  border-radius: 20px !important;
+}
+
+.wird-current-surah span,
+.wird-current-surah small {
+  font-size: 11px !important;
+}
+
+.wird-current-surah strong {
+  margin: 6px 0 !important;
+  font-size: clamp(24px, 2.6vw, 36px) !important;
+}
+
+.wird-player-controls {
+  margin-top: 22px !important;
+  gap: 20px !important;
+}
+
+.wird-player-controls button {
+  width: 34px !important;
+  height: 34px !important;
+  font-size: 20px !important;
+}
+
+.wird-player-controls .is-main {
+  width: 54px !important;
+  height: 54px !important;
+  box-shadow: 0 10px 22px rgba(40,86,58,.18) !important;
+}
+
+.wird-reading-grid {
+  gap: 20px !important;
+}
+
+.wird-reading-card {
+  min-height: 300px !important;
+  padding: 28px !important;
+}
+
+.wird-reading-card-header h3 {
+  font-size: 22px !important;
+}
+
+.wird-ayah-box {
+  margin-top: 22px !important;
+  border-radius: 18px !important;
+  padding: 20px 16px !important;
+  font-size: clamp(15px, 1.2vw, 19px) !important;
+  line-height: 1.9 !important;
+}
+
+.wird-ayah-box small {
+  margin-top: 10px !important;
+  font-size: 11px !important;
+}
+
+.wird-reading-card > p,
+.wird-translation-lines p {
+  margin-top: 18px !important;
+  font-size: 13px !important;
+  line-height: 1.9 !important;
+}
+
+.wird-translation-lines {
+  margin-top: 18px !important;
+}
+
+.wird-translation-lines span {
+  margin-top: 14px !important;
+  font-size: 10.5px !important;
+}
+
+.wird-footer {
+  padding: 24px 0 !important;
+}
+
+.wird-footer-main,
+.wird-footer-bottom,
+.wird-footer-brand {
+  display: none !important;
+}
+
+.wird-footer-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+}
+
+.wird-footer-links {
+  justify-content: flex-start !important;
+  gap: 22px !important;
+}
+
+.wird-footer-links a {
+  font-size: 12.5px !important;
+}
+
+.wird-app-downloads {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  flex-shrink: 0 !important;
+}
+
+.wird-app-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  padding: 7px 14px !important;
+  border-radius: 999px !important;
+  background: var(--wird-ink) !important;
+  color: #fff !important;
+  text-decoration: none !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  direction: ltr !important;
+  transition: background .2s ease, transform .2s ease !important;
+  border: 1.5px solid transparent !important;
+  line-height: 1.4 !important;
+}
+
+.wird-app-btn i {
+  font-size: 16px !important;
+}
+
+.wird-app-btn:hover {
+  background: var(--wird-green) !important;
+  transform: translateY(-2px) !important;
+}
+
+.wird-footer-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--wird-line);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--wird-muted);
+}
+
+.wird-footer-credit-logo {
+  width: 100px;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  background: transparent;
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.wird-footer-credit-email {
+  color: inherit;
+  text-decoration: none;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.wird-footer-credit-email:hover {
+  color: var(--wird-green);
+}
+
+@media (max-width: 640px) {
+  .wird-footer-row { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
+  .wird-app-downloads { gap: 8px !important; }
+  .wird-footer-credit-logo {
+    width: 75px;
+  }
+}
+
+@media (max-width: 960px) {
+  .wird-navbar-inner { min-height: 62px !important; }
+  .wird-brand-image { height: 46px !important; max-width: 130px !important; }
+  .wird-hero-section { padding: 34px 0 52px !important; }
+  .wird-hero-grid,
+  .wird-split-grid,
+  .wird-audio-grid,
+  .wird-reading-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .wird-quran-card { min-height: 280px !important; }
+  .wird-section { padding: 42px 0 !important; }
+  .wird-features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+@media (max-width: 640px) {
+  .wird-container { width: min(100% - 1rem, 1180px) !important; }
+  .wird-hero-title { font-size: 21px !important; }
+  .wird-hero-description { font-size: 12px !important; }
+  .wird-btn { width: 100% !important; min-height: 36px !important; font-size: 12.5px !important; }
+  .wird-quran-card { min-height: 230px !important; border-radius: 20px !important; }
+  .wird-features-grid { grid-template-columns: 1fr !important; }
+  .wird-feature-card { padding: 18px 20px !important; }
+  .wird-feature-card h3 { font-size: 16px !important; }
+  .wird-player-card,
+  .wird-reciter-list,
+  .wird-daily-card,
+  .wird-reading-card { padding: 18px !important; }
+}
+
+/* Single-card reading grid (non-Arabic languages) */
+.wird-reading-grid-single {
+  grid-template-columns: 1fr !important;
+}
+.wird-reading-grid-single .wird-reading-card {
+  text-align: start;
+}
+.wird-reading-grid-single .wird-ayah-box {
+  direction: rtl;
+  font-size: clamp(17px, 1.6vw, 22px) !important;
+}
+.wird-trans-text {
+  margin-top: 20px;
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.75;
+  color: var(--wird-muted);
+}
+
+/* Audio progress bar cursor */
+.wird-audio-progress {
+  cursor: pointer;
+}
+
+/* ── Compact reading & player blocks (user requested) ── */
+
+/* Reading card — smaller overall */
+.wird-reading-card {
+  min-height: 220px !important;
+  padding: 22px 24px !important;
+}
+.wird-reading-card-header {
+  align-items: flex-start !important;
+}
+.wird-reading-card-header h3 {
+  font-size: 17px !important;
+}
+.wird-ayah-box {
+  margin-top: 16px !important;
+  padding: 16px 12px !important;
+  font-size: clamp(14px, 1.2vw, 18px) !important;
+  line-height: 1.75 !important;
+}
+.wird-ayah-box small {
+  margin-top: 8px !important;
+  font-size: 11px !important;
+}
+.wird-reading-card > p,
+.wird-translation-lines p,
+.wird-trans-text {
+  margin-top: 12px !important;
+  font-size: 13px !important;
+  line-height: 1.75 !important;
+}
+
+/* Audio grid — equal columns, both blocks compact */
+.wird-audio-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  gap: 18px !important;
+  align-items: start !important;
+}
+.wird-player-card {
+  padding: 20px 22px !important;
+}
+.wird-player-top strong {
+  font-size: 15px !important;
+}
+.wird-current-surah {
+  margin-top: 14px !important;
+  min-height: auto !important;
+  padding: 16px 14px !important;
+  border-radius: 14px !important;
+}
+.wird-current-surah span,
+.wird-current-surah small {
+  font-size: 10px !important;
+}
+.wird-current-surah strong {
+  margin: 4px 0 !important;
+  font-size: clamp(18px, 1.8vw, 24px) !important;
+}
+.wird-audio-progress,
+.wird-progress-track {
+  height: 6px !important;
+  margin-top: 10px !important;
+}
+.wird-player-times {
+  margin-top: 6px !important;
+  font-size: 10px !important;
+}
+.wird-player-controls {
+  margin-top: 14px !important;
+  gap: 14px !important;
+}
+.wird-player-controls button {
+  width: 28px !important;
+  height: 28px !important;
+  font-size: 16px !important;
+}
+.wird-player-controls .is-main {
+  width: 44px !important;
+  height: 44px !important;
+  font-size: 20px !important;
+  box-shadow: 0 8px 18px rgba(40,86,58,.18) !important;
+}
+
+/* Reciter list — compact rows */
+.wird-reciter-list {
+  padding: 10px !important;
+  gap: 6px !important;
+  border-radius: 20px !important;
+}
+.wird-reciter-list > div {
+  min-height: 52px !important;
+  padding: 0 14px !important;
+  border-radius: 14px !important;
+  gap: 10px !important;
+}
+.wird-reciter-list strong {
+  font-size: 13px !important;
+}
+.wird-reciter-list span {
+  margin-top: 2px !important;
+  font-size: 10px !important;
+}
+.wird-reciter-list button {
+  width: 30px !important;
+  height: 30px !important;
+  font-size: 13px !important;
+  flex-shrink: 0 !important;
+}
+
+@media (max-width: 960px) {
+  .wird-audio-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Audio grid: force LTR order so player=LEFT reciters=RIGHT ── */
+.wird-audio-grid {
+  direction: ltr !important;
+}
+.wird-reciter-list,
+.wird-player-card {
+  grid-column: auto !important;
+}
+
+/* Collapse audio grid only on small screens */
+@media (min-width: 641px) {
+  .wird-audio-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+}
+@media (max-width: 640px) {
+  .wird-audio-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Both audio blocks same height */
+.wird-audio-grid {
+  align-items: stretch !important;
+}
+.wird-reciter-list {
+  justify-content: space-evenly !important;
+}
+
+/* Translation card: compact Arabic ayah on top, translation as main */
+.wird-trans-ayah-compact {
+  margin-top: 18px;
+  text-align: center;
+}
+.wird-trans-ayah-compact span {
+  display: block;
+  font-size: clamp(13px, 1.1vw, 16px);
+  color: var(--wird-muted);
+  font-weight: 700;
+  line-height: 1.9;
+  direction: rtl;
+}
+.wird-trans-ayah-compact small {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: #9aa09a;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.wird-trans-main {
+  margin-top: 20px !important;
+  font-size: clamp(16px, 1.5vw, 22px) !important;
+  font-weight: 700 !important;
+  color: var(--wird-ink) !important;
+  line-height: 1.8 !important;
+}
+
+/* Translation card: centered text, translation larger than ayah */
+.wird-reading-grid-single .wird-reading-card {
+  text-align: center !important;
+}
+.wird-trans-ayah-compact {
+  text-align: center !important;
+}
+.wird-trans-ayah-compact span {
+  font-size: clamp(12px, 1vw, 14px) !important;
+  color: var(--wird-muted) !important;
+}
+.wird-trans-main {
+  text-align: center !important;
+  font-size: clamp(18px, 1.8vw, 26px) !important;
+  font-weight: 800 !important;
+  color: var(--wird-ink) !important;
+}
+
+/* Translation bigger, Arabic ayah smaller */
+.wird-trans-ayah-compact span {
+  font-size: 11px !important;
+  opacity: 0.6 !important;
+}
+.wird-trans-ayah-compact small {
+  font-size: 10px !important;
+  opacity: 0.5 !important;
+}
+.wird-trans-main {
+  font-size: clamp(20px, 2vw, 30px) !important;
+  font-weight: 800 !important;
+}
+
+/* ── Green color update to #1A843A ── */
+:root {
+  --wird-green: #1A843A !important;
+}
+.wird-btn-primary,
+.wird-login-link,
+.wird-player-controls .is-main,
+.wird-reciter-list .is-active button {
+  background: #1A843A !important;
+}
+.wird-nav-links a:hover,
+.wird-nav-links a.is-active,
+.wird-brand-mark,
+.wird-nav-icon,
+.wird-account-avatar {
+  color: #1A843A !important;
+}
+.wird-eyebrow,
+.wird-reciter-list .is-active {
+  background: #e6f4eb !important;
+}
+.wird-brand-mark {
+  background: #e6f4eb !important;
+  border-color: #b8dfc4 !important;
+}
+
+/* Ayah text in translation card → green */
+.wird-trans-ayah-compact span {
+  color: #1A843A !important;
+  opacity: 1 !important;
+}
+
+/* Translation audio button */
+.wird-trans-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-top: 16px;
+}
+.wird-trans-body .wird-trans-main {
+  margin-top: 0 !important;
+  flex: 1;
+}
+.wird-trans-audio-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background: #1A843A;
+  color: #fff;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 6px 16px rgba(26,132,58,.25);
+  margin-top: 4px;
+}
+.wird-trans-audio-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(26,132,58,.32);
+}
+
+.wird-trans-main {
+  font-size: clamp(14px, 1.2vw, 17px) !important;
+}
+
+.wird-trans-ayah-compact span {
+  font-size: 13px !important;
+}
+
+/* ── Direction-aware attribute (matches .dir-text class in input.css) ────────
+   Elements marked with [dir-text] attribute follow the document direction.
+   RTL languages (ar/ur/fa): text aligns right; all others: text aligns left. */
+html[dir="rtl"] [dir-text] {
+  text-align: right;
+  direction: rtl;
+}
+html[dir="ltr"] [dir-text] {
+  text-align: left;
+  direction: ltr;
+}
+
+/* Arabic Quran/content blocks that must always be RTL regardless of page language */
+.arabic-text,
+.quran-text,
+[lang="ar"],
+[lang="ur"],
+[lang="fa"] {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: isolate;
+}
+
+/* ── Hero audio buttons ──────────────────────────────────────────────────── */
+.wird-floating-audio {
+  gap: 10px !important;
+  padding: 10px 16px !important;
+  min-width: auto !important;
+  justify-content: center !important;
+}
+.wird-hero-audio-btn {
+  width: 40px; height: 40px;
+  border-radius: 999px; border: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; font-size: 15px;
+  transition: transform .15s, box-shadow .15s;
+}
+.wird-hero-play-btn {
+  background: var(--wird-green); color: #fff;
+  box-shadow: 0 6px 18px rgba(26,132,58,.28);
+}
+.wird-hero-play-btn:hover { transform: scale(1.1); }
+.wird-hero-stop-btn {
+  background: #f1f5f0; color: #667169;
+  border: 1px solid var(--wird-line) !important;
+}
+.wird-hero-stop-btn:hover { background: #fee2e2; color: #dc2626; }
+
+/* ── Features: 7 columns ─────────────────────────────────────────────────── */
+.wird-features-grid {
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+}
+.wird-feature-card {
+  min-height: auto !important;
+  padding: 16px !important;
+  align-items: flex-start !important;
+}
+.wird-feature-icon {
+  width: 36px !important; height: 36px !important;
+  border-radius: 12px !important; font-size: 16px !important;
+  margin-bottom: 10px !important;
+}
+.wird-feature-card h3 { font-size: 13px !important; line-height: 1.3 !important; }
+.wird-feature-card p  { margin-top: 5px !important; font-size: 11px !important; line-height: 1.65 !important; }
+
+@media (max-width: 1060px) {
+  .wird-features-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 640px) {
+  .wird-features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+
+/* ── Khatma showcase (replaces daily card) ───────────────────────────────── */
+.wird-khatma-showcase {
+  background: #fff;
+  border: 1px solid var(--wird-line);
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(24,36,29,.055);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wird-ks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.wird-ks-khatma {
+  background: #f8f9fb;
+  border-radius: 16px;
+  border: 1px solid var(--wird-line);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.wird-ks-wird {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid var(--wird-line);
+  padding: 14px;
+}
+.wird-ks-row-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.wird-ks-section-label { font-size: 14px; font-weight: 800; color: var(--wird-ink); }
+.wird-ks-percent       { font-size: 14px; font-weight: 900; color: var(--wird-green); }
+.wird-ks-bar {
+  height: 6px; border-radius: 999px;
+  background: #e8e4d8; overflow: hidden;
+}
+.wird-ks-bar span {
+  display: block; height: 100%; width: 0%;
+  background: var(--wird-green); border-radius: inherit;
+}
+.wird-ks-ayah-box {
+  background: #fff; border-radius: 12px;
+  border: 1px solid var(--wird-line);
+  padding: 10px 12px; text-align: center;
+}
+.wird-ks-ayah-text {
+  font-size: 14px; font-weight: 700;
+  color: var(--wird-ink); line-height: 1.8; direction: rtl;
+}
+.wird-ks-meta {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; margin-top: 6px;
+  font-size: 11px; font-weight: 700; color: var(--wird-muted);
+}
+.wird-ks-meta strong { color: var(--wird-green); font-size: 12px; }
+.wird-ks-remaining {
+  background: #fff; border-radius: 12px;
+  border: 1px solid var(--wird-line);
+  padding: 8px 12px; text-align: center;
+}
+.wird-ks-remaining span { display: block; font-size: 10px; font-weight: 700; color: var(--wird-muted); }
+.wird-ks-remaining strong { display: block; font-size: 18px; font-weight: 900; color: var(--wird-ink); margin-top: 2px; }
+.wird-ks-wird-label { font-size: 14px; font-weight: 800; color: var(--wird-green); }
+.wird-ks-wird-badge {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--wird-green); color: #fff;
+  font-size: 16px; font-weight: 900;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.wird-ks-table {
+  margin-top: 12px; border: 1px solid var(--wird-line);
+  border-radius: 10px; overflow: hidden;
+  font-size: 12px; font-weight: 700;
+}
+.wird-ks-table-head,
+.wird-ks-table-row {
+  display: grid; grid-template-columns: 1fr 1.5fr 1fr; text-align: center;
+}
+.wird-ks-table-head {
+  background: #f8f9fb; border-bottom: 1px solid var(--wird-line);
+  color: var(--wird-muted); font-size: 11px;
+}
+.wird-ks-table-head span,
+.wird-ks-table-row span { padding: 7px 4px; }
+.wird-ks-table-row + .wird-ks-table-row { border-top: 1px solid var(--wird-line); }
+.wird-ks-td-label { color: var(--wird-muted); }
+.wird-ks-surah    { color: var(--wird-green); }
+.wird-ks-footer {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 12px;
+  border-top: 1px solid var(--wird-line);
+  padding-top: 12px;
+}
+.wird-ks-tracking { display: flex; align-items: center; gap: 8px; }
+.wird-ks-tracking-state { font-size: 11px; font-weight: 700; color: var(--wird-muted); }
+.wird-ks-toggle {
+  width: 38px; height: 22px; border-radius: 999px;
+  background: #d1d5db; position: relative; display: inline-block;
+}
+.wird-ks-toggle-knob {
+  position: absolute; width: 16px; height: 16px;
+  border-radius: 999px; background: #fff;
+  top: 3px; left: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.wird-ks-actions { display: flex; gap: 8px; flex: 1; justify-content: flex-end; }
+.wird-ks-btn {
+  border-radius: 12px; padding: 9px 16px;
+  font-size: 13px; font-weight: 800;
+  text-decoration: none; text-align: center;
+  display: inline-block; transition: transform .15s;
+}
+.wird-ks-btn:hover { transform: translateY(-1px); }
+.wird-ks-btn-continue { background: var(--wird-green); color: #fff; }
+.wird-ks-btn-finish   { background: #f59e0b; color: #000; }
+
+/* ── Dark mode (accessibility: html.a11y-dark) ───────────────────────────── */
+html.a11y-dark {
+  --wird-ink: #e2e8f0;
+  --wird-muted: #94a3b8;
+  --wird-soft: #162032;
+  --wird-surface: #1e293b;
+  --wird-line: #334155;
+  --wird-green: #4ade80;
+  --wird-green-soft: #1a3d2f;
+  --wird-gold: #d5ad58;
+  --wird-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+}
+
+html.a11y-dark .wird-home {
+  background: #0f172a;
+  color: var(--wird-ink);
+}
+
+html.a11y-dark .wird-navbar {
+  background: rgba(15, 23, 42, 0.92);
+  border-bottom-color: var(--wird-line);
+}
+
+html.a11y-dark .wird-nav-links a {
+  color: #cbd5e1;
+}
+
+html.a11y-dark .wird-nav-actions .wird-lang-button,
+html.a11y-dark .wird-mobile-language .wird-lang-button {
+  background: #253347 !important;
+  border-color: var(--wird-line) !important;
+  color: #e2e8f0 !important;
+}
+
+html.a11y-dark .wird-mobile-toggle {
+  background: #253347;
+  border-color: var(--wird-line);
+  color: var(--wird-green);
+}
+
+html.a11y-dark .wird-mobile-menu {
+  background: #0f172a;
+}
+
+html.a11y-dark .wird-mobile-links a,
+html.a11y-dark .wird-mobile-links button {
+  background: #1e293b;
+  border-color: var(--wird-line);
+  color: var(--wird-ink);
+}
+
+html.a11y-dark .wird-hero-section {
+  background: linear-gradient(180deg, #0f172a 0%, #0f172a 76%, #162032 100%);
+}
+
+html.a11y-dark .wird-hero-title {
+  color: #f1f5f9;
+}
+
+html.a11y-dark .wird-eyebrow {
+  background: var(--wird-green-soft);
+  border-color: var(--wird-line);
+}
+
+html.a11y-dark .wird-btn-secondary {
+  background: #253347;
+  color: var(--wird-ink);
+  border: 1px solid var(--wird-line);
+}
+
+html.a11y-dark .wird-quran-card {
+  background: linear-gradient(145deg, #1a2638 0%, #1e293b 62%, #162032 100%);
+  border-color: var(--wird-line);
+}
+
+html.a11y-dark .wird-floating-reciter,
+html.a11y-dark .wird-floating-daily {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: var(--wird-line);
+}
+
+html.a11y-dark .wird-features-section,
+html.a11y-dark .wird-recitation-section,
+html.a11y-dark .wird-reading-section,
+html.a11y-dark .wird-footer {
+  background: #162032;
+}
+
+html.a11y-dark .wird-feature-card,
+html.a11y-dark .wird-daily-card,
+html.a11y-dark .wird-player-card,
+html.a11y-dark .wird-reciter-list,
+html.a11y-dark .wird-reading-card,
+html.a11y-dark .wird-khatma-showcase,
+html.a11y-dark .wird-ks-khatma,
+html.a11y-dark .wird-ks-wird,
+html.a11y-dark .wird-ks-ayah-box,
+html.a11y-dark .wird-ks-remaining,
+html.a11y-dark .wird-ayah-box,
+html.a11y-dark .wird-today-box {
+  background: var(--wird-surface);
+  border-color: var(--wird-line);
+}
+
+html.a11y-dark .wird-feature-card:hover {
+  border-color: #475569;
+}
+
+html.a11y-dark .wird-reading-card-header span {
+  background: var(--wird-green-soft);
+}
+
+html.a11y-dark .wird-progress-track,
+html.a11y-dark .wird-audio-progress,
+html.a11y-dark .wird-ks-bar {
+  background: #253347;
+}
+
+html.a11y-dark .wird-days-row i {
+  background: #253347;
+  border-color: var(--wird-line);
+  color: var(--wird-muted);
+}
+
+html.a11y-dark .wird-days-row .is-current i {
+  background: #3d3520;
+  border-color: #6b5a2e;
+  color: var(--wird-gold);
+}
+
+html.a11y-dark .wird-reciter-list > div {
+  background: #253347;
+  border-color: var(--wird-line);
+}
+
+html.a11y-dark .wird-reciter-list .is-active {
+  background: var(--wird-green-soft);
+}
+
+html.a11y-dark .wird-reciter-list button {
+  background: #1e293b;
+  border-color: var(--wird-line);
+  color: var(--wird-ink);
+}
+
+html.a11y-dark .wird-player-controls button {
+  background: #253347;
+  border-color: var(--wird-line);
+  color: var(--wird-ink);
+}
+
+html.a11y-dark .wird-translation-lines p {
+  color: var(--wird-ink);
+}
+
+html.a11y-dark .wird-translation-lines span {
+  color: var(--wird-muted);
+}
+
+html.a11y-dark .wird-footer-links a {
+  color: #cbd5e1;
+}
+
+html.a11y-dark .wird-app-btn {
+  background: #253347 !important;
+  border-color: var(--wird-line) !important;
+}
+
+html.a11y-dark .wird-app-btn:hover {
+  background: #334155 !important;
+}
+
+html.a11y-dark .wird-footer-credit {
+  color: var(--wird-muted);
+  border-top-color: var(--wird-line);
+}
+
+html.a11y-dark .wird-footer-credit-email:hover {
+  color: var(--wird-green);
+}
+
+html.a11y-dark .wird-ks-table-head {
+  background: #253347;
+}
+
+html.a11y-dark .wird-ks-toggle {
+  background: #475569;
+}
+
+html.a11y-dark .wird-ks-toggle-knob {
+  background: #e2e8f0;
+}
+
+html.a11y-dark .wird-nav-links a:hover,
+html.a11y-dark .wird-nav-links a.is-active,
+html.a11y-dark .wird-brand-mark,
+html.a11y-dark .wird-nav-icon,
+html.a11y-dark .wird-account-avatar {
+  color: var(--wird-green) !important;
+}
+
+html.a11y-dark .wird-logout-form button.wird-nav-icon {
+  color: #f87171 !important;
+  background: var(--wird-surface, #1e293b);
+  border-color: var(--wird-line);
+}
+
+html.a11y-dark .wird-logout-form button.wird-nav-icon:hover {
+  background: #3f1d1d;
+  border-color: #7f1d1d;
+}
+
+html.a11y-dark .wird-brand-mark {
+  background: var(--wird-green-soft) !important;
+  border-color: var(--wird-line) !important;
+}
+
+html.a11y-dark .wird-eyebrow,
+html.a11y-dark .wird-reciter-list .is-active {
+  background: var(--wird-green-soft) !important;
+}
+
+html.a11y-dark .wird-trans-ayah-compact span {
+  color: var(--wird-green) !important;
+}
+
+/* Recitation audio block — dark mode contrast (scoped to home player/reciter) */
+html.a11y-dark .wird-recitation-section .wird-player-card {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+html.a11y-dark .wird-recitation-section .wird-reciter-list {
+  background: #162032;
+  border-color: #334155;
+}
+
+html.a11y-dark .wird-recitation-section .wird-current-surah {
+  background: #253347;
+  border: 1px solid #334155;
+}
+
+html.a11y-dark .wird-recitation-section .wird-current-surah strong {
+  color: #f8fafc;
+}
+
+html.a11y-dark .wird-recitation-section .wird-current-surah span,
+html.a11y-dark .wird-recitation-section .wird-current-surah small {
+  color: #94a3b8;
+}
+
+html.a11y-dark .wird-recitation-section .wird-player-top > span {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+html.a11y-dark .wird-recitation-section .wird-player-top div > span {
+  color: #94a3b8;
+}
+
+html.a11y-dark .wird-recitation-section .wird-player-top div > strong {
+  color: #f8fafc;
+}
+
+html.a11y-dark .wird-recitation-section .wird-player-times {
+  color: #94a3b8;
+}
+
+html.a11y-dark .wird-recitation-section .wird-audio-progress {
+  background: #334155;
+}
+
+html.a11y-dark .wird-recitation-section .wird-reciter-list > div {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+html.a11y-dark .wird-recitation-section .wird-reciter-list .is-active {
+  background: #1a3d2f !important;
+  border-color: #2d6a4f;
+}
+
+html.a11y-dark .wird-recitation-section .wird-reciter-list strong {
+  color: #f8fafc;
+}
+
+html.a11y-dark .wird-recitation-section .wird-reciter-list span {
+  color: #94a3b8;
+}
+
+html.a11y-dark .wird-recitation-section .wird-reciter-list button {
+  background: #0f172a;
+  color: #4ade80;
+  border: 1px solid #475569;
+}
+
+html.a11y-dark .wird-recitation-section .wird-reciter-list .is-active button {
+  background: #1a843a !important;
+  color: #fff !important;
+  border-color: transparent;
+}
+
+html.a11y-dark .wird-recitation-section .wird-player-controls button:not(.is-main) {
+  background: #253347;
+  color: #cbd5e1;
+}

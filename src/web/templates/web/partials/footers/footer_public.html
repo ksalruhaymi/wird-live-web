@@ -1,0 +1,33 @@
+{% load static i18n %}
+
+<footer class="wird-footer">
+  <div class="wird-container">
+    <div class="wird-footer-row">
+      <nav class="wird-footer-links" aria-label="{% trans 'footer_links' %}">
+        <a href="{% url 'web:about' %}">{% trans "about" %}</a>
+        <a href="{% url 'web:privacy_policy' %}">{% trans "privacy_policy" %}</a>
+        <a href="{% url 'contact:contact' %}">{% trans "contact_us" %}</a>
+      </nav>
+      <div class="wird-app-downloads">
+        <a href="#" class="wird-app-btn" aria-label="{% trans 'download_android' %}">
+          <i class="bi bi-google-play"></i>
+          <span>Google Play</span>
+        </a>
+        <a href="#" class="wird-app-btn" aria-label="{% trans 'download_ios' %}">
+          <i class="bi bi-apple"></i>
+          <span>App Store</span>
+        </a>
+      </div>
+    </div>
+    <div class="wird-footer-credit">
+      <span>{% trans "designed_by" %}</span>
+      <img
+        src="{% static 'images/alruhaymi-it.png' %}"
+        alt="Alruhaymi IT"
+        class="wird-footer-credit-logo"
+        loading="lazy"
+        decoding="async">
+      <a href="mailto:ksalruhaymi@gmail.com" class="wird-footer-credit-email">ksalruhaymi@gmail.com</a>
+    </div>
+  </div>
+</footer>

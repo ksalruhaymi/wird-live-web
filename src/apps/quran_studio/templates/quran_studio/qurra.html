@@ -1,0 +1,236 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block title %}بيانات القراء{% endblock %}
+{% block description %}إدارة بيانات القراء{% endblock %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"quran_studio.qurra" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir="rtl">
+  {% include "quran_studio/include/tabs_header.html" %}
+
+  <div>
+    <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+      بيانات القراء
+    </h1>
+    <p class="mt-1 text-[11px] text-slate-500">
+      إدارة بيانات القراء المتوفرين في النظام.
+    </p>
+  </div>
+
+  {% if messages %}
+    <div class="space-y-2">
+      {% for message in messages %}
+        <div class="rounded-xl border px-4 py-3 text-sm
+          {% if message.tags == 'success' %}
+            border-emerald-200 bg-emerald-50 text-emerald-700
+          {% elif message.tags == 'error' %}
+            border-red-200 bg-red-50 text-red-700
+          {% else %}
+            border-slate-200 bg-slate-50 text-slate-700
+          {% endif %}
+        ">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+    {% if request.user|can_access:"quran_studio.qurra_create" %}
+    <form method="post" enctype="multipart/form-data" class="flex flex-wrap items-end gap-3">
+      {% csrf_token %}
+
+      {% if edit_qari %}
+        <input type="hidden" name="qari_id" value="{{ edit_qari.id }}">
+      {% endif %}
+
+      <div class="min-w-[150px] flex-1">
+        <label class="mb-1 block text-xs font-bold text-slate-700">الكود</label>
+        <input
+          type="text"
+          name="code"
+          value="{% if edit_qari %}{{ edit_qari.code }}{% endif %}"
+          class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500"
+        >
+      </div>
+
+      <div class="min-w-[170px] flex-1">
+        <label class="mb-1 block text-xs font-bold text-slate-700">الاسم العربي</label>
+        <input
+          type="text"
+          name="name_ar"
+          value="{% if edit_qari %}{{ edit_qari.name_ar }}{% endif %}"
+          class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500"
+        >
+      </div>
+
+      <div class="min-w-[170px] flex-1">
+        <label class="mb-1 block text-xs font-bold text-slate-700">الاسم الإنجليزي</label>
+        <input
+          type="text"
+          name="name_en"
+          value="{% if edit_qari %}{{ edit_qari.name_en }}{% endif %}"
+          class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none focus:border-emerald-500"
+        >
+      </div>
+
+      <div class="min-w-[170px] flex-1">
+        <label class="mb-1 block text-xs font-bold text-slate-700">الصورة</label>
+        <input
+          type="file"
+          name="image"
+          class="w-full rounded-xl border border-slate-300 px-3 py-[7px] text-sm outline-none focus:border-emerald-500"
+        >
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button
+          type="submit"
+          class="rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+        >
+          {% if edit_qari %}حفظ التعديل{% else %}إضافة{% endif %}
+        </button>
+
+        {% if edit_qari %}
+          <a
+            href="{% url 'quran_studio:qurra_list' %}"
+            class="rounded-xl bg-slate-100 px-4 py-2 text-sm font-bold text-slate-700 hover:bg-slate-200"
+          >
+            إلغاء
+          </a>
+        {% endif %}
+      </div>
+    </form>
+    {% endif %}
+  </div>
+
+  <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm text-right">
+       <thead class="bg-slate-50 text-slate-700">
+        <tr class="border-b border-slate-200">
+          <th class="px-4 py-3 font-bold">الصورة</th>
+          <th class="px-4 py-3 font-bold">Code</th>
+          <th class="px-4 py-3 font-bold">الاسم العربي</th>
+          <th class="px-4 py-3 font-bold text-center">ظاهر في الموقع</th>
+          <th class="px-4 py-3 font-bold">الإجراءات</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-slate-100">
+        {% for qari in qurra %}
+        <tr class="hover:bg-slate-50 transition" id="qari-row-{{ qari.id }}">
+          <td class="px-4 py-3">
+            {% if qari.image %}
+              <img
+                src="{{ MEDIA_URL }}images/qurra/{{ qari.image }}"
+                alt="{{ qari.name_ar }}"
+                class="h-12 w-12 rounded-full object-cover border border-slate-200"
+              >
+            {% else %}
+              <div class="h-12 w-12 rounded-full bg-slate-100 border border-slate-200"></div>
+            {% endif %}
+          </td>
+
+          <td class="px-4 py-3 text-slate-700">{{ qari.code }}</td>
+          <td class="px-4 py-3 font-medium text-slate-800">{{ qari.name_ar }}</td>
+
+          <!-- Visibility toggle -->
+          <td class="px-4 py-3 text-center">
+            <button type="button"
+                    dir="ltr"
+                    onclick="toggleVisibility({{ qari.id }}, this)"
+                    data-visible="{{ qari.is_visible|yesno:'true,false' }}"
+                    data-url="{% url 'quran_studio:qari_toggle_visibility' qari.id %}"
+                    class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200
+                           {% if qari.is_visible %}bg-emerald-500{% else %}bg-slate-200{% endif %}"
+                    title="{% if qari.is_visible %}ظاهر — اضغط للإخفاء{% else %}مخفي — اضغط للإظهار{% endif %}">
+              <span class="inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform duration-200
+                           {% if qari.is_visible %}translate-x-6{% else %}translate-x-1{% endif %}">
+              </span>
+            </button>
+          </td>
+
+          <td class="px-4 py-3">
+            <div class="flex items-center gap-2">
+            {% if request.user|can_access:"quran_studio.qurra_update" %}
+              <a
+                href="{% url 'quran_studio:qurra_list' %}?edit={{ qari.id }}"
+                class="rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-700 hover:bg-blue-100"
+              >
+                تعديل
+              </a>
+            {% endif %}
+            {% if request.user|can_access:"quran_studio.qurra_delete" %}
+              <form method="post" action="{% url 'quran_studio:qari_delete' qari.id %}" onsubmit="return confirm('هل أنت متأكد من حذف هذا القارئ؟');">
+                {% csrf_token %}
+                <button
+                  type="submit"
+                  class="rounded-lg bg-red-50 px-3 py-1.5 text-xs font-bold text-red-700 hover:bg-red-100"
+                >
+                  حذف
+                </button>
+              </form>
+            {% endif %}
+            </div>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="px-4 py-8 text-center text-slate-500">
+            لا توجد بيانات للقراء حالياً.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+
+<script>
+function toggleVisibility(qariId, btn) {
+  var url = btn.dataset.url;
+  var csrfToken = document.querySelector('[name=csrfmiddlewaretoken]');
+  if (!csrfToken) return;
+
+  btn.disabled = true;
+  btn.style.opacity = "0.6";
+
+  fetch(url, {
+    method: "POST",
+    headers: { "X-CSRFToken": csrfToken.value },
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    if (!data.ok) throw new Error();
+
+    var visible = data.is_visible;
+    btn.dataset.visible = visible ? "true" : "false";
+    btn.title = visible ? "ظاهر — اضغط للإخفاء" : "مخفي — اضغط للإظهار";
+
+    // Toggle track color
+    btn.classList.toggle("bg-emerald-500", visible);
+    btn.classList.toggle("bg-slate-200",   !visible);
+
+    // Move knob: right (translate-x-6) when ON, left (translate-x-1) when OFF
+    var knob = btn.querySelector("span");
+    if (knob) {
+      knob.classList.toggle("translate-x-6", visible);
+      knob.classList.toggle("translate-x-1", !visible);
+    }
+  })
+  .catch(function() {
+    alert("حدث خطأ، يرجى المحاولة مرة أخرى.");
+  })
+  .finally(function() {
+    btn.disabled = false;
+    btn.style.opacity = "1";
+  });
+}
+</script>
+{% endblock %}

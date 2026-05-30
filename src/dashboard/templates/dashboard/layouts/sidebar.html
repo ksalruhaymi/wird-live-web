@@ -1,0 +1,143 @@
+{% load static rbac_tags %}
+
+<aside id="dashboardSidebar"
+       class="fixed top-0 right-0 z-50 h-full w-64 shrink-0 border-l site-border site-surface px-3 py-5
+              transform transition-transform duration-300 ease-in-out
+              translate-x-full lg:translate-x-0 lg:static lg:h-auto lg:mr-20 lg:ml-4">
+
+  <!-- Title -->
+  <div class="flex items-center justify-between mb-4 lg:block">
+    <h3 class="site-title-md flex items-center gap-2">
+      <i class="bi bi-grid-fill site-link-primary"></i>
+      <span>لوحة التحكم</span>
+    </h3>
+
+    <button id="closeSidebarBtn"
+            type="button"
+            class="lg:hidden inline-flex items-center justify-center w-9 h-9 rounded-md border site-border">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  {% with current=request.resolver_match.url_name %}
+  <nav class="space-y-1 text-sm font-medium">
+
+    <a href="{% url 'dashboard:home' %}"
+       class="site-sidebar-btn {% if current == 'home' %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-house-door"></i>
+      <span>الرئيسية</span>
+    </a>
+
+    {% if request.user|can_access:"overview.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'dashboard:overview_dashboard' %}"
+       class="site-sidebar-btn {% if 'overview_dashboard' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-speedometer2"></i>
+      <span>لوحة المعلومات</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+    {% if request.user|can_access:"analytics.access" %}
+      {% with path=request.path %}
+      <a href="{% url 'analytics:dashboard' %}"
+          class="site-sidebar-btn {% if '/analytics/dashboard/' in path %}site-sidebar-btn-active{% endif %}">
+        <i class="bi bi-bar-chart-line"></i>
+        <span>إحصائيات الموقع</span>
+      </a>
+      {% endwith %}
+    {% endif %}
+
+    {% if request.user|can_access:"settings.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'accounts:login_settings' %}"
+       class="site-sidebar-btn {% if 'accounts' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-gear"></i>
+      <span>الاعدادات</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+
+    {% if request.user|can_access:"quran_studio.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'quran_studio:ayah_editor' 1 %}"
+       class="site-sidebar-btn {% if '/studio/' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-brush"></i>
+      <span>استوديو القرآن</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+
+    {% if request.user|can_access:"notification.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'apps.notification:overview_notifications' %}"
+       class="site-sidebar-btn {% if '/notifications/' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-bell"></i>
+      <span>التنبيهات</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+
+    {% if request.user|can_access:"messaging.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'apps.messaging:overview_messaging' %}"
+       class="site-sidebar-btn {% if '/messaging/' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-chat-dots"></i>
+      <span>قنوات الإرسال</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+
+    {% if request.user|can_access:"subscription.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'apps.subscription:overview_subscription' %}"
+       class="site-sidebar-btn {% if '/subscription/' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-bell"></i>
+      <span>الإشتراكات</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+
+    {% if request.user|can_access:"contact.access" %}
+     {% with path=request.path %}
+     <a href="{% url 'contact:dashboard_list' %}"
+        class="site-sidebar-btn {% if 'contact-messages' in path %}site-sidebar-btn-active{% endif %}">
+        <i class="bi bi-envelope"></i>
+        <span>رسائل التواصل</span>
+     </a>
+      {% endwith %}
+    {% endif %}
+    {% if request.user|can_access:"communication.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'apps.communication:overview' %}"
+       class="site-sidebar-btn {% if 'communication' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-megaphone"></i>
+      <span>التواصل الإجتماعي</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+
+    {% if request.user|can_access:"push.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'push:dashboard' %}"
+       class="site-sidebar-btn {% if '/push/' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-phone-fill"></i>
+      <span>الإشعارات الفورية</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+
+    {% if request.user|can_access:"rbac.access" %}
+    {% with path=request.path %}
+    <a href="{% url 'rbac:rabc_overview' %}"
+       class="site-sidebar-btn {% if 'rbac' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-people-fill"></i>
+      <span>إدارة الصلاحيات</span>
+    </a>
+    {% endwith %}
+    {% endif %}
+
+  
+
+  </nav>
+  {% endwith %}
+</aside>

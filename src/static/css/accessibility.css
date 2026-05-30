@@ -1,0 +1,391 @@
+/* Accessibility panel styles */
+
+/* --- floating trigger button --- */
+#a11yTrigger {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 9990;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-primary, #1a843a);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(26, 132, 58, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+html[dir="rtl"] #a11yTrigger {
+  left: auto;
+  right: 24px;
+}
+
+#a11yTrigger:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(26, 132, 58, 0.45);
+}
+
+#a11yTrigger svg {
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+/* --- panel --- */
+#a11yPanel {
+  position: fixed;
+  bottom: 84px;
+  left: 24px;
+  z-index: 9991;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  overflow: hidden;
+  display: none;
+  animation: a11ySlideIn 0.2s ease;
+}
+
+html[dir="rtl"] #a11yPanel {
+  left: auto;
+  right: 24px;
+}
+
+#a11yPanel.a11y-open {
+  display: block;
+}
+
+@keyframes a11ySlideIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.a11y-header {
+  background: var(--color-primary, #1a843a);
+  color: #fff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.a11y-header-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.a11y-close-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.85);
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.a11y-close-btn:hover { color: #fff; }
+
+.a11y-body {
+  padding: 12px 0;
+}
+
+/* font size row */
+.a11y-font-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.a11y-font-label {
+  font-size: 0.875rem;
+  color: #374151;
+  font-weight: 600;
+}
+
+.a11y-font-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.a11y-font-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.a11y-font-btn:hover {
+  background: #e8f5ed;
+  border-color: var(--color-primary, #1a843a);
+  color: var(--color-primary, #1a843a);
+}
+
+.a11y-font-value {
+  font-size: 0.8rem;
+  color: #6b7280;
+  min-width: 28px;
+  text-align: center;
+}
+
+/* toggle rows */
+.a11y-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.a11y-toggle-row:hover { background: #f8fafc; }
+
+.a11y-toggle-label {
+  font-size: 0.875rem;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.a11y-toggle-label i {
+  color: var(--color-primary, #1a843a);
+  font-size: 1rem;
+  width: 18px;
+  text-align: center;
+}
+
+/* toggle switch */
+.a11y-switch {
+  position: relative;
+  width: 38px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.a11y-switch input { display: none; }
+
+.a11y-switch-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 11px;
+  background: #d1d5db;
+  transition: background 0.2s;
+}
+
+.a11y-switch input:checked + .a11y-switch-track {
+  background: var(--color-primary, #1a843a);
+}
+
+.a11y-switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.a11y-switch input:checked ~ .a11y-switch-thumb {
+  transform: translateX(16px);
+}
+
+/* reset button */
+.a11y-reset-row {
+  padding: 10px 16px 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.a11y-reset-btn {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  color: #6b7280;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.a11y-reset-btn:hover {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #ef4444;
+}
+
+/* --- applied accessibility states --- */
+
+/* font size: set via JS as html.style.fontSize (scales all rem Tailwind units) */
+
+/* high contrast */
+body.a11y-high-contrast { filter: contrast(1.6); }
+
+/* ── Dark mode ────────────────────────────────────────────────────────────── */
+/* 1. Override project CSS variables */
+html.a11y-dark {
+  --color-page-bg:    #0f172a;
+  --color-surface:    #1e293b;
+  --color-text:       #e2e8f0;
+  --color-text-muted: #94a3b8;
+  --color-border:     #334155;
+}
+
+/* 2. Body & html base */
+html.a11y-dark,
+html.a11y-dark body {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+}
+
+/* 3. Tailwind white / gray backgrounds (class~= matches exact whitespace-separated token) */
+html.a11y-dark [class~="bg-white"]      { background-color: #1e293b !important; }
+html.a11y-dark [class~="bg-gray-50"]    { background-color: #1a2638 !important; }
+html.a11y-dark [class~="bg-gray-100"]   { background-color: #162032 !important; }
+html.a11y-dark [class~="bg-gray-200"]   { background-color: #253347 !important; }
+
+/* 4. Tailwind text colors */
+html.a11y-dark [class~="text-gray-900"],
+html.a11y-dark [class~="text-gray-800"] { color: #f1f5f9 !important; }
+html.a11y-dark [class~="text-gray-700"],
+html.a11y-dark [class~="text-gray-600"] { color: #cbd5e1 !important; }
+html.a11y-dark [class~="text-gray-500"],
+html.a11y-dark [class~="text-gray-400"] { color: #94a3b8 !important; }
+
+/* 5. Tailwind borders */
+html.a11y-dark [class~="border-gray-100"],
+html.a11y-dark [class~="border-gray-200"],
+html.a11y-dark [class~="border-gray-300"] { border-color: #334155 !important; }
+
+/* 6. Nav / header / footer */
+html.a11y-dark nav,
+html.a11y-dark header,
+html.a11y-dark .site-navbar {
+  background-color: #1e293b !important;
+  border-color:     #334155 !important;
+  color:            #e2e8f0 !important;
+}
+html.a11y-dark footer,
+html.a11y-dark .app-footer,
+html.a11y-dark .public-footer,
+html.a11y-dark .dashboard-footer { background-color: #0a1628 !important; }
+
+/* 7. Modals / panels / inputs */
+html.a11y-dark [class~="rounded-2xl"],
+html.a11y-dark [class~="rounded-xl"],
+html.a11y-dark .site-card,
+html.a11y-dark .site-panel { background-color: #1e293b !important; border-color: #334155 !important; }
+
+html.a11y-dark input,
+html.a11y-dark select,
+html.a11y-dark textarea {
+  background-color: #253347 !important;
+  border-color:     #334155 !important;
+  color:            #e2e8f0 !important;
+}
+
+/* 8. Accessibility panel itself in dark mode */
+html.a11y-dark #a11yPanel         { background: #1e293b !important; border-color: #334155 !important; }
+html.a11y-dark .a11y-font-label,
+html.a11y-dark .a11y-toggle-label { color: #e2e8f0 !important; }
+html.a11y-dark .a11y-font-btn     { background: #253347 !important; border-color: #334155 !important; color: #e2e8f0 !important; }
+html.a11y-dark .a11y-font-value   { color: #94a3b8 !important; }
+html.a11y-dark .a11y-toggle-row:hover { background: #253347 !important; }
+html.a11y-dark .a11y-reset-btn    { background: #253347 !important; border-color: #334155 !important; color: #94a3b8 !important; }
+html.a11y-dark .a11y-font-row,
+html.a11y-dark .a11y-reset-row    { border-color: #334155 !important; }
+
+/* ── Reading mode ────────────────────────────────────────────────────────── */
+body.a11y-reading {
+  background: #fdf6e3 !important;
+  color: #3b2f0c !important;
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+body.a11y-reading .site-navbar,
+body.a11y-reading nav { background: #f4e5c0 !important; }
+
+/* app download badges */
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  padding: 9px 18px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+  min-width: 150px;
+}
+
+.app-badge:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.app-badge.app-badge-ios {
+  background: #000;
+}
+
+.app-badge.app-badge-android {
+  background: #1a1a2e;
+}
+
+.app-badge-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.app-badge-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.app-badge-sub {
+  font-size: 0.65rem;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.app-badge-name {
+  font-size: 1rem;
+  font-weight: 700;
+}

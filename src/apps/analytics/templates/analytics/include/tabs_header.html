@@ -1,0 +1,124 @@
+{% load rbac_tags %}
+{% if request.user|can_access:"analytics.access" %}
+
+<div class="site-card p-4">
+
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-bar-chart-line-fill site-link-primary"></i>
+        <span>إحصائيات الموقع</span>
+      </h2>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 text-[11px] site-text-muted">
+      <i class="bi bi-activity"></i>
+      <span>Analytics • Dashboard</span>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+      <a href="{% url 'analytics:dashboard' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'overview' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'overview' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-grid-1x2-fill ml-1"></i>
+        <span>نظرة عامة</span>
+      </a>
+
+      <a href="{% url 'analytics:pages_dashboard' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'pages' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'pages' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-file-earmark-text ml-1"></i>
+        <span>الصفحات</span>
+      </a>
+
+      <a href="{% url 'analytics:audio_dashboard' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'audio' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'audio' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-volume-up-fill ml-1"></i>
+        <span>الصوت</span>
+      </a>
+
+      <a href="{% url 'analytics:mushaf_dashboard' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'mushaf' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'mushaf' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-book-half ml-1"></i>
+        <span>المصحف</span>
+      </a>
+      <a href="{% url 'analytics:tafsir_dashboard' %}"
+          class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+          {% if tab == 'tafsir' %}
+            site-tab-link-active site-surface shadow-sm
+          {% else %}
+            site-tab-link hover:site-surface
+          {% endif %}">
+          {% if tab == 'tafsir' %}
+            <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+          {% endif %}
+          <i class="bi bi-journal-richtext ml-1"></i>
+          <span>التفاسير</span>
+      </a>
+
+      <a href="{% url 'analytics:events_dashboard' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'events' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'events' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-clock-history ml-1"></i>
+        <span>آخر التفاعلات</span>
+      </a>
+
+      <a href="{% url 'analytics:visitors_dashboard' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'visitors' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'visitors' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-person-vcard ml-1"></i>
+        <span>الزوار</span>
+      </a>
+
+    </nav>
+  </div>
+
+</div>
+{% endif %}

@@ -1,0 +1,132 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_any:"roles.create,roles.update" %}
+
+<div class="max-w-6xl mx-auto space-y-5" dir-text>
+  {% include "rbac/partials/tabs_header.html" %}
+
+  <!-- HEADER -->
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <h1 class=".site-titleflex items-center gap-2">
+        <i class="bi bi-shield-lock-fill site-link-primary text-xl"></i>
+        <span>{{ title|default:"الدور" }}</span>
+      </h1>
+      <p class="site-text-muted mt-1 text-sm">
+        قم بتعبئة بيانات الدور ثم احفظ التغييرات.
+      </p>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 text-xs site-text-muted">
+      <i class="bi bi-people"></i>
+      <span>إدارة الأدوار</span>
+    </div>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="site-card p-5 md:p-6">
+    <form method="post" class="space-y-6">
+      {% csrf_token %}
+
+      <!-- NAME + SLUG GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <!-- NAME -->
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">
+            اسم الدور
+          </label>
+          <input
+            type="text"
+            name="name"
+            value="{{ initial.name|default:'' }}"
+            placeholder="مثلًا: مدير النظام"
+            class="site-input"
+          >
+          {% if errors.name %}
+            <p class="text-xs text-red-600 mt-1 flex items-center gap-1.5">
+              <i class="bi bi-exclamation-circle"></i>
+              <span>{{ errors.name }}</span>
+            </p>
+          {% endif %}
+        </div>
+
+        <!-- SLUG -->
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">
+            الكود (slug)
+          </label>
+
+          <input
+            type="text"
+            name="slug"
+            dir="ltr"
+            value="{{ initial.slug|default:'' }}"
+            placeholder="admin, manager, reviewer"
+            class="site-input font-mono"
+          >
+
+          <!-- Helper text -->
+          <p class="text-xs site-text-muted flex items-center gap-2">
+            <i class="bi bi-code-slash site-text-muted"></i>
+            <span>يُستخدم في الكود مثل:</span>
+            <code class="font-mono site-surface px-1.5 py-0.5 rounded text-[11px] border site-border">admin</code>
+            <code class="font-mono site-surface px-1.5 py-0.5 rounded text-[11px] border site-border">manager</code>
+          </p>
+
+          {% if errors.slug %}
+            <p class="text-xs text-red-600 mt-1 flex items-center gap-1.5">
+              <i class="bi bi-exclamation-circle"></i>
+              <span>{{ errors.slug }}</span>
+            </p>
+          {% endif %}
+        </div>
+
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">
+          الوصف (اختياري)
+        </label>
+        <textarea
+          name="description"
+          rows="3"
+          class="site-input resize-y"
+          placeholder="وصف مختصر يوضح مهام هذا الدور في النظام"
+        >{{ initial.description|default:'' }}</textarea>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between pt-4 gap-3">
+
+        <!-- Back -->
+        <a href="{% url 'rbac:roles_list' %}"
+           class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full
+                  border site-border text-sm font-semibold site-text
+                  hover:site-surface transition">
+          <i class="bi bi-arrow-right"></i>
+          <span>العودة إلى الأدوار</span>
+        </a>
+
+        <!-- Save -->
+        <button type="submit"
+                class="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full
+                       site-btn-primary text-sm font-bold
+                       shadow-sm hover:shadow-md
+                       active:scale-95
+                       transition">
+          <i class="bi bi-check-circle-fill text-base"></i>
+          <span>حفظ الدور</span>
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>
+{% endif %}
+
+{% endblock %}

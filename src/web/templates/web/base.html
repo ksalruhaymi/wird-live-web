@@ -1,0 +1,116 @@
+{% load static i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}APP{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% trans "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat" %}{% endblock %}">
+
+  {% block core_css %}
+    <link rel="stylesheet" href="{% static 'icons/bootstrap/font/bootstrap-icons.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <link rel="stylesheet" href="{% static 'css/wird-home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  {% endblock %}
+
+ 
+  
+  {% block extra_head %}{% endblock %}
+  <link rel="stylesheet" href="{% static 'css/accessibility.css' %}">
+</head>
+
+<body class="{% block body_class %}font-sans  text-gray-800{% endblock %}">
+
+  {% if messages %}
+    <div
+      id="toast-container"
+      data-default-duration="4000"
+      data-default-maxw="30rem"
+      data-default-width="22rem"
+      class="fixed top-4 left-1/2 -translate-x-1/2 z-[9999] flex flex-col gap-3 pointer-events-none">
+      {% for message in messages %}
+        {% if 'toast' in message.tags %}
+          <div
+            class="toast opacity-0 translate-y-2 transition-all duration-300 bg-white border border-slate-200 rounded-2xl shadow-lg overflow-hidden pointer-events-auto"
+            data-duration="4500"
+            data-maxw="30rem"
+            data-width="22rem"
+            data-progress-h="4px"
+          >
+            <div class="px-4 py-3 flex items-start gap-3">
+              <div class="pt-0.5">
+                {% if 'success' in message.tags %}
+                  <i class="bi bi-check-circle-fill text-green-600 text-lg"></i>
+                {% elif 'error' in message.tags %}
+                  <i class="bi bi-x-circle-fill text-red-600 text-lg"></i>
+                {% elif 'warning' in message.tags %}
+                  <i class="bi bi-exclamation-triangle-fill text-amber-500 text-lg"></i>
+                {% else %}
+                  <i class="bi bi-info-circle-fill text-blue-600 text-lg"></i>
+                {% endif %}
+              </div>
+
+              <div class="flex-1 min-w-0">
+                <div class="text-sm font-extrabold text-slate-800 mb-1">
+                  {% if 'success' in message.tags %}
+                    {% trans "success" %}
+                  {% elif 'error' in message.tags %}
+                    {% trans "error" %}
+                  {% elif 'warning' in message.tags %}
+                    {% trans "alert" %}
+                  {% else %}
+                    {% trans "notice" %}
+                  {% endif %}
+                </div>
+
+                <div class="text-[13px] leading-6 text-slate-600">
+                  {{ message }}
+                </div>
+              </div>
+
+              <button
+                type="button"
+                class="toast-close shrink-0 text-slate-400 hover:text-slate-700 transition"
+                aria-label="{% trans 'close' %}"
+              >
+                <i class="bi bi-x-lg"></i>
+              </button>
+            </div>
+
+            <div class="toast-progress bg-slate-200" style="height: var(--progress-h, 4px);">
+              <div
+                class="w-full h-full
+                {% if 'success' in message.tags %}
+                  bg-green-500
+                {% elif 'error' in message.tags %}
+                  bg-red-500
+                {% elif 'warning' in message.tags %}
+                  bg-amber-500
+                {% else %}
+                  bg-blue-500
+                {% endif %}">
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% block body %}{% endblock %}
+
+  {% block core_js %}
+
+    <script src="{% static 'js/script.js' %}" defer></script>
+    <script src="{% static 'js/hamburger.js' %}" defer></script>
+    <script src="{% static 'js/toast.js' %}" defer></script>
+    <script src="{% static 'js/wird-analytics.js' %}" defer></script>
+    <script src="{% static 'js/accessibility.js' %}" defer></script>
+  {% endblock %}
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

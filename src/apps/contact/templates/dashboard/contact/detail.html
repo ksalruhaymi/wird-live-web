@@ -1,0 +1,275 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block title %}تفاصيل الرسالة{% endblock %}
+{% block description %}تفاصيل رسالة التواصل{% endblock %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"contact.access" %}
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+
+  {% include "dashboard/include/tabs_header.html" with tab=tab %}
+
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <h1 class="text-base md:text-lg font-extrabold site-text">تفاصيل الرسالة</h1>
+      <p class="mt-1 text-[11px] site-text">اضغط على الرسالة مباشرة لفتح تفاصيلها.</p>
+    </div>
+
+    <div class="shrink-0">
+      {% if request.user|can_access:"contact.create" %}
+      <button
+        type="button"
+        id="openReplyModal"
+        class="site-btn-primary px-4 py-2 text-sm font-bold"
+        aria-haspopup="dialog"
+        aria-controls="replyModal"
+        aria-expanded="false"
+      >
+        الرد على الرسالة
+      </button>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="site-card p-5 space-y-5">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm site-text">
+      <div><b>الاسم:</b> {{ message.full_name|default:"—"|escape }}</div>
+      <div><b>البريد:</b> {{ message.email|default:"—"|escape }}</div>
+      <div><b>الجوال:</b> {{ message.phone|default:"—"|escape }}</div>
+      <div>
+        <b>الحالة:</b>
+        <span class="inline-flex px-2.5 py-1 rounded-full text-xs site-surface font-bold">
+          {{ message.get_status_display|default:"—"|escape }}
+        </span>
+      </div>
+      <div>
+        <b>المصدر:</b>
+        <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold
+          {% if message.source == 'app' %}bg-blue-100 text-blue-700{% else %}bg-gray-100 text-gray-600{% endif %}">
+          {% if message.source == 'app' %}📱 تطبيق جوال{% else %}🌐 موقع ويب{% endif %}
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <b class="block mb-2 site-text">الرسالة:</b>
+      <div class="site-surface p-4 rounded-xl whitespace-pre-line break-words text-sm leading-7">
+        {{ message.message|default:"—"|escape }}
+      </div>
+    </div>
+  </div>
+
+  {% if message.reply_body %}
+  <div class="site-card p-4 space-y-3 w-full">
+    <div class="flex items-center justify-between gap-3">
+      <h3 class="text-sm font-extrabold site-text">آخر رد محفوظ</h3>
+      <span class="text-[11px] text-slate-400">
+        {{ message.replied_at|date:"Y-m-d H:i" }}
+      </span>
+    </div>
+
+    <div class="text-xs site-text">
+      <b>العنوان:</b> {{ message.reply_subject|default:"—"|escape }}
+    </div>
+
+    <div class="rounded-xl site-surface p-3 whitespace-pre-line break-words text-sm leading-7">
+      {{ message.reply_body|escape }}
+    </div>
+  </div>
+  {% endif %}
+
+</div>
+
+<div
+  id="replyModal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 px-4"
+  aria-hidden="true"
+>
+  <div
+    class="w-full max-w-2xl rounded-2xl site-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="replyModalTitle"
+    aria-describedby="replyModalDescription"
+  >
+    <div class="flex items-center justify-between site-border border-b px-5 py-4">
+      <div>
+        <h2 id="replyModalTitle" class="text-sm font-extrabold site-text">الرد على الرسالة</h2>
+        <p id="replyModalDescription" class="mt-1 text-[11px] site-text">اكتب الرد ثم أرسله مباشرة.</p>
+      </div>
+
+      <button
+        type="button"
+        id="closeReplyModal"
+        class="flex h-9 w-9 items-center justify-center rounded-full site-text transition hover:site-surface focus:outline-none"
+        aria-label="إغلاق"
+      >
+        ✕
+      </button>
+    </div>
+
+    {% if general_error %}
+      <div class="px-5 pt-4">
+        <div class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {{ general_error|escape }}
+        </div>
+      </div>
+    {% endif %}
+    {% if request.user|can_access:"contact.create" %}
+      <form method="post" class="space-y-4 p-5" autocomplete="off" novalidate>
+        {% csrf_token %}
+
+        <div>
+          <label for="reply-subject" class="mb-1 block text-xs font-bold site-text">عنوان الرد</label>
+          <input
+            id="reply-subject"
+            type="text"
+            name="subject"
+            value="{{ reply_data.subject|default:''|escape }}"
+            maxlength="200"
+            required
+            inputmode="text"
+            spellcheck="false"
+            autocomplete="off"
+            class="w-full rounded-xl px-3 py-2 text-sm outline-none
+            {% if errors.subject %}
+              border border-red-500 bg-red-50
+            {% else %}
+              site-input
+            {% endif %}"
+          >
+          {% if errors.subject %}
+            <div class="mt-1 text-xs text-red-600">{{ errors.subject|escape }}</div>
+          {% endif %}
+        </div>
+
+        <div>
+          <label for="reply-body" class="mb-1 block text-xs font-bold site-text">نص الرد</label>
+          <textarea
+            id="reply-body"
+            name="body"
+            rows="5"
+            maxlength="2000"
+            required
+            spellcheck="true"
+            class="w-full rounded-xl px-3 py-2 text-sm outline-none
+            {% if errors.body %}
+              border border-red-500 bg-red-50
+            {% else %}
+              site-input
+            {% endif %}"
+          >{{ reply_data.body|default:''|escape }}</textarea>
+          {% if errors.body %}
+            <div class="mt-1 text-xs text-red-600">{{ errors.body|escape }}</div>
+          {% endif %}
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button
+            type="button"
+            id="cancelReplyModal"
+            class="rounded-xl border px-4 py-2 text-sm font-bold site-text"
+          >
+            إلغاء
+          </button>
+
+          <button
+            type="submit"
+            id="submitReplyBtn"
+            class="site-btn-primary px-4 py-2 text-sm font-bold disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            إرسال الرد
+          </button>
+        </div>
+      </form>
+    {% endif %}
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    "use strict";
+
+    const modal = document.getElementById("replyModal");
+    const openBtn = document.getElementById("openReplyModal");
+    const closeBtn = document.getElementById("closeReplyModal");
+    const cancelBtn = document.getElementById("cancelReplyModal");
+    const submitBtn = document.getElementById("submitReplyBtn");
+    const form = submitBtn ? submitBtn.closest("form") : null;
+    const firstInput = document.getElementById("reply-subject");
+
+    if (!modal || !openBtn || !closeBtn || !cancelBtn || !submitBtn || !form) {
+      return;
+    }
+
+    let lastFocusedElement = null;
+    let isSubmitting = false;
+
+    function openModal() {
+      lastFocusedElement = document.activeElement;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      modal.setAttribute("aria-hidden", "false");
+      openBtn.setAttribute("aria-expanded", "true");
+      document.body.classList.add("overflow-hidden");
+
+      window.setTimeout(function () {
+        if (firstInput) {
+          firstInput.focus();
+        }
+      }, 10);
+    }
+
+    function closeModal() {
+      if (isSubmitting) {
+        return;
+      }
+
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      modal.setAttribute("aria-hidden", "true");
+      openBtn.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("overflow-hidden");
+
+      if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+        lastFocusedElement.focus();
+      }
+    }
+
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+    cancelBtn.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+
+    form.addEventListener("submit", function () {
+      if (isSubmitting) {
+        return;
+      }
+
+      isSubmitting = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "جاري الإرسال...";
+      closeBtn.disabled = true;
+      cancelBtn.disabled = true;
+    });
+
+    {% if errors.subject or errors.body or general_error %}
+      openModal();
+    {% endif %}
+  })();
+</script>
+{% endif %}
+{% endblock %}

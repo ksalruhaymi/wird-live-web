@@ -1,0 +1,204 @@
+{% extends "web/layouts/base.html" %}
+
+{% block title %}الملف الشخصي{% endblock %}
+
+{% block content %}
+<div class="px-4 mt-24 mb-10" dir-text>
+  <div class="max-w-2xl mx-auto">
+
+    <form method="post" class="site-card overflow-hidden">
+      {% csrf_token %}
+
+      <div class="p-5 border-b site-border">
+        <div class="flex items-center gap-3 min-w-0">
+          <div class="w-12 h-12 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-base shrink-0">
+            {{ request.user.username|first|upper }}
+          </div>
+
+          <div class="min-w-0">
+            <h1 class="text-base font-extrabold site-text truncate">
+              {{ form_data.full_name|default:request.user.full_name|default:request.user.username }}
+            </h1>
+            <p class="text-xs site-text-muted truncate">
+              {{ request.user.username }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-5">
+
+        {% if messages %}
+          <div class="mb-4 space-y-2">
+            {% for message in messages %}
+              <div class="rounded-md px-3 py-2 text-sm font-medium
+                          {% if message.tags == 'success' %}bg-green-50 text-green-700 border border-green-200
+                          {% elif message.tags == 'error' %}bg-red-50 text-red-700 border border-red-200
+                          {% else %}site-surface site-text border site-border{% endif %}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+
+          <div class="rounded-md border site-border p-3 min-w-0 site-surface">
+            <p class="site-text-muted text-xs mb-1">البريد الإلكتروني</p>
+            <p class="font-bold site-text break-words">
+              {{ request.user.email|default:"—" }}
+            </p>
+          </div>
+
+          <div class="rounded-md border site-border p-3 min-w-0 site-surface">
+            <p class="site-text-muted text-xs mb-1">اسم المستخدم</p>
+            <p class="font-bold site-text break-words">
+              {{ request.user.username }}
+            </p>
+          </div>
+
+          <!-- Full Name -->
+          <div class="rounded-md border site-border p-3 min-w-0">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <p class="site-text-muted text-xs">الاسم</p>
+
+              <button type="button"
+                      class="edit-toggle w-8 h-8 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition"
+                      data-target="full_name">
+                ✎
+              </button>
+            </div>
+
+            <p id="full_name_text" class="field-text font-bold site-text">
+              {{ form_data.full_name|default:request.user.full_name|default:"—" }}
+            </p>
+
+            <input id="full_name_input"
+                   type="text"
+                   name="full_name"
+                   value="{{ form_data.full_name|default:request.user.full_name|default:'' }}"
+                   class="field-input hidden site-input">
+          </div>
+
+          <!-- Mobile -->
+          <div class="rounded-md border site-border p-3 min-w-0">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <p class="site-text-muted text-xs">رقم الجوال</p>
+
+              <button type="button"
+                      class="edit-toggle w-8 h-8 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition"
+                      data-target="mobile">
+                ✎
+              </button>
+            </div>
+
+            <p id="mobile_text" class="field-text font-bold site-text">
+              {% with mobile_value=form_data.mobile|default:request.user.mobile %}
+                {{ mobile_value|default:"—" }}
+              {% endwith %}
+            </p>
+
+            <div id="mobile_input_wrap" class="field-input hidden">
+              <input id="mobile_input"
+                     type="text"
+                     name="mobile"
+                     value="{{ form_data.mobile|default:request.user.mobile|default:'' }}"
+                     class="site-input">
+            </div>
+          </div>
+
+          <!-- Job -->
+          <div class="rounded-md border site-border p-3 min-w-0 sm:col-span-2">
+            <div class="flex items-center justify-between mb-1">
+              <p class="site-text-muted text-xs">الوظيفة</p>
+
+              <button type="button"
+                      class="edit-toggle w-8 h-8 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition"
+                      data-target="job_title">
+                ✎
+              </button>
+            </div>
+
+            <p id="job_title_text" class="field-text font-bold site-text">
+              {{ form_data.job_title|default:request.user.job_title|default:"—" }}
+            </p>
+
+            <input id="job_title_input"
+                   type="text"
+                   name="job_title"
+                   value="{{ form_data.job_title|default:request.user.job_title|default:'' }}"
+                   class="field-input hidden site-input">
+          </div>
+
+          <!-- Password -->
+          <div class="rounded-md border site-border p-3 min-w-0 sm:col-span-2">
+            <div class="flex items-center justify-between mb-1">
+              <p class="site-text-muted text-xs">كلمة المرور</p>
+
+              <button type="button"
+                      class="edit-toggle w-8 h-8 rounded-lg border border-green-200 text-green-700 hover:bg-green-50 transition"
+                      data-target="password">
+                ✎
+              </button>
+            </div>
+
+            <p id="password_text" class="field-text font-bold site-text">
+              ••••••••
+            </p>
+
+            <div id="password_input_wrap" class="field-input hidden space-y-3">
+              <input type="password"
+                     name="new_password1"
+                     placeholder="كلمة المرور الجديدة"
+                     class="site-input">
+
+              <input type="password"
+                     name="new_password2"
+                     placeholder="تأكيد كلمة المرور"
+                     class="site-input">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Save -->
+        <div class="mt-5">
+          <button type="submit"
+                  class="w-full site-btn-primary py-2.5 text-sm font-bold">
+            حفظ التعديل
+          </button>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const buttons = document.querySelectorAll(".edit-toggle");
+
+  function enableField(name) {
+    const textEl = document.getElementById(name + "_text");
+    const inputEl = document.getElementById(name + "_input");
+    const inputWrap = document.getElementById(name + "_input_wrap");
+
+    if (textEl) textEl.classList.add("hidden");
+    if (inputEl) inputEl.classList.remove("hidden");
+    if (inputWrap) inputWrap.classList.remove("hidden");
+  }
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => enableField(btn.dataset.target));
+  });
+
+  {% if form_data %}
+    enableField("full_name");
+    enableField("mobile");
+    enableField("job_title");
+  {% endif %}
+});
+</script>
+
+{% endblock %}

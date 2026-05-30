@@ -1,0 +1,106 @@
+{% load rbac_tags %}
+{% if request.user|can_access:"messaging.access" %}
+<div class="site-card p-4">
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-broadcast site-link-primary"></i>
+        <span>إدارة قنوات الإرسال</span>
+      </h2>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 text-[11px] site-text-muted">
+      <i class="bi bi-envelope-paper"></i>
+      <span>Email • WhatsApp • SMS</span>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+      {% if request.user|can_access:"messaging.access" %}
+      <a href="{% url 'apps.messaging:overview_messaging' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'overview_messaging' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-grid"></i>
+        <span>نظرة عامة</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"messaging.create" %}
+      <a href="{% url 'apps.messaging:messaging_create' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'create' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+
+        {% if tab == 'create' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+
+        <i class="bi bi-grid-1x2-fill ml-1"></i>
+        <span>إرسال رسالة</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"messaging.email" %}
+      <a href="{% url 'apps.messaging:email' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'email' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-envelope-at-fill"></i>
+        <span>البريد الإلكتروني</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"messaging.whatsapp" %}
+      <a href="{% url 'apps.messaging:whatsapp_list' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'whatsapp' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-whatsapp"></i>
+        <span>واتساب</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"messaging.sms" %}
+      <a href="{% url 'apps.messaging:sms_list' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'sms' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-phone-fill"></i>
+        <span>رسائل الجوال</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"messaging.create" %}
+      <a href="{% url 'apps.messaging:deliveries' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'deliveries' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        <i class="bi bi-journal-text"></i>
+        <span>سجلات الإرسال</span>
+      </a>
+      {% endif %}
+
+    </nav>
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,58 @@
+{% extends "web/layouts/base.html" %}
+
+{% block title %}التنبيهات{% endblock %}
+
+{% block content %}
+
+<div class="pt-24 container mx-auto px-4">
+
+  <div class="max-w-2xl mx-auto p-6">
+
+    <!-- Title -->
+    <div class="mb-6 dir-text">
+      <h1 class="site-title-md">
+        التنبيهات
+      </h1>
+      <div class="mt-2 border site-border"></div>
+    </div>
+
+    <!-- Notifications List -->
+    <div class="space-y-4">
+
+      <div class="flex items-start gap-4 site-card p-4 hover:site-surface transition">
+        <i class="bi bi-bell-fill site-link-primary text-xl mt-1"></i>
+        <div class="flex-1">
+          <p class="font-semibold site-text">
+            تم إنشاء حسابك بنجاح
+          </p>
+          <p class="text-sm site-text-muted mt-1">
+            مرحبًا بك في مركز الابتكار، نتمنى لك تجربة مميزة.
+          </p>
+          <span class="text-xs site-text-muted mt-2 block">
+            قبل 5 دقائق
+          </span>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-4 site-card p-4 hover:site-surface transition">
+        <i class="bi bi-info-circle-fill text-green-600 text-xl mt-1"></i>
+        <div class="flex-1">
+          <p class="font-semibold site-text">
+            تم تحديث ملفك الشخصي
+          </p>
+          <p class="text-sm site-text-muted mt-1">
+            تم حفظ بياناتك بنجاح.
+          </p>
+          <span class="text-xs site-text-muted mt-2 block">
+            قبل ساعة
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"users.list" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "rbac/partials/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-5">
+    <div>
+      <h2 class="site-title-md">
+        المستخدمون
+      </h2>
+      <p class="text-[11px] site-text-muted mt-0.5">
+        إدارة المستخدمين وتعيين الأدوار.
+      </p>
+    </div>
+
+    <!-- Add User Button -->
+    {% if request.user|can_access:"users.create" %}
+    <a href="{% url 'rbac:user_create' %}"
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full
+              site-btn-primary
+              text-[12px] font-bold
+              shadow-sm hover:shadow-md
+              active:scale-95 transition">
+      <i class="bi bi-person-plus-fill text-sm"></i>
+      إضافة مستخدم
+    </a>
+    {% endif %}
+  </div>
+
+  <!-- Controls row -->
+  <div class="flex items-center justify-between gap-4">
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_users %}
+    </div>
+
+    <div class="flex justify-center flex-1">
+      {% include "web/components/table_search_input.html" with search_key="users" placeholder="بحث باسم المستخدم او الدور" %}
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page %}
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="overflow-x-auto site-card">
+    <table class="js-search-table min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text-muted">
+        <tr class="dir-text">
+          <th class="px-4 py-3 font-bold">اسم المستخدم</th>
+          <th class="px-4 py-3 font-bold">الأدوار</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-site">
+        {% for user in users %}
+          <tr class="hover:site-surface transition">
+            <!-- Username -->
+            <td class="px-4 py-3 font-semibold">
+              <a href="{% url 'rbac:user_detail' user.id %}"
+                 class="inline-flex items-center gap-1.5 site-link-primary hover:underline">
+                <i class="bi bi-person text-[13px]"></i>
+                <span>{{ user.username }}</span>
+              </a>
+            </td>
+
+            <!-- Roles -->
+            <td class="px-4 py-3">
+              <div class="flex flex-wrap gap-1.5">
+                {% for role in user.roles.all %}
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-full
+                               site-surface site-text text-[10px] font-bold border site-border">
+                    {{ role.name }}
+                  </span>
+                {% empty %}
+                  <span class="site-text-muted text-[10px] italic">
+                    -
+                  </span>
+                {% endfor %}
+              </div>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="2" class="px-4 py-6 text-center site-text-muted text-[12px]">
+              لا يوجد مستخدمون حاليًا.
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Smart Pagination -->
+  {% include "web/components/pagination.html" with page_obj=users page_numbers=users_page_numbers tab="users" %}
+
+</div>
+{% endif %}
+
+{% endblock %}

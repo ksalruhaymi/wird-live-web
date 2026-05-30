@@ -1,0 +1,81 @@
+#mushafArea.hifz-hide-mode .ayah-hover-unified-layer,
+#mushafArea.hifz-hide-mode #ayahMenu {
+  display: none !important;
+}
+
+#mushafArea:not(.hifz-recording-mode) #hifzAyahPlayBtn,
+#mushafArea:not(.hifz-recording-mode) #hifzAyahReciteBtn {
+  display: none !important;
+}
+
+#mushafArea.hifz-hide-mode .hifz-mask-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+#mushafArea.hifz-hide-mode .hifz-mask-piece {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.98);
+  transition: opacity 0.15s ease;
+}
+
+#mushafArea.hifz-hide-mode .hifz-mask-piece.is-hover {
+  opacity: 0.55;
+}
+
+#mushafArea.hifz-hide-mode .hifz-mask-piece.is-revealed {
+  opacity: 0 !important;
+}
+
+#mushafArea.hifz-hide-mode .ayah-polygon,
+#mushafArea.hifz-hide-mode .ayah-polygon.ayah-hover,
+#mushafArea.hifz-hide-mode .ayah-polygon.ayah-active {
+  fill: transparent !important;
+  stroke: transparent !important;
+  stroke-width: 0 !important;
+}
+
+#mushafArea.hifz-hide-mode .ayah-svg {
+  z-index: 6 !important;
+}
+
+#mushafArea.hifz-hide-mode .ayah-layer {
+  z-index: 5 !important;
+}
+
+#mushafArea.hifz-hide-mode .ayah-box {
+  cursor: pointer !important;
+}
+
+#mushafArea.hifz-segment-mode .ayah-box[data-thematic-topic] {
+  background: var(--hifz-topic-bg) !important;
+  box-shadow: inset 0 0 0 1px var(--hifz-topic-border);
+  border-radius: 3px;
+}
+
+#mushafArea.hifz-segment-mode .ayah-polygon[data-thematic-topic] {
+  fill: var(--hifz-topic-fill) !important;
+  stroke: var(--hifz-topic-color) !important;
+  stroke-width: 0.18 !important;
+}
+
+#mushafArea.hifz-segment-mode .ayah-box[data-thematic-topic]:hover {
+  box-shadow: inset 0 0 0 2px var(--hifz-topic-color), 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+#mushafArea.hifz-segment-mode.hifz-hide-mode .hifz-mask-piece {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+#mushafArea.hifz-segment-mode.hifz-hide-mode .hifz-mask-piece.is-revealed {
+  opacity: 0 !important;
+}
+
+#hifzMobileSegmentBtn.is-active,
+#hifzMobileHideAyahsBtn.is-active,
+#hifzMobileRecordingBtn.is-active {
+  background: #111827;
+  color: #ffffff;
+}

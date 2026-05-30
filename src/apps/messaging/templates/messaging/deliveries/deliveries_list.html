@@ -1,0 +1,107 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} سجلات إرسال الإشعارات {% endblock %}
+{% block description %} سجلات إرسال الإشعارات {% endblock %}
+{% block dashboard_content %}
+{% if request.user|can_access:"messaging.create" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "messaging/includes/tabs_header.html" %}
+
+  <div>
+    <h1 class="text-lg font-extrabold text-slate-800 flex items-center gap-2">
+      <span>سجلات إرسال الإشعارات</span>
+    </h1>
+    <p class="mt-1 text-sm text-slate-500">
+      عرض جميع محاولات الإرسال لكل مستلم مع حالة كل عملية.
+    </p>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead class="bg-slate-50 border-b border-slate-200">
+          <tr class="text-slate-700 text-[13px]">
+            <th class="px-4 py-3 dir-text font-bold">#</th>
+            <th class="px-4 py-3 dir-text font-bold">الحملة</th>
+            <th class="px-4 py-3 dir-text font-bold">المستخدم</th>
+            <th class="px-4 py-3 dir-text font-bold">البريد / المعرف</th>
+            <th class="px-4 py-3 text-center font-bold">الحالة</th>
+            <th class="px-4 py-3 text-center font-bold">وقت الإرسال</th>
+            <th class="px-4 py-3 dir-text font-bold">رسالة الخطأ</th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-slate-100">
+          {% for d in deliveries %}
+          <tr class="hover:bg-slate-50 transition">
+            <td class="px-4 py-3 text-slate-500">
+              {{ d.id }}
+            </td>
+
+            <td class="px-4 py-3 font-semibold text-slate-800">
+              {{ d.broadcast.title }}
+            </td>
+
+            <td class="px-4 py-3 text-slate-700">
+              {% if d.user %}
+                {{ d.user.username }}
+              {% else %}
+                <span class="text-slate-400">—</span>
+              {% endif %}
+            </td>
+
+            <td class="px-4 py-3 text-slate-600">
+              {{ d.email }}
+            </td>
+
+            <td class="px-4 py-3 text-center">
+              {% if d.status == "sent" %}
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-700">
+                  <i class="bi bi-check-circle-fill"></i>
+                  تم الإرسال
+                </span>
+              {% elif d.status == "failed" %}
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-700">
+                  <i class="bi bi-x-circle-fill"></i>
+                  فشل
+                </span>
+              {% else %}
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-yellow-100 text-yellow-700">
+                  <i class="bi bi-clock-fill"></i>
+                  قيد الانتظار
+                </span>
+              {% endif %}
+            </td>
+
+            <td class="px-4 py-3 text-center text-slate-500 text-[12px]">
+              {% if d.sent_at %}
+                {{ d.sent_at|date:"Y-m-d H:i" }}
+              {% else %}
+                —
+              {% endif %}
+            </td>
+
+            <td class="px-4 py-3 text-slate-600 text-[12px]">
+              {% if d.error_message %}
+                {{ d.error_message|truncatechars:80 }}
+              {% else %}
+                —
+              {% endif %}
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="7" class="px-4 py-8 text-center text-slate-400">
+              لا توجد سجلات إرسال حتى الآن.
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{% endblock %}

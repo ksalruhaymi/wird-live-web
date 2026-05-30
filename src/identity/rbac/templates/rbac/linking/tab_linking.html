@@ -1,0 +1,186 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static %}
+
+{% block dashboard_content %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "rbac/partials/tabs_header.html" %}
+
+  <!-- Header -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h2 class="site-title-md">
+        ربط الأدوار بالصلاحيات
+      </h2>
+      <p class="text-[11px] site-text-muted mt-0.5">
+        اختر دورًا من القائمة، ثم فعّل أو ألغِ الصلاحيات من خلال مربعات الاختيار.
+      </p>
+    </div>
+
+    {% if selected_role %}
+      <div class="inline-flex items-center gap-2 text-[11px]">
+        <span class="site-text-muted">الدور الحالي:</span>
+        <span class="inline-flex items-center px-3 py-1 rounded-full site-surface site-text font-semibold border site-border">
+          {{ selected_role.name }}
+        </span>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Main card -->
+  <div class="site-card p-4 md:p-5">
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+      <!-- Roles list -->
+      <aside class="md:col-span-1 site-card-sm p-3">
+        <h3 class="text-[11px] font-bold site-text mb-2 flex items-center gap-1">
+          <i class="bi bi-people text-[12px] site-text-muted"></i>
+          <span>الأدوار</span>
+        </h3>
+
+        <div class="space-y-1.5">
+          {% for role in roles %}
+            <a href="{% url 'rbac:linking_list' %}?tab=linking&role={{ role.id }}"
+               class="block px-3 py-2 rounded-xl text-[12px] transition
+                 {% if selected_role and selected_role.id == role.id %}
+                   site-btn-primary text-white font-bold shadow-sm
+                 {% else %}
+                   site-surface site-text border site-border hover:site-surface
+                 {% endif %}">
+              {{ role.name }}
+            </a>
+          {% endfor %}
+        </div>
+      </aside>
+
+      <!-- Permissions -->
+      <div class="md:col-span-3">
+        {% if selected_role %}
+
+          {% regroup permissions by module as module_groups %}
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+            {% for group in module_groups %}
+              <div class="site-card-sm p-3">
+
+                <!-- Header -->
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center gap-2 dir-row">
+                    <div class="w-7 h-7 rounded-full site-surface flex items-center justify-center border site-border">
+                      <i class="bi bi-key text-[12px] site-link-primary"></i>
+                    </div>
+                    <div>
+                      <h4 class="text-[12px] font-bold site-text">
+                        {{ group.grouper|default:"عام" }}
+                      </h4>
+                    </div>
+                  </div>
+
+                  <span class="text-[10px] site-text-muted">
+                    {{ group.list|length }} صلاحية
+                  </span>
+                </div>
+
+                <!-- Permissions -->
+                <div class="mt-2 space-y-1.5">
+                  {% for perm in group.list %}
+                    <form method="post"
+                          class="permission-form flex items-center justify-between gap-2 text-[11px] site-surface border site-border rounded-xl px-2.5 py-1.5">
+                      {% csrf_token %}
+
+                      <input type="hidden" name="role_id" value="{{ selected_role.id }}">
+                      <input type="hidden" name="perm_id" value="{{ perm.id }}">
+
+                      {% if perm.id in selected_role_perm_ids %}
+                        <input type="hidden" name="action" value="remove_perm_from_role">
+                      {% else %}
+                        <input type="hidden" name="action" value="assign_perm_to_role">
+                      {% endif %}
+
+                      <label class="flex-1 flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2 cursor-pointer">
+                        <span class="font-mono text-[10px] site-text-muted">
+                          {{ perm.code }}
+                        </span>
+                        <span class="text-[11px] font-semibold site-text">
+                          {{ perm.name }}
+                        </span>
+                        {% if perm.description %}
+                          <span class="text-[10px] site-text-muted">
+                            — {{ perm.description }}
+                          </span>
+                        {% endif %}
+                      </label>
+
+                      <!-- Access toggle logic -->
+                      <input
+                        type="checkbox"
+                        class="w-4 h-4 accent-[var(--color-primary)] {% if perm.code|slice:'-7:' == '.access' and group.list|length > 1 %}cursor-not-allowed opacity-60{% else %}cursor-pointer{% endif %}"
+                        {% if perm.id in selected_role_perm_ids %}checked{% endif %}
+                        {% if perm.code|slice:'-7:' == '.access' and group.list|length > 1 %}
+                          disabled
+                        {% else %}
+                          onchange="togglePermission(this)"
+                        {% endif %}
+                      >
+                    </form>
+                  {% endfor %}
+                </div>
+
+              </div>
+            {% endfor %}
+
+          </div>
+
+        {% else %}
+          <div class="h-full flex items-center justify-center py-12">
+            <p class="text-[12px] site-text-muted">
+              اختر دورًا من القائمة اليمنى لعرض الصلاحيات وربطها.
+            </p>
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  function togglePermission(checkbox) {
+    const form = checkbox.closest("form");
+    if (!form) return;
+
+    const data = new FormData(form);
+
+    fetch(window.location.href, {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": data.get("csrfmiddlewaretoken"),
+        "X-Requested-With": "XMLHttpRequest"
+      },
+      body: data
+    })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      const actionInput = form.querySelector('input[name="action"]');
+      if (!actionInput) return;
+
+      if (checkbox.checked) {
+        actionInput.value = "remove_perm_from_role";
+      } else {
+        actionInput.value = "assign_perm_to_role";
+      }
+    })
+    .catch(() => {
+      checkbox.checked = !checkbox.checked;
+    });
+  }
+</script>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% load static i18n %}
+
+<div class="tools-panel flex flex-col gap-3 w-full h-full z-30"
+     dir-text>
+
+  {% get_current_language as CURRENT_LANGUAGE %}
+{% if mode != "tafsir" %}
+  <!-- Current reciter -->
+  <div id="currentReciterCard" class="p-2.5 bg-white rounded-lg shadow-sm border border-gray-200">
+    <span class="text-[11px] text-gray-500 block mb-1.5">
+      {% trans "current_reciter" %}
+    </span>
+
+    <div class="flex items-center gap-2.5">
+      <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+        <img
+          id="currentQariAvatar"
+            src="{% if current_qari.image %}{{ MEDIA_URL }}images/qurra/{{ current_qari.image }}{% else %}/static/images/wird.svg{% endif %}"
+          alt="{% if CURRENT_LANGUAGE == 'ar' or CURRENT_LANGUAGE == 'ur' %}{{ current_qari.name_ar }}{% else %}{{ current_qari.name_en }}{% endif %}"
+          class="w-10 h-10 rounded-full object-cover
+                border border-gray-200 shadow-sm
+                hover:border-emerald-400 transition"
+          onerror="this.src='{% static 'images/wird.png' %}';">
+      </div>
+
+      <div class="flex flex-col">
+        <span id="currentQariName" class="text-sm font-semibold text-gray-900 leading-tight">
+          {% if current_qari %}
+            {% if CURRENT_LANGUAGE == 'ar' or CURRENT_LANGUAGE == 'ur' %}
+              {{ current_qari.name_ar }}
+            {% else %}
+              {{ current_qari.name_en }}
+            {% endif %}
+          {% else %}
+            {% trans "coming_soon" %}
+          {% endif %}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Current mushaf -->
+  <div id="currentMushafCard" class="p-2.5 bg-white rounded-lg shadow-sm border border-gray-200">
+    <span class="text-[11px] text-gray-500 block mb-1.5">
+      {% trans "current_mushaf" %}
+    </span>
+
+    <div class="text-sm font-semibold text-gray-900 leading-tight">
+      {% translate current_mushaf_label %}
+    </div>
+  </div>
+
+  {% if CURRENT_LANGUAGE == 'ar' %}
+    <div id="quranThematicCard">
+      {% include "quran/partials/thematic_panel.html" %}
+    </div>
+
+    <div id="wordMeaningsCard">
+      {% include "quran/partials/wordmeanings_panel.html" %}
+    </div>
+  {% endif %}
+  {% endif %}
+</div>

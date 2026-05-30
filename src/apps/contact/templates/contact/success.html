@@ -1,0 +1,43 @@
+{% extends "web/layouts/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "message_sent" %}{% endblock %}
+{% block description %}{% trans "message_sent_successfully" %}{% endblock %}
+
+{% block content %}
+
+<section class="min-h-[60vh] flex items-center justify-center mt-20 py-16 px-4" dir-text>
+
+  <div class="w-full max-w-xl">
+
+    <div class="site-card p-8 text-center space-y-5">
+
+      <!-- Icon -->
+      <div class="w-16 h-16 mx-auto rounded-full bg-emerald-100 flex items-center justify-center text-3xl">
+        ✅
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-xl md:text-2xl font-extrabold site-text">
+        {% trans "thank_you_contact" %}
+      </h1>
+
+      <!-- Message -->
+      <p class="text-sm md:text-base site-text leading-relaxed">
+        {% trans "contact_success_message" %}
+      </p>
+
+      <!-- Actions -->
+      <div class="pt-4">
+        <a href="{% url 'web:home' %}"
+           class="site-btn-primary px-6 py-2.5 rounded-lg inline-flex items-center justify-center text-sm font-semibold">
+          {% trans "back_to_home" %}
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

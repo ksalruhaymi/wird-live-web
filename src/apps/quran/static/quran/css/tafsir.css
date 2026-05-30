@@ -1,0 +1,255 @@
+/* quran/css/tafsir.css */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   وضع الشاشة الكاملة
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#tafsirArea.tafsir-fullscreen {
+  background: #000;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#tafsirArea.tafsir-fullscreen #tafsirFlipContainer {
+  height: 100vh;
+  width: 100vw;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#tafsirArea.tafsir-fullscreen #tafsirTopToolbar {
+  display: none !important;
+}
+
+#tafsirArea.tafsir-fullscreen #tafsirZoomWrapper {
+  margin-top: 0 !important;
+  max-height: 100vh;
+  transform: scale(1.2);
+  transform-origin: center center;
+}
+
+#tafsirArea.tafsir-fullscreen #tafsirFlipBook {
+  max-height: 96vh;
+  overflow: hidden;
+}
+
+#tafsirArea.tafsir-fullscreen .tafsir-text {
+  font-size: 15px !important;
+  line-height: 2 !important;
+}
+
+#tafsirArea.tafsir-fullscreen #tafsirFullscreenBtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   نمط القراءة المنفصل
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#tafsirArea.tafsir-reading-mode:not(.tafsir-fullscreen) #tafsirTopToolbar {
+  margin-top: 0 !important;
+}
+
+#tafsirArea.tafsir-reading-mode:not(.tafsir-fullscreen) #tafsirFlipContainer {
+  margin-top: 0;
+}
+
+#tafsirArea.tafsir-reading-mode:not(.tafsir-fullscreen) #tafsirZoomWrapper {
+  margin-top: 0 !important;
+  max-width: 900px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#tafsirArea.tafsir-reading-mode:not(.tafsir-fullscreen) {
+  justify-content: flex-start;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   مناطق نقر حواف الكتاب — شاشات كبيرة فقط (≥ 900px)
+   عناصر شفافة تماماً، تمتد من أعلى الكتاب إلى أسفله على الحافتين.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.tafsir-edge-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18%;          /* يغطي الحافة الجانبية بالكامل */
+  z-index: 500;        /* فوق canvases داخلية لـ StPageFlip */
+  cursor: pointer;
+  pointer-events: all;
+  /* شفاف تماماً — لا أثر بصري */
+  background: transparent;
+}
+
+.tafsir-edge-left  { left: 0; }
+.tafsir-edge-right { right: 0; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   تخطيط TafsirModeWrapper (وضع عرض جانبي مع القرآن)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#tafsirModeWrapper #tafsirArea {
+  width: 100%;
+  min-height: calc(100vh - var(--navbar-height, 72px));
+  align-items: center;
+}
+
+#tafsirModeWrapper #tafsirTopToolbar {
+  margin-top: 0.35rem !important;
+  margin-bottom: 0.35rem !important;
+}
+
+#tafsirModeWrapper #tafsirFlipContainer {
+  width: 100%;
+  justify-content: center;
+}
+
+#tafsirModeWrapper #tafsirZoomWrapper {
+  margin-top: 0.6rem !important;
+  width: min(100%, calc(100vw - 560px), 720px);
+}
+
+#tafsirModeWrapper #tafsirZoomWrapper > div {
+  border-radius: 1.5rem;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.10) !important;
+  max-height: none !important;
+}
+
+#tafsirModeWrapper #tafsirZoomWrapper .flex.flex-nowrap {
+  min-height: 2.35rem !important;
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+#tafsirModeWrapper #tafsirFlipBook,
+#tafsirModeWrapper #tafsirFlipBook.stf__parent {
+  margin-inline: auto !important;
+}
+
+#tafsirModeWrapper #tafsirFlipBook {
+  overflow: hidden;
+}
+
+#tafsirModeWrapper .tafsir-book-btn {
+  padding: 0.24rem 0.62rem !important;
+  font-size: 0.78rem !important;
+  line-height: 1.15 !important;
+}
+
+#tafsirModeWrapper .page-content {
+  height: 100%;
+  overflow: hidden;
+}
+
+#tafsirModeWrapper .page-content > .flex {
+  min-height: 0;
+  height: 100%;
+}
+
+#tafsirModeWrapper .page-content .overflow-y-auto,
+#tafsirArea .page-content .overflow-y-auto {
+  min-height: 0;
+  flex: 1 1 auto;
+  max-height: none !important;
+  padding-left: 0.9rem !important;
+  padding-right: 0.9rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+#sidebarMenuWrapper {
+  position: relative;
+  z-index: 60;
+}
+
+#sidebarMenuWrapper:has(#quranPlaybackToolsPanel) {
+  margin-top: 3.4rem !important;
+}
+
+/* ─── شاشة متوسطة (1180px) ─────────────────────────────────────────────── */
+@media (max-width: 1180px) {
+  #tafsirModeWrapper #tafsirZoomWrapper {
+    width: min(100%, 1000px);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   الجوال والشاشات الصغيرة (< 900px) — صفحة واحدة فقط
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 899px) {
+
+  /* إخفاء مناطق حواف الكتاب — لا لزوم لها في وضع الصفحة الواحدة */
+  .tafsir-edge-zone {
+    display: none !important;
+  }
+
+  /* إخفاء الفاصل الأوسط الذي يولّده StPageFlip في وضع الوجهين */
+  #tafsirArea    #tafsirFlipBook.st-page-flip::after,
+  #tafsirArea    #tafsirFlipBook.stf__parent::after,
+  #tafsirModeWrapper #tafsirFlipBook.st-page-flip::after,
+  #tafsirModeWrapper #tafsirFlipBook.stf__parent::after,
+  #tafsirArea    .stf__parent::after,
+  #tafsirModeWrapper .stf__parent::after {
+    display: none !important;
+  }
+
+  /* إزالة الفراغ العلوي الكبير بين الأزرار والمحتوى */
+  #tafsirModeWrapper #tafsirZoomWrapper,
+  #tafsirArea #tafsirZoomWrapper {
+    margin-top: 0 !important;
+  }
+
+  /* الحاوية تبدأ من الأعلى لا من المنتصف */
+  #tafsirModeWrapper #tafsirArea,
+  #tafsirArea {
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+  }
+
+  /* الـ frame الداخلي بدون ارتفاع ثابت كبير */
+  #tafsirModeWrapper #tafsirZoomWrapper > div,
+  #tafsirArea #tafsirZoomWrapper > div {
+    height: auto !important;
+    max-height: none !important;
+  }
+
+
+
+  /* إزالة الفراغ العلوي — StPageFlip يمركز الصفحة عمودياً عبر top محسوبة */
+  #tafsirFlipBook .page,
+  .stf__parent .page {
+    top: 0 !important;
+  }
+
+  /* الكتاب يأخذ عرض الشاشة كاملاً */
+  #tafsirModeWrapper #tafsirZoomWrapper,
+  #tafsirArea #tafsirZoomWrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* padding داخلي مريح على الجوال */
+  #tafsirModeWrapper .page-content .overflow-y-auto,
+  #tafsirArea .page-content .overflow-y-auto {
+    padding-left: 1.1rem !important;
+    padding-right: 1.1rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+}

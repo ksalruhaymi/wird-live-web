@@ -1,0 +1,69 @@
+{% load rbac_tags %}
+{% if request.user|can_access:"subscription.access" %}
+
+<div class="site-card p-4">
+
+  <div class="flex items-center justify-between gap-3">
+    <h2 class="site-title-md flex items-center gap-2">
+      <i class="bi bi-bell-fill site-link-primary"></i>
+      <span>إدارة الاشتراكات</span>
+    </h2>
+  </div>
+
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+      {% if request.user|can_access:"subscription.access" %}
+      <a href="{% url 'apps.subscription:overview_subscription' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'overview_subscription' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'overview_subscription' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-bar-chart ml-1"></i>
+        <span>ملخص الاشتراكات</span>
+      </a>
+      {% endif %}
+      
+      {% if request.user|can_access:"subscription.create" %}
+      <a href="{% url 'apps.subscription:subscription_create' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'center' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'center' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-send ml-1"></i>
+        <span>إرسال رسالة</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"subscription.subscriber" %}
+      <a href="{% url 'apps.subscription:newsletter_subscriber' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'subscribers' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+        {% if tab == 'subscribers' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-people-fill ml-1"></i>
+        <span>عرض الاشتراكات</span>
+      </a>
+      {% endif %}
+
+    </nav>
+  </div>
+
+</div>
+
+{% endif %}

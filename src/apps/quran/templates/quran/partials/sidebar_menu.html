@@ -1,0 +1,151 @@
+{# quran/partials/sidebar_menu.html #}
+{% load static i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+
+<div class="tools-panel flex flex-col w-full lg:w-56 z-30" dir-text>
+
+
+ 
+  <!-- Recitation & controls block -->
+  <div id="quranPlaybackToolsPanel" class="rounded-xl border border-sky-100 bg-white p-3 shadow-sm" onclick="event.stopPropagation()">
+    <div class="mb-3 flex items-center gap-2">
+      <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600">
+        <i class="bi bi-play-circle text-xs"></i>
+      </div>
+      <div class="font-bold text-sm text-gray-900">{% trans "playback_tools" %}</div>
+    </div>
+    <div class="space-y-2">
+
+      <!-- Fullscreen + Reading mode row -->
+      <div class="rounded-xl border border-gray-100 bg-gray-50 px-3 py-2">
+        <div class="flex items-center justify-between gap-2">
+
+          <!-- Reading mode: mushaf ↔ tafsir use separate toggles (+ storage keys) -->
+          {% if mode == "tafsir" %}
+          <button id="tafsirReadingModeToggle" type="button"
+            class="flex items-center gap-2 select-none text-gray-700">
+            <span class="text-xs font-medium">{% trans "reading_mode" %}</span>
+            <span data-switch-track
+              class="relative inline-flex items-center w-10 h-5 rounded-full bg-gray-300 transition-colors duration-300">
+              <span data-switch-knob
+                class="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-white shadow-md transition-all duration-300">
+              </span>
+            </span>
+          </button>
+          {% else %}
+          <button id="readingModeToggle" type="button"
+            class="flex items-center gap-2 select-none text-gray-700">
+            <span class="text-xs font-medium">{% trans "reading_mode" %}</span>
+            <span data-switch-track
+              class="relative inline-flex items-center w-10 h-5 rounded-full bg-gray-300 transition-colors duration-300">
+              <span data-switch-knob
+                class="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-white shadow-md transition-all duration-300">
+              </span>
+            </span>
+          </button>
+          {% endif %}
+
+          <!-- Fullscreen button -->
+          {% if mode == "tafsir" %}
+          <button id="tafsirFullscreenBtn" type="button"
+            onclick="event.stopPropagation(); toggleTafsirFullscreen();"
+            title="{% trans 'zoom_in' %}"
+            aria-label="{% trans 'zoom_in' %}"
+            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black text-white shrink-0 cursor-pointer">
+            <i id="tafsirFullscreenIcon" class="bi bi-arrows-fullscreen text-xs leading-none"></i>
+          </button>
+          {% else %}
+          <button id="mushafFullscreenBtn" type="button"
+            onclick="event.stopPropagation(); toggleMushafFullscreen();"
+            title="{% trans 'zoom_in' %}"
+            aria-label="{% trans 'zoom_in' %}"
+            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black text-white shrink-0 cursor-pointer">
+            <i id="mushafFullscreenIcon" class="bi bi-arrows-fullscreen text-xs leading-none"></i>
+          </button>
+          {% endif %}
+
+        </div>
+      </div>
+ 
+      <!-- Audio player row -->
+    {% if mode != "tafsir" %}
+      <div class="rounded-xl border border-gray-100 bg-gray-50 px-3 py-2">
+
+        <!-- Progress bar -->
+        <div id="miniProgressBar"
+             class="w-full h-1.5 rounded-full bg-[#e5e5d8] overflow-hidden cursor-pointer mb-2">
+          <div id="miniProgressFill"
+               class="h-full w-0 bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] transition-[width] duration-75">
+          </div>
+        </div>
+
+        <!-- Controls row -->
+      
+        <div class="flex items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5">
+            <i class="bi bi-volume-up-fill text-gray-700 text-sm"></i>
+            <input id="miniVolume"
+                   type="range"
+                   min="0"
+                   max="1"
+                   step="0.01"
+                   value="1"
+                   class="w-16 mushaf-volume-range">
+          </div>
+          <div class="flex items-center gap-1.5">
+            <button id="miniPlayBtn"
+                    type="button"
+                    title="{% trans 'play_audio' %}"
+                    aria-label="{% trans 'play_audio' %}"
+                    class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-[10px]">
+              <i id="miniPlayIcon" class="bi bi-play-fill"></i>
+            </button>
+            <button id="miniStopBtn"
+                    type="button"
+                    title="{% trans 'stop_audio' %}"
+                    aria-label="{% trans 'stop_audio' %}"
+                    class="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center text-[10px]">
+              <i class="bi bi-stop-fill"></i>
+            </button>
+          </div>
+        </div>
+       
+
+      </div>
+      {% endif %}
+  </div>
+
+    <audio id="ayahAudio" preload="none" class="hidden"></audio>
+
+  </div>
+
+
+
+</div>
+
+<script>
+  const audio = document.getElementById("ayahAudio");
+  const playBtn = document.getElementById("miniPlayBtn");
+  const playIcon = document.getElementById("miniPlayIcon");
+
+  function updateMiniPlayIcon() {
+    if (!audio || !playIcon) return;
+    if (audio.paused) {
+      playIcon.className = "bi bi-play-fill";
+    } else {
+      playIcon.className = "bi bi-pause-fill";
+    }
+  }
+
+  if (audio) {
+    audio.addEventListener("play", updateMiniPlayIcon);
+    audio.addEventListener("pause", updateMiniPlayIcon);
+    audio.addEventListener("ended", updateMiniPlayIcon);
+  }
+
+  if (playBtn && audio) {
+    playBtn.addEventListener("click", function () {
+      setTimeout(updateMiniPlayIcon, 0);
+    });
+  }
+</script>

@@ -1,0 +1,12 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"rbac.access" %}
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+
+  {% include "rbac/partials/tabs_header.html" %}
+
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} التنبيهات {% endblock %}
+{% block description %} التنبيهات {% endblock %}
+{% block dashboard_content %}
+{% if request.user|can_access:"notification.inapp" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "notification/includes/tabs_header.html" %}
+
+  <!-- Header row -->
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="site-title-md">
+        التنبيهات
+      </h1>
+      <p class="mt-1 text-[11px] site-text-muted">
+        التنبيهات المرسلة للمستخدم من داخل النظام
+      </p>
+    </div>
+  </div>
+
+  <!-- Controls row -->
+  <div class="flex items-center justify-between gap-4">
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_notifications %}
+    </div>
+
+    <div class="flex justify-center flex-1">
+      {% include "web/components/table_search_input.html" with search_key="notification" placeholder="بحث بالعنوان أو النص" %}
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page %}
+    </div>
+  </div>
+
+  <!-- Notifications Table -->
+  <div class="overflow-x-auto site-card">
+    {% if notification %}
+      <table class="js-search-table min-w-full text-[12px]">
+        <thead class="site-surface text-[11px] site-text-muted">
+          <tr class="dir-text">
+            <th class="px-4 py-3 font-bold">العنوان</th>
+            <th class="px-4 py-3 font-bold">النص</th>
+            <th class="px-4 py-3 font-bold">التاريخ</th>
+            <th class="px-4 py-3 font-bold">الحالة</th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-site">
+          {% for n in notification %}
+            <tr
+              class="
+                hover:site-surface transition
+                {% if unread_ids and n.id in unread_ids %}
+                  bg-red-50
+                {% else %}
+                  bg-white
+                {% endif %}
+              "
+            >
+              <td class="px-4 py-3 font-semibold site-text">
+                {{ n.title }}
+              </td>
+
+              <td class="px-4 py-3 site-text-muted">
+                {% if n.message %}
+                  {{ n.message }}
+                {% else %}
+                  <span class="site-text-muted text-[11px]">– لا يوجد نص –</span>
+                {% endif %}
+              </td>
+
+              <td class="px-4 py-3 text-[11px] site-text-muted">
+                {{ n.created_at|date:"Y-m-d" }}
+                {{ n.created_at|time:"H:i" }}
+              </td>
+
+              <td class="px-4 py-3 whitespace-nowrap">
+                {% if unread_ids and n.id in unread_ids %}
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[10px] font-bold">
+                    <span class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
+                    جديد
+                  </span>
+                {% else %}
+                  <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full site-surface site-text-muted text-[10px] font-bold border site-border">
+                    <span class="inline-block w-2 h-2 rounded-full bg-slate-400"></span>
+                    مقروء
+                  </span>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="py-12 text-center text-[12px] site-text-muted">
+        لا توجد تنبيهات حاليًا.
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Pagination row -->
+  <div class="flex items-center justify-between">
+    {% include "web/components/pagination.html" with page_obj=notification page_numbers=notifications_page_numbers tab="notification" per_page=per_page %}
+  </div>
+
+</div>
+
+<div class="h-36"></div>
+{% endif %}
+{% endblock %}

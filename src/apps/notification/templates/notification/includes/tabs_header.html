@@ -1,0 +1,83 @@
+{% load rbac_tags %}
+{% if request.user|can_access:"notification.access" %}
+
+<div class="site-card p-4">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <h2 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-bell-fill site-link-primary"></i>
+        <span>إدارة تنبية</span>
+      </h2>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 text-[11px] site-text-muted">
+      <i class="bi bi-broadcast"></i>
+      <span>System • Email • WhatsApp • SMS</span>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+
+      {% if request.user|can_access:"notification.access" %}
+      <a href="{% url 'apps.notification:overview_notifications' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'overview_notifications' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+
+        {% if tab == 'overview_notifications' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+
+        <i class="bi bi-bell-fill ml-1"></i>
+        <span>ملخص تنبية</span>
+      </a>
+      {% endif %}
+      
+      {% if request.user|can_access:"notification.create" %}
+      <a href="{% url 'apps.notification:notification_create' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'center' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+
+        {% if tab == 'center' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+
+        <i class="bi bi-grid-1x2-fill ml-1"></i>
+        <span>إرسال تنبية</span>
+      </a>
+      {% endif %}
+
+      {% if request.user|can_access:"notification.inapp" %}
+      <a href="{% url 'apps.notification:notifications_inapp' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'notifications_inapp' %}
+           site-tab-link-active site-surface shadow-sm
+         {% else %}
+           site-tab-link hover:site-surface
+         {% endif %}">
+
+        {% if tab == 'notifications_inapp' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+
+        <i class="bi bi-exclamation-circle-fill ml-1"></i>
+        <span>التنبيهات</span>
+      </a>
+      {% endif %}
+
+    </nav>
+  </div>
+
+</div>
+{% endif %}

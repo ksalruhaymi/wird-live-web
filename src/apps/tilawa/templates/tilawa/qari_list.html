@@ -1,0 +1,95 @@
+{# templates/tilawa/qari_list.html #}
+{% extends "web/layouts/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "qari_list_title" %}{% endblock %}
+{% block description %}{% trans "qari_list_description" %}{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto px-4 pb-8">
+
+  <!-- Title -->
+  <div class="flex items-center justify-center gap-2 mb-8">
+    <i class="bi bi-headphones text-emerald-600 text-xl"></i>
+    <h1 class="text-xl font-semibold text-gray-900">
+      {% trans "listen_quran" %}
+    </h1>
+  </div>
+
+  <!-- Search -->
+  <div class="mb-6 max-w-md mx-auto tilawa-search-wrap">
+    <input
+        id="qariSearch"
+        type="text"
+        class="w-full text-sm rounded-full border border-gray-200 bg-gray-50
+               tilawa-search-input py-2.5
+               outline-none focus:border-emerald-400 focus:bg-white transition"
+        placeholder="{% trans 'search_reciter' %}">
+    <i class="bi bi-search tilawa-search-icon text-gray-400 text-sm"></i>
+  </div>
+
+  <!-- Qari Grid -->
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+
+    {% for qari in quraa %}
+    <a href="{% url 'tilawa:qari_listen' qari.code %}"
+       class="qari-card group
+              bg-white border border-gray-200
+              rounded-2xl p-4 text-center
+              hover:shadow-md hover:-translate-y-1
+              hover:border-emerald-300
+              transition duration-200">
+
+      <!-- Image -->
+      <img src="{{ MEDIA_URL }}images/qurra/{{ qari.image }}"
+          alt="{% if LANGUAGE_BIDI %}{{ qari.name_ar }}{% else %}{{ qari.name_en }}{% endif %}"
+          class="w-16 h-16 mx-auto rounded-full object-cover
+                  border border-gray-200 group-hover:border-emerald-400 transition">
+
+      <!-- Name -->
+      <div class="mt-3 text-sm font-medium text-gray-800 truncate">
+        {% if LANGUAGE_BIDI %}
+          {{ qari.name_ar }}
+        {% else %}
+          {{ qari.name_en }}
+        {% endif %}
+      </div>
+
+      <!-- Action -->
+      <div class="mt-1 text-xs text-emerald-600 flex items-center justify-center gap-1">
+        {% if LANGUAGE_BIDI %}
+          <i class="bi bi-arrow-left-circle text-xs"></i>
+          <span>{% trans "view_surahs" %}</span>
+        {% else %}
+          <span>{% trans "view_surahs" %}</span>
+          <i class="bi bi-arrow-right-circle text-xs"></i>
+        {% endif %}
+      </div>
+
+    </a>
+    {% endfor %}
+
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const input = document.getElementById("qariSearch");
+  const cards = document.querySelectorAll(".qari-card");
+
+  if (!input || !cards.length) return;
+
+  input.addEventListener("input", function () {
+    const q = input.value.trim().toLowerCase();
+
+    cards.forEach(function (card) {
+      const name = card.textContent.toLowerCase();
+      const match = !q || name.includes(q);
+      card.classList.toggle("hidden", !match);
+    });
+  });
+})();
+</script>
+
+{% endblock %}

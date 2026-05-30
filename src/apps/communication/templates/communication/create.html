@@ -1,0 +1,80 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+{% if request.user|can_access:"communication.create" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "communication/includes/tabs_header.html" %}
+
+  <form method="post" enctype="multipart/form-data"
+        class="site-card p-6 space-y-6">
+    {% csrf_token %}
+
+    <div>
+      <label class="block text-sm font-bold site-text mb-1">
+        عنوان الرسالة
+      </label>
+      <input type="text" name="title" required
+        class="w-full site-input px-4 py-3 rounded-lg">
+    </div>
+
+    <div>
+      <label class="block text-sm font-bold site-text mb-1">
+        نص الرسالة
+      </label>
+      <textarea name="message" rows="6" required
+        class="w-full site-input px-4 py-3 rounded-lg"></textarea>
+    </div>
+
+    <div>
+      <label class="block text-sm font-bold site-text mb-1">
+        صورة (اختياري)
+      </label>
+      <input type="file" name="image" accept="image/*"
+        class="w-full site-input px-4 py-2 rounded-lg">
+    </div>
+
+    <div>
+      <label class="block text-sm font-bold site-text mb-2">
+        التواصل الإجتماعي
+      </label>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {% for value, label in channels %}
+        <label class="flex items-center gap-2 rounded-lg px-3 py-2 border
+                      {% if value == 'telegram_group' or value == 'telegram_channel' %}
+                        site-border hover:site-surface cursor-pointer
+                      {% else %}
+                        site-surface site-border opacity-50 cursor-not-allowed
+                      {% endif %}">
+
+          <input type="checkbox"
+                 name="channels"
+                 value="{{ value }}"
+                 {% if value == 'telegram_group' %}checked{% endif %}
+                 {% if value != 'telegram_group' and value != 'telegram_channel' %}disabled{% endif %}>
+
+          <span class="text-sm site-text">
+            {{ label }}
+            {% if value != 'telegram_group' and value != 'telegram_channel' %}
+              (قريبًا)
+            {% endif %}
+          </span>
+        </label>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="flex justify-end">
+      <button type="submit"
+        class="site-btn-primary px-6 py-3 font-bold">
+        إرسال الآن
+      </button>
+    </div>
+
+  </form>
+</div>
+
+{% endif %}
+{% endblock %}

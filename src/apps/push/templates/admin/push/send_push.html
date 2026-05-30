@@ -1,0 +1,97 @@
+{% extends "admin/base_site.html" %}
+{% block title %}إرسال إشعار{% endblock %}
+
+{% block content %}
+<h1>إرسال إشعار لجميع المستخدمين</h1>
+
+<!-- Stats -->
+<div style="display:flex;gap:16px;margin:16px 0;">
+  <div style="background:#e8f5e9;border-radius:8px;padding:16px 24px;text-align:center;">
+    <div style="font-size:28px;font-weight:bold;color:#2e7d32;">{{ device_count }}</div>
+    <div style="font-size:13px;color:#555;">جهاز مسجل</div>
+  </div>
+</div>
+
+{% if messages %}
+  {% for msg in messages %}
+    <div style="padding:12px 16px;border-radius:8px;margin-bottom:12px;
+      {% if msg.tags == 'success' %}background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;
+      {% else %}background:#ffebee;color:#c62828;border:1px solid #ef9a9a;{% endif %}">
+      {{ msg }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+<!-- Form -->
+<div style="background:#fff;border:1px solid #ddd;border-radius:8px;padding:24px;max-width:600px;">
+  <form method="post">
+    {% csrf_token %}
+
+    <div style="margin-bottom:16px;">
+      <label style="display:block;font-weight:bold;margin-bottom:6px;">عنوان الإشعار</label>
+      <input
+        type="text"
+        name="title"
+        maxlength="255"
+        required
+        style="width:100%;padding:8px 12px;border:1px solid #ccc;border-radius:6px;font-size:14px;"
+        placeholder="مثال: تحديث جديد في تطبيق وِرد"
+      >
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <label style="display:block;font-weight:bold;margin-bottom:6px;">نص الإشعار</label>
+      <textarea
+        name="body"
+        rows="4"
+        maxlength="1000"
+        required
+        style="width:100%;padding:8px 12px;border:1px solid #ccc;border-radius:6px;font-size:14px;"
+        placeholder="اكتب تفاصيل الإشعار هنا..."
+      ></textarea>
+    </div>
+
+    <button
+      type="submit"
+      style="background:#417690;color:#fff;padding:10px 24px;border:none;border-radius:6px;font-size:14px;font-weight:bold;cursor:pointer;"
+      onclick="return confirm('هل أنت متأكد من إرسال الإشعار لجميع الأجهزة؟');"
+    >
+      إرسال الإشعار
+    </button>
+  </form>
+</div>
+
+<!-- History -->
+{% if last_broadcasts %}
+<h2 style="margin-top:32px;">آخر الإشعارات المرسلة</h2>
+<table style="width:100%;border-collapse:collapse;background:#fff;border:1px solid #ddd;border-radius:8px;">
+  <thead style="background:#f5f5f5;">
+    <tr>
+      <th style="padding:10px;text-align:right;border-bottom:1px solid #ddd;">العنوان</th>
+      <th style="padding:10px;text-align:center;border-bottom:1px solid #ddd;">الحالة</th>
+      <th style="padding:10px;text-align:center;border-bottom:1px solid #ddd;">نجح</th>
+      <th style="padding:10px;text-align:center;border-bottom:1px solid #ddd;">فشل</th>
+      <th style="padding:10px;text-align:center;border-bottom:1px solid #ddd;">التاريخ</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for b in last_broadcasts %}
+    <tr>
+      <td style="padding:10px;border-bottom:1px solid #eee;">{{ b.title }}</td>
+      <td style="padding:10px;text-align:center;border-bottom:1px solid #eee;">
+        <span style="padding:3px 10px;border-radius:12px;font-size:12px;font-weight:bold;
+          {% if b.status == 'sent' %}background:#e8f5e9;color:#2e7d32;
+          {% elif b.status == 'failed' %}background:#ffebee;color:#c62828;
+          {% else %}background:#fff8e1;color:#f57f17;{% endif %}">
+          {{ b.get_status_display }}
+        </span>
+      </td>
+      <td style="padding:10px;text-align:center;border-bottom:1px solid #eee;color:#2e7d32;font-weight:bold;">{{ b.success_count }}</td>
+      <td style="padding:10px;text-align:center;border-bottom:1px solid #eee;color:#c62828;font-weight:bold;">{{ b.failure_count }}</td>
+      <td style="padding:10px;text-align:center;border-bottom:1px solid #eee;color:#888;font-size:12px;">{{ b.created_at|date:"Y-m-d H:i" }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

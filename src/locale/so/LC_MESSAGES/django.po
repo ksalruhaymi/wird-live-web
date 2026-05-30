@@ -1,0 +1,3658 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: wird\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"Language: so\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "contact"
+msgstr "Nala Soo Xidhiidh"
+
+msgid "contact_page_description"
+msgstr "Nala soo xidhiidh, waxaanu halkan u joognaa inaanu ku adeegno"
+
+msgid "contact_intro_text"
+msgstr ""
+"Waanu ku faraxsanahay in aad la xidhiidho madasha Wird Qur'aanka. Waxaan ku "
+"dadaaleynaa inaan u adeegno kitaabka Allaah una fududeyno akhrintiisa."
+
+msgid "name"
+msgstr "Magaca"
+
+msgid "enter_your_name"
+msgstr "Geli magacaaga"
+
+msgid "email"
+msgstr "iimaylka"
+
+msgid "your_message"
+msgstr "Fariintaada"
+
+msgid "write_your_message_here"
+msgstr "Halkan ku qor su'aalahaaga ama fariintaada"
+
+msgid "send_message"
+msgstr "Fariin dir"
+
+msgid "message_sent"
+msgstr "Fariin la diray"
+
+msgid "message_sent_successfully"
+msgstr "Fariinta si guul leh ayaa loo diray"
+
+msgid "thank_you_contact"
+msgstr "Waad ku mahadsan tahay inaad nala soo xiriirto"
+
+msgid "contact_success_message"
+msgstr ""
+"Fariintaadii si guul leh ayaa loo helay Kooxda Wird Qur'aanka ayaa dib u "
+"eegi doonta oo kula soo xiriiri doona sida ugu dhaqsaha badan si ay u "
+"taageeraan adeegga qur'aanka."
+
+msgid "back_to_home"
+msgstr "Ku laabo Guriga"
+
+msgid "quran_recitation_prompt"
+msgstr "Qur'aanka kariimka oo Carabi lagu akhriyay"
+
+msgid "save_stop"
+msgstr "Badbaadi booska wax-akhriska"
+
+msgid "cancel_stop"
+msgstr "Ka saar booska wax-akhriska"
+
+msgid "hifz_audio_recording"
+msgstr "Duubista Maqalka"
+
+msgid "hifz_enable_hiding"
+msgstr "Qari aayadaha"
+
+msgid "hifz_segmentation_thematic"
+msgstr "Mawduucyada Qaybta"
+
+msgid "hifz_writing"
+msgstr "Qoraal"
+
+msgid "zoom_in"
+msgstr "Soo dhawoow"
+
+msgid "repeat"
+msgstr "Ku celi"
+
+msgid "page"
+msgstr "Bogga"
+
+msgid "play_audio"
+msgstr "Daar maqal"
+
+msgid "word_meanings"
+msgstr "Macnaha Erayga"
+
+msgid "brief_tafsir"
+msgstr "Tafsiir kooban"
+
+msgid "playback_tools"
+msgstr "Qalabka dib-u-qaadista"
+
+msgid "audio"
+msgstr "Maqal"
+
+msgid "help"
+msgstr ""
+
+msgid "hifz_playback_tools_help"
+msgstr ""
+"Si aad u daarto maqal intaad xifdinayso, taabo ayaxa si aad u tusto ciyaarta "
+"oo ku hakiso badhanka Markaa waxaad ka koontarooli kartaa mugga halkan, u "
+"ballaadhin kartaa shaashadda si ay u sahlanaato akhriska iyada oo aan la "
+"mashquulin, waxaadna kordhin kartaa tirada ku celcelinta aayadda."
+
+msgid "hifz_mushaf_spread_two_pages"
+msgstr "Laba bog"
+
+msgid "hifz_mushaf_spread_toggle_caption"
+msgstr "U beddelo hal bog ama laba bog oo u jeeda musxafka"
+
+msgid "hifz_mushaf_spread_one_page"
+msgstr "Hal bog"
+
+msgid "hifz_memorization_tools"
+msgstr "Farsamooyinka Xusuus-qorka"
+
+msgid "hifz_memorization_tools_help"
+msgstr ""
+"Aaladaha xifdigu waxay kaa caawinayaan inaad xoojiso xusuustaada oo aad "
+"tababarto xusuustaada. Waxaad qarin kartaa aayado si aad ugu tababarto "
+"xusuustooda. Markaad dul heehaabatid aayad, waxay u muuqanaysaa si fudud "
+"inay ku hagto, markaad gujisona si buuxda ayay u soo baxaysaa. Mawduucyada "
+"kala-soocidda sidoo kale waa la heli karaa, iyada oo lagu kooxeynayo "
+"aayadaha laxiriira mowduucyo si loo fududeeyo xifdinta iyo fahamka."
+
+msgid "hifz_play"
+msgstr "Ciyaar"
+
+msgid "hifz_iyqaf_kaml"
+msgstr "Joogsi Buuxa"
+
+msgid "hifz_mstwa_audio"
+msgstr "Heerka mugga"
+
+msgid "mushaf"
+msgstr "Musxaf"
+
+msgid "reciter"
+msgstr "Akhriste"
+
+msgid "search"
+msgstr "Raadi"
+
+msgid "stop_audio"
+msgstr "Jooji Maqalka"
+
+msgid "recitation_correction"
+msgstr "Sixitaan Akhriska"
+
+msgid "recitation_correction_subtitle"
+msgstr "Record your recitation, then compare it with the reciter's voice"
+
+msgid "recitation_correction_help"
+msgstr ""
+"Marka hore, dooro aayad. Markaas badhanka rikoodhka ayaa soo bixi doona. "
+"Riix oo duub akhrintaada aayadda la xushay si maqalkaagu loo falanqeeyo "
+"looguna saxo akhrintaada. Waxaad arki doontaa boqolkiiba saxnaanta akhrinta, "
+"waxaadna heli doontaa badhan aad ku dhegeysato codkaaga la duubay."
+
+msgid "recitation_accuracy_percentage"
+msgstr "Xaqiijinta Akhrinta"
+
+msgid "recitation_result"
+msgstr "Result"
+
+msgid "recitation_no_result_yet"
+msgstr "No result yet"
+
+msgid "shaykh_audio"
+msgstr "Sheekh Audio"
+
+msgid "my_recorded_audio"
+msgstr "Duubistayda"
+
+msgid "mushaf_hafs"
+msgstr "Xafs Musxaf"
+
+msgid "mushaf_warsh"
+msgstr "Warsh Musxaf"
+
+msgid "mushaf_qaloun"
+msgstr "Qaloon Musxaf"
+
+msgid "mushaf_douri"
+msgstr "Al-Douri Musxaf"
+
+msgid "mushaf_shuba"
+msgstr "Shucbah Musxaf"
+
+msgid "mushaf_sousi"
+msgstr "Al-Sousi Musxaf"
+
+msgid "tafsir_almuyasser"
+msgstr "Al-Muyasaar"
+
+msgid "tafsir_alkatheer"
+msgstr "Ibnu Kathiir"
+
+msgid "tafsir_albaghawy"
+msgstr "Al-Baghawi"
+
+msgid "tafsir_altabary"
+msgstr "Al-Tabari"
+
+msgid "tafsir_alqortoby"
+msgstr "Al-Qurtubi"
+
+msgid "tafsir_alsa3dy"
+msgstr "Al-Sacdi"
+
+#, fuzzy, python-format
+#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Tafsiirka bogga %(bogga) ee quraanka | Wird Quraan"
+
+#, python-format
+msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgstr "Suuradda %(surah_name)s | Akhri oo dhageyso - Wird Quran"
+
+#, python-format
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgstr "Dhageyso quraanka oo uu akhrinayo %(qari_name)s | Wird Quraan"
+
+#, fuzzy, python-format
+#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgstr "Bogga %(bogga) ee Quraanka | Wird Quraan"
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+#| "displayed and linked to tafsir on the Wird Quran platform."
+msgid ""
+"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
+"displayed and linked to tafsir on the Wird Quran platform."
+msgstr ""
+"Si fudud u akhri tafsiirka bogga %(bogga) quraanka kariimka ah, ayada oo la "
+"soo bandhigayo laguna xidhay tafsiirka goobta Wird Qur'aanka."
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+#| "browsing on the Wird Quran platform."
+msgid ""
+"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
+"browsing on the Wird Quran platform."
+msgstr ""
+"Akhri suuradda %(surah_name) ee quraanka, adigoo si fudud u dhageysanaya una "
+"daalacanaya goobta Wird Qur'aanka."
+
+#, python-format
+msgid ""
+"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
+"navigation between surahs and ayahs."
+msgstr ""
+"Dhagayso quraanka uu akhrinayo %(qari_name)s oo tayo sare leh, adigoo si "
+"fudud u dhex marinaya suuradaha iyo aayado"
+
+#, fuzzy, python-format
+#| msgid ""
+#| "Browse page %(page)s from the Holy Quran with a comfortable and easy "
+#| "interface, with smooth reading and quick navigation on the Wird Quran "
+#| "platform."
+msgid ""
+"Browse page %(page)s from the Holy Quran with a comfortable and easy "
+"interface, with smooth reading and quick navigation on the Wird Quran "
+"platform."
+msgstr ""
+"Ka baadh bogga %(bog) s Qur'aanka kariimka ah oo leh is-dhexgal fudud oo "
+"fudud, oo leh wax-akhris fudud iyo dhex-socod degdeg ah goobta Wird "
+"Qur'aanka."
+
+msgid "no_word_meanings"
+msgstr "Ma jiro macne kelmed oo loo heli karo aayaddan"
+
+msgid "hide_word_meanings"
+msgstr "Qari Macnaha Erayga"
+
+msgid "show_word_meanings"
+msgstr "Muuji macnaha erayga"
+
+msgid "word_meanings_hint"
+msgstr "Macnaha kelmadu waxay soo bixi doonaan marka akhrintu bilaabanto"
+
+msgid "error_word_meanings"
+msgstr "Ku guuldarraystay inuu soo geliyo macnaha erayga"
+
+msgid "surah"
+msgstr "Suurad"
+
+msgid "ayah"
+msgstr "Ayay"
+
+msgid "show_thematic_segmentation"
+msgstr "Muuji Qaybta Mawduuca"
+
+msgid "hide_thematic_segmentation"
+msgstr "Qari Qaybta Mawduuca"
+
+msgid "daily_quran_reading"
+msgstr "My Daily Wird"
+
+msgid "new_khatma"
+msgstr "Khatma cusub"
+
+msgid "close"
+msgstr "Xir"
+
+msgid "current_khatma"
+msgstr "Khatma hadda"
+
+msgid "Juz"
+msgstr "Juz"
+
+msgid "remaining_wirds"
+msgstr "Wirds haray"
+
+msgid "khatma_count"
+msgstr "Tirada Khatma"
+
+msgid "current_wird"
+msgstr "Wird Hadda"
+
+msgid "from"
+msgstr "Ka"
+
+msgid "to"
+msgstr "Ku"
+
+msgid "congratulations"
+msgstr "Hambalyo"
+
+msgid "you_finished_current_khatma"
+msgstr "Khatmakan si guul leh ayaad u dhammaysay"
+
+msgid "continue_reading"
+msgstr "Continue Reading Wird"
+
+msgid "finish_wird"
+msgstr "Wird Dhamaystiran"
+
+msgid "choose_mushaf"
+msgstr "Dooro Musxaf"
+
+msgid "current"
+msgstr "Hadda"
+
+msgid "start_new_khatma"
+msgstr "Ka bilow Khatma Cusub"
+
+msgid "start_from"
+msgstr "Ka bilow"
+
+msgid "mushaf_start"
+msgstr "Bilowgii Musxaf"
+
+msgid "duration_days"
+msgstr "Muddada Khatma (Maalmaha)"
+
+msgid "day"
+msgstr "Maalinta"
+
+msgid "daily_amount"
+msgstr "Qadarka Wird-ka maalinlaha ah"
+
+msgid "smaller_division"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "juz_division"
+msgstr ""
+
+msgid "khatma_summary"
+msgstr "Khatma oo kooban"
+
+msgid "start_khatma"
+msgstr "Ka bilow Khatma"
+
+msgid "reciters"
+msgstr "Akhristayaasha"
+
+msgid "search_reciter"
+msgstr "Ku raadi akhristaha magaciisa"
+
+msgid "loading"
+msgstr "Soodejinaya"
+
+msgid "tafasir"
+msgstr "Kutubta Tafsiirka"
+
+msgid "no_tafsir_available"
+msgstr "Hadda Tafsiirka lama hayo"
+
+msgid "quran"
+msgstr "Quraanka"
+
+msgid "tafsir"
+msgstr "Tafsiir"
+
+msgid "surah_1"
+msgstr "Al-Faatixa"
+
+msgid "mushafs"
+msgstr "Musxafs"
+
+msgid "reading_mode"
+msgstr "Habka Akhriska"
+
+msgid "current_reciter"
+msgstr "Akhristaha hadda"
+
+msgid "coming_soon"
+msgstr "Soo Dhawoow"
+
+msgid "current_mushaf"
+msgstr "Musxafka hadda"
+
+msgid "tafsir_loading_message"
+msgstr "Tafsiirka ayaa lagu shubi doonaa markaad furto boggan"
+
+msgid "title_and_body_required"
+msgstr "Cinwaanka iyo qaybta fariinta ayaa loo baahan yahay"
+
+msgid "no_subscribers_available"
+msgstr "Ma jiro macaamiil diyaar u ah dirida"
+
+msgid "email_separator"
+msgstr ""
+
+msgid "newsletter_subscription_notice"
+msgstr "Waxaad ku biirtay fariimaha Wird Qur'aanka"
+
+msgid "unsubscribe_label"
+msgstr "Inaad iska saarto"
+
+msgid "message_sent_to_subscribers"
+msgstr "Fariinta loo diray %(count) macaamiisha"
+
+msgid "message_sent_with_failures"
+msgstr ""
+"Fariinta loo diray %(sent_count) macaamiisha oo ku guul daraystay %"
+"(failed_count)s"
+
+msgid "message_send_failed"
+msgstr "Waa lagu guul daraystay in la diro fariin"
+
+msgid "please_enter_email"
+msgstr "Fadlan gali iimaylkaga"
+
+msgid "newsletter_welcome_subject"
+msgstr "Waad ku mahadsan tahay subscrib-ka aad ka heshay quraanka kariimka ah"
+
+msgid "newsletter_greeting"
+msgstr "Asalaamu calaykum waraxmatulaahi wabarakaatuh"
+
+msgid "newsletter_thank_you_for_subscribing"
+msgstr "Waad ku mahadsan tahay subscribe garee farriimaha quraanka kariimka ah"
+
+msgid "newsletter_joined_successfully"
+msgstr ""
+"Waan ku faraxsanahay inaad nagu soo biirto, waxaad heli doontaa wixii ku soo "
+"kordha emailkaaga"
+
+msgid "newsletter_unsubscribe_anytime"
+msgstr ""
+"Haddii aad rabto in aad iska saarto wakhti kasta, waxaad isticmaali kartaa "
+"xidhiidhka soo socda"
+
+msgid "newsletter_closing"
+msgstr "Mahadnaq iyo qaddarin"
+
+msgid "wird quran"
+msgstr "Wird Al-Quran Al-Kariim"
+
+msgid "newsletter_subscription_success"
+msgstr ""
+"Waad ku mahadsan tahay, waxaad si guul leh u rukumatay fariimaha Wird "
+"Qur'aanka"
+
+msgid "newsletter_subscription_reactivated"
+msgstr ""
+"Waad ku mahadsan tahay, rukunkaada fariimaha Wird Qur'aanka dib ayaa loo "
+"kiciyay"
+
+msgid "email_already_subscribed"
+msgstr "Iimaylkan mar horeba waa la diiwaan galiyay"
+
+msgid "unsubscribe_success_message"
+msgstr "Si guul leh ayaa loogaga baxay"
+
+msgid "unsubscribe_already_done"
+msgstr "Durba waa laga baxay"
+
+msgid "qari_list_title"
+msgstr "Dhageyso Quraanka Kariimka"
+
+msgid "qari_list_description"
+msgstr ""
+"Baadh akhristayaasha oo dooro akhrinta aad jeceshahay ururinta kala duwan ee "
+"akhristayaasha leh codad qurxoon."
+
+msgid "listen_quran"
+msgstr "Dhageyso Quraanka"
+
+msgid "view_surahs"
+msgstr "Daawo suuradaha"
+
+msgid "tilawa_listen_quran_recited_by"
+msgstr "Dhageysiga Quraanka by"
+
+msgid "tilawa_wrd_quran"
+msgstr "Wird Quraan"
+
+msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
+msgstr "Dhageyso Quraanka oo dhameystiran oo uu akhrinayo"
+
+msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
+msgstr "oo tayo sare leh, oo si fudud loogu dhex mari karo suuradaha dhexdooda"
+
+msgid "all_reciters"
+msgstr "Dhammaan akhristayaasha"
+
+msgid "select_surah_player"
+msgstr "Dooro suurad"
+
+msgid "prev_surah"
+msgstr "Suurad hore"
+
+msgid "next_surah"
+msgstr "Suurada Xigta"
+
+msgid "search_surah"
+msgstr "Ku raadi suuradda magaca ama nambarka"
+
+msgid "ayah_counter"
+msgstr "Ayay"
+
+msgid "stop_playback"
+msgstr "Jooji dib u ciyaarista"
+
+msgid "username_password_required"
+msgstr "Magaca isticmaalaha iyo erayga sirta ah ayaa loo baahan yahay."
+
+#, fuzzy
+#| msgid "accounts_account_needs_activation"
+msgid "account_needs_activation"
+msgstr "Akoonka wuxuu u baahan yahay firfircooni"
+
+msgid "invalid_login_credentials"
+msgstr "Aqoonsiga gelida aan ansax ahayn"
+
+msgid "dashboard"
+msgstr "Dashboard-ka"
+
+msgid "login_register_page"
+msgstr ""
+
+msgid "login_or_create_account"
+msgstr "Soo gal ama samee akoon si aad u sii wadato"
+
+msgid "login"
+msgstr "Soo gal"
+
+msgid "register"
+msgstr "Abuur Account"
+
+#, fuzzy
+#| msgid "username_taken"
+msgid "username"
+msgstr "Magaca isticmaalaha waa la qaatay."
+
+msgid "enter_username"
+msgstr "Geli magaca isticmaale"
+
+msgid "password"
+msgstr "Furaha"
+
+msgid "enter_password"
+msgstr "Geli erayga sirta ah"
+
+msgid "toggle_password_visibility"
+msgstr ""
+
+msgid "forgot_password"
+msgstr "Ilowday erayga sirta ah?"
+
+msgid "create_account"
+msgstr "Samee akoon"
+
+msgid "username_required"
+msgstr "Magaca isticmaale ayaa loo baahan yahay"
+
+msgid "username_taken"
+msgstr "Magaca isticmaalaha waa la qaatay."
+
+msgid "email_required"
+msgstr "Iimayl ayaa loo baahan yahay"
+
+msgid "email_taken"
+msgstr "Iimayl horeyba waa loo isticmaalay"
+
+msgid "password_required"
+msgstr "Furaha sirta ah ayaa loo baahan yahay."
+
+msgid "register_success"
+msgstr ""
+"Soo dhawoow 🌿 Koontadaada si guul leh ayaa loo sameeyay. Waan ku "
+"faraxsanahay inaan ku hayno. Waxaan kuu rajaynaynaa waayo-aragnimo kala "
+"duwan oo midho-dhal leh."
+
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr ""
+"Wird Quran waa goob isku xiran oo lagu akhriyo qur’aanka kariimka ah, laguna "
+"dhageysto tafsiirka akhristayaasha caanka ah, laguna daalacdo kutubta "
+"Tafsiirka si fudud oo bilaa xayeysiis ah."
+
+msgid "success"
+msgstr "Guul"
+
+msgid "error"
+msgstr "Khalad"
+
+msgid "alert"
+msgstr ""
+
+msgid "notice"
+msgstr ""
+
+msgid "web_wrd_alqraan_alkrym"
+msgstr "Ku saabsan Wird Al-Quran Al-Kariim"
+
+msgid "long_about_text"
+msgstr ""
+"Wird waa qalab dhijitaal ah oo isku xidhan oo ujeedadiisu tahay in loo "
+"fududeeyo akhrinta iyo ka fiirsashada quraanka si habaysan oo soo jiidasho "
+"leh. Waxay bixisaa adeegyo ay ka mid yihiin daalacashada Musxafyada kala "
+"duwan, dhageysiga akhristayaasha, akhrinta kutubta Tafsiirka ah ee saxda ah."
+
+msgid "about_wird"
+msgstr ""
+"Wird waa qalab dhijitaal ah oo isku xidhan oo ujeedadiisu tahay in loo "
+"fududeeyo akhrinta iyo ka fiirsashada quraanka si habaysan oo soo jiidasho "
+"leh. Waxay bixisaa adeegyo ay ka mid yihiin daalacashada Musxafka oo leh "
+"qisooyin kala duwan, dhageysiga akhristayaasha, akhrinta Tafsiirka la isku "
+"halayn karo. Waxa kale oo ay u ogolaataa isticmaalayaasha in ay raacaan Wird-"
+"kooda maalinlaha ah oo ay la socdaan horumarkooda xagga xifdinta iyo dib u "
+"eegista. Madalku waxay ujeedadeedu tahay inay taageerto mashruuca Qur'aanka "
+"kariimka ah iyo xoojinta xidhiidhka iyada oo loo marayo waayo-aragnimo "
+"dijital ah oo sahlan oo isku dhafan."
+
+msgid "wird"
+msgstr "Wird"
+
+msgid "home_hero_summary"
+msgstr ""
+"A refined Quran experience that brings the Mushaf, recitation, Tafsir, "
+"memorization, and meaning translations into one calm daily reading interface."
+
+msgid "home_eyebrow"
+msgstr "Wirdkaaga maalinlaha ah ee Quraanka"
+
+msgid "home_hero_title1"
+msgstr "Khibrad degan oo loogu talagalay akhrinta Quraanka"
+
+msgid "home_hero_title2"
+msgstr "Iyo Dhagaysi iyo Milicsi"
+
+msgid "home_hero_desc"
+msgstr ""
+"Madal keenaysa akhris, akhrin, Tafsiir, tarjumaad, iyo macnayaal kelmad mid "
+"fudud oo habaysan."
+
+msgid "home_start_reading"
+msgstr "Bilow Akhriska"
+
+msgid "home_explore_recitations"
+msgstr "Sahami akhrinta"
+
+msgid "home_calm_recitation"
+msgstr "Akhrinta Deggan"
+
+msgid "play"
+msgstr "Play"
+
+msgid "home_features_label"
+msgstr "Astaamaha"
+
+msgid "home_features_title"
+msgstr "Wax kasta oo aad uga baahan tahay hal meel"
+
+msgid "home_features_desc"
+msgstr ""
+"Qalab dejin si ay kaaga caawiyaan inaad wax akhrido, dhegaysato, oo aad u "
+"milicsato mashquul la'aan."
+
+msgid "home_feature_quran_title"
+msgstr "Qur'aanka akhri"
+
+msgid "home_feature_quran_desc"
+msgstr ""
+"Interface Musxaf xarrago leh oo akhriska ka dhigaya mid raaxo leh oo fudud "
+"indhaha."
+
+#, fuzzy
+#| msgid "home_features_title"
+msgid "home_feature_hifz_title"
+msgstr "Wax kasta oo aad uga baahan tahay hal meel"
+
+#, fuzzy
+#| msgid "home_features_desc"
+msgid "home_feature_hifz_desc"
+msgstr ""
+"Qalab dejin si ay kaaga caawiyaan inaad wax akhrido, dhegaysato, oo aad u "
+"milicsato mashquul la'aan."
+
+msgid "home_feature_listen_title"
+msgstr "Dhageyso Akhriska"
+
+msgid "home_feature_listen_desc"
+msgstr ""
+"Xulashada akhristayaasha leh cod saafi ah iyo waayo-aragnimo dhegeysi deggan."
+
+msgid "home_feature_tafsir_title"
+msgstr "Tafsiir"
+
+msgid "home_feature_tafsir_desc"
+msgstr ""
+"Tafsiirka la isku halayn karo oo leh bandhig habaysan si ay uga caawiyaan "
+"milicsiga iyo fahamka."
+
+msgid "home_feature_trans_title"
+msgstr "Turjumaada"
+
+msgid "home_feature_trans_desc"
+msgstr ""
+"Turjumaada micnaha ee luuqado badan oo ay weheliyaan aayadda si toos ah."
+
+msgid "home_feature_words_title"
+msgstr "Macnaha Erayga"
+
+msgid "home_feature_words_desc"
+msgstr "Ku raadi macnaha kelmad kasta hal taabasho adoon ka tagin bogga."
+
+msgid "home_feature_daily_title"
+msgstr "Daily Wird"
+
+msgid "home_feature_daily_desc"
+msgstr ""
+"Abaabulka Wird-kaaga maalinlaha ah oo la soco sii socoshadaada si degan oo "
+"joogto ah."
+
+msgid "surah_2"
+msgstr "Al-Baqarah"
+
+msgid "tracking_manual"
+msgstr ""
+
+msgid "daily_wird"
+msgstr "Daily Wird"
+
+msgid "home_daily_title"
+msgstr "Caado degan, oo kula koraya maalinba maalinta ka dambaysa"
+
+msgid "home_daily_desc"
+msgstr ""
+"Diyaarso Wird-kaaga si uu ugu habboonaado maalintaada, oo la soco sii "
+"socoshadaada cadaadis la'aan. Xusuusin debecsan, soo bandhigid habaysan, iyo "
+"daba gal fudud ayaa had iyo jeer kugu xidhaya kitaabka Alle."
+
+msgid "home_gentle_tracking"
+msgstr "Dabagal dabacsan"
+
+msgid "home_flexible_reminder"
+msgstr "Xusuusin dabacsan"
+
+msgid "home_no_pressure"
+msgstr "Cadaadis la'aan"
+
+msgid "tilawa"
+msgstr "Akhrin"
+
+msgid "home_recitation_title"
+msgstr "Ku Dhageyso Cod Qalbiga Dejiya"
+
+msgid "home_recitation_desc"
+msgstr ""
+"Dooro akhristaha taabanaya naftaada, oo ku dhegayso khibrad deggan oo aan "
+"mashquul ahayn."
+
+msgid "home_now_playing"
+msgstr "Hadda Ciyaarta"
+
+msgid "home_reciter_label"
+msgstr "Akhriste"
+
+msgid "home_current_surah"
+msgstr "Suurada Hadda"
+
+msgid "home_prev"
+msgstr "Hore"
+
+msgid "home_play_pause"
+msgstr "Ciyaar / hakad"
+
+msgid "home_next"
+msgstr "Xiga"
+
+msgid "home_reading_label"
+msgstr "Tafsiirka & Turjumaada"
+
+msgid "home_reading_title"
+msgstr "U milicso Macnaha si qoto dheer oo cad"
+
+msgid "home_reading_desc"
+msgstr ""
+"Waayo-aragnimo la mid ah kitaabka: aayad meesheeda, macnaheedana agtiisa."
+
+msgid "home_easy_tafsir"
+msgstr "Tafsiir fudud"
+
+msgid "home_meaning_badge"
+msgstr "Macnaha"
+
+msgid "home_meaning_label"
+msgstr "Macnaha"
+
+msgid "verses"
+msgstr ""
+
+msgid "Translation not available"
+msgstr "Translation not available"
+
+msgid "privacy_policy"
+msgstr "Siyaasadda Qarsoonnimada"
+
+msgid "Wird — Privacy Policy"
+msgstr ""
+
+msgid "Your daily companion on your journey with the Quran"
+msgstr ""
+
+msgid "Last updated: May 2026"
+msgstr ""
+
+msgid ""
+"This policy explains how Wird handles your data. We keep it short and honest."
+msgstr ""
+
+msgid "translations"
+msgstr "Turjumaada"
+
+msgid "translation_page_title"
+msgstr "Turjumaada"
+
+msgid "surahs"
+msgstr "Suuradaha"
+
+msgid "fullscreen"
+msgstr ""
+
+#, fuzzy
+#| msgid "save_stop"
+msgid "stop"
+msgstr "Badbaadi booska wax-akhriska"
+
+msgid "Translation will be loaded when you open this page"
+msgstr ""
+
+msgid "copy"
+msgstr "Copy"
+
+msgid "share"
+msgstr "Share"
+
+msgid "footer_links"
+msgstr "Isku xirka cagaha"
+
+msgid "about"
+msgstr "Ku saabsan"
+
+msgid "contact_us"
+msgstr "Nala Soo Xidhiidh"
+
+msgid "download_android"
+msgstr "U soo deji Android"
+
+msgid "download_ios"
+msgstr "U soo deji iOS"
+
+msgid "designed_by"
+msgstr ""
+
+#, fuzzy
+#| msgid "languages"
+msgid "language"
+msgstr "Languages"
+
+msgid "menu"
+msgstr "Menu"
+
+msgid "home"
+msgstr "Guriga"
+
+msgid "read_quran"
+msgstr "Qur'aanka akhri"
+
+msgid "hifz_quran"
+msgstr "Xifdiga Quraanka"
+
+msgid "notifications"
+msgstr "Ogeysiisyada"
+
+msgid "logout"
+msgstr "Ka bax"
+
+#, fuzzy
+#| msgid "accounts_profile"
+msgid "profile"
+msgstr "Profile"
+
+msgid "SECTION 1"
+msgstr ""
+
+msgid "Information We Collect"
+msgstr ""
+
+msgid "a. Account Information (if you sign in)"
+msgstr ""
+
+msgid ""
+"If you create an account, we collect your <strong class=\"text-"
+"slate-700\">email address</strong> and <strong class=\"text-"
+"slate-700\">name</strong>. This data is sent to our server (<strong "
+"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
+"Authentication tokens are stored encrypted on your device only."
+msgstr ""
+
+msgid "b. Firebase Device Token (FCM)"
+msgstr ""
+
+msgid ""
+"We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
+"An anonymous device token is generated by Firebase and sent to our server. "
+"This token does not personally identify you, is used only to send "
+"notifications, and is refreshed automatically by the OS."
+msgstr ""
+
+msgid "c. Contact Messages"
+msgstr ""
+
+msgid ""
+"If you use the Contact Us feature, we receive the message you write and the "
+"email you provide."
+msgstr ""
+
+msgid "SECTION 2"
+msgstr ""
+
+msgid "Data Stored Only on Your Device"
+msgstr ""
+
+msgid ""
+"The following data is stored locally and <strong class=\"text-"
+"slate-700\">never transmitted</strong>:"
+msgstr ""
+
+msgid "Reading progress, Khatmah plan, and Wird position"
+msgstr ""
+
+msgid "Azkar completion progress"
+msgstr ""
+
+msgid "Notification schedule and preferences"
+msgstr ""
+
+msgid "Selected reciter and Mushaf style"
+msgstr ""
+
+msgid "Accessibility and display settings"
+msgstr ""
+
+msgid "Downloaded Mushaf images and audio files"
+msgstr ""
+
+msgid "The Quran database"
+msgstr ""
+
+msgid "SECTION 3"
+msgstr ""
+
+msgid "Microphone Access"
+msgstr ""
+
+msgid ""
+"If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
+"accessibility feature, the app uses your device microphone to recognise "
+"spoken Arabic navigation commands."
+msgstr ""
+
+msgid ""
+"All voice processing happens locally on your device. No audio is sent to our "
+"servers or any third party."
+msgstr ""
+
+msgid "SECTION 4"
+msgstr ""
+
+msgid "Third-Party Services"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Provider"
+msgstr ""
+
+msgid "Purpose"
+msgstr ""
+
+msgid "Push notifications"
+msgstr ""
+
+msgid "App initialisation"
+msgstr ""
+
+msgid "Subject to Google's Privacy Policy:"
+msgstr ""
+
+msgid "SECTION 5"
+msgstr ""
+
+msgid "Analytics and Crash Reporting"
+msgstr ""
+
+msgid ""
+"This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
+"Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
+"do not track your behaviour inside the app."
+msgstr ""
+
+msgid "SECTION 6"
+msgstr ""
+
+msgid "Data Sharing"
+msgstr ""
+
+msgid ""
+"We do not sell, trade, or share your personal data with third parties for "
+"advertising or commercial purposes. Data is shared only with Firebase "
+"(Google) as described in Section 4, which is required for push notification "
+"delivery."
+msgstr ""
+
+msgid "SECTION 7"
+msgstr ""
+
+msgid "Data Security"
+msgstr ""
+
+msgid ""
+"Authentication tokens are stored using platform-level encrypted storage "
+"(Android Keystore)."
+msgstr ""
+
+msgid "All communication with our server uses HTTPS."
+msgstr ""
+
+msgid "SECTION 8"
+msgstr ""
+
+msgid "Your Rights"
+msgstr ""
+
+msgid ""
+"If you have created an account, you may request access to or deletion of "
+"your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
+"screen inside the app."
+msgstr ""
+
+msgid "SECTION 9"
+msgstr ""
+
+msgid "Audience"
+msgstr ""
+
+msgid ""
+"This app is designed to be suitable for a general audience. It contains no "
+"adult content, no violence, and no advertising."
+msgstr ""
+
+msgid "SECTION 10"
+msgstr ""
+
+msgid "Changes to This Policy"
+msgstr ""
+
+msgid "We may update this policy from time to time. The \\"
+msgstr ""
+
+msgid "Wird App"
+msgstr ""
+
+#, fuzzy
+#| msgid "privacy_policy"
+msgid "Privacy Policy"
+msgstr "Siyaasadda Qarsoonnimada"
+
+msgid "Last updated May 2026"
+msgstr ""
+
+#~ msgid "translation_intro"
+#~ msgstr ""
+#~ "Read the Arabic ayah with its meaning translation according to the "
+#~ "current site language, with audio, copy, share, and bookmark tools."
+
+#~ msgid "current_language"
+#~ msgstr "Current language"
+
+#~ msgid "audio_available"
+#~ msgstr "Audio is available for this language"
+
+#~ msgid "features"
+#~ msgstr "Features"
+
+#~ msgid "bookmark"
+#~ msgstr "Bookmark"
+
+#~ msgid "support"
+#~ msgstr "Taageero"
+
+#~ msgid "web_wrd"
+#~ msgstr "Wird"
+
+#~ msgid "system_description"
+#~ msgstr ""
+#~ "Madal lagu akhriyo qur’aanka kariimka, dhageysiga tafsiirka, laguna "
+#~ "baadho tafsiirka si fudud."
+
+#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
+#~ msgstr ""
+#~ "Wird waa qalab dhijitaal ah oo isku xidhan oo ujeedadiisu tahay in loo "
+#~ "fududeeyo akhrinta iyo ka fiirsashada quraanka si habaysan oo soo "
+#~ "jiidasho leh."
+
+#~ msgid "hifz"
+#~ msgstr "Xusuusin"
+
+#~ msgid "Juz %(number)s"
+#~ msgstr "Juz %(lambar) s"
+
+#~ msgid "juz_number"
+#~ msgstr "Juz %(lambar) s"
+
+#~ msgid "basmala_text"
+#~ msgstr ""
+#~ "Magaca Eebe yaan ku billaabaynaa ee Naxariis guud iyo mid gaaraba "
+#~ "Naxariista"
+
+#~ msgid "open_mushaf"
+#~ msgstr "Fur Musxaf"
+
+#~ msgid "hafs"
+#~ msgstr "Xafs"
+
+#~ msgid "warsh"
+#~ msgstr "Warsh"
+
+#~ msgid "qaloun"
+#~ msgstr "Qaloon"
+
+#~ msgid "douri"
+#~ msgstr "Al-Douri"
+
+#~ msgid "shuba"
+#~ msgstr "Shucbax"
+
+#~ msgid "sousi"
+#~ msgstr "Al-Sousi"
+
+#~ msgid "mushaf_sources_from"
+#~ msgstr "Musxafka badankoodu waxay ka soo jeedaan"
+
+#~ msgid "complex"
+#~ msgstr "Boqor Fahad Sharafta Qur'aanka Kariimka ah"
+
+#~ msgid "quran_no_tfsyr"
+#~ msgstr "Tafsiir lama hayo"
+
+#~ msgid "tajweed"
+#~ msgstr "Tajwiid"
+
+#~ msgid "quran_show_meanings_words"
+#~ msgstr "Muuji macnaha erayga"
+
+#~ msgid "quran_hide_word_meanings"
+#~ msgstr "Qari macnaha erayga"
+
+#~ msgid "loading_word_meanings"
+#~ msgstr "Soodejinaya macnaha kelmad..."
+
+#~ msgid "quran_jary_load_meanings_words"
+#~ msgstr "Soodejinaya macnaha erayga"
+
+#~ msgid "quran_failed_load_meanings_words"
+#~ msgstr "Ku guuldarraystay inuu soo geliyo macnaha erayga"
+
+#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
+#~ msgstr "Macnaha looma hayo aayaddan"
+
+#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
+#~ msgstr "Macnaha kelmadu waxay soo bixi doonaan marka akhrintu bilaabanto"
+
+#~ msgid "quran_mkyh"
+#~ msgstr "Maka"
+
+#~ msgid "quran_mdnyh"
+#~ msgstr "Madiina"
+
+#~ msgid "start"
+#~ msgstr "Bilow"
+
+#~ msgid "selected_ayah"
+#~ msgstr "Aayad la doortay"
+
+#~ msgid "analysis_result"
+#~ msgstr "Natiijada"
+
+#~ msgid "select_ayah_first"
+#~ msgstr "Marka hore dooro aayad"
+
+#~ msgid "browse_reciters"
+#~ msgstr "Daalaco Reciters"
+
+#~ msgid "next_wirds"
+#~ msgstr "Wirds soo socda"
+
+#~ msgid "previous_wirds"
+#~ msgstr "Wirds hore"
+
+#~ msgid "one_juz"
+#~ msgstr "1 Juz"
+
+#~ msgid "hifz_display_tools"
+#~ msgstr "Qalabka Muujinta"
+
+#~ msgid "hifz_display_alaady"
+#~ msgstr "Muujinta caadiga ah"
+
+#~ msgid "hifz_repeat_ayah"
+#~ msgstr "Soo Celinta Ayah"
+
+#~ msgid "hifz_without_repeat"
+#~ msgstr "Soo Celin La'aan"
+
+#~ msgid "hifz_mrtan"
+#~ msgstr "Laba jeer"
+
+#~ msgid "hifz_mrat"
+#~ msgstr "Waqtiyada"
+
+#~ msgid "hifz_zoom_mushaf"
+#~ msgstr "Soo dhawayn Musxaf"
+
+#~ msgid "khatma_summary_text"
+#~ msgstr ""
+#~ "Qur'aanka waxaa loo qaybin doonaa iyadoo lagu saleynayo muddada iyo "
+#~ "qaddarka la cayimay si loo fududeeyo Khatmada maalinlaha ah."
+
+#~ msgid "resume_reading"
+#~ msgstr "Dib u bilow Akhriska"
+
+#~ msgid "percentage"
+#~ msgstr "Boqolkiiba horumarka"
+
+#~ msgid "progress"
+#~ msgstr "Horumarka"
+
+#~ msgid "from_page"
+#~ msgstr "Bogga Bilawga"
+
+#~ msgid "to_page"
+#~ msgstr "Bogga Dhamaadka"
+
+#~ msgid "from_surah_ayah"
+#~ msgstr "Ka"
+
+#~ msgid "to_surah_ayah"
+#~ msgstr "Ku"
+
+#~ msgid "daily_reading_start_example"
+#~ msgstr "Suuradda Al-Baqarah - Aayadda 1"
+
+#~ msgid "daily_reading_end_example"
+#~ msgstr "Suuradda Al-Baqarah - Aayadda 141"
+
+#~ msgid "current_ayah_number"
+#~ msgstr "Lambarka Ayah ee hadda"
+
+#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
+#~ msgstr "Soo gal ama samee akoon si aad u sii wadato"
+
+#~ msgid "welcome"
+#~ msgstr "Soo dhawoow"
+
+#~ msgid "welcome_message"
+#~ msgstr "Ku Soo Dhawoow Wird Quran Platform"
+
+#~ msgid "accounts_welcome_bk"
+#~ msgstr "Soo dhawoow dib"
+
+#~ msgid "accounts_updated_mlfk_profile"
+#~ msgstr "Muuqaalkaaga waa la cusboonaysiiyay"
+
+#~ msgid "accounts_settings"
+#~ msgstr "Dejinta"
+
+#~ msgid "login_settings"
+#~ msgstr "Dejinta Gelitaanka"
+
+#~ msgid "confirm_password"
+#~ msgstr "Xaqiiji erayga sirta ah"
+
+#~ msgid "accounts_password_aljdydh"
+#~ msgstr "Furaha cusub"
+
+#~ msgid "accounts_show_hide_password"
+#~ msgstr "Muuji ama qari erayga sirta ah"
+
+#~ msgid "accounts_name_user_required"
+#~ msgstr "Magaca isticmaale ayaa loo baahan yahay"
+
+#~ msgid "accounts_name_user_already"
+#~ msgstr "Magaca isticmaalaha waa la qaatay"
+
+#~ msgid "enter_email"
+#~ msgstr "Geli iimaylkaga"
+
+#~ msgid "accounts_email_required"
+#~ msgstr "Iimayl ayaa loo baahan yahay"
+
+#~ msgid "accounts_email_user_already"
+#~ msgstr "Iimayl horeyba waa loo isticmaalay"
+
+#~ msgid "invalid_email"
+#~ msgstr "Qaab iimayl aan sax ahayn"
+
+#~ msgid "full_name"
+#~ msgstr "Magaca oo buuxa"
+
+#~ msgid "phone"
+#~ msgstr "Lambarka Taleefanka"
+
+#~ msgid "invalid_phone"
+#~ msgstr "Lambarka taleefanka aan ansax ahayn"
+
+#~ msgid "accounts_number_aljwal_user_already"
+#~ msgstr "Nambarka taleefoonka waa la isticmaalay"
+
+#~ msgid "accounts_job_title"
+#~ msgstr "Magaca Shaqada"
+
+#~ msgid "accounts_dhkr"
+#~ msgstr "Lab"
+
+#~ msgid "accounts_female"
+#~ msgstr "Dheddig"
+
+#~ msgid "accounts_success_created_hsabk"
+#~ msgstr "Koontadaada si guul leh ayaa loo sameeyay"
+
+#~ msgid "accounts_success_created_hsabk_3"
+#~ msgstr ""
+#~ "Koontadaada si guul leh ayaa loo sameeyay Waanu ku faraxsanahay inaan ku "
+#~ "hayno markabka waxaanan kuu rajeyneynaa khibrad gaar ah."
+
+#~ msgid "login_failed"
+#~ msgstr "Aqoonsiga gelida aan ansax ahayn"
+
+#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
+#~ msgstr "Erayada sirta ah isma dhigmaan"
+
+#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
+#~ msgstr "Erayga sirta ah waa inuu ahaadaa ugu yaraan 8 xaraf"
+
+#~ msgid "accounts_success_save_altadylat"
+#~ msgstr "Isbeddellada si guul leh ayaa loo keydiyay"
+
+#~ msgid "accounts_success_save_byanatk"
+#~ msgstr "Xogtaada si guul leh ayaa loo keydiyay"
+
+#~ msgid "accounts_success_save_data_wthdyth_password"
+#~ msgstr ""
+#~ "Xogta la kaydiyay iyo erayga sirta ah ayaa si guul leh loo cusboonaysiiyay"
+
+#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
+#~ msgstr "Dejinta gelitaanka si guul leh ayaa loo cusboonaysiiyay"
+
+#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
+#~ msgstr ""
+#~ "Soo dhawoow, akoonkaaga waa la ansixiyay oo hadda waxaad codsan kartaa "
+#~ "mashruucyo"
+
+#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
+#~ msgstr ""
+#~ "Ku soo dhawoow Xarunta Hal-abuurka, waxaanu kuu rajaynaynaa khibrad "
+#~ "wanaagsan"
+
+#~ msgid "accounts_manage_center_alabtkar"
+#~ msgstr "Maamulka Xarunta Hal-abuurka"
+
+#~ msgid "accounts_local"
+#~ msgstr "Deegaanka"
+
+#~ msgid "accounts_login_unified"
+#~ msgstr "Login Midaysan"
+
+#~ msgid "accounts_enable_almsadqh_alkharjyh"
+#~ msgstr "Daar Xaqiijinta Dibadda"
+
+#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
+#~ msgstr "Xakamaynta la oggolaaday hababka xaqiijinta ee nidaamka"
+
+#~ msgid "accounts_qaadh_data_system"
+#~ msgstr "Laga soo bilaabo xogta nidaamka"
+
+#~ msgid "accounts_yesterday"
+#~ msgstr "Shalay"
+
+#~ msgid "accounts_saah"
+#~ msgstr "Saacad kahor"
+
+#~ msgid "accounts_10_dqayq"
+#~ msgstr "10 daqiiqo kahor"
+
+#~ msgid "accounts_5_dqayq"
+#~ msgstr "5 daqiiqo kahor"
+
+#~ msgid "contact_contact_us"
+#~ msgstr "Nala Soo Xidhiidh"
+
+#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
+#~ msgstr "Nagala soo xidhiidh foomka xidhiidhka"
+
+#~ msgid "contact_description"
+#~ msgstr "Waxaad nagala soo xidhiidhi kartaa wixii waydiin ama taageero ah"
+
+#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
+#~ msgstr ""
+#~ "Waad ku mahadsan tahay, fariintaada dib ayaan u eegi doonaa oo waan kula "
+#~ "soo xiriiri doonaa dhawaan"
+
+#~ msgid "contact_success_send_rsaltk"
+#~ msgstr "Fariintaada si guul leh ayaa loo diray"
+
+#~ msgid "write_message"
+#~ msgstr "Halkan ku qor fariintaada"
+
+#~ msgid "contact_message"
+#~ msgstr "Fariinta"
+
+#~ msgid "contact_message_mtlwbh"
+#~ msgstr "Fariinta ayaa loo baahan yahay"
+
+#~ msgid "contact_name_required"
+#~ msgstr "Magaca ayaa loo baahan yahay"
+
+#~ msgid "contact_email_required"
+#~ msgstr "Iimayl ayaa loo baahan yahay"
+
+#~ msgid "contact_email_ghyr_invalid"
+#~ msgstr "Iimayl aan sax ahayn"
+
+#~ msgid "contact_alhatf"
+#~ msgstr "Taleefanka"
+
+#~ msgid "contact_aljwal"
+#~ msgstr "Mobile"
+
+#~ msgid "contact_email"
+#~ msgstr "iimaylka"
+
+#~ msgid "contact_date"
+#~ msgstr "Taariikhda"
+
+#~ msgid "contact_all_messages"
+#~ msgstr "Dhammaan fariimaha"
+
+#~ msgid "contact_contact_messages"
+#~ msgstr "Fariimaha Xiriirka"
+
+#~ msgid "contact_manage_messages_communication"
+#~ msgstr "Maamul Fariimaha Xiriirka"
+
+#~ msgid "contact_message_details"
+#~ msgstr "Faahfaahinta Fariinta"
+
+#~ msgid "contact_message_communication_details"
+#~ msgstr "Faahfaahinta Fariinta Kala Xidhiidh"
+
+#~ msgid "contact_fth_details_message"
+#~ msgstr "Faahfaahinta fariinta fur"
+
+#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
+#~ msgstr "Toos u dhufo fariinta si aad u aragto tafaasiilkeeda"
+
+#~ msgid "contact_search_balasm_email_message"
+#~ msgstr "Ku raadi magaca, iimaylka, ama fariinta"
+
+#~ msgid "contact_no_messages_currently"
+#~ msgstr "Hadda fariimo ma jiraan"
+
+#~ msgid "contact_reply"
+#~ msgstr "Ku jawaabay"
+
+#~ msgid "contact_reply_message"
+#~ msgstr "Ka jawaab fariinta"
+
+#~ msgid "write_reply"
+#~ msgstr "Qor jawaabta oo si toos ah u soo dir"
+
+#~ msgid "contact_send_reply"
+#~ msgstr "Soo dir jawaab"
+
+#~ msgid "contact_text_reply"
+#~ msgstr "Qoraal ka jawaab"
+
+#~ msgid "contact_title_reply"
+#~ msgstr "Ciwaanka jawaabta"
+
+#~ msgid "contact_last_saved_reply"
+#~ msgstr "Jawaabtii u dambaysay ee la keydiyay"
+
+#~ msgid "contact_reply_rsaltk_mwqana"
+#~ msgstr "Ka jawaab fariintaada boggayaga"
+
+#~ msgid "contact_message_jdydh_contact_mana"
+#~ msgstr "Farriin cusub oo ka timid Contact Us"
+
+#~ msgid "contact_jdydh"
+#~ msgstr "Cusub"
+
+#~ msgid "contact_ghyr_almqrwh"
+#~ msgstr "Aan la akhriyin"
+
+#~ msgid "contact_done_reading"
+#~ msgstr "Akhriso"
+
+#~ msgid "contact_jary_sending"
+#~ msgstr "Diraya..."
+
+#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
+#~ msgstr "Dhawaan la diray, fadlan isku day mar kale in yar ka dib"
+
+#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
+#~ msgstr ""
+#~ "Jawaab ayaa la soo diray daqiiqado ka hor, isku day mar kale in yar ka dib"
+
+#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
+#~ msgstr ""
+#~ "Haddii aad la kulanto wax dhibaato ah, ha ka waaban inaad nala soo "
+#~ "xidhiidho"
+
+#~ msgid "accounts_fryq_aldam"
+#~ msgstr "Kooxda Taageerada"
+
+#~ msgid "subscribe"
+#~ msgstr "Subscribe dheh"
+
+#~ msgid "subscriptions"
+#~ msgstr "Isdiiwaangelinta"
+
+#~ msgid "subscription_active"
+#~ msgstr "Hawl gal"
+
+#~ msgid "subscription_active_3"
+#~ msgstr "Firfircoon"
+
+#~ msgid "subscription_stopped"
+#~ msgstr "Joogsaday"
+
+#~ msgid "subscription_confirmed_subscribers"
+#~ msgstr "Macaamiisha la xaqiijiyay"
+
+#~ msgid "subscription_total_subscribers"
+#~ msgstr "Wadarta macaamiisha"
+
+#~ msgid "subscription_all_subscribers"
+#~ msgstr "Dhammaan macaamiisha"
+
+#~ msgid "subscription_subscribers_alnshtyn"
+#~ msgstr "Macaamiisha firfircoon"
+
+#~ msgid "subscription_almfalyn"
+#~ msgstr "Hawl gal"
+
+#~ msgid "subscription_mwkd"
+#~ msgstr "La xaqiijiyay"
+
+#~ msgid "subscription_ghyr_mwkd"
+#~ msgstr "Lama xaqiijin"
+
+#~ msgid "subscription_altakyd"
+#~ msgstr "La xaqiijiyay"
+
+#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
+#~ msgstr "Macaamiisha Wargeysyada"
+
+#~ msgid "subscription_subscriber_nshrh_email"
+#~ msgstr "Macmiil Warsidaha"
+
+#~ msgid "subscription_message"
+#~ msgstr "Subscribe saar si aad u hesho fariimahayaga"
+
+#~ msgid "subscription_no_subscribers_halya"
+#~ msgstr "Hadda ma jiro rukunsayaal"
+
+#~ msgid "subscription_cancel_subscription"
+#~ msgstr "Is-diiwaangelinta"
+
+#~ msgid "subscription_cancel_ashtrak_email"
+#~ msgstr "Iimayl ka mid noqoshada waa la joojiyay"
+
+#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Ka bixi fariimaha Wird Qur'aanka"
+
+#~ msgid "subscription_messages_wrd_quran_alkrym"
+#~ msgstr "Farriimaha Wird Qur'aanka Kariimka"
+
+#~ msgid "subscription_manage_subscriptions"
+#~ msgstr "Maamul isdiiwaangelinta"
+
+#~ msgid "subscription_view_subscriptions"
+#~ msgstr "Daawo Is-diiwaangelinta"
+
+#~ msgid "subscription_summary_subscriptions"
+#~ msgstr "Soo koobida Diiwaangelinta"
+
+#~ msgid "subscription_subscription_center"
+#~ msgstr "Xarunta Diiwaangelinta"
+
+#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
+#~ msgstr "Dulmar guud ee macaamiisha wargeyska"
+
+#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
+#~ msgstr ""
+#~ "Liiska iimaylada loo diiwaan galiyay in lagu helo warsidaha iyo fariimaha"
+
+#~ msgid "subscription_date_subscription"
+#~ msgstr "Taariikhda Isdiiwaangelinta"
+
+#~ msgid "subscription_date_cancel_subscription"
+#~ msgstr "Ka-noqoshada Taariikhda"
+
+#~ msgid "subscription_search_balbryd_email"
+#~ msgstr "Ku raadi iimaylka"
+
+#~ msgid "subscription_create_message"
+#~ msgstr "Abuur Fariin"
+
+#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
+#~ msgstr ""
+#~ "U dir iimaylka dhammaan macaamiisha firfircoon iyo kuwa la xaqiijiyay"
+
+#~ msgid "dashboard_dashboard_overview"
+#~ msgstr "Dulmarka Dashboard"
+
+#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
+#~ msgstr "Gudiga Xakamaynta Gudaha"
+
+#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
+#~ msgstr "Dulmar degdeg ah oo ku saabsan qaybaha ugu muhiimsan iyo dejinta"
+
+#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
+#~ msgstr "Soo koobida tirooyinka guud iyo tilmaamayaasha nidaamka"
+
+#~ msgid "analytics_site_statistics"
+#~ msgstr "Tirakoobka Goobta"
+
+#~ msgid "analytics_page_statistics"
+#~ msgstr "Tirakoobka bogga"
+
+#~ msgid "analytics_audio_statistics"
+#~ msgstr "Tirakoobka Maqalka"
+
+#~ msgid "analytics_tafsir_statistics"
+#~ msgstr "Tirakoobka Tafsiir"
+
+#~ msgid "analytics_mushaf_statistics"
+#~ msgstr "Musxaf Statistics"
+
+#~ msgid "analytics_total_visitors"
+#~ msgstr "Wadarta Booqdayaasha"
+
+#~ msgid "analytics_total_visits_pages"
+#~ msgstr "Wadarta booqashooyinka bogga"
+
+#~ msgid "analytics_most_visited_pages"
+#~ msgstr "Bogagga inta badan la booqdo"
+
+#~ msgid "analytics_visits_pages"
+#~ msgstr "Booqashooyinka Bogga"
+
+#~ msgid "analytics_visits_latest_7_ayam"
+#~ msgstr "Booqashooyinka 7dii maalmood ee u dambeeyay"
+
+#~ msgid "analytics_visits_latest_30_day"
+#~ msgstr "Booqashooyinka 30-kii maalmood ee la soo dhaafay"
+
+#~ msgid "analytics_zwar_latest_7_ayam"
+#~ msgstr "Booqdeyaasha 7dii maalmood ee la soo dhaafay"
+
+#~ msgid "analytics_visits_alayam_alakhyrh"
+#~ msgstr "Booqashooyin maalmihii la soo dhaafay"
+
+#~ msgid "analytics_audio_plays"
+#~ msgstr "Ciyaaraha Maqalka"
+
+#~ msgid "analytics_plays_audio_latest_7_ayam"
+#~ msgstr "Maqalka wuxuu ciyaarayaa 7dii maalmood ee la soo dhaafay"
+
+#~ msgid "analytics_total_seconds_listening"
+#~ msgstr "Wadarta ilbidhiqsiyada dhagaysiga"
+
+#~ msgid "analytics_most_listened_pages"
+#~ msgstr "Bogagga Dhageysiga Badan"
+
+#~ msgid "analytics_most_played_surahs"
+#~ msgstr "Suuradaha Ciyaarta Ugu Badan"
+
+#~ msgid "analytics_most_played_reciters"
+#~ msgstr "Akhristayaasha ugu Ciyaar badan"
+
+#~ msgid "analytics_flips_pages"
+#~ msgstr "Bogga Flips"
+
+#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
+#~ msgstr "Inta badan Bogagga Musxaf ee la rogmaday"
+
+#~ msgid "analytics_total_opens_tafsir"
+#~ msgstr "Wadarta Tafsiirka Furmay"
+
+#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
+#~ msgstr "Tafsiirka wuxuu furmayaa 7dii maalmood ee ugu dambeysay"
+
+#~ msgid "analytics_most_ktb_tafsir_opened"
+#~ msgstr "Kutubta Tafsiirka ee ugu Furan"
+
+#~ msgid "analytics_most_ktab_astkhdama"
+#~ msgstr "Buugga Inta Badan La Isticmaalo"
+
+#~ msgid "analytics_most_sfhat_tafsir_opened"
+#~ msgstr "Bogagga Tafsiirka ee ugu Furan"
+
+#~ msgid "analytics_most_page_tfsyr_opened"
+#~ msgstr "Bogga Tafsiirka ugu Furan"
+
+#~ msgid "analytics_most_swrh_fth_tfsyrha"
+#~ msgstr "Suuradda Tafsiirka Badan"
+
+#~ msgid "analytics_most_surahs_tfsyra"
+#~ msgstr "Suuradaha Tafsiirka Badan"
+
+#~ msgid "analytics_most_opened_ayahs_in_tafsir"
+#~ msgstr "Aayadaha ugu Furan Tafsiirka"
+
+#~ msgid "analytics_latest_interactions"
+#~ msgstr "Is dhexgalka ugu dambeeyay"
+
+#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
+#~ msgstr ""
+#~ "Dabagalka booqdayaasha, bogagga, riwaayadaha maqalka ah, iyo bogga Musxaf"
+
+#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
+#~ msgstr ""
+#~ "Dabagalka Tafsiirka ayaa furmay, kutubta inta badan la isticmaalo, bogag, "
+#~ "suurado, iyo aayado xidhiidhsan"
+
+#~ msgid "analytics_lwhh_hyh"
+#~ msgstr "Dashboardka tooska ah"
+
+#~ msgid "analytics_no_data_yet"
+#~ msgstr "Wali xog malaha"
+
+#~ msgid "analytics_no_interactions_yet"
+#~ msgstr "Wali is dhexgal ma jiro"
+
+#~ msgid "analytics_alaayh"
+#~ msgstr "Ayay"
+
+#~ msgid "analytics_audio"
+#~ msgstr "Maqal"
+
+#~ msgid "analytics_page"
+#~ msgstr "Bogga"
+
+#~ msgid "analytics_pages"
+#~ msgstr "Bogagga"
+
+#~ msgid "analytics_surah"
+#~ msgstr "Suurad"
+
+#~ msgid "analytics_mushaf"
+#~ msgstr "Musxaf"
+
+#~ msgid "analytics_time"
+#~ msgstr "Waqtiga"
+
+#~ msgid "analytics_type"
+#~ msgstr "Nooca"
+
+#~ msgid "analytics_path"
+#~ msgstr "Jidka"
+
+#~ msgid "analytics_add"
+#~ msgstr "Tiri"
+
+#~ msgid "analytics_alfrydh"
+#~ msgstr "Gaar ah"
+
+#~ msgid "analytics_alzyarat"
+#~ msgstr "Booqashooyinka"
+
+#~ msgid "analytics_altshghylat"
+#~ msgstr "Ciyaaro"
+
+#~ msgid "analytics_completions_audio"
+#~ msgstr "Dhamaystirka Maqalka"
+
+#~ msgid "analytics_fth_tafsir"
+#~ msgstr "Tafsiir Furan"
+
+#~ msgid "roles"
+#~ msgstr "Doorarka"
+
+#~ msgid "permissions"
+#~ msgstr "Ogolaanshaha"
+
+#~ msgid "users"
+#~ msgstr "Isticmaalayaasha"
+
+#~ msgid "rbac_manage_users"
+#~ msgstr "Maamul Isticmaalayaasha"
+
+#~ msgid "rbac_manage_roles"
+#~ msgstr "Maamul doorarka"
+
+#~ msgid "rbac_manage_permissions"
+#~ msgstr "Maamul ogolaanshaha"
+
+#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
+#~ msgstr "Maamul koontooyinka isticmaalaha, doorarka, iyo oggolaanshaha"
+
+#~ msgid "dashboard_nzam_manage_users_walslahyat"
+#~ msgstr "Isticmaalaha iyo Nidaamka Maareynta Ogolaanshaha"
+
+#~ msgid "dashboard_manage_permissions"
+#~ msgstr "Maamul ogolaanshaha"
+
+#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
+#~ msgstr "Maamul doorarka nidaamka iyo oggolaanshaha la xidhiidha"
+
+#~ msgid "rbac_manage_users_wtayyn_roles"
+#~ msgstr "Maamul isticmaalayaasha oo meeli doorarka"
+
+#~ msgid "rbac_add_user"
+#~ msgstr "Kudar Isticmaale"
+
+#~ msgid "rbac_add_user_new"
+#~ msgstr "Kudar Isticmaale Cusub"
+
+#~ msgid "rbac_user_details"
+#~ msgstr "Faahfaahinta Isticmaalaha"
+
+#~ msgid "rbac_view_details_user"
+#~ msgstr "Eeg faahfaahinta isticmaalaha"
+
+#~ msgid "rbac_view_data_user_wtayyn_roles"
+#~ msgstr "Arag xogta isticmaalaha oo doorarka u qoondee"
+
+#~ msgid "rbac_add_role"
+#~ msgstr "Doorka ku dar"
+
+#~ msgid "rbac_edit_role"
+#~ msgstr "Doorka wax ka beddel"
+
+#~ msgid "rbac_delete_role"
+#~ msgstr "Tirtir Doorka"
+
+#~ msgid "rbac_save_role"
+#~ msgstr "Doorka badbaadi"
+
+#~ msgid "rbac_role_name"
+#~ msgstr "Magaca Doorka"
+
+#~ msgid "rbac_role_alhaly"
+#~ msgstr "Doorka Hadda"
+
+#~ msgid "rbac_roles_current"
+#~ msgstr "Doorarka Hadda"
+
+#~ msgid "rbac_role"
+#~ msgstr "Doorka"
+
+#~ msgid "rbac_add_permission"
+#~ msgstr "Kudar Ogolaanshaha"
+
+#~ msgid "rbac_edit_permission"
+#~ msgstr "Oggolaanshaha wax ka beddel"
+
+#~ msgid "rbac_delete_permission"
+#~ msgstr "Tirtir Ogolaanshaha"
+
+#~ msgid "rbac_save_permission"
+#~ msgstr "Keydi ogolaanshaha"
+
+#~ msgid "rbac_permission"
+#~ msgstr "Ogolaanshaha"
+
+#~ msgid "rbac_permission_3"
+#~ msgstr "Ogolaanshaha"
+
+#~ msgid "rbac_permission_name"
+#~ msgstr "Magaca Ogolaanshaha"
+
+#~ msgid "rbac_kwd_permission"
+#~ msgstr "Xeerka oggolaanshaha"
+
+#~ msgid "rbac_module"
+#~ msgstr "Module"
+
+#~ msgid "rbac_link_roles_balslahyat"
+#~ msgstr "Ku xidh doorarka ogolaanshaha"
+
+#~ msgid "rbac_link_permissions_baladwar"
+#~ msgstr "Ku xidh oggolaanshaha doorarka"
+
+#~ msgid "rbac_success_created_user"
+#~ msgstr ""
+#~ "Isticmaaluhu si guul leh ayuu u abuuray, oo faahfaahinta gelitaanka ayaa "
+#~ "loo diray iimaylkooda"
+
+#~ msgid "rbac_success_created_user_3"
+#~ msgstr ""
+#~ "Isticmaaluhu si guul leh ayuu u abuuray, laakiin iimaylka wuu ku guul "
+#~ "daraystay inuu diro. Hubi dejinta boostada"
+
+#~ msgid "rbac_success_created_role"
+#~ msgstr "Doorka si guul leh ayaa loo abuuray"
+
+#~ msgid "rbac_success_created_permission"
+#~ msgstr "Ogolaanshaha si guul leh ayaa loo sameeyay"
+
+#~ msgid "rbac_success_edit_role"
+#~ msgstr "Doorka si guul leh ayaa loo cusboonaysiiyay"
+
+#~ msgid "rbac_success_edit_permission"
+#~ msgstr "Ogolaanshaha si guul leh ayaa loo cusboonaysiiyay"
+
+#~ msgid "rbac_success_deleted_role"
+#~ msgstr "Doorkii si guul leh ayaa loo tirtiray"
+
+#~ msgid "rbac_success_deleted_permission"
+#~ msgstr "Ogolaanshaha si guul leh ayaa loo tirtiray"
+
+#~ msgid "rbac_success_link_permission_baldwr"
+#~ msgstr "Ogolaanshaha ku xidhan doorka si guul leh"
+
+#~ msgid "rbac_success_remove_permission_role"
+#~ msgstr "Oggolaanshaha waa laga saaray doorka si guul leh"
+
+#~ msgid "rbac_success_updated_roles_user"
+#~ msgstr "Doorarka isticmaalaha si guul leh ayaa loo cusboonaysiiyay"
+
+#~ msgid "rbac_confirm_delete_role"
+#~ msgstr "Xaqiiji doorka tirtirka"
+
+#~ msgid "rbac_confirm_delete_permission"
+#~ msgstr "Xaqiiji tirtirida oggolaanshaha"
+
+#~ msgid "rbac_you_are_about_to_delete_role"
+#~ msgstr "Waxaad ku dhowdahay inaad tirtirto doorka"
+
+#~ msgid "rbac_you_are_about_to_delete_permission"
+#~ msgstr "Waxaad ku dhowdahay inaad tirtirto oggolaanshaha"
+
+#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
+#~ msgstr "Doorka aasaasiga ah lama tirtiri karo"
+
+#~ msgid "rbac_no_ymkn_deleted_permission_primary"
+#~ msgstr "Ogolaanshaha aasaasiga ah lama tirtiri karo"
+
+#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
+#~ msgstr "Koodhka doorka aasaasiga ah lama tafatirin karo"
+
+#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
+#~ msgstr "Koodhka ogolaanshaha aasaasiga ah lama tafatirin karo"
+
+#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
+#~ msgstr ""
+#~ "Doorarka isticmaale ee aasaasiga ah lagama beddeli karo is-dhexgalkan"
+
+#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
+#~ msgstr "Ogolaanshaha aasaasiga ah lagama saari karo doorkan"
+
+#~ msgid "rbac_no_ymkn_altraja_anh"
+#~ msgstr "Tallaabadan lama noqon karo"
+
+#~ msgid "rbac_search_named_user_aw_role"
+#~ msgstr "Ku raadi magaca isticmaalaha ama doorka"
+
+#~ msgid "rbac_search_named_user_add_permissions"
+#~ msgstr "Ku raadi magaca isticmaalaha ama tirinta ogolaanshaha"
+
+#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
+#~ msgstr "Dooro liiska bidix si aad u aragto oo aad ugu xidho ogolaanshaha"
+
+#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
+#~ msgstr ""
+#~ "Dooro liiska, dabadeed karti ama dami ogolaanshaha sanduuqyada hubinta"
+
+#~ msgid "rbac_choose_roles"
+#~ msgstr "Dooro Doorarka"
+
+#~ msgid "rbac_no_exists_roles_mdafh_user"
+#~ msgstr "Wax door ah looma xilsaarin isticmaalahan"
+
+#~ msgid "rbac_no_roles_currently"
+#~ msgstr "Wax door ah hadda ma jiraan"
+
+#~ msgid "rbac_no_mstkhdmwn_currently"
+#~ msgstr "Ma jiro isticmaale hadda"
+
+#~ msgid "rbac_please_idkhal_name_role_walkwd"
+#~ msgstr "Fadlan geli magaca doorka iyo koodka"
+
+#~ msgid "rbac_please_idkhal_code_wasm_permission"
+#~ msgstr "Fadlan geli lambarka ogolaanshaha iyo magaca"
+
+#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
+#~ msgstr "Fadlan geli koodka iyo magaca oggolaanshaha"
+
+#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Buuxi xogta isticmaalaha; akoon ayaa la samayn doonaa oo faahfaahinta "
+#~ "gelitaanka ayaa loo diri doonaa iimaylkooda"
+
+#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
+#~ msgstr "Buuxi xogta doorka ka dibna badbaadi isbeddelada"
+
+#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
+#~ msgstr "Buuxi xogta ogolaanshaha ka dibna kaydi isbedelada"
+
+#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
+#~ msgstr ""
+#~ "Furaha sirta ah ayaa loo soo saari doonaa isticmaalaha waxaana loo diri "
+#~ "doonaa iimaylkooda"
+
+#~ msgid "rbac_created_hsabk_almnsh"
+#~ msgstr "Koontadaada waxa lagu sameeyay goobta"
+
+#~ msgid "rbac_data_hsabk_almnsh"
+#~ msgstr "Xogta akoonkaaga goobta"
+
+#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
+#~ msgstr ""
+#~ "Waxaan kugula talineynaa inaad bedesho eraygaaga sirta ah ka dib markaad "
+#~ "gasho"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
+#~ msgstr "Sharaxaad kooban oo muujinaysa hawlaha doorkan ee nidaamka"
+
+#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
+#~ msgstr ""
+#~ "Sharaxaad kooban oo muujinaysa marka ogolaanshahan lagu isticmaalo "
+#~ "nidaamka dhexdiisa"
+
+#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
+#~ msgstr ""
+#~ "Iimayl ayaa loo baahan yahay si loo soo diro faahfaahinta gelitaanka"
+
+#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
+#~ msgstr "Koodhka door ee hore loo isticmaalay, fadlan dooro mid kale"
+
+#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
+#~ msgstr "Koodhkan waxa hore loogu isticmaalay ogolaansho kale"
+
+#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
+#~ msgstr ""
+#~ "Ku guuldareystay in la keydiyo oggolaanshaha sababtoo ah kood nuqul ka "
+#~ "mid ah oo ku jira xogta"
+
+#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
+#~ msgstr "Codsiga habaynta khaladka: doorka ama xogta ogolaanshaha ayaa maqan"
+
+#~ msgid "rbac_name_full_required"
+#~ msgstr "Magac buuxa ayaa loo baahan yahay"
+
+#~ msgid "rbac_name_user"
+#~ msgstr "Magaca isticmaalaha waa la isticmaalay"
+
+#~ msgid "rbac_email_user"
+#~ msgstr "Iimayl horeyba waa loo isticmaalay"
+
+#~ msgid "rbac_number_aljwal_user"
+#~ msgstr "Nambarka taleefoonka waa la isticmaalay"
+
+#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
+#~ msgstr "Magaca isticmaalaha waa la xafiday lamana isticmaali karo"
+
+#~ msgid "rbac_permissions_mjmah_hsb_module"
+#~ msgstr "Ogolaanshaha lagu kooxeeyay module"
+
+#~ msgid "rbac_user_faal"
+#~ msgstr "Isticmaale Firfircoon"
+
+#~ msgid "rbac_ghyr_active"
+#~ msgstr "Firfircoonayn"
+
+#~ msgid "rbac_updated_halh_user"
+#~ msgstr "Xaaladda isticmaale waa la cusboonaysiiyay"
+
+#~ msgid "rbac_last_login"
+#~ msgstr "Gelidii u dambaysay"
+
+#~ msgid "rbac_link_roles"
+#~ msgstr "Doorarka isku xirka"
+
+#~ msgid "rbac_return_roles"
+#~ msgstr "Ku laabo Doorarka"
+
+#~ msgid "rbac_back_permissions"
+#~ msgstr "Ku laabo Ogolaanshaha"
+
+#~ msgid "rbac_rjwa_lqaymh_users"
+#~ msgstr "Ku laabo liiska isticmaalayaasha"
+
+#~ msgid "rbac_rjwa_qaymh_users"
+#~ msgstr "Ku laabo liiska isticmaalayaasha"
+
+#~ msgid "rbac_dwr_user_mthl"
+#~ msgstr "Doorka isticmaalaha (tusaale."
+
+#~ msgid "rbac_slahyh_specific_mthl"
+#~ msgstr "Ogolaansho gaar ah (tusaale."
+
+#~ msgid "rbac_mthla_mdyr_system"
+#~ msgstr "tusaale, System Admin"
+
+#~ msgid "rbac_mthl"
+#~ msgstr "tusaale."
+
+#~ msgid "rbac_ystkhdm_code_mthl"
+#~ msgstr "Waxaa loo adeegsaday koodhka sida"
+
+#~ msgid "rbac_llthqq_slahyh_user_inside"
+#~ msgstr "Si loo xaqiijiyo oggolaanshaha isticmaalaha gudaha"
+
+#~ msgid "rbac_llmstkhdm_tlqayya"
+#~ msgstr "Si toos ah isticmaaluhu"
+
+#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
+#~ msgstr ", waxaana si toos ah loogu kaydin doonaa qaab midaysan"
+
+#~ msgid "rbac_yfdl_astkhdam_nmt"
+#~ msgstr "Qaabka ayaa la door bidaa"
+
+#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
+#~ msgstr "Waxaad geli kartaa lambarka qaab kasta (05/5 /"
+
+#~ msgid "rbac_optional"
+#~ msgstr "Ikhtiyaari"
+
+#~ msgid "rbac_aw"
+#~ msgstr "ama"
+
+#~ msgid "rbac_aam"
+#~ msgstr "Guud ahaan"
+
+#~ msgid "rbac_shryk"
+#~ msgstr "Lamaane"
+
+#~ msgid "rbac_mshark"
+#~ msgstr "Ka qaybqaataha"
+
+#~ msgid "rbac_supervisor"
+#~ msgstr "Kormeere"
+
+#~ msgid "rbac_will_assign_dwr"
+#~ msgstr "Door ayaa loo dhiibi doonaa"
+
+#~ msgid "rbac_5"
+#~ msgstr "ama 5"
+
+#~ msgid "rbac_view_users"
+#~ msgstr "Daawo Isticmaalayaasha"
+
+#~ msgid "rbac_view_roles"
+#~ msgstr "Daawo Doorarka"
+
+#~ msgid "rbac_view_permissions"
+#~ msgstr "Eeg Ogolaanshaha"
+
+#~ msgid "rbac_edit_user"
+#~ msgstr "Wax ka beddel Isticmaalaha"
+
+#~ msgid "rbac_delete_user"
+#~ msgstr "Tirtir Isticmaalaha"
+
+#~ msgid "rbac_edit_dwr"
+#~ msgstr "Doorka wax ka beddel"
+
+#~ msgid "rbac_delete_dwr"
+#~ msgstr "Tirtir Doorka"
+
+#~ msgid "rbac_edit_slahyh"
+#~ msgstr "Oggolaanshaha wax ka beddel"
+
+#~ msgid "rbac_delete_slahyh"
+#~ msgstr "Tirtir Ogolaanshaha"
+
+#~ msgid "rbac_access_lwhh_almalwmat"
+#~ msgstr "Gelida Dashboard-ka"
+
+#~ msgid "rbac_access_althlylat"
+#~ msgstr "Helitaanka Falanqaynta"
+
+#~ msgid "rbac_access_astwdyw_quran"
+#~ msgstr "Soo gal istuudiyaha quraanka"
+
+#~ msgid "rbac_access_lltwasl"
+#~ msgstr "Helitaanka Isgaarsiinta"
+
+#~ msgid "rbac_access_subscriptions"
+#~ msgstr "Helitaanka Diiwaangelinta"
+
+#~ msgid "rbac_access_notifications"
+#~ msgstr "Ogeysiinta gelitaanka"
+
+#~ msgid "rbac_access_qnwat_sending"
+#~ msgstr "Gali Kanaalka Diritaanka"
+
+#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
+#~ msgstr "Maamul dejinta galitaanka"
+
+#~ msgid "rbac_view_campaigns"
+#~ msgstr "Daawo Ololayaasha"
+
+#~ msgid "rbac_view_messages"
+#~ msgstr "Daawo Fariimaha"
+
+#~ msgid "rbac_view_messages_communication"
+#~ msgstr "Daawo Fariimaha Xiriirka"
+
+#~ msgid "rbac_view_messages_whatsapp"
+#~ msgstr "Daawo fariimaha WhatsApp"
+
+#~ msgid "rbac_view_notifications_aldakhlyh"
+#~ msgstr "Daawo Ogeysiisyada Gudaha"
+
+#~ msgid "rbac_view_sjl_sending"
+#~ msgstr "Eeg Diiwaanka Dirida"
+
+#~ msgid "rbac_view_subscribers"
+#~ msgstr "Daawo Macaamiisha"
+
+#~ msgid "rbac_view_email"
+#~ msgstr "Eeg iimaylka"
+
+#~ msgid "rbac_manage_almsharya"
+#~ msgstr "Maamul Mashaariicda"
+
+#~ msgid "rbac_create_message_contact"
+#~ msgstr "Abuur Fariinta Xiriirka"
+
+#~ msgid "rbac_send_notification"
+#~ msgstr "Soo dir Ogeysiinta"
+
+#~ msgid "rbac_add_qary"
+#~ msgstr "Kudar Reciter"
+
+#~ msgid "rbac_edit_data_qary"
+#~ msgstr "Tafatir xogta Reciter"
+
+#~ msgid "rbac_delete_data_qary"
+#~ msgstr "Tirtir Xogta Reciter"
+
+#~ msgid "rbac_ahdathyat_quran"
+#~ msgstr "Xiriirinta Qur'aanka"
+
+#~ msgid "rbac_action"
+#~ msgstr "Tallaabadan"
+
+#~ msgid "dashboard_add_users"
+#~ msgstr "Tirada isticmaalaha"
+
+#~ msgid "dashboard_add_roles"
+#~ msgstr "Tirinta Doorka"
+
+#~ msgid "dashboard_add_permissions"
+#~ msgstr "Tirada Ogolaanshaha"
+
+#~ msgid "dashboard_mstkhdmwn_msjlwn"
+#~ msgstr "Isticmaalayaasha Diiwaangashan"
+
+#~ msgid "dashboard_structured_roles"
+#~ msgstr "Doorarka qaabaysan"
+
+#~ msgid "dashboard_permissions_mfalh"
+#~ msgstr "Ogolaanshaha firfircoon"
+
+#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
+#~ msgstr ""
+#~ "Abaabulka qaab dhismeedka doorka iyo qaybinta masuuliyadaha nidaamka "
+#~ "dhexdiisa"
+
+#~ msgid "dashboard_alaadadat"
+#~ msgstr "Dejinta"
+
+#~ msgid "dashboard_alishtrakat"
+#~ msgstr "Isdiiwaangelinta"
+
+#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
+#~ msgstr "Xakamee gelitaanka modules-yada iyo hawlgallada mira-dhal ah"
+
+#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
+#~ msgstr "Magaca isticmaalaha iyo erayga sirta ah ayaa loo baahan yahay"
+
+#~ msgid "accounts_admin_general_llnzam"
+#~ msgstr "Maareeyaha Guud ee Nidaamka"
+
+#~ msgid "accounts_system"
+#~ msgstr "Nidaamka"
+
+#~ msgid "notification_alerts_center"
+#~ msgstr "Xarunta Feejignaanta"
+
+#~ msgid "notification_new"
+#~ msgstr "Cusub"
+
+#~ msgid "notification_alert"
+#~ msgstr "Digniin"
+
+#~ msgid "notification_mqrw"
+#~ msgstr "Akhriso"
+
+#~ msgid "notification_notification_mqrw"
+#~ msgstr "Ogeysiinta akhri"
+
+#~ msgid "notification_send_notification"
+#~ msgstr "Soo dir Ogeysiinta"
+
+#~ msgid "notification_send_alert"
+#~ msgstr "Soo dir Digniin"
+
+#~ msgid "notification_create_notification_new"
+#~ msgstr "Abuur Ogeysiin Cusub"
+
+#~ msgid "notification_manage_notification"
+#~ msgstr "Maamul Ogeysiinta"
+
+#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
+#~ msgstr "U dir ogeysiis gudaha isticmaalayaasha nidaamka"
+
+#~ msgid "notification_write_text_notification_here"
+#~ msgstr "Halkan ku qor qoraalka ogeysiiska"
+
+#~ msgid "notification_success_sending"
+#~ msgstr "Loo diray si guul leh"
+
+#~ msgid "notification_summary_notification"
+#~ msgstr "Soo koobida Ogeysiinta"
+
+#~ msgid "notification_summary_notifications"
+#~ msgstr "Soo koobida Ogeysiinta"
+
+#~ msgid "notification_no_notifications_currently"
+#~ msgstr "Hadda wax wargelin ah ma jiraan"
+
+#~ msgid "notification_no_text"
+#~ msgstr "Qoraal malaha"
+
+#~ msgid "notification_alns"
+#~ msgstr "Qoraal"
+
+#~ msgid "notification_inside_system"
+#~ msgstr "Gudaha System"
+
+#~ msgid "notification_notifications_system"
+#~ msgstr "Ogeysiinta nidaamka"
+
+#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
+#~ msgstr "Nidaamka iyo ogeysiisyada isdhexgalka"
+
+#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
+#~ msgstr "Ogeysiisyada loo soo diro isticmaalaha nidaamka dhexdiisa"
+
+#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr ""
+#~ "Dulmar degdeg ah oo ku saabsan ogeysiisyada lagu soo diro kanaalo kala "
+#~ "duwan"
+
+#~ msgid "notification_add_notifications_page"
+#~ msgstr "Ogeysiisyadu waxay ku xisaabtamayaan boggan"
+
+#~ msgid "notification_no_mstlmwn_mtabqwn"
+#~ msgstr "Ma jiro qaataha u dhigma"
+
+#~ msgid "notification_messages_now_lyst"
+#~ msgstr "Fariimaha hadda kama iman"
+
+#~ msgid "notifications_latest"
+#~ msgstr ""
+#~ "Ogeysiisyadii ugu dambeeyay ee laga helay nidaamka (ugu horrayn, ugu "
+#~ "badnaan 10)"
+
+#~ msgid "messaging_notification_center"
+#~ msgstr "Xarunta Ogeysiinta"
+
+#~ msgid "messaging_notifications_mrslh"
+#~ msgstr "Ogeysiisyada la diray"
+
+#~ msgid "messaging_summary_notifications"
+#~ msgstr "Soo koobida Ogeysiinta"
+
+#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
+#~ msgstr ""
+#~ "Dulmar degdeg ah oo ku saabsan ogeysiisyada lagu soo diro kanaalo kala "
+#~ "duwan"
+
+#~ msgid "messaging_send_notification"
+#~ msgstr "Soo dir Ogeysiinta"
+
+#~ msgid "messaging_success_send_notification_inside_system"
+#~ msgstr "Ogeysiinta gudaha si guul leh ayaa loo diray"
+
+#~ msgid "communication_campaigns"
+#~ msgstr "Ololaha"
+
+#~ msgid "communication_campaigns_almrslh"
+#~ msgstr "Ololaha loo diray"
+
+#~ msgid "communication_total_campaigns"
+#~ msgstr "Wadarta Ololaha"
+
+#~ msgid "communication_title_alhmlh"
+#~ msgstr "Cinwaanka Ololaha"
+
+#~ msgid "communication_success_created_alhmlh"
+#~ msgstr "Ololaha ayaa si guul leh loo abuuray"
+
+#~ msgid "communication_success_send_alhmlh"
+#~ msgstr "Ololaha si guul leh ayaa loo diray"
+
+#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
+#~ msgstr "Ma jiro kanaal Telegram ama koox awood u leh ololahan"
+
+#~ msgid "communication_message_text"
+#~ msgstr "Qoraalka Fariinta"
+
+#~ msgid "communication_title_message"
+#~ msgstr "Ciwaanka Fariinta"
+
+#~ msgid "communication_image_optional"
+#~ msgstr "Sawirka (ikhtiyaar)"
+
+#~ msgid "communication_if_has_image"
+#~ msgstr "Hadday sawir leedahay"
+
+#~ msgid "communication_if_ma_has_image"
+#~ msgstr "Haddii aysan lahayn muuqaal"
+
+#~ msgid "communication_send_post"
+#~ msgstr "Boostada dir"
+
+#~ msgid "communication_send_telegram"
+#~ msgstr "Soo dir Telegram"
+
+#~ msgid "communication_telegram_qnah"
+#~ msgstr "Telegram - Channel"
+
+#~ msgid "communication_telegram_qrwb"
+#~ msgstr "Telegram - Kooxda"
+
+#~ msgid "communication_llqrwb_walqnah"
+#~ msgstr "Kooxda iyo kanaalka"
+
+#~ msgid "communication_fysbwk"
+#~ msgstr "Facebook-ga"
+
+#~ msgid "communication_platform"
+#~ msgstr "Platform"
+
+#~ msgid "communication_alqnah"
+#~ msgstr "Kanaalka"
+
+#~ msgid "communication_channels"
+#~ msgstr "Kanaalka"
+
+#~ msgid "communication_communication_social"
+#~ msgstr "Isgaarsiinta Bulshada"
+
+#~ msgid "communication_manage_communication_social"
+#~ msgstr "Maamul Isgaadhsiinta Bulshada"
+
+#~ msgid "communication_summary_communication_social"
+#~ msgstr "Soo koobida Isgaarsiinta Bulshada"
+
+#~ msgid "communication_search_balanwan_alns"
+#~ msgstr "Ku raadi cinwaan ama qoraal"
+
+#~ msgid "communication_search_balanwan_alqnah"
+#~ msgstr "Ku raadi cinwaan ama kanaal"
+
+#~ msgid "communication_date_sending"
+#~ msgstr "Taariikhda Dir"
+
+#~ msgid "communication_halh_sending"
+#~ msgstr "Dir Status"
+
+#~ msgid "communication_sent"
+#~ msgstr "La diray"
+
+#~ msgid "communication_mrslh"
+#~ msgstr "La diray"
+
+#~ msgid "communication_mswdh"
+#~ msgstr "Qabyo"
+
+#~ msgid "communication_mjdwlh"
+#~ msgstr "La qorsheeyay"
+
+#~ msgid "communication_qyd_sending"
+#~ msgstr "Diraya..."
+
+#~ msgid "communication_failed_sending"
+#~ msgstr "Ku guuldareystay in la diro"
+
+#~ msgid "communication_alantzar"
+#~ msgstr "Sugitaanka"
+
+#~ msgid "communication_alkhta_in_wjd"
+#~ msgstr "Cilad (haddii ay jirto)"
+
+#~ msgid "communication_log"
+#~ msgstr "Log"
+
+#~ msgid "communication_delivery_log"
+#~ msgstr "Diiwaan Gelinta"
+
+#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
+#~ msgstr "Log ee hawlgallada diridda olole kasta iyo kanaalka xidhiidhka"
+
+#~ msgid "communication_no_sjlat_send_halya"
+#~ msgstr "Ma jiro diiwaan dirista hadda"
+
+#~ msgid "communication_astkhdm"
+#~ msgstr "Isticmaal"
+
+#~ msgid "communication_drafts"
+#~ msgstr "Qabyo"
+
+#~ msgid "communication_qryba"
+#~ msgstr "Dhawaan"
+
+#~ msgid "messages"
+#~ msgstr "Fariimaha"
+
+#~ msgid "messaging_messages"
+#~ msgstr "Fariimaha"
+
+#~ msgid "messaging_message_jmaayh"
+#~ msgstr "Fariin wadareed"
+
+#~ msgid "messaging_messages_aljmaayh"
+#~ msgstr "Fariimaha Wadareed"
+
+#~ msgid "messaging_message_nsyh"
+#~ msgstr "Fariinta qoraalka"
+
+#~ msgid "messaging_message_jwal"
+#~ msgstr "Fariinta Mobilka"
+
+#~ msgid "messaging_sms_messages"
+#~ msgstr "Fariimaha SMS"
+
+#~ msgid "messaging_message_aljwal_details"
+#~ msgstr "Faahfaahinta Fariinta Mobilka"
+
+#~ msgid "messaging_no_exists_messages_jwal_halya"
+#~ msgstr "Ma jiraan fariimo moobil ah hadda"
+
+#~ msgid "messaging_whatsapp"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_whatsapp_app"
+#~ msgstr "WhatsApp"
+
+#~ msgid "messaging_message_whatsapp_app"
+#~ msgstr "Fariinta WhatsApp"
+
+#~ msgid "messaging_message_alwatsab_details"
+#~ msgstr "Faahfaahinta Fariinta WhatsApp"
+
+#~ msgid "messaging_notifications_whatsapp"
+#~ msgstr "Ogeysiinta WhatsApp"
+
+#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
+#~ msgstr "Ma jiraan fariimo WhatsApp ah oo hadda ku jira diiwaanka"
+
+#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
+#~ msgstr ""
+#~ "View log ee fariimaha WhatsApp soo diray iyada oo loo marayo nidaamka la "
+#~ "xiriira isticmaalayaasha"
+
+#~ msgid "messaging_email_ilktrwny"
+#~ msgstr "iimaylka"
+
+#~ msgid "messaging_message_email_overview"
+#~ msgstr "Fariinta iimaylka Guud"
+
+#~ msgid "messaging_create_message_email_overview"
+#~ msgstr "Samee Fariinta Guud ee iimaylka"
+
+#~ msgid "messaging_no_messages_email_currently"
+#~ msgstr "Ma jiraan fariimo iimayl hadda"
+
+#~ msgid "messaging_text_message_email"
+#~ msgstr "Fariinta Qoraalka (Imayl)"
+
+#~ msgid "messaging_send_message_albrydyh"
+#~ msgstr "Iimayl ayaa loo diray"
+
+#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
+#~ msgstr "Iimayl la sameeyay oo sugaya in la soo diro"
+
+#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
+#~ msgstr ""
+#~ "Fariintan waxaa loo soo diri doonaa iimayl ahaan kaliya; waxaad "
+#~ "isticmaali kartaa qaabaynta, liisaska, iyo isku xidhka"
+
+#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
+#~ msgstr ""
+#~ "Fariintani waxay ugu horayn ku wajahan tahay macaamiisheeda warsidaha ka "
+#~ "diiwaan gashan nidaamka"
+
+#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
+#~ msgstr ""
+#~ "U dir boostada iimaylka guud macaamiisheeda wargeysyada leh ikhtiyaar "
+#~ "lagu daro dhammaan isticmaalayaasha nidaamka"
+
+#~ msgid "messaging_create_message_new"
+#~ msgstr "Abuur Fariin Cusub"
+
+#~ msgid "messaging_send_message"
+#~ msgstr "Fariin dir"
+
+#~ msgid "messaging_mhtwa_message"
+#~ msgstr "Nuxurka Fariinta"
+
+#~ msgid "messaging_no_mhtwa_message"
+#~ msgstr "Ma jiro wax ku jira fariintan"
+
+#~ msgid "messaging_subject"
+#~ msgstr "Mawduuc"
+
+#~ msgid "messaging_title_walbyanat"
+#~ msgstr "Ciwaanka iyo Xogta"
+
+#~ msgid "messaging_title_and_message_required"
+#~ msgstr "Ciwaanka iyo qoraalka fariinta waa in la geliyo"
+
+#~ msgid "messaging_write_text_message_here"
+#~ msgstr "Halkan ku qor fariinta"
+
+#~ msgid "messaging_write_text_message_albrydyh_here"
+#~ msgstr "Halkan ku qor fariinta iimaylka"
+
+#~ msgid "messaging_nwa_message"
+#~ msgstr "Nooca Fariinta"
+
+#~ msgid "messaging_without_title"
+#~ msgstr "Aan cinwaan lahayn"
+
+#~ msgid "messaging_sender"
+#~ msgstr "Soodiraha"
+
+#~ msgid "messaging_almrsl"
+#~ msgstr "Soodiraha"
+
+#~ msgid "messaging_user"
+#~ msgstr "Isticmaale"
+
+#~ msgid "messaging_recipients"
+#~ msgstr "Qaatayaasha"
+
+#~ msgid "messaging_qaymh_almstlmyn"
+#~ msgstr "Liiska qaataha"
+
+#~ msgid "messaging_view_almstlmyn"
+#~ msgstr "Daawo qaataha"
+
+#~ msgid "messaging_select_users"
+#~ msgstr "Dooro Isticmaalayaasha"
+
+#~ msgid "messaging_all_users"
+#~ msgstr "Dhammaan Isticmaalayaasha"
+
+#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
+#~ msgstr "Macaamiisha wargeysyada (sida caadiga ah)"
+
+#~ msgid "messaging_mstkhdmwn_mhddwn"
+#~ msgstr "Isticmaalayaasha gaarka ah"
+
+#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
+#~ msgstr "Ka dooro hal ama ka badan isticmaalayaasha liiska"
+
+#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
+#~ msgstr "Ikhtiyaarada qaataha dheeraadka ah"
+
+#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
+#~ msgstr ""
+#~ "Ku dar dhammaan isticmaalayaasha nidaamka leh macaamiishooda wargeysyada"
+
+#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
+#~ msgstr ""
+#~ "Daar doorashadan haddii aad rabto in fariintu sidoo kale gaadho dhammaan "
+#~ "isticmaalayaasha nidaamka diiwaangashan"
+
+#~ msgid "messaging_no_mstlmwn"
+#~ msgstr "Qof qaata ma jiro"
+
+#~ msgid "messaging_no_mstlmwn_message"
+#~ msgstr "Ma jiro qof helaya fariintan"
+
+#~ msgid "messaging_no_mstlmwn_lirsal_message"
+#~ msgstr "Ma jiro qaataha soo dira fariinta"
+
+#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
+#~ msgstr "Ma jiro qof helaya cinwaanka iimaylka"
+
+#~ msgid "messaging_no_mstlmwn_bantzar_sending"
+#~ msgstr "Ma jiro qaataha sugaya dirista"
+
+#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
+#~ msgstr "Ma jiro qaate u dhigma shuruudaha la cayimay"
+
+#~ msgid "messaging_add_almstlmyn"
+#~ msgstr "Qaatayaasha ayaa tirinaya"
+
+#~ msgid "messaging_search_balmrsl_title_alns"
+#~ msgstr "Ku baadh soo-diraha, cinwaan, ama qoraal"
+
+#~ msgid "messaging_delivery_channel"
+#~ msgstr "Kanaalka Dir"
+
+#~ msgid "messaging_delivery_channels"
+#~ msgstr "Soo dir Kanaalka"
+
+#~ msgid "messaging_manage_qnwat_sending"
+#~ msgstr "Maamul Dirista kanaalada"
+
+#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
+#~ msgstr ""
+#~ "Maamul oo ku dir ogeysiisyada iimaylka iyo digniinaha nidaamka gudaha"
+
+#~ msgid "messaging_delivery_logs"
+#~ msgstr "Dirista Logs"
+
+#~ msgid "messaging_sjlat_send_notifications"
+#~ msgstr "Diiwaangelinta Ogeysiinta"
+
+#~ msgid "messaging_no_exists_sjlat_send_hta_now"
+#~ msgstr "Wali ma jiro diiwaan dirista"
+
+#~ msgid "messaging_wqt_sending"
+#~ msgstr "Waqtiga Dirida"
+
+#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
+#~ msgstr "Arag xogta fariinta, qaataha, iyo heerka dirida"
+
+#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
+#~ msgstr "Arag xogta fariinta mobaylka iyo waxa ku jira"
+
+#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
+#~ msgstr "Arag xogta fariimaha WhatsApp iyo waxa ku jira"
+
+#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
+#~ msgstr "Arag fariimaha iimaylka badan oo leh tirada helaha iyo heerka"
+
+#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
+#~ msgstr "Arag dhammaan isku dayga dirida ee hele kasta oo leh xaalad"
+
+#~ msgid "messaging_tslym_message"
+#~ msgstr "Gaarsiinta Fariinta"
+
+#~ msgid "messaging_tslymat_messages"
+#~ msgstr "Gaarsiinta Fariimaha"
+
+#~ msgid "messaging_mqrwh"
+#~ msgstr "Akhriso"
+
+#~ msgid "messaging_ghyr_mqrwh"
+#~ msgstr "Aan la akhriyin"
+
+#~ msgid "messaging_error_message"
+#~ msgstr "Fariinta Khaladka"
+
+#~ msgid "messaging_exists_failed"
+#~ msgstr "Guuldarradu way jirtaa"
+
+#~ msgid "messaging_alhmlh"
+#~ msgstr "Ololaha"
+
+#~ msgid "messaging_sjl_messages"
+#~ msgstr "Diiwaanka Fariinta"
+
+#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
+#~ msgstr "Loo diray isticmaalayaasha sistamka"
+
+#~ msgid "messaging_action"
+#~ msgstr "Ficil"
+
+#~ msgid "messaging_email_almarf"
+#~ msgstr "iimaylka / Aqoonsiga"
+
+#~ msgid "messaging_category_primary"
+#~ msgstr "Qaybta aasaasiga ah"
+
+#~ msgid "messaging_frdyh"
+#~ msgstr "Shakhsi"
+
+#~ msgid "messaging_jmaayh"
+#~ msgstr "Wadajir"
+
+#~ msgid "messaging_ghyr_mhdd"
+#~ msgstr "Aan la cayimin"
+
+#~ msgid "messaging_first"
+#~ msgstr "Marka hore"
+
+#~ msgid "messaging_hawl"
+#~ msgstr "Isku day"
+
+#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
+#~ msgstr "Codsiga daabac sida loogu diray bixiyaha"
+
+#~ msgid "messaging_atba_reply_alkham"
+#~ msgstr "Daabac jawaabta cayriin"
+
+#~ msgid "messaging_lw_reply_nsy"
+#~ msgstr "Haddii jawaabtu tahay qoraal"
+
+#~ msgid "quran_studio"
+#~ msgstr "Quran Studio"
+
+#~ msgid "quran_studio_manage_studio_quran"
+#~ msgstr "Maamul istuudiyaha Quraanka"
+
+#~ msgid "quran_studio_manage_data_reciters"
+#~ msgstr "Maamul xogta akhristayaasha"
+
+#~ msgid "quran_studio_manage_data_reciters_available_system"
+#~ msgstr "Maamul xogta akhristayaasha laga heli karo nidaamka"
+
+#~ msgid "quran_studio_data_reciters"
+#~ msgstr "Xogta akhristayaasha"
+
+#~ msgid "quran_studio_page_reciters"
+#~ msgstr "Bogga akhristayaasha"
+
+#~ msgid "quran_studio_no_exists_data_llqra_halya"
+#~ msgstr "Ma jiro xog akhriye hadda"
+
+#~ msgid "quran_studio_done_add_reciter_bnjah"
+#~ msgstr "Reciter ayaa ku daray si guul leh"
+
+#~ msgid "quran_studio_success_edit_data_reciter"
+#~ msgstr "Xogta akhriyaha ayaa si guul leh loo cusboonaysiiyay"
+
+#~ msgid "quran_studio_success_deleted_reciter"
+#~ msgstr "Reciter waa la tirtiray si guul leh"
+
+#~ msgid "quran_studio_delete_qary"
+#~ msgstr "Tirtir Reciter"
+
+#~ msgid "quran_studio_you_mtakd_deleted_alqary"
+#~ msgstr "Ma hubtaa inaad rabto inaad tirtirto akhriyahaan?"
+
+#~ msgid "quran_studio_name_alarby"
+#~ msgstr "Magaca Carabiga"
+
+#~ msgid "quran_studio_name_alinjlyzy"
+#~ msgstr "Magaca Ingiriisiga"
+
+#~ msgid "quran_studio_code"
+#~ msgstr "Koodhka"
+
+#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
+#~ msgstr "Cod iyo magac Carabi ayaa loo baahan yahay"
+
+#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
+#~ msgstr "Tifaftiraha Ayah Coordinates"
+
+#~ msgid "quran_studio_page_mhrr_coordinates"
+#~ msgstr "Isku-duwayaasha Tifaftiraha Bogga"
+
+#~ msgid "quran_studio_coordinates"
+#~ msgstr "Isku xidhka"
+
+#~ msgid "quran_studio_set_coordinates"
+#~ msgstr "Deji Isku-duwayaasha"
+
+#~ msgid "quran_studio_load_coordinates"
+#~ msgstr "Isku-duwayaasha Xamuulka"
+
+#~ msgid "quran_studio_jlb_coordinates"
+#~ msgstr "Soo qaado Isku-duwayaasha"
+
+#~ msgid "quran_studio_save_coordinates"
+#~ msgstr "Keydi Isku-duwayaasha"
+
+#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
+#~ msgstr "Wax ka beddel isku-duwayaasha la keydiyay"
+
+#~ msgid "quran_studio_save_edit"
+#~ msgstr "Keydso Wax ka beddel"
+
+#~ msgid "quran_studio_save_new"
+#~ msgstr "Ku kaydi wax cusub"
+
+#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
+#~ msgstr "Cusbooneysiinta isku xirka aayah ee bogga"
+
+#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
+#~ msgstr "Ma jiro isku-duwayaal u kaydsan aayaddan boggan"
+
+#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
+#~ msgstr ""
+#~ "Geli suurada iyo nambarka aayadda kadibna taabo \"Load Coordinates\". "
+#~ "Laydiyada la kaydiyay ee aayaddan ayaa lagu soo bandhigi doonaa boggan si "
+#~ "loo tafatiro loona kaydiyo."
+
+#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
+#~ msgstr ""
+#~ "Jiirka ku jiid Musxafka si aad u sawirto leydi ka dhigan qayb ka mid ah "
+#~ "aayadda. Waxaad u sawiri kartaa leydi badan oo isku mid ah."
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah"
+#~ msgstr "Fadlan geli suurada iyo nambarka aayadda"
+
+#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
+#~ msgstr "Fadlan gali suurada iyo aayad nambarka ka hor inta aadan soo shubin"
+
+#~ msgid "quran_studio_msh_rectangles"
+#~ msgstr "Nadiifi leydi"
+
+#~ msgid "quran_studio_no_exists_msttylat_llhfz"
+#~ msgstr "Ma jiro leydi si loo badbaadiyo"
+
+#~ msgid "quran_studio_surah_number"
+#~ msgstr "Suuratu Number"
+
+#~ msgid "quran_studio_ayah_number"
+#~ msgstr "Ayah Number"
+
+#~ msgid "quran_studio_page_mushaf"
+#~ msgstr "Masxaf Page"
+
+#~ msgid "quran_studio_page_current"
+#~ msgstr "Bogga Hadda"
+
+#~ msgid "quran_studio_page_altalyh"
+#~ msgstr "Bogga Xiga"
+
+#~ msgid "quran_studio_page_previous"
+#~ msgstr "Boggii Hore"
+
+#~ msgid "quran_studio_image"
+#~ msgstr "Sawirka"
+
+#~ msgid "quran_studio_alijraat"
+#~ msgstr "Ficilada"
+
+#~ msgid "quran_studio_mthal_2"
+#~ msgstr "tusaale, 2"
+
+#~ msgid "quran_studio_mthal_6"
+#~ msgstr "tusaale, 6"
+
+#~ msgid "dashboard_home_page"
+#~ msgstr "Bogga Hoyga"
+
+#~ msgid "overview"
+#~ msgstr "Dulmar"
+
+#~ msgid "summary"
+#~ msgstr "Soo koobid"
+
+#~ msgid "important_services"
+#~ msgstr "Adeegyada Muhiimka ah"
+
+#~ msgid "status"
+#~ msgstr "Xaalada"
+
+#~ msgid "actions"
+#~ msgstr "Ficilada"
+
+#~ msgid "content"
+#~ msgstr "Nuxurka"
+
+#~ msgid "title"
+#~ msgstr "Ciwaanka"
+
+#~ msgid "created_at"
+#~ msgstr "Taariikhda Abuuridda"
+
+#~ msgid "updated_at"
+#~ msgstr "La cusbooneysiiyay"
+
+#~ msgid "next"
+#~ msgstr "Xiga"
+
+#~ msgid "previous"
+#~ msgstr "Hore"
+
+#~ msgid "back"
+#~ msgstr "Dib u noqo"
+
+#~ msgid "save"
+#~ msgstr "Badbaadin"
+
+#~ msgid "save_changes"
+#~ msgstr "Badbaadada isbedelada"
+
+#~ msgid "add"
+#~ msgstr "Ku darso"
+
+#~ msgid "create"
+#~ msgstr "Abuur"
+
+#~ msgid "update"
+#~ msgstr "Cusbooneysii"
+
+#~ msgid "edit"
+#~ msgstr "Wax ka beddel"
+
+#~ msgid "delete"
+#~ msgstr "Tirtir"
+
+#~ msgid "cancel"
+#~ msgstr "Jooji"
+
+#~ msgid "confirm"
+#~ msgstr "Xaqiiji"
+
+#~ msgid "view"
+#~ msgstr "Daawo"
+
+#~ msgid "send"
+#~ msgstr "Dir"
+
+#~ msgid "send_now"
+#~ msgstr "Hadda dir"
+
+#~ msgid "sent"
+#~ msgstr "La diray"
+
+#~ msgid "failed"
+#~ msgstr "Fashilmay"
+
+#~ msgid "pending"
+#~ msgstr "La sugayo"
+
+#~ msgid "no_data"
+#~ msgstr "Xog malaha"
+
+#~ msgid "settings"
+#~ msgstr "Dejinta"
+
+#~ msgid "system_settings"
+#~ msgstr "Habaynta Nidaamka"
+
+#~ msgid "security"
+#~ msgstr "Amniga"
+
+#~ msgid "zoom_out"
+#~ msgstr "Soo Dhawayn"
+
+#~ msgid "app_arabic"
+#~ msgstr "Carabi"
+
+#~ msgid "app_urdu"
+#~ msgstr "Urduu"
+
+#~ msgid "web_alkl"
+#~ msgstr "Dhammaan"
+
+#~ msgid "web_fqt"
+#~ msgstr "Kaliya"
+
+#~ msgid "web_fqt_3"
+#~ msgstr "Kaliya, ama"
+
+#~ msgid "web_fqt_alathnyn"
+#~ msgstr "Kaliya, ama labadaba"
+
+#~ msgid "web_all_alhqwq_mhfwzh"
+#~ msgstr "Dhammaan Xuquuqaha Way Dhawrsan Yihiin"
+
+#~ msgid "web_mwqa_quran_alkrym"
+#~ msgstr "Mareegta Quraanka"
+
+#~ msgid "required_field"
+#~ msgstr "Goobtan ayaa loo baahan yahay"
+
+#~ msgid "core_number_alhatf_required"
+#~ msgstr "Lambarka taleefanka ayaa loo baahan yahay"
+
+#~ msgid "core_invalid_number_alhatf"
+#~ msgstr "Qaabka lambarka taleefanka aan sax ahayn"
+
+#~ msgid "core_invalid_alhatf"
+#~ msgstr "Lambarka taleefanka aan ansax ahayn"
+
+#~ msgid "core_number_alhatf_ghyr_mmkn"
+#~ msgstr "Lambarka taleefoonku suurtagal maaha"
+
+#~ msgid "services_invalid_number_aljwal"
+#~ msgstr "Qaabka lambarka mobaylka aan ansax ahayn"
+
+#~ msgid "core_ay"
+#~ msgstr "Ama mid kasta"
+
+#~ msgid "core_mnasb"
+#~ msgstr "Ku haboon"
+
+#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
+#~ msgstr ""
+#~ "Waxaan tirinnaa kaliya booqashooyinka dadweynaha (tusaale, Bogga Guriga)"
+
+#~ msgid "web_add_alsfwf_page"
+#~ msgstr "Tirada safafka boggiiba"
+
+#~ msgid "web_add_alsjlat"
+#~ msgstr "Tirada diiwaanka"
+
+#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
+#~ msgstr "Waan ka xunahay, ma haysatid fasax aad ku gasho boggan"
+
+#~ msgid "web_forbidden_aldkhwl"
+#~ msgstr "Mamnuuc gelitaanka"
+
+#~ msgid "web_artfaa_alshryt_thkm_shkly"
+#~ msgstr "Dhererka baararka (kontoroolka muuqaalka)"
+
+#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
+#~ msgstr "Muddada ugu talagalka ah ee toastada ee millise seconds"
+
+#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
+#~ msgstr "Muddada gaarka ah ee rootigan (wuxuu burinayaa default)"
+
+#~ msgid "web_view_max_aftrady_mthla_20"
+#~ msgstr "Aragtida ugu saraysa (tusaale, 20)"
+
+#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
+#~ msgstr "Balaadh go'an (ka tag faaruq si aad u isticmaasho)"
+
+#~ msgid "web_notification"
+#~ msgstr "Ogeysiinta"
+
+#~ msgid "quran_close_on_click_backdrop"
+#~ msgstr "Ku xidh backdrop guji"
+
+#~ msgid "quran_mzamnh_5_seconds_latest_updated"
+#~ msgstr ""
+#~ "Isku xidh ka dib 5 ilbiriqsi laga bilaabo cusboonaysiinta u dambeysay"
+
+#~ msgid "quran_nav"
+#~ msgstr "Quraanka"
+
+#~ msgid "quran_text"
+#~ msgstr "Qoraal"
+
+#~ msgid "quran_tfsl_alns"
+#~ msgstr "U kala qaybso qoraalka"
+
+#~ msgid "quran_bqyh_alns"
+#~ msgstr "Inta kale ee qoraalka"
+
+#~ msgid "quran_ma_byn"
+#~ msgstr "Inta u dhaxaysa"
+
+#~ msgid "services_message_jdydh_nmwdhj_contact_us"
+#~ msgstr "Farriin cusub oo ka timid foomka Contact Us"
+
+#~ msgid "services_message_text"
+#~ msgstr "Farriinta qoraalka:"
+
+#~ msgid "surah_3"
+#~ msgstr "Cali Cimraan"
+
+#~ msgid "surah_4"
+#~ msgstr "An-Nisa'"
+
+#~ msgid "surah_5"
+#~ msgstr "Al-Maa'idah"
+
+#~ msgid "surah_6"
+#~ msgstr "Al-Ancaam"
+
+#~ msgid "surah_7"
+#~ msgstr "Al-Acraaf"
+
+#~ msgid "surah_8"
+#~ msgstr "Al-Anfaal"
+
+#~ msgid "surah_9"
+#~ msgstr "At-Tawbah"
+
+#~ msgid "surah_10"
+#~ msgstr "Yuunus"
+
+#~ msgid "surah_11"
+#~ msgstr "Huud"
+
+#~ msgid "surah_12"
+#~ msgstr "Yuusuf"
+
+#~ msgid "surah_13"
+#~ msgstr "Ar-Racad"
+
+#~ msgid "surah_14"
+#~ msgstr "Ibraahim"
+
+#~ msgid "surah_15"
+#~ msgstr "Al-Hijr"
+
+#~ msgid "surah_16"
+#~ msgstr "An-Nahal"
+
+#~ msgid "surah_17"
+#~ msgstr "Al-Israa'"
+
+#~ msgid "surah_18"
+#~ msgstr "Al-Kahf"
+
+#~ msgid "surah_19"
+#~ msgstr "Maryam"
+
+#~ msgid "surah_20"
+#~ msgstr "Taha"
+
+#~ msgid "surah_21"
+#~ msgstr "Al-Anbiyaa"
+
+#~ msgid "surah_22"
+#~ msgstr "Al-Xaj"
+
+#~ msgid "surah_23"
+#~ msgstr "Al-Mu'minuun"
+
+#~ msgid "surah_24"
+#~ msgstr "An-Nuur"
+
+#~ msgid "surah_25"
+#~ msgstr "Al-Furqaan"
+
+#~ msgid "surah_26"
+#~ msgstr "Ash-Shucaraa'"
+
+#~ msgid "surah_27"
+#~ msgstr "An-Naml"
+
+#~ msgid "surah_28"
+#~ msgstr "Al-Qasas"
+
+#~ msgid "surah_29"
+#~ msgstr "Al-Cankabuut"
+
+#~ msgid "surah_30"
+#~ msgstr "Ar-Rum"
+
+#~ msgid "surah_31"
+#~ msgstr "Lukman"
+
+#~ msgid "surah_32"
+#~ msgstr "As-Sajdah"
+
+#~ msgid "surah_33"
+#~ msgstr "Al-Axzaab"
+
+#~ msgid "surah_34"
+#~ msgstr "Saba'"
+
+#~ msgid "surah_35"
+#~ msgstr "Faatiir"
+
+#~ msgid "surah_36"
+#~ msgstr "Yaa-Sin"
+
+#~ msgid "surah_37"
+#~ msgstr "As-Saffaat"
+
+#~ msgid "surah_38"
+#~ msgstr "murugo"
+
+#~ msgid "surah_39"
+#~ msgstr "Az-Zumar"
+
+#~ msgid "surah_40"
+#~ msgstr "Gaafir"
+
+#~ msgid "surah_41"
+#~ msgstr "Fussilat"
+
+#~ msgid "surah_42"
+#~ msgstr "Ash-Shuura"
+
+#~ msgid "surah_43"
+#~ msgstr "Az-Zukhruf"
+
+#~ msgid "surah_44"
+#~ msgstr "Ad-Dukhan"
+
+#~ msgid "surah_45"
+#~ msgstr "Al-Jaathiyah"
+
+#~ msgid "surah_46"
+#~ msgstr "Al-Axqaaf"
+
+#~ msgid "surah_47"
+#~ msgstr "Maxamed"
+
+#~ msgid "surah_48"
+#~ msgstr "Al-Faat"
+
+#~ msgid "surah_49"
+#~ msgstr "Al-Xujuraat"
+
+#~ msgid "surah_50"
+#~ msgstr "Qaaf"
+
+#~ msgid "surah_51"
+#~ msgstr "Adh-Dhariyaat"
+
+#~ msgid "surah_52"
+#~ msgstr "At-Tur"
+
+#~ msgid "surah_53"
+#~ msgstr "An-Najm"
+
+#~ msgid "surah_54"
+#~ msgstr "Al-Qamar"
+
+#~ msgid "surah_55"
+#~ msgstr "Ar-Raxmaan"
+
+#~ msgid "surah_56"
+#~ msgstr "Al-Waaqicah"
+
+#~ msgid "surah_57"
+#~ msgstr "Al-Xadiid"
+
+#~ msgid "surah_58"
+#~ msgstr "Al-Mujaadilah"
+
+#~ msgid "surah_59"
+#~ msgstr "Al-Hashr"
+
+#~ msgid "surah_60"
+#~ msgstr "Al-Mumtahanah"
+
+#~ msgid "surah_61"
+#~ msgstr "As-Saff"
+
+#~ msgid "surah_62"
+#~ msgstr "Al-Jumaca"
+
+#~ msgid "surah_63"
+#~ msgstr "Al-Munaafiquun"
+
+#~ msgid "surah_64"
+#~ msgstr "At-Taghabun"
+
+#~ msgid "surah_65"
+#~ msgstr "At-Talaaq"
+
+#~ msgid "surah_66"
+#~ msgstr "At-Tahrim"
+
+#~ msgid "surah_67"
+#~ msgstr "Al-Mulk"
+
+#~ msgid "surah_68"
+#~ msgstr "Al-Qalam"
+
+#~ msgid "surah_69"
+#~ msgstr "Al-Xaqah"
+
+#~ msgid "surah_70"
+#~ msgstr "Al-Macaarij"
+
+#~ msgid "surah_71"
+#~ msgstr "Nuux"
+
+#~ msgid "surah_72"
+#~ msgstr "Al-jin"
+
+#~ msgid "surah_73"
+#~ msgstr "Al-Muzzammil"
+
+#~ msgid "surah_74"
+#~ msgstr "Al-Muddaththir"
+
+#~ msgid "surah_75"
+#~ msgstr "Al-Qiyaamah"
+
+#~ msgid "surah_76"
+#~ msgstr "Al-Insaan"
+
+#~ msgid "surah_77"
+#~ msgstr "Al-Mursalaat"
+
+#~ msgid "surah_78"
+#~ msgstr "An-Naba'"
+
+#~ msgid "surah_79"
+#~ msgstr "An-Nazi'at"
+
+#~ msgid "surah_80"
+#~ msgstr "'Abasa"
+
+#~ msgid "surah_81"
+#~ msgstr "At-Takwir"
+
+#~ msgid "surah_82"
+#~ msgstr "Al-Infitaar"
+
+#~ msgid "surah_83"
+#~ msgstr "Al-Mutaffifin"
+
+#~ msgid "surah_84"
+#~ msgstr "Al-Inshiqaaq"
+
+#~ msgid "surah_85"
+#~ msgstr "Al-Buruuj"
+
+#~ msgid "surah_86"
+#~ msgstr "At-Taariq"
+
+#~ msgid "surah_87"
+#~ msgstr "Al-Aala"
+
+#~ msgid "surah_88"
+#~ msgstr "Al-Ghaashiyah"
+
+#~ msgid "surah_89"
+#~ msgstr "Al-Fajar"
+
+#~ msgid "surah_90"
+#~ msgstr "Al-Balad"
+
+#~ msgid "surah_91"
+#~ msgstr "Ash-Shams"
+
+#~ msgid "surah_92"
+#~ msgstr "Al-Layl"
+
+#~ msgid "surah_93"
+#~ msgstr "Ad-Duha"
+
+#~ msgid "surah_94"
+#~ msgstr "Ash-Sharh"
+
+#~ msgid "surah_95"
+#~ msgstr "At-Tin"
+
+#~ msgid "surah_96"
+#~ msgstr "Al-calaq"
+
+#~ msgid "surah_97"
+#~ msgstr "Al-Qadr"
+
+#~ msgid "surah_98"
+#~ msgstr "Al-Bayyinah"
+
+#~ msgid "surah_99"
+#~ msgstr "Az-Zalzalah"
+
+#~ msgid "surah_100"
+#~ msgstr "Al-Cadiyat"
+
+#~ msgid "surah_101"
+#~ msgstr "Al-Qaari'ah"
+
+#~ msgid "surah_102"
+#~ msgstr "At-Takathur"
+
+#~ msgid "surah_103"
+#~ msgstr "Al-Asr"
+
+#~ msgid "surah_104"
+#~ msgstr "Al-Humazah"
+
+#~ msgid "surah_105"
+#~ msgstr "Al-Fil"
+
+#~ msgid "surah_106"
+#~ msgstr "Quraysh"
+
+#~ msgid "surah_107"
+#~ msgstr "Al-Macuun"
+
+#~ msgid "surah_108"
+#~ msgstr "Al-Kawthar"
+
+#~ msgid "surah_109"
+#~ msgstr "Al-Kafirun"
+
+#~ msgid "surah_110"
+#~ msgstr "An-Nasr"
+
+#~ msgid "surah_111"
+#~ msgstr "Al-Masad"
+
+#~ msgid "surah_112"
+#~ msgstr "Al-ikhlaas"
+
+#~ msgid "surah_113"
+#~ msgstr "Al-Falaq"
+
+#~ msgid "surah_114"
+#~ msgstr "An-Nas"
+
+#~ msgid "contents"
+#~ msgstr "Nuxurka"
+
+#~ msgid "a11y_accessibility"
+#~ msgstr "Helitaanka"
+
+#~ msgid "a11y_font_increase"
+#~ msgstr "Kordhi cabbirka farta"
+
+#~ msgid "a11y_font_decrease"
+#~ msgstr "Iska yaree cabbirka farta"
+
+#~ msgid "a11y_high_contrast"
+#~ msgstr "Isbarbardhigga Sare"
+
+#~ msgid "a11y_dark_mode"
+#~ msgstr "Qaab Madow"
+
+#~ msgid "a11y_reading_mode"
+#~ msgstr "Habka Akhriska"
+
+#~ msgid "a11y_reset"
+#~ msgstr "Dib u deji dejinta"
+
+#~ msgid "select_translation"
+#~ msgstr "Dooro Turjumaada"
+
+#~ msgid "select_surah"
+#~ msgstr "Dooro suurad"
+
+#~ msgid "copy_ayah"
+#~ msgstr "Nuqul Aayadda"
+
+#~ msgid "share_ayah"
+#~ msgstr "La wadaag Aayadda"
+
+#~ msgid "bookmark_ayah"
+#~ msgstr "Aayadda Bookmark"
+
+#~ msgid "play_ayah"
+#~ msgstr "Daar maqal"
+
+#~ msgid "ayah_bookmarked"
+#~ msgstr "Aayadda badbaadisay"
+
+#~ msgid "ayah_unbookmarked"
+#~ msgstr "Laga saaray kaydinta"
+
+#~ msgid "no_translation_available"
+#~ msgstr "Turjumaada lama hayo"
+
+#~ msgid "select_surah_to_start"
+#~ msgstr "Dooro suurad aad ku bilaabayso"
+
+#~ msgid "app_download_title"
+#~ msgstr "Soo deji Wird App"
+
+#~ msgid "app_download_subtitle"
+#~ msgstr "Khibrad Qur'aan oo dhamaystiran qalabkaaga"
+
+#~ msgid "audio_language"
+#~ msgstr "Luuqadda maqalka ah"
+
+#~ msgid "home_todays_wird"
+#~ msgstr "Maanta Wird"
+
+#~ msgid "home_this_week"
+#~ msgstr "Todobaadkan"
+
+#~ msgid "home_your_wird"
+#~ msgstr "Wirdkaaga"
+
+#~ msgid "home_progress"
+#~ msgstr "Horumarka"
+
+#~ msgid "home_days_progress"
+#~ msgstr "4 ka mid ah 7 maalmood"
+
+#~ msgid "day_sat"
+#~ msgstr "Sat"
+
+#~ msgid "day_sun"
+#~ msgstr "Cadceed"
+
+#~ msgid "day_mon"
+#~ msgstr "Isniin"
+
+#~ msgid "day_tue"
+#~ msgstr "Talaado"
+
+#~ msgid "day_wed"
+#~ msgstr "Aroos"
+
+#~ msgid "day_thu"
+#~ msgstr "Thu"
+
+#~ msgid "day_fri"
+#~ msgstr "Jimce"
+
+#~ msgid "home_today_wird"
+#~ msgstr "Maanta Wird"
+
+#~ msgid "home_play_recitation"
+#~ msgstr "Play akhrin by"
+
+#~ msgid "home_pure_voice"
+#~ msgstr "Cod saafi ah"
+
+#~ msgid "home_tarteel"
+#~ msgstr "Akhrinta Tarteel"
+
+#~ msgid "home_khashi"
+#~ msgstr "Akhris Go'an"

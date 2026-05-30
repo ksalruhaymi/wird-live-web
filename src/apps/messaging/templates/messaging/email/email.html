@@ -1,0 +1,164 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load static rbac_tags %}
+{% block title %} البريد الإلكتروني {% endblock %}
+{% block description %} البريد الإلكتروني {% endblock %}
+{% block dashboard_content %}
+{% if request.user|can_access:"messaging.email" %}
+
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+  {% include "messaging/includes/tabs_header.html" %}
+
+  <div>
+    <h1 class="text-base md:text-lg font-extrabold text-slate-800">
+      البريد الإلكتروني
+    </h1>
+    <p class="mt-1 text-[11px] text-slate-500">
+      عرض الرسائل البريدية المجمعة مع عدد المستلمين وحالة الإرسال.
+    </p>
+  </div>
+
+  <div class="flex items-center justify-between gap-4">
+    <div class="flex-1">
+      {% include "web/components/pagination_total.html" with total_count=total_messages %}
+    </div>
+
+    <div class="flex-1"></div>
+
+    <div>
+      {% include "web/components/pagination_per_page.html" with per_page=per_page %}
+    </div>
+  </div>
+
+  <div class="overflow-x-auto bg-white border border-slate-200 rounded-2xl shadow-sm">
+    {% if emails %}
+      <table class="min-w-full text-[12px]">
+        <thead class="bg-slate-50 text-[11px] text-slate-500">
+          <tr class="dir-text">
+            <th class="px-4 py-3 font-bold">المرسل</th>
+            <th class="px-4 py-3 font-bold">الموضوع</th>
+            <th class="px-4 py-3 font-bold">النوع</th>
+            <th class="px-4 py-3 font-bold">المستلمون</th>
+            <th class="px-4 py-3 font-bold">الحالة</th>
+            <th class="px-4 py-3 font-bold dir-start">التاريخ</th>
+            <th class="px-4 py-3 font-bold dir-start">الإجراء</th>
+          </tr>
+        </thead>
+
+        <tbody class="divide-y divide-slate-100">
+          {% for m in emails %}
+            <tr class="hover:bg-slate-50 transition">
+              <td class="px-4 py-3 font-semibold text-slate-700 whitespace-nowrap">
+                {{ m.created_by.get_full_name|default:m.created_by.username }}
+              </td>
+
+              <td class="px-4 py-3">
+                <a href="{% url 'apps.messaging:email_detail' m.id %}" class="block">
+                  <div class="font-bold text-slate-900">
+                    {{ m.title }}
+                  </div>
+
+                  {% if m.body %}
+                    <div class="text-[11px] text-slate-500 truncate max-w-[420px] mt-1">
+                      {{ m.body|striptags|truncatechars:90 }}
+                    </div>
+                  {% endif %}
+                </a>
+              </td>
+
+              <td class="px-4 py-3 whitespace-nowrap">
+                {% if m.is_bulk %}
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 font-bold text-[11px]">
+                    جماعية
+                  </span>
+                {% else %}
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-bold text-[11px]">
+                    فردية
+                  </span>
+                {% endif %}
+              </td>
+
+              <td class="px-4 py-3 whitespace-nowrap">
+                <div class="relative group inline-block">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px] cursor-default">
+                    <i class="bi bi-people-fill"></i>
+                    {{ m.recipients_count }}
+                  </span>
+
+                  <div class="hidden group-hover:block absolute right-0 top-full mt-2 z-20 w-72 max-h-64 overflow-y-auto rounded-xl border border-slate-200 bg-white shadow-lg p-2">
+                    {% for email in m.recipient_emails %}
+                      <div class="px-2 py-1.5 text-[11px] text-slate-700 border-b border-slate-100 last:border-b-0">
+                        {{ email }}
+                      </div>
+                    {% empty %}
+                      <div class="px-2 py-1.5 text-[11px] text-slate-400">
+                        لا يوجد مستلمون
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </td>
+
+              <td class="px-4 py-3 whitespace-nowrap">
+                {% if m.has_pending %}
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-yellow-100 text-yellow-700 font-bold text-[11px]">
+                    <i class="bi bi-clock-fill"></i>
+                    قيد الانتظار
+                  </span>
+                {% elif m.has_failed %}
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-red-100 text-red-700 font-bold text-[11px]">
+                    <i class="bi bi-x-circle-fill"></i>
+                    يوجد فشل
+                  </span>
+                {% elif m.has_sent %}
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-green-100 text-green-700 font-bold text-[11px]">
+                    <i class="bi bi-check-circle-fill"></i>
+                    تم الإرسال
+                  </span>
+                {% else %}
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 font-bold text-[11px]">
+                    غير محدد
+                  </span>
+                {% endif %}
+              </td>
+
+              <td class="px-4 py-3 dir-start text-[11px] text-slate-400 whitespace-nowrap">
+                {{ m.created_at|date:"Y-m-d" }}<br>
+                {{ m.created_at|time:"H:i" }}
+              </td>
+
+              <td class="px-4 py-3 dir-start whitespace-nowrap">
+                <div class="flex items-center justify-end gap-2">
+                  <a href="{% url 'apps.messaging:email_detail' m.id %}"
+                     class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-bold text-[11px]">
+                    <i class="bi bi-eye"></i>
+                    عرض
+                  </a>
+
+                  {% if m.has_pending %}
+                    <form method="post" action="{% url 'apps.messaging:send_email_broadcast' m.id %}">
+                      {% csrf_token %}
+                      <button type="submit"
+                              class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600 text-white hover:bg-blue-700 font-bold text-[11px]">
+                        <i class="bi bi-send-fill"></i>
+                        إرسال
+                      </button>
+                    </form>
+                  {% endif %}
+                </div>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="py-10 text-center text-[12px] text-slate-400">
+        لا توجد رسائل بريدية حاليًا.
+      </div>
+    {% endif %}
+  </div>
+
+  {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=messages_page_numbers tab="email" %}
+</div>
+
+{% endif %}
+{% endblock %}
