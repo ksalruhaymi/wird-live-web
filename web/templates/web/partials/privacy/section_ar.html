@@ -1,10 +1,11 @@
+{% load i18n %}
 <div class="space-y-4" dir="rtl">
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
     <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم الأول</span>
     <h2 class="text-base font-bold text-emerald-900 mb-3">البيانات التي نجمعها</h2>
     <h3 class="text-sm font-semibold text-slate-700 mt-4 mb-1">أ. بيانات الحساب (عند تسجيل الدخول)</h3>
-    <p class="text-sm text-slate-500">إذا أنشأت حساباً، نجمع <strong class="text-slate-700">البريد الإلكتروني</strong> و<strong class="text-slate-700">الاسم</strong>. تُرسل هذه البيانات إلى خادمنا (<strong class="text-slate-700">wird.me</strong>) لإدارة جلستك. تُخزَّن رموز المصادقة بتشفير على جهازك فقط.</p>
+    <p class="text-sm text-slate-500">إذا أنشأت حساباً، نجمع <strong class="text-slate-700">البريد الإلكتروني</strong> و<strong class="text-slate-700">الاسم</strong>. تُرسل هذه البيانات إلى خادمنا لإدارة جلستك. تُخزَّن رموز المصادقة بتشفير على جهازك فقط.</p>
     <h3 class="text-sm font-semibold text-slate-700 mt-4 mb-1">ب. رمز جهاز Firebase (FCM)</h3>
     <p class="text-sm text-slate-500">نستخدم خدمة Firebase Cloud Messaging من Google لإرسال الإشعارات. يُنشئ Firebase رمزاً مجهولاً للجهاز يُرسل لخادمنا. هذا الرمز لا يعرّفك شخصياً، يُستخدم فقط لإرسال الإشعارات، ويُجدَّد تلقائياً من نظام التشغيل.</p>
     <h3 class="text-sm font-semibold text-slate-700 mt-4 mb-1">ج. رسائل "تواصل معنا"</h3>
@@ -16,13 +17,9 @@
     <h2 class="text-base font-bold text-emerald-900 mb-3">البيانات المحفوظة على جهازك فقط</h2>
     <p class="text-sm text-slate-500">البيانات التالية تُخزَّن محلياً و<strong class="text-slate-700">لا تُرسل</strong> خارج جهازك أبداً:</p>
     <ul class="list-disc pe-5 mt-2 space-y-1 text-sm text-slate-500">
-      <li>تقدم القراءة وخطة الختمة وموقع الورد</li>
-      <li>تقدم الأذكار</li>
-      <li>جدول التنبيهات وإعداداتها</li>
-      <li>القارئ والمصحف المختار</li>
-      <li>إعدادات إمكانية الوصول والعرض</li>
-      <li>صفحات المصحف المُنزَّلة وملفات التلاوات</li>
-      <li>قاعدة بيانات القرآن الكريم</li>
+      <li>جلساتك وتقدم الحفظ والمراجعة</li>
+      <li>تفضيلات الإشعارات والحساب</li>
+      <li>إعدادات العرض وإمكانية الوصول</li>
     </ul>
   </div>
 
@@ -104,7 +101,7 @@
   </div>
 
   <p class="text-center text-xs text-slate-400 pt-4 pb-8">
-    <strong class="text-emerald-700">تطبيق وِرد</strong> &nbsp;&middot;&nbsp; سياسة الخصوصية &nbsp;&middot;&nbsp; آخر تحديث مايو 2026
+    <strong class="text-emerald-700">{% trans "privacy_app_name" %}</strong> &nbsp;&middot;&nbsp; {% trans "privacy_policy" %} &nbsp;&middot;&nbsp; {% trans "last_updated_may_2026" %}
   </p>
 
 </div>

@@ -4,7 +4,7 @@
 <div class="language-switcher wird-language-switcher relative inline-block min-w-[150px] flex-none" data-language-switcher>
   <button
     type="button"
-    class="wird-lang-button inline-flex w-full items-center justify-between gap-2 rounded-xl border site-border bg-white/95 px-3 py-2 text-sm font-bold site-text shadow-sm transition hover:bg-emerald-700 hover:text-white"
+    class="wird-lang-button inline-flex w-full items-center justify-between gap-2 rounded-xl border site-border bg-white/95 px-3 py-2 text-sm font-bold site-text shadow-sm transition hover:bg-[#1EA1EE] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1EA1EE]"
     aria-label="{% trans 'language' %}"
     aria-haspopup="menu"
     aria-expanded="false"
@@ -329,8 +329,26 @@
   #wirdLanguageDropdownRoot .wird-lang-option.is-active,
   .wird-lang-fallback .wird-lang-option:hover,
   .wird-lang-fallback .wird-lang-option.is-active {
-    background: #ecfdf5 !important;
-    color: #065f46 !important;
+    background: rgba(30, 161, 238, 0.10) !important;
+    color: #1EA1EE !important;
+  }
+
+  #wirdLanguageDropdownRoot .wird-lang-option:hover,
+  .wird-lang-fallback .wird-lang-option:hover {
+    background: rgba(30, 161, 238, 0.14) !important;
+  }
+
+  #wirdLanguageDropdownRoot .wird-lang-option:focus-visible,
+  .wird-lang-fallback .wird-lang-option:focus-visible {
+    background: rgba(30, 161, 238, 0.14) !important;
+    color: #1EA1EE !important;
+    outline: 2px solid rgba(30, 161, 238, 0.35) !important;
+    outline-offset: -2px !important;
+  }
+
+  #wirdLanguageDropdownRoot .wird-lang-option.is-active i,
+  .wird-lang-fallback .wird-lang-option.is-active i {
+    color: #1EA1EE !important;
   }
 
   .wird-lang-fallback {
@@ -350,11 +368,11 @@
 
   .wird-lang-fallback-note {
     padding: 12px 16px !important;
-    color: #047857 !important;
-    background: #f0fdf4 !important;
+    color: #1EA1EE !important;
+    background: #EAF7FE !important;
     font-size: 12px !important;
     font-weight: 900 !important;
-    border-bottom: 1px solid rgba(15, 23, 42, .07) !important;
+    border-bottom: 1px solid rgba(30, 161, 238, 0.12) !important;
   }
 
   .wird-language-switcher:focus-within .wird-lang-fallback {

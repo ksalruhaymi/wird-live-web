@@ -1,8 +1,8 @@
 {% extends "dashboard/layouts/base.html" %}
-{% load static rbac_tags %}
+{% load static rbac_tags i18n %}
 
-{% block title %}الإشعارات الفورية{% endblock %}
-{% block description %}إرسال إشعارات لأجهزة التطبيق{% endblock %}
+{% block title %}{% trans "dashboard_sidebar_push" %}{% endblock %}
+{% block description %}{% trans "dashboard_sidebar_push" %}{% endblock %}
 
 {% block dashboard_content %}
 {% if request.user|can_access:"push.access" %}
@@ -13,7 +13,7 @@
     <div class="flex items-center justify-between gap-3">
       <h2 class="text-sm font-extrabold site-text flex items-center gap-2">
         <i class="bi bi-phone-fill site-link-primary"></i>
-        <span>الإشعارات الفورية</span>
+        <span>{% trans "dashboard_sidebar_push" %}</span>
       </h2>
     </div>
     <div class="mt-4">
@@ -24,7 +24,7 @@
            {% if tab == 'summary' %}site-link-primary site-surface shadow-sm{% else %}site-text hover:site-surface{% endif %}">
           {% if tab == 'summary' %}<i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>{% endif %}
           <i class="bi bi-grid-fill ml-1"></i>
-          ملخص التنبيهات
+          {% trans "push_tab_summary" %}
         </a>
 
         <a href="{% url 'push:dashboard' %}?tab=send"
@@ -209,7 +209,7 @@
             maxlength="255"
             required
             spellcheck="false"
-            placeholder="مثال: تحديث جديد في وِرد"
+            placeholder="{% trans 'push_placeholder_example' %}"
             class="w-full site-input rounded-xl px-3 py-2 text-sm outline-none"
           >
         </div>

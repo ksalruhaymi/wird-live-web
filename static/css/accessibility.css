@@ -9,14 +9,14 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--color-primary, #1a843a);
+  background: var(--color-primary, #1ea1ee);
   color: #fff;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(26, 132, 58, 0.35);
+  box-shadow: 0 4px 16px rgba(30, 161, 238, 0.35);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -27,7 +27,7 @@ html[dir="rtl"] #a11yTrigger {
 
 #a11yTrigger:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(26, 132, 58, 0.45);
+  box-shadow: 0 6px 20px rgba(30, 161, 238, 0.45);
 }
 
 #a11yTrigger svg {
@@ -68,7 +68,7 @@ html[dir="rtl"] #a11yPanel {
 }
 
 .a11y-header {
-  background: var(--color-primary, #1a843a);
+  background: var(--color-primary, #1ea1ee);
   color: #fff;
   padding: 14px 16px;
   display: flex;
@@ -143,8 +143,8 @@ html[dir="rtl"] #a11yPanel {
 
 .a11y-font-btn:hover {
   background: #e8f5ed;
-  border-color: var(--color-primary, #1a843a);
-  color: var(--color-primary, #1a843a);
+  border-color: var(--color-primary, #1ea1ee);
+  color: var(--color-primary, #1ea1ee);
 }
 
 .a11y-font-value {
@@ -175,7 +175,7 @@ html[dir="rtl"] #a11yPanel {
 }
 
 .a11y-toggle-label i {
-  color: var(--color-primary, #1a843a);
+  color: var(--color-primary, #1ea1ee);
   font-size: 1rem;
   width: 18px;
   text-align: center;
@@ -200,7 +200,7 @@ html[dir="rtl"] #a11yPanel {
 }
 
 .a11y-switch input:checked + .a11y-switch-track {
-  background: var(--color-primary, #1a843a);
+  background: var(--color-primary, #1ea1ee);
 }
 
 .a11y-switch-thumb {
@@ -299,10 +299,17 @@ html.a11y-dark .site-navbar {
   border-color:     #334155 !important;
   color:            #e2e8f0 !important;
 }
-html.a11y-dark footer,
+html.a11y-dark footer.wird-footer,
+html.a11y-dark .wird-footer {
+  background-color: #162032 !important;
+  border-top-color: #334155 !important;
+}
+
 html.a11y-dark .app-footer,
 html.a11y-dark .public-footer,
-html.a11y-dark .dashboard-footer { background-color: #0a1628 !important; }
+html.a11y-dark .dashboard-footer {
+  background-color: #162032 !important;
+}
 
 /* 7. Modals / panels / inputs */
 html.a11y-dark [class~="rounded-2xl"],
@@ -329,15 +336,11 @@ html.a11y-dark .a11y-reset-btn    { background: #253347 !important; border-color
 html.a11y-dark .a11y-font-row,
 html.a11y-dark .a11y-reset-row    { border-color: #334155 !important; }
 
-/* ── Reading mode ────────────────────────────────────────────────────────── */
-body.a11y-reading {
-  background: #fdf6e3 !important;
-  color: #3b2f0c !important;
-  line-height: 1.9;
+/* ── Reading mode (يتم التفصيل في alhafaz-theme.css) ── */
+html.a11y-reading:not(.a11y-dark) body {
+  line-height: 1.85;
   letter-spacing: 0.01em;
 }
-body.a11y-reading .site-navbar,
-body.a11y-reading nav { background: #f4e5c0 !important; }
 
 /* app download badges */
 .app-badge {

@@ -148,7 +148,7 @@ def newsletter_subscribe(request):
                 f"{_('newsletter_unsubscribe_anytime')}\n"
                 f"{unsubscribe_url}\n\n"
                 f"{_('newsletter_closing')}\n"
-                f"{_('wird quran')}"
+                f"{_('alhafaz_platform_name')}"
             )
 
             try:

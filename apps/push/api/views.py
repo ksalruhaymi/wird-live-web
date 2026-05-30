@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
-from apps.quran.api.auth import require_api_key
+from core.api_auth import require_api_key
 from apps.push.models import UserDevice
 
 logger = logging.getLogger(__name__)

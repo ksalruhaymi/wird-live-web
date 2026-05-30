@@ -8,20 +8,10 @@ from django.views.static import serve
 
 from core.media_views import protected_media
 
-from .sitemaps import (
-    StaticViewSitemap,
-    QuranPagesSitemap,
-    SurahPagesSitemap,
-    QurraPagesSitemap,
-    TafsirPagesSitemap,
-)
+from .sitemaps import StaticViewSitemap
 
 sitemaps = {
     "static": StaticViewSitemap,
-    "quran": QuranPagesSitemap,
-    "surah": SurahPagesSitemap,
-    "qurra": QurraPagesSitemap,
-    "tafsir": TafsirPagesSitemap,
 }
 
 urlpatterns = [
@@ -36,11 +26,6 @@ urlpatterns = [
     path("communication/", include("apps.communication.urls")),
     path("contact/", include("apps.contact.urls")),
     path("subscription/", include(("apps.subscription.urls", "subscription"), namespace="apps.subscription")),
-    path("quran/", include(("apps.quran.urls", "quran"), namespace="quran")),
-    path("studio/", include(("apps.quran_studio.urls", "quran_studio"), namespace="quran_studio")),
-    path("tilawa/", include("apps.tilawa.urls", namespace="tilawa")),
-    path("api/", include("apps.quran.api.urls", namespace="quran_api_root")),
-    path("api/v1/", include("apps.quran.api.urls", namespace="quran_api")),
     path("api/v1/", include("apps.contact.api.urls", namespace="contact_api")),
     path("api/v1/", include("apps.push.api.urls", namespace="push_api")),
     path(
@@ -52,19 +37,11 @@ urlpatterns = [
 
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("i18n/setlang/", set_language, name="set_language"),
-
-    path("hifz/", include("apps.hifz.urls")),
-    path("wird/", include(("apps.wird.urls", "wird"), namespace="wird")),
-
-
 ]
 
 if not getattr(settings, "MEDIA_USES_REMOTE_SERVER", False):
     urlpatterns += [
-        # ── Translation audio — served directly ─────────────────────────────
         re_path(r"^media/translations/(?P<path>.+)$", serve, {"document_root": settings.MEDIA_ROOT / "translations"}),
-
-        # ── Protected media (audio + mushaf) ────────────────────────────────
         re_path(r"^media/(?P<path>.+)$", protected_media, name="protected-media"),
     ]
 

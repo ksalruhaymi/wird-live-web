@@ -1,8 +1,8 @@
 {% extends "web/layouts/base.html" %}
 {% load static i18n %}
 
-{% block title %}{% trans "contact" %}{% endblock %}
-{% block description %}{% trans "contact_page_description" %}{% endblock %}
+{% block title %}تواصل معنا{% endblock %}
+{% block description %}تواصل مع فريق مقرأة الحفظة للاستفسارات والدعم الفني وطلبات الانضمام كمعلم.{% endblock %}
 
 {% block content %}
 
@@ -10,16 +10,22 @@
   <div class="w-full max-w-5xl">
     <div class="site-card p-6 md:p-8">
 
-      <!-- Header -->
-      <div class="mb-6 dir-text space-y-2">
+      <div class="mb-6 dir-text space-y-3">
         <h1 class="text-xl md:text-2xl font-extrabold site-text flex items-center gap-2">
           <i class="bi bi-envelope-paper-fill site-link-primary text-xl"></i>
-          <span>{% trans "contact" %}</span>
+          <span>تواصل معنا</span>
         </h1>
 
-        <p class="text-xs md:text-sm site-text">
-          {% trans "contact_intro_text" %}
+        <p class="text-sm md:text-base leading-relaxed site-text-muted">
+          نسعد بتواصلكم مع فريق مقرأة الحفظة للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم.
         </p>
+
+        <ul class="text-xs md:text-sm site-text-muted space-y-1.5 list-disc ps-5 m-0">
+          <li>الدعم الفني لتطبيق مقرأة الحفظة</li>
+          <li>طلب الانضمام كمعلم</li>
+          <li>الاستفسار عن الجلسات التعليمية</li>
+          <li>الملاحظات والاقتراحات</li>
+        </ul>
 
         <div class="pt-3">
           <hr class="site-border border">
@@ -29,7 +35,7 @@
       {% if messages %}
       <div class="mb-5 space-y-2">
         {% for message in messages %}
-        <div class="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dir-text">
+        <div class="rounded-lg border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-800 dir-text">
           {{ message }}
         </div>
         {% endfor %}
@@ -37,12 +43,10 @@
       {% endif %}
 
       <div class="dir-text">
-
         <form method="post" class="space-y-5">
           {% csrf_token %}
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
             <div>
               <label class="block mb-1 text-[11px] font-semibold site-text">
                 {% trans "name" %} <span class="text-red-500">*</span>
@@ -80,7 +84,6 @@
               <p class="mt-1 text-[11px] text-red-600">{{ errors.email }}</p>
               {% endif %}
             </div>
-
           </div>
 
           <div>
@@ -95,7 +98,7 @@
                       {% else %}
                         site-input
                       {% endif %}"
-                      placeholder="{% trans 'write_your_message_here' %}">{{ data.message }}</textarea>
+                      placeholder="اكتب رسالتك: دعم فني، طلب انضمام كمعلم، استفسار عن الجلسات، أو اقتراح...">{{ data.message }}</textarea>
             {% if errors.message %}
             <p class="mt-1 text-[11px] text-red-600">{{ errors.message }}</p>
             {% endif %}
@@ -107,9 +110,7 @@
               {% trans "send_message" %}
             </button>
           </div>
-
         </form>
-
       </div>
 
     </div>

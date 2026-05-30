@@ -3,929 +3,648 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wird\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-29 17:45+0300\n"
+"POT-Creation-Date: 2026-05-30 16:41+0300\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-# =============================================================================
-# 6. التواصل والدعم الفني (Contact & Support)
-# =============================================================================
-msgid "contact"
-msgstr "تواصل معنا"
+#: apps/analytics/templates/analytics/include/tabs_header.html:10
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:4
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:14
+#: dashboard/templates/dashboard/layouts/sidebar.html:45
+msgid "dashboard_sidebar_analytics"
+msgstr "إحصائيات الموقع"
 
-msgid "contact_page_description"
-msgstr "اتصل بنا ونحن هنا لخدمتك"
+#: apps/analytics/templates/analytics/include/tabs_header.html:16
+#, fuzzy
+#| msgid "analytics_page"
+msgid "analytics_badge_label"
+msgstr "إحصائيات • لوحة التحكم"
 
-msgid "contact_intro_text"
-msgstr ""
-"يسعدنا تواصلك مع منصة وِرْدُ القُرْآنِ الكَرِيمِ، ونسعى لخدمة كتاب الله وتيسير تلاوته "
-"ومتابعته"
+#: apps/analytics/templates/analytics/include/tabs_header.html:34
+#, fuzzy
+#| msgid "analytics_time"
+msgid "analytics_tab_overview"
+msgstr "نظرة عامة"
 
+#: apps/analytics/templates/analytics/include/tabs_header.html:48
+#, fuzzy
+#| msgid "analytics_pages"
+msgid "analytics_tab_pages"
+msgstr "الصفحات"
+
+#: apps/analytics/templates/analytics/include/tabs_header.html:62
+#, fuzzy
+#| msgid "analytics_audio"
+msgid "analytics_tab_audio"
+msgstr "الصوت"
+
+#: apps/analytics/templates/analytics/include/tabs_header.html:76
+#, fuzzy
+#| msgid "analytics_no_data_yet"
+msgid "analytics_tab_content"
+msgstr "المحتوى"
+
+#: apps/analytics/templates/analytics/include/tabs_header.html:90
+#, fuzzy
+#| msgid "analytics_latest_interactions"
+msgid "analytics_tab_interactions"
+msgstr "آخر التفاعلات"
+
+#: apps/analytics/templates/analytics/include/tabs_header.html:104
+msgid "analytics_tab_visitors"
+msgstr "الزوار"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:17
+#, fuzzy
+#| msgid "analytics_tafsir_statistics"
+msgid "analytics_stats_subtitle"
+msgstr "متابعة الزوار، الصفحات، والتفاعلات على المنصة."
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:24
+#, fuzzy
+#| msgid "analytics_flips_pages"
+msgid "analytics_live_badge"
+msgstr "لوحة حية"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:31
+msgid "analytics_total_visitors"
+msgstr "إجمالي الزوار"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:35
+#, fuzzy
+#| msgid "analytics_total_visits_pages"
+msgid "analytics_total_page_views"
+msgstr "إجمالي زيارات الصفحات"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:39
+msgid "analytics_audio_plays"
+msgstr "تشغيلات الصوت"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:43
+#, fuzzy
+#| msgid "analytics_pages"
+msgid "analytics_page_flips"
+msgstr "تقليب الصفحات"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:47
+#, fuzzy
+#| msgid "analytics_audio_plays"
+msgid "analytics_audio_completions"
+msgstr "إكمالات الصوت"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:53
+#, fuzzy
+#| msgid "analytics_audio_plays"
+msgid "analytics_unique_ips"
+msgstr "عدد IP الفريدة"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:61
+#, fuzzy
+#| msgid "analytics_total_visitors"
+msgid "analytics_visitors_7d"
+msgstr "زوار آخر 7 أيام"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:65
+#, fuzzy
+#| msgid "analytics_pages"
+msgid "analytics_page_views_7d"
+msgstr "زيارات آخر 7 أيام"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:69
+#, fuzzy
+#| msgid "analytics_pages"
+msgid "analytics_page_views_30d"
+msgstr "زيارات آخر 30 يوم"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:73
+#, fuzzy
+#| msgid "analytics_most_listened_pages"
+msgid "analytics_listen_seconds"
+msgstr "إجمالي ثواني الاستماع"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:77
+#, fuzzy
+#| msgid "analytics_visits_pages"
+msgid "analytics_visitors_today"
+msgstr "زوار اليوم"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:81
+#, fuzzy
+#| msgid "recitation_correction"
+msgid "analytics_recitation_corrections_today"
+msgstr "من صحّح التلاوة اليوم"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:85
+#, fuzzy
+#| msgid "analytics_completions_audio"
+msgid "analytics_sessions_today"
+msgstr "جلسات اليوم"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:89
+#, fuzzy
+#| msgid "analytics_flips_pages"
+msgid "analytics_language_changes_today"
+msgstr "تغييرات اللغة اليوم"
+
+#: apps/analytics/templates/analytics/overview/dashboard_overview.html:97
+#, fuzzy
+#| msgid "analytics_pages"
+msgid "analytics_recent_page_views"
+msgstr "زيارات الأيام الأخيرة"
+
+#: apps/contact/templates/contact/contact.html:52
 msgid "name"
 msgstr "الاسم"
 
+#: apps/contact/templates/contact/contact.html:63
 msgid "enter_your_name"
 msgstr "اكتب اسمك"
 
+#: apps/contact/templates/contact/contact.html:71
+#: identity/accounts/templates/accounts/auth.html:157
 msgid "email"
 msgstr "البريد الإلكتروني"
 
+#: apps/contact/templates/contact/contact.html:91
 msgid "your_message"
 msgstr "رسالتك"
 
-msgid "write_your_message_here"
-msgstr "اكتب استفسارك أو رسالتك هنا"
-
+#: apps/contact/templates/contact/contact.html:110
 msgid "send_message"
 msgstr "إرسال الرسالة"
 
+#: apps/contact/templates/contact/success.html:4
 msgid "message_sent"
 msgstr "تم إرسال الرسالة"
 
+#: apps/contact/templates/contact/success.html:5
 msgid "message_sent_successfully"
 msgstr "تم إرسال الرسالة بنجاح"
 
+#: apps/contact/templates/contact/success.html:22
 msgid "thank_you_contact"
 msgstr "شكرًا لتواصلك معنا"
 
+#: apps/contact/templates/contact/success.html:27
 msgid "contact_success_message"
-msgstr ""
-"تم استلام رسالتك بنجاح، وسيقوم فريق منصة وِرْد القرآن بمراجعتها والتواصل معك "
-"في أقرب وقت ممكن، وذلك دعمًا لخدمة القرآن وتعزيز الارتباط به"
+msgstr "تم استلام رسالتك بنجاح. سيتواصل معك فريق مقرأة الحفظة في أقرب وقت ممكن."
+"تم استلام رسالتك بنجاح. سيتواصل معك فريق مقرأة الحفظة في أقرب وقت ممكن."
 
+#: apps/contact/templates/contact/success.html:34
+#: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:26
 msgid "back_to_home"
 msgstr "العودة إلى الصفحة الرئيسية"
 
-msgid "quran_recitation_prompt"
-msgstr "تلاوة القرآن باللغة العربية"
-
-msgid "save_stop"
-msgstr "حفظ موضع القراءة"
-
-msgid "cancel_stop"
-msgstr "إزالة موضع القراءة"
-
-msgid "hifz_audio_recording"
-msgstr "التسجيل الصوتي"
-
-msgid "hifz_enable_hiding"
-msgstr "إخفاء الآيات"
-
-msgid "hifz_segmentation_thematic"
-msgstr "التقسيم الموضوعي"
-
-msgid "hifz_writing"
-msgstr "الكتابة"
-
-msgid "zoom_in"
-msgstr "تكبير"
-
-msgid "repeat"
-msgstr "تكرار"
-
-msgid "page"
-msgstr "صفحة"
-
-msgid "play_audio"
-msgstr "تشغيل الصوت"
-
-msgid "word_meanings"
-msgstr "معاني الكلمات"
-
-msgid "brief_tafsir"
-msgstr "تفسير مختصر"
-
-msgid "playback_tools"
-msgstr "أدوات التشغيل"
-
-msgid "audio"
-msgstr "الصوت"
-
-msgid "help"
-msgstr ""
-
-msgid "hifz_playback_tools_help"
-msgstr ""
-"لتشغيل الصوت أثناء الحفظ، اضغط على الآية ليظهر زر التشغيل والإيقاف المؤقت. "
-"بعد ذلك يمكنك التحكم في مستوى الصوت من هنا، وتكبير الشاشة لقراءة أسهل بدون "
-"تشتت، وكذلك زيادة عدد مرات تكرار الآية."
-
-msgid "hifz_mushaf_spread_two_pages"
-msgstr "صفحتان"
-
-msgid "hifz_mushaf_spread_toggle_caption"
-msgstr "تبديل عرض المصحف بين وجه واحد أو وجهين"
-
-msgid "hifz_mushaf_spread_one_page"
-msgstr "صفحة"
-
-msgid "hifz_memorization_tools"
-msgstr "تقنيات الحفظ"
-
-msgid "hifz_memorization_tools_help"
-msgstr ""
-"تساعدك تقنيات الحفظ على تقوية الاستذكار وتنمية الذاكرة. يمكنك إخفاء الآيات "
-"لتدريب نفسك على التذكر، وعند تمرير الماوس فوق الآية تظهر بشكل خفيف لتذكيرك، "
-"وعند الضغط عليها تظهر كاملة. كما يتوفر التقسيم الموضوعي الذي يقسم آيات "
-"القرآن إلى مواضيع مترابطة لتسهيل الحفظ والفهم."
-
-msgid "hifz_play"
-msgstr "تشغيل"
-
-msgid "hifz_iyqaf_kaml"
-msgstr "إيقاف كامل"
-
-msgid "hifz_mstwa_audio"
-msgstr "مستوى الصوت"
-
-msgid "mushaf"
-msgstr "المصحف"
-
-msgid "reciter"
-msgstr "القارئ"
-
-msgid "search"
-msgstr "بحث"
-
-msgid "stop_audio"
-msgstr "إيقاف الصوت"
-
-msgid "recitation_correction"
-msgstr "تصحيح التلاوة"
-
-msgid "recitation_correction_subtitle"
-msgstr "سجّل تلاوتك ثم قارنها بصوت القارئ"
-
-msgid "recitation_correction_help"
-msgstr ""
-"اختر آية أولًا، ثم سيظهر زر التسجيل. اضغط عليه وسجّل تلاوتك للآية المختارة "
-"ليتم تحليل الصوت وتصحيح التلاوة. ستظهر نسبة تحليل التلاوة، وستجد زرًا لسماع "
-"صوتك المسجل."
-
-msgid "recitation_accuracy_percentage"
-msgstr "نسبة صحة القراءة"
-
-msgid "recitation_result"
-msgstr "النتيجة"
-
-msgid "recitation_no_result_yet"
-msgstr "لم تظهر نتيجة بعد"
-
-msgid "shaykh_audio"
-msgstr "صوت القارئ"
-
-msgid "my_recorded_audio"
-msgstr "صوتي المسجل"
-
-msgid "mushaf_hafs"
-msgstr "مصحف حفص"
-
-msgid "mushaf_warsh"
-msgstr "مصحف ورش"
-
-msgid "mushaf_qaloun"
-msgstr "مصحف قالون"
-
-msgid "mushaf_douri"
-msgstr "مصحف الدوري"
-
-msgid "mushaf_shuba"
-msgstr "مصحف شعبة"
-
-msgid "mushaf_sousi"
-msgstr "مصحف السوسي"
-
-msgid "tafsir_almuyasser"
-msgstr "الميسر"
-
-msgid "tafsir_alkatheer"
-msgstr "ابن كثير"
-
-msgid "tafsir_albaghawy"
-msgstr "البغوي"
-
-msgid "tafsir_altabary"
-msgstr "الطبري"
-
-msgid "tafsir_alqortoby"
-msgstr "القرطبي"
-
-msgid "tafsir_alsa3dy"
-msgstr "السعدي"
-
-#, python-format
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgstr "تفسير الصفحة %(page)s من القرآن الكريم | وِرْد القرآن"
-
-#, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
-msgstr "سورة %(surah_name)s | قراءة واستماع - وِرْد القرآن"
-
-#, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
-msgstr "استماع القرآن بصوت %(qari_name)s | وِرْد القرآن"
-
-#, python-format
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgstr "الصفحة %(page)s من القرآن | وِرْد القرآن"
-
-#, python-format
-msgid ""
-"Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
-msgstr ""
-"اقرأ تفسير الصفحة %(page)s من القرآن بسهولة، مع عرض الآيات وربطها بالتفسير "
-"في منصة وِرْد القرآن"
-
-#, python-format
-msgid ""
-"Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
-msgstr ""
-"اقرأ سورة %(surah_name)s من القرآن، مع إمكانية الاستماع والتصفح بسهولة في "
-"منصة وِرْد القرآن"
-
-#, python-format
-msgid ""
-"Listen to the Holy Quran recited by %(qari_name)s in high quality, with easy "
-"navigation between surahs and ayahs."
-msgstr ""
-"استمع إلى القرآن بصوت %(qari_name)s بجودة عالية، مع سهولة التنقل بين السور "
-"والآيات"
-
-#, python-format
-msgid ""
-"Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
-"platform."
-msgstr ""
-"تصفح الصفحة %(page)s من القرآن بواجهة مريحة وسهلة، مع إمكانية القراءة "
-"والتنقل السريع في منصة وِرْد القرآن"
-
-msgid "no_word_meanings"
-msgstr "لا توجد معاني كلمات لهذه الآية"
-
-msgid "hide_word_meanings"
-msgstr "إخفاء معاني الكلمات"
-
-msgid "show_word_meanings"
-msgstr "إظهار معاني الكلمات"
-
-msgid "word_meanings_hint"
-msgstr "ستظهر معاني الكلمات عند تشغيل التلاوة"
-
-msgid "error_word_meanings"
-msgstr "تعذر تحميل معاني الكلمات"
-
-msgid "surah"
-msgstr "السورة"
-
-msgid "ayah"
-msgstr "آية"
-
-msgid "show_thematic_segmentation"
-msgstr "إظهار التقسيم الموضوعي"
-
-msgid "hide_thematic_segmentation"
-msgstr "إخفاء التقسيم الموضوعي"
-
-msgid "daily_quran_reading"
-msgstr "وردي اليومي"
-
-msgid "new_khatma"
-msgstr "ختمة جديدة"
-
-msgid "close"
-msgstr "إغلاق"
-
-msgid "current_khatma"
-msgstr "الختمة الحالية"
-
-msgid "Juz"
-msgstr "جزء"
-
-msgid "remaining_wirds"
-msgstr "المتبقي من الأوراد"
-
-msgid "khatma_count"
-msgstr "عدد الختمات"
-
-msgid "current_wird"
-msgstr "الورد الحالي"
-
-msgid "from"
-msgstr "من"
-
-msgid "to"
-msgstr "إلى"
-
-msgid "congratulations"
-msgstr "تهانينا لك"
-
-msgid "you_finished_current_khatma"
-msgstr "لقد أتممت هذه الختمة بنجاح"
-
-msgid "continue_reading"
-msgstr "تابع قراءة الورد"
-
-msgid "finish_wird"
-msgstr "أتممت الورد"
-
-msgid "choose_mushaf"
-msgstr "اختر المصحف"
-
-msgid "current"
-msgstr "الحالي"
-
-msgid "start_new_khatma"
-msgstr "بدء ختمة جديدة"
-
-msgid "start_from"
-msgstr "البدء من"
-
-msgid "mushaf_start"
-msgstr "بداية المصحف"
-
-msgid "duration_days"
-msgstr "مدة الختمة (بالأيام"
-
-msgid "day"
-msgstr "يوم"
-
-msgid "daily_amount"
-msgstr "مقدار الورد اليومي"
-
-msgid "smaller_division"
-msgstr ""
-
-msgid "none"
-msgstr ""
-
-msgid "juz_division"
-msgstr ""
-
-msgid "khatma_summary"
-msgstr "ملخص الختمة"
-
-msgid "start_khatma"
-msgstr "ابدأ الختمة"
-
-msgid "reciters"
-msgstr "القراء"
-
-msgid "search_reciter"
-msgstr "ابحث عن قارئ بالاسم"
-
-msgid "loading"
-msgstr "جاري التحميل"
-
-msgid "tafasir"
-msgstr "التفاسير"
-
-msgid "no_tafsir_available"
-msgstr "لا توجد تفاسير متاحة حاليًا"
-
-# =============================================================================
-# 2. واجهة القراءة والتلاوة والتفسير (Core Reading & Audio Experience)
-# =============================================================================
-msgid "quran"
-msgstr "القرآن"
-
-msgid "tafsir"
-msgstr "التفسير"
-
-# =============================================================================
-# 15. أسماء السور (Surah Names)
-# =============================================================================
-msgid "surah_1"
-msgstr "الفاتحة"
-
-msgid "mushafs"
-msgstr "المصاحف"
-
-msgid "reading_mode"
-msgstr "وضع القراءة"
-
-msgid "current_reciter"
-msgstr "القارئ الحالي"
-
-msgid "coming_soon"
-msgstr "قريباً"
-
-msgid "current_mushaf"
-msgstr "المصحف الحالي"
-
-msgid "tafsir_loading_message"
-msgstr "يتم تحميل التفسير عند فتح هذه الصفحة"
-
+#: apps/push/templates/admin/push/send_push.html:38
+#: apps/push/templates/push/dashboard.html:212
+msgid "push_placeholder_example"
+msgstr "مثال: تحديث جديد في مقرأة الحفظة"
+
+#: apps/push/templates/push/dashboard.html:4
+#: apps/push/templates/push/dashboard.html:5
+#: apps/push/templates/push/dashboard.html:16
+#: dashboard/templates/dashboard/layouts/sidebar.html:115
+msgid "dashboard_sidebar_push"
+msgstr "الإشعارات الفورية"
+
+#: apps/push/templates/push/dashboard.html:27
+#, fuzzy
+#| msgid "khatma_summary"
+msgid "push_tab_summary"
+msgstr "ملخص التنبيهات"
+
+#: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:4
+#: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:15
+#: apps/subscription/views.py:197
+msgid "unsubscribe_success_message"
+msgstr "تم إلغاء الاشتراك بنجاح"
+
+#: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:5
+msgid "subscription_unsubscribe_description"
+msgstr "إلغاء الاشتراك من رسائل مقرأة الحفظة"
+
+#: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:20
+msgid "subscription_unsubscribe_body"
+msgstr "من رسائل مقرأة الحفظة."
+
+#: apps/subscription/views.py:26
 msgid "title_and_body_required"
 msgstr "العنوان ونص الرسالة مطلوبان"
 
+#: apps/subscription/views.py:30
 msgid "no_subscribers_available"
 msgstr "لا يوجد مشتركون متاحون للإرسال"
 
+#: apps/subscription/views.py:51
 msgid "email_separator"
 msgstr ""
 
+#: apps/subscription/views.py:52
 msgid "newsletter_subscription_notice"
 msgstr "أنت مشترك في رسائل وِرد القرآن"
 
+#: apps/subscription/views.py:53
 msgid "unsubscribe_label"
 msgstr "لإلغاء الاشتراك"
 
+#: apps/subscription/views.py:73
 msgid "message_sent_to_subscribers"
 msgstr "تم إرسال الرسالة إلى %(count)s مشترك"
 
+#: apps/subscription/views.py:78
 msgid "message_sent_with_failures"
 msgstr ""
 "تم إرسال الرسالة إلى %(sent_count)s مشترك وتعذر الإرسال إلى %(failed_count)s"
 
+#: apps/subscription/views.py:84
 msgid "message_send_failed"
 msgstr "تعذر إرسال الرسالة"
 
+#: apps/subscription/views.py:124
 msgid "please_enter_email"
 msgstr "الرجاء إدخال البريد الإلكتروني"
 
+#: apps/subscription/views.py:143
 msgid "newsletter_welcome_subject"
 msgstr "شكرًا لاشتراكك في وِرد القرآن"
 
+#: apps/subscription/views.py:145
 msgid "newsletter_greeting"
 msgstr "السلام عليكم ورحمة الله وبركاته،"
 
+#: apps/subscription/views.py:146
 msgid "newsletter_thank_you_for_subscribing"
 msgstr "شكرًا لاشتراكك في رسائل وِرد القرآن"
 
+#: apps/subscription/views.py:147
 msgid "newsletter_joined_successfully"
 msgstr "يسعدنا انضمامك إلينا، وسيصلك كل جديد بإذن الله على بريدك الإلكتروني"
 
+#: apps/subscription/views.py:148
 msgid "newsletter_unsubscribe_anytime"
 msgstr "إذا رغبت في إلغاء الاشتراك في أي وقت، يمكنك استخدام الرابط التالي"
 
+#: apps/subscription/views.py:150
 msgid "newsletter_closing"
 msgstr "مع خالص الشكر والتقدير"
 
-msgid "wird quran"
-msgstr "وِرْدُ القُرْآنِ الكَرِيمِ"
+#: apps/subscription/views.py:151
+msgid "alhafaz_platform_name"
+msgstr "مقرأة الحفظة"
 
+#: apps/subscription/views.py:166
 msgid "newsletter_subscription_success"
-msgstr "شكرًا لك، تم الاشتراك بنجاح في رسائل وِرد القرآن"
+msgstr "شكرًا لك، تم الاشتراك بنجاح في رسائل مقرأة الحفظة"
 
+#: apps/subscription/views.py:177
 msgid "newsletter_subscription_reactivated"
-msgstr "شكرًا لك، تم إعادة تفعيل اشتراكك بنجاح في رسائل وِرد القرآن"
+msgstr "شكرًا لك، تم إعادة تفعيل اشتراكك في رسائل مقرأة الحفظة"
 
+#: apps/subscription/views.py:180
 msgid "email_already_subscribed"
 msgstr "هذا البريد مشترك مسبقًا"
 
-msgid "unsubscribe_success_message"
-msgstr "تم إلغاء الاشتراك بنجاح"
-
+#: apps/subscription/views.py:203
 msgid "unsubscribe_already_done"
 msgstr "تم إلغاء الاشتراك مسبقًا"
 
-msgid "qari_list_title"
-msgstr "استمع إلى القرآن الكريم"
-
-msgid "qari_list_description"
-msgstr ""
-"تصفح القراء واختر تلاوتك المفضلة من مجموعة متنوعة من القراء بأجمل الأصوات."
-
-msgid "listen_quran"
-msgstr "استمع للقرآن الكريم"
-
-msgid "view_surahs"
-msgstr "عرض السور"
-
-msgid "tilawa_listen_quran_recited_by"
-msgstr "استماع القرآن بصوت"
-
-msgid "tilawa_wrd_quran"
-msgstr "وِرْد القرآن"
-
-msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
-msgstr "استمع إلى القرآن كاملًا بصوت"
-
-msgid "tilawa_bjwdh_aalyh_imkanyh_altnql_byn_surahs_bshwlh"
-msgstr "بجودة عالية، مع إمكانية التنقل بين السور بسهولة"
-
-msgid "all_reciters"
-msgstr "جميع القراء"
-
-msgid "select_surah_player"
-msgstr "اختر سورة"
-
-msgid "prev_surah"
-msgstr "السورة السابقة"
-
-msgid "next_surah"
-msgstr "السورة التالية"
-
-msgid "search_surah"
-msgstr "ابحث عن سورة بالاسم أو الرقم"
-
-msgid "ayah_counter"
-msgstr "آية"
-
-msgid "stop_playback"
-msgstr "إيقاف التشغيل"
-
+#: dashboard/login.py:16
 msgid "username_password_required"
 msgstr "اسم المستخدم وكلمة المرور مطلوبان."
 
+#: dashboard/login.py:34 identity/accounts/views/login.py:18
+#: identity/accounts/views/login.py:36
 #, fuzzy
 #| msgid "accounts_account_needs_activation"
 msgid "account_needs_activation"
 msgstr "الحساب يحتاج تفعيل"
 
+#: dashboard/login.py:36 identity/accounts/views/login.py:38
 msgid "invalid_login_credentials"
 msgstr "بيانات تسجيل الدخول غير صحيحة."
 
-# =============================================================================
-# 8. لوحة التحكم والإحصائيات (Dashboard & Analytics)
-# =============================================================================
-msgid "dashboard"
+#: dashboard/templates/dashboard/layouts/base.html:4
+#: dashboard/templates/dashboard/layouts/base.html:19
+#: dashboard/templates/dashboard/layouts/sidebar.html:11
+msgid "alhafaz_dashboard_title"
 msgstr "لوحة التحكم"
 
+#: dashboard/templates/dashboard/layouts/sidebar.html:27
+msgid "dashboard_sidebar_home"
+msgstr "الرئيسية"
+
+#: dashboard/templates/dashboard/layouts/sidebar.html:35
+msgid "dashboard_sidebar_overview"
+msgstr "لوحة المعلومات"
+
+#: dashboard/templates/dashboard/layouts/sidebar.html:55
+msgid "dashboard_sidebar_settings"
+msgstr "الإعدادات"
+
+#: dashboard/templates/dashboard/layouts/sidebar.html:65
+msgid "dashboard_sidebar_notifications"
+msgstr "التنبيهات"
+
+#: dashboard/templates/dashboard/layouts/sidebar.html:75
+msgid "dashboard_sidebar_messaging"
+msgstr "قنوات الإرسال"
+
+#: dashboard/templates/dashboard/layouts/sidebar.html:85
+msgid "dashboard_sidebar_subscriptions"
+msgstr "الاشتراكات"
+
+#: dashboard/templates/dashboard/layouts/sidebar.html:95
+msgid "dashboard_sidebar_contact"
+msgstr "رسائل التواصل"
+
+#: dashboard/templates/dashboard/layouts/sidebar.html:105
+msgid "dashboard_sidebar_communication"
+msgstr "التواصل الاجتماعي"
+
+#: dashboard/templates/dashboard/layouts/sidebar.html:125
+msgid "dashboard_sidebar_rbac"
+msgstr "إدارة الصلاحيات"
+
+#: dashboard/templates/dashboard/pages/home.html:11
+msgid "dashboard_home_title"
+msgstr "الصفحة الرئيسية"
+
+#: dashboard/templates/dashboard/pages/home.html:13
+#: web/templates/web/base.html:9 web/templates/web/pages/privacy_policy.html:19
+#: web/templates/web/pages/privacy_policy.html:36
+msgid "alhafaz_platform_tagline"
+msgstr "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد."
+"منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة "
+"عن بُعد."
+
+#: dashboard/templates/dashboard/pages/overview.html:13
+msgid "dashboard_overview_title"
+msgstr "لوحة المعلومات"
+
+#: dashboard/templates/dashboard/pages/overview.html:16
+msgid "dashboard_overview_subtitle"
+msgstr "ملخص الأرقام والمؤشرات العامة في النظام."
+
+#: dashboard/templates/dashboard/pages/overview.html:23
+msgid "dashboard_rbac_note"
+msgstr "نظام إدارة المستخدمين والصلاحيات (RBAC)"
+
+#: dashboard/templates/dashboard/pages/overview.html:36
+msgid "dashboard_users_count"
+msgstr "عدد المستخدمين"
+
+#: dashboard/templates/dashboard/pages/overview.html:44
+msgid "dashboard_users_badge"
+msgstr "مستخدمون مسجلون"
+
+#: dashboard/templates/dashboard/pages/overview.html:56
+msgid "dashboard_roles_count"
+msgstr "عدد الأدوار"
+
+#: dashboard/templates/dashboard/pages/overview.html:64
+msgid "dashboard_roles_badge"
+msgstr "أدوار مهيكلة"
+
+#: dashboard/templates/dashboard/pages/overview.html:76
+msgid "dashboard_permissions_count"
+msgstr "عدد الصلاحيات"
+
+#: dashboard/templates/dashboard/pages/overview.html:84
+msgid "dashboard_permissions_badge"
+msgstr "صلاحيات مفعّلة"
+
+#: identity/accounts/templates/accounts/auth.html:4
 msgid "login_register_page"
-msgstr ""
+msgstr "مقرأة الحفظة — تسجيل الدخول"
 
+#: identity/accounts/templates/accounts/auth.html:19
 msgid "login_or_create_account"
-msgstr "سجل الدخول أو أنشئ حسابًا للمتابعة"
+msgstr "سجّل الدخول أو أنشئ حسابًا في مقرأة الحفظة"
 
-# =============================================================================
-# 5. الحسابات وتسجيل الدخول (Accounts & Auth)
-# =============================================================================
+#: identity/accounts/templates/accounts/auth.html:50
+#: identity/accounts/templates/accounts/auth.html:120
+#: identity/accounts/templates/accounts/partials/tabs_header.html:34
+#: identity/accounts/templates/accounts/settings/login_settings.html:15
+#: identity/accounts/templates/accounts/settings/login_settings.html:33
+#: identity/accounts/templates/accounts/settings/login_settings.html:36
+#: web/templates/web/partials/navbar.html:44
+#: web/templates/web/partials/navbar.html:81
 msgid "login"
 msgstr "تسجيل الدخول"
 
+#: identity/accounts/templates/accounts/auth.html:62
 msgid "register"
 msgstr "إنشاء الحساب"
 
+#: identity/accounts/templates/accounts/auth.html:75
+#: identity/accounts/templates/accounts/auth.html:137
 #, fuzzy
 #| msgid "username_taken"
 msgid "username"
 msgstr "اسم المستخدم مستخدم مسبقًا."
 
+#: identity/accounts/templates/accounts/auth.html:81
 msgid "enter_username"
 msgstr "أدخل اسم المستخدم"
 
+#: identity/accounts/templates/accounts/auth.html:88
+#: identity/accounts/templates/accounts/auth.html:179
 msgid "password"
 msgstr "كلمة المرور"
 
+#: identity/accounts/templates/accounts/auth.html:98
+#: identity/accounts/templates/accounts/auth.html:194
 msgid "enter_password"
 msgstr "أدخل كلمة المرور"
 
+#: identity/accounts/templates/accounts/auth.html:104
+#: identity/accounts/templates/accounts/auth.html:200
 msgid "toggle_password_visibility"
 msgstr ""
 
+#: identity/accounts/templates/accounts/auth.html:112
 msgid "forgot_password"
 msgstr "هل نسيت كلمة السر؟"
 
+#: identity/accounts/templates/accounts/auth.html:215
 msgid "create_account"
 msgstr "إنشاء الحساب"
 
+#: identity/accounts/views/register.py:28
 msgid "username_required"
 msgstr "اسم المستخدم مطلوب."
 
+#: identity/accounts/views/register.py:30
 msgid "username_taken"
 msgstr "اسم المستخدم مستخدم مسبقًا."
 
+#: identity/accounts/views/register.py:33
 msgid "email_required"
 msgstr "البريد الإلكتروني مطلوب."
 
+#: identity/accounts/views/register.py:35
 msgid "email_taken"
 msgstr "البريد الإلكتروني مستخدم مسبقًا."
 
+#: identity/accounts/views/register.py:38
 msgid "password_required"
 msgstr "كلمة المرور مطلوبة."
 
+#: identity/accounts/views/register.py:67
 msgid "register_success"
-msgstr ""
-"مرحبًا بك 🌿 تم إنشاء حسابك بنجاح، ويسعدنا انضمامك إلى المنصة. نتمنى لك تجربة "
-"مميزة ومثمرة."
+msgstr "تم إنشاء حسابك بنجاح. نرحب بك في مقرأة الحفظة."
 
-msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
-msgstr ""
-"وِرْد القرآن منصة متكاملة لقراءة القرآن، الاستماع للتلاوات بأشهر القراء، وتصفح "
-"كتب التفسير بسهولة وبدون إعلانات"
-
+#: web/templates/web/base.html:60
 msgid "success"
 msgstr "تم بنجاح"
 
+#: web/templates/web/base.html:62
 msgid "error"
 msgstr "حدث خطأ"
 
+#: web/templates/web/base.html:64
 msgid "alert"
 msgstr "تنبيه"
 
+#: web/templates/web/base.html:66
 msgid "notice"
 msgstr "إشعار"
 
-msgid "web_wrd_alqraan_alkrym"
-msgstr "عن وِرْدُ القُرْآنِ الكَرِيمِ"
+#: web/templates/web/base.html:78 web/templates/web/partials/navbar.html:57
+msgid "close"
+msgstr "إغلاق"
 
-msgid "long_about_text"
-msgstr ""
-"منصة وِرْد هي منصة رقمية متكاملة تهدف إلى تسهيل تلاوة القرآن وتدبره بطريقة "
-"منظمة وجذابة. تقدم خدمات مثل تصفح المصاحف بمختلف الروايات، الاستماع لتلاوات "
-"القراء، وقراءة التفاسير الموثوقة"
-
-msgid "about_wird"
-msgstr ""
-"منصة وِرْد هي منصة رقمية متكاملة تهدف إلى تسهيل تلاوة القرآن وتدبره بطريقة "
-"منظمة وجذابة. تقدم خدمات مثل تصفح المصاحف بمختلف الروايات، الاستماع لتلاوات "
-"القراء، وقراءة التفاسير الموثوقة. كما تتيح متابعة الورد اليومي، وتتبع التقدم "
-"في الحفظ والمراجعة بشكل مستمر. وتهدف المنصة إلى دعم مشروع القرآن وتعزيز "
-"الارتباط به عبر تجربة رقمية سهلة ومتكاملة"
-
-# =============================================================================
-# 1. وصف المنصة والصفحات العامة (SEO & Global Descriptions)
-# =============================================================================
-msgid "wird"
-msgstr "وِرْد"
-
-msgid "home_hero_summary"
-msgstr ""
-"تجربة قرآنية متكاملة تجمع المصحف، التلاوة، التفسير، الحفظ، وترجمة المعاني في "
-"واجهة هادئة وسريعة تناسب القراءة اليومية."
-
-msgid "home_eyebrow"
-msgstr "وِرْدك اليومي مع القرآن"
-
-msgid "home_hero_title1"
-msgstr "تجربة هادئة لقراءة القرآن"
-
-msgid "home_hero_title2"
-msgstr "والاستماع والتدبر"
-
-msgid "home_hero_desc"
-msgstr ""
-"منصة تجمع القراءة، التلاوة، التفسير، الترجمات، ومعاني الكلمات في تجربة واحدة "
-"سهلة ومرتبة."
-
-msgid "home_start_reading"
-msgstr "ابدأ القراءة"
-
-msgid "home_explore_recitations"
-msgstr "استكشف التلاوات"
-
-msgid "home_calm_recitation"
-msgstr "تلاوة هادئة"
-
-msgid "play"
-msgstr "تشغيل"
-
-msgid "home_features_label"
-msgstr "المزايا"
-
-msgid "home_features_title"
-msgstr "كل ما تحتاجه في مكان واحد"
-
-msgid "home_features_desc"
-msgstr "أدوات هادئة تعينك على القراءة والاستماع والتدبر دون تشتيت."
-
-msgid "home_feature_quran_title"
-msgstr "قراءة القرآن"
-
-msgid "home_feature_quran_desc"
-msgstr "واجهة مصحفية أنيقة تجعل القراءة مريحة وصافية للعين."
-
-msgid "home_feature_hifz_title"
-msgstr "حفظ القرآن بتقنيات احترافية"
-
-msgid "home_feature_hifz_desc"
-msgstr "أدوات متطورة لتثبيت الحفظ ومتابعة تقدمك."
-
-msgid "home_feature_listen_title"
-msgstr "الاستماع للتلاوات"
-
-msgid "home_feature_listen_desc"
-msgstr "نخبة من القراء بصوت نقي وتجربة استماع هادئة."
-
-msgid "home_feature_tafsir_title"
-msgstr "التفسير"
-
-msgid "home_feature_tafsir_desc"
-msgstr "تفاسير معتمدة بعرض مرتب يساعد على التدبر والفهم."
-
-msgid "home_feature_trans_title"
-msgstr "الترجمات"
-
-msgid "home_feature_trans_desc"
-msgstr "ترجمات للمعاني بلغات متعددة بجانب الآية مباشرة."
-
-msgid "home_feature_words_title"
-msgstr "معاني الكلمات"
-
-msgid "home_feature_words_desc"
-msgstr "اطلع على معنى أي كلمة بلمسة واحدة دون مغادرة الصفحة."
-
-msgid "home_feature_daily_title"
-msgstr "الورد اليومي"
-
-msgid "home_feature_daily_desc"
-msgstr "نظّم وردك اليومي وتابع استمرارك بهدوء وانتظام."
-
-msgid "surah_2"
-msgstr "البقرة"
-
-msgid "tracking_manual"
-msgstr "يدوي"
-
-# =============================================================================
-# 4. الورد اليومي والختمات والحفظ (Hifz & Daily Wird & Khatma)
-# =============================================================================
-msgid "daily_wird"
-msgstr "الورد اليومي"
-
-msgid "home_daily_title"
-msgstr "عادة هادئة، تنمو معك يومًا بعد يوم"
-
-msgid "home_daily_desc"
-msgstr ""
-"رتّب وردك بما يناسب يومك، وتابع استمرارك دون ضغط. تذكير لطيف، عرض مرتب، وتتبع "
-"بسيط يجعلك على اتصال دائم بكتاب الله."
-
-msgid "home_gentle_tracking"
-msgstr "تتبع لطيف"
-
-msgid "home_flexible_reminder"
-msgstr "تذكير مرن"
-
-msgid "home_no_pressure"
-msgstr "بلا ضغط"
-
-# =============================================================================
-# 3. مشغل التلاوة والقراء (Recitation & Reciters)
-# =============================================================================
-msgid "tilawa"
-msgstr "التلاوات"
-
-msgid "home_recitation_title"
-msgstr "استمع بصوت يطمئن القلب"
-
-msgid "home_recitation_desc"
-msgstr "اختر القارئ الذي يلامس روحك، واستمع بتجربة هادئة وخالية من التشتيت."
-
-msgid "home_now_playing"
-msgstr "يبث الآن"
-
-msgid "home_reciter_label"
-msgstr "القارئ"
-
-msgid "home_current_surah"
-msgstr "السورة الحالية"
-
-msgid "home_prev"
-msgstr "السابق"
-
-msgid "home_play_pause"
-msgstr "تشغيل وإيقاف"
-
-msgid "home_next"
-msgstr "التالي"
-
-msgid "home_reading_label"
-msgstr "التفسير والترجمات"
-
-msgid "home_reading_title"
-msgstr "تدبّر المعاني بعمق وصفاء"
-
-msgid "home_reading_desc"
-msgstr "تجربة شبيهة بالكتاب: الآية في موضعها، والمعنى بجوارها."
-
-msgid "home_easy_tafsir"
-msgstr "التفسير الميسر"
-
-msgid "home_meaning_badge"
-msgstr "معنى"
-
-msgid "home_meaning_label"
-msgstr "المعنى"
-
-msgid "verses"
-msgstr ""
-
-msgid "Translation not available"
-msgstr "الترجمة غير متوفرة"
-
+#: web/templates/web/pages/privacy_policy.html:6
+#: web/templates/web/pages/privacy_policy.html:18
+#: web/templates/web/pages/privacy_policy.html:35
+#: web/templates/web/partials/footers/footer_public.html:8
+#: web/templates/web/partials/privacy/section_ar.html:104
+#: web/templates/web/partials/privacy/section_en.html:104
 msgid "privacy_policy"
 msgstr "سياسة الخصوصية"
 
-msgid "Wird — Privacy Policy"
-msgstr "وِرد — سياسة الخصوصية"
+#: web/templates/web/pages/privacy_policy.html:18
+#: web/templates/web/pages/privacy_policy.html:35
+#: web/templates/web/partials/privacy/section_ar.html:104
+#: web/templates/web/partials/privacy/section_en.html:104
+msgid "privacy_app_name"
+msgstr "مقرأة الحفظة"
 
-msgid "Your daily companion on your journey with the Quran"
-msgstr "رفيقك اليومي في رحلتك مع القرآن الكريم"
-
-msgid "Last updated: May 2026"
+#: web/templates/web/pages/privacy_policy.html:20
+#: web/templates/web/pages/privacy_policy.html:37
+#: web/templates/web/partials/privacy/section_ar.html:104
+#: web/templates/web/partials/privacy/section_en.html:104
+msgid "last_updated_may_2026"
 msgstr "آخر تحديث: مايو 2026"
 
-msgid ""
-"This policy explains how Wird handles your data. We keep it short and honest."
-msgstr ""
-"توضّح هذه السياسة كيفية تعامل تطبيق وِرد مع بياناتك. نحرص على الشفافية "
+#: web/templates/web/pages/privacy_policy.html:24
+#: web/templates/web/pages/privacy_policy.html:41
+msgid "privacy_intro_alhafaz"
+msgstr "توضّح هذه السياسة كيفية تعامل منصة مقرأة الحفظة مع بياناتك. نحرص على الشفافية والإيجاز."
+"توضّح هذه السياسة كيفية تعامل منصة مقرأة الحفظة مع بياناتك. نحرص على الشفافية "
 "والإيجاز."
 
-msgid "translations"
-msgstr "الترجمات"
-
-msgid "translation_page_title"
-msgstr "الترجمة"
-
-msgid "surahs"
-msgstr "السور"
-
-msgid "fullscreen"
-msgstr ""
-
-#, fuzzy
-#| msgid "save_stop"
-msgid "stop"
-msgstr "حفظ موضع القراءة"
-
-msgid "Translation will be loaded when you open this page"
-msgstr ""
-
-msgid "copy"
-msgstr "نسخ"
-
-msgid "share"
-msgstr "مشاركة"
-
+#: web/templates/web/partials/footers/footer_public.html:6
 msgid "footer_links"
 msgstr "روابط التذييل"
 
+#: web/templates/web/partials/footers/footer_public.html:7
+#: web/templates/web/partials/navbar.html:17
+#: web/templates/web/partials/navbar.html:68
 msgid "about"
 msgstr "عن المنصة"
 
+#: web/templates/web/partials/footers/footer_public.html:9
+#: web/templates/web/partials/navbar.html:18
+#: web/templates/web/partials/navbar.html:69
 msgid "contact_us"
 msgstr "تواصل معنا"
 
+#: web/templates/web/partials/footers/footer_public.html:12
 msgid "download_android"
 msgstr "تحميل لأندرويد"
 
+#: web/templates/web/partials/footers/footer_public.html:16
 msgid "download_ios"
 msgstr "تحميل لـ iOS"
 
+#: web/templates/web/partials/footers/footer_public.html:23
 msgid "designed_by"
 msgstr "صمم بواسطة"
 
+#: web/templates/web/partials/global_language_switcher.html:7
+#: web/templates/web/partials/language_switcher.html:8
+#: web/templates/web/partials/language_switcher.html:39
+#: web/templates/web/partials/language_switcher.html:60
+#: web/templates/web/partials/language_switcher.html:62
 #, fuzzy
 #| msgid "languages"
 msgid "language"
 msgstr "اللغات"
 
+#: web/templates/web/partials/navbar.html:10
 msgid "menu"
 msgstr "القائمة"
 
 # =============================================================================
 # 13. عناصر الواجهة العامة (UI Common Elements)
 # =============================================================================
+#: web/templates/web/partials/navbar.html:16
+#: web/templates/web/partials/navbar.html:67
 msgid "home"
 msgstr "الرئيسية"
 
-msgid "read_quran"
-msgstr "قراءة القرآن"
-
-msgid "hifz_quran"
-msgstr "حفظ القرآن"
-
 # =============================================================================
-# 10. الإشعارات والحملات (Notifications & Campaigns)
+# 8. لوحة التحكم والإحصائيات (Dashboard & Analytics)
 # =============================================================================
+#: web/templates/web/partials/navbar.html:26
+#: web/templates/web/partials/navbar.html:73
+msgid "dashboard"
+msgstr "لوحة التحكم"
+
+#: web/templates/web/partials/navbar.html:28
 msgid "notifications"
 msgstr "التنبيهات"
 
+#: web/templates/web/partials/navbar.html:38
+#: web/templates/web/partials/navbar.html:39
+#: web/templates/web/partials/navbar.html:78
 msgid "logout"
 msgstr "خروج"
 
+#: web/templates/web/partials/navbar.html:75
 #, fuzzy
 #| msgid "accounts_profile"
 msgid "profile"
 msgstr "الملف الشخصي"
 
+#: web/templates/web/partials/privacy/section_en.html:5
 msgid "SECTION 1"
 msgstr "القسم الأول"
 
+#: web/templates/web/partials/privacy/section_en.html:6
 msgid "Information We Collect"
 msgstr "البيانات التي نجمعها"
 
+#: web/templates/web/partials/privacy/section_en.html:7
 msgid "a. Account Information (if you sign in)"
 msgstr "أ. بيانات الحساب (عند تسجيل الدخول)"
 
+#: web/templates/web/partials/privacy/section_en.html:8
 msgid ""
 "If you create an account, we collect your <strong class=\"text-"
 "slate-700\">email address</strong> and <strong class=\"text-"
-"slate-700\">name</strong>. This data is sent to our server (<strong "
-"class=\"text-slate-700\">wird.me</strong>) to manage your session. "
-"Authentication tokens are stored encrypted on your device only."
+"slate-700\">name</strong>. This data is sent to our server to manage your "
+"session. Authentication tokens are stored encrypted on your device only."
 msgstr ""
 
+#: web/templates/web/partials/privacy/section_en.html:9
 msgid "b. Firebase Device Token (FCM)"
 msgstr "ب. رمز جهاز Firebase (FCM)"
 
+#: web/templates/web/partials/privacy/section_en.html:10
 msgid ""
 "We use Firebase Cloud Messaging (by Google) to deliver push notifications. "
 "An anonymous device token is generated by Firebase and sent to our server. "
@@ -936,9 +655,11 @@ msgstr ""
 "Firebase رمزاً مجهولاً للجهاز يُرسل لخادمنا. هذا الرمز لا يعرّفك شخصياً ويُستخدم "
 "فقط لإرسال الإشعارات."
 
+#: web/templates/web/partials/privacy/section_en.html:11
 msgid "c. Contact Messages"
 msgstr "ج. رسائل التواصل"
 
+#: web/templates/web/partials/privacy/section_en.html:12
 msgid ""
 "If you use the Contact Us feature, we receive the message you write and the "
 "email you provide."
@@ -946,98 +667,112 @@ msgstr ""
 "إذا استخدمت خاصية التواصل، نتلقى الرسالة التي تكتبها مع البريد الإلكتروني "
 "الذي تدخله."
 
+#: web/templates/web/partials/privacy/section_en.html:16
 msgid "SECTION 2"
 msgstr "القسم الثاني"
 
+#: web/templates/web/partials/privacy/section_en.html:17
 msgid "Data Stored Only on Your Device"
 msgstr "البيانات المحفوظة على جهازك فقط"
 
+#: web/templates/web/partials/privacy/section_en.html:18
 msgid ""
 "The following data is stored locally and <strong class=\"text-"
 "slate-700\">never transmitted</strong>:"
 msgstr ""
 
-msgid "Reading progress, Khatmah plan, and Wird position"
-msgstr "تقدم القراءة وخطة الختمة وموقع الورد"
+#: web/templates/web/partials/privacy/section_en.html:20
+msgid "privacy_local_sessions_progress"
+msgstr "جلساتك وتقدم الحفظ والمراجعة"
 
-msgid "Azkar completion progress"
-msgstr "تقدم الأذكار"
+#: web/templates/web/partials/privacy/section_en.html:21
+#, fuzzy
+#| msgid "rbac_access_notifications"
+msgid "privacy_local_notification_prefs"
+msgstr "تفضيلات الإشعارات والحساب"
 
-msgid "Notification schedule and preferences"
-msgstr "جدول التنبيهات وإعداداتها"
+#: web/templates/web/partials/privacy/section_en.html:22
+msgid "privacy_local_display_settings"
+msgstr "إعدادات العرض وإمكانية الوصول"
 
-msgid "Selected reciter and Mushaf style"
-msgstr "القارئ والمصحف المختار"
-
-msgid "Accessibility and display settings"
-msgstr "إعدادات إمكانية الوصول والعرض"
-
-msgid "Downloaded Mushaf images and audio files"
-msgstr "صفحات المصحف المُنزَّلة وملفات التلاوات"
-
-msgid "The Quran database"
-msgstr "قاعدة بيانات القرآن الكريم"
-
+#: web/templates/web/partials/privacy/section_en.html:27
 msgid "SECTION 3"
 msgstr "القسم الثالث"
 
+#: web/templates/web/partials/privacy/section_en.html:28
 msgid "Microphone Access"
 msgstr "الميكروفون والأوامر الصوتية"
 
+#: web/templates/web/partials/privacy/section_en.html:29
 msgid ""
 "If you enable the <strong class=\"text-slate-700\">Voice Commands</strong> "
 "accessibility feature, the app uses your device microphone to recognise "
 "spoken Arabic navigation commands."
 msgstr ""
 
+#: web/templates/web/partials/privacy/section_en.html:31
 msgid ""
 "All voice processing happens locally on your device. No audio is sent to our "
 "servers or any third party."
 msgstr ""
 "تتم المعالجة الصوتية محلياً على جهازك تماماً. لا نستقبل أو نخزن أي تسجيل صوتي."
 
+#: web/templates/web/partials/privacy/section_en.html:36
 msgid "SECTION 4"
 msgstr "القسم الرابع"
 
+#: web/templates/web/partials/privacy/section_en.html:37
 msgid "Third-Party Services"
 msgstr "خدمات الطرف الثالث"
 
+#: web/templates/web/partials/privacy/section_en.html:41
 msgid "Service"
 msgstr "الخدمة"
 
+#: web/templates/web/partials/privacy/section_en.html:42
 msgid "Provider"
 msgstr "المزود"
 
+#: web/templates/web/partials/privacy/section_en.html:43
 msgid "Purpose"
 msgstr "الغرض"
 
+#: web/templates/web/partials/privacy/section_en.html:49
 msgid "Push notifications"
 msgstr "الإشعارات الفورية"
 
+#: web/templates/web/partials/privacy/section_en.html:54
 msgid "App initialisation"
 msgstr "تهيئة التطبيق"
 
+#: web/templates/web/partials/privacy/section_en.html:59
 msgid "Subject to Google's Privacy Policy:"
 msgstr "تخضع لسياسة خصوصية Google:"
 
+#: web/templates/web/partials/privacy/section_en.html:65
 msgid "SECTION 5"
 msgstr "القسم الخامس"
 
+#: web/templates/web/partials/privacy/section_en.html:66
 msgid "Analytics and Crash Reporting"
 msgstr "التحليلات وتقارير الأعطال"
 
+#: web/templates/web/partials/privacy/section_en.html:67
 msgid ""
 "This app does <strong class=\"text-slate-700\">not</strong> use Firebase "
 "Analytics, Crashlytics, or any third-party analytics or advertising SDK. We "
 "do not track your behaviour inside the app."
 msgstr ""
 
+#: web/templates/web/partials/privacy/section_en.html:71
 msgid "SECTION 6"
 msgstr "القسم السادس"
 
+#: web/templates/web/partials/privacy/section_en.html:72
 msgid "Data Sharing"
 msgstr "مشاركة البيانات"
 
+#: web/templates/web/partials/privacy/section_en.html:73
 msgid ""
 "We do not sell, trade, or share your personal data with third parties for "
 "advertising or commercial purposes. Data is shared only with Firebase "
@@ -1047,39 +782,49 @@ msgstr ""
 "لا نبيع بياناتك ولا نشاركها مع أطراف ثالثة لأغراض إعلانية أو تجارية. "
 "البيانات تُشارك فقط مع Firebase لتوصيل الإشعارات."
 
+#: web/templates/web/partials/privacy/section_en.html:77
 msgid "SECTION 7"
 msgstr "القسم السابع"
 
+#: web/templates/web/partials/privacy/section_en.html:78
 msgid "Data Security"
 msgstr "أمان البيانات"
 
+#: web/templates/web/partials/privacy/section_en.html:80
 msgid ""
 "Authentication tokens are stored using platform-level encrypted storage "
 "(Android Keystore)."
 msgstr ""
 "تُخزَّن رموز المصادقة باستخدام التشفير على مستوى النظام (Android Keystore)."
 
+#: web/templates/web/partials/privacy/section_en.html:81
 msgid "All communication with our server uses HTTPS."
 msgstr "جميع الاتصالات بالخادم تتم عبر HTTPS."
 
+#: web/templates/web/partials/privacy/section_en.html:86
 msgid "SECTION 8"
 msgstr "القسم الثامن"
 
+#: web/templates/web/partials/privacy/section_en.html:87
 msgid "Your Rights"
 msgstr "حقوقك"
 
+#: web/templates/web/partials/privacy/section_en.html:88
 msgid ""
 "If you have created an account, you may request access to or deletion of "
 "your data through the <strong class=\"text-slate-700\">Contact Us</strong> "
 "screen inside the app."
 msgstr ""
 
+#: web/templates/web/partials/privacy/section_en.html:92
 msgid "SECTION 9"
 msgstr "القسم التاسع"
 
+#: web/templates/web/partials/privacy/section_en.html:93
 msgid "Audience"
 msgstr "الجمهور المستهدف"
 
+#: web/templates/web/partials/privacy/section_en.html:94
 msgid ""
 "This app is designed to be suitable for a general audience. It contains no "
 "adult content, no violence, and no advertising."
@@ -1087,2537 +832,133 @@ msgstr ""
 "هذا التطبيق مصمم ليناسب جمهوراً عاماً. لا يحتوي على محتوى للبالغين أو عنف أو "
 "إعلانات."
 
+#: web/templates/web/partials/privacy/section_en.html:98
 msgid "SECTION 10"
 msgstr "القسم العاشر"
 
+#: web/templates/web/partials/privacy/section_en.html:99
 msgid "Changes to This Policy"
 msgstr "تغييرات السياسة"
 
+#: web/templates/web/partials/privacy/section_en.html:100
 msgid "We may update this policy from time to time. The \\"
 msgstr ""
 
-msgid "Wird App"
-msgstr "تطبيق وِرد"
 
 #, fuzzy
-#| msgid "privacy_policy"
-msgid "Privacy Policy"
-msgstr "سياسة الخصوصية"
 
-msgid "Last updated May 2026"
-msgstr "آخر تحديث مايو 2026"
 
-#~ msgid "web_wrd"
-#~ msgstr "وِرد"
-
-#~ msgid "system_description"
-#~ msgstr "منصة لقراءة القرآن والاستماع للتلاوات والتفسير بسهولة"
-
-#~ msgid "web_platform_wrd_platform_rqmyh_mtkamlh_thdf_tshyl_tlawh_quran_alkrym_wtdbrh_btryqh_mnzmh_wjdhabh"
-#~ msgstr ""
-#~ "منصة وِرْد هي منصة رقمية متكاملة تهدف إلى تسهيل تلاوة القرآن وتدبره بطريقة "
-#~ "منظمة وجذابة"
-
-#~ msgid "hifz"
-#~ msgstr "الحفظ"
-
-#~ msgid "Juz %(number)s"
-#~ msgstr "جزء %(number)s"
-
-#~ msgid "juz_number"
-#~ msgstr "جزء %(number)s"
-
-#~ msgid "basmala_text"
-#~ msgstr "بسم الله الرحمن الرحيم"
-
-#~ msgid "open_mushaf"
-#~ msgstr "افتح المصحف"
-
-#~ msgid "hafs"
-#~ msgstr "حفص"
-
-#~ msgid "warsh"
-#~ msgstr "ورش"
-
-#~ msgid "qaloun"
-#~ msgstr "قالون"
-
-#~ msgid "douri"
-#~ msgstr "الدوري"
-
-#~ msgid "shuba"
-#~ msgstr "شعبة"
-
-#~ msgid "sousi"
-#~ msgstr "السوسي"
-
-#~ msgid "mushaf_sources_from"
-#~ msgstr "معظم المصاحف من"
-
-#~ msgid "complex"
-#~ msgstr "مجمع الملك فهد لطباعة المصحف الشريف"
-
-#~ msgid "quran_no_tfsyr"
-#~ msgstr "لا يوجد تفسير"
-
-#~ msgid "tajweed"
-#~ msgstr "التجويد"
-
-#~ msgid "quran_show_meanings_words"
-#~ msgstr "إظهار معاني الكلمات"
-
-#~ msgid "quran_hide_word_meanings"
-#~ msgstr "إخفاء معاني الكلمات"
-
-#~ msgid "loading_word_meanings"
-#~ msgstr "جاري تحميل معاني الكلمات..."
-
-#~ msgid "quran_jary_load_meanings_words"
-#~ msgstr "جاري تحميل معاني الكلمات"
-
-#~ msgid "quran_failed_load_meanings_words"
-#~ msgstr "تعذر تحميل معاني الكلمات"
-
-#~ msgid "quran_no_exists_meanings_mtahh_alaayh"
-#~ msgstr "لا توجد معاني متاحة لهذه الآية"
-
-#~ msgid "quran_stzhr_meanings_words_on_play_altlawh"
-#~ msgstr "ستظهر معاني الكلمات عند تشغيل التلاوة"
-
-#~ msgid "quran_mkyh"
-#~ msgstr "مكية"
-
-#~ msgid "quran_mdnyh"
-#~ msgstr "مدنية"
-
-#~ msgid "start"
-#~ msgstr "ابدأ"
-
-#~ msgid "selected_ayah"
-#~ msgstr "الآية المختارة"
-
-#~ msgid "analysis_result"
-#~ msgstr "النتيجة"
-
-#~ msgid "select_ayah_first"
-#~ msgstr "اختر آية أولًا"
-
-#~ msgid "browse_reciters"
-#~ msgstr "تصفح القراء"
-
-#~ msgid "next_wirds"
-#~ msgstr "الأوراد القادمة"
-
-#~ msgid "previous_wirds"
-#~ msgstr "الأوراد السابقة"
-
-#~ msgid "one_juz"
-#~ msgstr "1 جزء"
-
-#~ msgid "hifz_display_tools"
-#~ msgstr "أدوات العرض"
-
-#~ msgid "hifz_display_alaady"
-#~ msgstr "العرض العادي"
-
-#~ msgid "hifz_repeat_ayah"
-#~ msgstr "تكرار الآية"
-
-#~ msgid "hifz_without_repeat"
-#~ msgstr "بدون تكرار"
-
-#~ msgid "hifz_mrtan"
-#~ msgstr "مرتان"
-
-#~ msgid "hifz_mrat"
-#~ msgstr "مرات"
-
-#~ msgid "hifz_zoom_mushaf"
-#~ msgstr "تكبير المصحف"
-
-#~ msgid "khatma_summary_text"
-#~ msgstr "سيتم تقسيم القرآن حسب المدة والمقدار المحدد لتسهيل الختمة اليومية"
-
-#~ msgid "resume_reading"
-#~ msgstr "متابعة القراءة"
-
-#~ msgid "percentage"
-#~ msgstr "نسبة التقدّم"
-
-#~ msgid "progress"
-#~ msgstr "التقدم"
-
-#~ msgid "from_page"
-#~ msgstr "صفحة البداية"
-
-#~ msgid "to_page"
-#~ msgstr "صفحة النهاية"
-
-#~ msgid "from_surah_ayah"
-#~ msgstr "من"
-
-#~ msgid "to_surah_ayah"
-#~ msgstr "إلى"
-
-#~ msgid "daily_reading_start_example"
-#~ msgstr "سورة الفاتحة - آية 1"
-
-#~ msgid "daily_reading_end_example"
-#~ msgstr "سورة البقرة - آية 141"
-
-#~ msgid "current_ayah_number"
-#~ msgstr "رقم الآية الحالية"
-
-#~ msgid "accounts_sjl_aldkhwl_anshy_hsaba_llmtabah"
-#~ msgstr "سجل الدخول أو أنشئ حسابًا للمتابعة"
-
-#~ msgid "welcome"
-#~ msgstr "مرحبًا"
-
-#~ msgid "welcome_message"
-#~ msgstr "مرحبًا بك في منصة وِرد للقرآن الكريم"
-
-#~ msgid "accounts_welcome_bk"
-#~ msgstr "مرحبًا بك"
-
-#~ msgid "accounts_updated_mlfk_profile"
-#~ msgstr "تم تحديث ملفك الشخصي"
-
-#~ msgid "accounts_settings"
-#~ msgstr "إعدادات"
-
-#~ msgid "login_settings"
-#~ msgstr "إعدادات تسجيل الدخول"
-
-#~ msgid "confirm_password"
-#~ msgstr "تأكيد كلمة المرور"
-
-#~ msgid "accounts_password_aljdydh"
-#~ msgstr "كلمة المرور الجديدة"
-
-#~ msgid "accounts_show_hide_password"
-#~ msgstr "إظهار أو إخفاء كلمة المرور"
-
-#~ msgid "accounts_name_user_required"
-#~ msgstr "اسم المستخدم مطلوب"
-
-#~ msgid "accounts_name_user_already"
-#~ msgstr "اسم المستخدم مستخدم مسبقًا"
-
-#~ msgid "enter_email"
-#~ msgstr "أدخل بريدك الإلكتروني"
-
-#~ msgid "accounts_email_required"
-#~ msgstr "البريد الإلكتروني مطلوب"
-
-#~ msgid "accounts_email_user_already"
-#~ msgstr "البريد الإلكتروني مستخدم مسبقًا"
-
-#~ msgid "invalid_email"
-#~ msgstr "صيغة البريد الإلكتروني غير صحيحة"
-
-#~ msgid "full_name"
-#~ msgstr "الاسم الكامل"
-
-#~ msgid "phone"
-#~ msgstr "رقم الجوال"
-
-#~ msgid "invalid_phone"
-#~ msgstr "رقم الجوال غير صحيح"
-
-#~ msgid "accounts_number_aljwal_user_already"
-#~ msgstr "رقم الجوال مستخدم مسبقًا"
-
-#~ msgid "accounts_job_title"
-#~ msgstr "الوظيفة"
-
-#~ msgid "accounts_dhkr"
-#~ msgstr "ذكر"
-
-#~ msgid "accounts_female"
-#~ msgstr "أنثى"
-
-#~ msgid "accounts_success_created_hsabk"
-#~ msgstr "تم إنشاء حسابك بنجاح"
-
-#~ msgid "accounts_success_created_hsabk_3"
-#~ msgstr ""
-#~ "تم إنشاء حسابك بنجاح، ويسعدنا انضمامك إلى المنصة. نتمنى لك تجربة مميزة "
-#~ "ومثمرة"
-
-#~ msgid "login_failed"
-#~ msgstr "بيانات تسجيل الدخول غير صحيحة"
-
-#~ msgid "accounts_klmta_password_ghyr_mttabqtyn"
-#~ msgstr "كلمتا المرور غير متطابقتين"
-
-#~ msgid "accounts_password_yjb_an_tkwn_8_ahrf_alaql"
-#~ msgstr "كلمة المرور يجب أن تكون 8 أحرف على الأقل"
-
-#~ msgid "accounts_success_save_altadylat"
-#~ msgstr "تم حفظ التعديلات بنجاح"
-
-#~ msgid "accounts_success_save_byanatk"
-#~ msgstr "تم حفظ بياناتك بنجاح"
-
-#~ msgid "accounts_success_save_data_wthdyth_password"
-#~ msgstr "تم حفظ البيانات وتحديث كلمة المرور بنجاح"
-
-#~ msgid "accounts_success_updated_settings_tsjyl_aldkhwl"
-#~ msgstr "تم تحديث إعدادات تسجيل الدخول بنجاح"
-
-#~ msgid "accounts_welcome_bk_aatmad_hsabk_wymknk_now_altqdym_almsharya"
-#~ msgstr "مرحبًا بك، تم اعتماد حسابك ويمكنك الآن التقديم على المشاريع"
-
-#~ msgid "accounts_welcome_bk_center_alabtkar_ntmna_lk_tjrbh_mmyzh"
-#~ msgstr "مرحبًا بك في مركز الابتكار، نتمنى لك تجربة مميزة"
-
-#~ msgid "accounts_manage_center_alabtkar"
-#~ msgstr "إدارة مركز الابتكار"
-
-#~ msgid "accounts_local"
-#~ msgstr "المحلي"
-
-#~ msgid "accounts_login_unified"
-#~ msgstr "التسجيل الموحد"
-
-#~ msgid "accounts_enable_almsadqh_alkharjyh"
-#~ msgstr "تفعيل المصادقة الخارجية"
-
-#~ msgid "accounts_althkm_trq_almsadqh_almsmwh_system"
-#~ msgstr "التحكم في طرق المصادقة المسموح بها في النظام"
-
-#~ msgid "accounts_qaadh_data_system"
-#~ msgstr "من قاعدة بيانات النظام"
-
-#~ msgid "accounts_yesterday"
-#~ msgstr "أمس"
-
-#~ msgid "accounts_saah"
-#~ msgstr "قبل ساعة"
-
-#~ msgid "accounts_10_dqayq"
-#~ msgstr "قبل 10 دقائق"
-
-#~ msgid "accounts_5_dqayq"
-#~ msgstr "قبل 5 دقائق"
-
-#~ msgid "contact_contact_us"
-#~ msgstr "اتصل بنا"
-
-#~ msgid "contact_contact_mana_via_nmwdhj_alatsal"
-#~ msgstr "تواصل معنا عبر نموذج الاتصال"
-
-#~ msgid "contact_description"
-#~ msgstr "يمكنك التواصل معنا لأي استفسار أو دعم"
-
-#~ msgid "contact_thanks_lk_snraja_rsaltk_wntwasl_mak_qryba"
-#~ msgstr "شكرًا لك، سنراجع رسالتك ونتواصل معك قريبًا"
-
-#~ msgid "contact_success_send_rsaltk"
-#~ msgstr "تم إرسال رسالتك بنجاح"
-
-#~ msgid "write_message"
-#~ msgstr "اكتب رسالتك هنا"
-
-#~ msgid "contact_message"
-#~ msgstr "الرسالة"
-
-#~ msgid "contact_message_mtlwbh"
-#~ msgstr "الرسالة مطلوبة"
-
-#~ msgid "contact_name_required"
-#~ msgstr "الاسم مطلوب"
-
-#~ msgid "contact_email_required"
-#~ msgstr "البريد مطلوب"
-
-#~ msgid "contact_email_ghyr_invalid"
-#~ msgstr "بريد غير صحيح"
-
-#~ msgid "contact_alhatf"
-#~ msgstr "الهاتف"
-
-#~ msgid "contact_aljwal"
-#~ msgstr "الجوال"
-
-#~ msgid "contact_email"
-#~ msgstr "البريد"
-
-#~ msgid "contact_date"
-#~ msgstr "التاريخ"
-
-#~ msgid "contact_all_messages"
-#~ msgstr "جميع الرسائل"
-
-#~ msgid "contact_contact_messages"
-#~ msgstr "رسائل التواصل"
-
-#~ msgid "contact_manage_messages_communication"
-#~ msgstr "إدارة رسائل التواصل"
-
-#~ msgid "contact_message_details"
-#~ msgstr "تفاصيل الرسالة"
-
-#~ msgid "contact_message_communication_details"
-#~ msgstr "تفاصيل رسالة التواصل"
-
-#~ msgid "contact_fth_details_message"
-#~ msgstr "فتح تفاصيل رسالة"
-
-#~ msgid "contact_click_message_mbashrh_lfth_tfasylha"
-#~ msgstr "اضغط على الرسالة مباشرة لفتح تفاصيلها"
-
-#~ msgid "contact_search_balasm_email_message"
-#~ msgstr "بحث بالاسم أو البريد أو الرسالة"
-
-#~ msgid "contact_no_messages_currently"
-#~ msgstr "لا توجد رسائل حالياً"
-
-#~ msgid "contact_reply"
-#~ msgstr "تم الرد"
-
-#~ msgid "contact_reply_message"
-#~ msgstr "الرد على الرسالة"
-
-#~ msgid "write_reply"
-#~ msgstr "اكتب الرد ثم أرسله مباشرة"
-
-#~ msgid "contact_send_reply"
-#~ msgstr "إرسال الرد"
-
-#~ msgid "contact_text_reply"
-#~ msgstr "نص الرد"
-
-#~ msgid "contact_title_reply"
-#~ msgstr "عنوان الرد"
-
-#~ msgid "contact_last_saved_reply"
-#~ msgstr "آخر رد محفوظ"
-
-#~ msgid "contact_reply_rsaltk_mwqana"
-#~ msgstr "رد على رسالتك في موقعنا"
-
-#~ msgid "contact_message_jdydh_contact_mana"
-#~ msgstr "رسالة جديدة من تواصل معنا"
-
-#~ msgid "contact_jdydh"
-#~ msgstr "جديدة"
-
-#~ msgid "contact_ghyr_almqrwh"
-#~ msgstr "غير المقروءة"
-
-#~ msgid "contact_done_reading"
-#~ msgstr "تمت القراءة"
-
-#~ msgid "contact_jary_sending"
-#~ msgstr "جاري الإرسال"
-
-#~ msgid "contact_sending_mwkhra_hawl_mrh_akhra_qlyl"
-#~ msgstr "تم الإرسال مؤخرًا، حاول مرة أخرى بعد قليل"
-
-#~ msgid "contact_send_reply_lhzat_hawl_mrh_akhra_qlyl"
-#~ msgstr "تم إرسال رد قبل لحظات، حاول مرة أخرى بعد قليل"
-
-#~ msgid "accounts_hal_wajht_ay_mshklh_no_ttrdd_communication_mana"
-#~ msgstr "في حال واجهت أي مشكلة، لا تتردد في التواصل معنا"
-
-#~ msgid "accounts_fryq_aldam"
-#~ msgstr "فريق الدعم"
-
+# =============================================================================
+# 6. التواصل والدعم الفني (Contact & Support)
+# =============================================================================
+# =============================================================================
+# 2. واجهة القراءة والتلاوة والتفسير (Core Reading & Audio Experience)
+# =============================================================================
+# =============================================================================
+# 15. أسماء السور (Surah Names)
+# =============================================================================
+# =============================================================================
+# 4. الورد اليومي والختمات والحفظ (Hifz & Daily Wird & Khatma)
+# =============================================================================
+# =============================================================================
+# 3. مشغل التلاوة والقراء (Recitation & Reciters)
+# =============================================================================
 # =============================================================================
 # 7. الاشتراكات والنشرات البريدية (Subscriptions & Newsletter)
 # =============================================================================
-#~ msgid "subscribe"
-#~ msgstr "اشتراك"
-
-#~ msgid "subscriptions"
-#~ msgstr "الاشتراكات"
-
-#~ msgid "subscription_active"
-#~ msgstr "مفعل"
-
-#~ msgid "subscription_active_3"
-#~ msgstr "نشط"
-
-#~ msgid "subscription_stopped"
-#~ msgstr "موقوف"
-
-#~ msgid "subscription_confirmed_subscribers"
-#~ msgstr "مشتركين مؤكّدين"
-
-#~ msgid "subscription_total_subscribers"
-#~ msgstr "إجمالي المشتركين"
-
-#~ msgid "subscription_all_subscribers"
-#~ msgstr "جميع المشتركين"
-
-#~ msgid "subscription_subscribers_alnshtyn"
-#~ msgstr "المشتركين النشطين"
-
-#~ msgid "subscription_almfalyn"
-#~ msgstr "المفعلين"
-
-#~ msgid "subscription_mwkd"
-#~ msgstr "مؤكد"
-
-#~ msgid "subscription_ghyr_mwkd"
-#~ msgstr "غير مؤكد"
-
-#~ msgid "subscription_altakyd"
-#~ msgstr "تم التأكيد"
-
-#~ msgid "subscription_mshtrkw_alnshrh_albrydyh"
-#~ msgstr "مشتركو النشرة البريدية"
-
-#~ msgid "subscription_subscriber_nshrh_email"
-#~ msgstr "مشترك نشرة بريدية"
-
-#~ msgid "subscription_message"
-#~ msgstr "اشترك لتصلك رسائلنا"
-
-#~ msgid "subscription_no_subscribers_halya"
-#~ msgstr "لا يوجد مشتركين حالياً"
-
-#~ msgid "subscription_cancel_subscription"
-#~ msgstr "إلغاء الاشتراك"
-
-#~ msgid "subscription_cancel_ashtrak_email"
-#~ msgstr "تم إلغاء اشتراك البريد"
-
-#~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
-#~ msgstr "إلغاء الاشتراك من رسائل وِرد القرآن"
-
-#~ msgid "subscription_messages_wrd_quran_alkrym"
-#~ msgstr "من رسائل وِرد القرآن"
-
-#~ msgid "subscription_manage_subscriptions"
-#~ msgstr "إدارة الاشتراكات"
-
-#~ msgid "subscription_view_subscriptions"
-#~ msgstr "عرض الاشتراكات"
-
-#~ msgid "subscription_summary_subscriptions"
-#~ msgstr "ملخص الاشتراكات"
-
-#~ msgid "subscription_subscription_center"
-#~ msgstr "مركز الاشتراكات"
-
-#~ msgid "subscription_overview_subscribers_alnshrh_albrydyh"
-#~ msgstr "نظرة عامة على المشتركين في النشرة البريدية"
-
-#~ msgid "subscription_qaymh_aliymylat_almsjlh_lastqbal_alnshrat_walrsayl"
-#~ msgstr "قائمة الإيميلات المسجلة لاستقبال النشرات والرسائل"
-
-#~ msgid "subscription_date_subscription"
-#~ msgstr "تاريخ الاشتراك"
-
-#~ msgid "subscription_date_cancel_subscription"
-#~ msgstr "تاريخ إلغاء الاشتراك"
-
-#~ msgid "subscription_search_balbryd_email"
-#~ msgstr "بحث بالبريد الإلكتروني"
-
-#~ msgid "subscription_create_message"
-#~ msgstr "إنشاء رسالة"
-
-#~ msgid "subscription_send_message_email_all_subscribers_alnshtyn_walmwkdyn"
-#~ msgstr "إرسال رسالة بريدية إلى جميع المشتركين النشطين والمؤكدين"
-
-#~ msgid "dashboard_dashboard_overview"
-#~ msgstr "لوحة المعلومات"
-
-#~ msgid "dashboard_lwhh_althkm_aldakhlyh"
-#~ msgstr "لوحة التحكم الداخلية"
-
-#~ msgid "dashboard_overview_sryah_ahm_alwhdat_waliadadat_system"
-#~ msgstr "نظرة عامة سريعة على أهم الوحدات والإعدادات في النظام"
-
-#~ msgid "dashboard_summary_alarqam_walmwshrat_alaamh_system"
-#~ msgstr "ملخص الأرقام والمؤشرات العامة في النظام"
-
-#~ msgid "analytics_site_statistics"
-#~ msgstr "إحصائيات الموقع"
-
-#~ msgid "analytics_page_statistics"
-#~ msgstr "إحصائيات الصفحات"
-
-#~ msgid "analytics_audio_statistics"
-#~ msgstr "إحصائيات الصوت"
-
-#~ msgid "analytics_tafsir_statistics"
-#~ msgstr "إحصائيات التفاسير"
-
-#~ msgid "analytics_mushaf_statistics"
-#~ msgstr "إحصائيات المصحف"
-
-#~ msgid "analytics_total_visitors"
-#~ msgstr "إجمالي الزوار"
-
-#~ msgid "analytics_total_visits_pages"
-#~ msgstr "إجمالي زيارات الصفحات"
-
-#~ msgid "analytics_most_visited_pages"
-#~ msgstr "أكثر الصفحات زيارة"
-
-#~ msgid "analytics_visits_pages"
-#~ msgstr "زيارات الصفحات"
-
-#~ msgid "analytics_visits_latest_7_ayam"
-#~ msgstr "زيارات آخر 7 أيام"
-
-#~ msgid "analytics_visits_latest_30_day"
-#~ msgstr "زيارات آخر 30 يوم"
-
-#~ msgid "analytics_zwar_latest_7_ayam"
-#~ msgstr "زوار آخر 7 أيام"
-
-#~ msgid "analytics_visits_alayam_alakhyrh"
-#~ msgstr "زيارات الأيام الأخيرة"
-
-#~ msgid "analytics_audio_plays"
-#~ msgstr "تشغيلات الصوت"
-
-#~ msgid "analytics_plays_audio_latest_7_ayam"
-#~ msgstr "تشغيلات الصوت آخر 7 أيام"
-
-#~ msgid "analytics_total_seconds_listening"
-#~ msgstr "إجمالي ثواني الاستماع"
-
-#~ msgid "analytics_most_listened_pages"
-#~ msgstr "أكثر الصفحات استماعًا"
-
-#~ msgid "analytics_most_played_surahs"
-#~ msgstr "أكثر السور تشغيلًا"
-
-#~ msgid "analytics_most_played_reciters"
-#~ msgstr "أكثر القرّاء تشغيلًا"
-
-#~ msgid "analytics_flips_pages"
-#~ msgstr "تقليب الصفحات"
-
-#~ msgid "analytics_most_sfhat_mushaf_tqlyba"
-#~ msgstr "أكثر صفحات المصحف تقليبًا"
-
-#~ msgid "analytics_total_opens_tafsir"
-#~ msgstr "إجمالي فتحات التفسير"
-
-#~ msgid "analytics_fth_altfasyr_latest_7_ayam"
-#~ msgstr "فتح التفاسير آخر 7 أيام"
-
-#~ msgid "analytics_most_ktb_tafsir_opened"
-#~ msgstr "أكثر كتب التفسير فتحًا"
-
-#~ msgid "analytics_most_ktab_astkhdama"
-#~ msgstr "أكثر كتاب استخدامًا"
-
-#~ msgid "analytics_most_sfhat_tafsir_opened"
-#~ msgstr "أكثر صفحات التفسير فتحًا"
-
-#~ msgid "analytics_most_page_tfsyr_opened"
-#~ msgstr "أكثر صفحة تفسير فتحًا"
-
-#~ msgid "analytics_most_swrh_fth_tfsyrha"
-#~ msgstr "أكثر سورة فُتح تفسيرها"
-
-#~ msgid "analytics_most_surahs_tfsyra"
-#~ msgstr "أكثر السور تفسيرًا"
-
-#~ msgid "analytics_most_opened_ayahs_in_tafsir"
-#~ msgstr "أكثر الآيات فتحًا في التفسير"
-
-#~ msgid "analytics_latest_interactions"
-#~ msgstr "آخر التفاعلات"
-
-#~ msgid "analytics_mtabah_alzwar_alsfhat_play_alswt_wtqlyb_sfhat_mushaf"
-#~ msgstr "متابعة الزوار، الصفحات، تشغيل الصوت، وتقليب صفحات المصحف"
-
-#~ msgid "analytics_mtabah_fth_altfasyr_walktb_alakthr_astkhdama_walsfhat_walswr_walaayat_almrtbth"
-#~ msgstr ""
-#~ "متابعة فتح التفاسير والكتب الأكثر استخدامًا والصفحات والسور والآيات "
-#~ "المرتبطة بها"
-
-#~ msgid "analytics_lwhh_hyh"
-#~ msgstr "لوحة حية"
-
-#~ msgid "analytics_no_data_yet"
-#~ msgstr "لا توجد بيانات بعد"
-
-#~ msgid "analytics_no_interactions_yet"
-#~ msgstr "لا توجد تفاعلات بعد"
-
-#~ msgid "analytics_alaayh"
-#~ msgstr "الآية"
-
-#~ msgid "analytics_audio"
-#~ msgstr "الصوت"
-
-#~ msgid "analytics_page"
-#~ msgstr "الصفحة"
-
-#~ msgid "analytics_pages"
-#~ msgstr "الصفحات"
-
-#~ msgid "analytics_surah"
-#~ msgstr "سورة"
-
-#~ msgid "analytics_mushaf"
-#~ msgstr "المصحف"
-
-#~ msgid "analytics_time"
-#~ msgstr "الوقت"
-
-#~ msgid "analytics_type"
-#~ msgstr "النوع"
-
-#~ msgid "analytics_path"
-#~ msgstr "المسار"
-
-#~ msgid "analytics_add"
-#~ msgstr "عدد"
-
-#~ msgid "analytics_alfrydh"
-#~ msgstr "الفريدة"
-
-#~ msgid "analytics_alzyarat"
-#~ msgstr "الزيارات"
-
-#~ msgid "analytics_altshghylat"
-#~ msgstr "التشغيلات"
-
-#~ msgid "analytics_completions_audio"
-#~ msgstr "إكمالات الصوت"
-
-#~ msgid "analytics_fth_tafsir"
-#~ msgstr "فتح التفسير"
-
 # =============================================================================
 # 9. إدارة الصلاحيات والأدوار والمستخدمين (RBAC)
 # =============================================================================
-#~ msgid "roles"
-#~ msgstr "الأدوار"
-
-#~ msgid "permissions"
-#~ msgstr "الصلاحيات"
-
-#~ msgid "users"
-#~ msgstr "المستخدمون"
-
-#~ msgid "rbac_manage_users"
-#~ msgstr "إدارة المستخدمين"
-
-#~ msgid "rbac_manage_roles"
-#~ msgstr "إدارة الأدوار"
-
-#~ msgid "rbac_manage_permissions"
-#~ msgstr "إدارة الصلاحيات"
-
-#~ msgid "dashboard_manage_accounts_users_roles_walslahyat"
-#~ msgstr "إدارة حسابات المستخدمين والأدوار والصلاحيات"
-
-#~ msgid "dashboard_nzam_manage_users_walslahyat"
-#~ msgstr "نظام إدارة المستخدمين والصلاحيات"
-
-#~ msgid "dashboard_manage_permissions"
-#~ msgstr "إدارة الصلاحيات"
-
-#~ msgid "rbac_manage_roles_system_walslahyat_almrtbth"
-#~ msgstr "إدارة أدوار النظام والصلاحيات المرتبطة بها"
-
-#~ msgid "rbac_manage_users_wtayyn_roles"
-#~ msgstr "إدارة المستخدمين وتعيين الأدوار"
-
-#~ msgid "rbac_add_user"
-#~ msgstr "إضافة مستخدم"
-
-#~ msgid "rbac_add_user_new"
-#~ msgstr "إضافة مستخدم جديد"
-
-#~ msgid "rbac_user_details"
-#~ msgstr "تفاصيل المستخدم"
-
-#~ msgid "rbac_view_details_user"
-#~ msgstr "عرض تفاصيل مستخدم"
-
-#~ msgid "rbac_view_data_user_wtayyn_roles"
-#~ msgstr "عرض بيانات المستخدم وتعيين الأدوار له"
-
-#~ msgid "rbac_add_role"
-#~ msgstr "إضافة دور"
-
-#~ msgid "rbac_edit_role"
-#~ msgstr "تعديل الدور"
-
-#~ msgid "rbac_delete_role"
-#~ msgstr "حذف الدور"
-
-#~ msgid "rbac_save_role"
-#~ msgstr "حفظ الدور"
-
-#~ msgid "rbac_role_name"
-#~ msgstr "اسم الدور"
-
-#~ msgid "rbac_role_alhaly"
-#~ msgstr "الدور الحالي"
-
-#~ msgid "rbac_roles_current"
-#~ msgstr "الأدوار الحالية"
-
-#~ msgid "rbac_role"
-#~ msgstr "الدور"
-
-#~ msgid "rbac_add_permission"
-#~ msgstr "إضافة صلاحية"
-
-#~ msgid "rbac_edit_permission"
-#~ msgstr "تعديل الصلاحية"
-
-#~ msgid "rbac_delete_permission"
-#~ msgstr "حذف الصلاحية"
-
-#~ msgid "rbac_save_permission"
-#~ msgstr "حفظ الصلاحية"
-
-#~ msgid "rbac_permission"
-#~ msgstr "الصلاحية"
-
-#~ msgid "rbac_permission_3"
-#~ msgstr "صلاحية"
-
-#~ msgid "rbac_permission_name"
-#~ msgstr "اسم الصلاحية"
-
-#~ msgid "rbac_kwd_permission"
-#~ msgstr "كود الصلاحية"
-
-#~ msgid "rbac_module"
-#~ msgstr "الوحدة"
-
-#~ msgid "rbac_link_roles_balslahyat"
-#~ msgstr "ربط الأدوار بالصلاحيات"
-
-#~ msgid "rbac_link_permissions_baladwar"
-#~ msgstr "ربط الصلاحيات بالأدوار"
-
-#~ msgid "rbac_success_created_user"
-#~ msgstr ""
-#~ "تم إنشاء المستخدم بنجاح، وتم إرسال بيانات الدخول إلى بريده الإلكتروني"
-
-#~ msgid "rbac_success_created_user_3"
-#~ msgstr ""
-#~ "تم إنشاء المستخدم بنجاح، ولكن تعذّر إرسال البريد الإلكتروني. تأكّد من "
-#~ "إعدادات البريد"
-
-#~ msgid "rbac_success_created_role"
-#~ msgstr "تم إنشاء الدور بنجاح"
-
-#~ msgid "rbac_success_created_permission"
-#~ msgstr "تم إنشاء الصلاحية بنجاح"
-
-#~ msgid "rbac_success_edit_role"
-#~ msgstr "تم تعديل الدور بنجاح"
-
-#~ msgid "rbac_success_edit_permission"
-#~ msgstr "تم تعديل الصلاحية بنجاح"
-
-#~ msgid "rbac_success_deleted_role"
-#~ msgstr "تم حذف الدور بنجاح"
-
-#~ msgid "rbac_success_deleted_permission"
-#~ msgstr "تم حذف الصلاحية بنجاح"
-
-#~ msgid "rbac_success_link_permission_baldwr"
-#~ msgstr "تم ربط الصلاحية بالدور بنجاح"
-
-#~ msgid "rbac_success_remove_permission_role"
-#~ msgstr "تم إزالة الصلاحية من الدور بنجاح"
-
-#~ msgid "rbac_success_updated_roles_user"
-#~ msgstr "تم تحديث أدوار المستخدم بنجاح"
-
-#~ msgid "rbac_confirm_delete_role"
-#~ msgstr "تأكيد حذف الدور"
-
-#~ msgid "rbac_confirm_delete_permission"
-#~ msgstr "تأكيد حذف الصلاحية"
-
-#~ msgid "rbac_you_are_about_to_delete_role"
-#~ msgstr "أنت على وشك حذف الدور"
-
-#~ msgid "rbac_you_are_about_to_delete_permission"
-#~ msgstr "أنت على وشك حذف الصلاحية"
-
-#~ msgid "rbac_no_ymkn_deleted_role_alasasy"
-#~ msgstr "لا يمكن حذف هذا الدور الأساسي"
-
-#~ msgid "rbac_no_ymkn_deleted_permission_primary"
-#~ msgstr "لا يمكن حذف هذه الصلاحية الأساسية"
-
-#~ msgid "rbac_no_ymkn_edit_code_role_alasasy"
-#~ msgstr "لا يمكن تعديل الكود لهذا الدور الأساسي"
-
-#~ msgid "rbac_no_ymkn_edit_kwd_permission_primary"
-#~ msgstr "لا يمكن تعديل كود هذه الصلاحية الأساسية"
-
-#~ msgid "rbac_no_ymkn_edit_roles_user_alasasy_alwajhh"
-#~ msgstr "لا يمكن تعديل أدوار هذا المستخدم الأساسي من هذه الواجهة"
-
-#~ msgid "rbac_no_ymkn_remove_permission_primary_role"
-#~ msgstr "لا يمكن إزالة هذه الصلاحية الأساسية من هذا الدور"
-
-#~ msgid "rbac_no_ymkn_altraja_anh"
-#~ msgstr "لا يمكن التراجع عنه"
-
-#~ msgid "rbac_search_named_user_aw_role"
-#~ msgstr "بحث باسم المستخدم او الدور"
-
-#~ msgid "rbac_search_named_user_add_permissions"
-#~ msgstr "بحث باسم المستخدم أو عدد الصلاحيات"
-
-#~ msgid "rbac_choose_dwra_alqaymh_alymna_lard_permissions_wrbtha"
-#~ msgstr "اختر دورًا من القائمة اليمنى لعرض الصلاحيات وربطها"
-
-#~ msgid "rbac_choose_dwra_alqaymh_fal_algh_permissions_khlal_mrbaat_alakhtyar"
-#~ msgstr ""
-#~ "اختر دورًا من القائمة، ثم فعّل أو ألغِ الصلاحيات من خلال مربعات الاختيار"
-
-#~ msgid "rbac_choose_roles"
-#~ msgstr "اختر الأدوار"
-
-#~ msgid "rbac_no_exists_roles_mdafh_user"
-#~ msgstr "لا توجد أدوار مضافة لهذا المستخدم"
-
-#~ msgid "rbac_no_roles_currently"
-#~ msgstr "لا توجد أدوار حاليًا"
-
-#~ msgid "rbac_no_mstkhdmwn_currently"
-#~ msgstr "لا يوجد مستخدمون حاليًا"
-
-#~ msgid "rbac_please_idkhal_name_role_walkwd"
-#~ msgstr "الرجاء إدخال اسم الدور والكود"
-
-#~ msgid "rbac_please_idkhal_code_wasm_permission"
-#~ msgstr "الرجاء إدخال الكود واسم الصلاحية"
-
-#~ msgid "rbac_please_idkhal_kwd_wasm_permission"
-#~ msgstr "الرجاء إدخال كود واسم الصلاحية"
-
-#~ msgid "rbac_qm_btabyh_data_almstkhdm_wsytm_created_hsab_send_data_aldkhwl_brydh_email"
-#~ msgstr ""
-#~ "قم بتعبئة بيانات المستخدم، وسيتم إنشاء حساب له وإرسال بيانات الدخول إلى "
-#~ "بريده الإلكتروني"
-
-#~ msgid "rbac_qm_btabyh_data_role_ahfz_altghyyrat"
-#~ msgstr "قم بتعبئة بيانات الدور ثم احفظ التغييرات"
-
-#~ msgid "rbac_qm_btabyh_data_permission_ahfz_altghyyrat"
-#~ msgstr "قم بتعبئة بيانات الصلاحية ثم احفظ التغييرات"
-
-#~ msgid "rbac_will_twlyd_password_mrwr_ashwayyh_llmstkhdm_send_data_aldkhwl_brydh_email"
-#~ msgstr ""
-#~ "سيتم توليد كلمة مرور عشوائية للمستخدم، وإرسال بيانات الدخول إلى بريده "
-#~ "الإلكتروني"
-
-#~ msgid "rbac_created_hsabk_almnsh"
-#~ msgstr "تم إنشاء حسابك في المنصة"
-
-#~ msgid "rbac_data_hsabk_almnsh"
-#~ msgstr "بيانات حسابك في المنصة"
-
-#~ msgid "rbac_nnsh_btghyyr_password_tsjyl_aldkhwl"
-#~ msgstr "ننصح بتغيير كلمة المرور بعد تسجيل الدخول"
-
-#~ msgid "rbac_wsf_mkhtsr_ywdh_mham_role_system"
-#~ msgstr "وصف مختصر يوضح مهام هذا الدور في النظام"
-
-#~ msgid "rbac_wsf_mkhtsr_ywdh_mta_tstkhdm_permission_inside_system"
-#~ msgstr "وصف مختصر يوضح متى تُستخدم هذه الصلاحية داخل النظام"
-
-#~ msgid "rbac_email_required_lirsal_data_aldkhwl"
-#~ msgstr "البريد الإلكتروني مطلوب لإرسال بيانات الدخول"
-
-#~ msgid "rbac_kwd_role_user_msbqa_please_select_kwd_latest"
-#~ msgstr "كود الدور مستخدم مسبقًا، الرجاء اختيار كود آخر"
-
-#~ msgid "rbac_code_user_balfal_lslahyh_akhra"
-#~ msgstr "هذا الكود مستخدم بالفعل لصلاحية أخرى"
-
-#~ msgid "rbac_failed_save_permission_bsbb_repeat_code_qaadh_data"
-#~ msgstr "تعذر حفظ الصلاحية بسبب تكرار الكود في قاعدة البيانات"
-
-#~ msgid "rbac_hdth_khta_maaljh_altlb_data_role_permission_mfqwdh"
-#~ msgstr "حدث خطأ في معالجة الطلب: بيانات الدور أو الصلاحية مفقودة"
-
-#~ msgid "rbac_name_full_required"
-#~ msgstr "الاسم الكامل مطلوب"
-
-#~ msgid "rbac_name_user"
-#~ msgstr "اسم المستخدم مستخدم من قبل"
-
-#~ msgid "rbac_email_user"
-#~ msgstr "البريد الإلكتروني مستخدم من قبل"
-
-#~ msgid "rbac_number_aljwal_user"
-#~ msgstr "رقم الجوال مستخدم من قبل"
-
-#~ msgid "rbac_name_user_mhjwz_wla_ymkn_astkhdamh"
-#~ msgstr "اسم المستخدم هذا محجوز ولا يمكن استخدامه"
-
-#~ msgid "rbac_permissions_mjmah_hsb_module"
-#~ msgstr "الصلاحيات مجمعة حسب الوحدة"
-
-#~ msgid "rbac_user_faal"
-#~ msgstr "مستخدم فعّال"
-
-#~ msgid "rbac_ghyr_active"
-#~ msgstr "غير نشط"
-
-#~ msgid "rbac_updated_halh_user"
-#~ msgstr "تم تحديث حالة المستخدم"
-
-#~ msgid "rbac_last_login"
-#~ msgstr "آخر دخول"
-
-#~ msgid "rbac_link_roles"
-#~ msgstr "ربط الأدوار"
-
-#~ msgid "rbac_return_roles"
-#~ msgstr "العودة إلى الأدوار"
-
-#~ msgid "rbac_back_permissions"
-#~ msgstr "الرجوع إلى الصلاحيات"
-
-#~ msgid "rbac_rjwa_lqaymh_users"
-#~ msgstr "رجوع لقائمة المستخدمين"
-
-#~ msgid "rbac_rjwa_qaymh_users"
-#~ msgstr "رجوع إلى قائمة المستخدمين"
-
-#~ msgid "rbac_dwr_user_mthl"
-#~ msgstr "دور المستخدم (مثل"
-
-#~ msgid "rbac_slahyh_specific_mthl"
-#~ msgstr "صلاحية محددة (مثل"
-
-#~ msgid "rbac_mthla_mdyr_system"
-#~ msgstr "مثلًا: مدير النظام"
-
-#~ msgid "rbac_mthl"
-#~ msgstr "مثل"
-
-#~ msgid "rbac_ystkhdm_code_mthl"
-#~ msgstr "يُستخدم في الكود مثل"
-
-#~ msgid "rbac_llthqq_slahyh_user_inside"
-#~ msgstr "للتحقق من صلاحية المستخدم داخل"
-
-#~ msgid "rbac_llmstkhdm_tlqayya"
-#~ msgstr "للمستخدم تلقائيًا"
-
-#~ msgid "rbac_text_wsytm_hfzh_bsyghh_mwhdh_tlqayya"
-#~ msgstr "، وسيتم حفظه بصيغة موحدة تلقائيًا"
-
-#~ msgid "rbac_yfdl_astkhdam_nmt"
-#~ msgstr "يُفضّل استخدام نمط"
-
-#~ msgid "rbac_ymknk_idkhal_alrqm_bay_syghh_05_5"
-#~ msgstr "يمكنك إدخال الرقم بأي صيغة (05 / 5 /"
-
-#~ msgid "rbac_optional"
-#~ msgstr "اختياري"
-
-#~ msgid "rbac_aw"
-#~ msgstr "أو"
-
-#~ msgid "rbac_aam"
-#~ msgstr "عام"
-
-#~ msgid "rbac_shryk"
-#~ msgstr "شريك"
-
-#~ msgid "rbac_mshark"
-#~ msgstr "مشارك"
-
-#~ msgid "rbac_supervisor"
-#~ msgstr "مشرف"
-
-#~ msgid "rbac_will_assign_dwr"
-#~ msgstr "سيتم تعيين دور"
-
-#~ msgid "rbac_5"
-#~ msgstr "أو 5"
-
-#~ msgid "rbac_view_users"
-#~ msgstr "عرض المستخدمين"
-
-#~ msgid "rbac_view_roles"
-#~ msgstr "عرض الأدوار"
-
-#~ msgid "rbac_view_permissions"
-#~ msgstr "عرض الصلاحيات"
-
-#~ msgid "rbac_edit_user"
-#~ msgstr "تعديل مستخدم"
-
-#~ msgid "rbac_delete_user"
-#~ msgstr "حذف مستخدم"
-
-#~ msgid "rbac_edit_dwr"
-#~ msgstr "تعديل دور"
-
-#~ msgid "rbac_delete_dwr"
-#~ msgstr "حذف دور"
-
-#~ msgid "rbac_edit_slahyh"
-#~ msgstr "تعديل صلاحية"
-
-#~ msgid "rbac_delete_slahyh"
-#~ msgstr "حذف صلاحية"
-
-#~ msgid "rbac_access_lwhh_almalwmat"
-#~ msgstr "الوصول إلى لوحة المعلومات"
-
-#~ msgid "rbac_access_althlylat"
-#~ msgstr "الوصول إلى التحليلات"
-
-#~ msgid "rbac_access_astwdyw_quran"
-#~ msgstr "الوصول إلى استوديو القرآن"
-
-#~ msgid "rbac_access_lltwasl"
-#~ msgstr "الوصول للتواصل"
-
-#~ msgid "rbac_access_subscriptions"
-#~ msgstr "الوصول إلى الاشتراكات"
-
-#~ msgid "rbac_access_notifications"
-#~ msgstr "الوصول إلى التنبيهات"
-
-#~ msgid "rbac_access_qnwat_sending"
-#~ msgstr "الوصول إلى قنوات الإرسال"
-
-#~ msgid "rbac_manage_settings_tsjyl_aldkhwl"
-#~ msgstr "إدارة إعدادات تسجيل الدخول"
-
-#~ msgid "rbac_view_campaigns"
-#~ msgstr "عرض الحملات"
-
-#~ msgid "rbac_view_messages"
-#~ msgstr "عرض رسائل"
-
-#~ msgid "rbac_view_messages_communication"
-#~ msgstr "عرض رسائل التواصل"
-
-#~ msgid "rbac_view_messages_whatsapp"
-#~ msgstr "عرض رسائل واتساب"
-
-#~ msgid "rbac_view_notifications_aldakhlyh"
-#~ msgstr "عرض التنبيهات الداخلية"
-
-#~ msgid "rbac_view_sjl_sending"
-#~ msgstr "عرض سجل الإرسال"
-
-#~ msgid "rbac_view_subscribers"
-#~ msgstr "عرض المشتركين"
-
-#~ msgid "rbac_view_email"
-#~ msgstr "عرض البريد الإلكتروني"
-
-#~ msgid "rbac_manage_almsharya"
-#~ msgstr "إدارة المشاريع"
-
-#~ msgid "rbac_create_message_contact"
-#~ msgstr "إنشاء رسالة تواصل"
-
-#~ msgid "rbac_send_notification"
-#~ msgstr "إرسال تنبيه"
-
-#~ msgid "rbac_add_qary"
-#~ msgstr "إضافة قارئ"
-
-#~ msgid "rbac_edit_data_qary"
-#~ msgstr "تعديل بيانات قارئ"
-
-#~ msgid "rbac_delete_data_qary"
-#~ msgstr "حذف بيانات قارئ"
-
-#~ msgid "rbac_ahdathyat_quran"
-#~ msgstr "احداثيات القرآن"
-
-#~ msgid "rbac_action"
-#~ msgstr "هذا الإجراء"
-
-#~ msgid "dashboard_add_users"
-#~ msgstr "عدد المستخدمين"
-
-#~ msgid "dashboard_add_roles"
-#~ msgstr "عدد الأدوار"
-
-#~ msgid "dashboard_add_permissions"
-#~ msgstr "عدد الصلاحيات"
-
-#~ msgid "dashboard_mstkhdmwn_msjlwn"
-#~ msgstr "مستخدمون مسجلون"
-
-#~ msgid "dashboard_structured_roles"
-#~ msgstr "أدوار مهيكلة"
-
-#~ msgid "dashboard_permissions_mfalh"
-#~ msgstr "صلاحيات مفعّلة"
-
-#~ msgid "dashboard_tnzym_hyklh_roles_wtwzya_almswwlyat_inside_system"
-#~ msgstr "تنظيم هيكلة الأدوار وتوزيع المسؤوليات داخل النظام"
-
-#~ msgid "dashboard_alaadadat"
-#~ msgstr "الاعدادات"
-
-#~ msgid "dashboard_alishtrakat"
-#~ msgstr "الإشتراكات"
-
-#~ msgid "dashboard_althkm_access_alwhdat_walamlyat_aldqyqh"
-#~ msgstr "التحكم في الوصول إلى الوحدات والعمليات الدقيقة"
-
-#~ msgid "dashboard_name_user_wklmh_password_mtlwban"
-#~ msgstr "اسم المستخدم وكلمة المرور مطلوبان"
-
-#~ msgid "accounts_admin_general_llnzam"
-#~ msgstr "المدير العام للنظام"
-
-#~ msgid "accounts_system"
-#~ msgstr "النظام"
-
-#~ msgid "notification_alerts_center"
-#~ msgstr "مركز التنبيهات"
-
-#~ msgid "notification_new"
-#~ msgstr "جديد"
-
-#~ msgid "notification_alert"
-#~ msgstr "تنبيه"
-
-#~ msgid "notification_mqrw"
-#~ msgstr "مقروء"
-
-#~ msgid "notification_notification_mqrw"
-#~ msgstr "تنبيه مقروء"
-
-#~ msgid "notification_send_notification"
-#~ msgstr "إرسال تنبية"
-
-#~ msgid "notification_send_alert"
-#~ msgstr "إرسال التنبيه"
-
-#~ msgid "notification_create_notification_new"
-#~ msgstr "إنشاء تنبية جديد"
-
-#~ msgid "notification_manage_notification"
-#~ msgstr "إدارة تنبية"
-
-#~ msgid "notification_send_notification_dakhly_llmstkhdmyn_inside_system"
-#~ msgstr "إرسال تنبيه داخلي للمستخدمين داخل النظام"
-
-#~ msgid "notification_write_text_notification_here"
-#~ msgstr "اكتب نص التنبيه هنا"
-
-#~ msgid "notification_success_sending"
-#~ msgstr "تم الإرسال بنجاح"
-
-#~ msgid "notification_summary_notification"
-#~ msgstr "ملخص تنبية"
-
-#~ msgid "notification_summary_notifications"
-#~ msgstr "ملخص التنبيهات"
-
-#~ msgid "notification_no_notifications_currently"
-#~ msgstr "لا توجد تنبيهات حاليًا"
-
-#~ msgid "notification_no_text"
-#~ msgstr "لا يوجد نص"
-
-#~ msgid "notification_alns"
-#~ msgstr "النص"
-
-#~ msgid "notification_inside_system"
-#~ msgstr "داخل النظام"
-
-#~ msgid "notification_notifications_system"
-#~ msgstr "تنبيهات في النظام"
-
-#~ msgid "notification_notifications_system_waltnbyhat_altfaalyh"
-#~ msgstr "تنبيهات النظام والتنبيهات التفاعلية"
-
-#~ msgid "notification_notifications_almrslh_llmstkhdm_inside_system"
-#~ msgstr "التنبيهات المرسلة للمستخدم من داخل النظام"
-
-#~ msgid "notification_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
-#~ msgstr "نظرة عامة سريعة على التنبيهات المرسلة عبر القنوات المختلفة"
-
-#~ msgid "notification_add_notifications_page"
-#~ msgstr "عدد التنبيهات في هذه الصفحة"
-
-#~ msgid "notification_no_mstlmwn_mtabqwn"
-#~ msgstr "لا يوجد مستلمون مطابقون"
-
-#~ msgid "notification_messages_now_lyst"
-#~ msgstr "الرسائل الآن ليست من"
-
-#~ msgid "notifications_latest"
-#~ msgstr "آخر التنبيهات التي وصلتك داخل النظام (الأحدث في الأعلى، بحد أقصى ١٠"
-
-#~ msgid "messaging_notification_center"
-#~ msgstr "مركز الإشعارات"
-
-#~ msgid "messaging_notifications_mrslh"
-#~ msgstr "إشعارات مرسلة"
-
-#~ msgid "messaging_summary_notifications"
-#~ msgstr "ملخص الإشعارات"
-
-#~ msgid "messaging_overview_sryah_notifications_almrslh_via_channels_almkhtlfh"
-#~ msgstr "نظرة عامة سريعة على الإشعارات المرسلة عبر القنوات المختلفة"
-
-#~ msgid "messaging_send_notification"
-#~ msgstr "إرسال الإشعار"
-
-#~ msgid "messaging_success_send_notification_inside_system"
-#~ msgstr "تم إرسال التنبيه داخل النظام بنجاح"
-
-#~ msgid "communication_campaigns"
-#~ msgstr "الحملات"
-
-#~ msgid "communication_campaigns_almrslh"
-#~ msgstr "الحملات المرسلة"
-
-#~ msgid "communication_total_campaigns"
-#~ msgstr "إجمالي الحملات"
-
-#~ msgid "communication_title_alhmlh"
-#~ msgstr "عنوان الحملة"
-
-#~ msgid "communication_success_created_alhmlh"
-#~ msgstr "تم إنشاء الحملة بنجاح"
-
-#~ msgid "communication_success_send_alhmlh"
-#~ msgstr "تم إرسال الحملة بنجاح"
-
-#~ msgid "communication_no_exists_qnah_telegram_qrwb_mfal_alhmlh"
-#~ msgstr "لا توجد قناة تيليجرام أو قروب مفعّل لهذه الحملة"
-
-#~ msgid "communication_message_text"
-#~ msgstr "نص الرسالة"
-
-#~ msgid "communication_title_message"
-#~ msgstr "عنوان الرسالة"
-
-#~ msgid "communication_image_optional"
-#~ msgstr "صورة (اختياري"
-
-#~ msgid "communication_if_has_image"
-#~ msgstr "إذا فيه صورة"
-
-#~ msgid "communication_if_ma_has_image"
-#~ msgstr "إذا ما فيه صورة"
-
-#~ msgid "communication_send_post"
-#~ msgstr "إرسال منشور"
-
-#~ msgid "communication_send_telegram"
-#~ msgstr "إرسال تيليجرام"
-
-#~ msgid "communication_telegram_qnah"
-#~ msgstr "تيليجرام - قناة"
-
-#~ msgid "communication_telegram_qrwb"
-#~ msgstr "تيليجرام - قروب"
-
-#~ msgid "communication_llqrwb_walqnah"
-#~ msgstr "للقروب والقناة"
-
-#~ msgid "communication_fysbwk"
-#~ msgstr "فيسبوك"
-
-#~ msgid "communication_platform"
-#~ msgstr "منصة"
-
-#~ msgid "communication_alqnah"
-#~ msgstr "القناة"
-
-#~ msgid "communication_channels"
-#~ msgstr "القنوات"
-
-#~ msgid "communication_communication_social"
-#~ msgstr "التواصل الإجتماعي"
-
-#~ msgid "communication_manage_communication_social"
-#~ msgstr "إدارة التواصل الإجتماعي"
-
-#~ msgid "communication_summary_communication_social"
-#~ msgstr "ملخص التواصل الإجتماعي"
-
-#~ msgid "communication_search_balanwan_alns"
-#~ msgstr "بحث بالعنوان أو النص"
-
-#~ msgid "communication_search_balanwan_alqnah"
-#~ msgstr "بحث بالعنوان أو القناة"
-
-#~ msgid "communication_date_sending"
-#~ msgstr "تاريخ الإرسال"
-
-#~ msgid "communication_halh_sending"
-#~ msgstr "حالة الإرسال"
-
-#~ msgid "communication_sent"
-#~ msgstr "أُرسلت"
-
-#~ msgid "communication_mrslh"
-#~ msgstr "مرسلة"
-
-#~ msgid "communication_mswdh"
-#~ msgstr "مسودة"
-
-#~ msgid "communication_mjdwlh"
-#~ msgstr "مجدولة"
-
-#~ msgid "communication_qyd_sending"
-#~ msgstr "قيد الإرسال"
-
-#~ msgid "communication_failed_sending"
-#~ msgstr "فشل الإرسال"
-
-#~ msgid "communication_alantzar"
-#~ msgstr "في الانتظار"
-
-#~ msgid "communication_alkhta_in_wjd"
-#~ msgstr "الخطأ (إن وجد"
-
-#~ msgid "communication_log"
-#~ msgstr "السجل"
-
-#~ msgid "communication_delivery_log"
-#~ msgstr "سجل الإرسال"
-
-#~ msgid "communication_sjl_amlyat_sending_hmlh_wlkl_qnah_contact"
-#~ msgstr "سجل عمليات الإرسال لكل حملة ولكل قناة تواصل"
-
-#~ msgid "communication_no_sjlat_send_halya"
-#~ msgstr "لا يوجد سجلات إرسال حالياً"
-
-#~ msgid "communication_astkhdm"
-#~ msgstr "استخدم"
-
-#~ msgid "communication_drafts"
-#~ msgstr "المسودات"
-
-#~ msgid "communication_qryba"
-#~ msgstr "قريبًا"
-
 # =============================================================================
 # 11. قنوات المراسلة (Email, SMS, WhatsApp)
 # =============================================================================
-#~ msgid "messages"
-#~ msgstr "الرسائل"
-
-#~ msgid "messaging_messages"
-#~ msgstr "رسائل"
-
-#~ msgid "messaging_message_jmaayh"
-#~ msgstr "رسالة جماعية"
-
-#~ msgid "messaging_messages_aljmaayh"
-#~ msgstr "الالرسائل الجماعية"
-
-#~ msgid "messaging_message_nsyh"
-#~ msgstr "رسالة نصية"
-
-#~ msgid "messaging_message_jwal"
-#~ msgstr "رسالة جوال"
-
-#~ msgid "messaging_sms_messages"
-#~ msgstr "رسائل الجوال"
-
-#~ msgid "messaging_message_aljwal_details"
-#~ msgstr "تفاصيل رسالة الجوال"
-
-#~ msgid "messaging_no_exists_messages_jwal_halya"
-#~ msgstr "لا توجد رسائل جوال حالياً"
-
-#~ msgid "messaging_whatsapp"
-#~ msgstr "واتساب"
-
-#~ msgid "messaging_whatsapp_app"
-#~ msgstr "واتس اب"
-
-#~ msgid "messaging_message_whatsapp_app"
-#~ msgstr "رسالة واتس اب"
-
-#~ msgid "messaging_message_alwatsab_details"
-#~ msgstr "تفاصيل رسالة الواتساب"
-
-#~ msgid "messaging_notifications_whatsapp"
-#~ msgstr "تنبيهات واتساب"
-
-#~ msgid "messaging_no_exists_messages_whatsapp_app_currently_log"
-#~ msgstr "لا توجد رسائل واتس اب حاليًا في السجل"
-
-#~ msgid "messaging_view_sjl_messages_whatsapp_app_almrslh_tryq_system_walmtalqh_balmstkhdmyn"
-#~ msgstr "عرض سجل رسائل واتس اب المرسلة عن طريق النظام والمتعلقة بالمستخدمين"
-
-#~ msgid "messaging_email_ilktrwny"
-#~ msgstr "بريد إلكتروني"
-
-#~ msgid "messaging_message_email_overview"
-#~ msgstr "رسالة بريدية عامة"
-
-#~ msgid "messaging_create_message_email_overview"
-#~ msgstr "إنشاء رسالة بريدية عامة"
-
-#~ msgid "messaging_no_messages_email_currently"
-#~ msgstr "لا توجد رسائل بريدية حاليًا"
-
-#~ msgid "messaging_text_message_email"
-#~ msgstr "نص الرسالة (البريد الإلكتروني"
-
-#~ msgid "messaging_send_message_albrydyh"
-#~ msgstr "تم إرسال الرسالة البريدية"
-
-#~ msgid "messaging_created_message_albrydyh_why_bantzar_sending"
-#~ msgstr "تم إنشاء الرسالة البريدية وهي بانتظار الإرسال"
-
-#~ msgid "messaging_message_strsl_kbryd_ilktrwny_fqt_wymknk_astkhdam_altnsyq_alqwaym_walrwabt"
-#~ msgstr ""
-#~ "هذه الرسالة ستُرسل كبريد إلكتروني فقط، ويمكنك استخدام التنسيق، القوائم، "
-#~ "والروابط"
-
-#~ msgid "messaging_message_mwjhh_asasa_lmshtrky_alnshrh_albrydyh_almsjlyn_system"
-#~ msgstr "هذه الرسالة موجهة أساسًا لمشتركي النشرة البريدية المسجلين في النظام"
-
-#~ msgid "messaging_send_post_email_overview_lmshtrky_alnshrh_albrydyh_khyar_add_all_users_system"
-#~ msgstr ""
-#~ "إرسال منشور بريدية عامة لمشتركي النشرة البريدية مع خيار إضافة جميع "
-#~ "مستخدمي النظام"
-
-#~ msgid "messaging_create_message_new"
-#~ msgstr "إنشاء رسالة جديد"
-
-#~ msgid "messaging_send_message"
-#~ msgstr "إرسال رسالة"
-
-#~ msgid "messaging_mhtwa_message"
-#~ msgstr "محتوى الرسالة"
-
-#~ msgid "messaging_no_mhtwa_message"
-#~ msgstr "لا يوجد محتوى في هذه الرسالة"
-
-#~ msgid "messaging_subject"
-#~ msgstr "الموضوع"
-
-#~ msgid "messaging_title_walbyanat"
-#~ msgstr "العنوان والبيانات"
-
-#~ msgid "messaging_title_and_message_required"
-#~ msgstr "يجب إدخال العنوان ونص الرسالة"
-
-#~ msgid "messaging_write_text_message_here"
-#~ msgstr "اكتب نص الرسالة هنا"
-
-#~ msgid "messaging_write_text_message_albrydyh_here"
-#~ msgstr "اكتب نص الرسالة البريدية هنا"
-
-#~ msgid "messaging_nwa_message"
-#~ msgstr "نوع الرسالة"
-
-#~ msgid "messaging_without_title"
-#~ msgstr "بدون عنوان"
-
-#~ msgid "messaging_sender"
-#~ msgstr "المرسل"
-
-#~ msgid "messaging_almrsl"
-#~ msgstr "المُرسل"
-
-#~ msgid "messaging_user"
-#~ msgstr "المستخدم"
-
-#~ msgid "messaging_recipients"
-#~ msgstr "المستلمون"
-
-#~ msgid "messaging_qaymh_almstlmyn"
-#~ msgstr "قائمة المستلمين"
-
-#~ msgid "messaging_view_almstlmyn"
-#~ msgstr "عرض المستلمين"
-
-#~ msgid "messaging_select_users"
-#~ msgstr "اختيار المستخدمين"
-
-#~ msgid "messaging_all_users"
-#~ msgstr "كل المستخدمين"
-
-#~ msgid "messaging_mshtrkw_alnshrh_albrydyh_aftradya"
-#~ msgstr "مشتركو النشرة البريدية (افتراضيًا"
-
-#~ msgid "messaging_mstkhdmwn_mhddwn"
-#~ msgstr "مستخدمون محددون"
-
-#~ msgid "messaging_choose_mstkhdma_most_alqaymh"
-#~ msgstr "اختر مستخدمًا أو أكثر من القائمة"
-
-#~ msgid "messaging_khyarat_idafyh_llmstlmyn"
-#~ msgstr "خيارات إضافية للمستلمين"
-
-#~ msgid "messaging_add_all_users_system_mshtrky_alnshrh"
-#~ msgstr "إضافة جميع مستخدمي النظام مع مشتركي النشرة"
-
-#~ msgid "messaging_fal_alkhyar_if_rghbt_an_tsl_message_ayda_all_users_system_almsjlyn"
-#~ msgstr ""
-#~ "فعّل هذا الخيار إذا رغبت أن تصل الرسالة أيضًا إلى جميع مستخدمي النظام "
-#~ "المسجلين"
-
-#~ msgid "messaging_no_mstlmwn"
-#~ msgstr "لا يوجد مستلمون"
-
-#~ msgid "messaging_no_mstlmwn_message"
-#~ msgstr "لا يوجد مستلمون لهذه الرسالة"
-
-#~ msgid "messaging_no_mstlmwn_lirsal_message"
-#~ msgstr "لا يوجد مستلمون لإرسال الرسالة"
-
-#~ msgid "messaging_no_mstlmwn_ldyhm_email_ilktrwny"
-#~ msgstr "لا يوجد مستلمون لديهم بريد إلكتروني"
-
-#~ msgid "messaging_no_mstlmwn_bantzar_sending"
-#~ msgstr "لا يوجد مستلمون بانتظار الإرسال"
-
-#~ msgid "messaging_no_mstlmwn_mtabqwn_llmaayyr_almhddh"
-#~ msgstr "لا يوجد مستلمون مطابقون للمعايير المحددة"
-
-#~ msgid "messaging_add_almstlmyn"
-#~ msgstr "عدد المستلمين"
-
-#~ msgid "messaging_search_balmrsl_title_alns"
-#~ msgstr "بحث بالمرسل أو العنوان أو النص"
-
-#~ msgid "messaging_delivery_channel"
-#~ msgstr "قناة الإرسال"
-
-#~ msgid "messaging_delivery_channels"
-#~ msgstr "قنوات الإرسال"
-
-#~ msgid "messaging_manage_qnwat_sending"
-#~ msgstr "إدارة قنوات الإرسال"
-
-#~ msgid "messaging_manage_send_notifications_via_email_waltnbyhat_inside_system"
-#~ msgstr "إدارة وإرسال الإشعارات عبر البريد الإلكتروني والتنبيهات داخل النظام"
-
-#~ msgid "messaging_delivery_logs"
-#~ msgstr "سجلات الإرسال"
-
-#~ msgid "messaging_sjlat_send_notifications"
-#~ msgstr "سجلات إرسال الإشعارات"
-
-#~ msgid "messaging_no_exists_sjlat_send_hta_now"
-#~ msgstr "لا توجد سجلات إرسال حتى الآن"
-
-#~ msgid "messaging_wqt_sending"
-#~ msgstr "وقت الإرسال"
-
-#~ msgid "messaging_view_data_message_walmstlmyn_whalh_sending"
-#~ msgstr "عرض بيانات الرسالة والمستلمين وحالة الإرسال"
-
-#~ msgid "messaging_view_data_message_aljwal_wmhtwaha"
-#~ msgstr "عرض بيانات رسالة الجوال ومحتواها"
-
-#~ msgid "messaging_view_data_message_alwatsab_wmhtwaha"
-#~ msgstr "عرض بيانات رسالة الواتساب ومحتواها"
-
-#~ msgid "messaging_view_messages_albrydyh_almjmah_add_almstlmyn_whalh_sending"
-#~ msgstr "عرض الرسائل البريدية المجمعة مع عدد المستلمين وحالة الإرسال"
-
-#~ msgid "messaging_view_all_mhawlat_sending_mstlm_halh_kl_amlyh"
-#~ msgstr "عرض جميع محاولات الإرسال لكل مستلم مع حالة كل عملية"
-
-#~ msgid "messaging_tslym_message"
-#~ msgstr "تسليم رسالة"
-
-#~ msgid "messaging_tslymat_messages"
-#~ msgstr "تسليمات الرسائل"
-
-#~ msgid "messaging_mqrwh"
-#~ msgstr "مقروءة"
-
-#~ msgid "messaging_ghyr_mqrwh"
-#~ msgstr "غير مقروءة"
-
-#~ msgid "messaging_error_message"
-#~ msgstr "رسالة الخطأ"
-
-#~ msgid "messaging_exists_failed"
-#~ msgstr "يوجد فشل"
-
-#~ msgid "messaging_alhmlh"
-#~ msgstr "الحملة"
-
-#~ msgid "messaging_sjl_messages"
-#~ msgstr "سجل رسائل"
-
-#~ msgid "messaging_almrslh_llmstkhdmyn_tryq_system"
-#~ msgstr "المرسلة للمستخدمين عن طريق النظام"
-
-#~ msgid "messaging_action"
-#~ msgstr "الإجراء"
-
-#~ msgid "messaging_email_almarf"
-#~ msgstr "البريد / المعرف"
-
-#~ msgid "messaging_category_primary"
-#~ msgstr "الفئة الأساسية"
-
-#~ msgid "messaging_frdyh"
-#~ msgstr "فردية"
-
-#~ msgid "messaging_jmaayh"
-#~ msgstr "جماعية"
-
-#~ msgid "messaging_ghyr_mhdd"
-#~ msgstr "غير محدد"
-
-#~ msgid "messaging_first"
-#~ msgstr "أولًا"
-
-#~ msgid "messaging_hawl"
-#~ msgstr "حاول"
-
-#~ msgid "messaging_atba_altlb_ydhhb_llmzwd"
-#~ msgstr "اطبع الطلب كما يذهب للمزوّد"
-
-#~ msgid "messaging_atba_reply_alkham"
-#~ msgstr "اطبع الرد الخام"
-
-#~ msgid "messaging_lw_reply_nsy"
-#~ msgstr "لو الرد نصي"
-
 # =============================================================================
 # 12. استوديو القرآن ومحرر الإحداثيات (Quran Studio & Editor)
 # =============================================================================
-#~ msgid "quran_studio"
-#~ msgstr "استوديو القرآن"
-
-#~ msgid "quran_studio_manage_studio_quran"
-#~ msgstr "إدارة استديو القرآن"
-
-#~ msgid "quran_studio_manage_data_reciters"
-#~ msgstr "إدارة بيانات القراء"
-
-#~ msgid "quran_studio_manage_data_reciters_available_system"
-#~ msgstr "إدارة بيانات القراء المتوفرين في النظام"
-
-#~ msgid "quran_studio_data_reciters"
-#~ msgstr "بيانات القراء"
-
-#~ msgid "quran_studio_page_reciters"
-#~ msgstr "صفحة القراء"
-
-#~ msgid "quran_studio_no_exists_data_llqra_halya"
-#~ msgstr "لا توجد بيانات للقراء حالياً"
-
-#~ msgid "quran_studio_done_add_reciter_bnjah"
-#~ msgstr "تمت إضافة القارئ بنجاح"
-
-#~ msgid "quran_studio_success_edit_data_reciter"
-#~ msgstr "تم تعديل بيانات القارئ بنجاح"
-
-#~ msgid "quran_studio_success_deleted_reciter"
-#~ msgstr "تم حذف القارئ بنجاح"
-
-#~ msgid "quran_studio_delete_qary"
-#~ msgstr "حذف قارئ"
-
-#~ msgid "quran_studio_you_mtakd_deleted_alqary"
-#~ msgstr "هل أنت متأكد من حذف هذا القارئ؟"
-
-#~ msgid "quran_studio_name_alarby"
-#~ msgstr "الاسم العربي"
-
-#~ msgid "quran_studio_name_alinjlyzy"
-#~ msgstr "الاسم الإنجليزي"
-
-#~ msgid "quran_studio_code"
-#~ msgstr "الكود"
-
-#~ msgid "quran_studio_code_walasm_alarby_mtlwban"
-#~ msgstr "الكود والاسم العربي مطلوبان"
-
-#~ msgid "quran_studio_mhrr_ihdathyat_ayahs"
-#~ msgstr "محرر إحداثيات الآيات"
-
-#~ msgid "quran_studio_page_mhrr_coordinates"
-#~ msgstr "صفحة محرر الإحداثيات"
-
-#~ msgid "quran_studio_coordinates"
-#~ msgstr "الإحداثيات"
-
-#~ msgid "quran_studio_set_coordinates"
-#~ msgstr "تحديد الإحداثيات"
-
-#~ msgid "quran_studio_load_coordinates"
-#~ msgstr "تحميل الإحداثيات"
-
-#~ msgid "quran_studio_jlb_coordinates"
-#~ msgstr "جلب الإحداثيات"
-
-#~ msgid "quran_studio_save_coordinates"
-#~ msgstr "حفظ الإحداثيات"
-
-#~ msgid "quran_studio_edit_ihdathyat_mhfwzh"
-#~ msgstr "تعديل إحداثيات محفوظة"
-
-#~ msgid "quran_studio_save_edit"
-#~ msgstr "حفظ التعديل"
-
-#~ msgid "quran_studio_save_new"
-#~ msgstr "حفظ جديد في"
-
-#~ msgid "quran_studio_updated_ihdathyat_ayahs_page"
-#~ msgstr "تحديث إحداثيات الآيات في صفحة"
-
-#~ msgid "quran_studio_no_exists_ihdathyat_mhfwzh_alaayh_page"
-#~ msgstr "لا توجد إحداثيات محفوظة لهذه الآية في هذه الصفحة"
-
-#~ msgid "quran_studio_enter_number_surah_ayah_click_load_coordinates_will_view_rectangles_stored_alaayh_page_edit_save_edit"
-#~ msgstr ""
-#~ "أدخل رقم السورة والآية ثم اضغط \"تحميل الإحداثيات\". سيتم عرض المستطيلات "
-#~ "المخزنة لهذه الآية على هذه الصفحة لتعديلها ثم حفظ التعديل"
-
-#~ msgid "quran_studio_ashb_balfarh_fwq_mushaf_lrsm_msttyl_ymthl_jz_alaayh_ymknk_rsm_most_msttyl_lnfs_alaayh"
-#~ msgstr ""
-#~ "اسحب بالفأرة فوق المصحف لرسم مستطيل يمثل جزء الآية. يمكنك رسم أكثر من "
-#~ "مستطيل لنفس الآية"
-
-#~ msgid "quran_studio_rja_enter_number_surah_ayah"
-#~ msgstr "رجاءً أدخل رقم السورة والآية"
-
-#~ msgid "quran_studio_rja_enter_number_surah_ayah_althmyl"
-#~ msgstr "رجاءً أدخل رقم السورة والآية قبل التحميل"
-
-#~ msgid "quran_studio_msh_rectangles"
-#~ msgstr "مسح المستطيلات"
-
-#~ msgid "quran_studio_no_exists_msttylat_llhfz"
-#~ msgstr "لا توجد مستطيلات للحفظ"
-
-#~ msgid "quran_studio_surah_number"
-#~ msgstr "رقم السورة"
-
-#~ msgid "quran_studio_ayah_number"
-#~ msgstr "رقم الآية"
-
-#~ msgid "quran_studio_page_mushaf"
-#~ msgstr "صفحة المصحف"
-
-#~ msgid "quran_studio_page_current"
-#~ msgstr "الصفحة الحالية"
-
-#~ msgid "quran_studio_page_altalyh"
-#~ msgstr "الصفحة التالية"
-
-#~ msgid "quran_studio_page_previous"
-#~ msgstr "الصفحة السابقة"
-
-#~ msgid "quran_studio_image"
-#~ msgstr "الصورة"
-
-#~ msgid "quran_studio_alijraat"
-#~ msgstr "الإجراءات"
-
-#~ msgid "quran_studio_mthal_2"
-#~ msgstr "مثال: 2"
-
-#~ msgid "quran_studio_mthal_6"
-#~ msgstr "مثال: 6"
-
-#~ msgid "dashboard_home_page"
-#~ msgstr "الصفحة الرئيسية"
-
-#~ msgid "overview"
-#~ msgstr "نظرة عامة"
-
-#~ msgid "summary"
-#~ msgstr "ملخص"
-
-#~ msgid "important_services"
-#~ msgstr "أهم الخدمات"
-
-#~ msgid "status"
-#~ msgstr "الحالة"
-
-#~ msgid "actions"
-#~ msgstr "إجراءات"
-
-#~ msgid "content"
-#~ msgstr "المحتوى"
-
-#~ msgid "title"
-#~ msgstr "العنوان"
-
-#~ msgid "created_at"
-#~ msgstr "تاريخ الإنشاء"
-
-#~ msgid "updated_at"
-#~ msgstr "آخر تحديث"
-
-#~ msgid "next"
-#~ msgstr "التالي"
-
-#~ msgid "previous"
-#~ msgstr "السابق"
-
-#~ msgid "back"
-#~ msgstr "رجوع"
-
-#~ msgid "save"
-#~ msgstr "حفظ"
-
-#~ msgid "save_changes"
-#~ msgstr "حفظ التغييرات"
-
-#~ msgid "add"
-#~ msgstr "إضافة"
-
-#~ msgid "create"
-#~ msgstr "إنشاء"
-
-#~ msgid "update"
-#~ msgstr "تحديث"
-
-#~ msgid "edit"
-#~ msgstr "تعديل"
-
-#~ msgid "delete"
-#~ msgstr "حذف"
-
-#~ msgid "cancel"
-#~ msgstr "إلغاء"
-
-#~ msgid "confirm"
-#~ msgstr "التأكيد"
-
-#~ msgid "view"
-#~ msgstr "عرض"
-
-#~ msgid "send"
-#~ msgstr "إرسال"
-
-#~ msgid "send_now"
-#~ msgstr "إرسال الآن"
-
-#~ msgid "sent"
-#~ msgstr "تم الإرسال"
-
-#~ msgid "failed"
-#~ msgstr "فشل"
-
-#~ msgid "pending"
-#~ msgstr "قيد الانتظار"
-
-#~ msgid "no_data"
-#~ msgstr "لا يوجد بيانات"
-
-#~ msgid "settings"
-#~ msgstr "الإعدادات"
-
-#~ msgid "system_settings"
-#~ msgstr "إعدادات النظام"
-
-#~ msgid "security"
-#~ msgstr "الأمان"
-
-#~ msgid "zoom_out"
-#~ msgstr "تصغير"
-
-#~ msgid "app_arabic"
-#~ msgstr "العربية"
-
-#~ msgid "app_urdu"
-#~ msgstr "اردو"
-
-#~ msgid "web_alkl"
-#~ msgstr "الكل"
-
-#~ msgid "web_fqt"
-#~ msgstr "فقط"
-
-#~ msgid "web_fqt_3"
-#~ msgstr "فقط، أو"
-
-#~ msgid "web_fqt_alathnyn"
-#~ msgstr "فقط، أو الاثنين"
-
-#~ msgid "web_all_alhqwq_mhfwzh"
-#~ msgstr "جميع الحقوق محفوظة"
-
-#~ msgid "web_mwqa_quran_alkrym"
-#~ msgstr "موقع القرآن"
-
 # =============================================================================
 # 14. نصوص المساعدة والتحقق (Helpers & Validation Labels)
 # =============================================================================
-#~ msgid "required_field"
-#~ msgstr "هذا الحقل مطلوب"
+#, fuzzy, python-format
 
-#~ msgid "core_number_alhatf_required"
-#~ msgstr "رقم الهاتف مطلوب"
 
-#~ msgid "core_invalid_number_alhatf"
-#~ msgstr "صيغة رقم الهاتف غير صحيحة"
 
-#~ msgid "core_invalid_alhatf"
-#~ msgstr "رقم الهاتف غير صحيح"
 
-#~ msgid "core_number_alhatf_ghyr_mmkn"
-#~ msgstr "رقم الهاتف غير ممكن"
 
-#~ msgid "services_invalid_number_aljwal"
-#~ msgstr "صيغة رقم الجوال غير صحيحة"
 
-#~ msgid "core_ay"
-#~ msgstr "أو أي"
 
-#~ msgid "core_mnasb"
-#~ msgstr "مناسب"
 
-#~ msgid "core_nad_fqt_alzyarat_alaamh_mthla_page_home"
-#~ msgstr "نعدّ فقط الزيارات العامة (مثلاً الصفحة الرئيسية"
 
-#~ msgid "web_add_alsfwf_page"
-#~ msgstr "عدد الصفوف في الصفحة"
 
-#~ msgid "web_add_alsjlat"
-#~ msgstr "عدد السجلات"
 
-#~ msgid "web_adhra_no_tmlk_permission_llwswl_page"
-#~ msgstr "عذرًا، لا تملك الصلاحية للوصول إلى هذه الصفحة"
 
-#~ msgid "web_forbidden_aldkhwl"
-#~ msgstr "ممنوع الدخول"
 
-#~ msgid "web_artfaa_alshryt_thkm_shkly"
-#~ msgstr "ارتفاع الشريط (تحكم شكلي"
 
-#~ msgid "web_mdh_aftradyh_altwstat_balmlly_thanyh"
-#~ msgstr "مدة افتراضية لكل التوستات بالمللي ثانية"
 
-#~ msgid "web_mdh_khash_bhdha_altwst_ttghlb_alaftradyh"
-#~ msgstr "مدة خاصة بهذا التوست (تتغلب على الافتراضية"
 
-#~ msgid "web_view_max_aftrady_mthla_20"
-#~ msgstr "عرض أقصى افتراضي (مثلاً 20"
 
-#~ msgid "web_view_thabt_atrkh_fady_lastkhdam"
-#~ msgstr "عرض ثابت (اتركه فاضي لاستخدام"
 
-#~ msgid "web_notification"
-#~ msgstr "إشعار"
 
-#~ msgid "quran_close_on_click_backdrop"
-#~ msgstr "إغلاق عند الضغط على الخلفية"
 
-#~ msgid "quran_mzamnh_5_seconds_latest_updated"
-#~ msgstr "مزامنة بعد 5 ثواني من آخر تحديث"
 
-#~ msgid "quran_nav"
-#~ msgstr "القرآن"
+msgid "contact_page_description"
+msgstr "تواصل مع فريق مقرأة الحفظة للاستفسارات والدعم الفني."
 
-#~ msgid "quran_text"
-#~ msgstr "٪"
+msgid "contact_intro_text"
+msgstr "نسعد بتواصلكم مع فريق مقرأة الحفظة للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
 
-#~ msgid "quran_tfsl_alns"
-#~ msgstr "تفصل النص إلى"
+msgid "wird quran"
+msgstr "مقرأة الحفظة"
 
-#~ msgid "quran_bqyh_alns"
-#~ msgstr "بقية النص"
+msgid "wird"
+msgstr "مقرأة الحفظة"
 
-#~ msgid "quran_ma_byn"
-#~ msgstr "ما بين"
+msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
+msgstr "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد."
 
-#~ msgid "services_message_jdydh_nmwdhj_contact_us"
-#~ msgstr "رسالة جديدة من نموذج اتصل بنا"
+msgid "web_wrd_alqraan_alkrym"
+msgstr "عن مقرأة الحفظة"
 
-#~ msgid "services_message_text"
-#~ msgstr "نص الرسالة:"
+msgid "long_about_text"
+msgstr "مقرأة الحفظة منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
-#~ msgid "surah_3"
-#~ msgstr "آل عمران"
+msgid "about_wird"
+msgstr "مقرأة الحفظة منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
-#~ msgid "surah_4"
-#~ msgstr "النساء"
+msgid "home_hero_summary"
+msgstr "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد."
 
-#~ msgid "surah_5"
-#~ msgstr "المائدة"
+msgid "read_quran"
+msgstr "الرئيسية"
 
-#~ msgid "surah_6"
-#~ msgstr "الأنعام"
+msgid "daily_wird"
+msgstr "الجلسات"
 
-#~ msgid "surah_7"
-#~ msgstr "الأعراف"
+msgid "tilawa"
+msgstr "الجلسات"
 
-#~ msgid "surah_8"
-#~ msgstr "الأنفال"
+msgid "hifz_quran"
+msgstr "الحفظ"
 
-#~ msgid "surah_9"
-#~ msgstr "التوبة"
+msgid "translations"
+msgstr "الترجمات"
 
-#~ msgid "surah_10"
-#~ msgstr "يونس"
+msgid "alhafaz_about_title"
+msgstr "عن مقرأة الحفظة"
 
-#~ msgid "surah_11"
-#~ msgstr "هود"
+msgid "alhafaz_about_body"
+msgstr "مقرأة الحفظة منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
-#~ msgid "surah_12"
-#~ msgstr "يوسف"
+msgid "alhafaz_contact_title"
+msgstr "تواصل معنا"
 
-#~ msgid "surah_13"
-#~ msgstr "الرعد"
+msgid "alhafaz_contact_intro"
+msgstr "نسعد بتواصلكم مع فريق مقرأة الحفظة للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
 
-#~ msgid "surah_14"
-#~ msgstr "إبراهيم"
+msgid "push_tab_send"
+msgstr "إرسال تنبيه"
 
-#~ msgid "surah_15"
-#~ msgstr "الحجر"
+msgid "push_tab_devices"
+msgstr "الأجهزة"
 
-#~ msgid "surah_16"
-#~ msgstr "النحل"
-
-#~ msgid "surah_17"
-#~ msgstr "الإسراء"
-
-#~ msgid "surah_18"
-#~ msgstr "الكهف"
-
-#~ msgid "surah_19"
-#~ msgstr "مريم"
-
-#~ msgid "surah_20"
-#~ msgstr "طه"
-
-#~ msgid "surah_21"
-#~ msgstr "الأنبياء"
-
-#~ msgid "surah_22"
-#~ msgstr "الحج"
-
-#~ msgid "surah_23"
-#~ msgstr "المؤمنون"
-
-#~ msgid "surah_24"
-#~ msgstr "النور"
-
-#~ msgid "surah_25"
-#~ msgstr "الفرقان"
-
-#~ msgid "surah_26"
-#~ msgstr "الشعراء"
-
-#~ msgid "surah_27"
-#~ msgstr "النمل"
-
-#~ msgid "surah_28"
-#~ msgstr "القصص"
-
-#~ msgid "surah_29"
-#~ msgstr "العنكبوت"
-
-#~ msgid "surah_30"
-#~ msgstr "الروم"
-
-#~ msgid "surah_31"
-#~ msgstr "لقمان"
-
-#~ msgid "surah_32"
-#~ msgstr "السجدة"
-
-#~ msgid "surah_33"
-#~ msgstr "الأحزاب"
-
-#~ msgid "surah_34"
-#~ msgstr "سبأ"
-
-#~ msgid "surah_35"
-#~ msgstr "فاطر"
-
-#~ msgid "surah_36"
-#~ msgstr "يس"
-
-#~ msgid "surah_37"
-#~ msgstr "الصافات"
-
-#~ msgid "surah_38"
-#~ msgstr "ص"
-
-#~ msgid "surah_39"
-#~ msgstr "الزمر"
-
-#~ msgid "surah_40"
-#~ msgstr "غافر"
-
-#~ msgid "surah_41"
-#~ msgstr "فصلت"
-
-#~ msgid "surah_42"
-#~ msgstr "الشورى"
-
-#~ msgid "surah_43"
-#~ msgstr "الزخرف"
-
-#~ msgid "surah_44"
-#~ msgstr "الدخان"
-
-#~ msgid "surah_45"
-#~ msgstr "الجاثية"
-
-#~ msgid "surah_46"
-#~ msgstr "الأحقاف"
-
-#~ msgid "surah_47"
-#~ msgstr "محمد"
-
-#~ msgid "surah_48"
-#~ msgstr "الفتح"
-
-#~ msgid "surah_49"
-#~ msgstr "الحجرات"
-
-#~ msgid "surah_50"
-#~ msgstr "ق"
-
-#~ msgid "surah_51"
-#~ msgstr "الذاريات"
-
-#~ msgid "surah_52"
-#~ msgstr "الطور"
-
-#~ msgid "surah_53"
-#~ msgstr "النجم"
-
-#~ msgid "surah_54"
-#~ msgstr "القمر"
-
-#~ msgid "surah_55"
-#~ msgstr "الرحمن"
-
-#~ msgid "surah_56"
-#~ msgstr "الواقعة"
-
-#~ msgid "surah_57"
-#~ msgstr "الحديد"
-
-#~ msgid "surah_58"
-#~ msgstr "المجادلة"
-
-#~ msgid "surah_59"
-#~ msgstr "الحشر"
-
-#~ msgid "surah_60"
-#~ msgstr "الممتحنة"
-
-#~ msgid "surah_61"
-#~ msgstr "الصف"
-
-#~ msgid "surah_62"
-#~ msgstr "الجمعة"
-
-#~ msgid "surah_63"
-#~ msgstr "المنافقون"
-
-#~ msgid "surah_64"
-#~ msgstr "التغابن"
-
-#~ msgid "surah_65"
-#~ msgstr "الطلاق"
-
-#~ msgid "surah_66"
-#~ msgstr "التحريم"
-
-#~ msgid "surah_67"
-#~ msgstr "الملك"
-
-#~ msgid "surah_68"
-#~ msgstr "القلم"
-
-#~ msgid "surah_69"
-#~ msgstr "الحاقة"
-
-#~ msgid "surah_70"
-#~ msgstr "المعارج"
-
-#~ msgid "surah_71"
-#~ msgstr "نوح"
-
-#~ msgid "surah_72"
-#~ msgstr "الجن"
-
-#~ msgid "surah_73"
-#~ msgstr "المزمل"
-
-#~ msgid "surah_74"
-#~ msgstr "المدثر"
-
-#~ msgid "surah_75"
-#~ msgstr "القيامة"
-
-#~ msgid "surah_76"
-#~ msgstr "الإنسان"
-
-#~ msgid "surah_77"
-#~ msgstr "المرسلات"
-
-#~ msgid "surah_78"
-#~ msgstr "النبأ"
-
-#~ msgid "surah_79"
-#~ msgstr "النازعات"
-
-#~ msgid "surah_80"
-#~ msgstr "عبس"
-
-#~ msgid "surah_81"
-#~ msgstr "التكوير"
-
-#~ msgid "surah_82"
-#~ msgstr "الانفطار"
-
-#~ msgid "surah_83"
-#~ msgstr "المطففين"
-
-#~ msgid "surah_84"
-#~ msgstr "الانشقاق"
-
-#~ msgid "surah_85"
-#~ msgstr "البروج"
-
-#~ msgid "surah_86"
-#~ msgstr "الطارق"
-
-#~ msgid "surah_87"
-#~ msgstr "الأعلى"
-
-#~ msgid "surah_88"
-#~ msgstr "الغاشية"
-
-#~ msgid "surah_89"
-#~ msgstr "الفجر"
-
-#~ msgid "surah_90"
-#~ msgstr "البلد"
-
-#~ msgid "surah_91"
-#~ msgstr "الشمس"
-
-#~ msgid "surah_92"
-#~ msgstr "الليل"
-
-#~ msgid "surah_93"
-#~ msgstr "الضحى"
-
-#~ msgid "surah_94"
-#~ msgstr "الشرح"
-
-#~ msgid "surah_95"
-#~ msgstr "التين"
-
-#~ msgid "surah_96"
-#~ msgstr "العلق"
-
-#~ msgid "surah_97"
-#~ msgstr "القدر"
-
-#~ msgid "surah_98"
-#~ msgstr "البينة"
-
-#~ msgid "surah_99"
-#~ msgstr "الزلزلة"
-
-#~ msgid "surah_100"
-#~ msgstr "العاديات"
-
-#~ msgid "surah_101"
-#~ msgstr "القارعة"
-
-#~ msgid "surah_102"
-#~ msgstr "التكاثر"
-
-#~ msgid "surah_103"
-#~ msgstr "العصر"
-
-#~ msgid "surah_104"
-#~ msgstr "الهمزة"
-
-#~ msgid "surah_105"
-#~ msgstr "الفيل"
-
-#~ msgid "surah_106"
-#~ msgstr "قريش"
-
-#~ msgid "surah_107"
-#~ msgstr "الماعون"
-
-#~ msgid "surah_108"
-#~ msgstr "الكوثر"
-
-#~ msgid "surah_109"
-#~ msgstr "الكافرون"
-
-#~ msgid "surah_110"
-#~ msgstr "النصر"
-
-#~ msgid "surah_111"
-#~ msgstr "المسد"
-
-#~ msgid "surah_112"
-#~ msgstr "الإخلاص"
-
-#~ msgid "surah_113"
-#~ msgstr "الفلق"
-
-#~ msgid "surah_114"
-#~ msgstr "الناس"
-
-#~ msgid "contents"
-#~ msgstr "الفهرس"
-
-#~ msgid "a11y_accessibility"
-#~ msgstr "إمكانية الوصول"
-
-#~ msgid "a11y_font_increase"
-#~ msgstr "تكبير الخط"
-
-#~ msgid "a11y_font_decrease"
-#~ msgstr "تصغير الخط"
-
-#~ msgid "a11y_high_contrast"
-#~ msgstr "تباين عالٍ"
-
-#~ msgid "a11y_dark_mode"
-#~ msgstr "الوضع الليلي"
-
-#~ msgid "a11y_reading_mode"
-#~ msgstr "وضع القراءة"
-
-#~ msgid "a11y_reset"
-#~ msgstr "إعادة الإعدادات"
-
-#~ msgid "select_translation"
-#~ msgstr "اختر الترجمة"
-
-#~ msgid "select_surah"
-#~ msgstr "اختر السورة"
-
-#~ msgid "copy_ayah"
-#~ msgstr "نسخ الآية"
-
-#~ msgid "share_ayah"
-#~ msgstr "مشاركة الآية"
-
-#~ msgid "bookmark_ayah"
-#~ msgstr "حفظ الآية"
-
-#~ msgid "play_ayah"
-#~ msgstr "تشغيل الصوت"
-
-#~ msgid "ayah_bookmarked"
-#~ msgstr "تم حفظ الآية"
-
-#~ msgid "ayah_unbookmarked"
-#~ msgstr "تم إزالة الحفظ"
-
-#~ msgid "no_translation_available"
-#~ msgstr "لا توجد ترجمة متاحة"
-
-#~ msgid "select_surah_to_start"
-#~ msgstr "اختر سورة للبدء"
-
-#~ msgid "app_download_title"
-#~ msgstr "حمّل تطبيق وِرد"
-
-#~ msgid "app_download_subtitle"
-#~ msgstr "تجربة قرآنية متكاملة على جوالك"
-
-#~ msgid "audio_language"
-#~ msgstr "لغة الصوت"
-
-#~ msgid "translation_intro"
-#~ msgstr ""
-#~ "اعرض الآية العربية مع ترجمة معانيها حسب لغة الموقع الحالية، مع دعم الصوت "
-#~ "والحفظ والنسخ والمشاركة."
-
-#~ msgid "current_language"
-#~ msgstr "اللغة الحالية"
-
-#~ msgid "audio_available"
-#~ msgstr "الصوت متاح لهذه اللغة"
-
-#~ msgid "features"
-#~ msgstr "المميزات"
-
-#~ msgid "bookmark"
-#~ msgstr "حفظ"
-
-#~ msgid "support"
-#~ msgstr "الدعم"
-
-#~ msgid "home_todays_wird"
-#~ msgstr "وردك لليوم"
-
-#~ msgid "home_this_week"
-#~ msgstr "هذا الأسبوع"
-
-#~ msgid "home_your_wird"
-#~ msgstr "وِرْدك"
-
-#~ msgid "home_progress"
-#~ msgstr "التقدم"
-
-#~ msgid "home_days_progress"
-#~ msgstr "4 من 7 أيام"
-
-#~ msgid "day_sat"
-#~ msgstr "السبت"
-
-#~ msgid "day_sun"
-#~ msgstr "الأحد"
-
-#~ msgid "day_mon"
-#~ msgstr "الاثنين"
-
-#~ msgid "day_tue"
-#~ msgstr "الثلاثاء"
-
-#~ msgid "day_wed"
-#~ msgstr "الأربعاء"
-
-#~ msgid "day_thu"
-#~ msgstr "الخميس"
-
-#~ msgid "day_fri"
-#~ msgstr "الجمعة"
-
-#~ msgid "home_today_wird"
-#~ msgstr "ورد اليوم"
-
-#~ msgid "home_play_recitation"
-#~ msgstr "تشغيل تلاوة"
-
-#~ msgid "home_pure_voice"
-#~ msgstr "صوت صافٍ"
-
-#~ msgid "home_tarteel"
-#~ msgstr "تلاوة مرتلة"
-
-#~ msgid "home_khashi"
-#~ msgstr "تلاوة خاشعة"
-
-#~ msgid ""
-#~ "We may update this policy from time to time. The \"Last updated\" date at "
-#~ "the top reflects the most recent revision. Continued use of the app after "
-#~ "an update constitutes acceptance of the revised policy."
-#~ msgstr ""
-#~ "قد نحدّث هذه السياسة أحياناً. تاريخ آخر تحديث في الأعلى يعكس أحدث مراجعة. "
-#~ "استمرار الاستخدام يُعدّ قبولاً للسياسة المحدَّثة."
+msgid "push_tab_history"
+msgstr "التنبيهات المرسلة"

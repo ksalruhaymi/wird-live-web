@@ -98,13 +98,8 @@ LOCAL_APPS = [
     "apps.communication",
     "apps.contact",
     "apps.subscription",
-    "apps.quran",
-    "apps.quran_studio",
-    "apps.tilawa",
     "apps.analytics",
-    "apps.hifz",
     "apps.push",
-    "apps.wird",
 ]
 
 THIRD_PARTY_APPS = [

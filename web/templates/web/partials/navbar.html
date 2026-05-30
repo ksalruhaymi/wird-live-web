@@ -3,8 +3,8 @@
 <nav id="mainNavbar" class="wird-navbar">
   <div class="wird-container">
     <div class="wird-navbar-inner">
-      <a href="{% url 'web:home' %}" id="mobileLogo" class="wird-brand" aria-label="وِرْد">
-        <img src="{% static 'images/wird.svg' %}" alt="وِرد" class="wird-brand-image">
+      <a href="{% url 'web:home' %}" id="mobileLogo" class="wird-brand" aria-label="مقرأة الحفظة">
+        <img src="{% static 'images/alhafaz.png' %}" alt="مقرأة الحفظة" class="wird-brand-image">
       </a>
 
       <button id="navToggleBtn" type="button" class="wird-mobile-toggle" aria-label="{% trans 'menu' %}">
@@ -14,11 +14,8 @@
       <div class="wird-desktop-nav">
         <div class="wird-nav-links">
           <a href="{% url 'web:home' %}" class="{% if request.resolver_match and request.resolver_match.namespace == 'web' and request.resolver_match.url_name == 'home' %}is-active{% endif %}">{% trans "home" %}</a>
-          <a href="{% url 'quran:quran' %}" class="{% if request.resolver_match and request.resolver_match.namespace == 'quran' %}is-active{% endif %}">{% trans "read_quran" %}</a>
-          <a href="{% url 'tilawa:qari_list' %}" class="{% if request.resolver_match and request.resolver_match.namespace == 'tilawa' %}is-active{% endif %}">{% trans "tilawa" %}</a>
-          <a href="{% url 'hifz:home' %}" class="{% if request.resolver_match and request.resolver_match.namespace == 'hifz' %}is-active{% endif %}">{% trans "hifz_quran" %}</a>
-          <a href="{% url 'web:translation' %}" class="{% if request.resolver_match and request.resolver_match.url_name == 'translation' or request.resolver_match.url_name == 'translation_surah' %}is-active{% endif %}">{% trans "translations" %}</a>
-          <a href="{% url 'quran:quran' %}" onclick="try{localStorage.setItem('wird_open_daily_reading','1');}catch(e){} if(typeof openDailyReadingModal==='function'){event.preventDefault();localStorage.removeItem('wird_open_daily_reading');openDailyReadingModal();}">{% trans "daily_wird" %}</a>
+          <a href="{% url 'web:about' %}">{% trans "about" %}</a>
+          <a href="{% url 'contact:contact' %}">{% trans "contact_us" %}</a>
         </div>
 
         <div class="wird-nav-actions">
@@ -54,8 +51,8 @@
 
 <div id="mobileMenu" class="wird-mobile-menu hidden">
   <div class="wird-mobile-menu-header">
-    <a href="{% url 'web:home' %}" class="wird-brand" aria-label="وِرْد">
-      <img src="{% static 'images/wird.svg' %}" alt="وِرد" class="wird-brand-image">
+    <a href="{% url 'web:home' %}" class="wird-brand" aria-label="مقرأة الحفظة">
+      <img src="{% static 'images/alhafaz.png' %}" alt="مقرأة الحفظة" class="wird-brand-image">
     </a>
     <button id="navCloseBtn" type="button" class="wird-mobile-toggle" aria-label="{% trans 'close' %}">
       <i class="bi bi-x-lg"></i>
@@ -68,11 +65,6 @@
 
   <div class="wird-mobile-links">
     <a href="{% url 'web:home' %}">{% trans "home" %}</a>
-    <a href="{% url 'quran:quran' %}">{% trans "read_quran" %}</a>
-    <a href="{% url 'tilawa:qari_list' %}">{% trans "tilawa" %}</a>
-    <a href="{% url 'hifz:home' %}">{% trans "hifz_quran" %}</a>
-    <a href="{% url 'web:translation' %}">{% trans "translations" %}</a>
-    <a href="{% url 'quran:quran' %}" onclick="try{localStorage.setItem('wird_open_daily_reading','1');}catch(e){}">{% trans "daily_wird" %}</a>
     <a href="{% url 'web:about' %}">{% trans "about" %}</a>
     <a href="{% url 'contact:contact' %}">{% trans "contact_us" %}</a>
 

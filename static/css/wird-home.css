@@ -2,16 +2,16 @@
   --wird-ink: #18241d;
   --wird-muted: #667169;
   --wird-soft: #f8f7ef;
-  --wird-surface: #fffefa;
+  --wird-surface: #ffffff;
   --wird-line: #e8e4d8;
-  --wird-green: #28563a;
-  --wird-green-soft: #e7f0e7;
+  --wird-green: #1ea1ee;
+  --wird-green-soft: #e8f6fd;
   --wird-gold: #d5ad58;
   --wird-shadow: 0 28px 70px rgba(24, 36, 29, .08);
 }
 
 body {
-  background: #fffefa;
+  background: #ffffff;
 }
 
 .wird-container {
@@ -23,7 +23,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 9998;
-  background: rgba(255, 254, 250, .88);
+  background: rgba(255, 255, 255, .88);
   border-bottom: 1px solid rgba(232, 228, 216, .75);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -198,7 +198,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: #fffefa;
+  background: #ffffff;
   padding: 18px;
   overflow-y: auto;
 }
@@ -249,7 +249,7 @@ body {
 
 .wird-home {
   overflow: hidden;
-  background: #fffefa;
+  background: #ffffff;
   color: var(--wird-ink);
   font-family: "Cairo", "DINNextArabic", system-ui, sans-serif;
 }
@@ -260,7 +260,7 @@ body {
   background:
     radial-gradient(circle at 22% 42%, rgba(226, 215, 176, .38), transparent 32%),
     radial-gradient(circle at 78% 36%, rgba(221, 235, 220, .34), transparent 34%),
-    linear-gradient(180deg, #fffefa 0%, #fffefa 76%, #f8f7ef 100%);
+    linear-gradient(180deg, #ffffff 0%, #ffffff 76%, #f8f7ef 100%);
 }
 
 .wird-hero-grid {
@@ -668,7 +668,7 @@ body {
   justify-content: center;
   margin: 0 auto 12px;
   border: 1px solid var(--wird-line);
-  background: #fffefa;
+  background: #ffffff;
   color: var(--wird-muted);
   font-size: 22px;
 }
@@ -868,7 +868,7 @@ body {
 }
 
 .wird-reading-section {
-  background: #fffefa;
+  background: #ffffff;
 }
 
 .wird-reading-grid {
@@ -950,7 +950,7 @@ body {
 }
 
 .wird-footer {
-  background: #f8f7ef;
+  background: #ffffff;
   border-top: 1px solid var(--wird-line);
   padding: 78px 0 34px;
 }
@@ -1618,8 +1618,8 @@ body {
   gap: 7px !important;
   padding: 7px 14px !important;
   border-radius: 999px !important;
-  background: var(--wird-ink) !important;
-  color: #fff !important;
+  background: #ffffff !important;
+  color: var(--wird-ink) !important;
   text-decoration: none !important;
   font-size: 12px !important;
   font-weight: 700 !important;
@@ -1941,30 +1941,30 @@ body {
   font-weight: 800 !important;
 }
 
-/* ── Green color update to #1A843A ── */
+/* ── Brand accent #1EA1EE ── */
 :root {
-  --wird-green: #1A843A !important;
+  --wird-green: #1ea1ee !important;
 }
 .wird-btn-primary,
 .wird-login-link,
 .wird-player-controls .is-main,
 .wird-reciter-list .is-active button {
-  background: #1A843A !important;
+  background: #1ea1ee !important;
 }
 .wird-nav-links a:hover,
 .wird-nav-links a.is-active,
 .wird-brand-mark,
 .wird-nav-icon,
 .wird-account-avatar {
-  color: #1A843A !important;
+  color: #1ea1ee !important;
 }
 .wird-eyebrow,
 .wird-reciter-list .is-active {
-  background: #e6f4eb !important;
+  background: #e8f6fd !important;
 }
 .wird-brand-mark {
-  background: #e6f4eb !important;
-  border-color: #b8dfc4 !important;
+  background: #e8f6fd !important;
+  border-color: #b3e0fa !important;
 }
 
 /* Ayah text in translation card → green */
@@ -2214,8 +2214,8 @@ html.a11y-dark {
   --wird-soft: #162032;
   --wird-surface: #1e293b;
   --wird-line: #334155;
-  --wird-green: #4ade80;
-  --wird-green-soft: #1a3d2f;
+  --wird-green: #5ec8f7;
+  --wird-green-soft: #1e3a52;
   --wird-gold: #d5ad58;
   --wird-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
 }

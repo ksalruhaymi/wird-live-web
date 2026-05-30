@@ -1,16 +1,16 @@
 {% extends "dashboard/layouts/base.html" %}
-{% load static %}
+{% load static i18n %}
 
 {% block dashboard_content %}
 
 <div class="max-w-6xl mx-auto space-y-5" dir-text>
 
-  <!-- HEADER CARD -->
   <div class="site-card p-5 md:p-6">
-    <h1 class=".site-titleflex items-center gap-2">
+    <h1 class="site-title flex items-center gap-2">
       <i class="bi bi-shield-lock-fill site-link-primary text-xl"></i>
-      <span>الصفحة الرئيسية</span>
+      <span>{% trans "dashboard_home_title" %}</span>
     </h1>
+    <p class="mt-2 text-sm site-text-muted">{% trans "alhafaz_platform_tagline" %}</p>
   </div>
 
 </div>

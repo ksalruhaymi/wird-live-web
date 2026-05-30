@@ -1,7 +1,8 @@
 (function () {
   "use strict";
 
-  var STORAGE_KEY = "wird_a11y";
+  var STORAGE_KEY = "alhafaz_a11y";
+  var LEGACY_KEY = "wird_a11y";
   var FONT_STEPS  = ["sm", "base", "lg", "xl", "xxl"];
   var FONT_SIZES  = ["90%", "100%", "112%", "125%", "140%"];
   var FONT_LABELS = { sm: "90%", base: "100%", lg: "112%", xl: "125%", xxl: "140%" };
@@ -15,7 +16,7 @@
 
   function load() {
     try {
-      var raw = localStorage.getItem(STORAGE_KEY);
+      var raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_KEY);
       if (!raw) return Object.assign({}, defaults);
       return Object.assign({}, defaults, JSON.parse(raw));
     } catch (_) {
@@ -30,16 +31,41 @@
   }
 
   function applyFont(step) {
-    // Set on <html> so rem-based Tailwind classes scale proportionally
     document.documentElement.style.fontSize = FONT_SIZES[step] || "100%";
   }
 
+  function normalizeState(state) {
+    if (state.darkMode && state.readingMode) {
+      state.readingMode = false;
+    }
+    return state;
+  }
+
   function applyState(state) {
+    state = normalizeState(state);
     applyFont(state.fontStep);
-    // Dark mode on <html> so CSS-variable overrides + Tailwind class selectors work
-    document.documentElement.classList.toggle("a11y-dark", !!state.darkMode);
-    document.body.classList.toggle("a11y-high-contrast", !!state.highContrast);
-    document.body.classList.toggle("a11y-reading", !!state.readingMode);
+
+    var html = document.documentElement;
+    var body = document.body;
+    var readingOn = !!state.readingMode && !state.darkMode;
+
+    html.classList.toggle("a11y-dark", !!state.darkMode);
+    html.classList.toggle("a11y-reading", readingOn);
+    body.classList.toggle("a11y-high-contrast", !!state.highContrast);
+    body.classList.toggle("a11y-reading", readingOn);
+
+    return state;
+  }
+
+  function syncToggles(state) {
+    var hc = document.getElementById("a11yHighContrast");
+    var dm = document.getElementById("a11yDarkMode");
+    var rm = document.getElementById("a11yReadingMode");
+    if (hc) hc.checked = !!state.highContrast;
+    if (dm) dm.checked = !!state.darkMode;
+    if (rm) rm.checked = !!state.readingMode;
+    var fv = document.getElementById("a11yFontVal");
+    if (fv) fv.textContent = FONT_LABELS[FONT_STEPS[state.fontStep]];
   }
 
   function buildPanel(state) {
@@ -127,9 +153,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    var state = load();
-
-    applyState(state);
+    var state = applyState(load());
 
     var trigger = buildTrigger();
     var panel = buildPanel(state);
@@ -183,31 +207,34 @@
 
     document.getElementById("a11yHighContrast").addEventListener("change", function () {
       state.highContrast = this.checked;
-      document.body.classList.toggle("a11y-high-contrast", state.highContrast);
+      state = applyState(state);
       save(state);
     });
 
     document.getElementById("a11yDarkMode").addEventListener("change", function () {
       state.darkMode = this.checked;
-      document.documentElement.classList.toggle("a11y-dark", state.darkMode);
+      if (state.darkMode) {
+        state.readingMode = false;
+      }
+      state = applyState(state);
+      syncToggles(state);
       save(state);
     });
 
     document.getElementById("a11yReadingMode").addEventListener("change", function () {
       state.readingMode = this.checked;
-      document.body.classList.toggle("a11y-reading", state.readingMode);
+      if (state.readingMode) {
+        state.darkMode = false;
+      }
+      state = applyState(state);
+      syncToggles(state);
       save(state);
     });
 
     document.getElementById("a11yResetBtn").addEventListener("click", function () {
-      state = Object.assign({}, defaults);
-      applyState(state);
+      state = applyState(Object.assign({}, defaults));
+      syncToggles(state);
       save(state);
-
-      document.getElementById("a11yHighContrast").checked = false;
-      document.getElementById("a11yDarkMode").checked = false;
-      document.getElementById("a11yReadingMode").checked = false;
-      document.getElementById("a11yFontVal").textContent = FONT_LABELS[FONT_STEPS[state.fontStep]];
     });
   });
 })();

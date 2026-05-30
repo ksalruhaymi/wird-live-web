@@ -1,4 +1,4 @@
-{% load rbac_tags %}
+{% load rbac_tags i18n %}
 {% if request.user|can_access:"analytics.access" %}
 
 <div class="site-card p-4">
@@ -7,13 +7,13 @@
     <div>
       <h2 class="site-title-md flex items-center gap-2">
         <i class="bi bi-bar-chart-line-fill site-link-primary"></i>
-        <span>إحصائيات الموقع</span>
+        <span>{% trans "dashboard_sidebar_analytics" %}</span>
       </h2>
     </div>
 
     <div class="hidden md:flex items-center gap-2 text-[11px] site-text-muted">
       <i class="bi bi-activity"></i>
-      <span>Analytics • Dashboard</span>
+      <span>{% trans "analytics_badge_label" %}</span>
     </div>
   </div>
 
@@ -31,7 +31,7 @@
           <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
         {% endif %}
         <i class="bi bi-grid-1x2-fill ml-1"></i>
-        <span>نظرة عامة</span>
+        <span>{% trans "analytics_tab_overview" %}</span>
       </a>
 
       <a href="{% url 'analytics:pages_dashboard' %}"
@@ -45,7 +45,7 @@
           <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
         {% endif %}
         <i class="bi bi-file-earmark-text ml-1"></i>
-        <span>الصفحات</span>
+        <span>{% trans "analytics_tab_pages" %}</span>
       </a>
 
       <a href="{% url 'analytics:audio_dashboard' %}"
@@ -59,7 +59,7 @@
           <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
         {% endif %}
         <i class="bi bi-volume-up-fill ml-1"></i>
-        <span>الصوت</span>
+        <span>{% trans "analytics_tab_audio" %}</span>
       </a>
 
       <a href="{% url 'analytics:mushaf_dashboard' %}"
@@ -73,20 +73,7 @@
           <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
         {% endif %}
         <i class="bi bi-book-half ml-1"></i>
-        <span>المصحف</span>
-      </a>
-      <a href="{% url 'analytics:tafsir_dashboard' %}"
-          class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
-          {% if tab == 'tafsir' %}
-            site-tab-link-active site-surface shadow-sm
-          {% else %}
-            site-tab-link hover:site-surface
-          {% endif %}">
-          {% if tab == 'tafsir' %}
-            <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
-          {% endif %}
-          <i class="bi bi-journal-richtext ml-1"></i>
-          <span>التفاسير</span>
+        <span>{% trans "analytics_tab_content" %}</span>
       </a>
 
       <a href="{% url 'analytics:events_dashboard' %}"
@@ -100,7 +87,7 @@
           <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
         {% endif %}
         <i class="bi bi-clock-history ml-1"></i>
-        <span>آخر التفاعلات</span>
+        <span>{% trans "analytics_tab_interactions" %}</span>
       </a>
 
       <a href="{% url 'analytics:visitors_dashboard' %}"
@@ -114,7 +101,7 @@
           <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
         {% endif %}
         <i class="bi bi-person-vcard ml-1"></i>
-        <span>الزوار</span>
+        <span>{% trans "analytics_tab_visitors" %}</span>
       </a>
 
     </nav>

@@ -1,62 +1,41 @@
 {% extends "web/layouts/base.html" %}
-{% load static %}
-{% load i18n %}
-{% block title %}{% trans "web_wrd_alqraan_alkrym" %}{% endblock %}
-{% block description %}{% trans "long_about_text" %}{% endblock %}
+{% load static i18n %}
+
+{% block title %}عن مقرأة الحفظة{% endblock %}
+{% block description %}تعرف على منصة مقرأة الحفظة لربط الطلاب بالمعلمين وتصحيح التلاوة ومتابعة الحفظ عن بُعد.{% endblock %}
 
 {% block content %}
-
-
 <section class="py-16 px-4">
-
   <div class="max-w-5xl mx-auto">
-
-    <!-- Card -->
     <div class="site-card p-8 md:p-12 space-y-8">
-
-      <!-- Header -->
-      <div class="dir-text space-y-2">
-
-        {% comment %} <div class="flex flex-col items-center justify-center py-1">
-          <div>
-              <a href="/" class="flex items-center p-2">
-                <img src="{% static 'images/wird.svg' %}" 
-                   alt="وِرد"
-                 class="h-24 w-auto">
-              </a>
-          </div>
-           <div class="text-md md:text-xl font-bold tracking-wider site-text">
-          </div>
-        </div> {% endcomment %}
-        
-      </div>
-      <div class="">
-        <p class="text-2xl  site-text-muted ">
-        {% trans "wird quran" %}
+      <div class="dir-text space-y-3">
+        <h1 class="text-2xl md:text-3xl font-extrabold site-text">عن مقرأة الحفظة</h1>
+        <p class="text-sm md:text-base leading-relaxed site-text-muted">
+          مقرأة الحفظة منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام.
         </p>
       </div>
-      <!-- Divider -->
+
       <hr class="border border-gray-100">
 
-      <!-- Content -->
-      <div class="space-y-6 dir-text leading-relaxed site-text text-sm md:text-base">
-
-        <p>
-        {% trans "about_wird" %}
-        </p>
-
-      </div>
-
-      <!-- Footer note -->
-      {% comment %} <div class="pt-4 dir-text">
-        <p class="text-xs site-text-muted py-5">
-        {% trans "wird quran" %}
-        </p>
-      </div> {% endcomment %}
-
+      <ul class="space-y-4 dir-text text-sm md:text-base site-text leading-relaxed list-none p-0 m-0">
+        <li class="flex gap-3 items-start">
+          <i class="bi bi-check-circle-fill site-link-primary mt-1 shrink-0"></i>
+          <span>تعليم القرآن الكريم عن بُعد.</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <i class="bi bi-check-circle-fill site-link-primary mt-1 shrink-0"></i>
+          <span>ربط الطالب بالمعلم المناسب.</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <i class="bi bi-check-circle-fill site-link-primary mt-1 shrink-0"></i>
+          <span>دعم الجلسات الصوتية والمرئية مستقبلًا.</span>
+        </li>
+        <li class="flex gap-3 items-start">
+          <i class="bi bi-check-circle-fill site-link-primary mt-1 shrink-0"></i>
+          <span>حفظ سجل الجلسات لمتابعة تقدم الطالب.</span>
+        </li>
+      </ul>
     </div>
-
   </div>
 </section>
-
 {% endblock %}

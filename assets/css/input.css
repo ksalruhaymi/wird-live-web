@@ -23,9 +23,9 @@
 
 /* Theme variables */
 :root {
-  --color-primary: #1a843a;
-  --color-primary-hover: #0e9a5d;
-  --color-primary-border: #1bb572;
+  --color-primary: #1ea1ee;
+  --color-primary-hover: #1890d6;
+  --color-primary-border: #8fd0f5;
   --color-text-on-primary: #ffffff;
 
   --color-page-bg: white;
@@ -237,7 +237,7 @@ html[dir="ltr"] .dir-row {
   font-weight: 700;
   line-height: 1;
 
-  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.18);
+  box-shadow: 0 6px 14px rgba(30, 161, 238, 0.18);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -246,21 +246,21 @@ html[dir="ltr"] .dir-row {
 .site-btn-primary:hover {
   background-color: var(--color-primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 10px 18px rgba(16, 185, 129, 0.22);
+  box-shadow: 0 10px 18px rgba(30, 161, 238, 0.22);
 }
 
 /* Button active */
 .site-btn-primary:active {
   transform: translateY(0);
-  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.16);
+  box-shadow: 0 4px 10px rgba(30, 161, 238, 0.16);
 }
 
 /* Button focus */
 .site-btn-primary:focus-visible {
   outline: none;
   box-shadow:
-    0 0 0 3px rgba(16, 185, 129, 0.18),
-    0 6px 14px rgba(16, 185, 129, 0.18);
+    0 0 0 3px rgba(30, 161, 238, 0.18),
+    0 6px 14px rgba(30, 161, 238, 0.18);
 }
 
 /* Sidebar button */
@@ -317,7 +317,7 @@ html[dir="ltr"] .dir-row {
 }
 
 .public-footer a:hover {
-  color: #e6fff3;
+  color: #e8f6fd;
 }
 
 .public-footer-inner {
@@ -338,7 +338,7 @@ html[dir="ltr"] .dir-row {
 }
 
 .dashboard-footer a:hover {
-  color: #e6fff3;
+  color: #e8f6fd;
 }
 
 /* Editor */
@@ -452,7 +452,7 @@ html[dir="ltr"] .dir-row {
 }
 
 .site-btn-outline:hover {
-  background-color: #f0fdf4;
+  background-color: #e8f6fd;
 }
 
 /* Utility colors */
