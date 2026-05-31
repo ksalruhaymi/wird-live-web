@@ -90,8 +90,10 @@ def user_create(request):
             errors["email"] = "البريد الإلكتروني غير صالح."
         elif User.objects.filter(email__iexact=email).exists():
             errors["email"] = "البريد الإلكتروني مستخدم من قبل."
-        elif User.objects.filter(username=username).exists():
-            errors["email"] = "البريد الإلكتروني مستخدم من قبل."
+        elif username and User.objects.filter(username__iexact=username).exists():
+            errors["email"] = (
+                "اسم المستخدم المستخرج من هذا البريد مستخدم من قبل."
+            )
 
         mobile_db = None
         if mobile_raw:

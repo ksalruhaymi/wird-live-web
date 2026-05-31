@@ -1,3 +1,5 @@
+import re
+
 from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
@@ -14,6 +16,8 @@ from identity.rbac.models import Role
 
 User = get_user_model()
 
+_USERNAME_PATTERN = re.compile(r"^[\w.@+-]+$")
+
 
 def parse_user_type(raw) -> tuple[int | None, str | None]:
     value = (raw or "").strip().lower()
@@ -29,7 +33,15 @@ def parse_user_type(raw) -> tuple[int | None, str | None]:
 
 
 def username_from_email(email: str) -> str:
-    return email.strip().lower()
+    """Local part before @, lowercased (e.g. admin@gmail.com -> admin)."""
+    normalized = (email or "").strip().lower()
+    if "@" not in normalized:
+        return ""
+    local, _domain = normalized.split("@", 1)
+    local = local.strip()
+    if not local or not _USERNAME_PATTERN.match(local):
+        return ""
+    return local
 
 
 def _assign_role_for_user_type(user: User, user_type_value: int) -> None:
@@ -106,8 +118,14 @@ def validate_registration_payload(data: dict) -> tuple[dict | None, str | None]:
         return None, "نوع الحساب غير صالح."
 
     username = username_from_email(email)
-    if User.objects.filter(username=username).exists():
-        return None, "البريد الإلكتروني مستخدم بالفعل."
+    if not username:
+        return None, "البريد الإلكتروني غير صالح."
+
+    if User.objects.filter(username__iexact=username).exists():
+        return None, (
+            "اسم المستخدم المستخرج من هذا البريد مستخدم بالفعل. "
+            "يرجى استخدام بريد إلكتروني آخر."
+        )
     if User.objects.filter(email__iexact=email).exists():
         return None, "البريد الإلكتروني مستخدم بالفعل."
 

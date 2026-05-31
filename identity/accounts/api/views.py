@@ -97,13 +97,19 @@ def login_api(request):
     if err:
         return err
 
-    email = (data.get("email") or data.get("username") or "").strip()
+    username = (data.get("username") or "").strip()
     password = data.get("password") or ""
 
-    if not email or not password:
-        return _error("البريد الإلكتروني وكلمة المرور مطلوبان.", 400)
+    if not username or not password:
+        return _error("اسم المستخدم وكلمة المرور مطلوبان.", 400)
 
-    result = login_user(request, email, password)
+    if "@" in username:
+        return _error(
+            "أدخل اسم المستخدم فقط (الجزء قبل @) وليس البريد الإلكتروني كاملاً.",
+            400,
+        )
+
+    result = login_user(request, username, password)
 
     if result == "ok":
         return _success(request.user)
@@ -111,7 +117,7 @@ def login_api(request):
     if result == "inactive":
         return _error("Account is inactive.", 403)
 
-    return _error("البريد الإلكتروني أو كلمة المرور غير صحيحة.", 401)
+    return _error("اسم المستخدم أو كلمة المرور غير صحيحة.", 401)
 
 
 @require_POST
