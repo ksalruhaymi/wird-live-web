@@ -8,9 +8,14 @@ User = get_user_model()
 
 def _resolve_user(identifier: str):
     value = (identifier or "").strip()
-    if not value or "@" in value:
+    if not value:
         return None
-    return User.objects.filter(username__iexact=value).first()
+    if "@" in value:
+        return User.objects.filter(email__iexact=value).first()
+    user = User.objects.filter(username__iexact=value).first()
+    if user:
+        return user
+    return User.objects.filter(email__iexact=value).first()
 
 
 def login_user(request, identifier, password):
