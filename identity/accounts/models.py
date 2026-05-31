@@ -3,6 +3,7 @@ from django.db import models
 
 from core.services.phone_service import normalize_phone_number
 from core.validators import validate_phone
+from identity.accounts.user_types import USER_TYPE_SUPERVISOR
 
 
 class User(AbstractUser):
@@ -19,6 +20,32 @@ class User(AbstractUser):
         max_length=255,
         blank=True,
         help_text="Full legal name of the user",
+    )
+
+    national_id = models.CharField(
+        max_length=20,
+        blank=True,
+        null=True,
+        unique=True,
+        help_text="National ID (رقم الهوية); mobile may use username until sent explicitly",
+    )
+
+    qualification = models.CharField(
+        max_length=255,
+        blank=True,
+        help_text="Educational qualification (المؤهل الدراسي)",
+    )
+
+    birth_date = models.DateField(
+        null=True,
+        blank=True,
+        help_text="Date of birth (تاريخ الميلاد)",
+    )
+
+    enrollment_track = models.PositiveSmallIntegerField(
+        null=True,
+        blank=True,
+        help_text="Enrollment track index 0–4 from mobile register step 2",
     )
 
     mobile = models.CharField(
@@ -43,7 +70,8 @@ class User(AbstractUser):
     )
 
     user_type = models.PositiveSmallIntegerField(
-        default=3,
+        default=USER_TYPE_SUPERVISOR,
+        help_text="1=admin, 3=supervisor, 5=teacher, 9=student",
     )
 
     created_by = models.IntegerField(

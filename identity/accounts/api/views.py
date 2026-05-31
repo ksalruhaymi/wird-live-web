@@ -1,15 +1,18 @@
 import json
+from datetime import datetime
 
 from django.contrib.auth import get_user_model, login, logout
-from django.contrib.auth.password_validation import validate_password
-from django.core.exceptions import ValidationError
 from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST
 
 from identity.accounts.auth.login_service import login_user
+from identity.accounts.auth.registration_service import (
+    register_account,
+    validate_registration_payload,
+)
+from identity.accounts.user_types import resolve_user_type_slug
 from identity.accounts.auth.settings_service import is_db_login_allowed
-from identity.rbac.models import Role
 
 User = get_user_model()
 
@@ -22,11 +25,25 @@ def _display_name(user) -> str:
     return full or user.username
 
 
+def _user_type_slug(user) -> str:
+    if getattr(user, "user_type", None) == USER_TYPE_TEACHER:
+        return "teacher"
+    if getattr(user, "user_type", None) == USER_TYPE_STUDENT:
+        return "student"
+    if hasattr(user, "teacher_profile"):
+        return "teacher"
+    if hasattr(user, "student_profile"):
+        return "student"
+    return "student"
+
+
 def _user_payload(user) -> dict:
     return {
         "id": user.id,
         "username": user.username,
+        "email": user.email,
         "display_name": _display_name(user),
+        "user_type": resolve_user_type_slug(user),
     }
 
 
@@ -80,13 +97,13 @@ def login_api(request):
     if err:
         return err
 
-    username = (data.get("username") or "").strip()
+    email = (data.get("email") or data.get("username") or "").strip()
     password = data.get("password") or ""
 
-    if not username or not password:
-        return _error("Username and password are required.", 400)
+    if not email or not password:
+        return _error("البريد الإلكتروني وكلمة المرور مطلوبان.", 400)
 
-    result = login_user(request, username, password)
+    result = login_user(request, email, password)
 
     if result == "ok":
         return _success(request.user)
@@ -94,7 +111,7 @@ def login_api(request):
     if result == "inactive":
         return _error("Account is inactive.", 403)
 
-    return _error("Invalid username or password.", 401)
+    return _error("البريد الإلكتروني أو كلمة المرور غير صحيحة.", 401)
 
 
 @require_POST
@@ -106,45 +123,16 @@ def register_api(request):
     if err:
         return err
 
-    username = (data.get("username") or "").strip()
-    email = (data.get("email") or "").strip()
-    password = data.get("password") or ""
-    full_name = (data.get("full_name") or "").strip()
-    mobile = (data.get("mobile") or "").strip()
+    payload, message = validate_registration_payload(data)
+    if message:
+        return _error(message, 400)
 
-    if not username:
-        return _error("Username is required.", 400)
-    if not email:
-        return _error("Email is required.", 400)
-    if not password:
-        return _error("Password is required.", 400)
-
-    if User.objects.filter(username=username).exists():
-        return _error("Username is already taken.", 400)
-    if User.objects.filter(email=email).exists():
-        return _error("Email is already taken.", 400)
-
-    try:
-        validate_password(password)
-    except ValidationError as exc:
-        return _error(" ".join(exc.messages), 400)
-
-    extra: dict = {"user_type": 9, "created_by": None}
-    if full_name:
-        extra["full_name"] = full_name
-    if mobile:
-        extra["mobile"] = mobile
-
-    user = User.objects.create_user(
-        username=username,
-        email=email,
-        password=password,
-        **extra,
+    user = register_account(
+        full_name=payload["full_name"],
+        email=payload["email"],
+        password=payload["password"],
+        user_type_value=payload["user_type_value"],
     )
-
-    participant_role = Role.objects.filter(slug="participant").first()
-    if participant_role:
-        user.roles.add(participant_role)
 
     login(request, user, backend="django.contrib.auth.backends.ModelBackend")
     return _success(user, status=201)

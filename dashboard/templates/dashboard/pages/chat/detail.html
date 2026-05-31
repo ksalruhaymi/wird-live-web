@@ -1,0 +1,19 @@
+{% extends "dashboard/layouts/base.html" %}
+{% block dashboard_content %}
+<div class="max-w-3xl mx-auto space-y-4" dir-text>
+  <h2 class="site-title-md">محادثة #{{ conversation.id }}</h2>
+  <p class="text-[12px] site-text-muted">طالب: {{ conversation.student.username }} — معلّم: {{ conversation.teacher.username }}</p>
+  <div class="site-card p-4 space-y-2 max-h-[60vh] overflow-y-auto">
+    {% for msg in messages %}
+    <div class="text-[12px] border-b site-border pb-2">
+      <strong>{{ msg.sender.username }}</strong>
+      <span class="site-text-muted">{{ msg.created_at|date:"Y-m-d H:i" }}</span>
+      <p class="mt-1">{{ msg.body }}</p>
+    </div>
+    {% empty %}
+    <p class="site-text-muted">لا توجد رسائل.</p>
+    {% endfor %}
+  </div>
+  <a href="{% url 'dashboard:chat_conversation_list' %}" class="text-[12px] site-link-primary">رجوع</a>
+</div>
+{% endblock %}

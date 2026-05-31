@@ -1,0 +1,44 @@
+{% extends "dashboard/layouts/base.html" %}
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-6" dir-text>
+  <h2 class="site-title-md">تقييمات الجلسات</h2>
+  <form method="get" class="site-card p-4 flex flex-wrap gap-3">
+    <input type="search" name="q" value="{{ q }}" placeholder="بحث…" class="flex-1 px-3 py-2 border site-border rounded-lg text-[12px]">
+    <select name="status" class="px-3 py-2 border site-border rounded-lg text-[12px]">
+      <option value="all">كل الحالات</option>
+      {% for value, label in status_choices %}
+      <option value="{{ value }}" {% if status_filter == value %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold">تطبيق</button>
+  </form>
+  <div class="overflow-x-auto site-card">
+    <table class="min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text-muted">
+        <tr>
+          <th class="px-4 py-3 font-bold">#</th>
+          <th class="px-4 py-3 font-bold">الطالب</th>
+          <th class="px-4 py-3 font-bold">المعلّم</th>
+          <th class="px-4 py-3 font-bold">الجلسة</th>
+          <th class="px-4 py-3 font-bold">الحالة</th>
+          <th class="px-4 py-3 font-bold">التاريخ</th>
+        </tr>
+      </thead>
+      <tbody class="divide-site">
+        {% for row in rows %}
+        <tr>
+          <td class="px-4 py-2">{{ row.id }}</td>
+          <td class="px-4 py-2">{{ row.student.get_full_name|default:row.student.username }}</td>
+          <td class="px-4 py-2">{{ row.teacher.get_full_name|default:row.teacher.username }}</td>
+          <td class="px-4 py-2">{{ row.call_session_id }}</td>
+          <td class="px-4 py-2">{{ row.get_status_display }}</td>
+          <td class="px-4 py-2">{{ row.created_at|date:"Y-m-d H:i" }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6" class="px-4 py-8 text-center site-text-muted">لا توجد تقييمات.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

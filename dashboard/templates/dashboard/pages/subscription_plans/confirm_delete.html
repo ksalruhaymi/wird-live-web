@@ -1,0 +1,38 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-lg mx-auto mt-24 px-4" dir-text>
+
+  <div class="bg-white border border-red-200 rounded-2xl p-6 shadow-sm space-y-5">
+
+    <div class="flex items-center gap-2 text-red-600">
+      <i class="bi bi-exclamation-triangle-fill text-lg"></i>
+      <h1 class="text-sm font-extrabold">تأكيد حذف الباقة</h1>
+    </div>
+
+    <p class="text-[12px] text-slate-600 leading-relaxed">
+      أنت على وشك حذف الباقة:
+      <span class="font-bold text-slate-800">{{ plan.title }}</span>
+      ({{ plan.duration_months }} شهر — {{ plan.price }} ريال)
+      <br>
+      هذا الإجراء <span class="text-red-600 font-semibold">لا يمكن التراجع عنه</span>.
+    </p>
+
+    <form method="post" class="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 pt-2">
+      {% csrf_token %}
+      <a href="{% url 'dashboard:subscription_plan_list' %}"
+         class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-slate-200 text-[12px] font-bold text-slate-600 hover:bg-slate-50 transition">
+        <i class="bi bi-arrow-right text-sm"></i>
+        <span>إلغاء</span>
+      </a>
+      <button type="submit"
+              class="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-gradient-to-br from-red-600 to-red-500 text-white text-[12px] font-bold shadow-sm hover:shadow-md active:scale-95 transition">
+        <i class="bi bi-trash-fill text-sm"></i>
+        <span>حذف الباقة</span>
+      </button>
+    </form>
+
+  </div>
+
+</div>
+{% endblock %}

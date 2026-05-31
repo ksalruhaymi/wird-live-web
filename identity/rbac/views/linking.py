@@ -24,6 +24,7 @@ PROTECTED_PERMISSION_CODES = (
 
 
 
+@permission_required("rbac.access")
 def rabc_overview(request):
     context = {
         "": "",

@@ -1,0 +1,14 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-lg mx-auto site-card p-6 space-y-4" dir-text>
+  <h2 class="site-title-md">حذف الإعلان</h2>
+  <p class="site-text text-sm">هل تريد حذف هذا الإعلان؟</p>
+  <p class="site-text-muted text-sm">{{ announcement.message|truncatechars:120 }}</p>
+  <form method="post" class="flex gap-3">
+    {% csrf_token %}
+    <button type="submit" class="px-4 py-2 rounded-full bg-red-600 text-white text-sm font-bold">حذف</button>
+    <a href="{% url 'dashboard:announcement_list' %}" class="px-4 py-2 rounded-full border site-border text-sm site-text-muted">إلغاء</a>
+  </form>
+</div>
+{% endblock %}

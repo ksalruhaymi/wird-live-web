@@ -27,7 +27,7 @@
               shadow-sm hover:shadow-md
               active:scale-95 transition">
       <i class="bi bi-person-plus-fill text-sm"></i>
-      إضافة مستخدم
+      إضافة مشرف
     </a>
     {% endif %}
   </div>
@@ -55,6 +55,8 @@
       <thead class="site-surface text-[11px] site-text-muted">
         <tr class="dir-text">
           <th class="px-4 py-3 font-bold">اسم المستخدم</th>
+          <th class="px-4 py-3 font-bold">نوع المستخدم</th>
+          <th class="px-4 py-3 font-bold">الحالة</th>
           <th class="px-4 py-3 font-bold">الأدوار</th>
         </tr>
       </thead>
@@ -69,6 +71,18 @@
                 <i class="bi bi-person text-[13px]"></i>
                 <span>{{ user.username }}</span>
               </a>
+            </td>
+
+            <td class="px-4 py-3 text-[11px]">
+              {{ user|user_type_display }}
+            </td>
+
+            <td class="px-4 py-3">
+              {% if user.is_active %}
+                <span class="text-emerald-700 font-semibold">نشط</span>
+              {% else %}
+                <span class="site-text-muted">غير نشط</span>
+              {% endif %}
             </td>
 
             <!-- Roles -->

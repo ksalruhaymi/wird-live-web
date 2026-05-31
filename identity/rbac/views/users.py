@@ -7,6 +7,8 @@ from django.views.decorators.http import require_POST
 
 from core.services.phone_service import normalize_phone_number
 from core.utils.pagination import paginate_with_smart_pages
+from identity.accounts.auth.registration_service import username_from_email
+from identity.accounts.user_types import USER_TYPE_SUPERVISOR
 from identity.rbac.decorators import permission_required
 
 from ..models import Role
@@ -18,8 +20,7 @@ import string
 
 User = get_user_model()
 
-# Protected usernames that should not be created/modified from this UI
-PROTECTED_USERNAMES = ("",)
+PROTECTED_USERNAMES = ("admin",)
 
 
 @permission_required("users.list")
@@ -51,10 +52,6 @@ def users_list(request):
 
 
 def generate_password(length: int = 10) -> str:
-    """
-    Generate a random password of given length.
-    Letters + digits only.
-    """
     chars = string.ascii_letters + string.digits
     return "".join(secrets.choice(chars) for _ in range(length))
 
@@ -62,61 +59,53 @@ def generate_password(length: int = 10) -> str:
 @permission_required("users.create")
 def user_create(request):
     """
-    Create a new user:
-    - required: username, full_name, email
-    - password: generated automatically and sent by email
-    - role: participant (fixed)
+    Admin-only: create a supervisor account for dashboard access.
+    Students and teachers register via the mobile app only.
     """
-    title = "إضافة مستخدم"
+    title = "إضافة مشرف"
     initial = {}
     errors = {}
 
     if request.method == "POST":
-        username = (request.POST.get("username") or "").strip().lower()
         full_name = (request.POST.get("full_name") or "").strip()
-        email = (request.POST.get("email") or "").strip()
+        email = (request.POST.get("email") or "").strip().lower()
         mobile_raw = (request.POST.get("mobile") or "").strip()
         is_active = request.POST.get("is_active") == "on"
 
+        username = username_from_email(email) if email else ""
+
         initial = {
-            "username": username,
             "full_name": full_name,
             "email": email,
             "mobile": mobile_raw,
             "is_active": is_active,
         }
 
-        # Username
-        if not username:
-            errors["username"] = "اسم المستخدم مطلوب."
-        elif "PROTECTED_USERNAMES" in globals() and username in PROTECTED_USERNAMES:
-            errors["username"] = "اسم المستخدم هذا محجوز ولا يمكن استخدامه."
-        elif User.objects.filter(username=username).exists():
-            errors["username"] = "اسم المستخدم مستخدم من قبل."
-
-        # Full name
         if not full_name:
             errors["full_name"] = "الاسم الكامل مطلوب."
 
-        # Email
         if not email:
             errors["email"] = "البريد الإلكتروني مطلوب لإرسال بيانات الدخول."
-        elif User.objects.filter(email=email).exists():
+        elif "@" not in email:
+            errors["email"] = "البريد الإلكتروني غير صالح."
+        elif User.objects.filter(email__iexact=email).exists():
+            errors["email"] = "البريد الإلكتروني مستخدم من قبل."
+        elif User.objects.filter(username=username).exists():
             errors["email"] = "البريد الإلكتروني مستخدم من قبل."
 
-        # Mobile
         mobile_db = None
         if mobile_raw:
             try:
                 mobile_db = normalize_phone_number(mobile_raw, "SA")
             except ValueError as e:
                 errors["mobile"] = str(e)
-            else:
-                if User.objects.filter(mobile=mobile_db).exists():
-                    errors["mobile"] = "رقم الجوال مستخدم من قبل."
+            if (
+                not errors.get("mobile")
+                and mobile_db
+                and User.objects.filter(mobile=mobile_db).exists()
+            ):
+                errors["mobile"] = "رقم الجوال مستخدم من قبل."
 
-       
-        # Create user
         if not errors:
             password = generate_password()
 
@@ -126,33 +115,27 @@ def user_create(request):
                     email=email,
                     password=password,
                     is_active=is_active,
+                    is_staff=False,
+                    is_superuser=False,
                 )
-
-                if hasattr(user, "full_name"):
-                    user.full_name = full_name
-
-                if hasattr(user, "mobile"):
-                    user.mobile = mobile_db
-
-                if hasattr(user, "user_type"):
-                    user.user_type = 5
-
-                if hasattr(user, "created_by") and request.user.is_authenticated:
+                user.full_name = full_name
+                user.mobile = mobile_db
+                user.user_type = USER_TYPE_SUPERVISOR
+                if request.user.is_authenticated:
                     user.created_by = request.user.id
-
                 user.save()
 
-                participant_role = Role.objects.filter(slug="participant").first()
-                if participant_role:
-                    user.roles.add(participant_role)
+                supervisor_role = Role.objects.filter(slug="supervisor").first()
+                if supervisor_role:
+                    user.roles.set([supervisor_role])
 
             try:
                 send_mail(
                     subject="بيانات حسابك في المنصة",
                     message=(
                         f"مرحبًا {full_name}\n\n"
-                        f"تم إنشاء حسابك في المنصة.\n\n"
-                        f"اسم المستخدم: {username}\n"
+                        f"تم إنشاء حساب مشرف في لوحة التحكم.\n\n"
+                        f"البريد / اسم المستخدم: {username}\n"
                         f"كلمة المرور: {password}\n\n"
                         f"ننصح بتغيير كلمة المرور بعد تسجيل الدخول."
                     ),
@@ -162,12 +145,12 @@ def user_create(request):
                 )
                 messages.success(
                     request,
-                    "تم إنشاء المستخدم بنجاح، وتم إرسال بيانات الدخول إلى بريده الإلكتروني."
+                    "تم إنشاء المشرف بنجاح، وتم إرسال بيانات الدخول إلى بريده الإلكتروني.",
                 )
             except Exception:
                 messages.warning(
                     request,
-                    "تم إنشاء المستخدم بنجاح، ولكن تعذّر إرسال البريد الإلكتروني. تأكّد من إعدادات البريد."
+                    "تم إنشاء المشرف بنجاح، ولكن تعذّر إرسال البريد الإلكتروني.",
                 )
 
             return redirect("rbac:users_list")
@@ -210,6 +193,10 @@ def user_toggle_active(request, pk):
     if request.method != "POST":
         return redirect("rbac:user_detail", pk=pk)
 
+    if user_obj.username in PROTECTED_USERNAMES and not request.user.is_superuser:
+        messages.error(request, "لا يمكن تعديل حالة المستخدم الأساسي.")
+        return redirect("rbac:user_detail", pk=pk)
+
     is_active = bool(request.POST.get("is_active"))
     user_obj.is_active = is_active
     user_obj.save()
@@ -226,10 +213,10 @@ def user_update_roles(request, pk):
         pk=pk,
     )
 
-    if user_obj.username in PROTECTED_USERNAMES:
+    if user_obj.username in PROTECTED_USERNAMES and not request.user.is_superuser:
         messages.error(
             request,
-            "لا يمكن تعديل أدوار هذا المستخدم الأساسي من هذه الواجهة."
+            "لا يمكن تعديل أدوار المستخدم الأساسي من هذه الواجهة.",
         )
         return redirect("rbac:user_detail", pk=user_obj.pk)
 

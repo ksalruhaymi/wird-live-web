@@ -37,15 +37,62 @@
     {% endwith %}
     {% endif %}
 
-    {% if request.user|can_access:"analytics.access" %}
-      {% with path=request.path %}
-      <a href="{% url 'analytics:dashboard' %}"
-          class="site-sidebar-btn {% if '/analytics/dashboard/' in path %}site-sidebar-btn-active{% endif %}">
-        <i class="bi bi-bar-chart-line"></i>
-        <span>{% trans "dashboard_sidebar_analytics" %}</span>
-      </a>
-      {% endwith %}
+    {% with path=request.path %}
+    {% if request.user|can_access:"subscriptions.view" %}
+    <a href="{% url 'dashboard:subscription_plan_list' %}"
+       class="site-sidebar-btn {% if 'subscription-plans' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-credit-card"></i>
+      <span>باقات الاشتراك</span>
+    </a>
+    <a href="{% url 'dashboard:student_subscription_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/subscriptions' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-journal-text"></i>
+      <span>سجل الاشتراكات</span>
+    </a>
     {% endif %}
+    {% if request.user|can_access:"announcements.view" %}
+    <a href="{% url 'dashboard:announcement_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/announcements' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-megaphone"></i>
+      <span>الإعلانات</span>
+    </a>
+    {% endif %}
+    {% if request.user|can_access:"calls.view" %}
+    <a href="{% url 'dashboard:call_session_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/calls' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-telephone"></i>
+      <span>سجل المكالمات</span>
+    </a>
+    {% endif %}
+    {% if request.user|can_access:"teachers.availability.view" %}
+    <a href="{% url 'dashboard:teacher_availability_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/teachers/availability' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-person-check"></i>
+      <span>حالة المعلمين</span>
+    </a>
+    {% endif %}
+    {% if request.user|can_access:"evaluations.view" %}
+    <a href="{% url 'dashboard:session_evaluation_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/evaluations' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-star"></i>
+      <span>تقييمات الجلسات</span>
+    </a>
+    {% endif %}
+    {% if request.user|can_access:"recordings.view" %}
+    <a href="{% url 'dashboard:call_recording_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/recordings' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-camera-reels"></i>
+      <span>سجل التسجيلات</span>
+    </a>
+    {% endif %}
+    {% if request.user|can_access:"chat.view" %}
+    <a href="{% url 'dashboard:chat_conversation_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/chat' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-chat-dots"></i>
+      <span>المحادثات</span>
+    </a>
+    {% endif %}
+    {% endwith %}
 
     {% if request.user|can_access:"settings.access" %}
     {% with path=request.path %}

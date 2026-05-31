@@ -49,6 +49,13 @@
       </div>
 
       <div class="space-y-1">
+        <div class="text-[11px] site-text-muted">نوع المستخدم</div>
+        <div class="font-semibold site-text">
+          {{ user_obj|user_type_display }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
         <div class="text-[11px] site-text-muted">الاسم الكامل</div>
         <div class="font-semibold site-text">
           {{ user_obj.full_name|default:user_obj.username }}

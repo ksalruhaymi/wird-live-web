@@ -28,12 +28,16 @@ urlpatterns = [
     path("subscription/", include(("apps.subscription.urls", "subscription"), namespace="apps.subscription")),
     path("api/v1/", include("apps.contact.api.urls", namespace="contact_api")),
     path("api/v1/", include("apps.push.api.urls", namespace="push_api")),
+    path("api/v1/", include("apps.subscription.api.urls", namespace="subscription_api")),
+    path("api/v1/", include("apps.communication.api.urls", namespace="communication_api")),
+    path("api/v1/", include("apps.maqraa.api.urls", namespace="maqraa_api")),
+    path("api/v1/", include("apps.calls.api.urls", namespace="calls_api")),
+    path("api/v1/", include("apps.chat.api.urls", namespace="chat_api")),
     path(
         "api/v1/auth/",
         include(("identity.accounts.api.urls", "accounts_auth_api"), namespace="accounts_auth_api"),
     ),
     path("push/", include("apps.push.urls", namespace="push")),
-    path("analytics/", include(("apps.analytics.urls", "analytics"), namespace="analytics")),
 
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path("i18n/setlang/", set_language, name="set_language"),

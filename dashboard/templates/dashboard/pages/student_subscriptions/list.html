@@ -1,0 +1,101 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-6" dir-text>
+
+  <div class="mb-5">
+    <h2 class="site-title-md">سجل الاشتراكات</h2>
+    <p class="text-[11px] site-text-muted mt-0.5">
+      جميع عمليات اشتراك الطلاب
+    </p>
+  </div>
+
+  <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
+    <div class="flex-1 min-w-[200px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
+      <input type="search" name="q" value="{{ q }}"
+             placeholder="اسم، مستخدم، بريد، باقة، رقم عملية…"
+             class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+    </div>
+    <div class="min-w-[160px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">الحالة</label>
+      <select name="status"
+              class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+        <option value="{{ filter_all }}" {% if status_filter == filter_all %}selected{% endif %}>الكل</option>
+        <option value="{{ filter_active }}" {% if status_filter == filter_active %}selected{% endif %}>ساري</option>
+        <option value="{{ filter_expired }}" {% if status_filter == filter_expired %}selected{% endif %}>منتهي</option>
+        <option value="{{ filter_cancelled }}" {% if status_filter == filter_cancelled %}selected{% endif %}>ملغي</option>
+      </select>
+    </div>
+    <button type="submit"
+            class="px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
+      تطبيق
+    </button>
+    {% if q or status_filter != filter_all %}
+    <a href="{% url 'dashboard:student_subscription_list' %}"
+       class="px-4 py-2 rounded-full border site-border text-[12px] site-text-muted">
+      إعادة ضبط
+    </a>
+    {% endif %}
+  </form>
+
+  <div class="overflow-x-auto site-card">
+    <table class="min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text-muted">
+        <tr class="dir-text">
+          <th class="px-4 py-3 font-bold">#</th>
+          <th class="px-4 py-3 font-bold">اسم المشترك</th>
+          <th class="px-4 py-3 font-bold">الباقة</th>
+          <th class="px-4 py-3 font-bold">المبلغ</th>
+          <th class="px-4 py-3 font-bold">المدة</th>
+          <th class="px-4 py-3 font-bold">البداية</th>
+          <th class="px-4 py-3 font-bold">النهاية</th>
+          <th class="px-4 py-3 font-bold">الحالة</th>
+          <th class="px-4 py-3 font-bold">الدفع</th>
+          <th class="px-4 py-3 font-bold">تاريخ العملية</th>
+        </tr>
+      </thead>
+      <tbody class="divide-site">
+        {% for row in rows %}
+        {% with sub=row.subscription %}
+        <tr class="hover:site-surface transition
+          {% if row.display_status == 'active' %}bg-green-50/40
+          {% elif row.display_status == 'expired' %}bg-amber-50/40
+          {% elif row.display_status == 'cancelled' %}bg-red-50/30
+          {% endif %}">
+          <td class="px-4 py-2 site-text-muted">{{ sub.id }}</td>
+          <td class="px-4 py-2 font-semibold site-text">
+            {{ sub.user.get_full_name|default:sub.user.username }}
+            <div class="text-[10px] site-text-muted font-normal">{{ sub.user.username }}</div>
+          </td>
+          <td class="px-4 py-2 site-text">{{ sub.plan_title }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ sub.amount }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ sub.duration_months }} شهر</td>
+          <td class="px-4 py-2 site-text-muted">{{ sub.start_date }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ sub.end_date }}</td>
+          <td class="px-4 py-2">
+            {% if row.display_status == 'active' %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-green-100 text-green-800 text-[11px] font-bold border border-green-200">ساري</span>
+            {% elif row.display_status == 'expired' %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold border border-amber-200">منتهي</span>
+            {% else %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[11px] font-bold border border-red-200">ملغي</span>
+            {% endif %}
+          </td>
+          <td class="px-4 py-2 site-text-muted">{{ sub.get_payment_status_display }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ sub.created_at|date:"Y-m-d H:i" }}</td>
+        </tr>
+        {% endwith %}
+        {% empty %}
+        <tr>
+          <td colspan="10" class="px-4 py-8 text-center site-text-muted">
+            لا توجد عمليات اشتراك مطابقة.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+{% endblock %}

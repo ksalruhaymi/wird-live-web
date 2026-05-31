@@ -1,5 +1,7 @@
 from django import template
 
+from identity.accounts.user_types import user_type_label
+
 register = template.Library()
 
 
@@ -49,6 +51,13 @@ def can_access(user, code: str) -> bool:
         return False
 
     return user.has_permission(code)
+
+
+@register.filter
+def user_type_display(user) -> str:
+    if not user.is_authenticated:
+        return ""
+    return user_type_label(user)
 
 
 @register.filter

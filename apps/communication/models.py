@@ -69,3 +69,59 @@ class CommunicationCampaignChannel(models.Model):
 
     def __str__(self):
         return f"{self.campaign.title} → {self.get_channel_display()}"
+
+
+class Announcement(models.Model):
+    class AnnouncementType(models.TextChoices):
+        INFO = "info", "معلومة"
+        WARNING = "warning", "تنبيه"
+        URGENT = "urgent", "عاجل"
+        EVENT = "event", "فعالية"
+
+    class AnnouncedBy(models.TextChoices):
+        ADMIN = "admin", "الإدارة"
+        SUPERVISOR = "supervisor", "المشرف"
+        GENERAL_MANAGER = "general_manager", "المدير العام"
+
+    class TargetType(models.TextChoices):
+        ALL = "all", "الجميع"
+        GROUP = "group", "مجموعة"
+
+    title = models.CharField(max_length=255, blank=True, default="", verbose_name="العنوان")
+    message = models.TextField(verbose_name="نص الإعلان")
+    announcement_type = models.CharField(
+        max_length=20,
+        choices=AnnouncementType.choices,
+        default=AnnouncementType.INFO,
+        verbose_name="نوع الإعلان",
+    )
+    announced_by = models.CharField(
+        max_length=32,
+        choices=AnnouncedBy.choices,
+        default=AnnouncedBy.ADMIN,
+        verbose_name="من الإعلان",
+    )
+    target_type = models.CharField(
+        max_length=20,
+        choices=TargetType.choices,
+        default=TargetType.ALL,
+        verbose_name="لمن الإعلان",
+    )
+    target_group = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+        verbose_name="المجموعة",
+    )
+    announcement_date = models.DateField(verbose_name="تاريخ الإعلان")
+    is_active = models.BooleanField(default=True, verbose_name="مفعّل")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at", "-id"]
+        verbose_name = "إعلان"
+        verbose_name_plural = "الإعلانات"
+
+    def __str__(self):
+        return self.title or self.message[:40]

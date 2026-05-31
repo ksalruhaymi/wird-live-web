@@ -98,8 +98,10 @@ LOCAL_APPS = [
     "apps.communication",
     "apps.contact",
     "apps.subscription",
-    "apps.analytics",
+    "apps.maqraa",
     "apps.push",
+    "apps.calls",
+    "apps.chat",
 ]
 
 THIRD_PARTY_APPS = [
@@ -124,7 +126,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "core.middleware.force_logout_inactive.ForceLogoutInactiveUserMiddleware",
     "core.middleware.visitor_counter.VisitorCounterMiddleware",
-    "apps.analytics.middleware.SiteAnalyticsMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "axes.middleware.AxesMiddleware",
@@ -333,3 +334,12 @@ AXES_RESET_ON_SUCCESS = True
 # Firebase / FCM
 # ------------------------------------------------------------------------------
 FIREBASE_CREDENTIALS_PATH = os.getenv("FIREBASE_CREDENTIALS_PATH", "")
+
+
+# ------------------------------------------------------------------------------
+# Voice / video calls (Agora)
+# ------------------------------------------------------------------------------
+CALL_PROVIDER = (os.getenv("CALL_PROVIDER", "mock") or "mock").strip().lower()
+AGORA_APP_ID = (os.getenv("AGORA_APP_ID", "") or "").strip()
+AGORA_APP_CERTIFICATE = (os.getenv("AGORA_APP_CERTIFICATE", "") or "").strip()
+CALL_TOKEN_TTL_SECONDS = int(os.getenv("CALL_TOKEN_TTL_SECONDS", "3600"))

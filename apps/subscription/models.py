@@ -1,6 +1,89 @@
 from uuid import uuid4
 
+from django.conf import settings
 from django.db import models
+
+
+class SubscriptionPlan(models.Model):
+    title = models.CharField(max_length=255, verbose_name="اسم الباقة")
+    duration_months = models.PositiveSmallIntegerField(verbose_name="المدة بالأشهر")
+    price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        verbose_name="المبلغ",
+    )
+    is_active = models.BooleanField(default=True, verbose_name="مفعّلة")
+    sort_order = models.PositiveIntegerField(default=0, verbose_name="ترتيب العرض")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["sort_order", "id"]
+        verbose_name = "باقة اشتراك"
+        verbose_name_plural = "باقات الاشتراك"
+
+    def __str__(self):
+        return self.title
+
+
+class StudentSubscription(models.Model):
+    class Status(models.TextChoices):
+        ACTIVE = "active", "نشط"
+        EXPIRED = "expired", "منتهي"
+        CANCELLED = "cancelled", "ملغي"
+
+    class PaymentStatus(models.TextChoices):
+        PENDING = "pending", "قيد الانتظار"
+        PAID = "paid", "مدفوع"
+        FAILED = "failed", "فشل"
+
+    class DisplayStatus:
+        ACTIVE = "active"
+        EXPIRED = "expired"
+        CANCELLED = "cancelled"
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="student_subscriptions",
+        verbose_name="المستخدم",
+    )
+    plan = models.ForeignKey(
+        SubscriptionPlan,
+        on_delete=models.PROTECT,
+        related_name="student_subscriptions",
+        verbose_name="الباقة",
+    )
+    plan_title = models.CharField(max_length=255, verbose_name="اسم الباقة")
+    duration_months = models.PositiveIntegerField(verbose_name="مدة الاشتراك بالأشهر")
+    amount = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="المبلغ")
+    start_date = models.DateField(verbose_name="تاريخ البداية")
+    end_date = models.DateField(verbose_name="تاريخ النهاية")
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.ACTIVE,
+        verbose_name="الحالة",
+    )
+    payment_status = models.CharField(
+        max_length=20,
+        choices=PaymentStatus.choices,
+        default=PaymentStatus.PENDING,
+        verbose_name="حالة الدفع",
+    )
+    payment_method = models.CharField(max_length=64, blank=True, default="")
+    transaction_reference = models.CharField(max_length=128, blank=True, default="")
+    notes = models.TextField(blank=True, default="")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at", "-id"]
+        verbose_name = "اشتراك طالب"
+        verbose_name_plural = "سجل اشتراكات الطلاب"
+
+    def __str__(self):
+        return f"{self.user_id} — {self.plan_title}"
 
 
 class NewsletterSubscriber(models.Model):
