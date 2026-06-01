@@ -90,6 +90,11 @@ def ensure_agora_provider(call: CallSession) -> None:
     call.save(update_fields=["provider", "updated_at"])
 
 
+def build_agora_rtc_token(*, channel_name: str, uid: int) -> str:
+    """RTC token for a UID joining a channel (e.g. cloud recording bot)."""
+    return _agora_token(channel_name=channel_name, uid=uid)
+
+
 def build_token_for_uid(call: CallSession, uid: int) -> str:
     if not call.channel_name:
         assign_channel_name(call)

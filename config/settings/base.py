@@ -345,3 +345,31 @@ CALL_PROVIDER = (os.getenv("CALL_PROVIDER", "") or "").strip().lower()
 AGORA_APP_ID = (os.getenv("AGORA_APP_ID", "") or "").strip()
 AGORA_APP_CERTIFICATE = (os.getenv("AGORA_APP_CERTIFICATE", "") or "").strip()
 CALL_TOKEN_TTL_SECONDS = int(os.getenv("CALL_TOKEN_TTL_SECONDS", "3600"))
+
+# Agora Cloud Recording (REST; separate from RTC App ID credentials above)
+AGORA_CUSTOMER_ID = (os.getenv("AGORA_CUSTOMER_ID", "") or "").strip()
+AGORA_CUSTOMER_SECRET = (os.getenv("AGORA_CUSTOMER_SECRET", "") or "").strip()
+AGORA_RECORDING_UID = int(os.getenv("AGORA_RECORDING_UID", "900000001") or "900000001")
+AGORA_RECORDING_MODE = (os.getenv("AGORA_RECORDING_MODE", "mix") or "mix").strip().lower()
+AGORA_RECORDING_STORAGE_VENDOR = int(os.getenv("AGORA_RECORDING_STORAGE_VENDOR", "0") or "0")
+AGORA_RECORDING_STORAGE_REGION = int(os.getenv("AGORA_RECORDING_STORAGE_REGION", "0") or "0")
+# Required for vendor 11 (S3-compatible, e.g. Cloudflare R2); passed as extensionParams.endpoint.
+AGORA_RECORDING_STORAGE_ENDPOINT = (
+    os.getenv("AGORA_RECORDING_STORAGE_ENDPOINT", "") or ""
+).strip()
+AGORA_RECORDING_STORAGE_BUCKET = (
+    os.getenv("AGORA_RECORDING_STORAGE_BUCKET", "") or ""
+).strip()
+AGORA_RECORDING_STORAGE_ACCESS_KEY = (
+    os.getenv("AGORA_RECORDING_STORAGE_ACCESS_KEY", "") or ""
+).strip()
+AGORA_RECORDING_STORAGE_SECRET_KEY = (
+    os.getenv("AGORA_RECORDING_STORAGE_SECRET_KEY", "") or ""
+).strip()
+AGORA_RECORDING_FILE_PREFIX = (
+    os.getenv("AGORA_RECORDING_FILE_PREFIX", "wird-live") or "wird-live"
+).strip()
+# Optional public base URL for recorded files (e.g. CDN or bucket root ending with /)
+AGORA_RECORDING_PUBLIC_BASE_URL = (
+    os.getenv("AGORA_RECORDING_PUBLIC_BASE_URL", "") or ""
+).strip()

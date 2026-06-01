@@ -26,7 +26,7 @@ def ensure_post_call_artifacts(call: CallSession) -> None:
         },
     )
 
-    CallRecording.objects.get_or_create(
+    rec, created = CallRecording.objects.get_or_create(
         call_session=call,
         defaults={
             "student_id": call.student_id,
@@ -37,6 +37,17 @@ def ensure_post_call_artifacts(call: CallSession) -> None:
             "duration_seconds": _duration_seconds(call),
         },
     )
+    if not created:
+        updates = []
+        if call.ended_at and rec.ended_at != call.ended_at:
+            rec.ended_at = call.ended_at
+            updates.append("ended_at")
+        duration = _duration_seconds(call)
+        if duration and rec.duration_seconds != duration:
+            rec.duration_seconds = duration
+            updates.append("duration_seconds")
+        if updates:
+            rec.save(update_fields=updates)
 
 
 def evaluation_to_payload(ev: SessionEvaluation) -> dict:
@@ -68,12 +79,15 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
     else:
         other_name = student_display_name(rec.student)
 
+    url = (rec.recording_url or "").strip()
     return {
         "id": rec.id,
         "call_id": rec.call_session_id,
         "session_type": rec.session_type,
+        "type": rec.session_type,
         "other_party_name": other_name,
-        "recording_url": rec.recording_url,
+        "recording_url": url or None,
+        "file_url": url or None,
         "duration_seconds": rec.duration_seconds,
         "started_at": rec.started_at.isoformat() if rec.started_at else None,
         "ended_at": rec.ended_at.isoformat() if rec.ended_at else None,

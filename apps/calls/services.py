@@ -156,6 +156,18 @@ def accept_call_session(call: CallSession, teacher_user) -> tuple[CallSession | 
         assign_channel_name(call)
     ensure_agora_provider(call)
     call.save(update_fields=["status", "started_at", "updated_at"])
+
+    from apps.calls.cloud_recording import start_cloud_recording_for_call
+
+    try:
+        start_cloud_recording_for_call(call)
+    except Exception:
+        import logging
+
+        logging.getLogger(__name__).exception(
+            "Cloud recording start failed for call %s (call not affected)", call.id
+        )
+
     return call, None
 
 
@@ -203,6 +215,18 @@ def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str |
     call.save(update_fields=["status", "ended_at", "updated_at"])
     if call.teacher_id:
         mark_teacher_online(call.teacher)
+
+    from apps.calls.cloud_recording import stop_cloud_recording_for_call
+
+    try:
+        stop_cloud_recording_for_call(call)
+    except Exception:
+        import logging
+
+        logging.getLogger(__name__).exception(
+            "Cloud recording stop failed for call %s (call not affected)", call.id
+        )
+
     from apps.calls.post_call import ensure_post_call_artifacts
 
     ensure_post_call_artifacts(call)

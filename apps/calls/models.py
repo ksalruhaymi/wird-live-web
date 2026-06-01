@@ -113,6 +113,15 @@ class SessionEvaluation(models.Model):
 
 
 class CallRecording(models.Model):
+    class RecordingStatus(models.TextChoices):
+        IDLE = "idle", "Idle"
+        STARTING = "starting", "Starting"
+        RECORDING = "recording", "Recording"
+        STOPPING = "stopping", "Stopping"
+        COMPLETED = "completed", "Completed"
+        FAILED = "failed", "Failed"
+        SKIPPED = "skipped", "Skipped"
+
     call_session = models.OneToOneField(
         CallSession,
         on_delete=models.CASCADE,
@@ -134,6 +143,15 @@ class CallRecording(models.Model):
     started_at = models.DateTimeField(null=True, blank=True)
     ended_at = models.DateTimeField(null=True, blank=True)
     provider_recording_id = models.CharField(max_length=128, blank=True, default="")
+    agora_resource_id = models.CharField(max_length=128, blank=True, default="")
+    agora_sid = models.CharField(max_length=128, blank=True, default="")
+    recording_uid = models.CharField(max_length=32, blank=True, default="")
+    recording_status = models.CharField(
+        max_length=20,
+        choices=RecordingStatus.choices,
+        default=RecordingStatus.IDLE,
+    )
+    recording_error = models.TextField(blank=True, default="")
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
