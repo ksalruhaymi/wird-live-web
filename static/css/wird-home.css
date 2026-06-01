@@ -11,7 +11,7 @@
 }
 
 body {
-  background: #ffffff;
+  background: #f4f4f4;
 }
 
 .wird-container {
@@ -249,7 +249,7 @@ body {
 
 .wird-home {
   overflow: hidden;
-  background: #ffffff;
+  background: #f4f4f4;
   color: var(--wird-ink);
   font-family: "Cairo", "DINNextArabic", system-ui, sans-serif;
 }
@@ -260,7 +260,7 @@ body {
   background:
     radial-gradient(circle at 22% 42%, rgba(226, 215, 176, .38), transparent 32%),
     radial-gradient(circle at 78% 36%, rgba(221, 235, 220, .34), transparent 34%),
-    linear-gradient(180deg, #ffffff 0%, #ffffff 76%, #f8f7ef 100%);
+    linear-gradient(180deg, #f4f4f4 0%, #f4f4f4 76%, #f8f7ef 100%);
 }
 
 .wird-hero-grid {
