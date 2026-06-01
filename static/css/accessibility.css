@@ -307,8 +307,17 @@ html.a11y-dark .wird-footer {
 
 html.a11y-dark .app-footer,
 html.a11y-dark .public-footer,
-html.a11y-dark .dashboard-footer {
+html.a11y-dark .dashboard-footer,
+html.a11y-dark .dashboard-footer-minimal {
   background-color: #162032 !important;
+}
+
+html.a11y-dark .dashboard-footer-minimal {
+  border-top-color: #334155 !important;
+}
+
+html.a11y-dark .wird-footer-credit--dashboard {
+  color: #94a3b8 !important;
 }
 
 /* 7. Modals / panels / inputs */
@@ -336,7 +345,7 @@ html.a11y-dark .a11y-reset-btn    { background: #253347 !important; border-color
 html.a11y-dark .a11y-font-row,
 html.a11y-dark .a11y-reset-row    { border-color: #334155 !important; }
 
-/* ── Reading mode (يتم التفصيل في alhafaz-theme.css) ── */
+/* ── Reading mode (يتم التفصيل في wird-live-theme.css) ── */
 html.a11y-reading:not(.a11y-dark) body {
   line-height: 1.85;
   letter-spacing: 0.01em;

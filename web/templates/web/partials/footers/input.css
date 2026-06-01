@@ -18,9 +18,9 @@
 
 /* Theme variables */
 :root {
-  --color-primary: #1a843a;
-  --color-primary-hover: #0e9a5d;
-  --color-primary-border: #1bb572;
+  --color-primary: #1ea1ee;
+  --color-primary-hover: #1890d6;
+  --color-primary-border: #8fd0f5;
   --color-text-on-primary: #ffffff;
 
   --color-page-bg: white;

@@ -17,7 +17,7 @@ msgstr "අප අමතන්න, අපි ඔබට සේවය කිරී
 
 msgid "contact_intro_text"
 msgstr ""
-"ඔබ Wird Quran වේදිකාව සම්බන්ධ කර ගැනීමට ලැබීම ගැන අපි සතුටු වෙමු. අපි අල්ලාහ්ගේ පොතට "
+"ඔබ Wird Live වේදිකාව සම්බන්ධ කර ගැනීමට ලැබීම ගැන අපි සතුටු වෙමු. අපි අල්ලාහ්ගේ පොතට "
 "සේවය කිරීමට සහ එය පාරායනය කිරීමට පහසුකම් සැලසීමට උත්සාහ කරමු."
 
 msgid "name"
@@ -49,7 +49,7 @@ msgstr "අප හා සම්බන්ධ වීම ගැන ඔබට ස්
 
 msgid "contact_success_message"
 msgstr ""
-"ඔබගේ පණිවිඩය සාර්ථකව ලැබී ඇත. Wird Quran කණ්ඩායම එය සමාලෝචනය කර අල් කුර්ආනයේ සේවයට "
+"ඔබගේ පණිවිඩය සාර්ථකව ලැබී ඇත. Wird Live කණ්ඩායම එය සමාලෝචනය කර අල් කුර්ආනයේ සේවයට "
 "සහාය වීම සඳහා හැකි ඉක්මනින් ඔබ හා සම්බන්ධ වනු ඇත."
 
 msgid "back_to_home"
@@ -214,38 +214,38 @@ msgid "tafsir_alsa3dy"
 msgstr "අල්-සාදි"
 
 #, fuzzy, python-format
-#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
 msgstr "කුරාණයෙන් %(පිටුව)s පිටුවේ තෆ්සීර් | විර්ඩ් කුරානය"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
 msgstr "සූරතය %(surah_name)s | කියවන්න සහ සවන් දෙන්න - විර්ඩ් කුර්ආනය"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
 msgstr "%(qari_name)s | විසින් පාරායනය කරන ලද කුර්ආනයට සවන් දෙන්න විර්ඩ් කුරානය"
 
 #, fuzzy, python-format
-#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
+#| msgid "Page %(page)s from the Holy Quran | Wird Live"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
 msgstr "කුරාණයෙන් පිටුව %(පිටුව)s | විර්ඩ් කුරානය"
 
 #, fuzzy, python-format
 #| msgid ""
 #| "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-#| "displayed and linked to tafsir on the Wird Quran platform."
+#| "displayed and linked to tafsir on the Wird Live platform."
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
-"කුර්ආනයේ %(පිටුව)s පිටුවේ tafsir පහසුවෙන් කියවන්න, ayahs ප්‍රදර්ශනය කර Wird Quran වේදිකාවේ "
+"කුර්ආනයේ %(පිටුව)s පිටුවේ tafsir පහසුවෙන් කියවන්න, ayahs ප්‍රදර්ශනය කර Wird Live වේදිකාවේ "
 "tafsir වෙත සම්බන්ධ කර ඇත."
 
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
 "Wird කුර්ආන් වේදිකාවේ පහසුවෙන් සවන් දීම සහ බ්‍රවුස් කිරීම සමඟින්, අල් කුර්ආනයෙන් සූරා "
 "%(surah_name)s කියවන්න."
@@ -261,14 +261,14 @@ msgstr ""
 #, fuzzy, python-format
 #| msgid ""
 #| "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-#| "interface, with smooth reading and quick navigation on the Wird Quran "
+#| "interface, with smooth reading and quick navigation on the Wird Live "
 #| "platform."
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
-"Wird Quran වේදිකාවේ සුමට කියවීම සහ ඉක්මන් සංචලනය සමඟින්, සුවපහසු සහ පහසු අතුරු මුහුණතක් සමඟින් "
+"Wird Live වේදිකාවේ සුමට කියවීම සහ ඉක්මන් සංචලනය සමඟින්, සුවපහසු සහ පහසු අතුරු මුහුණතක් සමඟින් "
 "කුර්ආනයේ %(පිටුව)s පිටුව බ්‍රවුස් කරන්න."
 
 msgid "no_word_meanings"

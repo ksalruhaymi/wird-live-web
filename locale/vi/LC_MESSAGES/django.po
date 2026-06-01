@@ -216,25 +216,25 @@ msgid "tafsir_alsa3dy"
 msgstr "Al-Sa'di"
 
 #, python-format
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
 msgstr "Tafsir của trang %(page)s từ Kinh Qur'an | Kinh Qur'an"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
 msgstr "Surah %(surah_name)s | Đọc và nghe - Wird Qur'an"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
 msgstr "Nghe Kinh Qur'an được đọc bởi %(qari_name)s | Kinh Qur'an"
 
 #, python-format
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
 msgstr "Trang %(page)s từ Kinh Qur'an | Kinh Qur'an"
 
 #, python-format
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
 "Đọc tafsir của trang %(page)s từ Kinh Qur'an một cách dễ dàng, với các ayah "
 "được hiển thị và liên kết với tafsir trên nền tảng Wird Qur'an."
@@ -242,7 +242,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
 "Đọc Surah %(surah_name)s từ Kinh Qur'an, nghe và duyệt dễ dàng trên nền tảng "
 "Wird Qur'an."
@@ -258,7 +258,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
 "Duyệt qua trang %(page)s từ Kinh Qur'an với giao diện thoải mái và dễ dàng, "

@@ -1678,6 +1678,28 @@ body {
   color: var(--wird-green);
 }
 
+.dashboard-footer-minimal {
+  flex-shrink: 0;
+  margin-top: auto;
+  background: #ffffff;
+  border-top: 1px solid var(--wird-line);
+}
+
+.wird-footer-credit--dashboard {
+  justify-content: center;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-top: none;
+  font-size: 13px;
+  color: #5c6b7a;
+}
+
+.wird-footer-credit--dashboard .wird-footer-credit-email:hover {
+  color: var(--wird-green);
+}
+
 @media (max-width: 640px) {
   .wird-footer-row { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
   .wird-app-downloads { gap: 8px !important; }
@@ -1969,7 +1991,7 @@ body {
 
 /* Ayah text in translation card → green */
 .wird-trans-ayah-compact span {
-  color: #1A843A !important;
+  color: #1ea1ee !important;
   opacity: 1 !important;
 }
 
@@ -1990,7 +2012,7 @@ body {
   height: 40px;
   border-radius: 999px;
   border: none;
-  background: #1A843A;
+  background: #1ea1ee;
   color: #fff;
   font-size: 16px;
   display: inline-flex;
@@ -2214,7 +2236,7 @@ html.a11y-dark {
   --wird-soft: #162032;
   --wird-surface: #1e293b;
   --wird-line: #334155;
-  --wird-green: #5ec8f7;
+  --wird-green: #1ea1ee;
   --wird-green-soft: #1e3a52;
   --wird-gold: #d5ad58;
   --wird-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
@@ -2499,12 +2521,12 @@ html.a11y-dark .wird-recitation-section .wird-reciter-list span {
 
 html.a11y-dark .wird-recitation-section .wird-reciter-list button {
   background: #0f172a;
-  color: #4ade80;
+  color: #5ec8f7;
   border: 1px solid #475569;
 }
 
 html.a11y-dark .wird-recitation-section .wird-reciter-list .is-active button {
-  background: #1a843a !important;
+  background: #1ea1ee !important;
   color: #fff !important;
   border-color: transparent;
 }

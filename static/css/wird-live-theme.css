@@ -1,0 +1,271 @@
+/* وِرْد لايف — ثيم الواجهة العامة + وضع القراءة + الوضع الليلي */
+
+:root {
+  --wird-live-bg: #ffffff;
+  --wird-live-bg-card: #ffffff;
+  --wird-live-text: #1e293b;
+  --wird-live-muted: #64748b;
+  --wird-live-border: #e2e8f0;
+  --wird-live-accent: #1ea1ee;
+  --wird-live-accent-hover: #1890d6;
+}
+
+html,
+body {
+  background-color: var(--wird-live-bg);
+}
+
+.app-wrapper {
+  background-color: var(--wird-live-bg);
+}
+
+/* ── الصفحة الرئيسية ── */
+.wird-live-landing {
+  background: var(--wird-live-bg);
+  color: var(--wird-live-text);
+}
+
+.wird-live-hero h1 {
+  color: var(--wird-live-text);
+}
+
+.wird-live-hero p,
+.wird-live-feature p {
+  color: var(--wird-live-muted);
+}
+
+.wird-live-features {
+  background: var(--wird-live-bg);
+  border-top-color: var(--wird-live-border);
+}
+
+.wird-live-feature {
+  background: var(--wird-live-bg-card);
+  border-color: var(--wird-live-border);
+  box-shadow: none;
+}
+
+.wird-live-feature h2 {
+  color: var(--wird-live-text);
+}
+
+.wird-live-btn-primary {
+  background: var(--wird-live-accent);
+  border-color: var(--wird-live-accent);
+}
+
+.wird-live-btn-primary:hover {
+  background: var(--wird-live-accent-hover);
+  border-color: var(--wird-live-accent-hover);
+}
+
+.wird-live-btn-outline {
+  background: var(--wird-live-bg-card);
+  color: var(--wird-live-text);
+  border-color: var(--wird-live-border);
+}
+
+.wird-live-btn-outline:hover {
+  background: #e8f6fd;
+  border-color: #b3e0fa;
+  color: var(--wird-live-accent);
+}
+
+/* ── الفوتر (وضع عادي) ── */
+.wird-footer {
+  background: #ffffff !important;
+  border-top: 1px solid var(--wird-live-border) !important;
+  color: var(--wird-live-muted);
+}
+
+.wird-footer-links a {
+  color: var(--wird-live-muted) !important;
+  font-weight: 700;
+}
+
+.wird-footer-links a:hover {
+  color: var(--wird-live-accent) !important;
+}
+
+.wird-footer-credit {
+  color: var(--wird-live-muted);
+  border-top-color: var(--wird-live-border);
+}
+
+.wird-footer-credit-email:hover {
+  color: var(--wird-live-accent) !important;
+}
+
+.wird-app-btn {
+  background: #ffffff !important;
+  color: var(--wird-live-text) !important;
+  border: 1px solid var(--wird-live-border) !important;
+}
+
+.wird-app-btn:hover {
+  background: #e8f6fd !important;
+  color: var(--wird-live-accent) !important;
+  border-color: #b3e0fa !important;
+}
+
+/* ── وضع القراءة ── */
+html.a11y-reading:not(.a11y-dark) {
+  --wird-live-bg: #faf8f2;
+  --wird-live-bg-card: #fffef8;
+  --wird-live-text: #2c2416;
+  --wird-live-muted: #5c5346;
+  --wird-live-border: #e8e0d0;
+  --color-page-bg: #faf8f2;
+  --color-surface: #fffef8;
+  --color-text: #2c2416;
+  --color-text-muted: #5c5346;
+  --color-border: #e8e0d0;
+}
+
+html.a11y-reading:not(.a11y-dark) body {
+  background: var(--wird-live-bg) !important;
+  color: var(--wird-live-text) !important;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+html.a11y-reading:not(.a11y-dark) .wird-navbar {
+  background: rgba(250, 248, 242, 0.96) !important;
+  border-bottom-color: var(--wird-live-border) !important;
+  box-shadow: none !important;
+}
+
+html.a11y-reading:not(.a11y-dark) .wird-live-feature,
+html.a11y-reading:not(.a11y-dark) .site-card {
+  box-shadow: none !important;
+}
+
+html.a11y-reading:not(.a11y-dark) .wird-footer {
+  background: var(--wird-live-bg) !important;
+  border-top-color: var(--wird-live-border) !important;
+}
+
+html.a11y-reading:not(.a11y-dark) .wird-app-btn {
+  background: var(--wird-live-bg-card) !important;
+}
+
+/* ── الوضع الليلي ── */
+html.a11y-dark {
+  --wird-live-bg: #0f172a;
+  --wird-live-bg-card: #1e293b;
+  --wird-live-text: #e2e8f0;
+  --wird-live-muted: #94a3b8;
+  --wird-live-border: #334155;
+  --wird-live-accent: #1ea1ee;
+  --wird-live-accent-hover: #5ec8f7;
+  --wird-green: #1ea1ee;
+  --wird-green-soft: #1e3a52;
+}
+
+html.a11y-dark body,
+html.a11y-dark .app-wrapper,
+html.a11y-dark .wird-live-landing,
+html.a11y-dark .wird-live-features,
+html.a11y-dark main {
+  background-color: var(--wird-live-bg) !important;
+  color: var(--wird-live-text) !important;
+}
+
+html.a11y-dark .wird-live-hero h1,
+html.a11y-dark .wird-live-feature h2,
+html.a11y-dark .site-text {
+  color: var(--wird-live-text) !important;
+}
+
+html.a11y-dark .wird-live-hero p,
+html.a11y-dark .wird-live-feature p,
+html.a11y-dark .site-text-muted {
+  color: var(--wird-live-muted) !important;
+}
+
+html.a11y-dark .wird-live-feature,
+html.a11y-dark .site-card {
+  background: var(--wird-live-bg-card) !important;
+  border-color: var(--wird-live-border) !important;
+  color: var(--wird-live-text) !important;
+}
+
+html.a11y-dark .wird-live-btn-outline {
+  background: var(--wird-live-bg-card) !important;
+  color: var(--wird-live-text) !important;
+  border-color: var(--wird-live-border) !important;
+}
+
+html.a11y-dark .wird-live-btn-outline:hover {
+  background: #253347 !important;
+  color: var(--wird-live-accent) !important;
+}
+
+html.a11y-dark .wird-live-features {
+  border-top-color: var(--wird-live-border) !important;
+}
+
+html.a11y-dark .wird-navbar {
+  background: rgba(15, 23, 42, 0.94) !important;
+  border-bottom-color: var(--wird-live-border) !important;
+}
+
+html.a11y-dark .wird-nav-links a {
+  color: #cbd5e1 !important;
+}
+
+html.a11y-dark .wird-nav-links a:hover,
+html.a11y-dark .wird-nav-links a.is-active {
+  color: var(--wird-live-accent) !important;
+}
+
+html.a11y-dark .wird-login-link {
+  background: var(--wird-live-accent) !important;
+  color: #fff !important;
+}
+
+html.a11y-dark .wird-footer {
+  background: #162032 !important;
+  border-top-color: var(--wird-live-border) !important;
+}
+
+html.a11y-dark .wird-footer-links a {
+  color: #cbd5e1 !important;
+}
+
+html.a11y-dark .wird-footer-links a:hover,
+html.a11y-dark .wird-footer-credit-email:hover {
+  color: var(--wird-live-accent) !important;
+}
+
+html.a11y-dark .wird-footer-credit {
+  color: var(--wird-live-muted) !important;
+  border-top-color: var(--wird-live-border) !important;
+}
+
+html.a11y-dark .wird-app-btn {
+  background: var(--wird-live-bg-card) !important;
+  color: var(--wird-live-text) !important;
+  border-color: var(--wird-live-border) !important;
+}
+
+html.a11y-dark .wird-app-btn:hover {
+  background: #253347 !important;
+  color: var(--wird-live-accent) !important;
+}
+
+html.a11y-dark .site-link-primary,
+html.a11y-dark .site-btn-primary {
+  color: #fff !important;
+}
+
+html.a11y-dark .site-input {
+  background: #253347 !important;
+  border-color: var(--wird-live-border) !important;
+  color: var(--wird-live-text) !important;
+}
+
+html.a11y-dark hr,
+html.a11y-dark .site-border {
+  border-color: var(--wird-live-border) !important;
+}

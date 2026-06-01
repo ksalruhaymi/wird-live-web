@@ -244,7 +244,7 @@ msgstr ""
 
 #: apps/subscription/views.py:52
 msgid "newsletter_subscription_notice"
-msgstr "You are subscribed to Wird Quran messages"
+msgstr "You are subscribed to Wird Live messages"
 
 #: apps/subscription/views.py:53
 msgid "unsubscribe_label"
@@ -269,7 +269,7 @@ msgstr "Please enter your email"
 
 #: apps/subscription/views.py:143
 msgid "newsletter_welcome_subject"
-msgstr "Thank you for subscribing to Wird Quran"
+msgstr "Thank you for subscribing to Wird Live"
 
 #: apps/subscription/views.py:145
 msgid "newsletter_greeting"
@@ -277,7 +277,7 @@ msgstr "Peace, mercy, and blessings of Allah be upon you,"
 
 #: apps/subscription/views.py:146
 msgid "newsletter_thank_you_for_subscribing"
-msgstr "Thank you for subscribing to Wird Quran messages"
+msgstr "Thank you for subscribing to Wird Live messages"
 
 #: apps/subscription/views.py:147
 msgid "newsletter_joined_successfully"
@@ -293,7 +293,7 @@ msgid "newsletter_closing"
 msgstr "With sincere thanks and appreciation"
 
 #: apps/subscription/views.py:151
-msgid "alhafaz_platform_name"
+msgid "wird-live_platform_name"
 msgstr "Wird Live"
 
 #: apps/subscription/views.py:166
@@ -330,7 +330,7 @@ msgstr "Invalid login credentials."
 #: dashboard/templates/dashboard/layouts/base.html:4
 #: dashboard/templates/dashboard/layouts/base.html:19
 #: dashboard/templates/dashboard/layouts/sidebar.html:11
-msgid "alhafaz_dashboard_title"
+msgid "wird-live_dashboard_title"
 msgstr "Dashboard"
 
 #: dashboard/templates/dashboard/layouts/sidebar.html:27
@@ -376,7 +376,7 @@ msgstr "Home page"
 #: dashboard/templates/dashboard/pages/home.html:13
 #: web/templates/web/base.html:9 web/templates/web/pages/privacy_policy.html:19
 #: web/templates/web/pages/privacy_policy.html:36
-msgid "alhafaz_platform_tagline"
+msgid "wird-live_platform_tagline"
 msgstr "An educational platform connecting students with teachers for recitation correction, memorization follow-up, and remote review."
 "An educational platform connecting students with teachers for recitation "
 "correction, memorization follow-up, and remote review."
@@ -543,7 +543,7 @@ msgstr "Last updated: May 2026"
 
 #: web/templates/web/pages/privacy_policy.html:24
 #: web/templates/web/pages/privacy_policy.html:41
-msgid "privacy_intro_alhafaz"
+msgid "privacy_intro_wird-live"
 msgstr "This policy explains how Wird Live handles your data. We value transparency and clarity."
 "This policy explains how Wird Live handles your data. We value transparency "
 "and clarity."
@@ -887,7 +887,7 @@ msgstr ""
 
 
 msgid "contact_page_description"
-msgstr "Contact the Wird Live team for support and inquiries."
+msgstr "Contact the Wird Live team for support, inquiries, and teacher onboarding."
 
 msgid "contact_intro_text"
 msgstr "We are happy to hear from the Wird Live team for inquiries, technical support, or teacher onboarding requests."
@@ -928,16 +928,16 @@ msgstr "Memorization"
 msgid "translations"
 msgstr "Translations"
 
-msgid "alhafaz_about_title"
+msgid "wird-live_about_title"
 msgstr "About Wird Live"
 
-msgid "alhafaz_about_body"
+msgid "wird-live_about_body"
 msgstr "Wird Live is an educational platform that connects students with specialized teachers for recitation correction, memorization follow-up, and remote review through organized sessions."
 
-msgid "alhafaz_contact_title"
+msgid "wird-live_contact_title"
 msgstr "Contact us"
 
-msgid "alhafaz_contact_intro"
+msgid "wird-live_contact_intro"
 msgstr "We are happy to hear from the Wird Live team for inquiries, technical support, or teacher onboarding requests."
 
 msgid "push_tab_send"
@@ -948,3 +948,9 @@ msgstr "Devices"
 
 msgid "push_tab_history"
 msgstr "Sent notifications"
+
+msgid "contact_support_app"
+msgstr "Technical support for the Wird Live app"
+
+msgid "about_page_meta_description"
+msgstr "Learn about Wird Live, an educational platform connecting students with teachers for recitation correction, memorization follow-up, and remote review."

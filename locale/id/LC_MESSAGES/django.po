@@ -50,7 +50,7 @@ msgstr "Terima kasih telah menghubungi kami"
 
 msgid "contact_success_message"
 msgstr ""
-"Pesan Anda berhasil diterima. Tim Wird Quran akan segera menindaklanjutinya."
+"Pesan Anda berhasil diterima. Tim Wird Live akan segera menindaklanjutinya."
 
 msgid "back_to_home"
 msgstr "Kembali ke Beranda"
@@ -216,36 +216,36 @@ msgid "tafsir_alsa3dy"
 msgstr "Tafsir As-Sa'di"
 
 #, python-format
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgstr "Tafsir Halaman %(page)s Al-Qur'an | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
+msgstr "Tafsir Halaman %(page)s Al-Qur'an | Wird Live"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
-msgstr "Surah %(surah_name)s | Baca dan Dengar - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
+msgstr "Surah %(surah_name)s | Baca dan Dengar - Wird Live"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
-msgstr "Dengarkan Al-Qur'an oleh %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
+msgstr "Dengarkan Al-Qur'an oleh %(qari_name)s | Wird Live"
 
 #, python-format
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgstr "Halaman %(page)s Al-Qur'an | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
+msgstr "Halaman %(page)s Al-Qur'an | Wird Live"
 
 #, python-format
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
 "Baca tafsir halaman %(page)s Al-Qur'an dengan mudah, lengkap dengan tampilan "
-"ayat yang terhubung langsung ke tafsir di Wird Quran."
+"ayat yang terhubung langsung ke tafsir di Wird Live."
 
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
 "Baca Surah %(surah_name)s Al-Qur'an dengan fitur mendengarkan dan navigasi "
-"yang mudah di platform Wird Quran."
+"yang mudah di platform Wird Live."
 
 #, python-format
 msgid ""
@@ -258,11 +258,11 @@ msgstr ""
 #, python-format
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
 "Jelajahi halaman %(page)s Al-Qur'an dengan antarmuka yang nyaman, navigasi "
-"cepat, dan pengalaman membaca yang lancar di platform Wird Quran."
+"cepat, dan pengalaman membaca yang lancar di platform Wird Live."
 
 msgid "no_word_meanings"
 msgstr "Tidak ada arti kata untuk ayat ini"
@@ -430,7 +430,7 @@ msgid "email_separator"
 msgstr ""
 
 msgid "newsletter_subscription_notice"
-msgstr "Anda terdaftar sebagai pelanggan Wird Quran"
+msgstr "Anda terdaftar sebagai pelanggan Wird Live"
 
 msgid "unsubscribe_label"
 msgstr "Untuk berhenti berlangganan"
@@ -448,13 +448,13 @@ msgid "please_enter_email"
 msgstr "Harap masukkan email Anda"
 
 msgid "newsletter_welcome_subject"
-msgstr "Terima kasih telah bergabung di Wird Quran"
+msgstr "Terima kasih telah bergabung di Wird Live"
 
 msgid "newsletter_greeting"
 msgstr "Assalamu'alaikum Warahmatullahi Wabarakatuh,"
 
 msgid "newsletter_thank_you_for_subscribing"
-msgstr "Terima kasih telah berlangganan Wird Quran"
+msgstr "Terima kasih telah berlangganan Wird Live"
 
 msgid "newsletter_joined_successfully"
 msgstr "Kami senang Anda bergabung, info terbaru akan dikirim ke email Anda"
@@ -469,10 +469,10 @@ msgid "wird quran"
 msgstr "Wird Al-Qur'an Al-Kareem"
 
 msgid "newsletter_subscription_success"
-msgstr "Anda telah berhasil berlangganan pesan dari Wird Quran"
+msgstr "Anda telah berhasil berlangganan pesan dari Wird Live"
 
 msgid "newsletter_subscription_reactivated"
-msgstr "Berlangganan Wird Quran Anda telah diaktifkan kembali"
+msgstr "Berlangganan Wird Live Anda telah diaktifkan kembali"
 
 msgid "email_already_subscribed"
 msgstr "Email ini sudah berlangganan"
@@ -501,7 +501,7 @@ msgid "tilawa_listen_quran_recited_by"
 msgstr "Mendengarkan Al-Qur'an oleh"
 
 msgid "tilawa_wrd_quran"
-msgstr "Wird Quran"
+msgstr "Wird Live"
 
 msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
 msgstr "Dengarkan Al-Qur'an lengkap dengan suara"
@@ -607,7 +607,7 @@ msgstr ""
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr ""
-"Wird Quran adalah platform terintegrasi untuk membaca Al-Qur'an, "
+"Wird Live adalah platform terintegrasi untuk membaca Al-Qur'an, "
 "mendengarkan lantunan ayat suci dari qari ternama, dan menelusuri kitab "
 "tafsir dengan mudah tanpa iklan."
 
@@ -1306,7 +1306,7 @@ msgstr "Terakhir diperbarui Mei 2026"
 #~ msgstr "Selamat Datang"
 
 #~ msgid "welcome_message"
-#~ msgstr "Selamat datang di platform Wird Quran"
+#~ msgstr "Selamat datang di platform Wird Live"
 
 #~ msgid "accounts_welcome_bk"
 #~ msgstr "Selamat datang kembali"

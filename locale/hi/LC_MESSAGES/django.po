@@ -215,25 +215,25 @@ msgid "tafsir_alsa3dy"
 msgstr "तफ़सीर अस-सादी"
 
 #, python-format
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
 msgstr "क़ुरान के पेज %(page)s की तफ़सीर | विर्द क़ुरान"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
 msgstr "सूरह %(surah_name)s | पढ़ें और सुनें - विर्द क़ुरान"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
 msgstr "%(qari_name)s की आवाज़ में क़ुरान सुनें | विर्द क़ुरान"
 
 #, python-format
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
 msgstr "क़ुरान का पेज %(page)s | विर्द क़ुरान"
 
 #, python-format
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
 "विर्द क़ुरान प्लेटफ़ॉर्म पर क़ुरान के पेज %(page)s की तफ़सीर आसानी से पढ़ें, जहाँ आयतें दिखाई "
 "गई हैं और तफ़सीर से जुड़ी हैं।"
@@ -241,7 +241,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
 "विर्द क़ुरान प्लेटफ़ॉर्म पर सुनने और ब्राउज़ करने की सुविधा के साथ क़ुरान की सूरह "
 "%(surah_name)s पढ़ें।"
@@ -257,7 +257,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
 "विर्द क़ुरान प्लेटफ़ॉर्म पर आसान इंटरफ़ेस और सहज नेविगेशन के साथ क़ुरान के पेज %(page)s को "

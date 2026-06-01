@@ -1,20 +1,20 @@
 {% extends "web/layouts/base.html" %}
 {% load static i18n rbac_tags %}
 
-{% block title %}وِرد مباشر{% endblock %}
+{% block title %}{% trans "wird-live_platform_name" %}{% endblock %}
 {% block description %}منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد.{% endblock %}
 
 {% block extra_head %}
   {{ block.super }}
   <style>
-    .alhafaz-hero {
+    .wird-live-hero {
       padding: 3.5rem 0 4rem;
       text-align: center;
       max-width: 40rem;
       margin: 0 auto;
     }
 
-    .alhafaz-hero h1 {
+    .wird-live-hero h1 {
       font-size: clamp(1.75rem, 4vw, 2.25rem);
       font-weight: 700;
       line-height: 1.35;
@@ -22,20 +22,20 @@
       letter-spacing: -0.02em;
     }
 
-    .alhafaz-hero p {
+    .wird-live-hero p {
       font-size: 1.05rem;
       line-height: 1.75;
       margin: 0 0 2rem;
     }
 
-    .alhafaz-actions {
+    .wird-live-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
       justify-content: center;
     }
 
-    .alhafaz-btn {
+    .wird-live-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -47,16 +47,16 @@
       transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
     }
 
-    .alhafaz-btn-primary {
+    .wird-live-btn-primary {
       color: #fff;
     }
 
-    .alhafaz-features {
+    .wird-live-features {
       padding: 2.5rem 0 4rem;
-      border-top: 1px solid var(--alhafaz-border);
+      border-top: 1px solid var(--wird-live-border);
     }
 
-    .alhafaz-features-inner {
+    .wird-live-features-inner {
       max-width: 56rem;
       margin: 0 auto;
       display: grid;
@@ -64,24 +64,24 @@
     }
 
     @media (min-width: 768px) {
-      .alhafaz-features-inner {
+      .wird-live-features-inner {
         grid-template-columns: repeat(3, 1fr);
       }
     }
 
-    .alhafaz-feature {
+    .wird-live-feature {
       border-radius: 0.75rem;
       padding: 1.35rem 1.25rem;
-      border: 1px solid var(--alhafaz-border);
+      border: 1px solid var(--wird-live-border);
     }
 
-    .alhafaz-feature h2 {
+    .wird-live-feature h2 {
       font-size: 1rem;
       font-weight: 700;
       margin: 0 0 0.5rem;
     }
 
-    .alhafaz-feature p {
+    .wird-live-feature p {
       font-size: 0.9rem;
       line-height: 1.65;
       margin: 0;
@@ -90,39 +90,37 @@
 {% endblock %}
 
 {% block layout %}
-<main class="alhafaz-landing">
+<main class="wird-live-landing">
   <div class="wird-container">
-    <section class="alhafaz-hero" aria-labelledby="alhafaz-hero-title">
-      <h1 id="alhafaz-hero-title">وِرد مباشر</h1>
+    <section class="wird-live-hero" aria-labelledby="wird-live-hero-title">
+      <h1 id="wird-live-hero-title">{% trans "wird-live_platform_name" %}</h1>
       <p>
         منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد.
       </p>
 
-      <div class="alhafaz-actions">
-        {% if user.is_authenticated %}
+      {% if user.is_authenticated %}
+        <div class="wird-live-actions">
           {% if user|can_access:"dashboard.access" %}
-            <a href="{% url 'dashboard:manage' %}" class="alhafaz-btn alhafaz-btn-primary">لوحة التحكم</a>
+            <a href="{% url 'dashboard:manage' %}" class="wird-live-btn wird-live-btn-primary">لوحة التحكم</a>
           {% endif %}
-          <a href="{% url 'accounts:profile' %}" class="alhafaz-btn alhafaz-btn-outline">حسابي</a>
-        {% else %}
-          <a href="{% url 'accounts:login' %}" class="alhafaz-btn alhafaz-btn-primary">تسجيل الدخول</a>
-        {% endif %}
-      </div>
+          <a href="{% url 'accounts:profile' %}" class="wird-live-btn wird-live-btn-outline">حسابي</a>
+        </div>
+      {% endif %}
     </section>
   </div>
 
-  <section class="alhafaz-features" aria-label="مميزات المنصة">
+  <section class="wird-live-features" aria-label="مميزات المنصة">
     <div class="wird-container">
-      <div class="alhafaz-features-inner">
-        <article class="alhafaz-feature">
+      <div class="wird-live-features-inner">
+        <article class="wird-live-feature">
           <h2>المعلمون المتاحون</h2>
           <p>تواصل مع معلم مناسب عند توفره.</p>
         </article>
-        <article class="alhafaz-feature">
+        <article class="wird-live-feature">
           <h2>جلسات صوتية ومرئية</h2>
           <p>اختر بين الاتصال الصوتي أو المرئي حسب الحاجة.</p>
         </article>
-        <article class="alhafaz-feature">
+        <article class="wird-live-feature">
           <h2>سجل الجلسات</h2>
           <p>احتفظ بسجل جلساتك للرجوع إليها لاحقًا.</p>
         </article>

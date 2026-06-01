@@ -17,7 +17,7 @@ msgstr "Makipag-ugnayan sa amin, nandito kami para pagsilbihan ka"
 
 msgid "contact_intro_text"
 msgstr ""
-"Ikinalulugod naming makipag-ugnayan ka sa platform ng Wird Quran. "
+"Ikinalulugod naming makipag-ugnayan ka sa platform ng Wird Live. "
 "Nagsusumikap kaming maglingkod sa Aklat ng Allah at mapadali ang pagbigkas "
 "nito."
 
@@ -221,38 +221,38 @@ msgid "tafsir_alsa3dy"
 msgstr "Al-Sa'di"
 
 #, fuzzy, python-format
-#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgstr "Tafsir ng pahina %(pahina)s mula sa Quran | Wird Quran"
+#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
+msgstr "Tafsir ng pahina %(pahina)s mula sa Quran | Wird Live"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
-msgstr "Surah %(surah_name)s | Magbasa at makinig - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
+msgstr "Surah %(surah_name)s | Magbasa at makinig - Wird Live"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
-msgstr "Makinig sa Quran na binibigkas ni %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
+msgstr "Makinig sa Quran na binibigkas ni %(qari_name)s | Wird Live"
 
 #, fuzzy, python-format
-#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgstr "Pahina %(pahina)s mula sa Quran | Wird Quran"
+#| msgid "Page %(page)s from the Holy Quran | Wird Live"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
+msgstr "Pahina %(pahina)s mula sa Quran | Wird Live"
 
 #, python-format
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
 "Basahin ang tafsir ng page %(page)s mula sa Quran nang madali, na may mga "
-"ayah na ipinapakita at naka-link sa tafsir sa Wird Quran platform."
+"ayah na ipinapakita at naka-link sa tafsir sa Wird Live platform."
 
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
 "Basahin ang Surah %(surah_name)s mula sa Quran, na may madaling pakikinig at "
-"pagba-browse sa Wird Quran platform."
+"pagba-browse sa Wird Live platform."
 
 #, python-format
 msgid ""
@@ -265,7 +265,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
 "Mag-browse ng page %(page)s mula sa Quran na may komportable at madaling "
@@ -432,7 +432,7 @@ msgid "email_separator"
 msgstr ""
 
 msgid "newsletter_subscription_notice"
-msgstr "Naka-subscribe ka sa mga mensahe ng Wird Quran"
+msgstr "Naka-subscribe ka sa mga mensahe ng Wird Live"
 
 msgid "unsubscribe_label"
 msgstr "Upang mag-unsubscribe"
@@ -452,13 +452,13 @@ msgid "please_enter_email"
 msgstr "Pakilagay ang iyong email"
 
 msgid "newsletter_welcome_subject"
-msgstr "Salamat sa pag-subscribe sa Wird Quran"
+msgstr "Salamat sa pag-subscribe sa Wird Live"
 
 msgid "newsletter_greeting"
 msgstr "Ang kapayapaan, awa, at pagpapala ng Allah ay sumainyo,"
 
 msgid "newsletter_thank_you_for_subscribing"
-msgstr "Salamat sa pag-subscribe sa mga mensahe ng Wird Quran"
+msgstr "Salamat sa pag-subscribe sa mga mensahe ng Wird Live"
 
 msgid "newsletter_joined_successfully"
 msgstr ""
@@ -477,11 +477,11 @@ msgid "wird quran"
 msgstr "Wird Al-Quran Al-Kareem"
 
 msgid "newsletter_subscription_success"
-msgstr "Salamat, matagumpay kang naka-subscribe sa mga mensahe ng Wird Quran"
+msgstr "Salamat, matagumpay kang naka-subscribe sa mga mensahe ng Wird Live"
 
 msgid "newsletter_subscription_reactivated"
 msgstr ""
-"Salamat, ang iyong subscription sa mga mensahe ng Wird Quran ay muling na-"
+"Salamat, ang iyong subscription sa mga mensahe ng Wird Live ay muling na-"
 "activate"
 
 msgid "email_already_subscribed"
@@ -511,7 +511,7 @@ msgid "tilawa_listen_quran_recited_by"
 msgstr "Pakikinig sa Quran sa pamamagitan ng"
 
 msgid "tilawa_wrd_quran"
-msgstr "Wird Quran"
+msgstr "Wird Live"
 
 msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
 msgstr "Makinig sa kumpletong Quran na binibigkas ni"
@@ -613,7 +613,7 @@ msgstr ""
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr ""
-"Ang Wird Quran ay isang pinagsama-samang platform para sa pagbabasa ng "
+"Ang Wird Live ay isang pinagsama-samang platform para sa pagbabasa ng "
 "Quran, pakikinig sa mga pagbigkas ng mga sikat na reciter, at pag-browse ng "
 "mga aklat ng Tafsir nang madali at walang ad."
 
@@ -1310,7 +1310,7 @@ msgstr "Huling na-update Mayo 2026"
 #~ msgstr "Maligayang pagdating"
 
 #~ msgid "welcome_message"
-#~ msgstr "Maligayang pagdating sa Wird Quran Platform"
+#~ msgstr "Maligayang pagdating sa Wird Live Platform"
 
 #~ msgid "accounts_welcome_bk"
 #~ msgstr "Maligayang pagbabalik"
@@ -1630,10 +1630,10 @@ msgstr "Huling na-update Mayo 2026"
 #~ msgstr "Kinansela ang subscription sa email"
 
 #~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
-#~ msgstr "Mag-unsubscribe sa mga mensahe ng Wird Quran"
+#~ msgstr "Mag-unsubscribe sa mga mensahe ng Wird Live"
 
 #~ msgid "subscription_messages_wrd_quran_alkrym"
-#~ msgstr "Mula sa mga mensahe ng Wird Quran"
+#~ msgstr "Mula sa mga mensahe ng Wird Live"
 
 #~ msgid "subscription_manage_subscriptions"
 #~ msgstr "Pamahalaan ang Mga Subscription"

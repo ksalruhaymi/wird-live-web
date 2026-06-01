@@ -189,8 +189,8 @@ msgstr "شكرًا لتواصلك معنا"
 
 #: apps/contact/templates/contact/success.html:27
 msgid "contact_success_message"
-msgstr "تم استلام رسالتك بنجاح. سيتواصل معك فريق وِرد مباشر في أقرب وقت ممكن."
-"تم استلام رسالتك بنجاح. سيتواصل معك فريق وِرد مباشر في أقرب وقت ممكن."
+msgstr "تم استلام رسالتك بنجاح. سيتواصل معك فريق وِرْد لايف في أقرب وقت ممكن."
+"تم استلام رسالتك بنجاح. سيتواصل معك فريق وِرْد لايف في أقرب وقت ممكن."
 
 #: apps/contact/templates/contact/success.html:34
 #: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:26
@@ -200,7 +200,7 @@ msgstr "العودة إلى الصفحة الرئيسية"
 #: apps/push/templates/admin/push/send_push.html:38
 #: apps/push/templates/push/dashboard.html:212
 msgid "push_placeholder_example"
-msgstr "مثال: تحديث جديد في وِرد مباشر"
+msgstr "مثال: تحديث جديد في وِرْد لايف"
 
 #: apps/push/templates/push/dashboard.html:4
 #: apps/push/templates/push/dashboard.html:5
@@ -223,11 +223,11 @@ msgstr "تم إلغاء الاشتراك بنجاح"
 
 #: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:5
 msgid "subscription_unsubscribe_description"
-msgstr "إلغاء الاشتراك من رسائل وِرد مباشر"
+msgstr "إلغاء الاشتراك من رسائل وِرْد لايف"
 
 #: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:20
 msgid "subscription_unsubscribe_body"
-msgstr "من رسائل وِرد مباشر."
+msgstr "من رسائل وِرْد لايف."
 
 #: apps/subscription/views.py:26
 msgid "title_and_body_required"
@@ -243,7 +243,7 @@ msgstr ""
 
 #: apps/subscription/views.py:52
 msgid "newsletter_subscription_notice"
-msgstr "أنت مشترك في رسائل وِرد القرآن"
+msgstr "أنت مشترك في رسائل وِرْد لايف"
 
 #: apps/subscription/views.py:53
 msgid "unsubscribe_label"
@@ -268,7 +268,7 @@ msgstr "الرجاء إدخال البريد الإلكتروني"
 
 #: apps/subscription/views.py:143
 msgid "newsletter_welcome_subject"
-msgstr "شكرًا لاشتراكك في وِرد القرآن"
+msgstr "شكرًا لاشتراكك في وِرْد لايف"
 
 #: apps/subscription/views.py:145
 msgid "newsletter_greeting"
@@ -276,7 +276,7 @@ msgstr "السلام عليكم ورحمة الله وبركاته،"
 
 #: apps/subscription/views.py:146
 msgid "newsletter_thank_you_for_subscribing"
-msgstr "شكرًا لاشتراكك في رسائل وِرد القرآن"
+msgstr "شكرًا لاشتراكك في رسائل وِرْد لايف"
 
 #: apps/subscription/views.py:147
 msgid "newsletter_joined_successfully"
@@ -291,16 +291,16 @@ msgid "newsletter_closing"
 msgstr "مع خالص الشكر والتقدير"
 
 #: apps/subscription/views.py:151
-msgid "alhafaz_platform_name"
-msgstr "وِرد مباشر"
+msgid "wird-live_platform_name"
+msgstr "وِرْد لايف"
 
 #: apps/subscription/views.py:166
 msgid "newsletter_subscription_success"
-msgstr "شكرًا لك، تم الاشتراك بنجاح في رسائل وِرد مباشر"
+msgstr "شكرًا لك، تم الاشتراك بنجاح في رسائل وِرْد لايف"
 
 #: apps/subscription/views.py:177
 msgid "newsletter_subscription_reactivated"
-msgstr "شكرًا لك، تم إعادة تفعيل اشتراكك في رسائل وِرد مباشر"
+msgstr "شكرًا لك، تم إعادة تفعيل اشتراكك في رسائل وِرْد لايف"
 
 #: apps/subscription/views.py:180
 msgid "email_already_subscribed"
@@ -328,7 +328,7 @@ msgstr "بيانات تسجيل الدخول غير صحيحة."
 #: dashboard/templates/dashboard/layouts/base.html:4
 #: dashboard/templates/dashboard/layouts/base.html:19
 #: dashboard/templates/dashboard/layouts/sidebar.html:11
-msgid "alhafaz_dashboard_title"
+msgid "wird-live_dashboard_title"
 msgstr "لوحة التحكم"
 
 #: dashboard/templates/dashboard/layouts/sidebar.html:27
@@ -374,7 +374,7 @@ msgstr "الصفحة الرئيسية"
 #: dashboard/templates/dashboard/pages/home.html:13
 #: web/templates/web/base.html:9 web/templates/web/pages/privacy_policy.html:19
 #: web/templates/web/pages/privacy_policy.html:36
-msgid "alhafaz_platform_tagline"
+msgid "wird-live_platform_tagline"
 msgstr "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد."
 "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة "
 "عن بُعد."
@@ -417,11 +417,11 @@ msgstr "صلاحيات مفعّلة"
 
 #: identity/accounts/templates/accounts/auth.html:4
 msgid "login_register_page"
-msgstr "وِرد مباشر — تسجيل الدخول"
+msgstr "وِرْد لايف — تسجيل الدخول"
 
 #: identity/accounts/templates/accounts/auth.html:19
 msgid "login_or_create_account"
-msgstr "سجّل الدخول أو أنشئ حسابًا في وِرد مباشر"
+msgstr "سجّل الدخول أو أنشئ حسابًا في وِرْد لايف"
 
 #: identity/accounts/templates/accounts/auth.html:50
 #: identity/accounts/templates/accounts/auth.html:120
@@ -494,7 +494,7 @@ msgstr "كلمة المرور مطلوبة."
 
 #: identity/accounts/views/register.py:67
 msgid "register_success"
-msgstr "تم إنشاء حسابك بنجاح. نرحب بك في وِرد مباشر."
+msgstr "تم إنشاء حسابك بنجاح. نرحب بك في وِرْد لايف."
 
 #: web/templates/web/base.html:60
 msgid "success"
@@ -530,7 +530,7 @@ msgstr "سياسة الخصوصية"
 #: web/templates/web/partials/privacy/section_ar.html:104
 #: web/templates/web/partials/privacy/section_en.html:104
 msgid "privacy_app_name"
-msgstr "وِرد مباشر"
+msgstr "وِرْد لايف"
 
 #: web/templates/web/pages/privacy_policy.html:20
 #: web/templates/web/pages/privacy_policy.html:37
@@ -541,9 +541,9 @@ msgstr "آخر تحديث: مايو 2026"
 
 #: web/templates/web/pages/privacy_policy.html:24
 #: web/templates/web/pages/privacy_policy.html:41
-msgid "privacy_intro_alhafaz"
-msgstr "توضّح هذه السياسة كيفية تعامل منصة وِرد مباشر مع بياناتك. نحرص على الشفافية والإيجاز."
-"توضّح هذه السياسة كيفية تعامل منصة وِرد مباشر مع بياناتك. نحرص على الشفافية "
+msgid "privacy_intro_wird-live"
+msgstr "توضّح هذه السياسة كيفية تعامل منصة وِرْد لايف مع بياناتك. نحرص على الشفافية والإيجاز."
+"توضّح هذه السياسة كيفية تعامل منصة وِرْد لايف مع بياناتك. نحرص على الشفافية "
 "والإيجاز."
 
 #: web/templates/web/partials/footers/footer_public.html:6
@@ -901,28 +901,28 @@ msgstr ""
 
 
 msgid "contact_page_description"
-msgstr "تواصل مع فريق وِرد مباشر للاستفسارات والدعم الفني."
+msgstr "تواصل مع فريق وِرْد لايف للاستفسارات والدعم الفني وطلبات الانضمام كمعلم."
 
 msgid "contact_intro_text"
-msgstr "نسعد بتواصلكم مع فريق وِرد مباشر للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
+msgstr "نسعد بتواصلكم مع فريق وِرْد لايف للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
 
 msgid "wird quran"
-msgstr "وِرد مباشر"
+msgstr "وِرْد لايف"
 
 msgid "wird"
-msgstr "وِرد مباشر"
+msgstr "وِرْد لايف"
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد."
 
 msgid "web_wrd_alqraan_alkrym"
-msgstr "عن وِرد مباشر"
+msgstr "عن وِرْد لايف"
 
 msgid "long_about_text"
-msgstr "وِرد مباشر منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
+msgstr "وِرْد لايف منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
 msgid "about_wird"
-msgstr "وِرد مباشر منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
+msgstr "وِرْد لايف منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
 msgid "home_hero_summary"
 msgstr "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد."
@@ -942,17 +942,17 @@ msgstr "الحفظ"
 msgid "translations"
 msgstr "الترجمات"
 
-msgid "alhafaz_about_title"
-msgstr "عن وِرد مباشر"
+msgid "wird-live_about_title"
+msgstr "عن وِرْد لايف"
 
-msgid "alhafaz_about_body"
-msgstr "وِرد مباشر منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
+msgid "wird-live_about_body"
+msgstr "وِرْد لايف منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
-msgid "alhafaz_contact_title"
+msgid "wird-live_contact_title"
 msgstr "تواصل معنا"
 
-msgid "alhafaz_contact_intro"
-msgstr "نسعد بتواصلكم مع فريق وِرد مباشر للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
+msgid "wird-live_contact_intro"
+msgstr "نسعد بتواصلكم مع فريق وِرْد لايف للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
 
 msgid "push_tab_send"
 msgstr "إرسال تنبيه"
@@ -962,3 +962,9 @@ msgstr "الأجهزة"
 
 msgid "push_tab_history"
 msgstr "التنبيهات المرسلة"
+
+msgid "contact_support_app"
+msgstr "الدعم الفني لتطبيق وِرْد لايف"
+
+msgid "about_page_meta_description"
+msgstr "تعرف على منصة وِرْد لايف لربط الطلاب بالمعلمين وتصحيح التلاوة ومتابعة الحفظ عن بُعد."

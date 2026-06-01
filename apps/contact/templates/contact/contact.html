@@ -1,8 +1,8 @@
 {% extends "web/layouts/base.html" %}
 {% load static i18n %}
 
-{% block title %}تواصل معنا{% endblock %}
-{% block description %}تواصل مع فريق وِرد مباشر للاستفسارات والدعم الفني وطلبات الانضمام كمعلم.{% endblock %}
+{% block title %}{% trans "wird-live_contact_title" %}{% endblock %}
+{% block description %}{% trans "contact_page_description" %}{% endblock %}
 
 {% block content %}
 
@@ -13,15 +13,15 @@
       <div class="mb-6 dir-text space-y-3">
         <h1 class="text-xl md:text-2xl font-extrabold site-text flex items-center gap-2">
           <i class="bi bi-envelope-paper-fill site-link-primary text-xl"></i>
-          <span>تواصل معنا</span>
+          <span>{% trans "wird-live_contact_title" %}</span>
         </h1>
 
         <p class="text-sm md:text-base leading-relaxed site-text-muted">
-          نسعد بتواصلكم مع فريق وِرد مباشر للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم.
+          {% trans "contact_intro_text" %}
         </p>
 
         <ul class="text-xs md:text-sm site-text-muted space-y-1.5 list-disc ps-5 m-0">
-          <li>الدعم الفني لتطبيق وِرد مباشر</li>
+          <li>{% trans "contact_support_app" %}</li>
           <li>طلب الانضمام كمعلم</li>
           <li>الاستفسار عن الجلسات التعليمية</li>
           <li>الملاحظات والاقتراحات</li>

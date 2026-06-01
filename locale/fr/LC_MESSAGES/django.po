@@ -221,36 +221,36 @@ msgid "tafsir_alsa3dy"
 msgstr "As-Sa'di"
 
 #, python-format
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgstr "Tafsir de la page %(page)s du Coran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
+msgstr "Tafsir de la page %(page)s du Coran | Wird Live"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
-msgstr "Sourate %(surah_name)s | Lecture et écoute - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
+msgstr "Sourate %(surah_name)s | Lecture et écoute - Wird Live"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
-msgstr "Écouter le Coran récité par %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
+msgstr "Écouter le Coran récité par %(qari_name)s | Wird Live"
 
 #, python-format
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgstr "Page %(page)s du Coran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
+msgstr "Page %(page)s du Coran | Wird Live"
 
 #, python-format
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
 "Lisez le tafsir de la page %(page)s du Coran facilement, avec les versets "
-"affichés et liés au tafsir sur la plateforme Wird Quran."
+"affichés et liés au tafsir sur la plateforme Wird Live."
 
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
 "Lisez la sourate %(surah_name)s du Coran, avec une écoute et une navigation "
-"faciles sur la plateforme Wird Quran."
+"faciles sur la plateforme Wird Live."
 
 #, python-format
 msgid ""
@@ -263,12 +263,12 @@ msgstr ""
 #, python-format
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
 "Parcourez la page %(page)s du Coran avec une interface confortable et "
 "facile, avec une lecture fluide et une navigation rapide sur la plateforme "
-"Wird Quran."
+"Wird Live."
 
 msgid "no_word_meanings"
 msgstr "Aucun sens disponible pour ce verset"
@@ -456,13 +456,13 @@ msgid "please_enter_email"
 msgstr "Veuillez saisir votre adresse e-mail"
 
 msgid "newsletter_welcome_subject"
-msgstr "Merci de votre abonnement à Wird Quran"
+msgstr "Merci de votre abonnement à Wird Live"
 
 msgid "newsletter_greeting"
 msgstr "As-Salamu Alaykum wa Rahmatullahi wa Barakatuh,"
 
 msgid "newsletter_thank_you_for_subscribing"
-msgstr "Merci de vous être abonné aux messages de Wird Quran"
+msgstr "Merci de vous être abonné aux messages de Wird Live"
 
 msgid "newsletter_joined_successfully"
 msgstr ""
@@ -482,11 +482,11 @@ msgstr "Wird Al-Quran Al-Kareem"
 
 msgid "newsletter_subscription_success"
 msgstr ""
-"Merci, votre abonnement aux messages de Wird Quran a été effectué avec succès"
+"Merci, votre abonnement aux messages de Wird Live a été effectué avec succès"
 
 msgid "newsletter_subscription_reactivated"
 msgstr ""
-"Merci, votre abonnement aux messages de Wird Quran a été réactivé avec succès"
+"Merci, votre abonnement aux messages de Wird Live a été réactivé avec succès"
 
 msgid "email_already_subscribed"
 msgstr "Cet e-mail est déjà abonné"
@@ -515,7 +515,7 @@ msgid "tilawa_listen_quran_recited_by"
 msgstr "Écouter le Coran par"
 
 msgid "tilawa_wrd_quran"
-msgstr "Wird Quran"
+msgstr "Wird Live"
 
 msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
 msgstr "Écoutez le Coran complet avec la voix de"
@@ -621,7 +621,7 @@ msgstr ""
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr ""
-"Wird Quran est une plateforme intégrée pour lire le Coran, écouter les "
+"Wird Live est une plateforme intégrée pour lire le Coran, écouter les "
 "récitations des plus célèbres récitants et parcourir les livres de Tafsir "
 "facilement et sans publicité."
 

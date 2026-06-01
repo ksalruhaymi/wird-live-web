@@ -19,7 +19,7 @@ msgid "contact_page_description"
 msgstr "ہم سے رابطہ کریں، ہم آپ کی خدمت کے لیے حاضر ہیں"
 
 msgid "contact_intro_text"
-msgstr "ہمیں خوشی ہے کہ آپ وِردِ قرآن پلیٹ فارم سے رابطہ کر رہے ہیں۔"
+msgstr "ہمیں خوشی ہے کہ آپ وِرْد لايف پلیٹ فارم سے رابطہ کر رہے ہیں۔"
 
 msgid "name"
 msgstr "نام"
@@ -50,7 +50,7 @@ msgstr "رابطہ کرنے کا شکریہ"
 
 msgid "contact_success_message"
 msgstr ""
-"آپ کا پیغام کامیابی سے موصول ہو گیا ہے، وِردِ قرآن ٹیم جلد آپ سے رابطہ کرے گی۔"
+"آپ کا پیغام کامیابی سے موصول ہو گیا ہے، وِرْد لايف ٹیم جلد آپ سے رابطہ کرے گی۔"
 
 msgid "back_to_home"
 msgstr "مرکزی صفحہ پر واپس جائیں"
@@ -216,35 +216,35 @@ msgid "tafsir_alsa3dy"
 msgstr "تفسیر سعدی"
 
 #, python-format
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgstr "قرآن کے صفحہ نمبر %(page)s کی تفسیر | وِردِ قرآن"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
+msgstr "قرآن کے صفحہ نمبر %(page)s کی تفسیر | وِرْد لايف"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
-msgstr "سورہ %(surah_name)s | تلاوت اور سماعت - وِردِ قرآن"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
+msgstr "سورہ %(surah_name)s | تلاوت اور سماعت - وِرْد لايف"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
-msgstr "قرآن کی سماعت بصوت %(qari_name)s | وِردِ قرآن"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
+msgstr "قرآن کی سماعت بصوت %(qari_name)s | وِرْد لايف"
 
 #, python-format
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgstr "قرآن کا صفحہ نمبر %(page)s | وِردِ قرآن"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
+msgstr "قرآن کا صفحہ نمبر %(page)s | وِرْد لايف"
 
 #, python-format
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
-"وِردِ قرآن پلیٹ فارم پر قرآن کے صفحہ نمبر %(page)s کی تفسیر آسانی سے پڑھیں، "
+"وِرْد لايف پلیٹ فارم پر قرآن کے صفحہ نمبر %(page)s کی تفسیر آسانی سے پڑھیں، "
 "جہاں آیات تفسیر کے ساتھ مربوط ہیں۔"
 
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
-"وِردِ قرآن پلیٹ فارم پر تلاوت کی سماعت اور براؤزنگ کی سہولت کے ساتھ سورہ "
+"وِرْد لايف پلیٹ فارم پر تلاوت کی سماعت اور براؤزنگ کی سہولت کے ساتھ سورہ "
 "%(surah_name)s پڑھیں۔"
 
 #, python-format
@@ -258,10 +258,10 @@ msgstr ""
 #, python-format
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
-"وِردِ قرآن پلیٹ فارم پر آسان انٹرفیس اور تیز رفتار نیویگیشن کے ساتھ قرآن کا "
+"وِرْد لايف پلیٹ فارم پر آسان انٹرفیس اور تیز رفتار نیویگیشن کے ساتھ قرآن کا "
 "صفحہ نمبر %(page)s پڑھیں۔"
 
 msgid "no_word_meanings"
@@ -430,7 +430,7 @@ msgid "email_separator"
 msgstr ""
 
 msgid "newsletter_subscription_notice"
-msgstr "آپ وِردِ قرآن کے پیغامات کے سبسکرائبر ہیں"
+msgstr "آپ وِرْد لايف کے پیغامات کے سبسکرائبر ہیں"
 
 msgid "unsubscribe_label"
 msgstr "رکنیت ختم کرنے کے لیے"
@@ -450,13 +450,13 @@ msgid "please_enter_email"
 msgstr "براہِ کرم ای میل درج کریں"
 
 msgid "newsletter_welcome_subject"
-msgstr "وِردِ قرآن کی رکنیت حاصل کرنے پر شکریہ"
+msgstr "وِرْد لايف کی رکنیت حاصل کرنے پر شکریہ"
 
 msgid "newsletter_greeting"
 msgstr "السلام علیکم ورحمۃ اللہ وبرکاتہ،"
 
 msgid "newsletter_thank_you_for_subscribing"
-msgstr "وِردِ قرآن کے پیغامات سبسکرائب کرنے کا شکریہ"
+msgstr "وِرْد لايف کے پیغامات سبسکرائب کرنے کا شکریہ"
 
 msgid "newsletter_joined_successfully"
 msgstr ""
@@ -469,13 +469,13 @@ msgid "newsletter_closing"
 msgstr "نیک تمناؤں کے ساتھ"
 
 msgid "wird quran"
-msgstr "وِردِ قرآن"
+msgstr "وِرْد لايف"
 
 msgid "newsletter_subscription_success"
-msgstr "شکریہ، آپ وِردِ قرآن کے پیغامات میں کامیابی سے شامل ہو گئے ہیں"
+msgstr "شکریہ، آپ وِرْد لايف کے پیغامات میں کامیابی سے شامل ہو گئے ہیں"
 
 msgid "newsletter_subscription_reactivated"
-msgstr "شکریہ، آپ کی وِردِ قرآن پیغامات کی رکنیت دوبارہ بحال کر دی گئی ہے"
+msgstr "شکریہ، آپ کی وِرْد لايف پیغامات کی رکنیت دوبارہ بحال کر دی گئی ہے"
 
 msgid "email_already_subscribed"
 msgstr "یہ ای میل پہلے سے سبسکرائب ہے"
@@ -504,7 +504,7 @@ msgid "tilawa_listen_quran_recited_by"
 msgstr "قرآن سننا بصوت"
 
 msgid "tilawa_wrd_quran"
-msgstr "وِردِ قرآن"
+msgstr "وِرْد لايف"
 
 msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
 msgstr "قرآن کی مکمل سماعت کریں بصوت"
@@ -609,7 +609,7 @@ msgstr ""
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr ""
-"وِردِ قرآن ایک مکمل پلیٹ فارم ہے جو قرآن کی تلاوت، مشہور قراء کی آواز میں "
+"وِرْد لايف ایک مکمل پلیٹ فارم ہے جو قرآن کی تلاوت، مشہور قراء کی آواز میں "
 "سماعت، اور تفسیر کے مطالعہ کی سہولت بغیر اشتہارات کے فراہم کرتا ہے۔"
 
 msgid "success"
@@ -625,7 +625,7 @@ msgid "notice"
 msgstr ""
 
 msgid "web_wrd_alqraan_alkrym"
-msgstr "وِردِ قرآن کے بارے میں"
+msgstr "وِرْد لايف کے بارے میں"
 
 msgid "long_about_text"
 msgstr ""
@@ -1294,7 +1294,7 @@ msgstr "آخری اپ ڈیٹ مئی ۲۰۲۶"
 #~ msgstr "خوش آمدید"
 
 #~ msgid "welcome_message"
-#~ msgstr "وِردِ قرآن پلیٹ فارم پر خوش آمدید"
+#~ msgstr "وِرْد لايف پلیٹ فارم پر خوش آمدید"
 
 #~ msgid "accounts_welcome_bk"
 #~ msgstr "آپ کو خوش آمدید کہتے ہیں"
@@ -1605,10 +1605,10 @@ msgstr "آخری اپ ڈیٹ مئی ۲۰۲۶"
 #~ msgstr "ای میل سبسکرپشن ختم کر دی گئی"
 
 #~ msgid "subscription_cancel_subscription_messages_wrd_quran_alkrym"
-#~ msgstr "وِردِ قرآن کے پیغامات سے رکنیت ختم کریں"
+#~ msgstr "وِرْد لايف کے پیغامات سے رکنیت ختم کریں"
 
 #~ msgid "subscription_messages_wrd_quran_alkrym"
-#~ msgstr "وِردِ قرآن کے پیغامات سے"
+#~ msgstr "وِرْد لايف کے پیغامات سے"
 
 #~ msgid "subscription_manage_subscriptions"
 #~ msgstr "سبسکرپشنز کا انتظام"

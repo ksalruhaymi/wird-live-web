@@ -16,7 +16,7 @@ msgid "contact_page_description"
 msgstr "联系我们，我们竭诚为您服务"
 
 msgid "contact_intro_text"
-msgstr "我们很高兴您联系 Wird Quran 平台。我们努力服务真主之书并促进其背诵。"
+msgstr "我们很高兴您联系 Wird Live 平台。我们努力服务真主之书并促进其背诵。"
 
 msgid "name"
 msgstr "姓名"
@@ -208,35 +208,35 @@ msgid "tafsir_alsa3dy"
 msgstr "萨迪"
 
 #, python-format
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
 msgstr "《古兰经》第 %(page)s 页的 Tafsir |古兰经"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
 msgstr "古兰经 %(surah_name)s |阅读和聆听 - 古兰经"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
 msgstr "聆听 %(qari_name)s 背诵的《古兰经》|古兰经"
 
 #, python-format
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
 msgstr "《古兰经》第 %(page)s 页 |古兰经"
 
 #, python-format
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
-"轻松阅读《古兰经》第 %(page)s 页的 tafsir，在 Wird Quran 平台上显示 ayahs 并"
+"轻松阅读《古兰经》第 %(page)s 页的 tafsir，在 Wird Live 平台上显示 ayahs 并"
 "链接到 tafsir。"
 
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
-"阅读《古兰经》中的 Surah %(surah_name)s，在 Wird Quran 平台上轻松收听和浏览。"
+"阅读《古兰经》中的 Surah %(surah_name)s，在 Wird Live 平台上轻松收听和浏览。"
 
 #, python-format
 msgid ""
@@ -249,10 +249,10 @@ msgstr ""
 #, python-format
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
-"使用舒适且简单的界面浏览《古兰经》第 %(page)s 页，在 Wird Quran 平台上可实现"
+"使用舒适且简单的界面浏览《古兰经》第 %(page)s 页，在 Wird Live 平台上可实现"
 "流畅的阅读和快速导航。"
 
 msgid "no_word_meanings"
@@ -584,7 +584,7 @@ msgstr ""
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr ""
-"Wird Quran 是一个阅读古兰经、聆听著名朗诵者朗诵、轻松浏览 Tafsir 书籍的综合平"
+"Wird Live 是一个阅读古兰经、聆听著名朗诵者朗诵、轻松浏览 Tafsir 书籍的综合平"
 "台，无广告。"
 
 msgid "success"
@@ -1244,7 +1244,7 @@ msgstr "最后更新 2026年5月"
 #~ msgstr "欢迎"
 
 #~ msgid "welcome_message"
-#~ msgstr "欢迎来到 Wird Quran 平台"
+#~ msgstr "欢迎来到 Wird Live 平台"
 
 #~ msgid "accounts_welcome_bk"
 #~ msgstr "欢迎回来"

@@ -17,7 +17,7 @@ msgstr "আমাৰ সৈতে যোগাযোগ কৰক, আমি আ
 
 msgid "contact_intro_text"
 msgstr ""
-"আপোনালোকে Wird Quran প্লেটফৰ্মৰ সৈতে যোগাযোগ কৰিবলৈ পাই আমি আনন্দিত হৈছো। আমি "
+"আপোনালোকে Wird Live প্লেটফৰ্মৰ সৈতে যোগাযোগ কৰিবলৈ পাই আমি আনন্দিত হৈছো। আমি "
 "আল্লাহৰ কিতাপৰ সেৱা আৰু ইয়াৰ পাঠত সুবিধা কৰি দিবলৈ চেষ্টা কৰোঁ।"
 
 msgid "name"
@@ -215,31 +215,31 @@ msgid "tafsir_alsa3dy"
 msgstr "আল-ছা'দি"
 
 #, fuzzy, python-format
-#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
+#| msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
 msgstr "কোৰআনৰ পৰা %(পৃষ্ঠা) পৃষ্ঠাৰ তফছিৰ | উইৰ্ড কোৰআন"
 
 #, fuzzy, python-format
-#| msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
-msgstr "চুৰা %(ছুৰা_নাম)ৰ | পঢ়ক আৰু শুনা - Wird Quran"
+#| msgid "Surah %(surah_name)s | Read and listen - Wird Live"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
+msgstr "চুৰা %(ছুৰা_নাম)ৰ | পঢ়ক আৰু শুনা - Wird Live"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
 msgstr "%(qari_name)s | উইৰ্ড কোৰআন"
 
 #, fuzzy, python-format
-#| msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
+#| msgid "Page %(page)s from the Holy Quran | Wird Live"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
 msgstr "কোৰআনৰ পৰা পৃষ্ঠা %(পৃষ্ঠা)সমূহ | উইৰ্ড কোৰআন"
 
 #, fuzzy, python-format
 #| msgid ""
 #| "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-#| "displayed and linked to tafsir on the Wird Quran platform."
+#| "displayed and linked to tafsir on the Wird Live platform."
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
 "কোৰআনৰ পৰা %(পৃষ্ঠা) পৃষ্ঠাৰ তফছিৰ সহজে পঢ়ক, উইৰ্ড কোৰআন প্লেটফৰ্মত আয়াহ প্ৰদৰ্শিত আৰু "
 "তাফছিৰৰ সৈতে সংযুক্ত কৰি।"
@@ -247,7 +247,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
 "কোৰআনৰ পৰা চুৰা %(surah_name)s পঢ়ক, Wird কোৰআন প্লেটফৰ্মত সহজ শুনা আৰু ব্ৰাউজিঙৰ "
 "সৈতে।"
@@ -263,11 +263,11 @@ msgstr ""
 #, fuzzy, python-format
 #| msgid ""
 #| "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-#| "interface, with smooth reading and quick navigation on the Wird Quran "
+#| "interface, with smooth reading and quick navigation on the Wird Live "
 #| "platform."
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
 "Wird কোৰআন প্লেটফৰ্মত মসৃণ পঢ়া আৰু দ্ৰুত নেভিগেচনৰ সৈতে, এটা আৰামদায়ক আৰু সহজ "
@@ -452,7 +452,7 @@ msgid "please_enter_email"
 msgstr "অনুগ্ৰহ কৰি আপোনাৰ ইমেইল দিয়ক"
 
 msgid "newsletter_welcome_subject"
-msgstr "Wird Quran subscribe কৰাৰ বাবে ধন্যবাদ"
+msgstr "Wird Live subscribe কৰাৰ বাবে ধন্যবাদ"
 
 msgid "newsletter_greeting"
 msgstr "তোমালোকৰ ওপৰত আল্লাহৰ চাল্লাল্লাহু আলাইহি অছাল্লাম"
@@ -475,10 +475,10 @@ msgid "wird quran"
 msgstr "উইৰ্দ আল-কুৰআন আল-কাৰিম"
 
 msgid "newsletter_subscription_success"
-msgstr "ধন্যবাদ, আপোনালোকে Wird Quran বাৰ্তা সফলভাৱে subscribe কৰিছে"
+msgstr "ধন্যবাদ, আপোনালোকে Wird Live বাৰ্তা সফলভাৱে subscribe কৰিছে"
 
 msgid "newsletter_subscription_reactivated"
-msgstr "ধন্যবাদ, Wird Quran বাৰ্তাৰ আপোনাৰ চাবস্ক্ৰিপচন পুনৰ সক্ৰিয় কৰা হৈছে"
+msgstr "ধন্যবাদ, Wird Live বাৰ্তাৰ আপোনাৰ চাবস্ক্ৰিপচন পুনৰ সক্ৰিয় কৰা হৈছে"
 
 msgid "email_already_subscribed"
 msgstr "এই ইমেইলটো ইতিমধ্যে চাবস্ক্ৰাইব কৰা হৈছে"

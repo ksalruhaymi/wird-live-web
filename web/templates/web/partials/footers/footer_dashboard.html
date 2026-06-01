@@ -1,53 +1,16 @@
-<footer class="app-footer dashboard-footer site-footer">
+{% load static i18n %}
 
-  <div class="max-w-7xl mx-auto px-6 py-5
-              flex flex-col md:flex-row
-              items-center justify-between
-              gap-4 text-sm">
-
-    <!-- NAME + COPYRIGHT -->
-    <div class="text-center md:dir-text">
-      <div class="font-bold site-primary">
-      <p class="site-text-muted-white leading-relaxed">موقع القرآن الكريم</p>
-      </div>
-      <div class="text-xs site-primary mt-1 text-center">
-        © {{ year|default:2026 }} جميع الحقوق محفوظة
-      </div>
+<footer class="dashboard-footer-minimal">
+  <div class="wird-container">
+    <div class="wird-footer-credit wird-footer-credit--dashboard">
+      <span>{% trans "designed_by" %}</span>
+      <img
+        src="{% static 'images/alruhaymi-it.png' %}"
+        alt="Alruhaymi IT"
+        class="wird-footer-credit-logo"
+        loading="lazy"
+        decoding="async">
+      <a href="mailto:ksalruhaymi@gmail.com" class="wird-footer-credit-email">ksalruhaymi@gmail.com</a>
     </div>
-
-    <!-- CONTACT (CENTER) -->
-    <div class="order-first md:order-none">
-      <a href="/contact/"
-         class="site-link-primary transition font-medium">
-        تواصل معنا
-      </a>
-    </div>
-
-    <!-- SOCIAL ICONS -->
-    <div class="flex items-center gap-4 site-text-muted text-lg">
-
-      <a href="#" aria-label="Facebook"
-         class="hover:site-primary transition">
-        <i class="bi bi-facebook"></i>
-      </a>
-
-      <a href="#" aria-label="X"
-         class="hover:site-text transition">
-        <i class="bi bi-twitter-x"></i>
-      </a>
-
-      <a href="#" aria-label="LinkedIn"
-         class="hover:site-primary transition">
-        <i class="bi bi-linkedin"></i>
-      </a>
-
-      <a href="#" aria-label="Tiktok"
-         class="hover:site-text transition">
-        <i class="bi bi-tiktok"></i>
-      </a>
-
-    </div>
-
   </div>
-
 </footer>

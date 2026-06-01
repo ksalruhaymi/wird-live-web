@@ -20,7 +20,7 @@ msgstr "Kontaktieren Sie uns, wir sind für Sie da"
 
 msgid "contact_intro_text"
 msgstr ""
-"Wir freuen uns über Ihre Kontaktaufnahme mit Wird Quran. Wir bemühen uns, "
+"Wir freuen uns über Ihre Kontaktaufnahme mit Wird Live. Wir bemühen uns, "
 "dem Buche Allahs zu dienen."
 
 msgid "name"
@@ -52,7 +52,7 @@ msgstr "Vielen Dank für Ihre Nachricht"
 
 msgid "contact_success_message"
 msgstr ""
-"Ihre Nachricht wurde erfolgreich empfangen. Das Team von Wird Quran wird sie "
+"Ihre Nachricht wurde erfolgreich empfangen. Das Team von Wird Live wird sie "
 "prüfen und sich so schnell wie möglich bei Ihnen melden."
 
 msgid "back_to_home"
@@ -221,36 +221,36 @@ msgid "tafsir_alsa3dy"
 msgstr "As-Sa'di"
 
 #, python-format
-msgid "Tafsir of page %(page)s from the Holy Quran | Wird Quran"
-msgstr "Tafsir von Seite %(page)s des Korans | Wird Quran"
+msgid "Tafsir of page %(page)s from the Holy Quran | Wird Live"
+msgstr "Tafsir von Seite %(page)s des Korans | Wird Live"
 
 #, python-format
-msgid "Surah %(surah_name)s | Read and listen - Wird Quran"
-msgstr "Sure %(surah_name)s | Lesen und Hören - Wird Quran"
+msgid "Surah %(surah_name)s | Read and listen - Wird Live"
+msgstr "Sure %(surah_name)s | Lesen und Hören - Wird Live"
 
 #, python-format
-msgid "Listen to the Quran recited by %(qari_name)s | Wird Quran"
-msgstr "Koran hören von %(qari_name)s | Wird Quran"
+msgid "Listen to the Quran recited by %(qari_name)s | Wird Live"
+msgstr "Koran hören von %(qari_name)s | Wird Live"
 
 #, python-format
-msgid "Page %(page)s from the Holy Quran | Wird Quran"
-msgstr "Seite %(page)s des Korans | Wird Quran"
+msgid "Page %(page)s from the Holy Quran | Wird Live"
+msgstr "Seite %(page)s des Korans | Wird Live"
 
 #, python-format
 msgid ""
 "Read the tafsir of page %(page)s from the Holy Quran easily, with ayahs "
-"displayed and linked to tafsir on the Wird Quran platform."
+"displayed and linked to tafsir on the Wird Live platform."
 msgstr ""
 "Lesen Sie den Tafsir von Seite %(page)s des Korans ganz einfach mit direkt "
-"verlinkten Versen auf Wird Quran."
+"verlinkten Versen auf Wird Live."
 
 #, python-format
 msgid ""
 "Read Surah %(surah_name)s from the Holy Quran, with easy listening and "
-"browsing on the Wird Quran platform."
+"browsing on the Wird Live platform."
 msgstr ""
 "Lesen Sie Sure %(surah_name)s aus dem Koran mit integrierter Audio-Funktion "
-"auf der Wird Quran Plattform."
+"auf der Wird Live Plattform."
 
 #, python-format
 msgid ""
@@ -263,11 +263,11 @@ msgstr ""
 #, python-format
 msgid ""
 "Browse page %(page)s from the Holy Quran with a comfortable and easy "
-"interface, with smooth reading and quick navigation on the Wird Quran "
+"interface, with smooth reading and quick navigation on the Wird Live "
 "platform."
 msgstr ""
 "Durchsuchen Sie Seite %(page)s des Korans mit einer komfortablen "
-"Benutzeroberfläche und schneller Navigation auf der Wird Quran Plattform."
+"Benutzeroberfläche und schneller Navigation auf der Wird Live Plattform."
 
 msgid "no_word_meanings"
 msgstr "Keine Wortbedeutungen für diesen Vers verfügbar"
@@ -435,7 +435,7 @@ msgid "email_separator"
 msgstr ""
 
 msgid "newsletter_subscription_notice"
-msgstr "Sie sind Abonnent der Wird Quran Nachrichten"
+msgstr "Sie sind Abonnent der Wird Live Nachrichten"
 
 msgid "unsubscribe_label"
 msgstr "Zum Abbestellen"
@@ -453,13 +453,13 @@ msgid "please_enter_email"
 msgstr "Bitte E-Mail-Adresse eingeben"
 
 msgid "newsletter_welcome_subject"
-msgstr "Vielen Dank für Ihr Abonnement bei Wird Quran"
+msgstr "Vielen Dank für Ihr Abonnement bei Wird Live"
 
 msgid "newsletter_greeting"
 msgstr "As-Salamu Alaykum wa Rahmatullahi wa Barakatuh,"
 
 msgid "newsletter_thank_you_for_subscribing"
-msgstr "Vielen Dank für Ihr Abonnement bei Wird Quran"
+msgstr "Vielen Dank für Ihr Abonnement bei Wird Live"
 
 msgid "newsletter_joined_successfully"
 msgstr "Wir freuen uns, Sie dabei zu haben. Updates erhalten Sie per E-Mail"
@@ -474,7 +474,7 @@ msgid "wird quran"
 msgstr "Wird Al-Quran Al-Kareem"
 
 msgid "newsletter_subscription_success"
-msgstr "Vielen Dank, Sie haben den Wird Quran Newsletter erfolgreich abonniert"
+msgstr "Vielen Dank, Sie haben den Wird Live Newsletter erfolgreich abonniert"
 
 msgid "newsletter_subscription_reactivated"
 msgstr "Vielen Dank, Ihr Abonnement wurde erfolgreich reaktiviert"
@@ -506,7 +506,7 @@ msgid "tilawa_listen_quran_recited_by"
 msgstr "Koran hören von"
 
 msgid "tilawa_wrd_quran"
-msgstr "Wird Quran"
+msgstr "Wird Live"
 
 msgid "tilawa_astma_quran_alkrym_kamla_recited_by"
 msgstr "Hören Sie den vollständigen Koran mit der Stimme von"
@@ -612,7 +612,7 @@ msgstr ""
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr ""
-"Wird Quran ist eine integrierte Plattform zum Lesen des Korans, Anhören von "
+"Wird Live ist eine integrierte Plattform zum Lesen des Korans, Anhören von "
 "Rezitationen berühmter Rezitatoren und Durchsuchen von Tafsir-Büchern – "
 "einfach und werbefrei."
 
@@ -1316,7 +1316,7 @@ msgstr "Zuletzt aktualisiert Mai 2026"
 #~ msgstr "Willkommen"
 
 #~ msgid "welcome_message"
-#~ msgstr "Willkommen auf der Wird Quran Plattform"
+#~ msgstr "Willkommen auf der Wird Live Plattform"
 
 #~ msgid "accounts_welcome_bk"
 #~ msgstr "Willkommen zurück"

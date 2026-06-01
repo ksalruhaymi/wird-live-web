@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var STORAGE_KEY = "alhafaz_a11y";
+  var STORAGE_KEY = "wird-live_a11y";
   var LEGACY_KEY = "wird_a11y";
   var FONT_STEPS  = ["sm", "base", "lg", "xl", "xxl"];
   var FONT_SIZES  = ["90%", "100%", "112%", "125%", "140%"];

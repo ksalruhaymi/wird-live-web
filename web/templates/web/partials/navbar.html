@@ -3,8 +3,8 @@
 <nav id="mainNavbar" class="wird-navbar">
   <div class="wird-container">
     <div class="wird-navbar-inner">
-      <a href="{% url 'web:home' %}" id="mobileLogo" class="wird-brand" aria-label="وِرد مباشر">
-        <img src="{% static 'images/alhafaz.png' %}" alt="وِرد مباشر" class="wird-brand-image">
+      <a href="{% url 'web:home' %}" id="mobileLogo" class="wird-brand" aria-label="{% trans 'wird-live_platform_name' %}">
+        <img src="{% static 'images/wird-live.png' %}" alt="{% trans 'wird-live_platform_name' %}" class="wird-brand-image">
       </a>
 
       <button id="navToggleBtn" type="button" class="wird-mobile-toggle" aria-label="{% trans 'menu' %}">
@@ -51,8 +51,8 @@
 
 <div id="mobileMenu" class="wird-mobile-menu hidden">
   <div class="wird-mobile-menu-header">
-    <a href="{% url 'web:home' %}" class="wird-brand" aria-label="وِرد مباشر">
-      <img src="{% static 'images/alhafaz.png' %}" alt="وِرد مباشر" class="wird-brand-image">
+    <a href="{% url 'web:home' %}" class="wird-brand" aria-label="{% trans 'wird-live_platform_name' %}">
+      <img src="{% static 'images/wird-live.png' %}" alt="{% trans 'wird-live_platform_name' %}" class="wird-brand-image">
     </a>
     <button id="navCloseBtn" type="button" class="wird-mobile-toggle" aria-label="{% trans 'close' %}">
       <i class="bi bi-x-lg"></i>
