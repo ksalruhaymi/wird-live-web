@@ -142,9 +142,9 @@ class CallRecording(models.Model):
     duration_seconds = models.PositiveIntegerField(default=0)
     started_at = models.DateTimeField(null=True, blank=True)
     ended_at = models.DateTimeField(null=True, blank=True)
-    provider_recording_id = models.CharField(max_length=128, blank=True, default="")
-    agora_resource_id = models.CharField(max_length=128, blank=True, default="")
-    agora_sid = models.CharField(max_length=128, blank=True, default="")
+    provider_recording_id = models.TextField(blank=True, default="")
+    agora_resource_id = models.TextField(blank=True, default="")
+    agora_sid = models.TextField(blank=True, default="")
     recording_uid = models.CharField(max_length=32, blank=True, default="")
     recording_status = models.CharField(
         max_length=20,
