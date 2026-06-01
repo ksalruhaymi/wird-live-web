@@ -189,8 +189,8 @@ msgstr "شكرًا لتواصلك معنا"
 
 #: apps/contact/templates/contact/success.html:27
 msgid "contact_success_message"
-msgstr "تم استلام رسالتك بنجاح. سيتواصل معك فريق مقرأة الحفظة في أقرب وقت ممكن."
-"تم استلام رسالتك بنجاح. سيتواصل معك فريق مقرأة الحفظة في أقرب وقت ممكن."
+msgstr "تم استلام رسالتك بنجاح. سيتواصل معك فريق وِرد مباشر في أقرب وقت ممكن."
+"تم استلام رسالتك بنجاح. سيتواصل معك فريق وِرد مباشر في أقرب وقت ممكن."
 
 #: apps/contact/templates/contact/success.html:34
 #: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:26
@@ -200,7 +200,7 @@ msgstr "العودة إلى الصفحة الرئيسية"
 #: apps/push/templates/admin/push/send_push.html:38
 #: apps/push/templates/push/dashboard.html:212
 msgid "push_placeholder_example"
-msgstr "مثال: تحديث جديد في مقرأة الحفظة"
+msgstr "مثال: تحديث جديد في وِرد مباشر"
 
 #: apps/push/templates/push/dashboard.html:4
 #: apps/push/templates/push/dashboard.html:5
@@ -223,11 +223,11 @@ msgstr "تم إلغاء الاشتراك بنجاح"
 
 #: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:5
 msgid "subscription_unsubscribe_description"
-msgstr "إلغاء الاشتراك من رسائل مقرأة الحفظة"
+msgstr "إلغاء الاشتراك من رسائل وِرد مباشر"
 
 #: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:20
 msgid "subscription_unsubscribe_body"
-msgstr "من رسائل مقرأة الحفظة."
+msgstr "من رسائل وِرد مباشر."
 
 #: apps/subscription/views.py:26
 msgid "title_and_body_required"
@@ -292,15 +292,15 @@ msgstr "مع خالص الشكر والتقدير"
 
 #: apps/subscription/views.py:151
 msgid "alhafaz_platform_name"
-msgstr "مقرأة الحفظة"
+msgstr "وِرد مباشر"
 
 #: apps/subscription/views.py:166
 msgid "newsletter_subscription_success"
-msgstr "شكرًا لك، تم الاشتراك بنجاح في رسائل مقرأة الحفظة"
+msgstr "شكرًا لك، تم الاشتراك بنجاح في رسائل وِرد مباشر"
 
 #: apps/subscription/views.py:177
 msgid "newsletter_subscription_reactivated"
-msgstr "شكرًا لك، تم إعادة تفعيل اشتراكك في رسائل مقرأة الحفظة"
+msgstr "شكرًا لك، تم إعادة تفعيل اشتراكك في رسائل وِرد مباشر"
 
 #: apps/subscription/views.py:180
 msgid "email_already_subscribed"
@@ -417,11 +417,11 @@ msgstr "صلاحيات مفعّلة"
 
 #: identity/accounts/templates/accounts/auth.html:4
 msgid "login_register_page"
-msgstr "مقرأة الحفظة — تسجيل الدخول"
+msgstr "وِرد مباشر — تسجيل الدخول"
 
 #: identity/accounts/templates/accounts/auth.html:19
 msgid "login_or_create_account"
-msgstr "سجّل الدخول أو أنشئ حسابًا في مقرأة الحفظة"
+msgstr "سجّل الدخول أو أنشئ حسابًا في وِرد مباشر"
 
 #: identity/accounts/templates/accounts/auth.html:50
 #: identity/accounts/templates/accounts/auth.html:120
@@ -494,7 +494,7 @@ msgstr "كلمة المرور مطلوبة."
 
 #: identity/accounts/views/register.py:67
 msgid "register_success"
-msgstr "تم إنشاء حسابك بنجاح. نرحب بك في مقرأة الحفظة."
+msgstr "تم إنشاء حسابك بنجاح. نرحب بك في وِرد مباشر."
 
 #: web/templates/web/base.html:60
 msgid "success"
@@ -530,7 +530,7 @@ msgstr "سياسة الخصوصية"
 #: web/templates/web/partials/privacy/section_ar.html:104
 #: web/templates/web/partials/privacy/section_en.html:104
 msgid "privacy_app_name"
-msgstr "مقرأة الحفظة"
+msgstr "وِرد مباشر"
 
 #: web/templates/web/pages/privacy_policy.html:20
 #: web/templates/web/pages/privacy_policy.html:37
@@ -542,8 +542,8 @@ msgstr "آخر تحديث: مايو 2026"
 #: web/templates/web/pages/privacy_policy.html:24
 #: web/templates/web/pages/privacy_policy.html:41
 msgid "privacy_intro_alhafaz"
-msgstr "توضّح هذه السياسة كيفية تعامل منصة مقرأة الحفظة مع بياناتك. نحرص على الشفافية والإيجاز."
-"توضّح هذه السياسة كيفية تعامل منصة مقرأة الحفظة مع بياناتك. نحرص على الشفافية "
+msgstr "توضّح هذه السياسة كيفية تعامل منصة وِرد مباشر مع بياناتك. نحرص على الشفافية والإيجاز."
+"توضّح هذه السياسة كيفية تعامل منصة وِرد مباشر مع بياناتك. نحرص على الشفافية "
 "والإيجاز."
 
 #: web/templates/web/partials/footers/footer_public.html:6
@@ -901,28 +901,28 @@ msgstr ""
 
 
 msgid "contact_page_description"
-msgstr "تواصل مع فريق مقرأة الحفظة للاستفسارات والدعم الفني."
+msgstr "تواصل مع فريق وِرد مباشر للاستفسارات والدعم الفني."
 
 msgid "contact_intro_text"
-msgstr "نسعد بتواصلكم مع فريق مقرأة الحفظة للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
+msgstr "نسعد بتواصلكم مع فريق وِرد مباشر للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
 
 msgid "wird quran"
-msgstr "مقرأة الحفظة"
+msgstr "وِرد مباشر"
 
 msgid "wird"
-msgstr "مقرأة الحفظة"
+msgstr "وِرد مباشر"
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد."
 
 msgid "web_wrd_alqraan_alkrym"
-msgstr "عن مقرأة الحفظة"
+msgstr "عن وِرد مباشر"
 
 msgid "long_about_text"
-msgstr "مقرأة الحفظة منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
+msgstr "وِرد مباشر منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
 msgid "about_wird"
-msgstr "مقرأة الحفظة منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
+msgstr "وِرد مباشر منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
 msgid "home_hero_summary"
 msgstr "منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد."
@@ -943,16 +943,16 @@ msgid "translations"
 msgstr "الترجمات"
 
 msgid "alhafaz_about_title"
-msgstr "عن مقرأة الحفظة"
+msgstr "عن وِرد مباشر"
 
 msgid "alhafaz_about_body"
-msgstr "مقرأة الحفظة منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
+msgstr "وِرد مباشر منصة تعليمية تهدف إلى ربط الطلاب بالمعلمين المتخصصين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال جلسات منظمة وسهلة الاستخدام."
 
 msgid "alhafaz_contact_title"
 msgstr "تواصل معنا"
 
 msgid "alhafaz_contact_intro"
-msgstr "نسعد بتواصلكم مع فريق مقرأة الحفظة للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
+msgstr "نسعد بتواصلكم مع فريق وِرد مباشر للاستفسارات، الدعم الفني، أو طلبات الانضمام كمعلم."
 
 msgid "push_tab_send"
 msgstr "إرسال تنبيه"

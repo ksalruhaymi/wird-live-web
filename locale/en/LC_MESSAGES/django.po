@@ -189,8 +189,8 @@ msgstr "Thank you for contacting us"
 
 #: apps/contact/templates/contact/success.html:27
 msgid "contact_success_message"
-msgstr "Your message was received successfully. The Al-Hafaz team will contact you soon."
-"Your message was received successfully. The Al-Hafaz team will contact you "
+msgstr "Your message was received successfully. The Wird Live team will contact you soon."
+"Your message was received successfully. The Wird Live team will contact you "
 "soon."
 
 #: apps/contact/templates/contact/success.html:34
@@ -201,7 +201,7 @@ msgstr "Back to Home"
 #: apps/push/templates/admin/push/send_push.html:38
 #: apps/push/templates/push/dashboard.html:212
 msgid "push_placeholder_example"
-msgstr "Example: New update in Al-Hafaz"
+msgstr "Example: New update in Wird Live"
 
 #: apps/push/templates/push/dashboard.html:4
 #: apps/push/templates/push/dashboard.html:5
@@ -224,11 +224,11 @@ msgstr "Unsubscribed successfully"
 
 #: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:5
 msgid "subscription_unsubscribe_description"
-msgstr "Unsubscribe from Al-Hafaz messages"
+msgstr "Unsubscribe from Wird Live messages"
 
 #: apps/subscription/templates/subscription/unsubscribe/unsubscribe_done.html:20
 msgid "subscription_unsubscribe_body"
-msgstr "from Al-Hafaz messages."
+msgstr "from Wird Live messages."
 
 #: apps/subscription/views.py:26
 msgid "title_and_body_required"
@@ -294,15 +294,15 @@ msgstr "With sincere thanks and appreciation"
 
 #: apps/subscription/views.py:151
 msgid "alhafaz_platform_name"
-msgstr "Al-Hafaz Academy"
+msgstr "Wird Live"
 
 #: apps/subscription/views.py:166
 msgid "newsletter_subscription_success"
-msgstr "Thank you. You are subscribed to Al-Hafaz messages."
+msgstr "Thank you. You are subscribed to Wird Live messages."
 
 #: apps/subscription/views.py:177
 msgid "newsletter_subscription_reactivated"
-msgstr "Thank you. Your Al-Hafaz subscription was reactivated."
+msgstr "Thank you. Your Wird Live subscription was reactivated."
 
 #: apps/subscription/views.py:180
 msgid "email_already_subscribed"
@@ -419,11 +419,11 @@ msgstr "Active permissions"
 
 #: identity/accounts/templates/accounts/auth.html:4
 msgid "login_register_page"
-msgstr "Al-Hafaz — Sign in"
+msgstr "Wird Live — Sign in"
 
 #: identity/accounts/templates/accounts/auth.html:19
 msgid "login_or_create_account"
-msgstr "Sign in or create an account on Al-Hafaz"
+msgstr "Sign in or create an account on Wird Live"
 
 #: identity/accounts/templates/accounts/auth.html:50
 #: identity/accounts/templates/accounts/auth.html:120
@@ -496,7 +496,7 @@ msgstr "Password is required."
 
 #: identity/accounts/views/register.py:67
 msgid "register_success"
-msgstr "Your account was created successfully. Welcome to Al-Hafaz."
+msgstr "Your account was created successfully. Welcome to Wird Live."
 
 #: web/templates/web/base.html:60
 msgid "success"
@@ -532,7 +532,7 @@ msgstr "Privacy Policy"
 #: web/templates/web/partials/privacy/section_ar.html:104
 #: web/templates/web/partials/privacy/section_en.html:104
 msgid "privacy_app_name"
-msgstr "Al-Hafaz"
+msgstr "Wird Live"
 
 #: web/templates/web/pages/privacy_policy.html:20
 #: web/templates/web/pages/privacy_policy.html:37
@@ -544,8 +544,8 @@ msgstr "Last updated: May 2026"
 #: web/templates/web/pages/privacy_policy.html:24
 #: web/templates/web/pages/privacy_policy.html:41
 msgid "privacy_intro_alhafaz"
-msgstr "This policy explains how Al-Hafaz handles your data. We value transparency and clarity."
-"This policy explains how Al-Hafaz handles your data. We value transparency "
+msgstr "This policy explains how Wird Live handles your data. We value transparency and clarity."
+"This policy explains how Wird Live handles your data. We value transparency "
 "and clarity."
 
 #: web/templates/web/partials/footers/footer_public.html:6
@@ -887,28 +887,28 @@ msgstr ""
 
 
 msgid "contact_page_description"
-msgstr "Contact the Al-Hafaz team for support and inquiries."
+msgstr "Contact the Wird Live team for support and inquiries."
 
 msgid "contact_intro_text"
-msgstr "We are happy to hear from the Al-Hafaz team for inquiries, technical support, or teacher onboarding requests."
+msgstr "We are happy to hear from the Wird Live team for inquiries, technical support, or teacher onboarding requests."
 
 msgid "wird quran"
-msgstr "Al-Hafaz Academy"
+msgstr "Wird Live"
 
 msgid "wird"
-msgstr "Al-Hafaz"
+msgstr "Wird Live"
 
 msgid "web_wrd_quran_platform_mtkamlh_lqrah_quran_alkrym_listening_lltlawat_bashhr_alqra_wtsfh_ktb_tafsir_bshwlh_wbdwn_ialanat"
 msgstr "An educational platform connecting students with teachers for recitation correction, memorization follow-up, and remote review."
 
 msgid "web_wrd_alqraan_alkrym"
-msgstr "About Al-Hafaz"
+msgstr "About Wird Live"
 
 msgid "long_about_text"
-msgstr "Al-Hafaz is an educational platform that connects students with specialized teachers for recitation correction, memorization follow-up, and remote review through organized sessions."
+msgstr "Wird Live is an educational platform that connects students with specialized teachers for recitation correction, memorization follow-up, and remote review through organized sessions."
 
 msgid "about_wird"
-msgstr "Al-Hafaz is an educational platform that connects students with specialized teachers for recitation correction, memorization follow-up, and remote review through organized sessions."
+msgstr "Wird Live is an educational platform that connects students with specialized teachers for recitation correction, memorization follow-up, and remote review through organized sessions."
 
 msgid "home_hero_summary"
 msgstr "An educational platform connecting students with teachers for recitation correction, memorization follow-up, and remote review."
@@ -929,16 +929,16 @@ msgid "translations"
 msgstr "Translations"
 
 msgid "alhafaz_about_title"
-msgstr "About Al-Hafaz"
+msgstr "About Wird Live"
 
 msgid "alhafaz_about_body"
-msgstr "Al-Hafaz is an educational platform that connects students with specialized teachers for recitation correction, memorization follow-up, and remote review through organized sessions."
+msgstr "Wird Live is an educational platform that connects students with specialized teachers for recitation correction, memorization follow-up, and remote review through organized sessions."
 
 msgid "alhafaz_contact_title"
 msgstr "Contact us"
 
 msgid "alhafaz_contact_intro"
-msgstr "We are happy to hear from the Al-Hafaz team for inquiries, technical support, or teacher onboarding requests."
+msgstr "We are happy to hear from the Wird Live team for inquiries, technical support, or teacher onboarding requests."
 
 msgid "push_tab_send"
 msgstr "Send notification"
