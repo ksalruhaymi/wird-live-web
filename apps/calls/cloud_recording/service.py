@@ -114,7 +114,11 @@ def start_cloud_recording_for_call(call: CallSession) -> None:
         rec.recording_error = str(exc)[:500]
         rec.save(update_fields=["recording_status", "recording_error"])
         logger.warning(
-            "Cloud recording start failed for call %s: %s", call.id, exc
+            "Cloud recording start failed for call %s: %s (action=%s status=%s)",
+            call.id,
+            exc,
+            exc.action or "unknown",
+            exc.status_code,
         )
         return
 

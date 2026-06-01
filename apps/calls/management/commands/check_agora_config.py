@@ -44,7 +44,7 @@ class Command(BaseCommand):
             ),
         ),
         (
-            "Agora REST API",
+            "Agora REST API (Basic Auth — not App Certificate)",
             (
                 "AGORA_CUSTOMER_ID",
                 "AGORA_CUSTOMER_SECRET",

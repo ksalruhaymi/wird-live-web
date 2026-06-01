@@ -351,6 +351,9 @@ AGORA_CUSTOMER_ID = (os.getenv("AGORA_CUSTOMER_ID", "") or "").strip()
 AGORA_CUSTOMER_SECRET = (os.getenv("AGORA_CUSTOMER_SECRET", "") or "").strip()
 AGORA_RECORDING_UID = int(os.getenv("AGORA_RECORDING_UID", "900000001") or "900000001")
 AGORA_RECORDING_MODE = (os.getenv("AGORA_RECORDING_MODE", "mix") or "mix").strip().lower()
+AGORA_RECORDING_RESOURCE_EXPIRED_HOUR = int(
+    os.getenv("AGORA_RECORDING_RESOURCE_EXPIRED_HOUR", "24") or "24"
+)
 AGORA_RECORDING_STORAGE_VENDOR = int(os.getenv("AGORA_RECORDING_STORAGE_VENDOR", "0") or "0")
 AGORA_RECORDING_STORAGE_REGION = int(os.getenv("AGORA_RECORDING_STORAGE_REGION", "0") or "0")
 # Required for vendor 11 (S3-compatible, e.g. Cloudflare R2); passed as extensionParams.endpoint.
