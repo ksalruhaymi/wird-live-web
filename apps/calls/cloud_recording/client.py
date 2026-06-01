@@ -327,10 +327,9 @@ def _storage_config(channel_name: str) -> dict[str, Any]:
 
 
 def _recording_config(session_type: str) -> dict[str, Any]:
-    is_video = (session_type or "").strip().lower() == "video"
     return {
         "channelType": 0,
-        "streamTypes": 2 if is_video else 0,
+        "streamTypes": 0,
         "maxIdleTime": 120,
         "subscribeUidGroup": 0,
     }
