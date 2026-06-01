@@ -339,7 +339,9 @@ FIREBASE_CREDENTIALS_PATH = os.getenv("FIREBASE_CREDENTIALS_PATH", "")
 # ------------------------------------------------------------------------------
 # Voice / video calls (Agora)
 # ------------------------------------------------------------------------------
-CALL_PROVIDER = (os.getenv("CALL_PROVIDER", "mock") or "mock").strip().lower()
+APP_ENV = app_env
+# Empty = auto (Agora when AGORA_* env vars are set; mock only in non-prod dev).
+CALL_PROVIDER = (os.getenv("CALL_PROVIDER", "") or "").strip().lower()
 AGORA_APP_ID = (os.getenv("AGORA_APP_ID", "") or "").strip()
 AGORA_APP_CERTIFICATE = (os.getenv("AGORA_APP_CERTIFICATE", "") or "").strip()
 CALL_TOKEN_TTL_SECONDS = int(os.getenv("CALL_TOKEN_TTL_SECONDS", "3600"))

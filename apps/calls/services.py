@@ -13,7 +13,14 @@ from identity.accounts.user_types import resolve_user_type_slug
 
 from .exceptions import CallProviderError, CallValidationError
 from .models import CallSession
-from .token_builder import assign_channel_name, build_token_for_uid, provider_name_for_new_call
+from .token_builder import (
+    assign_channel_name,
+    build_token_for_uid,
+    ensure_agora_provider,
+    provider_name_for_new_call,
+    token_expiry_iso,
+    uses_agora_rtc,
+)
 
 
 def student_display_name(user) -> str:
@@ -29,8 +36,10 @@ def _can_view_call(call: CallSession, user) -> bool:
 
 
 def call_to_payload(call: CallSession, viewer=None) -> dict:
+    ensure_agora_provider(call)
+
     app_id = ""
-    if call.provider == CallSession.Provider.AGORA:
+    if uses_agora_rtc(call):
         app_id = (getattr(settings, "AGORA_APP_ID", "") or "").strip()
 
     teacher_name = ""
@@ -65,10 +74,9 @@ def call_to_payload(call: CallSession, viewer=None) -> dict:
         and _can_view_call(call, viewer)
     ):
         payload["uid"] = viewer.id
-        try:
-            payload["token"] = build_token_for_uid(call, viewer.id)
-        except CallProviderError:
-            payload["token"] = call.token or ""
+        payload["token"] = build_token_for_uid(call, viewer.id)
+        if uses_agora_rtc(call):
+            payload["token_expires_at"] = token_expiry_iso()
 
     return payload
 
@@ -146,6 +154,7 @@ def accept_call_session(call: CallSession, teacher_user) -> tuple[CallSession | 
     call.started_at = call.started_at or now
     if not call.channel_name:
         assign_channel_name(call)
+    ensure_agora_provider(call)
     call.save(update_fields=["status", "started_at", "updated_at"])
     return call, None
 
