@@ -1654,9 +1654,9 @@ body {
 }
 
 .wird-footer-credit-logo {
-  width: 100px;
+  width: 110px;
   height: auto;
-  max-height: none;
+  max-height: 44px;
   object-fit: contain;
   display: block;
   flex-shrink: 0;
@@ -1704,7 +1704,8 @@ body {
   .wird-footer-row { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
   .wird-app-downloads { gap: 8px !important; }
   .wird-footer-credit-logo {
-    width: 75px;
+    width: 220px;
+    max-height: 88px;
   }
 }
 
