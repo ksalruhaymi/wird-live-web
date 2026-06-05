@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 
 from django.contrib import messages
@@ -84,7 +84,7 @@ def student_subscription_list(request):
     )
 
 
-def _parse_date(value: str, label: str, errors: list) -> datetime.date | None:
+def _parse_date(value: str, label: str, errors: list) -> date | None:
     if not value:
         errors.append(f"الرجاء إدخال {label}.")
         return None
