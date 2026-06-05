@@ -30,7 +30,7 @@
                required>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="space-y-1.5">
           <label class="block text-sm font-semibold site-text">المدة (بالأشهر)</label>
           <input type="number" name="duration_months" min="1" step="1"
@@ -46,6 +46,22 @@
                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
                  required>
         </div>
+
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">دقائق الباقة</label>
+          <input type="number" name="minutes" min="0" step="1"
+                 value="{{ initial.minutes }}"
+                 placeholder="مثلاً: 120"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+                 required>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">وصف الباقة</label>
+        <textarea name="description" rows="6"
+                  placeholder="اكتب وصف الباقة هنا..."
+                  class="w-full rounded-lg border site-border px-3 py-2.5 text-sm site-text leading-relaxed resize-y min-h-[9rem]">{{ initial.description }}</textarea>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

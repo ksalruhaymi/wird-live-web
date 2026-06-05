@@ -10,6 +10,7 @@ class SubscriptionPlanAdmin(admin.ModelAdmin):
         "title",
         "duration_months",
         "price",
+        "minutes",
         "is_active",
         "sort_order",
         "updated_at",

@@ -27,9 +27,10 @@
           <th class="px-4 py-3 font-bold">اسم الباقة</th>
           <th class="px-4 py-3 font-bold">المدة (شهر)</th>
           <th class="px-4 py-3 font-bold">المبلغ</th>
+          <th class="px-4 py-3 font-bold">دقائق الباقة</th>
           <th class="px-4 py-3 font-bold">الترتيب</th>
           <th class="px-4 py-3 font-bold">الحالة</th>
-          <th class="px-4 py-3 font-bold">إجراءات</th>
+          <th class="px-4 py-3 font-bold text-center">إجراءات</th>
         </tr>
       </thead>
       <tbody class="divide-site">
@@ -38,6 +39,7 @@
           <td class="px-4 py-2 font-semibold site-text">{{ plan.title }}</td>
           <td class="px-4 py-2 site-text-muted">{{ plan.duration_months }}</td>
           <td class="px-4 py-2 site-text-muted">{{ plan.price }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ plan.minutes }}</td>
           <td class="px-4 py-2 site-text-muted">{{ plan.sort_order }}</td>
           <td class="px-4 py-2">
             {% if plan.is_active %}
@@ -51,17 +53,17 @@
             {% endif %}
           </td>
           <td class="px-4 py-2">
-            <div class="flex items-center gap-2 dir-row flex-wrap">
+            <div class="flex items-center justify-center gap-2">
               <a href="{% url 'dashboard:subscription_plan_update' plan.id %}"
-                 class="inline-flex items-center justify-center w-8 h-8 rounded-full site-surface site-link-primary hover:site-surface transition border site-border"
+                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-50 text-green-600 hover:bg-green-100 transition"
                  title="تعديل">
                 <i class="bi bi-pencil"></i>
               </a>
 
-              <form method="post" action="{% url 'dashboard:subscription_plan_toggle_active' plan.id %}" class="inline">
+              <form method="post" action="{% url 'dashboard:subscription_plan_toggle_active' plan.id %}" class="inline-flex">
                 {% csrf_token %}
                 <button type="submit"
-                        class="inline-flex items-center justify-center w-8 h-8 rounded-full border site-border site-surface site-link-primary hover:site-surface transition"
+                        class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition"
                         title="{% if plan.is_active %}تعطيل{% else %}تفعيل{% endif %}">
                   <i class="bi {% if plan.is_active %}bi-toggle-on{% else %}bi-toggle-off{% endif %}"></i>
                 </button>
@@ -77,7 +79,7 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="6" class="px-4 py-8 text-center site-text-muted">
+          <td colspan="7" class="px-4 py-8 text-center site-text-muted">
             لا توجد باقات بعد. أضف باقة جديدة.
           </td>
         </tr>

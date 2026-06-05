@@ -21,6 +21,8 @@ def _plan_payload(plan: SubscriptionPlan) -> dict:
         "title": plan.title,
         "duration_months": plan.duration_months,
         "price": str(plan.price),
+        "minutes": plan.minutes,
+        "description": plan.description,
         "sort_order": plan.sort_order,
     }
 

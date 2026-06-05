@@ -12,6 +12,15 @@ class SubscriptionPlan(models.Model):
         decimal_places=2,
         verbose_name="المبلغ",
     )
+    minutes = models.PositiveIntegerField(
+        default=0,
+        verbose_name="دقائق الباقة",
+    )
+    description = models.TextField(
+        blank=True,
+        default="",
+        verbose_name="وصف الباقة",
+    )
     is_active = models.BooleanField(default=True, verbose_name="مفعّلة")
     sort_order = models.PositiveIntegerField(default=0, verbose_name="ترتيب العرض")
     created_at = models.DateTimeField(auto_now_add=True)

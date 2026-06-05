@@ -15,6 +15,8 @@ def _parse_plan_form(post):
     title = (post.get("title") or "").strip()
     duration_raw = (post.get("duration_months") or "").strip()
     price_raw = (post.get("price") or "").strip()
+    minutes_raw = (post.get("minutes") or "0").strip()
+    description = (post.get("description") or "").strip()
     sort_raw = (post.get("sort_order") or "0").strip()
     is_active = post.get("is_active") == "on"
 
@@ -43,6 +45,17 @@ def _parse_plan_form(post):
         except InvalidOperation:
             errors.append("المبلغ غير صالح.")
 
+    minutes = 0
+    if not minutes_raw:
+        errors.append("الرجاء إدخال دقائق الباقة.")
+    else:
+        try:
+            minutes = int(minutes_raw)
+            if minutes < 0:
+                errors.append("دقائق الباقة لا يمكن أن تكون سالبة.")
+        except ValueError:
+            errors.append("دقائق الباقة يجب أن تكون رقمًا صحيحًا.")
+
     sort_order = 0
     try:
         sort_order = int(sort_raw) if sort_raw else 0
@@ -55,6 +68,8 @@ def _parse_plan_form(post):
         "title": title,
         "duration_months": duration_months,
         "price": price,
+        "minutes": minutes,
+        "description": description,
         "sort_order": sort_order,
         "is_active": is_active,
     }
@@ -79,6 +94,8 @@ def subscription_plan_create(request):
         "title": "",
         "duration_months": "",
         "price": "",
+        "minutes": "0",
+        "description": "",
         "sort_order": "0",
         "is_active": True,
     }
@@ -87,6 +104,8 @@ def subscription_plan_create(request):
         data, errors = _parse_plan_form(request.POST)
         initial = {**data, "duration_months": request.POST.get("duration_months", "")}
         initial["price"] = request.POST.get("price", "")
+        initial["minutes"] = request.POST.get("minutes", "0")
+        initial["description"] = request.POST.get("description", "")
         initial["sort_order"] = request.POST.get("sort_order", "0")
 
         if errors:
@@ -97,6 +116,8 @@ def subscription_plan_create(request):
                 title=data["title"],
                 duration_months=data["duration_months"],
                 price=data["price"],
+                minutes=data["minutes"],
+                description=data["description"],
                 sort_order=data["sort_order"],
                 is_active=data["is_active"],
             )
@@ -123,6 +144,8 @@ def subscription_plan_update(request, pk):
         "title": plan.title,
         "duration_months": str(plan.duration_months),
         "price": str(plan.price),
+        "minutes": str(plan.minutes),
+        "description": plan.description,
         "sort_order": str(plan.sort_order),
         "is_active": plan.is_active,
     }
@@ -131,6 +154,8 @@ def subscription_plan_update(request, pk):
         data, errors = _parse_plan_form(request.POST)
         initial = {**data, "duration_months": request.POST.get("duration_months", "")}
         initial["price"] = request.POST.get("price", "")
+        initial["minutes"] = request.POST.get("minutes", "0")
+        initial["description"] = request.POST.get("description", "")
         initial["sort_order"] = request.POST.get("sort_order", "0")
 
         if errors:
@@ -140,6 +165,8 @@ def subscription_plan_update(request, pk):
             plan.title = data["title"]
             plan.duration_months = data["duration_months"]
             plan.price = data["price"]
+            plan.minutes = data["minutes"]
+            plan.description = data["description"]
             plan.sort_order = data["sort_order"]
             plan.is_active = data["is_active"]
             plan.save()
