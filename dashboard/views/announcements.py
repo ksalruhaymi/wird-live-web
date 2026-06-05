@@ -1,132 +1,82 @@
-from datetime import datetime
-
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
-from apps.communication.announcement_services import deactivate_other_announcements
 from apps.communication.models import Announcement
 from identity.rbac.decorators import permissions_required
 
 
-def _choice_context():
-    return {
-        "type_choices": Announcement.AnnouncementType.choices,
-        "announced_by_choices": Announcement.AnnouncedBy.choices,
-        "target_type_choices": Announcement.TargetType.choices,
-    }
-
-
-def _parse_announcement_form(post):
+def _parse_announcement_form(post, files, *, instance: Announcement | None = None):
     errors = []
-    title = (post.get("title") or "").strip()
-    message = (post.get("message") or "").strip()
-    announcement_type = (post.get("announcement_type") or "").strip()
-    announced_by = (post.get("announced_by") or "").strip()
-    target_type = (post.get("target_type") or "").strip()
-    target_group = (post.get("target_group") or "").strip()
-    date_raw = (post.get("announcement_date") or "").strip()
     is_active = post.get("is_active") == "on"
+    image = files.get("image")
 
-    if not message:
-        errors.append("نص الإعلان مطلوب.")
+    is_create = instance is None
+    has_existing_image = bool(instance and instance.image)
 
-    valid_types = {c[0] for c in Announcement.AnnouncementType.choices}
-    if announcement_type not in valid_types:
-        errors.append("نوع الإعلان غير صالح.")
+    if is_create and not image:
+        errors.append("صورة الإعلان مطلوبة.")
+    if not is_create and not image and not has_existing_image:
+        errors.append("صورة الإعلان مطلوبة.")
 
-    valid_announcers = {c[0] for c in Announcement.AnnouncedBy.choices}
-    if announced_by not in valid_announcers:
-        errors.append("حقل «من الإعلان» غير صالح.")
-
-    valid_targets = {c[0] for c in Announcement.TargetType.choices}
-    if target_type not in valid_targets:
-        errors.append("حقل «لمن الإعلان» غير صالح.")
-
-    announcement_date = None
-    if not date_raw:
-        errors.append("تاريخ الإعلان مطلوب.")
-    else:
-        try:
-            announcement_date = datetime.strptime(date_raw, "%Y-%m-%d").date()
-        except ValueError:
-            errors.append("تاريخ الإعلان غير صالح.")
-
-    data = {
-        "title": title,
-        "message": message,
-        "announcement_type": announcement_type,
-        "announced_by": announced_by,
-        "target_type": target_type,
-        "target_group": target_group,
-        "announcement_date": announcement_date,
+    return {
         "is_active": is_active,
-    }
-    return data, errors
+        "image": image,
+    }, errors
 
 
-def _apply_announcement(instance: Announcement, data: dict) -> Announcement:
-    instance.title = data["title"]
-    instance.message = data["message"]
-    instance.announcement_type = data["announcement_type"]
-    instance.announced_by = data["announced_by"]
-    instance.target_type = data["target_type"]
-    instance.target_group = data["target_group"]
-    instance.announcement_date = data["announcement_date"]
+def _apply_announcement(
+    instance: Announcement,
+    data: dict,
+    *,
+    is_create: bool,
+) -> Announcement:
     instance.is_active = data["is_active"]
+    if data["image"]:
+        instance.image = data["image"]
+    if is_create:
+        instance.announcement_date = timezone.localdate()
     instance.save()
-    if instance.is_active:
-        deactivate_other_announcements(exclude_pk=instance.pk)
     return instance
 
 
 @login_required
 @permissions_required("dashboard.access", "announcements.view")
 def announcement_list(request):
-    q = (request.GET.get("q") or "").strip()
     qs = Announcement.objects.all().order_by("-created_at", "-id")
-    if q:
-        qs = qs.filter(
-            Q(message__icontains=q)
-            | Q(title__icontains=q)
-            | Q(announcement_type__icontains=q)
-            | Q(announced_by__icontains=q)
-            | Q(target_type__icontains=q)
-            | Q(target_group__icontains=q)
-        )
     return render(
         request,
         "dashboard/pages/announcements/list.html",
-        {"announcements": qs, "q": q},
+        {"announcements": qs},
+    )
+
+
+@login_required
+@permissions_required("dashboard.access", "announcements.view")
+def announcement_detail(request, pk):
+    announcement = get_object_or_404(Announcement, pk=pk)
+    return render(
+        request,
+        "dashboard/pages/announcements/detail.html",
+        {"announcement": announcement},
     )
 
 
 @login_required
 @permissions_required("dashboard.access", "announcements.create")
 def announcement_create(request):
-    today = timezone.localdate().isoformat()
-    initial = {
-        "title": "",
-        "message": "",
-        "announcement_type": Announcement.AnnouncementType.INFO,
-        "announced_by": Announcement.AnnouncedBy.ADMIN,
-        "target_type": Announcement.TargetType.ALL,
-        "target_group": "",
-        "announcement_date": today,
-        "is_active": True,
-    }
+    initial = {"is_active": True}
 
     if request.method == "POST":
-        data, errors = _parse_announcement_form(request.POST)
-        initial = {**data, "announcement_date": request.POST.get("announcement_date", today)}
+        data, errors = _parse_announcement_form(request.POST, request.FILES)
+        initial = {"is_active": data["is_active"]}
         if errors:
             for msg in errors:
                 messages.error(request, msg)
         else:
-            ann = _apply_announcement(Announcement(), data)
+            _apply_announcement(Announcement(), data, is_create=True)
             messages.success(request, "تم إنشاء الإعلان بنجاح.")
             return redirect("dashboard:announcement_list")
 
@@ -138,7 +88,6 @@ def announcement_create(request):
             "mode": "create",
             "initial": initial,
             "announcement": None,
-            **_choice_context(),
         },
     )
 
@@ -147,25 +96,20 @@ def announcement_create(request):
 @permissions_required("dashboard.access", "announcements.update")
 def announcement_update(request, pk):
     announcement = get_object_or_404(Announcement, pk=pk)
-    initial = {
-        "title": announcement.title,
-        "message": announcement.message,
-        "announcement_type": announcement.announcement_type,
-        "announced_by": announcement.announced_by,
-        "target_type": announcement.target_type,
-        "target_group": announcement.target_group,
-        "announcement_date": announcement.announcement_date.isoformat(),
-        "is_active": announcement.is_active,
-    }
+    initial = {"is_active": announcement.is_active}
 
     if request.method == "POST":
-        data, errors = _parse_announcement_form(request.POST)
-        initial = {**data, "announcement_date": request.POST.get("announcement_date", "")}
+        data, errors = _parse_announcement_form(
+            request.POST,
+            request.FILES,
+            instance=announcement,
+        )
+        initial = {"is_active": data["is_active"]}
         if errors:
             for msg in errors:
                 messages.error(request, msg)
         else:
-            _apply_announcement(announcement, data)
+            _apply_announcement(announcement, data, is_create=False)
             messages.success(request, "تم تحديث الإعلان بنجاح.")
             return redirect("dashboard:announcement_list")
 
@@ -177,7 +121,6 @@ def announcement_update(request, pk):
             "mode": "edit",
             "initial": initial,
             "announcement": announcement,
-            **_choice_context(),
         },
     )
 
@@ -206,8 +149,7 @@ def announcement_toggle_active(request, pk):
     announcement.is_active = not announcement.is_active
     announcement.save(update_fields=["is_active", "updated_at"])
     if announcement.is_active:
-        deactivate_other_announcements(exclude_pk=announcement.pk)
-        messages.success(request, "تم تفعيل الإعلان (ويظهر في التطبيق).")
+        messages.success(request, "تم تفعيل الإعلان.")
     else:
         messages.success(request, "تم تعطيل الإعلان.")
     return redirect("dashboard:announcement_list")

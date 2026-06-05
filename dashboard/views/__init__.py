@@ -1,6 +1,7 @@
 from .announcements import (
     announcement_create,
     announcement_delete,
+    announcement_detail,
     announcement_list,
     announcement_toggle_active,
     announcement_update,
@@ -49,6 +50,7 @@ __all__ = [
     "student_subscription_update",
     "student_subscription_delete",
     "announcement_list",
+    "announcement_detail",
     "announcement_create",
     "announcement_update",
     "announcement_delete",

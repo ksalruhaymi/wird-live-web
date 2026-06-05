@@ -9,66 +9,27 @@
   </div>
 
   <div class="site-card p-5 md:p-6">
-    <form method="post" class="space-y-4">
+    <form method="post" enctype="multipart/form-data" class="space-y-4">
       {% csrf_token %}
 
       <div class="space-y-1.5">
-        <label class="block text-sm font-semibold site-text">العنوان (اختياري)</label>
-        <input type="text" name="title" value="{{ initial.title }}"
-               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
-      </div>
-
-      <div class="space-y-1.5">
-        <label class="block text-sm font-semibold site-text">نص الإعلان</label>
-        <textarea name="message" rows="4" required
-                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.message }}</textarea>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">نوع الإعلان</label>
-          <select name="announcement_type" class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
-            {% for value, label in type_choices %}
-            <option value="{{ value }}" {% if initial.announcement_type == value %}selected{% endif %}>{{ label }}</option>
-            {% endfor %}
-          </select>
+        <label class="block text-sm font-semibold site-text">صورة الإعلان</label>
+        {% if announcement and announcement.image %}
+        <div class="mb-2">
+          <img src="{{ announcement.image.url }}" alt="الصورة الحالية"
+               class="max-h-40 rounded-lg border site-border object-contain">
+          <p class="text-[11px] site-text-muted mt-1">الصورة الحالية — اترك الحقل فارغاً للإبقاء عليها.</p>
         </div>
-        <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">من الإعلان</label>
-          <select name="announced_by" class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
-            {% for value, label in announced_by_choices %}
-            <option value="{{ value }}" {% if initial.announced_by == value %}selected{% endif %}>{{ label }}</option>
-            {% endfor %}
-          </select>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">لمن الإعلان</label>
-          <select name="target_type" class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
-            {% for value, label in target_type_choices %}
-            <option value="{{ value }}" {% if initial.target_type == value %}selected{% endif %}>{{ label }}</option>
-            {% endfor %}
-          </select>
-        </div>
-        <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">المجموعة (اختياري)</label>
-          <input type="text" name="target_group" value="{{ initial.target_group }}"
-                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
-        </div>
-      </div>
-
-      <div class="space-y-1.5">
-        <label class="block text-sm font-semibold site-text">تاريخ الإعلان</label>
-        <input type="date" name="announcement_date" value="{{ initial.announcement_date }}" required
-               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+        {% endif %}
+        <input type="file" name="image" accept="image/*"
+               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+               {% if mode == 'create' %}required{% endif %}>
       </div>
 
       <label class="inline-flex items-center gap-2 text-sm site-text cursor-pointer">
         <input type="checkbox" name="is_active" class="rounded border site-border"
                {% if initial.is_active %}checked{% endif %}>
-        <span>مفعّل (يظهر في التطبيق — يعطّل الإعلانات المفعّلة الأخرى)</span>
+        <span>مفعّل (يظهر في التطبيق)</span>
       </label>
 
       <div class="flex gap-3 pt-2">

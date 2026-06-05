@@ -88,7 +88,13 @@ class Announcement(models.Model):
         GROUP = "group", "مجموعة"
 
     title = models.CharField(max_length=255, blank=True, default="", verbose_name="العنوان")
-    message = models.TextField(verbose_name="نص الإعلان")
+    message = models.TextField(blank=True, default="", verbose_name="نص الإعلان")
+    image = models.ImageField(
+        upload_to="announcements/",
+        null=True,
+        blank=True,
+        verbose_name="صورة الإعلان",
+    )
     announcement_type = models.CharField(
         max_length=20,
         choices=AnnouncementType.choices,
@@ -113,7 +119,11 @@ class Announcement(models.Model):
         default="",
         verbose_name="المجموعة",
     )
-    announcement_date = models.DateField(verbose_name="تاريخ الإعلان")
+    announcement_date = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="تاريخ الإعلان",
+    )
     is_active = models.BooleanField(default=True, verbose_name="مفعّل")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -124,4 +134,6 @@ class Announcement(models.Model):
         verbose_name_plural = "الإعلانات"
 
     def __str__(self):
-        return self.title or self.message[:40]
+        if self.image:
+            return f"إعلان #{self.pk}"
+        return self.title or (self.message[:40] if self.message else f"إعلان #{self.pk}")

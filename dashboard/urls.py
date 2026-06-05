@@ -4,6 +4,7 @@ from django.urls import path
 from .views import (
     announcement_create,
     announcement_delete,
+    announcement_detail,
     announcement_list,
     announcement_toggle_active,
     announcement_update,
@@ -113,6 +114,11 @@ urlpatterns = [
     ),
     path("announcements/", announcement_list, name="announcement_list"),
     path("announcements/create/", announcement_create, name="announcement_create"),
+    path(
+        "announcements/<int:pk>/",
+        announcement_detail,
+        name="announcement_detail",
+    ),
     path("announcements/<int:pk>/edit/", announcement_update, name="announcement_update"),
     path("announcements/<int:pk>/delete/", announcement_delete, name="announcement_delete"),
     path(

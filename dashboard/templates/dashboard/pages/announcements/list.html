@@ -6,7 +6,7 @@
   <div class="flex items-center justify-between mb-5">
     <div>
       <h2 class="site-title-md">الإعلانات</h2>
-      <p class="text-[11px] site-text-muted mt-0.5">إعلان واحد ظاهر في التطبيق (الأحدث المفعّل)</p>
+      <p class="text-[11px] site-text-muted mt-0.5">إدارة صور الإعلانات الظاهرة في تطبيق وِرد مباشر (آخر 3 مفعّلة)</p>
     </div>
     <a href="{% url 'dashboard:announcement_create' %}"
        class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
@@ -15,21 +15,11 @@
     </a>
   </div>
 
-  <form method="get" class="site-card p-4">
-    <input type="search" name="q" value="{{ q }}" placeholder="بحث في الإعلانات…"
-           class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
-  </form>
-
   <div class="overflow-x-auto site-card">
     <table class="min-w-full text-[12px]">
       <thead class="site-surface text-[11px] site-text-muted">
         <tr>
-          <th class="px-4 py-3 font-bold">نص الإعلان</th>
-          <th class="px-4 py-3 font-bold">النوع</th>
-          <th class="px-4 py-3 font-bold">من</th>
-          <th class="px-4 py-3 font-bold">لمن</th>
-          <th class="px-4 py-3 font-bold">المجموعة</th>
-          <th class="px-4 py-3 font-bold">تاريخ الإعلان</th>
+          <th class="px-4 py-3 font-bold">الصورة</th>
           <th class="px-4 py-3 font-bold">الحالة</th>
           <th class="px-4 py-3 font-bold">تاريخ الإنشاء</th>
           <th class="px-4 py-3 font-bold text-center">إجراءات</th>
@@ -38,15 +28,14 @@
       <tbody class="divide-site">
         {% for ann in announcements %}
         <tr class="hover:site-surface transition">
-          <td class="px-4 py-2 site-text max-w-xs">
-            {% if ann.title %}<div class="font-semibold">{{ ann.title|truncatewords:3 }}</div>{% endif %}
-            <div class="site-text-muted">{{ ann.message|truncatewords:3 }}</div>
+          <td class="px-4 py-2">
+            {% if ann.image %}
+            <img src="{{ ann.image.url }}" alt="إعلان {{ ann.id }}"
+                 class="w-20 h-12 object-cover rounded-md border site-border">
+            {% else %}
+            <span class="site-text-muted">—</span>
+            {% endif %}
           </td>
-          <td class="px-4 py-2 site-text-muted">{{ ann.get_announcement_type_display }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ ann.get_announced_by_display }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ ann.get_target_type_display }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ ann.target_group|default:"—" }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ ann.announcement_date }}</td>
           <td class="px-4 py-2">
             {% if ann.is_active %}
             <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">مفعّل</span>
@@ -57,8 +46,10 @@
           <td class="px-4 py-2 site-text-muted">{{ ann.created_at|date:"Y-m-d H:i" }}</td>
           <td class="px-4 py-2">
             <div class="flex items-center justify-center gap-2">
+              {% url 'dashboard:announcement_detail' ann.id as view_url %}
               {% url 'dashboard:announcement_update' ann.id as edit_url %}
               {% url 'dashboard:announcement_delete' ann.id as delete_url %}
+              {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
               {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
               <form method="post" action="{% url 'dashboard:announcement_toggle_active' ann.id %}" class="inline-flex">
                 {% csrf_token %}
@@ -70,7 +61,7 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="9" class="px-4 py-8 text-center site-text-muted">لا توجد إعلانات.</td>
+          <td colspan="4" class="px-4 py-8 text-center site-text-muted">لا توجد إعلانات.</td>
         </tr>
         {% endfor %}
       </tbody>
