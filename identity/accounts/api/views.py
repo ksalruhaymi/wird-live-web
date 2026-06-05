@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST
 
+from identity.accounts.auth.google_auth_service import authenticate_with_google
 from identity.accounts.auth.login_service import login_user
 from identity.accounts.auth.registration_service import (
     register_account,
@@ -54,8 +55,11 @@ def _success(user, status: int = 200) -> JsonResponse:
     )
 
 
-def _error(message: str, status: int = 400) -> JsonResponse:
-    return JsonResponse({"success": False, "message": message}, status=status)
+def _error(message: str, status: int = 400, code: str | None = None) -> JsonResponse:
+    payload = {"success": False, "message": message}
+    if code:
+        payload["code"] = code
+    return JsonResponse(payload, status=status)
 
 
 def _parse_json(request) -> tuple[dict | None, JsonResponse | None]:
@@ -142,6 +146,31 @@ def register_api(request):
 
     login(request, user, backend="django.contrib.auth.backends.ModelBackend")
     return _success(user, status=201)
+
+
+@require_POST
+def google_auth_api(request):
+    data, err = _parse_json(request)
+    if err:
+        return err
+
+    outcome = authenticate_with_google(request, data)
+
+    if outcome.status == "ok" and outcome.user is not None:
+        return _success(outcome.user, status=outcome.http_status)
+
+    if outcome.status == "account_type_required":
+        return _error(
+            outcome.message or "نوع الحساب مطلوب",
+            status=outcome.http_status,
+            code=outcome.code,
+        )
+
+    return _error(
+        outcome.message or "Google authentication failed.",
+        status=outcome.http_status,
+        code=outcome.code,
+    )
 
 
 @require_POST

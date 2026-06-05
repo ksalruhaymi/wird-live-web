@@ -74,6 +74,14 @@ class User(AbstractUser):
         help_text="1=admin, 3=supervisor, 5=teacher, 9=student",
     )
 
+    firebase_uid = models.CharField(
+        max_length=128,
+        blank=True,
+        null=True,
+        unique=True,
+        help_text="Firebase Authentication UID for Google/mobile sign-in",
+    )
+
     created_by = models.IntegerField(
         blank=True,
         null=True,
