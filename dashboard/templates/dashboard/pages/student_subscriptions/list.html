@@ -6,7 +6,7 @@
   <div class="mb-5">
     <h2 class="site-title-md">سجل الاشتراكات</h2>
     <p class="text-[11px] site-text-muted mt-0.5">
-      جميع عمليات اشتراك الطلاب
+      ملخص الاشتراك الحالي لكل طالب — اضغط على الاسم لعرض الأرشيف الكامل
     </p>
   </div>
 
@@ -14,7 +14,7 @@
     <div class="flex-1 min-w-[200px]">
       <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
       <input type="search" name="q" value="{{ q }}"
-             placeholder="اسم، مستخدم، بريد، باقة، رقم عملية…"
+             placeholder="اسم، مستخدم، بريد، باقة…"
              class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
     </div>
     <div class="min-w-[160px]">
@@ -43,37 +43,33 @@
     <table class="min-w-full text-[12px]">
       <thead class="site-surface text-[11px] site-text-muted">
         <tr class="dir-text">
-          <th class="px-4 py-3 font-bold">#</th>
           <th class="px-4 py-3 font-bold">اسم المشترك</th>
-          <th class="px-4 py-3 font-bold">الباقة</th>
-          <th class="px-4 py-3 font-bold">المبلغ</th>
-          <th class="px-4 py-3 font-bold">المدة</th>
-          <th class="px-4 py-3 font-bold">البداية</th>
-          <th class="px-4 py-3 font-bold">النهاية</th>
+          <th class="px-4 py-3 font-bold">الباقة الحالية</th>
+          <th class="px-4 py-3 font-bold">الدقائق المتبقية</th>
+          <th class="px-4 py-3 font-bold">تاريخ الانتهاء</th>
           <th class="px-4 py-3 font-bold">الحالة</th>
-          <th class="px-4 py-3 font-bold">الدفع</th>
-          <th class="px-4 py-3 font-bold">تاريخ العملية</th>
           <th class="px-4 py-3 font-bold text-center">إجراءات</th>
         </tr>
       </thead>
       <tbody class="divide-site">
         {% for row in rows %}
-        {% with sub=row.subscription %}
         <tr class="hover:site-surface transition
           {% if row.display_status == 'active' %}bg-green-50/40
           {% elif row.display_status == 'expired' %}bg-amber-50/40
           {% elif row.display_status == 'cancelled' %}bg-red-50/30
           {% endif %}">
-          <td class="px-4 py-2 site-text-muted">{{ sub.id }}</td>
           <td class="px-4 py-2 font-semibold site-text">
-            {{ sub.user.get_full_name|default:sub.user.username }}
-            <div class="text-[10px] site-text-muted font-normal">{{ sub.user.username }}</div>
+            <a href="{% url 'dashboard:student_subscription_detail' row.user.id %}"
+               class="site-link-primary hover:underline">
+              {{ row.user.get_full_name|default:row.user.username }}
+            </a>
+            <div class="text-[10px] site-text-muted font-normal">{{ row.user.username }}</div>
           </td>
-          <td class="px-4 py-2 site-text">{{ sub.plan_title }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ sub.amount }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ sub.duration_months }} شهر</td>
-          <td class="px-4 py-2 site-text-muted">{{ sub.start_date }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ sub.end_date }}</td>
+          <td class="px-4 py-2 site-text">{{ row.current_plan_title }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ row.remaining_minutes }}</td>
+          <td class="px-4 py-2 site-text-muted">
+            {% if row.expires_at %}{{ row.expires_at }}{% else %}—{% endif %}
+          </td>
           <td class="px-4 py-2">
             {% if row.display_status == 'active' %}
             <span class="inline-flex px-2 py-0.5 rounded-full bg-green-100 text-green-800 text-[11px] font-bold border border-green-200">ساري</span>
@@ -83,28 +79,25 @@
             <span class="inline-flex px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[11px] font-bold border border-red-200">ملغي</span>
             {% endif %}
           </td>
-          <td class="px-4 py-2 site-text-muted">{{ sub.get_payment_status_display }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ sub.created_at|date:"Y-m-d H:i" }}</td>
           <td class="px-4 py-2">
             <div class="flex items-center justify-center gap-2">
-              <a href="{% url 'dashboard:student_subscription_update' sub.id %}"
-                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-50 text-green-600 hover:bg-green-100 transition"
-                 title="تعديل">
-                <i class="bi bi-pencil"></i>
+              <a href="{% url 'dashboard:student_subscription_detail' row.user.id %}"
+                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition"
+                 title="عرض السجل">
+                <i class="bi bi-clock-history"></i>
               </a>
-              <a href="{% url 'dashboard:student_subscription_delete' sub.id %}"
-                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition"
-                 title="حذف">
-                <i class="bi bi-trash"></i>
+              <a href="{% url 'dashboard:student_subscription_balance_update' row.user.id %}"
+                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-50 text-green-600 hover:bg-green-100 transition"
+                 title="تعديل الاشتراك الحالي">
+                <i class="bi bi-pencil"></i>
               </a>
             </div>
           </td>
         </tr>
-        {% endwith %}
         {% empty %}
         <tr>
-          <td colspan="11" class="px-4 py-8 text-center site-text-muted">
-            لا توجد عمليات اشتراك مطابقة.
+          <td colspan="6" class="px-4 py-8 text-center site-text-muted">
+            لا يوجد طلاب بسجلات اشتراك مطابقة.
           </td>
         </tr>
         {% endfor %}

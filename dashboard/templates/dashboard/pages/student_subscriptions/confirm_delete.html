@@ -21,7 +21,7 @@
 
     <form method="post" class="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-2 pt-2">
       {% csrf_token %}
-      <a href="{% url 'dashboard:student_subscription_list' %}"
+      <a href="{% url cancel_url cancel_user_id %}"
          class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full border border-slate-200 text-[12px] font-bold text-slate-600 hover:bg-slate-50 transition">
         <i class="bi bi-arrow-right text-sm"></i>
         <span>إلغاء</span>

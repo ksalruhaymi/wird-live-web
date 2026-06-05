@@ -13,9 +13,9 @@
         #{{ subscription.id }} — {{ subscription.user.get_full_name|default:subscription.user.username }}
       </p>
     </div>
-    <a href="{% url 'dashboard:student_subscription_list' %}"
+    <a href="{% url cancel_url cancel_user_id %}"
        class="text-[12px] site-link-primary font-semibold hover:underline">
-      العودة للقائمة
+      العودة للسجل
     </a>
   </div>
 
@@ -83,6 +83,14 @@
         </div>
       </div>
 
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">دقائق مضافة</label>
+        <input type="number" name="plan_minutes_added" min="0" step="1"
+               value="{{ initial.plan_minutes_added }}"
+               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+               required>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="space-y-1.5">
           <label class="block text-sm font-semibold site-text">طريقة الدفع</label>
@@ -103,7 +111,7 @@
       </div>
 
       <div class="flex items-center justify-end gap-2 pt-2">
-        <a href="{% url 'dashboard:student_subscription_list' %}"
+        <a href="{% url cancel_url cancel_user_id %}"
            class="inline-flex items-center gap-2 px-4 py-2 rounded-full border site-border text-[12px] font-bold site-text-muted hover:site-surface transition">
           إلغاء
         </a>

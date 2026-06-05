@@ -83,6 +83,36 @@ class StudentSubscription(models.Model):
     payment_method = models.CharField(max_length=64, blank=True, default="")
     transaction_reference = models.CharField(max_length=128, blank=True, default="")
     notes = models.TextField(blank=True, default="")
+    plan_minutes_added = models.PositiveIntegerField(
+        default=0,
+        verbose_name="دقائق مضافة",
+    )
+    minutes_before = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="الدقائق قبل العملية",
+    )
+    minutes_after = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="الدقائق بعد العملية",
+    )
+    expiry_before = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="تاريخ الانتهاء قبل العملية",
+    )
+    expiry_after = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="تاريخ الانتهاء بعد العملية",
+    )
+    transaction_type = models.CharField(
+        max_length=32,
+        blank=True,
+        default="purchase",
+        verbose_name="نوع العملية",
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -93,6 +123,61 @@ class StudentSubscription(models.Model):
 
     def __str__(self):
         return f"{self.user_id} — {self.plan_title}"
+
+
+class StudentSubscriptionBalance(models.Model):
+    """One current subscription summary per student."""
+
+    class Status(models.TextChoices):
+        ACTIVE = "active", "نشط"
+        EXPIRED = "expired", "منتهي"
+        CANCELLED = "cancelled", "ملغي"
+
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="subscription_balance",
+        verbose_name="المستخدم",
+    )
+    current_plan_title = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+        verbose_name="الباقة الحالية",
+    )
+    remaining_minutes = models.PositiveIntegerField(
+        default=0,
+        verbose_name="الدقائق المتبقية",
+    )
+    used_minutes = models.PositiveIntegerField(
+        default=0,
+        verbose_name="الدقائق المستخدمة",
+    )
+    expires_at = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="تاريخ الانتهاء",
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.EXPIRED,
+        verbose_name="الحالة",
+    )
+    last_purchase_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="آخر عملية شراء",
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "رصيد اشتراك طالب"
+        verbose_name_plural = "أرصدة اشتراك الطلاب"
+
+    def __str__(self):
+        return f"{self.user_id} — {self.remaining_minutes} دقيقة"
 
 
 class NewsletterSubscriber(models.Model):

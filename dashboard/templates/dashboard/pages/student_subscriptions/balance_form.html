@@ -1,0 +1,81 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-2xl mx-auto space-y-5" dir-text>
+
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <h1 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-pencil-square site-link-primary text-xl"></i>
+        <span>تعديل الاشتراك الحالي</span>
+      </h1>
+      <p class="site-text-muted mt-1 text-sm">
+        {{ user.get_full_name|default:user.username }}
+      </p>
+    </div>
+    <a href="{% url 'dashboard:student_subscription_detail' user.id %}"
+       class="text-[12px] site-link-primary font-semibold hover:underline">
+      العودة للسجل
+    </a>
+  </div>
+
+  <div class="site-card p-5 md:p-6">
+    <form method="post" class="space-y-5">
+      {% csrf_token %}
+
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">الباقة الحالية</label>
+        <input type="text" name="current_plan_title" value="{{ initial.current_plan_title }}"
+               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">الدقائق المتبقية</label>
+          <input type="number" name="remaining_minutes" min="0" step="1"
+                 value="{{ initial.remaining_minutes }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+                 required>
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">الدقائق المستخدمة</label>
+          <input type="number" name="used_minutes" min="0" step="1"
+                 value="{{ initial.used_minutes }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+                 required>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">تاريخ الانتهاء</label>
+          <input type="date" name="expires_at" value="{{ initial.expires_at }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">الحالة</label>
+          <select name="status"
+                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+            {% for value, label in status_choices %}
+            <option value="{{ value }}" {% if initial.status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <a href="{% url 'dashboard:student_subscription_detail' user.id %}"
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-full border site-border text-[12px] font-bold site-text-muted hover:site-surface transition">
+          إلغاء
+        </a>
+        <button type="submit"
+                class="inline-flex items-center gap-2 px-5 py-2 rounded-full site-btn-primary text-[12px] font-bold shadow-sm hover:shadow-md active:scale-95 transition">
+          <i class="bi bi-check-lg"></i>
+          حفظ
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

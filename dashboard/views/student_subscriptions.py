@@ -6,9 +6,16 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
+from django.utils import timezone
 
-from apps.subscription.models import StudentSubscription
-from apps.subscription.services import display_status, display_status_label
+from apps.subscription.models import StudentSubscription, StudentSubscriptionBalance
+from apps.subscription.services import (
+    balance_display_status,
+    display_status,
+    display_status_label,
+    get_user_subscription_balance,
+)
+from identity.accounts.user_types import USER_TYPE_STUDENT
 from identity.rbac.decorators import permissions_required
 
 User = get_user_model()
@@ -19,7 +26,11 @@ FILTER_EXPIRED = "expired"
 FILTER_CANCELLED = "cancelled"
 
 
-def _annotate_rows(queryset):
+def _user_display_name(user) -> str:
+    return user.get_full_name() or user.username
+
+
+def _annotate_history_rows(queryset):
     rows = []
     for sub in queryset.select_related("user", "plan"):
         computed = display_status(sub)
@@ -33,7 +44,33 @@ def _annotate_rows(queryset):
     return rows
 
 
-def _filter_rows(rows, status_filter: str):
+def _balance_summary_row(user, balance: StudentSubscriptionBalance | None):
+    if balance is None:
+        return {
+            "user": user,
+            "balance": None,
+            "display_status": StudentSubscription.DisplayStatus.EXPIRED,
+            "display_label": display_status_label(
+                StudentSubscription.DisplayStatus.EXPIRED
+            ),
+            "current_plan_title": "—",
+            "remaining_minutes": 0,
+            "expires_at": None,
+        }
+
+    display = balance_display_status(balance)
+    return {
+        "user": user,
+        "balance": balance,
+        "display_status": display,
+        "display_label": display_status_label(display),
+        "current_plan_title": balance.current_plan_title or "—",
+        "remaining_minutes": balance.remaining_minutes,
+        "expires_at": balance.expires_at,
+    }
+
+
+def _filter_summary_rows(rows, status_filter: str):
     if status_filter == FILTER_ALL:
         return rows
     return [r for r in rows if r["display_status"] == status_filter]
@@ -53,21 +90,31 @@ def student_subscription_list(request):
     }:
         status_filter = FILTER_ALL
 
-    qs = StudentSubscription.objects.all().order_by("-created_at", "-id")
+    users_qs = (
+        User.objects.filter(
+            user_type=USER_TYPE_STUDENT,
+            student_subscriptions__isnull=False,
+        )
+        .distinct()
+        .select_related("subscription_balance")
+        .order_by("username")
+    )
 
     if q:
-        qs = qs.filter(
-            Q(user__username__icontains=q)
-            | Q(user__email__icontains=q)
-            | Q(user__full_name__icontains=q)
-            | Q(user__first_name__icontains=q)
-            | Q(user__last_name__icontains=q)
-            | Q(plan_title__icontains=q)
-            | Q(transaction_reference__icontains=q)
-            | Q(id__icontains=q)
+        users_qs = users_qs.filter(
+            Q(username__icontains=q)
+            | Q(email__icontains=q)
+            | Q(full_name__icontains=q)
+            | Q(first_name__icontains=q)
+            | Q(last_name__icontains=q)
+            | Q(subscription_balance__current_plan_title__icontains=q)
         )
 
-    rows = _filter_rows(_annotate_rows(qs[:500]), status_filter)
+    rows = [
+        _balance_summary_row(user, getattr(user, "subscription_balance", None))
+        for user in users_qs[:500]
+    ]
+    rows = _filter_summary_rows(rows, status_filter)
 
     return render(
         request,
@@ -80,6 +127,29 @@ def student_subscription_list(request):
             "filter_active": FILTER_ACTIVE,
             "filter_expired": FILTER_EXPIRED,
             "filter_cancelled": FILTER_CANCELLED,
+        },
+    )
+
+
+@login_required
+@permissions_required("dashboard.access", "subscriptions.view")
+def student_subscription_detail(request, user_id):
+    user = get_object_or_404(User, pk=user_id, user_type=USER_TYPE_STUDENT)
+    balance = get_user_subscription_balance(user)
+    summary = _balance_summary_row(user, balance)
+
+    history_qs = StudentSubscription.objects.filter(user=user).order_by(
+        "-created_at", "-id"
+    )
+    history_rows = _annotate_history_rows(history_qs)
+
+    return render(
+        request,
+        "dashboard/pages/student_subscriptions/detail.html",
+        {
+            "user": user,
+            "summary": summary,
+            "history_rows": history_rows,
         },
     )
 
@@ -108,6 +178,7 @@ def _parse_subscription_form(post):
     payment_method = (post.get("payment_method") or "").strip()
     transaction_reference = (post.get("transaction_reference") or "").strip()
     notes = (post.get("notes") or "").strip()
+    minutes_added_raw = (post.get("plan_minutes_added") or "0").strip()
 
     if not plan_title:
         errors.append("اسم الباقة مطلوب.")
@@ -134,6 +205,14 @@ def _parse_subscription_form(post):
         except InvalidOperation:
             errors.append("المبلغ غير صالح.")
 
+    plan_minutes_added = 0
+    try:
+        plan_minutes_added = int(minutes_added_raw) if minutes_added_raw else 0
+        if plan_minutes_added < 0:
+            errors.append("الدقائق المضافة لا يمكن أن تكون سالبة.")
+    except ValueError:
+        errors.append("الدقائق المضافة يجب أن تكون رقمًا صحيحًا.")
+
     valid_status = {c[0] for c in StudentSubscription.Status.choices}
     if status not in valid_status:
         errors.append("حالة الاشتراك غير صالحة.")
@@ -158,6 +237,7 @@ def _parse_subscription_form(post):
         "payment_method": payment_method,
         "transaction_reference": transaction_reference,
         "notes": notes,
+        "plan_minutes_added": plan_minutes_added,
     }
     return data, errors
 
@@ -174,6 +254,7 @@ def _subscription_initial(sub: StudentSubscription) -> dict:
         "payment_method": sub.payment_method,
         "transaction_reference": sub.transaction_reference,
         "notes": sub.notes,
+        "plan_minutes_added": str(sub.plan_minutes_added),
     }
 
 
@@ -185,6 +266,7 @@ def student_subscription_update(request, pk):
         pk=pk,
     )
     initial = _subscription_initial(sub)
+    detail_url = "dashboard:student_subscription_detail"
 
     if request.method == "POST":
         data, errors = _parse_subscription_form(request.POST)
@@ -194,6 +276,7 @@ def student_subscription_update(request, pk):
             "amount": request.POST.get("amount", ""),
             "start_date": request.POST.get("start_date", ""),
             "end_date": request.POST.get("end_date", ""),
+            "plan_minutes_added": request.POST.get("plan_minutes_added", "0"),
         }
 
         if errors:
@@ -210,9 +293,10 @@ def student_subscription_update(request, pk):
             sub.payment_method = data["payment_method"]
             sub.transaction_reference = data["transaction_reference"]
             sub.notes = data["notes"]
+            sub.plan_minutes_added = data["plan_minutes_added"]
             sub.save()
             messages.success(request, "تم تحديث سجل الاشتراك بنجاح.")
-            return redirect("dashboard:student_subscription_list")
+            return redirect(detail_url, user_id=sub.user_id)
 
     return render(
         request,
@@ -223,6 +307,8 @@ def student_subscription_update(request, pk):
             "initial": initial,
             "status_choices": StudentSubscription.Status.choices,
             "payment_status_choices": StudentSubscription.PaymentStatus.choices,
+            "cancel_url": detail_url,
+            "cancel_user_id": sub.user_id,
         },
     )
 
@@ -234,14 +320,111 @@ def student_subscription_delete(request, pk):
         StudentSubscription.objects.select_related("user"),
         pk=pk,
     )
+    user_id = sub.user_id
+    detail_url = "dashboard:student_subscription_detail"
 
     if request.method == "POST":
         sub.delete()
         messages.success(request, "تم حذف سجل الاشتراك بنجاح.")
-        return redirect("dashboard:student_subscription_list")
+        return redirect(detail_url, user_id=user_id)
 
     return render(
         request,
         "dashboard/pages/student_subscriptions/confirm_delete.html",
-        {"subscription": sub},
+        {
+            "subscription": sub,
+            "cancel_url": detail_url,
+            "cancel_user_id": user_id,
+        },
+    )
+
+
+def _parse_balance_form(post):
+    errors = []
+    plan_title = (post.get("current_plan_title") or "").strip()
+    minutes_raw = (post.get("remaining_minutes") or "0").strip()
+    used_raw = (post.get("used_minutes") or "0").strip()
+    expires_raw = (post.get("expires_at") or "").strip()
+    status = (post.get("status") or "").strip()
+
+    remaining_minutes = 0
+    try:
+        remaining_minutes = int(minutes_raw)
+        if remaining_minutes < 0:
+            errors.append("الدقائق المتبقية لا يمكن أن تكون سالبة.")
+    except ValueError:
+        errors.append("الدقائق المتبقية يجب أن تكون رقمًا صحيحًا.")
+
+    used_minutes = 0
+    try:
+        used_minutes = int(used_raw)
+        if used_minutes < 0:
+            errors.append("الدقائق المستخدمة لا يمكن أن تكون سالبة.")
+    except ValueError:
+        errors.append("الدقائق المستخدمة يجب أن تكون رقمًا صحيحًا.")
+
+    expires_at = None
+    if expires_raw:
+        expires_at = _parse_date(expires_raw, "تاريخ الانتهاء", errors)
+
+    valid_status = {c[0] for c in StudentSubscriptionBalance.Status.choices}
+    if status not in valid_status:
+        errors.append("حالة الاشتراك غير صالحة.")
+
+    return {
+        "current_plan_title": plan_title,
+        "remaining_minutes": remaining_minutes,
+        "used_minutes": used_minutes,
+        "expires_at": expires_at,
+        "status": status,
+    }, errors
+
+
+@login_required
+@permissions_required("dashboard.access", "subscriptions.update")
+def student_subscription_balance_update(request, user_id):
+    user = get_object_or_404(User, pk=user_id, user_type=USER_TYPE_STUDENT)
+    balance, _ = StudentSubscriptionBalance.objects.get_or_create(
+        user=user,
+        defaults={"status": StudentSubscriptionBalance.Status.EXPIRED},
+    )
+    initial = {
+        "current_plan_title": balance.current_plan_title,
+        "remaining_minutes": str(balance.remaining_minutes),
+        "used_minutes": str(balance.used_minutes),
+        "expires_at": balance.expires_at.isoformat() if balance.expires_at else "",
+        "status": balance.status,
+    }
+
+    if request.method == "POST":
+        data, errors = _parse_balance_form(request.POST)
+        initial = {
+            **data,
+            "remaining_minutes": request.POST.get("remaining_minutes", "0"),
+            "used_minutes": request.POST.get("used_minutes", "0"),
+            "expires_at": request.POST.get("expires_at", ""),
+        }
+
+        if errors:
+            for msg in errors:
+                messages.error(request, msg)
+        else:
+            balance.current_plan_title = data["current_plan_title"]
+            balance.remaining_minutes = data["remaining_minutes"]
+            balance.used_minutes = data["used_minutes"]
+            balance.expires_at = data["expires_at"]
+            balance.status = data["status"]
+            balance.save()
+            messages.success(request, "تم تحديث الاشتراك الحالي بنجاح.")
+            return redirect("dashboard:student_subscription_detail", user_id=user.id)
+
+    return render(
+        request,
+        "dashboard/pages/student_subscriptions/balance_form.html",
+        {
+            "user": user,
+            "balance": balance,
+            "initial": initial,
+            "status_choices": StudentSubscriptionBalance.Status.choices,
+        },
     )

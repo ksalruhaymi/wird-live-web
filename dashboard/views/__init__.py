@@ -8,7 +8,9 @@ from .announcements import (
 from .call_sessions import call_session_list
 from .core import dashboard, home, overview
 from .student_subscriptions import (
+    student_subscription_balance_update,
     student_subscription_delete,
+    student_subscription_detail,
     student_subscription_list,
     student_subscription_update,
 )
@@ -34,6 +36,8 @@ __all__ = [
     "subscription_plan_delete",
     "subscription_plan_toggle_active",
     "student_subscription_list",
+    "student_subscription_detail",
+    "student_subscription_balance_update",
     "student_subscription_update",
     "student_subscription_delete",
     "announcement_list",

@@ -16,7 +16,9 @@ from .views import (
     subscription_plan_list,
     subscription_plan_toggle_active,
     subscription_plan_update,
+    student_subscription_balance_update,
     student_subscription_delete,
+    student_subscription_detail,
     student_subscription_list,
     student_subscription_update,
     teacher_availability_list,
@@ -57,6 +59,16 @@ urlpatterns = [
         name="subscription_plan_toggle_active",
     ),
     path("subscriptions/", student_subscription_list, name="student_subscription_list"),
+    path(
+        "subscriptions/user/<int:user_id>/",
+        student_subscription_detail,
+        name="student_subscription_detail",
+    ),
+    path(
+        "subscriptions/user/<int:user_id>/balance/edit/",
+        student_subscription_balance_update,
+        name="student_subscription_balance_update",
+    ),
     path(
         "subscriptions/<int:pk>/edit/",
         student_subscription_update,
