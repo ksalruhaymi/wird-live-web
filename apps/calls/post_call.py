@@ -79,15 +79,18 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
     else:
         other_name = student_display_name(rec.student)
 
-    url = (rec.recording_url or "").strip()
+    from apps.calls.recording_storage import object_key_for_recording
+
+    has_recording = bool(object_key_for_recording(rec)) and (
+        rec.recording_status == rec.RecordingStatus.COMPLETED
+    )
     return {
         "id": rec.id,
         "call_id": rec.call_session_id,
         "session_type": rec.session_type,
         "type": rec.session_type,
         "other_party_name": other_name,
-        "recording_url": url or None,
-        "file_url": url or None,
+        "has_recording": has_recording,
         "duration_seconds": rec.duration_seconds,
         "started_at": rec.started_at.isoformat() if rec.started_at else None,
         "ended_at": rec.ended_at.isoformat() if rec.ended_at else None,

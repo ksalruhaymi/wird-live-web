@@ -7,6 +7,7 @@ from django.core.management.base import BaseCommand
 
 from apps.calls.cloud_recording.client import _storage_config
 from apps.calls.cloud_recording.service import cloud_recording_configured
+from apps.calls.recording_storage import RecordingStorageError, generate_recording_signed_url
 from apps.calls.token_builder import (
     agora_credentials_configured,
     build_agora_rtc_token,
@@ -68,6 +69,7 @@ class Command(BaseCommand):
                 "AGORA_RECORDING_STORAGE_BUCKET",
                 "AGORA_RECORDING_STORAGE_ACCESS_KEY",
                 "AGORA_RECORDING_STORAGE_SECRET_KEY",
+                "RECORDING_SIGNED_URL_EXPIRES_SECONDS",
             ),
         ),
     )
@@ -87,6 +89,7 @@ class Command(BaseCommand):
         self._check_rtc_tokens()
         self._check_provider_selection()
         self._check_cloud_recording_storage()
+        self._check_signed_url_generation()
         self._check_production_safety()
 
         if missing:
@@ -142,6 +145,18 @@ class Command(BaseCommand):
             self.stdout.write(
                 f"  extensionParams.endpoint: {'present' if has_endpoint else 'MISSING'}"
             )
+
+    def _check_signed_url_generation(self) -> None:
+        expires = getattr(settings, "RECORDING_SIGNED_URL_EXPIRES_SECONDS", 0)
+        self.stdout.write(f"  Signed URL TTL: {expires}s")
+        if not cloud_recording_configured():
+            self.stdout.write("  Presigned playback: skipped (storage not configured)")
+            return
+        try:
+            generate_recording_signed_url("config-check/does-not-exist.mp4")
+            self.stdout.write("  Presigned playback: OK (test URL generated)")
+        except RecordingStorageError as exc:
+            self.stdout.write(f"  Presigned playback: FAILED ({exc})")
 
     def _check_production_safety(self) -> None:
         if not is_production_environment():

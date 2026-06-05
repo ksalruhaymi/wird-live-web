@@ -372,7 +372,11 @@ AGORA_RECORDING_STORAGE_SECRET_KEY = (
 AGORA_RECORDING_FILE_PREFIX = (
     os.getenv("AGORA_RECORDING_FILE_PREFIX", "wird-live") or "wird-live"
 ).strip()
-# Optional public base URL for recorded files (e.g. CDN or bucket root ending with /)
+# Optional public base URL for recorded files (legacy DB rows only; not exposed to clients)
 AGORA_RECORDING_PUBLIC_BASE_URL = (
     os.getenv("AGORA_RECORDING_PUBLIC_BASE_URL", "") or ""
 ).strip()
+# Presigned GET URL lifetime for private call recordings (seconds).
+RECORDING_SIGNED_URL_EXPIRES_SECONDS = int(
+    os.getenv("RECORDING_SIGNED_URL_EXPIRES_SECONDS", "600") or "600"
+)

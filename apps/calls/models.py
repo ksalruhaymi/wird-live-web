@@ -139,6 +139,7 @@ class CallRecording(models.Model):
     )
     session_type = models.CharField(max_length=10)
     recording_url = models.URLField(max_length=500, blank=True, default="")
+    recording_object_key = models.CharField(max_length=512, blank=True, default="")
     duration_seconds = models.PositiveIntegerField(default=0)
     started_at = models.DateTimeField(null=True, blank=True)
     ended_at = models.DateTimeField(null=True, blank=True)

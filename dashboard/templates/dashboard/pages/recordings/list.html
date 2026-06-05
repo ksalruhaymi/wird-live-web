@@ -15,7 +15,7 @@
           <th class="px-4 py-3 font-bold">المعلّم</th>
           <th class="px-4 py-3 font-bold">النوع</th>
           <th class="px-4 py-3 font-bold">المدة</th>
-          <th class="px-4 py-3 font-bold">الرابط</th>
+          <th class="px-4 py-3 font-bold">التشغيل</th>
           <th class="px-4 py-3 font-bold">التاريخ</th>
         </tr>
       </thead>
@@ -27,7 +27,17 @@
           <td class="px-4 py-2">{{ row.teacher.username }}</td>
           <td class="px-4 py-2">{{ row.session_type }}</td>
           <td class="px-4 py-2">{{ row.duration_seconds }} ث</td>
-          <td class="px-4 py-2">{% if row.recording_url %}<a href="{{ row.recording_url }}" target="_blank">فتح</a>{% else %}—{% endif %}</td>
+          <td class="px-4 py-2 min-w-[200px]">
+            {% if row.signed_playback_url %}
+            <audio controls preload="none" class="w-full max-w-[240px]" dir="ltr">
+              <source src="{{ row.signed_playback_url }}" type="{{ row.signed_playback_type }}">
+            </audio>
+            {% elif row.playback_unavailable %}
+            <span class="site-text-muted">غير متاح</span>
+            {% else %}
+            —
+            {% endif %}
+          </td>
           <td class="px-4 py-2">{{ row.created_at|date:"Y-m-d H:i" }}</td>
         </tr>
         {% empty %}

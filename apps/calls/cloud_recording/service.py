@@ -192,11 +192,13 @@ def stop_cloud_recording_for_call(call: CallSession) -> None:
     if not file_list:
         file_list = _query_file_list_with_retry(client, resource_id, sid)
 
-    file_url = _pick_playback_url(file_list)
+    object_key = _pick_object_key(file_list)
     rec.ended_at = call.ended_at or timezone.now()
     rec.duration_seconds = _duration_seconds(call, rec)
-    if file_url:
-        rec.recording_url = file_url
+    if object_key:
+        rec.recording_object_key = object_key
+        # Legacy column kept for backward compatibility; not exposed to clients.
+        rec.recording_url = _legacy_public_url(object_key)
         rec.recording_status = CallRecording.RecordingStatus.COMPLETED
         rec.recording_error = ""
     else:
@@ -204,6 +206,7 @@ def stop_cloud_recording_for_call(call: CallSession) -> None:
         rec.recording_error = "Recording stopped but no playable file was returned."
     rec.save(
         update_fields=[
+            "recording_object_key",
             "recording_url",
             "ended_at",
             "duration_seconds",
@@ -276,7 +279,7 @@ def _extract_file_list(payload: dict) -> list[dict]:
     return []
 
 
-def _pick_playback_url(file_list: list[dict]) -> str:
+def _pick_best_file_name(file_list: list[dict]) -> str:
     if not file_list:
         return ""
 
@@ -290,13 +293,21 @@ def _pick_playback_url(file_list: list[dict]) -> str:
         return (playable, is_mp4 + is_audio + is_video)
 
     best = sorted(file_list, key=score, reverse=True)[0]
-    file_name = (best.get("fileName") or best.get("filename") or "").strip()
+    return (best.get("fileName") or best.get("filename") or "").strip()
+
+
+def _pick_object_key(file_list: list[dict]) -> str:
+    file_name = _pick_best_file_name(file_list)
     if not file_name:
         return ""
+    return file_name.lstrip("/")
 
+
+def _legacy_public_url(object_key: str) -> str:
+    """Build a legacy public URL for DB backward compatibility only."""
     base = (getattr(settings, "AGORA_RECORDING_PUBLIC_BASE_URL", "") or "").strip()
-    if not base:
+    if not base or not object_key:
         return ""
     if not base.endswith("/"):
         base = f"{base}/"
-    return urljoin(base, file_name.lstrip("/"))
+    return urljoin(base, object_key.lstrip("/"))

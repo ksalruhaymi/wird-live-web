@@ -19,4 +19,9 @@ urlpatterns = [
     path("evaluations/my/", evaluation_views.my_evaluations, name="eval-my"),
     path("evaluations/", evaluation_views.submit_evaluation, name="eval-submit"),
     path("recordings/my/", recording_views.my_recordings, name="recordings-my"),
+    path(
+        "recordings/<int:pk>/signed-url/",
+        recording_views.recording_signed_url,
+        name="recording-signed-url",
+    ),
 ]
