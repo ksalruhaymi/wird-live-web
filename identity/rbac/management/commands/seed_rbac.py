@@ -57,6 +57,10 @@ class Command(BaseCommand):
             ("announcements.create", "إنشاء إعلان"),
             ("announcements.update", "تعديل إعلان"),
             ("announcements.delete", "حذف إعلان"),
+            ("app_notifications.view", "عرض تنبيهات التطبيق"),
+            ("app_notifications.create", "إنشاء تنبيه تطبيق"),
+            ("app_notifications.update", "تعديل تنبيه تطبيق"),
+            ("app_notifications.delete", "حذف تنبيه تطبيق"),
             # Evaluations / recordings / chat
             ("evaluations.view", "عرض التقييمات"),
             ("recordings.view", "عرض التسجيلات"),

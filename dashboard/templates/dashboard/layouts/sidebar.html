@@ -57,6 +57,13 @@
       <span>الإعلانات</span>
     </a>
     {% endif %}
+    {% if request.user|can_access:"app_notifications.view" %}
+    <a href="{% url 'dashboard:app_notification_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/app-notifications' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-phone"></i>
+      <span>تنبيهات التطبيق</span>
+    </a>
+    {% endif %}
     {% if request.user|can_access:"calls.view" %}
     <a href="{% url 'dashboard:call_session_list' %}"
        class="site-sidebar-btn {% if '/dashboard/calls' in path %}site-sidebar-btn-active{% endif %}">

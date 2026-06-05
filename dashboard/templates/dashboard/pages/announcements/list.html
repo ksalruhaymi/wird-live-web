@@ -32,15 +32,15 @@
           <th class="px-4 py-3 font-bold">تاريخ الإعلان</th>
           <th class="px-4 py-3 font-bold">الحالة</th>
           <th class="px-4 py-3 font-bold">تاريخ الإنشاء</th>
-          <th class="px-4 py-3 font-bold">إجراءات</th>
+          <th class="px-4 py-3 font-bold text-center">إجراءات</th>
         </tr>
       </thead>
       <tbody class="divide-site">
         {% for ann in announcements %}
         <tr class="hover:site-surface transition">
           <td class="px-4 py-2 site-text max-w-xs">
-            {% if ann.title %}<div class="font-semibold">{{ ann.title }}</div>{% endif %}
-            <div class="site-text-muted truncate">{{ ann.message }}</div>
+            {% if ann.title %}<div class="font-semibold">{{ ann.title|truncatewords:3 }}</div>{% endif %}
+            <div class="site-text-muted">{{ ann.message|truncatewords:3 }}</div>
           </td>
           <td class="px-4 py-2 site-text-muted">{{ ann.get_announcement_type_display }}</td>
           <td class="px-4 py-2 site-text-muted">{{ ann.get_announced_by_display }}</td>
@@ -56,20 +56,15 @@
           </td>
           <td class="px-4 py-2 site-text-muted">{{ ann.created_at|date:"Y-m-d H:i" }}</td>
           <td class="px-4 py-2">
-            <div class="flex items-center gap-2 flex-wrap">
-              <a href="{% url 'dashboard:announcement_update' ann.id %}"
-                 class="inline-flex w-8 h-8 rounded-full site-surface border site-border items-center justify-center site-link-primary"
-                 title="تعديل"><i class="bi bi-pencil"></i></a>
-              <form method="post" action="{% url 'dashboard:announcement_toggle_active' ann.id %}" class="inline">
+            <div class="flex items-center justify-center gap-2">
+              {% url 'dashboard:announcement_update' ann.id as edit_url %}
+              {% url 'dashboard:announcement_delete' ann.id as delete_url %}
+              {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
+              <form method="post" action="{% url 'dashboard:announcement_toggle_active' ann.id %}" class="inline-flex">
                 {% csrf_token %}
-                <button type="submit" class="inline-flex w-8 h-8 rounded-full border site-border site-surface items-center justify-center site-link-primary"
-                        title="{% if ann.is_active %}تعطيل{% else %}تفعيل{% endif %}">
-                  <i class="bi {% if ann.is_active %}bi-toggle-on{% else %}bi-toggle-off{% endif %}"></i>
-                </button>
+                {% include "dashboard/partials/action_icon_toggle.html" with is_active=ann.is_active %}
               </form>
-              <a href="{% url 'dashboard:announcement_delete' ann.id %}"
-                 class="inline-flex w-8 h-8 rounded-full bg-red-50 text-red-600 items-center justify-center"
-                 title="حذف"><i class="bi bi-trash"></i></a>
+              {% include "dashboard/partials/action_icon_delete.html" with url=delete_url %}
             </div>
           </td>
         </tr>

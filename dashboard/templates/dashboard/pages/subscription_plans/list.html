@@ -54,26 +54,14 @@
           </td>
           <td class="px-4 py-2">
             <div class="flex items-center justify-center gap-2">
-              <a href="{% url 'dashboard:subscription_plan_update' plan.id %}"
-                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-50 text-green-600 hover:bg-green-100 transition"
-                 title="تعديل">
-                <i class="bi bi-pencil"></i>
-              </a>
-
+              {% url 'dashboard:subscription_plan_update' plan.id as edit_url %}
+              {% url 'dashboard:subscription_plan_delete' plan.id as delete_url %}
+              {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
               <form method="post" action="{% url 'dashboard:subscription_plan_toggle_active' plan.id %}" class="inline-flex">
                 {% csrf_token %}
-                <button type="submit"
-                        class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition"
-                        title="{% if plan.is_active %}تعطيل{% else %}تفعيل{% endif %}">
-                  <i class="bi {% if plan.is_active %}bi-toggle-on{% else %}bi-toggle-off{% endif %}"></i>
-                </button>
+                {% include "dashboard/partials/action_icon_toggle.html" with is_active=plan.is_active %}
               </form>
-
-              <a href="{% url 'dashboard:subscription_plan_delete' plan.id %}"
-                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition"
-                 title="حذف">
-                <i class="bi bi-trash"></i>
-              </a>
+              {% include "dashboard/partials/action_icon_delete.html" with url=delete_url %}
             </div>
           </td>
         </tr>

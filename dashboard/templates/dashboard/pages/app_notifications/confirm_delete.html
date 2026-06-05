@@ -1,0 +1,15 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-lg mx-auto space-y-5" dir-text>
+  <h1 class="site-title-md">حذف تنبيه التطبيق</h1>
+  <div class="site-card p-5 space-y-4">
+    <p class="site-text text-sm">هل أنت متأكد من حذف التنبيه «{{ notification.title }}»؟</p>
+    <form method="post" class="flex gap-2">
+      {% csrf_token %}
+      <button type="submit" class="px-4 py-2 rounded-full bg-red-600 text-white text-sm font-bold">حذف</button>
+      <a href="{% url 'dashboard:app_notification_list' %}" class="px-4 py-2 rounded-full border site-border text-sm">إلغاء</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+<button type="submit"
+        class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition"
+        title="{% if is_active %}تعطيل{% else %}تفعيل{% endif %}">
+  <i class="bi {% if is_active %}bi-toggle-on{% else %}bi-toggle-off{% endif %}"></i>
+</button>
