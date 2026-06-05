@@ -1,0 +1,120 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-2xl mx-auto space-y-5" dir-text>
+
+  <div class="flex items-start justify-between gap-3">
+    <div>
+      <h1 class="site-title-md flex items-center gap-2">
+        <i class="bi bi-pencil-square site-link-primary text-xl"></i>
+        <span>{{ title }}</span>
+      </h1>
+      <p class="site-text-muted mt-1 text-sm">
+        #{{ subscription.id }} — {{ subscription.user.get_full_name|default:subscription.user.username }}
+      </p>
+    </div>
+    <a href="{% url 'dashboard:student_subscription_list' %}"
+       class="text-[12px] site-link-primary font-semibold hover:underline">
+      العودة للقائمة
+    </a>
+  </div>
+
+  <div class="site-card p-5 md:p-6">
+    <form method="post" class="space-y-5">
+      {% csrf_token %}
+
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">اسم الباقة</label>
+        <input type="text" name="plan_title" value="{{ initial.plan_title }}"
+               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+               required>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">المدة (بالأشهر)</label>
+          <input type="number" name="duration_months" min="1" step="1"
+                 value="{{ initial.duration_months }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+                 required>
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">المبلغ (ريال)</label>
+          <input type="text" name="amount" inputmode="decimal"
+                 value="{{ initial.amount }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+                 required>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">تاريخ البداية</label>
+          <input type="date" name="start_date" value="{{ initial.start_date }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+                 required>
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">تاريخ النهاية</label>
+          <input type="date" name="end_date" value="{{ initial.end_date }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+                 required>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">حالة الاشتراك</label>
+          <select name="status"
+                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+            {% for value, label in status_choices %}
+            <option value="{{ value }}" {% if initial.status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">حالة الدفع</label>
+          <select name="payment_status"
+                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+            {% for value, label in payment_status_choices %}
+            <option value="{{ value }}" {% if initial.payment_status == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">طريقة الدفع</label>
+          <input type="text" name="payment_method" value="{{ initial.payment_method }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">رقم العملية</label>
+          <input type="text" name="transaction_reference" value="{{ initial.transaction_reference }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">ملاحظات</label>
+        <textarea name="notes" rows="3"
+                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.notes }}</textarea>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <a href="{% url 'dashboard:student_subscription_list' %}"
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-full border site-border text-[12px] font-bold site-text-muted hover:site-surface transition">
+          إلغاء
+        </a>
+        <button type="submit"
+                class="inline-flex items-center gap-2 px-5 py-2 rounded-full site-btn-primary text-[12px] font-bold shadow-sm hover:shadow-md active:scale-95 transition">
+          <i class="bi bi-check-lg"></i>
+          حفظ
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

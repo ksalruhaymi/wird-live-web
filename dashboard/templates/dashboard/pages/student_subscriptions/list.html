@@ -53,6 +53,7 @@
           <th class="px-4 py-3 font-bold">الحالة</th>
           <th class="px-4 py-3 font-bold">الدفع</th>
           <th class="px-4 py-3 font-bold">تاريخ العملية</th>
+          <th class="px-4 py-3 font-bold text-center">إجراءات</th>
         </tr>
       </thead>
       <tbody class="divide-site">
@@ -84,11 +85,25 @@
           </td>
           <td class="px-4 py-2 site-text-muted">{{ sub.get_payment_status_display }}</td>
           <td class="px-4 py-2 site-text-muted">{{ sub.created_at|date:"Y-m-d H:i" }}</td>
+          <td class="px-4 py-2">
+            <div class="flex items-center justify-center gap-2">
+              <a href="{% url 'dashboard:student_subscription_update' sub.id %}"
+                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-50 text-green-600 hover:bg-green-100 transition"
+                 title="تعديل">
+                <i class="bi bi-pencil"></i>
+              </a>
+              <a href="{% url 'dashboard:student_subscription_delete' sub.id %}"
+                 class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition"
+                 title="حذف">
+                <i class="bi bi-trash"></i>
+              </a>
+            </div>
+          </td>
         </tr>
         {% endwith %}
         {% empty %}
         <tr>
-          <td colspan="10" class="px-4 py-8 text-center site-text-muted">
+          <td colspan="11" class="px-4 py-8 text-center site-text-muted">
             لا توجد عمليات اشتراك مطابقة.
           </td>
         </tr>
