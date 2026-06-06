@@ -32,8 +32,6 @@ from .views import (
     session_evaluation_list,
     call_recording_delete,
     call_recording_list,
-    chat_conversation_list,
-    chat_conversation_detail,
 )
 
 app_name = "dashboard"
@@ -140,6 +138,4 @@ urlpatterns = [
         call_recording_delete,
         name="call_recording_delete",
     ),
-    path("chat/", chat_conversation_list, name="chat_conversation_list"),
-    path("chat/<int:pk>/", chat_conversation_detail, name="chat_conversation_detail"),
 ]

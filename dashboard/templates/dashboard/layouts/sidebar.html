@@ -92,13 +92,6 @@
       <span>سجل التسجيلات</span>
     </a>
     {% endif %}
-    {% if request.user|can_access:"chat.view" %}
-    <a href="{% url 'dashboard:chat_conversation_list' %}"
-       class="site-sidebar-btn {% if '/dashboard/chat' in path %}site-sidebar-btn-active{% endif %}">
-      <i class="bi bi-chat-dots"></i>
-      <span>المحادثات</span>
-    </a>
-    {% endif %}
     {% endwith %}
 
     {% if request.user|can_access:"settings.access" %}

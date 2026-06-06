@@ -32,7 +32,6 @@ urlpatterns = [
     path("api/v1/", include("apps.communication.api.urls", namespace="communication_api")),
     path("api/v1/", include("apps.maqraa.api.urls", namespace="maqraa_api")),
     path("api/v1/", include("apps.calls.api.urls", namespace="calls_api")),
-    path("api/v1/", include("apps.chat.api.urls", namespace="chat_api")),
     path("api/v1/", include("apps.notification.api.urls", namespace="notification_api")),
     path(
         "api/v1/auth/",

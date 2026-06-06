@@ -61,11 +61,10 @@ class Command(BaseCommand):
             ("app_notifications.create", "إنشاء تنبيه تطبيق"),
             ("app_notifications.update", "تعديل تنبيه تطبيق"),
             ("app_notifications.delete", "حذف تنبيه تطبيق"),
-            # Evaluations / recordings / chat
+            # Evaluations / recordings
             ("evaluations.view", "عرض التقييمات"),
             ("recordings.view", "عرض التسجيلات"),
             ("recordings.delete", "حذف التسجيلات"),
-            ("chat.view", "عرض المحادثات"),
             # Notifications / messaging / communication
             ("notification.access", "الوصول إلى التنبيهات"),
             ("notification.create", "إرسال تنبيه"),
@@ -108,7 +107,6 @@ class Command(BaseCommand):
             "announcements.view",
             "evaluations.view",
             "recordings.view",
-            "chat.view",
         ]
 
         roles_data = {

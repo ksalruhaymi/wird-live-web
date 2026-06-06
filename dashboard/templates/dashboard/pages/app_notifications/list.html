@@ -7,7 +7,7 @@
   <div class="flex items-center justify-between mb-5">
     <div>
       <h2 class="site-title-md">تنبيهات التطبيق</h2>
-      <p class="text-[11px] site-text-muted mt-0.5">إدارة التنبيهات الظاهرة داخل تطبيق وِرد مباشر لجميع المستخدمين</p>
+      <p class="text-[11px] site-text-muted mt-0.5">إدارة التنبيهات الظاهرة داخل تطبيق وِرْد لايف لجميع المستخدمين</p>
     </div>
     {% if request.user|can_access:"app_notifications.create" %}
     <a href="{% url 'dashboard:app_notification_create' %}"

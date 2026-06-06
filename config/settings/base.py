@@ -101,7 +101,6 @@ LOCAL_APPS = [
     "apps.maqraa",
     "apps.push",
     "apps.calls",
-    "apps.chat",
 ]
 
 THIRD_PARTY_APPS = [
