@@ -314,15 +314,11 @@
 <div id="imagePreviewModal"
      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4"
      aria-hidden="true">
-  <button type="button"
-          id="imagePreviewBackdrop"
-          class="absolute inset-0 cursor-default"
-          aria-label="إغلاق"></button>
 
-  <div class="relative z-10 flex max-h-[90vh] w-full max-w-4xl flex-col items-center">
+  <div class="relative z-10 flex max-h-[90vh] w-full max-w-4xl flex-col items-center pointer-events-none">
     <button type="button"
             id="closeImagePreview"
-            class="absolute -top-11 end-0 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            class="pointer-events-auto absolute -top-11 end-0 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             aria-label="إغلاق">
       <i class="bi bi-x-lg text-sm"></i>
     </button>
@@ -330,7 +326,7 @@
     <img id="imagePreviewTarget"
          src=""
          alt=""
-         class="max-h-[85vh] max-w-full rounded-lg border border-white/20 object-contain bg-black/20">
+         class="pointer-events-auto max-h-[85vh] max-w-full rounded-lg border border-white/20 object-contain bg-black/20">
   </div>
 </div>
 
@@ -339,7 +335,6 @@
     "use strict";
 
     const modal = document.getElementById("imagePreviewModal");
-    const backdrop = document.getElementById("imagePreviewBackdrop");
     const closeBtn = document.getElementById("closeImagePreview");
     const previewImage = document.getElementById("imagePreviewTarget");
     const triggers = document.querySelectorAll(".image-preview-trigger");
@@ -373,8 +368,21 @@
       });
     });
 
-    if (backdrop) backdrop.addEventListener("click", closePreview);
-    if (closeBtn) closeBtn.addEventListener("click", closePreview);
+    modal.addEventListener("click", function (event) {
+      if (event.target === previewImage) return;
+      closePreview();
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        closePreview();
+      });
+    }
+
+    previewImage.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
 
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && !modal.classList.contains("hidden")) {
