@@ -65,6 +65,8 @@ class Command(BaseCommand):
             ("evaluations.view", "عرض التقييمات"),
             ("recordings.view", "عرض التسجيلات"),
             ("recordings.delete", "حذف التسجيلات"),
+            ("mobile_app_config.view", "عرض إعدادات تطبيق الجوال"),
+            ("mobile_app_config.update", "تعديل إعدادات تطبيق الجوال"),
             # Notifications / messaging / communication
             ("notification.access", "الوصول إلى التنبيهات"),
             ("notification.create", "إرسال تنبيه"),

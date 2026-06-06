@@ -1,0 +1,82 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+<div class="max-w-3xl mx-auto space-y-6" dir-text>
+
+  <div class="mb-5">
+    <h2 class="site-title-md">إعدادات تطبيق الجوال</h2>
+    <p class="text-[11px] site-text-muted mt-0.5">
+      التحكم في نسخ APK التجريبية: تفعيل التطبيق، الحد الأدنى للإصدار، ورسالة التحديث.
+    </p>
+  </div>
+
+  <div class="site-card">
+    <form method="post" class="divide-site">
+      {% csrf_token %}
+
+      <div class="flex items-center justify-between px-6 py-4">
+        <div>
+          <h4 class="text-[13px] font-bold site-text">تفعيل التطبيق</h4>
+          <p class="text-[11px] site-text-muted">عند الإيقاف، تُحظر جميع نسخ التطبيق.</p>
+        </div>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" name="app_enabled" class="sr-only peer"
+                 {% if config.app_enabled %}checked{% endif %}>
+          <div class="relative w-11 h-6 bg-slate-300 rounded-full peer-checked:bg-[var(--color-primary)] transition-colors">
+            <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:-translate-x-5"></span>
+          </div>
+        </label>
+      </div>
+
+      <div class="px-6 py-4 space-y-4">
+        <div>
+          <label class="block text-[12px] font-bold site-text mb-1">الحد الأدنى للإصدار</label>
+          <input type="text" name="min_supported_version" value="{{ config.min_supported_version }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-[12px]"
+                 placeholder="1.0.0">
+        </div>
+        <div>
+          <label class="block text-[12px] font-bold site-text mb-1">الحد الأدنى لرقم البناء</label>
+          <input type="number" name="min_supported_build" value="{{ config.min_supported_build }}" min="1"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-[12px]">
+        </div>
+        <div class="flex items-center justify-between">
+          <div>
+            <h4 class="text-[13px] font-bold site-text">إجبار التحديث</h4>
+            <p class="text-[11px] site-text-muted">يحظر التطبيق ويعرض رسالة التحديث.</p>
+          </div>
+          <label class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" name="force_update" class="sr-only peer"
+                   {% if config.force_update %}checked{% endif %}>
+            <div class="relative w-11 h-6 bg-slate-300 rounded-full peer-checked:bg-[var(--color-primary)] transition-colors">
+              <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:-translate-x-5"></span>
+            </div>
+          </label>
+        </div>
+        <div>
+          <label class="block text-[12px] font-bold site-text mb-1">رسالة للمستخدم</label>
+          <textarea name="message" rows="3"
+                    class="w-full rounded-lg border site-border px-3 py-2 text-[12px]">{{ config.message }}</textarea>
+        </div>
+        <div>
+          <label class="block text-[12px] font-bold site-text mb-1">رابط التحديث (اختياري)</label>
+          <input type="url" name="update_url" value="{{ config.update_url }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-[12px]"
+                 placeholder="https://">
+        </div>
+      </div>
+
+      {% if request.user|can_access:"mobile_app_config.update" %}
+      <div class="flex justify-end px-6 py-4 rounded-b-2xl">
+        <button type="submit"
+                class="site-btn-primary inline-flex items-center gap-2 px-5 py-2 rounded-full text-[12px] font-bold active:scale-95 transition">
+          <i class="bi bi-save-fill"></i>
+          حفظ الإعدادات
+        </button>
+      </div>
+      {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -101,6 +101,7 @@ LOCAL_APPS = [
     "apps.maqraa",
     "apps.push",
     "apps.calls",
+    "apps.mobile",
 ]
 
 THIRD_PARTY_APPS = [
@@ -119,6 +120,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "csp.middleware.CSPMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "apps.mobile.middleware.MobileAppVersionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",

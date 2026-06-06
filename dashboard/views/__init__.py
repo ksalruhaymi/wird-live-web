@@ -24,6 +24,7 @@ from .student_subscriptions import (
     student_subscription_update,
 )
 from .call_recordings import call_recording_delete, call_recording_list
+from .mobile_app_config import mobile_app_config_settings
 from .session_evaluations import session_evaluation_list
 from .teacher_availability import teacher_availability_list
 from .subscription_plans import (
@@ -65,4 +66,5 @@ __all__ = [
     "session_evaluation_list",
     "call_recording_list",
     "call_recording_delete",
+    "mobile_app_config_settings",
 ]

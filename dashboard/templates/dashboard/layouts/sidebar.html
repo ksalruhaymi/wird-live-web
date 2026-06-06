@@ -64,6 +64,13 @@
       <span>تنبيهات التطبيق</span>
     </a>
     {% endif %}
+    {% if request.user|can_access:"mobile_app_config.view" %}
+    <a href="{% url 'dashboard:mobile_app_config_settings' %}"
+       class="site-sidebar-btn {% if '/dashboard/mobile-app-config' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-phone-flip"></i>
+      <span>إعدادات تطبيق الجوال</span>
+    </a>
+    {% endif %}
     {% if request.user|can_access:"calls.view" %}
     <a href="{% url 'dashboard:call_session_list' %}"
        class="site-sidebar-btn {% if '/dashboard/calls' in path %}site-sidebar-btn-active{% endif %}">

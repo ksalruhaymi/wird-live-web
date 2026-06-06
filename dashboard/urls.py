@@ -32,6 +32,7 @@ from .views import (
     session_evaluation_list,
     call_recording_delete,
     call_recording_list,
+    mobile_app_config_settings,
 )
 
 app_name = "dashboard"
@@ -137,5 +138,10 @@ urlpatterns = [
         "recordings/<int:pk>/delete/",
         call_recording_delete,
         name="call_recording_delete",
+    ),
+    path(
+        "mobile-app-config/",
+        mobile_app_config_settings,
+        name="mobile_app_config_settings",
     ),
 ]

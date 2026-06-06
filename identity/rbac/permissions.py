@@ -43,3 +43,6 @@ ANNOUNCEMENTS_DELETE = "announcements.delete"
 EVALUATIONS_VIEW = "evaluations.view"
 RECORDINGS_VIEW = "recordings.view"
 RECORDINGS_DELETE = "recordings.delete"
+
+MOBILE_APP_CONFIG_VIEW = "mobile_app_config.view"
+MOBILE_APP_CONFIG_UPDATE = "mobile_app_config.update"
