@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render
 
-from apps.calls.models import SessionEvaluation
+from apps.calls.models import CallPeerRating
 from identity.rbac.decorators import permissions_required
 
 
@@ -12,19 +12,24 @@ def session_evaluation_list(request):
     q = (request.GET.get("q") or "").strip()
     status_filter = (request.GET.get("status") or "all").strip()
 
-    qs = SessionEvaluation.objects.select_related(
-        "call_session", "student", "teacher"
+    qs = CallPeerRating.objects.select_related(
+        "call_session",
+        "call_session__recording",
+        "rater",
+        "rated",
+        "call_session__student",
+        "call_session__teacher",
     ).order_by("-created_at", "-id")
 
     if q:
         qs = qs.filter(
-            Q(student__username__icontains=q)
-            | Q(student__email__icontains=q)
-            | Q(teacher__username__icontains=q)
-            | Q(teacher__email__icontains=q)
+            Q(call_session__student__username__icontains=q)
+            | Q(call_session__student__email__icontains=q)
+            | Q(call_session__teacher__username__icontains=q)
+            | Q(call_session__teacher__email__icontains=q)
         )
 
-    if status_filter in {s[0] for s in SessionEvaluation.Status.choices}:
+    if status_filter in {s[0] for s in CallPeerRating.Status.choices}:
         qs = qs.filter(status=status_filter)
 
     return render(
@@ -34,6 +39,7 @@ def session_evaluation_list(request):
             "rows": qs[:500],
             "q": q,
             "status_filter": status_filter,
-            "status_choices": SessionEvaluation.Status.choices,
+            "status_choices": CallPeerRating.Status.choices,
+            "role_choices": CallPeerRating.RaterRole.choices,
         },
     )

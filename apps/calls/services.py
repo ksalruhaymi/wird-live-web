@@ -9,6 +9,7 @@ from apps.maqraa.teacher_services import (
     validate_teacher_for_call,
 )
 from apps.subscription.services import student_can_request_call
+from identity.accounts.auth.profile_service import _resolve_profile_image_url
 from identity.accounts.user_types import resolve_user_type_slug
 
 from .exceptions import CallProviderError, CallValidationError
@@ -35,7 +36,7 @@ def _can_view_call(call: CallSession, user) -> bool:
     return user.id in {call.student_id, call.teacher_id}
 
 
-def call_to_payload(call: CallSession, viewer=None) -> dict:
+def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
     ensure_agora_provider(call)
 
     app_id = ""
@@ -47,8 +48,18 @@ def call_to_payload(call: CallSession, viewer=None) -> dict:
         teacher_name = teacher_display_name(call.teacher)
 
     student_name = ""
+    student_profile_image_url = ""
     if call.student:
         student_name = student_display_name(call.student)
+        student_profile_image_url = (
+            _resolve_profile_image_url(call.student, request) or ""
+        )
+
+    teacher_profile_image_url = ""
+    if call.teacher_id and call.teacher:
+        teacher_profile_image_url = (
+            _resolve_profile_image_url(call.teacher, request) or ""
+        )
 
     payload = {
         "id": call.id,
@@ -61,7 +72,9 @@ def call_to_payload(call: CallSession, viewer=None) -> dict:
         "uid": call.student_id,
         "teacher_id": call.teacher_id,
         "teacher_name": teacher_name,
+        "teacher_profile_image_url": teacher_profile_image_url,
         "student_name": student_name,
+        "student_profile_image_url": student_profile_image_url,
         "status": call.status,
         "created_at": call.created_at.isoformat() if call.created_at else None,
         "started_at": call.started_at.isoformat() if call.started_at else None,

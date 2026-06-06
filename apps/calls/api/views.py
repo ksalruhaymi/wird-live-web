@@ -94,7 +94,7 @@ def request_call(request):
         return _handle_call_error(exc)
 
     return JsonResponse(
-        {"success": True, "call": call_to_payload(call, request.user)},
+        {"success": True, "call": call_to_payload(call, request.user, request)},
         status=201,
     )
 
@@ -116,7 +116,7 @@ def incoming_calls(request):
     return JsonResponse(
         {
             "success": True,
-            "calls": [call_to_payload(c, request.user) for c in calls],
+            "calls": [call_to_payload(c, request.user, request) for c in calls],
         }
     )
 
@@ -134,7 +134,7 @@ def call_detail(request, pk):
         return JsonResponse({"success": False, "message": error}, status=status)
 
     return JsonResponse(
-        {"success": True, "call": call_to_payload(call, request.user)}
+        {"success": True, "call": call_to_payload(call, request.user, request)}
     )
 
 
@@ -155,7 +155,7 @@ def accept_call(request, pk):
         return JsonResponse({"success": False, "message": error}, status=status)
 
     try:
-        payload = call_to_payload(updated, request.user)
+        payload = call_to_payload(updated, request.user, request)
     except CallProviderError as exc:
         return _handle_call_error(exc)
 
@@ -179,7 +179,7 @@ def reject_call(request, pk):
         return JsonResponse({"success": False, "message": error}, status=status)
 
     return JsonResponse(
-        {"success": True, "call": call_to_payload(updated, request.user)}
+        {"success": True, "call": call_to_payload(updated, request.user, request)}
     )
 
 
@@ -200,7 +200,7 @@ def cancel_call(request, pk):
         return JsonResponse({"success": False, "message": error}, status=status)
 
     return JsonResponse(
-        {"success": True, "call": call_to_payload(updated, request.user)}
+        {"success": True, "call": call_to_payload(updated, request.user, request)}
     )
 
 
@@ -220,7 +220,7 @@ def end_call(request, pk):
         return JsonResponse({"success": False, "message": error}, status=403)
 
     return JsonResponse(
-        {"success": True, "call": call_to_payload(updated, request.user)}
+        {"success": True, "call": call_to_payload(updated, request.user, request)}
     )
 
 
@@ -246,7 +246,7 @@ def _request_call_with_type(request, session_type: str):
         return _handle_call_error(exc)
 
     return JsonResponse(
-        {"success": True, "call": call_to_payload(call, request.user)},
+        {"success": True, "call": call_to_payload(call, request.user, request)},
         status=201,
     )
 
@@ -277,6 +277,6 @@ def my_calls(request):
     return JsonResponse(
         {
             "success": True,
-            "calls": [call_to_payload(c, request.user) for c in calls],
+            "calls": [call_to_payload(c, request.user, request) for c in calls],
         }
     )

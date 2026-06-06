@@ -4,6 +4,7 @@ from apps.calls.services import student_display_name
 from apps.maqraa.teacher_services import teacher_display_name
 
 from .models import CallRecording, CallSession, SessionEvaluation
+from .rating_service import ensure_peer_ratings
 
 
 def _duration_seconds(call: CallSession) -> int:
@@ -25,6 +26,8 @@ def ensure_post_call_artifacts(call: CallSession) -> None:
             "status": SessionEvaluation.Status.PENDING,
         },
     )
+
+    ensure_peer_ratings(call)
 
     rec, created = CallRecording.objects.get_or_create(
         call_session=call,

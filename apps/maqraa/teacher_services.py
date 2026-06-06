@@ -101,6 +101,7 @@ def teacher_to_payload(
     *,
     active_teacher_ids: set[int] | None = None,
     request=None,
+    rating_percent: int | None = None,
 ) -> dict:
     profile = getattr(user, "teacher_profile", None)
     availability = getattr(user, "teacher_availability", None)
@@ -120,6 +121,7 @@ def teacher_to_payload(
         "last_seen": last_seen.isoformat() if last_seen else None,
         "profile_image_url": _resolve_profile_image_url(user, request),
         "riwayat": (getattr(profile, "riwayat", "") or "").strip() or None,
+        "rating_percent": rating_percent if rating_percent is not None else 0,
     }
 
 
@@ -132,9 +134,18 @@ def list_teachers_payload(*, approved_only: bool = True, request=None) -> list[d
         qs = qs.filter(teacher_profile__is_approved=True)
     qs = qs.order_by("teacher_profile__display_name", "username")
     active_ids = _active_teacher_ids()
+    users = list(qs)
+    from apps.calls.rating_service import teacher_rating_percents
+
+    rating_map = teacher_rating_percents([user.id for user in users])
     return [
-        teacher_to_payload(user, active_teacher_ids=active_ids, request=request)
-        for user in qs
+        teacher_to_payload(
+            user,
+            active_teacher_ids=active_ids,
+            request=request,
+            rating_percent=rating_map.get(user.id, 0),
+        )
+        for user in users
     ]
 
 

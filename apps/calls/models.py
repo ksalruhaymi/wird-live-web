@@ -112,6 +112,60 @@ class SessionEvaluation(models.Model):
         return f"eval_call_{self.call_session_id}"
 
 
+class CallPeerRating(models.Model):
+    class RaterRole(models.TextChoices):
+        STUDENT = "student", "طالب"
+        TEACHER = "teacher", "معلّم"
+
+    class Status(models.TextChoices):
+        PENDING = "pending", "بانتظار التقييم"
+        COMPLETED = "completed", "تم التقييم"
+
+    call_session = models.ForeignKey(
+        CallSession,
+        on_delete=models.CASCADE,
+        related_name="peer_ratings",
+    )
+    rater = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="call_ratings_given",
+    )
+    rated = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="call_ratings_received",
+    )
+    rater_role = models.CharField(
+        max_length=10,
+        choices=RaterRole.choices,
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.PENDING,
+    )
+    competence = models.PositiveSmallIntegerField(null=True, blank=True)
+    clarity = models.PositiveSmallIntegerField(null=True, blank=True)
+    audio_quality = models.PositiveSmallIntegerField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-created_at", "-id"]
+        verbose_name = "تقييم طرف المكالمة"
+        verbose_name_plural = "تقييمات أطراف المكالمات"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["call_session", "rater"],
+                name="calls_callpeerrating_unique_call_rater",
+            ),
+        ]
+
+    def __str__(self):
+        return f"rating_call_{self.call_session_id}_{self.rater_role}"
+
+
 class CallRecording(models.Model):
     class RecordingStatus(models.TextChoices):
         IDLE = "idle", "Idle"

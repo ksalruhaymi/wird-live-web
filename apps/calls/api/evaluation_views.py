@@ -5,9 +5,8 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_GET, require_POST
 
-from apps.calls.models import SessionEvaluation
-from apps.calls.post_call import evaluation_to_payload
-from apps.maqraa.teacher_services import resolve_user_type_slug
+from apps.calls.models import CallPeerRating
+from apps.calls.rating_service import _validate_score, rating_to_payload
 
 
 def _require_auth(request):
@@ -27,30 +26,32 @@ def _parse_json(request) -> dict:
     return data if isinstance(data, dict) else {}
 
 
+def _ratings_queryset(user):
+    return CallPeerRating.objects.filter(rater=user).select_related(
+        "call_session",
+        "call_session__student",
+        "call_session__teacher",
+        "rater",
+        "rated",
+    )
+
+
 @csrf_exempt
 @require_GET
 def pending_evaluations(request):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
-    if resolve_user_type_slug(request.user) != "student":
-        return JsonResponse(
-            {"success": False, "message": "للطلاب فقط."},
-            status=403,
-        )
 
     qs = (
-        SessionEvaluation.objects.filter(
-            student=request.user,
-            status=SessionEvaluation.Status.PENDING,
-        )
-        .select_related("call_session", "teacher", "student")
+        _ratings_queryset(request.user)
+        .filter(status=CallPeerRating.Status.PENDING)
         .order_by("-created_at", "-id")
     )
     return JsonResponse(
         {
             "success": True,
-            "evaluations": [evaluation_to_payload(e) for e in qs],
+            "evaluations": [rating_to_payload(r) for r in qs],
         }
     )
 
@@ -62,19 +63,11 @@ def my_evaluations(request):
     if auth_err:
         return auth_err
 
-    user = request.user
-    if resolve_user_type_slug(user) == "teacher":
-        qs = SessionEvaluation.objects.filter(teacher=user)
-    else:
-        qs = SessionEvaluation.objects.filter(student=user)
-
-    qs = qs.select_related("call_session", "teacher", "student").order_by(
-        "-created_at", "-id"
-    )
+    qs = _ratings_queryset(request.user).order_by("-created_at", "-id")
     return JsonResponse(
         {
             "success": True,
-            "evaluations": [evaluation_to_payload(e) for e in qs],
+            "evaluations": [rating_to_payload(r) for r in qs],
         }
     )
 
@@ -85,11 +78,6 @@ def submit_evaluation(request):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
-    if resolve_user_type_slug(request.user) != "student":
-        return JsonResponse(
-            {"success": False, "message": "للطلاب فقط."},
-            status=403,
-        )
 
     data = _parse_json(request)
     call_id = data.get("call_id")
@@ -104,26 +92,28 @@ def submit_evaluation(request):
             status=400,
         )
 
-    ev = get_object_or_404(
-        SessionEvaluation.objects.select_related("call_session", "teacher", "student"),
+    rating = get_object_or_404(
+        _ratings_queryset(request.user),
         call_session_id=call_id,
-        student=request.user,
+        status=CallPeerRating.Status.PENDING,
     )
 
-    focus = data.get("focus_level")
-    try:
-        focus_level = int(focus) if focus is not None else None
-    except (TypeError, ValueError):
-        focus_level = None
+    competence = _validate_score(data.get("competence"))
+    clarity = _validate_score(data.get("clarity"))
+    audio_quality = _validate_score(data.get("audio_quality"))
 
-    ev.focus_level = focus_level
-    ev.pages_count = (data.get("pages_count") or "").strip()
-    ev.surah = (data.get("surah") or "").strip()
-    ev.memorization = (data.get("memorization") or "").strip()
-    ev.consolidation = (data.get("consolidation") or "").strip()
-    ev.status = SessionEvaluation.Status.COMPLETED
-    ev.save()
+    if competence is None or clarity is None or audio_quality is None:
+        return JsonResponse(
+            {"success": False, "message": "يرجى اختيار تقييم من 1 إلى 5 لكل معيار."},
+            status=400,
+        )
+
+    rating.competence = competence
+    rating.clarity = clarity
+    rating.audio_quality = audio_quality
+    rating.status = CallPeerRating.Status.COMPLETED
+    rating.save()
 
     return JsonResponse(
-        {"success": True, "evaluation": evaluation_to_payload(ev)}
+        {"success": True, "evaluation": rating_to_payload(rating)}
     )
