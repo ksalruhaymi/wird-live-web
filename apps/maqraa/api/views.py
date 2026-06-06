@@ -24,7 +24,7 @@ def available_teachers(request):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
-    teachers = list_teachers_payload(approved_only=True)
+    teachers = list_teachers_payload(approved_only=True, request=request)
     return JsonResponse({"success": True, "teachers": teachers})
 
 

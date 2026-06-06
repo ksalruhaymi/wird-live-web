@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 from django.db.models import Q
 from django.utils import timezone
 
+from identity.accounts.auth.profile_service import _resolve_profile_image_url
 from identity.accounts.user_types import (
     USER_TYPE_STUDENT,
     USER_TYPE_TEACHER,
@@ -99,6 +100,7 @@ def teacher_to_payload(
     user,
     *,
     active_teacher_ids: set[int] | None = None,
+    request=None,
 ) -> dict:
     profile = getattr(user, "teacher_profile", None)
     availability = getattr(user, "teacher_availability", None)
@@ -116,10 +118,11 @@ def teacher_to_payload(
         "can_audio": profile.can_audio if profile else False,
         "can_video": profile.can_video if profile else False,
         "last_seen": last_seen.isoformat() if last_seen else None,
+        "profile_image_url": _resolve_profile_image_url(user, request),
     }
 
 
-def list_teachers_payload(*, approved_only: bool = True) -> list[dict]:
+def list_teachers_payload(*, approved_only: bool = True, request=None) -> list[dict]:
     qs = User.objects.filter(teacher_profile__isnull=False).select_related(
         "teacher_profile",
         "teacher_availability",
@@ -129,7 +132,8 @@ def list_teachers_payload(*, approved_only: bool = True) -> list[dict]:
     qs = qs.order_by("teacher_profile__display_name", "username")
     active_ids = _active_teacher_ids()
     return [
-        teacher_to_payload(user, active_teacher_ids=active_ids) for user in qs
+        teacher_to_payload(user, active_teacher_ids=active_ids, request=request)
+        for user in qs
     ]
 
 

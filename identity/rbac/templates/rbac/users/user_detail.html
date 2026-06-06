@@ -33,13 +33,21 @@
 
     <!-- Profile avatar -->
     <div class="flex items-center gap-4 mb-6 pb-6 border-b site-border">
-      <div class="w-20 h-20 rounded-full overflow-hidden site-surface border site-border flex items-center justify-center shrink-0">
+      <div class="shrink-0">
         {% if has_profile_image %}
-          <img src="{% url 'rbac:user_profile_image' user_obj.pk %}"
-               alt="صورة {{ user_obj.username }}"
-               class="w-full h-full object-cover">
+          <button type="button"
+                  class="image-preview-trigger w-10 h-10 rounded-full overflow-hidden site-surface border site-border flex items-center justify-center cursor-pointer hover:opacity-90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                  data-preview-src="{% url 'rbac:user_profile_image' user_obj.pk %}"
+                  data-preview-alt="صورة {{ user_obj.username }}"
+                  aria-label="عرض الصورة الشخصية">
+            <img src="{% url 'rbac:user_profile_image' user_obj.pk %}"
+                 alt="صورة {{ user_obj.username }}"
+                 class="w-full h-full object-cover">
+          </button>
         {% else %}
-          <i class="bi bi-person-circle text-5xl site-text-muted"></i>
+          <div class="w-10 h-10 rounded-full overflow-hidden site-surface border site-border flex items-center justify-center">
+            <i class="bi bi-person-circle text-2xl site-text-muted"></i>
+          </div>
         {% endif %}
       </div>
       <div>
@@ -213,14 +221,18 @@
               </a>
             </div>
             {% if teacher_ijazah.kind == "image" %}
-              <a href="{% url teacher_ijazah.url_name user_obj.pk %}"
-                 target="_blank"
-                 rel="noopener"
-                 class="block">
-                <img src="{% url teacher_ijazah.url_name user_obj.pk %}"
-                     alt="إجازة {{ user_obj.username }}"
-                     class="max-h-72 rounded-lg border site-border object-contain bg-white">
-              </a>
+              <div class="flex items-center gap-3">
+                <button type="button"
+                        class="image-preview-trigger w-12 h-12 rounded-lg overflow-hidden site-surface border site-border flex items-center justify-center shrink-0 cursor-pointer hover:opacity-90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+                        data-preview-src="{% url teacher_ijazah.url_name user_obj.pk %}"
+                        data-preview-alt="إجازة {{ user_obj.username }}"
+                        aria-label="عرض صورة الإجازة">
+                  <img src="{% url teacher_ijazah.url_name user_obj.pk %}"
+                       alt="إجازة {{ user_obj.username }}"
+                       class="w-full h-full object-cover">
+                </button>
+                <span class="text-[11px] site-text-muted">انقر على الصورة للمعاينة</span>
+              </div>
             {% endif %}
           </div>
         {% else %}
@@ -298,5 +310,78 @@
 </div>
 
 {% endif %}
+
+<div id="imagePreviewModal"
+     class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 px-4"
+     aria-hidden="true">
+  <button type="button"
+          id="imagePreviewBackdrop"
+          class="absolute inset-0 cursor-default"
+          aria-label="إغلاق"></button>
+
+  <div class="relative z-10 flex max-h-[90vh] w-full max-w-4xl flex-col items-center">
+    <button type="button"
+            id="closeImagePreview"
+            class="absolute -top-11 end-0 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow transition hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+            aria-label="إغلاق">
+      <i class="bi bi-x-lg text-sm"></i>
+    </button>
+
+    <img id="imagePreviewTarget"
+         src=""
+         alt=""
+         class="max-h-[85vh] max-w-full rounded-lg border border-white/20 object-contain bg-black/20">
+  </div>
+</div>
+
+<script>
+  (function () {
+    "use strict";
+
+    const modal = document.getElementById("imagePreviewModal");
+    const backdrop = document.getElementById("imagePreviewBackdrop");
+    const closeBtn = document.getElementById("closeImagePreview");
+    const previewImage = document.getElementById("imagePreviewTarget");
+    const triggers = document.querySelectorAll(".image-preview-trigger");
+
+    if (!modal || !previewImage) return;
+
+    function openPreview(src, alt) {
+      previewImage.src = src;
+      previewImage.alt = alt || "";
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("overflow-hidden");
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closePreview() {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      modal.setAttribute("aria-hidden", "true");
+      previewImage.src = "";
+      previewImage.alt = "";
+      document.body.classList.remove("overflow-hidden");
+    }
+
+    triggers.forEach(function (trigger) {
+      trigger.addEventListener("click", function () {
+        const src = trigger.getAttribute("data-preview-src");
+        if (!src) return;
+        openPreview(src, trigger.getAttribute("data-preview-alt") || "");
+      });
+    });
+
+    if (backdrop) backdrop.addEventListener("click", closePreview);
+    if (closeBtn) closeBtn.addEventListener("click", closePreview);
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+        closePreview();
+      }
+    });
+  })();
+</script>
 
 {% endblock %}
