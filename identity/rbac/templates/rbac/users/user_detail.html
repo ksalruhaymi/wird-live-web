@@ -31,6 +31,28 @@
       </a>
     </div>
 
+    <!-- Profile avatar -->
+    <div class="flex items-center gap-4 mb-6 pb-6 border-b site-border">
+      <div class="w-20 h-20 rounded-full overflow-hidden site-surface border site-border flex items-center justify-center shrink-0">
+        {% if has_profile_image %}
+          <img src="{% url 'rbac:user_profile_image' user_obj.pk %}"
+               alt="صورة {{ user_obj.username }}"
+               class="w-full h-full object-cover">
+        {% else %}
+          <i class="bi bi-person-circle text-5xl site-text-muted"></i>
+        {% endif %}
+      </div>
+      <div>
+        <div class="text-[11px] site-text-muted">الصورة الشخصية</div>
+        <div class="font-semibold site-text text-[15px]">
+          {{ user_obj.full_name|default:user_obj.username }}
+        </div>
+        <div class="text-[12px] site-text-muted mt-0.5">
+          @{{ user_obj.username }}
+        </div>
+      </div>
+    </div>
+
     <!-- User info -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-[13px]">
 
@@ -73,6 +95,20 @@
         <div class="text-[11px] site-text-muted">رقم الجوال</div>
         <div class="font-mono text-[12px] site-text">
           {{ user_obj.mobile|default:"-" }}
+        </div>
+      </div>
+
+      <div class="space-y-1">
+        <div class="text-[11px] site-text-muted">الجنس</div>
+        <div class="font-semibold site-text">
+          {{ gender_label }}
+        </div>
+      </div>
+
+      <div class="space-y-1 md:col-span-2">
+        <div class="text-[11px] site-text-muted">الرواية</div>
+        <div class="font-semibold site-text whitespace-pre-wrap">
+          {{ riwayat_value }}
         </div>
       </div>
 
@@ -149,6 +185,49 @@
       </div>
 
     </div>
+
+    {% if is_teacher %}
+      <div class="border-t site-border pt-5 mb-6">
+        <h2 class="site-title-md text-[15px] mb-3">ملفات الإجازة</h2>
+        {% if teacher_ijazah %}
+          <div class="site-card border site-border rounded-xl p-4">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+              <div class="flex items-center gap-2 min-w-0">
+                <i class="bi bi-file-earmark-text text-lg site-link-primary"></i>
+                <span class="text-[13px] site-text font-semibold truncate">
+                  {{ teacher_ijazah.filename }}
+                </span>
+              </div>
+              <a href="{% url teacher_ijazah.url_name user_obj.pk %}"
+                 target="_blank"
+                 rel="noopener"
+                 class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg
+                        border site-border text-[12px] site-text
+                        hover:site-surface transition">
+                <i class="bi bi-box-arrow-up-right"></i>
+                {% if teacher_ijazah.kind == "pdf" %}
+                  فتح / تحميل PDF
+                {% else %}
+                  فتح الملف
+                {% endif %}
+              </a>
+            </div>
+            {% if teacher_ijazah.kind == "image" %}
+              <a href="{% url teacher_ijazah.url_name user_obj.pk %}"
+                 target="_blank"
+                 rel="noopener"
+                 class="block">
+                <img src="{% url teacher_ijazah.url_name user_obj.pk %}"
+                     alt="إجازة {{ user_obj.username }}"
+                     class="max-h-72 rounded-lg border site-border object-contain bg-white">
+              </a>
+            {% endif %}
+          </div>
+        {% else %}
+          <p class="text-[13px] site-text-muted">لا توجد ملفات إجازة</p>
+        {% endif %}
+      </div>
+    {% endif %}
 
     <!-- Roles assign/update -->
     {% if request.user|can_access:"users.update" %}

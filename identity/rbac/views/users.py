@@ -1,14 +1,18 @@
+import mimetypes
+
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
 from django.db import transaction
+from django.http import FileResponse, Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
 from core.services.phone_service import normalize_phone_number
 from core.utils.pagination import paginate_with_smart_pages
+from identity.accounts.auth.profile_service import build_profile_payload
 from identity.accounts.auth.registration_service import username_from_email
-from identity.accounts.user_types import USER_TYPE_SUPERVISOR
+from identity.accounts.user_types import USER_TYPE_TEACHER, USER_TYPE_SUPERVISOR
 from identity.rbac.decorators import permission_required
 
 from ..models import Role
@@ -21,6 +25,25 @@ import string
 User = get_user_model()
 
 PROTECTED_USERNAMES = ("admin",)
+
+_GENDER_LABELS = {
+    "male": "ذكر",
+    "female": "أنثى",
+}
+
+
+def _gender_label(user) -> str:
+    gender = (getattr(user, "gender", None) or "").strip()
+    return _GENDER_LABELS.get(gender, "-")
+
+
+def _ijazah_file_kind(filename: str) -> str:
+    ext = (filename or "").rsplit(".", 1)[-1].lower()
+    if ext in {"png", "jpg", "jpeg", "gif", "webp"}:
+        return "image"
+    if ext == "pdf":
+        return "pdf"
+    return "file"
 
 
 @permission_required("users.list")
@@ -172,20 +195,82 @@ def user_create(request):
 @permission_required("users.detail")
 def user_detail(request, pk):
     user_obj = get_object_or_404(
-        User.objects.prefetch_related("roles"),
+        User.objects.prefetch_related("roles").select_related("teacher_profile"),
         pk=pk,
     )
 
     roles = Role.objects.order_by("name")
     selected_roles = [str(r.id) for r in user_obj.roles.all()]
 
+    teacher_ijazah = None
+    is_teacher = getattr(user_obj, "user_type", None) == USER_TYPE_TEACHER
+    if is_teacher:
+        profile = getattr(user_obj, "teacher_profile", None)
+        ijazah_field = getattr(profile, "ijazah", None) if profile else None
+        if ijazah_field and ijazah_field.name:
+            filename = ijazah_field.name.rsplit("/", 1)[-1]
+            teacher_ijazah = {
+                "filename": filename,
+                "kind": _ijazah_file_kind(filename),
+                "url_name": "rbac:user_teacher_ijazah",
+            }
+
+    has_profile_image = bool(getattr(user_obj, "profile_image", None))
+
     context = {
         "tab": "users",
         "user_obj": user_obj,
         "roles": roles,
         "selected_roles": selected_roles,
+        "gender_label": _gender_label(user_obj),
+        "riwayat_value": build_profile_payload(user_obj).get("riwayat") or "-",
+        "is_teacher": is_teacher,
+        "teacher_ijazah": teacher_ijazah,
+        "has_profile_image": has_profile_image,
     }
     return render(request, "rbac/users/user_detail.html", context)
+
+
+@permission_required("users.detail")
+def user_profile_image(request, pk):
+    user_obj = get_object_or_404(User, pk=pk)
+    image = getattr(user_obj, "profile_image", None)
+    if not image or not image.name:
+        raise Http404
+    content_type, _ = mimetypes.guess_type(image.name)
+    try:
+        return FileResponse(
+            image.open("rb"),
+            content_type=content_type or "image/jpeg",
+        )
+    except (ValueError, FileNotFoundError) as exc:
+        raise Http404 from exc
+
+
+@permission_required("users.detail")
+def user_teacher_ijazah(request, pk):
+    user_obj = get_object_or_404(
+        User.objects.select_related("teacher_profile"),
+        pk=pk,
+    )
+    if getattr(user_obj, "user_type", None) != USER_TYPE_TEACHER:
+        raise Http404
+    profile = getattr(user_obj, "teacher_profile", None)
+    ijazah = getattr(profile, "ijazah", None) if profile else None
+    if not ijazah or not ijazah.name:
+        raise Http404
+    content_type, _ = mimetypes.guess_type(ijazah.name)
+    filename = ijazah.name.rsplit("/", 1)[-1]
+    try:
+        response = FileResponse(
+            ijazah.open("rb"),
+            content_type=content_type or "application/octet-stream",
+        )
+        disposition = "inline" if _ijazah_file_kind(filename) in {"image", "pdf"} else "attachment"
+        response["Content-Disposition"] = f'{disposition}; filename="{filename}"'
+        return response
+    except (ValueError, FileNotFoundError) as exc:
+        raise Http404 from exc
 
 
 @permission_required("users.update")

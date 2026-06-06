@@ -13,4 +13,7 @@ urlpatterns = [
     path("check-email/", views.check_email_api, name="check_email"),
     path("send-email-code/", views.send_email_code_api, name="send_email_code"),
     path("verify-email-code/", views.verify_email_code_api, name="verify_email_code"),
+    path("profile/", views.profile_api, name="profile"),
+    path("profile/update/", views.profile_update_api, name="profile_update"),
+    path("profile/avatar/", views.profile_avatar_api, name="profile_avatar"),
 ]

@@ -82,6 +82,13 @@ class User(AbstractUser):
         help_text="Firebase Authentication UID for Google/mobile sign-in",
     )
 
+    profile_image = models.ImageField(
+        upload_to="profile_images/",
+        blank=True,
+        null=True,
+        help_text="User profile photo",
+    )
+
     created_by = models.IntegerField(
         blank=True,
         null=True,

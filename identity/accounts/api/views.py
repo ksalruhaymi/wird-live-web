@@ -3,7 +3,7 @@ import json
 from django.contrib.auth import get_user_model, login, logout
 from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
-from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
 from identity.accounts.auth.email_verification_service import (
     check_email_available,
@@ -15,6 +15,11 @@ from identity.accounts.auth.login_service import login_user
 from identity.accounts.auth.registration_service import (
     register_account,
     validate_registration_payload,
+)
+from identity.accounts.auth.profile_service import (
+    build_profile_payload,
+    update_profile_avatar,
+    update_profile_fields,
 )
 from identity.accounts.auth.settings_service import is_db_login_allowed
 from identity.accounts.user_types import resolve_user_type_slug
@@ -84,6 +89,7 @@ def me(request):
             {
                 "authenticated": True,
                 "user": _user_payload(request.user),
+                "profile": build_profile_payload(request.user, request),
             }
         )
 
@@ -231,3 +237,65 @@ def google_auth_api(request):
 def logout_api(request):
     logout(request)
     return JsonResponse({"success": True})
+
+
+def _require_authenticated(request) -> JsonResponse | None:
+    if not request.user.is_authenticated:
+        return JsonResponse(
+            {"success": False, "message": "Not authenticated."},
+            status=401,
+        )
+    return None
+
+
+@require_http_methods(["GET"])
+def profile_api(request):
+    auth_error = _require_authenticated(request)
+    if auth_error:
+        return auth_error
+    return JsonResponse(
+        {
+            "success": True,
+            "profile": build_profile_payload(request.user, request),
+        }
+    )
+
+
+@require_http_methods(["PATCH"])
+def profile_update_api(request):
+    auth_error = _require_authenticated(request)
+    if auth_error:
+        return auth_error
+
+    data, err = _parse_json(request)
+    if err:
+        return err
+
+    allowed_keys = {"mobile", "riwayat"}
+    payload = {key: data[key] for key in allowed_keys if key in data}
+    if not payload:
+        return _error("لا توجد حقول للتحديث.", 400)
+
+    profile, message = update_profile_fields(request.user, payload, request=request)
+    if message:
+        return _error(message, 400)
+    return JsonResponse(
+        {
+            "success": True,
+            "profile": build_profile_payload(request.user, request),
+        }
+    )
+
+
+@require_POST
+def profile_avatar_api(request):
+    auth_error = _require_authenticated(request)
+    if auth_error:
+        return auth_error
+
+    uploaded = request.FILES.get("profile_image")
+    profile, message = update_profile_avatar(request.user, uploaded, request)
+    if message:
+        return _error(message, 400)
+    return JsonResponse({"success": True, "profile": profile})
+

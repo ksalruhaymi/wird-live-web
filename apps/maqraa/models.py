@@ -39,6 +39,10 @@ class StudentProfile(models.Model):
         related_name="student_profile",
     )
     display_name = models.CharField(max_length=255, blank=True)
+    riwayat = models.TextField(
+        blank=True,
+        help_text="Quranic recitation tradition (الرواية)",
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

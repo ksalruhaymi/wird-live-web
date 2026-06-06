@@ -12,6 +12,8 @@ urlpatterns = [
     path("users/", views.users_list, name="users_list"),
     path("users/create/", views.user_create, name="user_create"),
     path("users/<int:pk>/", views.user_detail, name="user_detail"),
+    path("users/<int:pk>/profile-image/", views.user_profile_image, name="user_profile_image"),
+    path("users/<int:pk>/ijazah/", views.user_teacher_ijazah, name="user_teacher_ijazah"),
     path("users/<int:pk>/toggle-active/", views.user_toggle_active, name="user_toggle_active"),
     path("users/<int:pk>/roles/update/", views.user_update_roles, name="user_update_roles"),
 
