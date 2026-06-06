@@ -64,6 +64,7 @@ class Command(BaseCommand):
             # Evaluations / recordings / chat
             ("evaluations.view", "عرض التقييمات"),
             ("recordings.view", "عرض التسجيلات"),
+            ("recordings.delete", "حذف التسجيلات"),
             ("chat.view", "عرض المحادثات"),
             # Notifications / messaging / communication
             ("notification.access", "الوصول إلى التنبيهات"),

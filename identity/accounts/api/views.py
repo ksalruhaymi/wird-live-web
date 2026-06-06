@@ -1,7 +1,8 @@
 import json
+import mimetypes
 
 from django.contrib.auth import get_user_model, login, logout
-from django.http import JsonResponse
+from django.http import FileResponse, JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
@@ -18,6 +19,8 @@ from identity.accounts.auth.registration_service import (
 )
 from identity.accounts.auth.profile_service import (
     build_profile_payload,
+    get_teacher_ijazah_file,
+    ijazah_file_kind,
     update_profile_avatar,
     update_profile_fields,
 )
@@ -298,4 +301,35 @@ def profile_avatar_api(request):
     if message:
         return _error(message, 400)
     return JsonResponse({"success": True, "profile": profile})
+
+
+@require_GET
+def profile_teacher_ijazah_api(request):
+    auth_error = _require_authenticated(request)
+    if auth_error:
+        return auth_error
+
+    if resolve_user_type_slug(request.user) != "teacher":
+        return _error("هذا الملف للمعلّمين فقط.", 403)
+
+    ijazah = get_teacher_ijazah_file(request.user)
+    if ijazah is None:
+        return _error("لا يوجد ملف إجازة.", 404)
+
+    content_type, _ = mimetypes.guess_type(ijazah.name)
+    filename = ijazah.name.rsplit("/", 1)[-1]
+    try:
+        response = FileResponse(
+            ijazah.open("rb"),
+            content_type=content_type or "application/octet-stream",
+        )
+        disposition = (
+            "inline"
+            if ijazah_file_kind(filename) in {"image", "pdf"}
+            else "attachment"
+        )
+        response["Content-Disposition"] = f'{disposition}; filename="{filename}"'
+        return response
+    except (ValueError, FileNotFoundError):
+        return _error("تعذر فتح الملف.", 404)
 

@@ -42,4 +42,5 @@ ANNOUNCEMENTS_DELETE = "announcements.delete"
 
 EVALUATIONS_VIEW = "evaluations.view"
 RECORDINGS_VIEW = "recordings.view"
+RECORDINGS_DELETE = "recordings.delete"
 CHAT_VIEW = "chat.view"

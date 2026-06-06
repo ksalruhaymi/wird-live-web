@@ -16,4 +16,9 @@ urlpatterns = [
     path("profile/", views.profile_api, name="profile"),
     path("profile/update/", views.profile_update_api, name="profile_update"),
     path("profile/avatar/", views.profile_avatar_api, name="profile_avatar"),
+    path(
+        "profile/teacher-files/ijazah/",
+        views.profile_teacher_ijazah_api,
+        name="profile_teacher_ijazah",
+    ),
 ]

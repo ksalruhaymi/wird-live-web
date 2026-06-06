@@ -30,6 +30,7 @@ from .views import (
     student_subscription_update,
     teacher_availability_list,
     session_evaluation_list,
+    call_recording_delete,
     call_recording_list,
     chat_conversation_list,
     chat_conversation_detail,
@@ -134,6 +135,11 @@ urlpatterns = [
     ),
     path("evaluations/", session_evaluation_list, name="session_evaluation_list"),
     path("recordings/", call_recording_list, name="call_recording_list"),
+    path(
+        "recordings/<int:pk>/delete/",
+        call_recording_delete,
+        name="call_recording_delete",
+    ),
     path("chat/", chat_conversation_list, name="chat_conversation_list"),
     path("chat/<int:pk>/", chat_conversation_detail, name="chat_conversation_detail"),
 ]

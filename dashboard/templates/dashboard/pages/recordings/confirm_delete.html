@@ -1,0 +1,35 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-lg mx-auto site-card p-6 space-y-4" dir-text>
+  <h2 class="site-title-md">حذف التسجيل</h2>
+  <p class="site-text text-sm">
+    هل تريد حذف هذا التسجيل نهائيًا؟
+  </p>
+  <p class="site-text text-sm text-red-700 font-semibold">
+    سيتم حذف سجل التسجيل من قاعدة البيانات وحذف ملف الصوت/الفيديو من التخزين السحابي (R2).
+    لا يمكن التراجع عن هذا الإجراء.
+  </p>
+
+  <div class="rounded-xl border site-border p-4 space-y-2 text-[12px]">
+    <div><span class="site-text-muted">رقم التسجيل:</span> <span class="font-semibold site-text">{{ recording.id }}</span></div>
+    <div><span class="site-text-muted">الطالب:</span> <span class="font-semibold site-text">{{ recording.student.username }}</span></div>
+    <div><span class="site-text-muted">المعلّم:</span> <span class="font-semibold site-text">{{ recording.teacher.username }}</span></div>
+    <div><span class="site-text-muted">التاريخ:</span> <span class="font-semibold site-text">{{ recording.created_at|date:"Y-m-d H:i" }}</span></div>
+    {% if object_key %}
+    <div><span class="site-text-muted">ملف التخزين:</span> <span class="font-mono site-text break-all">{{ object_key }}</span></div>
+    {% else %}
+    <div class="site-text-muted">لا يوجد ملف مرتبط في التخزين السحابي؛ سيتم حذف السجل فقط.</div>
+    {% endif %}
+  </div>
+
+  <form method="post" class="flex gap-3">
+    {% csrf_token %}
+    <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 text-white text-sm font-bold">
+      <i class="bi bi-trash-fill text-sm"></i>
+      حذف التسجيل
+    </button>
+    <a href="{% url 'dashboard:call_recording_list' %}" class="px-4 py-2 rounded-full border site-border text-sm site-text-muted">إلغاء</a>
+  </form>
+</div>
+{% endblock %}

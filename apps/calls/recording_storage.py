@@ -137,6 +137,26 @@ def generate_recording_signed_url(object_key: str) -> tuple[str, int]:
     return url, expires_in
 
 
+def delete_recording_object(object_key: str) -> None:
+    """Delete a recording object from R2. No-op when key is empty."""
+    key = (object_key or "").strip()
+    if not key:
+        return
+
+    bucket = (
+        getattr(settings, "AGORA_RECORDING_STORAGE_BUCKET", "") or ""
+    ).strip()
+    if not bucket:
+        raise RecordingStorageError("R2 bucket is not configured.")
+
+    try:
+        client = _get_r2_client()
+        client.delete_object(Bucket=bucket, Key=key)
+    except (BotoCoreError, ClientError) as exc:
+        logger.exception("Failed to delete R2 object for key %s", key)
+        raise RecordingStorageError("Could not delete recording file from storage.") from exc
+
+
 def user_can_access_recording(user, recording: CallRecording) -> bool:
     """Student/teacher party or dashboard user with recordings.view."""
     if not user or not user.is_authenticated:

@@ -119,6 +119,7 @@ def teacher_to_payload(
         "can_video": profile.can_video if profile else False,
         "last_seen": last_seen.isoformat() if last_seen else None,
         "profile_image_url": _resolve_profile_image_url(user, request),
+        "riwayat": (getattr(profile, "riwayat", "") or "").strip() or None,
     }
 
 

@@ -1,7 +1,10 @@
 """Build and update mobile user profile payloads."""
 
+import mimetypes
+
 from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import UploadedFile
+from django.urls import reverse
 
 from apps.maqraa.models import StudentProfile, TeacherProfile
 from core.services.phone_service import normalize_phone_number
@@ -16,6 +19,8 @@ _GENDER_LABELS = {
 
 _AVATAR_ALLOWED_EXTENSIONS = {".png", ".jpg", ".jpeg"}
 _AVATAR_MAX_BYTES = 2 * 1024 * 1024
+
+_IJAZAH_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 
 
 def _display_name(user) -> str:
@@ -55,6 +60,54 @@ def _resolve_riwayat(user) -> str:
     return ""
 
 
+def ijazah_file_kind(filename: str) -> str:
+    ext = (filename or "").rsplit(".", 1)[-1].lower()
+    if f".{ext}" in _IJAZAH_IMAGE_EXTENSIONS:
+        return "image"
+    if ext == "pdf":
+        return "pdf"
+    return "file"
+
+
+def ijazah_is_image(filename: str) -> bool:
+    return ijazah_file_kind(filename) == "image"
+
+
+def get_teacher_ijazah_file(user):
+    """Return the logged-in teacher's ijazah field, or None."""
+    if resolve_user_type_slug(user) != USER_TYPE_TEACHER:
+        return None
+    profile = getattr(user, "teacher_profile", None)
+    if profile is None:
+        return None
+    ijazah = getattr(profile, "ijazah", None)
+    if not ijazah or not ijazah.name:
+        return None
+    return ijazah
+
+
+def build_teacher_files_payload(user, request=None) -> list[dict]:
+    if resolve_user_type_slug(user) != USER_TYPE_TEACHER:
+        return []
+
+    ijazah = get_teacher_ijazah_file(user)
+    if ijazah is None:
+        return []
+
+    filename = ijazah.name.rsplit("/", 1)[-1]
+    url_path = reverse("accounts_auth_api:profile_teacher_ijazah")
+    url = request.build_absolute_uri(url_path) if request is not None else url_path
+    return [
+        {
+            "type": "ijazah",
+            "label": "ملف الإجازة",
+            "url": url,
+            "file_name": filename,
+            "is_image": ijazah_is_image(filename),
+        }
+    ]
+
+
 def build_profile_payload(user, request=None) -> dict:
     gender = (user.gender or "").strip() or None
     return {
@@ -69,6 +122,7 @@ def build_profile_payload(user, request=None) -> dict:
         "riwayat": _resolve_riwayat(user),
         "profile_image_url": _resolve_profile_image_url(user, request),
         "user_type": resolve_user_type_slug(user),
+        "teacher_files": build_teacher_files_payload(user, request),
     }
 
 

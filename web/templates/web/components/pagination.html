@@ -1,15 +1,15 @@
-{# Smart pagination partial: expects page_obj, page_numbers, tab #}
+{# Smart pagination partial: expects page_obj, page_numbers; optional tab, pagination_qs #}
 {% if page_obj.paginator.num_pages > 1 %}
 <div class="flex items-center justify-center mt-4 gap-1 text-[14px] font-bold" dir="ltr">
 
   {# Previous #}
   {% if page_obj.has_previous %}
-    <a href="?tab={{ tab }}&page=1"
+    <a href="?{% if pagination_qs %}{{ pagination_qs }}{% elif tab %}tab={{ tab }}&{% endif %}page=1"
        class="px-3 py-1 border rounded-sm site-border hover:site-surface"
        title="First">
       «
     </a>
-    <a href="?tab={{ tab }}&page={{ page_obj.previous_page_number }}"
+    <a href="?{% if pagination_qs %}{{ pagination_qs }}{% elif tab %}tab={{ tab }}&{% endif %}page={{ page_obj.previous_page_number }}"
        class="px-3 py-1 border rounded-sm site-border hover:site-surface">
       ‹
     </a>
@@ -23,7 +23,7 @@
           {{ num }}
         </span>
       {% else %}
-        <a href="?tab={{ tab }}&page={{ num }}"
+        <a href="?{% if pagination_qs %}{{ pagination_qs }}{% elif tab %}tab={{ tab }}&{% endif %}page={{ num }}"
            class="px-3 py-1 border rounded-sm site-border hover:site-surface">
           {{ num }}
         </a>
@@ -35,11 +35,11 @@
 
   {# Next #}
   {% if page_obj.has_next %}
-    <a href="?tab={{ tab }}&page={{ page_obj.next_page_number }}"
+    <a href="?{% if pagination_qs %}{{ pagination_qs }}{% elif tab %}tab={{ tab }}&{% endif %}page={{ page_obj.next_page_number }}"
        class="px-3 py-1 border rounded-sm site-border hover:site-surface">
       ›
     </a>
-    <a href="?tab={{ tab }}&page={{ page_obj.paginator.num_pages }}"
+    <a href="?{% if pagination_qs %}{{ pagination_qs }}{% elif tab %}tab={{ tab }}&{% endif %}page={{ page_obj.paginator.num_pages }}"
        class="px-3 py-1 border rounded-sm site-border hover:site-surface"
        title="Last">
       »
