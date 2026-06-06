@@ -122,3 +122,21 @@ class SystemAuthSettings(models.Model):
     def get_settings(cls):
         obj, _ = cls.objects.get_or_create(pk=1)
         return obj
+
+
+class EmailRegistrationVerification(models.Model):
+    email = models.EmailField(db_index=True)
+    code_hash = models.CharField(max_length=128)
+    verification_token = models.CharField(max_length=64, blank=True, null=True, unique=True)
+    expires_at = models.DateTimeField()
+    verified_at = models.DateTimeField(blank=True, null=True)
+    token_expires_at = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["email", "-created_at"]),
+        ]
+
+    def __str__(self):
+        return f"Email verification for {self.email}"

@@ -1,19 +1,23 @@
 import json
-from datetime import datetime
 
 from django.contrib.auth import get_user_model, login, logout
 from django.http import JsonResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST
 
+from identity.accounts.auth.email_verification_service import (
+    check_email_available,
+    send_registration_code,
+    verify_registration_code,
+)
 from identity.accounts.auth.google_auth_service import authenticate_with_google
 from identity.accounts.auth.login_service import login_user
 from identity.accounts.auth.registration_service import (
     register_account,
     validate_registration_payload,
 )
-from identity.accounts.user_types import resolve_user_type_slug
 from identity.accounts.auth.settings_service import is_db_login_allowed
+from identity.accounts.user_types import resolve_user_type_slug
 
 User = get_user_model()
 
@@ -24,18 +28,6 @@ def _display_name(user) -> str:
         return name
     full = (user.get_full_name() or "").strip()
     return full or user.username
-
-
-def _user_type_slug(user) -> str:
-    if getattr(user, "user_type", None) == USER_TYPE_TEACHER:
-        return "teacher"
-    if getattr(user, "user_type", None) == USER_TYPE_STUDENT:
-        return "student"
-    if hasattr(user, "teacher_profile"):
-        return "teacher"
-    if hasattr(user, "student_profile"):
-        return "student"
-    return "student"
 
 
 def _user_payload(user) -> dict:
@@ -73,6 +65,15 @@ def _parse_json(request) -> tuple[dict | None, JsonResponse | None]:
         return None, _error("Invalid JSON.", 400)
 
     return data, None
+
+
+def _parse_request_data(request) -> tuple[dict | None, object | None, JsonResponse | None]:
+    content_type = (request.content_type or "").lower()
+    if "multipart/form-data" in content_type:
+        return request.POST.dict(), request.FILES.get("ijazah"), None
+
+    data, err = _parse_json(request)
+    return data, None, err
 
 
 @ensure_csrf_cookie
@@ -125,7 +126,21 @@ def login_api(request):
 
 
 @require_POST
-def register_api(request):
+def check_email_api(request):
+    data, err = _parse_json(request)
+    if err:
+        return err
+
+    email = (data.get("email") or "").strip()
+    available, message = check_email_available(email)
+    if not available:
+        return _error(message or "هذا البريد مستخدم مسبقًا", 400)
+
+    return JsonResponse({"success": True, "available": True})
+
+
+@require_POST
+def send_email_code_api(request):
     if not is_db_login_allowed():
         return _error("Registration is disabled.", 403)
 
@@ -133,7 +148,43 @@ def register_api(request):
     if err:
         return err
 
-    payload, message = validate_registration_payload(data)
+    email = (data.get("email") or "").strip()
+    sent, message = send_registration_code(email)
+    if not sent:
+        return _error(message or "تعذر إرسال رمز التحقق.", 400)
+
+    return JsonResponse({"success": True})
+
+
+@require_POST
+def verify_email_code_api(request):
+    data, err = _parse_json(request)
+    if err:
+        return err
+
+    email = (data.get("email") or "").strip()
+    code = (data.get("code") or "").strip()
+    token, message = verify_registration_code(email, code)
+    if not token:
+        return _error(message or "رمز التحقق غير صالح.", 400)
+
+    return JsonResponse({"success": True, "verification_token": token})
+
+
+@require_POST
+def register_api(request):
+    if not is_db_login_allowed():
+        return _error("Registration is disabled.", 403)
+
+    data, ijazah_file, err = _parse_request_data(request)
+    if err:
+        return err
+
+    payload, message = validate_registration_payload(
+        data,
+        ijazah_file=ijazah_file,
+        require_verification_token=True,
+    )
     if message:
         return _error(message, 400)
 
@@ -142,6 +193,9 @@ def register_api(request):
         email=payload["email"],
         password=payload["password"],
         user_type_value=payload["user_type_value"],
+        gender=payload["gender"],
+        riwayat=payload["riwayat"],
+        ijazah_file=payload["ijazah_file"],
     )
 
     login(request, user, backend="django.contrib.auth.backends.ModelBackend")
@@ -150,11 +204,11 @@ def register_api(request):
 
 @require_POST
 def google_auth_api(request):
-    data, err = _parse_json(request)
+    data, ijazah_file, err = _parse_request_data(request)
     if err:
         return err
 
-    outcome = authenticate_with_google(request, data)
+    outcome = authenticate_with_google(request, data, ijazah_file=ijazah_file)
 
     if outcome.status == "ok" and outcome.user is not None:
         return _success(outcome.user, status=outcome.http_status)

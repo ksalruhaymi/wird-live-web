@@ -3,12 +3,16 @@ from dataclasses import dataclass
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth import login as auth_login
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
 from django.db import transaction
 
 from apps.maqraa.models import StudentProfile, TeacherAvailability, TeacherProfile
 from identity.accounts.auth.registration_service import (
     _assign_role_for_user_type,
+    parse_gender,
     username_from_email,
+    validate_ijazah_file,
 )
 from identity.accounts.auth.settings_service import is_db_login_allowed
 from identity.accounts.user_types import (
@@ -119,6 +123,9 @@ def _register_google_user(
     firebase_uid: str,
     user_type_value: int,
     gender: str | None,
+    riwayat: str = "",
+    ijazah_file=None,
+    password: str | None = None,
 ) -> User:
     username = username_from_email(email)
     if not username:
@@ -142,7 +149,10 @@ def _register_google_user(
         is_staff=False,
         is_superuser=False,
     )
-    user.set_unusable_password()
+    if password:
+        user.set_password(password)
+    else:
+        user.set_unusable_password()
     user.save()
 
     _assign_role_for_user_type(user, user_type_value)
@@ -151,6 +161,8 @@ def _register_google_user(
         TeacherProfile.objects.create(
             user=user,
             display_name=full_name.strip(),
+            riwayat=riwayat.strip(),
+            ijazah=ijazah_file,
             is_approved=True,
             can_audio=True,
             can_video=True,
@@ -168,7 +180,7 @@ def _register_google_user(
     return user
 
 
-def authenticate_with_google(request, data: dict) -> GoogleAuthOutcome:
+def authenticate_with_google(request, data: dict, *, ijazah_file=None) -> GoogleAuthOutcome:
     id_token = (data.get("id_token") or "").strip()
     client_uid = (data.get("firebase_uid") or "").strip()
 
@@ -236,7 +248,11 @@ def authenticate_with_google(request, data: dict) -> GoogleAuthOutcome:
             return GoogleAuthOutcome(status="ok", user=email_user, http_status=200)
 
     user_type_raw = data.get("user_type")
-    user_type_value, gender, type_error = parse_google_user_type(user_type_raw)
+    user_type_value, gender_from_type, type_error = parse_google_user_type(user_type_raw)
+    gender_override, gender_error = parse_gender(data.get("gender"))
+    if gender_error and user_type_value is not None:
+        return GoogleAuthOutcome(status="error", message=gender_error, http_status=400)
+    gender = gender_override or gender_from_type
     if type_error:
         return GoogleAuthOutcome(
             status="error",
@@ -250,6 +266,18 @@ def authenticate_with_google(request, data: dict) -> GoogleAuthOutcome:
             code="account_type_required",
             http_status=400,
         )
+
+    riwayat = (data.get("riwayat") or "").strip()
+    if user_type_value == USER_TYPE_TEACHER:
+        if not riwayat:
+            return GoogleAuthOutcome(
+                status="error",
+                message="الروايات مطلوبة.",
+                http_status=400,
+            )
+        ijazah_err = validate_ijazah_file(ijazah_file)
+        if ijazah_err:
+            return GoogleAuthOutcome(status="error", message=ijazah_err, http_status=400)
 
     if not is_db_login_allowed():
         return GoogleAuthOutcome(
@@ -265,7 +293,24 @@ def authenticate_with_google(request, data: dict) -> GoogleAuthOutcome:
             http_status=400,
         )
 
-    display_name = verified_name or verified_email.split("@", 1)[0]
+    display_name = verified_name or (data.get("full_name") or "").strip() or verified_email.split("@", 1)[0]
+    password = (data.get("password") or "").strip()
+    confirm_password = (data.get("confirm_password") or data.get("password_confirm") or "").strip()
+    if password:
+        if confirm_password and confirm_password != password:
+            return GoogleAuthOutcome(
+                status="error",
+                message="كلمة المرور وتأكيدها غير متطابقين.",
+                http_status=400,
+            )
+        try:
+            validate_password(password)
+        except ValidationError as exc:
+            return GoogleAuthOutcome(
+                status="error",
+                message=" ".join(exc.messages),
+                http_status=400,
+            )
 
     try:
         user = _register_google_user(
@@ -274,6 +319,9 @@ def authenticate_with_google(request, data: dict) -> GoogleAuthOutcome:
             firebase_uid=verified_uid,
             user_type_value=user_type_value,
             gender=gender,
+            riwayat=riwayat,
+            ijazah_file=ijazah_file,
+            password=password or None,
         )
     except ValueError as exc:
         code = str(exc)

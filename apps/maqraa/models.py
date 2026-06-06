@@ -14,6 +14,13 @@ class TeacherProfile(models.Model):
     is_approved = models.BooleanField(default=False)
     can_audio = models.BooleanField(default=True)
     can_video = models.BooleanField(default=True)
+    riwayat = models.TextField(blank=True, help_text="Quranic recitation traditions the teacher knows")
+    ijazah = models.FileField(
+        upload_to="teacher_ijazah/",
+        blank=True,
+        null=True,
+        help_text="Teacher Quran ijazah certificate",
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
