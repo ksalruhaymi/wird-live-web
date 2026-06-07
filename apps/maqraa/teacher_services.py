@@ -29,6 +29,7 @@ COMPUTED_STATUS_LABELS_AR = {
 }
 
 DEMO_CALL_MESSAGE = "هذه جلسة تجريبية آلية لاختبار الاتصال."
+DEMO_STATUS_LABEL = "متاح للتجربة"
 
 
 def is_demo_teacher(user) -> bool:
@@ -127,19 +128,27 @@ def teacher_to_payload(
         user,
         active_teacher_ids=active_teacher_ids,
     )
+    demo = bool(profile and profile.is_demo_teacher)
+    if demo and status != COMPUTED_BUSY:
+        status = COMPUTED_AVAILABLE
+
+    status_label = computed_status_label(status)
+    if demo and status == COMPUTED_AVAILABLE:
+        status_label = DEMO_STATUS_LABEL
 
     return {
         "id": user.id,
         "full_name": teacher_display_name(user),
         "username": user.username,
         "status": status,
+        "status_label": status_label,
         "can_audio": profile.can_audio if profile else False,
         "can_video": profile.can_video if profile else False,
         "last_seen": last_seen.isoformat() if last_seen else None,
         "profile_image_url": _resolve_profile_image_url(user, request),
         "riwayat": (getattr(profile, "riwayat", "") or "").strip() or None,
         "rating_percent": rating_percent if rating_percent is not None else 0,
-        "is_demo_teacher": bool(profile and profile.is_demo_teacher),
+        "is_demo_teacher": demo,
         "auto_accept_calls": bool(profile and profile.auto_accept_calls),
     }
 

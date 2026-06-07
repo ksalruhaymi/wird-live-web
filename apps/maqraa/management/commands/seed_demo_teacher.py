@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from django.db import transaction
+from django.utils import timezone
 
 from apps.maqraa.models import TeacherAvailability, TeacherProfile
 from identity.accounts.user_types import USER_TYPE_TEACHER
@@ -68,10 +69,13 @@ class Command(BaseCommand):
         profile.auto_accept_calls = True
         profile.save()
 
-        TeacherAvailability.objects.get_or_create(
+        availability, _ = TeacherAvailability.objects.get_or_create(
             teacher=user,
-            defaults={"status": TeacherAvailability.Status.OFFLINE},
+            defaults={"status": TeacherAvailability.Status.ONLINE},
         )
+        availability.last_seen = timezone.now()
+        availability.status = TeacherAvailability.Status.ONLINE
+        availability.save(update_fields=["last_seen", "status", "updated_at"])
 
         if created or profile_created:
             self.stdout.write(
