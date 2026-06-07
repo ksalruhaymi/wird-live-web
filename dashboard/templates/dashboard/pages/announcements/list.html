@@ -1,4 +1,5 @@
 {% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
 
 {% block dashboard_content %}
 <div class="max-w-6xl mx-auto space-y-6" dir-text>
@@ -6,9 +7,11 @@
   {% url 'dashboard:announcement_list' as announcements_list_url %}
   {% include "dashboard/partials/page_tabs_header.html" with title="الإعلانات" icon="bi-megaphone-fill" subtitle="إدارة صور الإعلانات الظاهرة في تطبيق وِرْد لايف (آخر 3 مفعّلة)" tab1_url=announcements_list_url tab1_label="الإعلانات" tab1_icon="bi-megaphone-fill" tab1_active="1" only %}
 
+  {% if request.user|can_access:"announcements.create" %}
   <div class="flex items-center justify-end">
     {% include "dashboard/partials/headers/announcement_add_action.html" %}
   </div>
+  {% endif %}
 
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_announcements per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
@@ -73,15 +76,19 @@
           <td class="px-4 py-2">
             <div class="flex items-center justify-center gap-2">
               {% url 'dashboard:announcement_detail' ann.id as view_url %}
-              {% url 'dashboard:announcement_update' ann.id as edit_url %}
-              {% url 'dashboard:announcement_delete' ann.id as delete_url %}
               {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
+              {% if request.user|can_access:"announcements.update" %}
+              {% url 'dashboard:announcement_update' ann.id as edit_url %}
               {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
               <form method="post" action="{% url 'dashboard:announcement_toggle_active' ann.id %}" class="inline-flex">
                 {% csrf_token %}
                 {% include "dashboard/partials/action_icon_toggle.html" with is_active=ann.is_active %}
               </form>
+              {% endif %}
+              {% if request.user|can_access:"announcements.delete" %}
+              {% url 'dashboard:announcement_delete' ann.id as delete_url %}
               {% include "dashboard/partials/action_icon_delete.html" with url=delete_url %}
+              {% endif %}
             </div>
           </td>
         </tr>

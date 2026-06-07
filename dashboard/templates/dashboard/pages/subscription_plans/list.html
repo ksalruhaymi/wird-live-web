@@ -1,4 +1,5 @@
 {% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
 
 {% block dashboard_content %}
 <div class="max-w-6xl mx-auto space-y-6" dir-text>
@@ -6,6 +7,7 @@
   {% url 'dashboard:subscription_plan_list' as subscription_plans_list_url %}
   {% include "dashboard/partials/page_tabs_header.html" with title="باقات الاشتراك" icon="bi-box-seam-fill" subtitle="إدارة بطاقات الباقات المعروضة في التطبيق" tab1_url=subscription_plans_list_url tab1_label="باقات الاشتراك" tab1_icon="bi-box-seam-fill" tab1_active="1" only %}
 
+  {% if request.user|can_access:"subscriptions.create" %}
   <div class="flex items-center justify-end">
     <a href="{% url 'dashboard:subscription_plan_create' %}"
        class="inline-flex items-center gap-2 px-4 py-2 rounded-full
@@ -15,6 +17,7 @@
       إضافة باقة
     </a>
   </div>
+  {% endif %}
 
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_plans per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
@@ -71,14 +74,18 @@
           </td>
           <td class="px-4 py-2">
             <div class="flex items-center justify-center gap-2">
+              {% if request.user|can_access:"subscriptions.update" %}
               {% url 'dashboard:subscription_plan_update' plan.id as edit_url %}
-              {% url 'dashboard:subscription_plan_delete' plan.id as delete_url %}
               {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
               <form method="post" action="{% url 'dashboard:subscription_plan_toggle_active' plan.id %}" class="inline-flex">
                 {% csrf_token %}
                 {% include "dashboard/partials/action_icon_toggle.html" with is_active=plan.is_active %}
               </form>
+              {% endif %}
+              {% if request.user|can_access:"subscriptions.delete" %}
+              {% url 'dashboard:subscription_plan_delete' plan.id as delete_url %}
               {% include "dashboard/partials/action_icon_delete.html" with url=delete_url %}
+              {% endif %}
             </div>
           </td>
         </tr>

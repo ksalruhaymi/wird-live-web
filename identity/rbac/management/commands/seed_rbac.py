@@ -102,15 +102,24 @@ class Command(BaseCommand):
 
         all_codes = [code for code, _ in permissions_data]
 
+        # Supervisor (مشرف): view/create/update/toggle on dashboard modules; no delete.
         supervisor_permissions = [
             "dashboard.access",
             "overview.access",
-            "calls.view",
-            "teachers.view",
-            "teachers.availability.view",
             "subscriptions.view",
+            "subscriptions.create",
+            "subscriptions.update",
             "announcements.view",
+            "announcements.create",
+            "announcements.update",
+            "app_notifications.view",
+            "app_notifications.create",
+            "app_notifications.update",
+            "calls.view",
+            "teachers.availability.view",
             "evaluations.view",
+            "evaluations.create",
+            "evaluations.update",
             "recordings.view",
         ]
 

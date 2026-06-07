@@ -1,4 +1,5 @@
 {% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
 
 {% block dashboard_content %}
 <div class="max-w-7xl mx-auto space-y-6" dir-text>
@@ -19,11 +20,13 @@
   <div class="site-card p-5">
     <div class="flex items-center justify-between gap-3 mb-4">
       <h3 class="text-sm font-bold site-text">الاشتراك الحالي</h3>
+      {% if request.user|can_access:"subscriptions.update" %}
       <a href="{% url 'dashboard:student_subscription_balance_update' user.id %}"
          class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-green-50 text-green-600 text-[11px] font-bold hover:bg-green-100 transition">
         <i class="bi bi-pencil"></i>
         <span>تعديل</span>
       </a>
+      {% endif %}
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-[12px]">
       <div>
@@ -94,16 +97,20 @@
             <td class="px-4 py-2 site-text-muted">{{ sub.created_at|date:"Y-m-d H:i" }}</td>
             <td class="px-4 py-2">
               <div class="flex items-center justify-center gap-2">
+                {% if request.user|can_access:"subscriptions.update" %}
                 <a href="{% url 'dashboard:student_subscription_update' sub.id %}"
                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-green-50 text-green-600 hover:bg-green-100 transition"
                    title="تعديل">
                   <i class="bi bi-pencil"></i>
                 </a>
+                {% endif %}
+                {% if request.user|can_access:"subscriptions.delete" %}
                 <a href="{% url 'dashboard:student_subscription_delete' sub.id %}"
                    class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-red-50 text-red-600 hover:bg-red-100 transition"
                    title="حذف">
                   <i class="bi bi-trash"></i>
                 </a>
+                {% endif %}
               </div>
             </td>
           </tr>
