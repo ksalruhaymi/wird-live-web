@@ -114,7 +114,9 @@ class User(AbstractUser):
     def has_permission(self, code: str) -> bool:
         if self.is_superuser:
             return True
-        return self.roles.filter(permissions__code=code).exists()
+        from identity.rbac.resolver import user_has_permission
+
+        return user_has_permission(self, code)
 
 
 class SystemAuthSettings(models.Model):
