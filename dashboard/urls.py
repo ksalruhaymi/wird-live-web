@@ -33,6 +33,7 @@ from .views import (
     rating_question_create,
     rating_question_update,
     rating_question_delete,
+    rating_category_toggle,
     call_recording_delete,
     call_recording_list,
     mobile_app_config_settings,
@@ -150,6 +151,11 @@ urlpatterns = [
         "evaluations/questions/<int:pk>/delete/",
         rating_question_delete,
         name="rating_question_delete",
+    ),
+    path(
+        "evaluations/categories/<str:category>/toggle/",
+        rating_category_toggle,
+        name="rating_category_toggle",
     ),
     path("recordings/", call_recording_list, name="call_recording_list"),
     path(

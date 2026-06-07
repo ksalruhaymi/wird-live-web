@@ -1,6 +1,11 @@
 from django.contrib import admin
 
-from .models import CallPeerRatingAnswer, CallSession, RatingQuestion
+from .models import (
+    CallPeerRatingAnswer,
+    CallSession,
+    RatingCategoryConfig,
+    RatingQuestion,
+)
 
 
 @admin.register(CallSession)
@@ -24,6 +29,12 @@ class CallSessionAdmin(admin.ModelAdmin):
         "channel_name",
     )
     raw_id_fields = ("student", "teacher")
+
+
+@admin.register(RatingCategoryConfig)
+class RatingCategoryConfigAdmin(admin.ModelAdmin):
+    list_display = ("category", "is_active", "updated_at")
+    list_filter = ("is_active",)
 
 
 @admin.register(RatingQuestion)

@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render
 
-from apps.calls.models import CallPeerRating, RatingQuestion
+from apps.calls.models import CallPeerRating, RatingCategoryConfig, RatingQuestion
 from apps.calls.rating_service import CATEGORY_LABELS_AR
 from identity.rbac.decorators import permissions_required
 
@@ -33,12 +33,18 @@ def session_evaluation_list(request):
     if status_filter in {s[0] for s in CallPeerRating.Status.choices}:
         qs = qs.filter(status=status_filter)
 
+    category_configs = {
+        row.category: row
+        for row in RatingCategoryConfig.objects.all()
+    }
     question_groups = []
     for category, _label in RatingQuestion.Category.choices:
+        config = category_configs.get(category)
         question_groups.append(
             {
                 "category": category,
                 "label": CATEGORY_LABELS_AR.get(category, category),
+                "is_active": config.is_active if config else True,
                 "questions": list(
                     RatingQuestion.objects.filter(category=category).order_by(
                         "order", "id"

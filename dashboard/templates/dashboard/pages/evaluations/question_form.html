@@ -37,12 +37,6 @@
                class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
       </div>
 
-      <label class="inline-flex items-center gap-2 text-sm site-text cursor-pointer">
-        <input type="checkbox" name="is_active" class="rounded border site-border"
-               {% if initial.is_active %}checked{% endif %}>
-        <span>مفعّل</span>
-      </label>
-
       <div class="flex gap-3 pt-2">
         <button type="submit" class="px-5 py-2 rounded-full site-btn-primary text-sm font-bold">حفظ</button>
         <a href="{% url 'dashboard:session_evaluation_list' %}"

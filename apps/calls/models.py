@@ -193,6 +193,24 @@ class RatingQuestion(models.Model):
         return f"{self.get_category_display()}: {self.question_text[:40]}"
 
 
+class RatingCategoryConfig(models.Model):
+    category = models.CharField(
+        max_length=20,
+        choices=RatingQuestion.Category.choices,
+        unique=True,
+        verbose_name="نوع التقييم",
+    )
+    is_active = models.BooleanField(default=True, verbose_name="مفعّل")
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "إعداد نوع التقييم"
+        verbose_name_plural = "إعدادات أنواع التقييم"
+
+    def __str__(self):
+        return f"{self.get_category_display()} ({'active' if self.is_active else 'inactive'})"
+
+
 class CallPeerRatingAnswer(models.Model):
     rating = models.ForeignKey(
         CallPeerRating,

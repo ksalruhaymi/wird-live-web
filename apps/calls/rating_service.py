@@ -3,7 +3,13 @@ from django.db.models import Avg, F
 
 from apps.maqraa.teacher_services import is_demo_teacher
 
-from .models import CallPeerRating, CallPeerRatingAnswer, CallSession, RatingQuestion
+from .models import (
+    CallPeerRating,
+    CallPeerRatingAnswer,
+    CallSession,
+    RatingCategoryConfig,
+    RatingQuestion,
+)
 from .services import student_display_name, teacher_display_name
 
 
@@ -50,14 +56,24 @@ def questions_type_for_rating(rating: CallPeerRating) -> str:
     return RatingQuestion.Category.TEACHER
 
 
-def active_questions_for_type(category: str) -> list[RatingQuestion]:
-    if category not in {c[0] for c in RatingQuestion.Category.choices}:
+def _valid_categories() -> set[str]:
+    return {c[0] for c in RatingQuestion.Category.choices}
+
+
+def is_category_active(category: str) -> bool:
+    if category not in _valid_categories():
+        return False
+    config = RatingCategoryConfig.objects.filter(category=category).first()
+    if config is None:
+        return True
+    return config.is_active
+
+
+def questions_for_type(category: str) -> list[RatingQuestion]:
+    if category not in _valid_categories():
         return []
     return list(
-        RatingQuestion.objects.filter(
-            category=category,
-            is_active=True,
-        ).order_by("order", "id")
+        RatingQuestion.objects.filter(category=category).order_by("order", "id")
     )
 
 
@@ -71,10 +87,18 @@ def question_to_payload(question: RatingQuestion) -> dict:
 
 
 def list_questions_payload(category: str) -> dict:
-    questions = active_questions_for_type(category)
+    if not is_category_active(category):
+        return {
+            "success": True,
+            "type": category,
+            "rating_active": False,
+            "questions": [],
+        }
+    questions = questions_for_type(category)
     return {
         "success": True,
         "type": category,
+        "rating_active": True,
         "questions": [question_to_payload(q) for q in questions],
     }
 
@@ -103,7 +127,7 @@ def _parse_answers_payload(
 
     question_map = {q.id: q for q in questions}
     if not question_map:
-        return None, "لا توجد أسئلة تقييم مفعّلة لهذا النوع."
+        return None, "لا توجد أسئلة تقييم لهذا النوع."
 
     parsed: list[tuple[RatingQuestion, int]] = []
     seen_ids: set[int] = set()
@@ -136,7 +160,10 @@ def _parse_answers_payload(
 @transaction.atomic
 def submit_peer_rating(rating: CallPeerRating, data: dict) -> tuple[CallPeerRating | None, str | None]:
     questions_type = questions_type_for_rating(rating)
-    questions = active_questions_for_type(questions_type)
+    if not is_category_active(questions_type):
+        return None, "التقييم غير مفعّل لهذا النوع."
+
+    questions = questions_for_type(questions_type)
 
     parsed, error = _parse_answers_payload(data, questions=questions)
     if error:
@@ -203,6 +230,7 @@ def rating_to_payload(rating: CallPeerRating) -> dict:
         peer_name = student_display_name(rating.rated)
         peer_role = "student"
 
+    questions_type = questions_type_for_rating(rating)
     return {
         "id": rating.id,
         "call_id": call.id,
@@ -210,7 +238,8 @@ def rating_to_payload(rating: CallPeerRating) -> dict:
         "rater_role": rating.rater_role,
         "peer_name": peer_name,
         "peer_role": peer_role,
-        "questions_type": questions_type_for_rating(rating),
+        "questions_type": questions_type,
+        "rating_active": is_category_active(questions_type),
         "competence": rating.competence,
         "clarity": rating.clarity,
         "audio_quality": rating.audio_quality,

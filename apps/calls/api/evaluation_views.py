@@ -73,10 +73,15 @@ def pending_evaluations(request):
         .filter(status=CallPeerRating.Status.PENDING)
         .order_by("-created_at", "-id")
     )
+    evaluations = [
+        payload
+        for r in qs
+        if (payload := rating_to_payload(r)).get("rating_active")
+    ]
     return JsonResponse(
         {
             "success": True,
-            "evaluations": [rating_to_payload(r) for r in qs],
+            "evaluations": evaluations,
         }
     )
 

@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.db import transaction
 
-from apps.calls.models import RatingQuestion
+from apps.calls.models import RatingCategoryConfig, RatingQuestion
 
 DEFAULT_QUESTIONS = [
     (
@@ -39,6 +39,10 @@ class Command(BaseCommand):
         updated = 0
 
         for category, questions in DEFAULT_QUESTIONS:
+            RatingCategoryConfig.objects.update_or_create(
+                category=category,
+                defaults={"is_active": True},
+            )
             for text, order in questions:
                 obj, was_created = RatingQuestion.objects.update_or_create(
                     category=category,

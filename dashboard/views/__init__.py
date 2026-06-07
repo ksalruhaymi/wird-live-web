@@ -26,6 +26,7 @@ from .student_subscriptions import (
 from .call_recordings import call_recording_delete, call_recording_list
 from .mobile_app_config import mobile_app_config_settings
 from .rating_questions import (
+    rating_category_toggle,
     rating_question_create,
     rating_question_delete,
     rating_question_update,
@@ -72,6 +73,7 @@ __all__ = [
     "rating_question_create",
     "rating_question_update",
     "rating_question_delete",
+    "rating_category_toggle",
     "call_recording_list",
     "call_recording_delete",
     "mobile_app_config_settings",

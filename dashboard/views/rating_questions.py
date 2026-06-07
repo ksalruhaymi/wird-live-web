@@ -1,8 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_POST
 
-from apps.calls.models import RatingQuestion
+from apps.calls.models import RatingCategoryConfig, RatingQuestion
 from apps.calls.rating_service import CATEGORY_LABELS_AR
 from identity.rbac.decorators import permissions_required
 
@@ -12,7 +13,6 @@ def _parse_question_form(post):
     category = (post.get("category") or "").strip()
     question_text = (post.get("question_text") or "").strip()
     order_raw = (post.get("order") or "").strip()
-    is_active = post.get("is_active") == "on"
 
     valid_categories = {c[0] for c in RatingQuestion.Category.choices}
     if category not in valid_categories:
@@ -33,7 +33,6 @@ def _parse_question_form(post):
         "category": category,
         "question_text": question_text,
         "order": order,
-        "is_active": is_active,
     }, errors
 
 
@@ -41,7 +40,6 @@ def _apply_question(instance: RatingQuestion, data: dict) -> RatingQuestion:
     instance.category = data["category"]
     instance.question_text = data["question_text"]
     instance.order = data["order"]
-    instance.is_active = data["is_active"]
     instance.max_stars = 5
     instance.save()
     return instance
@@ -53,7 +51,6 @@ def rating_question_create(request):
     initial = {
         "category": RatingQuestion.Category.TEACHER,
         "order": 1,
-        "is_active": True,
     }
 
     if request.method == "POST":
@@ -88,7 +85,6 @@ def rating_question_update(request, pk):
         "category": question.category,
         "question_text": question.question_text,
         "order": question.order,
-        "is_active": question.is_active,
     }
 
     if request.method == "POST":
@@ -131,3 +127,27 @@ def rating_question_delete(request, pk):
         "dashboard/pages/evaluations/question_confirm_delete.html",
         {"question": question, "category_labels": CATEGORY_LABELS_AR},
     )
+
+
+@login_required
+@permissions_required("dashboard.access", "evaluations.update")
+@require_POST
+def rating_category_toggle(request, category):
+    valid = {c[0] for c in RatingQuestion.Category.choices}
+    if category not in valid:
+        messages.error(request, "نوع التقييم غير صالح.")
+        return redirect("dashboard:session_evaluation_list")
+
+    config, _ = RatingCategoryConfig.objects.get_or_create(
+        category=category,
+        defaults={"is_active": True},
+    )
+    config.is_active = not config.is_active
+    config.save(update_fields=["is_active", "updated_at"])
+
+    label = CATEGORY_LABELS_AR.get(category, category)
+    if config.is_active:
+        messages.success(request, f"تم تفعيل {label}.")
+    else:
+        messages.success(request, f"تم تعطيل {label}.")
+    return redirect("dashboard:session_evaluation_list")
