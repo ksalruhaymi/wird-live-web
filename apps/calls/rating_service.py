@@ -1,9 +1,17 @@
+from django.db import transaction
 from django.db.models import Avg, F
 
-from apps.maqraa.teacher_services import teacher_display_name
+from apps.maqraa.teacher_services import is_demo_teacher
 
-from .models import CallPeerRating, CallSession
-from .services import student_display_name
+from .models import CallPeerRating, CallPeerRatingAnswer, CallSession, RatingQuestion
+from .services import student_display_name, teacher_display_name
+
+
+CATEGORY_LABELS_AR = {
+    RatingQuestion.Category.TEACHER: "تقييم المعلم",
+    RatingQuestion.Category.STUDENT: "تقييم الطالب",
+    RatingQuestion.Category.DEMO_TEACHER: "تقييم المعلم التجريبي",
+}
 
 
 def _duration_seconds(call: CallSession) -> int:
@@ -20,6 +28,145 @@ def _validate_score(value) -> int | None:
     if 1 <= score <= 5:
         return score
     return None
+
+
+def _demo_teacher_user_ids() -> set[int]:
+    from apps.maqraa.models import TeacherProfile
+
+    return set(
+        TeacherProfile.objects.filter(is_demo_teacher=True).values_list(
+            "user_id", flat=True
+        )
+    )
+
+
+def questions_type_for_rating(rating: CallPeerRating) -> str:
+    if rating.rater_role == CallPeerRating.RaterRole.TEACHER:
+        return RatingQuestion.Category.STUDENT
+    call = rating.call_session
+    teacher = call.teacher
+    if teacher and is_demo_teacher(teacher):
+        return RatingQuestion.Category.DEMO_TEACHER
+    return RatingQuestion.Category.TEACHER
+
+
+def active_questions_for_type(category: str) -> list[RatingQuestion]:
+    if category not in {c[0] for c in RatingQuestion.Category.choices}:
+        return []
+    return list(
+        RatingQuestion.objects.filter(
+            category=category,
+            is_active=True,
+        ).order_by("order", "id")
+    )
+
+
+def question_to_payload(question: RatingQuestion) -> dict:
+    return {
+        "id": question.id,
+        "text": question.question_text,
+        "order": question.order,
+        "max_stars": question.max_stars,
+    }
+
+
+def list_questions_payload(category: str) -> dict:
+    questions = active_questions_for_type(category)
+    return {
+        "success": True,
+        "type": category,
+        "questions": [question_to_payload(q) for q in questions],
+    }
+
+
+def _mirror_legacy_fields(
+    rating: CallPeerRating,
+    answers: list[CallPeerRatingAnswer],
+) -> None:
+    ordered = sorted(answers, key=lambda a: (a.question.order, a.question_id))
+    if len(ordered) >= 1:
+        rating.competence = ordered[0].stars
+    if len(ordered) >= 2:
+        rating.clarity = ordered[1].stars
+    if len(ordered) >= 3:
+        rating.audio_quality = ordered[2].stars
+
+
+def _parse_answers_payload(
+    data: dict,
+    *,
+    questions: list[RatingQuestion],
+) -> tuple[list[tuple[RatingQuestion, int]] | None, str | None]:
+    raw_answers = data.get("answers")
+    if not isinstance(raw_answers, list) or not raw_answers:
+        return None, None
+
+    question_map = {q.id: q for q in questions}
+    if not question_map:
+        return None, "لا توجد أسئلة تقييم مفعّلة لهذا النوع."
+
+    parsed: list[tuple[RatingQuestion, int]] = []
+    seen_ids: set[int] = set()
+
+    for item in raw_answers:
+        if not isinstance(item, dict):
+            return None, "صيغة الإجابات غير صالحة."
+        try:
+            question_id = int(item.get("question_id"))
+        except (TypeError, ValueError):
+            return None, "معرّف السؤال غير صالح."
+        stars = _validate_score(item.get("stars"))
+        if stars is None:
+            return None, "يرجى اختيار تقييم من 1 إلى 5 لكل سؤال."
+
+        question = question_map.get(question_id)
+        if question is None:
+            return None, "سؤال التقييم غير صالح."
+        if question_id in seen_ids:
+            return None, "تكرار في أسئلة التقييم."
+        seen_ids.add(question_id)
+        parsed.append((question, stars))
+
+    if len(parsed) != len(question_map):
+        return None, "يرجى الإجابة على جميع أسئلة التقييم."
+
+    return parsed, None
+
+
+@transaction.atomic
+def submit_peer_rating(rating: CallPeerRating, data: dict) -> tuple[CallPeerRating | None, str | None]:
+    questions_type = questions_type_for_rating(rating)
+    questions = active_questions_for_type(questions_type)
+
+    parsed, error = _parse_answers_payload(data, questions=questions)
+    if error:
+        return None, error
+
+    if parsed is not None:
+        CallPeerRatingAnswer.objects.filter(rating=rating).delete()
+        answer_rows = [
+            CallPeerRatingAnswer(
+                rating=rating,
+                question=question,
+                stars=stars,
+            )
+            for question, stars in parsed
+        ]
+        CallPeerRatingAnswer.objects.bulk_create(answer_rows)
+        _mirror_legacy_fields(rating, answer_rows)
+    else:
+        competence = _validate_score(data.get("competence"))
+        clarity = _validate_score(data.get("clarity"))
+        audio_quality = _validate_score(data.get("audio_quality"))
+        if competence is None or clarity is None or audio_quality is None:
+            return None, "يرجى اختيار تقييم من 1 إلى 5 لكل معيار."
+        rating.competence = competence
+        rating.clarity = clarity
+        rating.audio_quality = audio_quality
+
+    rating.status = CallPeerRating.Status.COMPLETED
+    rating.save()
+    return rating, None
 
 
 def ensure_peer_ratings(call: CallSession) -> None:
@@ -63,6 +210,7 @@ def rating_to_payload(rating: CallPeerRating) -> dict:
         "rater_role": rating.rater_role,
         "peer_name": peer_name,
         "peer_role": peer_role,
+        "questions_type": questions_type_for_rating(rating),
         "competence": rating.competence,
         "clarity": rating.clarity,
         "audio_quality": rating.audio_quality,
@@ -83,6 +231,8 @@ def teacher_rating_percents(teacher_ids: list[int]) -> dict[int, int]:
     if not teacher_ids:
         return {}
 
+    demo_ids = _demo_teacher_user_ids()
+
     rows = (
         CallPeerRating.objects.filter(
             rated_id__in=teacher_ids,
@@ -92,6 +242,7 @@ def teacher_rating_percents(teacher_ids: list[int]) -> dict[int, int]:
             clarity__isnull=False,
             audio_quality__isnull=False,
         )
+        .exclude(rated_id__in=demo_ids)
         .values("rated_id")
         .annotate(
             avg_stars=Avg(

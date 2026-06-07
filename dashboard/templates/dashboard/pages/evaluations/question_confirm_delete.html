@@ -1,0 +1,18 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-lg mx-auto site-card p-6 space-y-4" dir-text>
+  <h2 class="site-title-md">حذف سؤال التقييم</h2>
+  <p class="site-text text-sm">هل تريد حذف هذا السؤال؟</p>
+  <div class="site-surface rounded-lg border site-border p-4 text-sm site-text">
+    <div class="text-[11px] site-text-muted mb-1">{{ question.get_category_display }}</div>
+    <div class="font-semibold">{{ question.question_text }}</div>
+  </div>
+  <form method="post" class="flex gap-3">
+    {% csrf_token %}
+    <button type="submit" class="px-4 py-2 rounded-full bg-red-600 text-white text-sm font-bold">حذف</button>
+    <a href="{% url 'dashboard:session_evaluation_list' %}"
+       class="px-4 py-2 rounded-full border site-border text-sm site-text-muted">إلغاء</a>
+  </form>
+</div>
+{% endblock %}

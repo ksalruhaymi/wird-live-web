@@ -30,6 +30,9 @@ from .views import (
     student_subscription_update,
     teacher_availability_list,
     session_evaluation_list,
+    rating_question_create,
+    rating_question_update,
+    rating_question_delete,
     call_recording_delete,
     call_recording_list,
     mobile_app_config_settings,
@@ -133,6 +136,21 @@ urlpatterns = [
         name="teacher_availability_list",
     ),
     path("evaluations/", session_evaluation_list, name="session_evaluation_list"),
+    path(
+        "evaluations/questions/add/",
+        rating_question_create,
+        name="rating_question_create",
+    ),
+    path(
+        "evaluations/questions/<int:pk>/edit/",
+        rating_question_update,
+        name="rating_question_update",
+    ),
+    path(
+        "evaluations/questions/<int:pk>/delete/",
+        rating_question_delete,
+        name="rating_question_delete",
+    ),
     path("recordings/", call_recording_list, name="call_recording_list"),
     path(
         "recordings/<int:pk>/delete/",

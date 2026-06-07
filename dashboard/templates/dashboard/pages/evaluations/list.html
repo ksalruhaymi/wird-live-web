@@ -1,68 +1,141 @@
 {% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
 {% block dashboard_content %}
-<div class="max-w-7xl mx-auto space-y-6" dir-text>
-  <h2 class="site-title-md">تقييمات المكالمات</h2>
-  <p class="site-text-muted text-[12px]">تقييمات الطالب للمعلّم والمعلّم للطالب بعد كل اتصال صوتي.</p>
-  <form method="get" class="site-card p-4 flex flex-wrap gap-3">
-    <input type="search" name="q" value="{{ q }}" placeholder="بحث بالطالب أو المعلّم…" class="flex-1 px-3 py-2 border site-border rounded-lg text-[12px]">
-    <select name="status" class="px-3 py-2 border site-border rounded-lg text-[12px]">
-      <option value="all">كل الحالات</option>
-      {% for value, label in status_choices %}
-      <option value="{{ value }}" {% if status_filter == value %}selected{% endif %}>{{ label }}</option>
-      {% endfor %}
-    </select>
-    <button type="submit" class="site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold">تطبيق</button>
-  </form>
-  <div class="overflow-x-auto site-card">
-    <table class="min-w-full text-[12px]">
-      <thead class="site-surface text-[11px] site-text-muted">
-        <tr>
-          <th class="px-4 py-3 font-bold">#</th>
-          <th class="px-4 py-3 font-bold">الطالب</th>
-          <th class="px-4 py-3 font-bold">المعلّم</th>
-          <th class="px-4 py-3 font-bold">المقيّم</th>
-          <th class="px-4 py-3 font-bold">متمكن</th>
-          <th class="px-4 py-3 font-bold">واضح</th>
-          <th class="px-4 py-3 font-bold">جودة الصوت</th>
-          <th class="px-4 py-3 font-bold">التسجيل</th>
-          <th class="px-4 py-3 font-bold">الحالة</th>
-          <th class="px-4 py-3 font-bold">التاريخ</th>
-        </tr>
-      </thead>
-      <tbody class="divide-site">
-        {% for row in rows %}
-        <tr>
-          <td class="px-4 py-2">{{ row.id }}</td>
-          <td class="px-4 py-2">{{ row.call_session.student.get_full_name|default:row.call_session.student.username }}</td>
-          <td class="px-4 py-2">{{ row.call_session.teacher.get_full_name|default:row.call_session.teacher.username }}</td>
-          <td class="px-4 py-2">{{ row.get_rater_role_display }}</td>
-          <td class="px-4 py-2 text-center">
-            {% if row.competence %}<span class="inline-flex items-center gap-1"><span class="text-amber-500">★</span>{{ row.competence }}/5</span>{% else %}—{% endif %}
-          </td>
-          <td class="px-4 py-2 text-center">
-            {% if row.clarity %}<span class="inline-flex items-center gap-1"><span class="text-amber-500">★</span>{{ row.clarity }}/5</span>{% else %}—{% endif %}
-          </td>
-          <td class="px-4 py-2 text-center">
-            {% if row.audio_quality %}<span class="inline-flex items-center gap-1"><span class="text-amber-500">★</span>{{ row.audio_quality }}/5</span>{% else %}—{% endif %}
-          </td>
-          <td class="px-4 py-2">
-            {% with rec=row.call_session.recording %}
-            {% if rec %}
-            جلسة #{{ row.call_session_id }}
-            {% if rec.duration_seconds %} · {{ rec.duration_seconds }}ث{% endif %}
-            {% else %}
-            جلسة #{{ row.call_session_id }}
-            {% endif %}
-            {% endwith %}
-          </td>
-          <td class="px-4 py-2">{{ row.get_status_display }}</td>
-          <td class="px-4 py-2">{{ row.created_at|date:"Y-m-d H:i" }}</td>
-        </tr>
-        {% empty %}
-        <tr><td colspan="10" class="px-4 py-8 text-center site-text-muted">لا توجد تقييمات.</td></tr>
-        {% endfor %}
-      </tbody>
-    </table>
+<div class="max-w-7xl mx-auto space-y-8" dir-text>
+
+  <div class="flex items-center justify-between mb-2">
+    <div>
+      <h2 class="site-title-md">تقييمات الجلسات</h2>
+      <p class="text-[11px] site-text-muted mt-0.5">إدارة أسئلة التقييم وتقييمات المكالمات بعد كل اتصال.</p>
+    </div>
+    {% if request.user|can_access:"evaluations.create" %}
+    <a href="{% url 'dashboard:rating_question_create' %}"
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
+      <i class="bi bi-plus-lg text-sm"></i>
+      إضافة تقييم
+    </a>
+    {% endif %}
   </div>
+
+  <div class="space-y-5">
+    {% for group in question_groups %}
+    <div class="site-card overflow-hidden">
+      <div class="px-4 py-3 site-surface border-b site-border">
+        <h3 class="text-[13px] font-bold site-text">{{ group.label }}</h3>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-[12px]">
+          <thead class="site-surface text-[11px] site-text-muted">
+            <tr>
+              <th class="px-4 py-3 font-bold">#</th>
+              <th class="px-4 py-3 font-bold">نص السؤال</th>
+              <th class="px-4 py-3 font-bold">الترتيب</th>
+              <th class="px-4 py-3 font-bold">الحالة</th>
+              <th class="px-4 py-3 font-bold text-center">إجراءات</th>
+            </tr>
+          </thead>
+          <tbody class="divide-site">
+            {% for question in group.questions %}
+            <tr class="hover:site-surface transition">
+              <td class="px-4 py-2">{{ question.id }}</td>
+              <td class="px-4 py-2 site-text">{{ question.question_text }}</td>
+              <td class="px-4 py-2 text-center">{{ question.order }}</td>
+              <td class="px-4 py-2">
+                {% if question.is_active %}
+                <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">مفعّل</span>
+                {% else %}
+                <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">غير مفعّل</span>
+                {% endif %}
+              </td>
+              <td class="px-4 py-2">
+                <div class="flex items-center justify-center gap-2">
+                  {% if request.user|can_access:"evaluations.update" %}
+                  {% url 'dashboard:rating_question_update' question.id as edit_url %}
+                  {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
+                  {% endif %}
+                  {% if request.user|can_access:"evaluations.delete" %}
+                  {% url 'dashboard:rating_question_delete' question.id as delete_url %}
+                  {% include "dashboard/partials/action_icon_delete.html" with url=delete_url %}
+                  {% endif %}
+                </div>
+              </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="5" class="px-4 py-6 text-center site-text-muted">لا توجد أسئلة في هذا النوع.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="space-y-4">
+    <h3 class="site-title-md text-[15px]">سجل تقييمات المكالمات</h3>
+    <form method="get" class="site-card p-4 flex flex-wrap gap-3">
+      <input type="search" name="q" value="{{ q }}" placeholder="بحث بالطالب أو المعلّم…" class="flex-1 px-3 py-2 border site-border rounded-lg text-[12px]">
+      <select name="status" class="px-3 py-2 border site-border rounded-lg text-[12px]">
+        <option value="all">كل الحالات</option>
+        {% for value, label in status_choices %}
+        <option value="{{ value }}" {% if status_filter == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+      <button type="submit" class="site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold">تطبيق</button>
+    </form>
+    <div class="overflow-x-auto site-card">
+      <table class="min-w-full text-[12px]">
+        <thead class="site-surface text-[11px] site-text-muted">
+          <tr>
+            <th class="px-4 py-3 font-bold">#</th>
+            <th class="px-4 py-3 font-bold">الطالب</th>
+            <th class="px-4 py-3 font-bold">المعلّم</th>
+            <th class="px-4 py-3 font-bold">المقيّم</th>
+            <th class="px-4 py-3 font-bold">متمكن</th>
+            <th class="px-4 py-3 font-bold">واضح</th>
+            <th class="px-4 py-3 font-bold">جودة الصوت</th>
+            <th class="px-4 py-3 font-bold">التسجيل</th>
+            <th class="px-4 py-3 font-bold">الحالة</th>
+            <th class="px-4 py-3 font-bold">التاريخ</th>
+          </tr>
+        </thead>
+        <tbody class="divide-site">
+          {% for row in rows %}
+          <tr>
+            <td class="px-4 py-2">{{ row.id }}</td>
+            <td class="px-4 py-2">{{ row.call_session.student.get_full_name|default:row.call_session.student.username }}</td>
+            <td class="px-4 py-2">{{ row.call_session.teacher.get_full_name|default:row.call_session.teacher.username }}</td>
+            <td class="px-4 py-2">{{ row.get_rater_role_display }}</td>
+            <td class="px-4 py-2 text-center">
+              {% if row.competence %}<span class="inline-flex items-center gap-1"><span class="text-amber-500">★</span>{{ row.competence }}/5</span>{% else %}—{% endif %}
+            </td>
+            <td class="px-4 py-2 text-center">
+              {% if row.clarity %}<span class="inline-flex items-center gap-1"><span class="text-amber-500">★</span>{{ row.clarity }}/5</span>{% else %}—{% endif %}
+            </td>
+            <td class="px-4 py-2 text-center">
+              {% if row.audio_quality %}<span class="inline-flex items-center gap-1"><span class="text-amber-500">★</span>{{ row.audio_quality }}/5</span>{% else %}—{% endif %}
+            </td>
+            <td class="px-4 py-2">
+              {% with rec=row.call_session.recording %}
+              {% if rec %}
+              جلسة #{{ row.call_session_id }}
+              {% if rec.duration_seconds %} · {{ rec.duration_seconds }}ث{% endif %}
+              {% else %}
+              جلسة #{{ row.call_session_id }}
+              {% endif %}
+              {% endwith %}
+            </td>
+            <td class="px-4 py-2">{{ row.get_status_display }}</td>
+            <td class="px-4 py-2">{{ row.created_at|date:"Y-m-d H:i" }}</td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="10" class="px-4 py-8 text-center site-text-muted">لا توجد تقييمات.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
 {% endblock %}

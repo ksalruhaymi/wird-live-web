@@ -63,6 +63,9 @@ class Command(BaseCommand):
             ("app_notifications.delete", "حذف تنبيه تطبيق"),
             # Evaluations / recordings
             ("evaluations.view", "عرض التقييمات"),
+            ("evaluations.create", "إضافة سؤال تقييم"),
+            ("evaluations.update", "تعديل سؤال تقييم"),
+            ("evaluations.delete", "حذف سؤال تقييم"),
             ("recordings.view", "عرض التسجيلات"),
             ("recordings.delete", "حذف التسجيلات"),
             ("mobile_app_config.view", "عرض إعدادات تطبيق الجوال"),

@@ -166,6 +166,61 @@ class CallPeerRating(models.Model):
         return f"rating_call_{self.call_session_id}_{self.rater_role}"
 
 
+class RatingQuestion(models.Model):
+    class Category(models.TextChoices):
+        TEACHER = "teacher", "تقييم المعلم"
+        STUDENT = "student", "تقييم الطالب"
+        DEMO_TEACHER = "demo_teacher", "تقييم المعلم التجريبي"
+
+    category = models.CharField(
+        max_length=20,
+        choices=Category.choices,
+        verbose_name="نوع التقييم",
+    )
+    question_text = models.CharField(max_length=500, verbose_name="نص السؤال")
+    order = models.PositiveSmallIntegerField(default=1, verbose_name="الترتيب")
+    is_active = models.BooleanField(default=True, verbose_name="مفعّل")
+    max_stars = models.PositiveSmallIntegerField(default=5)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["category", "order", "id"]
+        verbose_name = "سؤال تقييم"
+        verbose_name_plural = "أسئلة التقييم"
+
+    def __str__(self):
+        return f"{self.get_category_display()}: {self.question_text[:40]}"
+
+
+class CallPeerRatingAnswer(models.Model):
+    rating = models.ForeignKey(
+        CallPeerRating,
+        on_delete=models.CASCADE,
+        related_name="answers",
+    )
+    question = models.ForeignKey(
+        RatingQuestion,
+        on_delete=models.PROTECT,
+        related_name="answers",
+    )
+    stars = models.PositiveSmallIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "إجابة تقييم"
+        verbose_name_plural = "إجابات التقييم"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["rating", "question"],
+                name="calls_callpeerratinganswer_unique_rating_question",
+            ),
+        ]
+
+    def __str__(self):
+        return f"answer_rating_{self.rating_id}_q{self.question_id}"
+
+
 class CallRecording(models.Model):
     class RecordingStatus(models.TextChoices):
         IDLE = "idle", "Idle"

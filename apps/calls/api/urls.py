@@ -15,6 +15,11 @@ urlpatterns = [
     path("calls/<int:pk>/reject/", views.reject_call, name="reject"),
     path("calls/<int:pk>/cancel/", views.cancel_call, name="cancel"),
     path("calls/<int:pk>/end/", views.end_call, name="end"),
+    path(
+        "evaluations/questions/",
+        evaluation_views.rating_questions,
+        name="eval-questions",
+    ),
     path("evaluations/pending/", evaluation_views.pending_evaluations, name="eval-pending"),
     path("evaluations/my/", evaluation_views.my_evaluations, name="eval-my"),
     path("evaluations/", evaluation_views.submit_evaluation, name="eval-submit"),

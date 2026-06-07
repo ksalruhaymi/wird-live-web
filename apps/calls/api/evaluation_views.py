@@ -5,8 +5,12 @@ from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_GET, require_POST
 
-from apps.calls.models import CallPeerRating
-from apps.calls.rating_service import _validate_score, rating_to_payload
+from apps.calls.models import CallPeerRating, RatingQuestion
+from apps.calls.rating_service import (
+    list_questions_payload,
+    rating_to_payload,
+    submit_peer_rating,
+)
 
 
 def _require_auth(request):
@@ -34,6 +38,27 @@ def _ratings_queryset(user):
         "rater",
         "rated",
     )
+
+
+@csrf_exempt
+@require_GET
+def rating_questions(request):
+    auth_err = _require_auth(request)
+    if auth_err:
+        return auth_err
+
+    category = (request.GET.get("type") or "").strip()
+    valid = {c[0] for c in RatingQuestion.Category.choices}
+    if category not in valid:
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "نوع التقييم غير صالح.",
+            },
+            status=400,
+        )
+
+    return JsonResponse(list_questions_payload(category))
 
 
 @csrf_exempt
@@ -98,22 +123,10 @@ def submit_evaluation(request):
         status=CallPeerRating.Status.PENDING,
     )
 
-    competence = _validate_score(data.get("competence"))
-    clarity = _validate_score(data.get("clarity"))
-    audio_quality = _validate_score(data.get("audio_quality"))
-
-    if competence is None or clarity is None or audio_quality is None:
-        return JsonResponse(
-            {"success": False, "message": "يرجى اختيار تقييم من 1 إلى 5 لكل معيار."},
-            status=400,
-        )
-
-    rating.competence = competence
-    rating.clarity = clarity
-    rating.audio_quality = audio_quality
-    rating.status = CallPeerRating.Status.COMPLETED
-    rating.save()
+    updated, error = submit_peer_rating(rating, data)
+    if error:
+        return JsonResponse({"success": False, "message": error}, status=400)
 
     return JsonResponse(
-        {"success": True, "evaluation": rating_to_payload(rating)}
+        {"success": True, "evaluation": rating_to_payload(updated)}
     )

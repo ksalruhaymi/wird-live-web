@@ -2,7 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render
 
-from apps.calls.models import CallPeerRating
+from apps.calls.models import CallPeerRating, RatingQuestion
+from apps.calls.rating_service import CATEGORY_LABELS_AR
 from identity.rbac.decorators import permissions_required
 
 
@@ -32,6 +33,20 @@ def session_evaluation_list(request):
     if status_filter in {s[0] for s in CallPeerRating.Status.choices}:
         qs = qs.filter(status=status_filter)
 
+    question_groups = []
+    for category, _label in RatingQuestion.Category.choices:
+        question_groups.append(
+            {
+                "category": category,
+                "label": CATEGORY_LABELS_AR.get(category, category),
+                "questions": list(
+                    RatingQuestion.objects.filter(category=category).order_by(
+                        "order", "id"
+                    )
+                ),
+            }
+        )
+
     return render(
         request,
         "dashboard/pages/evaluations/list.html",
@@ -41,5 +56,7 @@ def session_evaluation_list(request):
             "status_filter": status_filter,
             "status_choices": CallPeerRating.Status.choices,
             "role_choices": CallPeerRating.RaterRole.choices,
+            "question_groups": question_groups,
+            "category_labels": CATEGORY_LABELS_AR,
         },
     )

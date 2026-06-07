@@ -41,6 +41,9 @@ ANNOUNCEMENTS_UPDATE = "announcements.update"
 ANNOUNCEMENTS_DELETE = "announcements.delete"
 
 EVALUATIONS_VIEW = "evaluations.view"
+EVALUATIONS_CREATE = "evaluations.create"
+EVALUATIONS_UPDATE = "evaluations.update"
+EVALUATIONS_DELETE = "evaluations.delete"
 RECORDINGS_VIEW = "recordings.view"
 RECORDINGS_DELETE = "recordings.delete"
 

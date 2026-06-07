@@ -12,6 +12,7 @@ class Command(BaseCommand):
             "seed_superadmin",
             "seed_rbac",
             "seed_demo_teacher",
+            "seed_rating_questions",
         ]
 
         for command_name in commands:
