@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 from django.db import transaction
@@ -12,14 +14,16 @@ User = get_user_model()
 DEMO_USERNAME = "demo_teacher"
 DEMO_EMAIL = "demo.teacher@wird.local"
 DEMO_DISPLAY_NAME = "المعلم التجريبي"
-DEMO_PASSWORD = "demo-teacher-not-for-login"
+DEFAULT_DEMO_PASSWORD = "WirdDemoTeacher-ChangeMe!"
 
 
 class Command(BaseCommand):
-    help = "Create or update the automated demo teacher account for call-flow testing."
+    help = "Create or update the automated demo teacher account (idempotent)."
 
     @transaction.atomic
     def handle(self, *args, **options):
+        password = os.getenv("SEED_DEMO_TEACHER_PASSWORD", DEFAULT_DEMO_PASSWORD)
+
         user, created = User.objects.get_or_create(
             username=DEMO_USERNAME,
             defaults={
@@ -39,30 +43,26 @@ class Command(BaseCommand):
         user.is_superuser = False
         user.is_active = True
         if created:
-            user.set_password(DEMO_PASSWORD)
+            user.set_password(password)
         user.save()
 
         teacher_role = Role.objects.filter(slug="teacher").first()
         if teacher_role:
-            user.roles.add(teacher_role)
+            user.roles.set([teacher_role])
 
         profile, profile_created = TeacherProfile.objects.get_or_create(
             user=user,
             defaults={
                 "display_name": DEMO_DISPLAY_NAME,
-                "bio": "Automated demo teacher for testing the call flow.",
-                "is_available": True,
                 "is_approved": True,
                 "approval_status": TeacherProfile.ApprovalStatus.APPROVED,
                 "can_audio": True,
                 "can_video": True,
                 "is_demo_teacher": True,
                 "auto_accept_calls": True,
-                "riwayat": "تجريبي",
             },
         )
         profile.display_name = DEMO_DISPLAY_NAME
-        profile.is_available = True
         profile.is_approved = True
         profile.approval_status = TeacherProfile.ApprovalStatus.APPROVED
         profile.can_audio = True
@@ -75,9 +75,9 @@ class Command(BaseCommand):
             teacher=user,
             defaults={"status": TeacherAvailability.Status.ONLINE},
         )
-        availability.last_seen = timezone.now()
         availability.status = TeacherAvailability.Status.ONLINE
-        availability.save(update_fields=["last_seen", "status", "updated_at"])
+        availability.last_seen = timezone.now()
+        availability.save(update_fields=["status", "last_seen", "updated_at"])
 
         if created or profile_created:
             self.stdout.write(
