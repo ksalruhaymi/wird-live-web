@@ -10,6 +10,7 @@ from apps.maqraa.models import StudentProfile, TeacherProfile
 from apps.maqraa.teacher_approval_service import teacher_approval_payload
 from core.services.phone_service import normalize_phone_number
 from identity.accounts.user_types import USER_TYPE_STUDENT, USER_TYPE_TEACHER, resolve_user_type_slug
+from identity.rbac.mobile_capabilities import build_mobile_capabilities
 
 User = get_user_model()
 
@@ -142,6 +143,7 @@ def build_profile_payload(user, request=None) -> dict:
         ),
         "can_reject_teachers": user.has_permission("management.teachers.reject"),
     }
+    payload["mobile_capabilities"] = build_mobile_capabilities(user)
     return payload
 
 
