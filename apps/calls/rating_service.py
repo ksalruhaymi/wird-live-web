@@ -1,7 +1,7 @@
 from django.db import transaction
 from django.db.models import Avg, F
 
-from apps.maqraa.teacher_services import is_demo_teacher
+from apps.tutoring.teacher_services import is_demo_teacher
 
 from .models import (
     CallPeerRating,
@@ -37,7 +37,7 @@ def _validate_score(value) -> int | None:
 
 
 def _demo_teacher_user_ids() -> set[int]:
-    from apps.maqraa.models import TeacherProfile
+    from apps.tutoring.models import TeacherProfile
 
     return set(
         TeacherProfile.objects.filter(is_demo_teacher=True).values_list(

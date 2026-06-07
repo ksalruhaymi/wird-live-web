@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('maqraa', '0004_registration_flow'),
+        ('tutoring', '0004_registration_flow'),
     ]
 
     operations = [

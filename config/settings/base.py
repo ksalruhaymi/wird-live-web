@@ -98,7 +98,7 @@ LOCAL_APPS = [
     "apps.communication",
     "apps.contact",
     "apps.subscription",
-    "apps.maqraa",
+    "apps.tutoring",
     "apps.push",
     "apps.calls",
     "apps.mobile",

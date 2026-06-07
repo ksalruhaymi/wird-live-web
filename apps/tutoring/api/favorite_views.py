@@ -4,8 +4,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_GET, require_POST
 
-from apps.maqraa.models import TeacherFavorite
-from apps.maqraa.teacher_services import resolve_user_type_slug
+from apps.tutoring.models import TeacherFavorite
+from apps.tutoring.teacher_services import resolve_user_type_slug
 
 
 def _require_auth(request):

@@ -10,7 +10,7 @@ from django.views.decorators.http import require_POST
 
 from core.services.phone_service import normalize_phone_number
 from core.utils.pagination import paginate_with_smart_pages
-from apps.maqraa.teacher_services import is_demo_teacher
+from apps.tutoring.teacher_services import is_demo_teacher
 from identity.accounts.auth.profile_service import build_profile_payload
 from identity.accounts.auth.registration_service import username_from_email
 from identity.accounts.user_types import USER_TYPE_TEACHER, USER_TYPE_SUPERVISOR

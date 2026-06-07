@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('maqraa', '0007_teacher_approval_fields'),
+        ('tutoring', '0007_teacher_approval_fields'),
     ]
 
     operations = [

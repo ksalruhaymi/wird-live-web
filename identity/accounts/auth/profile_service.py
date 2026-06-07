@@ -6,8 +6,8 @@ from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import UploadedFile
 from django.urls import reverse
 
-from apps.maqraa.models import StudentProfile, TeacherProfile
-from apps.maqraa.teacher_approval_service import teacher_approval_payload
+from apps.tutoring.models import StudentProfile, TeacherProfile
+from apps.tutoring.teacher_approval_service import teacher_approval_payload
 from core.services.phone_service import normalize_phone_number
 from identity.accounts.user_types import USER_TYPE_STUDENT, USER_TYPE_TEACHER, resolve_user_type_slug
 from identity.rbac.mobile_capabilities import build_mobile_capabilities

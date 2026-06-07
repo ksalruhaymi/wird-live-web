@@ -3,7 +3,7 @@ from django.core.management.base import BaseCommand
 from django.db import transaction
 from django.utils import timezone
 
-from apps.maqraa.models import TeacherAvailability, TeacherProfile
+from apps.tutoring.models import TeacherAvailability, TeacherProfile
 from identity.accounts.user_types import USER_TYPE_TEACHER
 from identity.rbac.models import Role
 

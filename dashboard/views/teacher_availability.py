@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
-from apps.maqraa.teacher_services import (
+from apps.tutoring.teacher_services import (
     COMPUTED_AVAILABLE,
     COMPUTED_BUSY,
     COMPUTED_OFFLINE,

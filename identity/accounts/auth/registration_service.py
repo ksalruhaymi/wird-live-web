@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import UploadedFile
 from django.db import transaction
 
-from apps.maqraa.models import StudentProfile, TeacherAvailability, TeacherProfile
+from apps.tutoring.models import StudentProfile, TeacherAvailability, TeacherProfile
 from identity.accounts.auth.email_verification_service import consume_verification_token
 from identity.accounts.user_types import (
     BLOCKED_REGISTRATION_SLUGS,

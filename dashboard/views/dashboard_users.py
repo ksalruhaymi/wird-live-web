@@ -14,12 +14,12 @@ from apps.calls.recording_storage import (
     object_key_for_recording,
     playback_content_type_for_key,
 )
-from apps.maqraa.models import TeacherProfile
-from apps.maqraa.teacher_approval_service import (
+from apps.tutoring.models import TeacherProfile
+from apps.tutoring.teacher_approval_service import (
     approval_status_label,
     teacher_approval_payload,
 )
-from apps.maqraa.teacher_services import (
+from apps.tutoring.teacher_services import (
     COMPUTED_AVAILABLE,
     COMPUTED_BUSY,
     COMPUTED_OFFLINE,

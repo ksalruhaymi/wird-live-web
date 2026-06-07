@@ -6,13 +6,13 @@ from django.http import FileResponse, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_GET, require_POST
 
-from apps.maqraa.management_services import (
+from apps.tutoring.management_services import (
     list_pending_teachers,
     pending_teacher_card_payload,
     teacher_review_detail_payload,
 )
-from apps.maqraa.models import TeacherProfile
-from apps.maqraa.teacher_approval_service import (
+from apps.tutoring.models import TeacherProfile
+from apps.tutoring.teacher_approval_service import (
     approve_teacher_profile,
     reject_teacher_profile,
 )

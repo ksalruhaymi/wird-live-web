@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.utils import timezone
 
-from apps.maqraa.teacher_services import (
+from apps.tutoring.teacher_services import (
     DEMO_CALL_MESSAGE,
     auto_accepts_calls,
     get_pending_teacher_for_interview,

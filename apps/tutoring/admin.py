@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import MaqraaSession, StudentProfile, TeacherAvailability, TeacherProfile
+from .models import StudentProfile, TeacherAvailability, TeacherFavorite, TeacherProfile, TutoringSession
 
 
 @admin.register(TeacherProfile)
@@ -41,8 +41,8 @@ class TeacherAvailabilityAdmin(admin.ModelAdmin):
     search_fields = ("teacher__username", "teacher__full_name")
 
 
-@admin.register(MaqraaSession)
-class MaqraaSessionAdmin(admin.ModelAdmin):
+@admin.register(TutoringSession)
+class TutoringSessionAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "student",

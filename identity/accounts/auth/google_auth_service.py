@@ -7,7 +7,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from django.db import transaction
 
-from apps.maqraa.models import StudentProfile, TeacherAvailability, TeacherProfile
+from apps.tutoring.models import StudentProfile, TeacherAvailability, TeacherProfile
 from identity.accounts.auth.registration_service import (
     _assign_role_for_user_type,
     parse_gender,

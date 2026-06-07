@@ -4,7 +4,7 @@ import django.db.models.deletion
 
 
 def sync_approval_status_from_legacy(apps, schema_editor):
-    TeacherProfile = apps.get_model("maqraa", "TeacherProfile")
+    TeacherProfile = apps.get_model("tutoring", "TeacherProfile")
     for profile in TeacherProfile.objects.all().iterator():
         if profile.is_approved:
             profile.approval_status = "approved"
@@ -19,7 +19,7 @@ def sync_approval_status_from_legacy(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("maqraa", "0006_teacherprofile_auto_accept_calls_and_more"),
+        ("tutoring", "0006_teacherprofile_auto_accept_calls_and_more"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

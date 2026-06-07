@@ -33,7 +33,7 @@ def build_management_teacher_files(user, request=None) -> list[dict]:
         filename = profile_image.name.rsplit("/", 1)[-1]
         ext = filename.rsplit(".", 1)[-1].lower() if "." in filename else ""
         url_path = reverse(
-            "maqraa_api:management-teacher-profile-image",
+            "tutoring_api:management-teacher-profile-image",
             kwargs={"teacher_id": user.id},
         )
         url = request.build_absolute_uri(url_path) if request else url_path
@@ -53,7 +53,7 @@ def build_management_teacher_files(user, request=None) -> list[dict]:
     if ijazah and ijazah.name:
         filename = ijazah.name.rsplit("/", 1)[-1]
         url_path = reverse(
-            "maqraa_api:management-teacher-ijazah",
+            "tutoring_api:management-teacher-ijazah",
             kwargs={"teacher_id": user.id},
         )
         url = request.build_absolute_uri(url_path) if request else url_path

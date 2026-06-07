@@ -30,7 +30,7 @@ def my_recordings(request):
         return auth_err
 
     user = request.user
-    from apps.maqraa.teacher_services import resolve_user_type_slug
+    from apps.tutoring.teacher_services import resolve_user_type_slug
 
     if resolve_user_type_slug(user) == "teacher":
         qs = CallRecording.objects.filter(teacher=user)

@@ -3,7 +3,7 @@ from django.urls import path
 from . import management_views, views
 from .favorite_views import favorite_teacher_ids, toggle_favorite
 
-app_name = "maqraa_api"
+app_name = "tutoring_api"
 
 urlpatterns = [
     path("teachers/available/", views.available_teachers, name="teachers-available"),

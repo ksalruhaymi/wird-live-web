@@ -63,6 +63,7 @@ class TeacherProfile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        db_table = "tutoring_teacherprofile"
         verbose_name = "Teacher profile"
         verbose_name_plural = "Teacher profiles"
 
@@ -85,6 +86,7 @@ class StudentProfile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        db_table = "tutoring_studentprofile"
         verbose_name = "Student profile"
         verbose_name_plural = "Student profiles"
 
@@ -92,7 +94,7 @@ class StudentProfile(models.Model):
         return self.display_name or self.user.username
 
 
-class MaqraaSession(models.Model):
+class TutoringSession(models.Model):
     class SessionType(models.TextChoices):
         AUDIO = "audio", "Audio"
         VIDEO = "video", "Video"
@@ -108,12 +110,12 @@ class MaqraaSession(models.Model):
     student = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name="maqraa_sessions_as_student",
+        related_name="tutoring_sessions_as_student",
     )
     teacher = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name="maqraa_sessions_as_teacher",
+        related_name="tutoring_sessions_as_teacher",
     )
     session_type = models.CharField(
         max_length=10,
@@ -131,9 +133,10 @@ class MaqraaSession(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        db_table = "tutoring_session"
         ordering = ["-created_at"]
-        verbose_name = "Maqraa session"
-        verbose_name_plural = "Maqraa sessions"
+        verbose_name = "Tutoring session"
+        verbose_name_plural = "Tutoring sessions"
 
     def __str__(self):
         return f"{self.student_id} → {self.teacher_id} ({self.status})"
@@ -161,6 +164,7 @@ class TeacherAvailability(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
+        db_table = "tutoring_teacheravailability"
         verbose_name = "حالة المعلّم"
         verbose_name_plural = "حالات المعلّمين"
 
@@ -182,6 +186,7 @@ class TeacherFavorite(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        db_table = "tutoring_teacherfavorite"
         verbose_name = "معلّم مفضّل"
         verbose_name_plural = "المعلّمون المفضّلون"
         constraints = [
