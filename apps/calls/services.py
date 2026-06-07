@@ -4,6 +4,7 @@ from django.utils import timezone
 from apps.maqraa.teacher_services import (
     DEMO_CALL_MESSAGE,
     auto_accepts_calls,
+    get_pending_teacher_for_interview,
     get_teacher_user,
     is_demo_teacher,
     mark_teacher_busy,
@@ -37,6 +38,14 @@ def student_display_name(user) -> str:
 
 def _can_view_call(call: CallSession, user) -> bool:
     return user.id in {call.student_id, call.teacher_id}
+
+
+def _is_interview_caller(user) -> bool:
+    """Admin/supervisor calling a pending teacher for interview (no subscription)."""
+    slug = resolve_user_type_slug(user)
+    if slug not in {"admin", "supervisor"}:
+        return False
+    return user.has_permission("management.teachers.view")
 
 
 def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
@@ -138,18 +147,30 @@ def request_call_session(
     if not teacher_id:
         raise CallValidationError("يجب اختيار معلّم.")
 
-    teacher = get_teacher_user(teacher_id)
-    if teacher is None:
-        raise CallValidationError("المعلّم غير موجود أو غير معتمد.")
+    interview_call = _is_interview_caller(user)
+    if interview_call:
+        teacher = get_pending_teacher_for_interview(teacher_id)
+        if teacher is None:
+            raise CallValidationError("المعلّم غير موجود أو ليس بانتظار المراجعة.")
+    else:
+        if resolve_user_type_slug(user) != "student":
+            raise CallValidationError("هذا الإجراء للطلاب فقط.")
+        teacher = get_teacher_user(teacher_id)
+        if teacher is None:
+            raise CallValidationError("المعلّم غير موجود أو غير معتمد.")
 
     demo_teacher = is_demo_teacher(teacher)
 
-    if not demo_teacher:
+    if not demo_teacher and not interview_call:
         can_call, eligibility_message = student_can_request_call(user)
         if not can_call:
             raise CallValidationError(eligibility_message)
 
-    validation_error = validate_teacher_for_call(teacher, session_type=session_type)
+    validation_error = validate_teacher_for_call(
+        teacher,
+        session_type=session_type,
+        interview_call=interview_call,
+    )
     if validation_error:
         raise CallValidationError(validation_error)
 

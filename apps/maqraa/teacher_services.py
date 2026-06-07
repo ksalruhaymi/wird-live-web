@@ -193,13 +193,37 @@ def get_teacher_user(teacher_id: int):
     return user
 
 
-def validate_teacher_for_call(teacher, *, session_type: str) -> str | None:
+def get_pending_teacher_for_interview(teacher_id: int):
+    """Return a pending teacher for admin/supervisor interview calls only."""
+    try:
+        user = User.objects.select_related(
+            "teacher_profile",
+            "teacher_availability",
+        ).get(pk=teacher_id, teacher_profile__isnull=False)
+    except User.DoesNotExist:
+        return None
+    profile = user.teacher_profile
+    if profile.approval_status != TeacherProfile.ApprovalStatus.PENDING:
+        return None
+    return user
+
+
+def validate_teacher_for_call(
+    teacher,
+    *,
+    session_type: str,
+    interview_call: bool = False,
+) -> str | None:
     profile = teacher.teacher_profile
     status = compute_teacher_status(teacher)
 
     if status == COMPUTED_BUSY:
         return "المعلّم مشغول الآن."
-    if not is_demo_teacher(teacher) and status == COMPUTED_OFFLINE:
+    if (
+        not interview_call
+        and not is_demo_teacher(teacher)
+        and status == COMPUTED_OFFLINE
+    ):
         return "المعلّم غير متصل حاليًا."
 
     if session_type == "audio" and not profile.can_audio:

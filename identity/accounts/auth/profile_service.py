@@ -74,9 +74,13 @@ def ijazah_is_image(filename: str) -> bool:
     return ijazah_file_kind(filename) == "image"
 
 
+def _is_teacher_user(user) -> bool:
+    return resolve_user_type_slug(user) == "teacher"
+
+
 def get_teacher_ijazah_file(user):
     """Return the logged-in teacher's ijazah field, or None."""
-    if resolve_user_type_slug(user) != USER_TYPE_TEACHER:
+    if not _is_teacher_user(user):
         return None
     profile = getattr(user, "teacher_profile", None)
     if profile is None:
@@ -88,7 +92,7 @@ def get_teacher_ijazah_file(user):
 
 
 def build_teacher_files_payload(user, request=None) -> list[dict]:
-    if resolve_user_type_slug(user) != USER_TYPE_TEACHER:
+    if not _is_teacher_user(user):
         return []
 
     ijazah = get_teacher_ijazah_file(user)
@@ -125,7 +129,7 @@ def build_profile_payload(user, request=None) -> dict:
         "user_type": resolve_user_type_slug(user),
         "teacher_files": build_teacher_files_payload(user, request),
     }
-    if resolve_user_type_slug(user) == USER_TYPE_TEACHER:
+    if _is_teacher_user(user):
         profile = getattr(user, "teacher_profile", None)
         payload.update(teacher_approval_payload(profile))
 

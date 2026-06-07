@@ -80,6 +80,8 @@ def pending_teacher_card_payload(user, request=None) -> dict:
         "mobile": user.mobile or "",
         "riwayat": (profile.riwayat or "").strip(),
         "profile_image_url": _resolve_profile_image_url(user, request),
+        "can_audio": bool(profile.can_audio),
+        "can_video": bool(profile.can_video),
         "submitted_at": profile.created_at.isoformat() if profile.created_at else None,
     }
 
