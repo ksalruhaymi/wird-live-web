@@ -40,6 +40,8 @@ class Command(BaseCommand):
             ("permissions.assign_roles", "ربط الصلاحيات بالأدوار"),
             # Aliases (view.*) for clarity — map to same module as list.*
             ("users.view", "عرض المستخدمين"),
+            ("users.teachers.view", "عرض المعلمين في لوحة المستخدمين"),
+            ("users.students.view", "عرض الطلاب في لوحة المستخدمين"),
             ("roles.view", "عرض الأدوار"),
             ("permissions.view", "عرض الصلاحيات"),
             ("permissions.assign", "ربط الصلاحيات بالأدوار"),
@@ -121,6 +123,9 @@ class Command(BaseCommand):
             "evaluations.create",
             "evaluations.update",
             "recordings.view",
+            "users.view",
+            "users.teachers.view",
+            "users.students.view",
         ]
 
         roles_data = {

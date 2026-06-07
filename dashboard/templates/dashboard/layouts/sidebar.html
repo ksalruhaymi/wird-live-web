@@ -71,6 +71,13 @@
       <span>إعدادات تطبيق الجوال</span>
     </a>
     {% endif %}
+    {% if request.user|can_access:"users.view" %}
+    <a href="{% url 'dashboard:dashboard_users_list' %}?tab=teachers"
+       class="site-sidebar-btn {% if '/dashboard/users' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-people"></i>
+      <span>المستخدمين</span>
+    </a>
+    {% endif %}
     {% if request.user|can_access:"calls.view" %}
     <a href="{% url 'dashboard:call_session_list' %}"
        class="site-sidebar-btn {% if '/dashboard/calls' in path %}site-sidebar-btn-active{% endif %}">

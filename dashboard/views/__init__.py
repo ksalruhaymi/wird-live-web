@@ -15,6 +15,14 @@ from .app_notifications import (
     app_notification_update,
 )
 from .call_sessions import call_session_list
+from .dashboard_users import (
+    dashboard_user_student_detail,
+    dashboard_user_student_profile_image,
+    dashboard_user_teacher_detail,
+    dashboard_user_teacher_ijazah,
+    dashboard_user_teacher_profile_image,
+    dashboard_users_list,
+)
 from .core import dashboard, home, overview
 from .student_subscriptions import (
     student_subscription_balance_update,
@@ -77,4 +85,10 @@ __all__ = [
     "call_recording_list",
     "call_recording_delete",
     "mobile_app_config_settings",
+    "dashboard_users_list",
+    "dashboard_user_teacher_detail",
+    "dashboard_user_student_detail",
+    "dashboard_user_teacher_profile_image",
+    "dashboard_user_teacher_ijazah",
+    "dashboard_user_student_profile_image",
 ]
