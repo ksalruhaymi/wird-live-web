@@ -4,6 +4,7 @@ from django.shortcuts import render
 from apps.maqraa.teacher_services import (
     compute_teacher_status,
     computed_status_label,
+    is_demo_teacher,
     search_teacher_rows,
     teacher_display_name,
     _active_teacher_ids,
@@ -32,6 +33,7 @@ def teacher_availability_list(request):
                 "status_label": computed_status_label(status),
                 "can_audio": profile.can_audio,
                 "can_video": profile.can_video,
+                "is_demo_teacher": is_demo_teacher(user),
                 "last_seen": availability.last_seen if availability else None,
             }
         )

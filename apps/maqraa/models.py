@@ -14,6 +14,14 @@ class TeacherProfile(models.Model):
     is_approved = models.BooleanField(default=False)
     can_audio = models.BooleanField(default=True)
     can_video = models.BooleanField(default=True)
+    is_demo_teacher = models.BooleanField(
+        default=False,
+        help_text="Automated demo teacher for testing call flow (not a real human).",
+    )
+    auto_accept_calls = models.BooleanField(
+        default=False,
+        help_text="When true, student calls are accepted immediately without teacher action.",
+    )
     riwayat = models.TextField(blank=True, help_text="Quranic recitation traditions the teacher knows")
     ijazah = models.FileField(
         upload_to="teacher_ijazah/",

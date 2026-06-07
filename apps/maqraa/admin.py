@@ -10,10 +10,19 @@ class TeacherProfileAdmin(admin.ModelAdmin):
         "display_name",
         "is_available",
         "is_approved",
+        "is_demo_teacher",
+        "auto_accept_calls",
         "can_audio",
         "can_video",
     )
-    list_filter = ("is_available", "is_approved", "can_audio", "can_video")
+    list_filter = (
+        "is_available",
+        "is_approved",
+        "is_demo_teacher",
+        "auto_accept_calls",
+        "can_audio",
+        "can_video",
+    )
     search_fields = ("user__username", "display_name")
 
 

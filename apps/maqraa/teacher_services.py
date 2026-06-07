@@ -28,6 +28,18 @@ COMPUTED_STATUS_LABELS_AR = {
     COMPUTED_OFFLINE: "غير متصل",
 }
 
+DEMO_CALL_MESSAGE = "هذه جلسة تجريبية آلية لاختبار الاتصال."
+
+
+def is_demo_teacher(user) -> bool:
+    profile = getattr(user, "teacher_profile", None)
+    return bool(profile and profile.is_demo_teacher)
+
+
+def auto_accepts_calls(user) -> bool:
+    profile = getattr(user, "teacher_profile", None)
+    return bool(profile and profile.auto_accept_calls)
+
 
 def teacher_display_name(user) -> str:
     profile = getattr(user, "teacher_profile", None)
@@ -57,6 +69,11 @@ def compute_teacher_status(
     """Derive teacher presence from active calls and last_seen heartbeat."""
     if active_teacher_ids is None:
         active_teacher_ids = _active_teacher_ids()
+
+    if is_demo_teacher(user):
+        if user.id in active_teacher_ids:
+            return COMPUTED_BUSY
+        return COMPUTED_AVAILABLE
 
     if user.id in active_teacher_ids:
         return COMPUTED_BUSY
@@ -122,6 +139,8 @@ def teacher_to_payload(
         "profile_image_url": _resolve_profile_image_url(user, request),
         "riwayat": (getattr(profile, "riwayat", "") or "").strip() or None,
         "rating_percent": rating_percent if rating_percent is not None else 0,
+        "is_demo_teacher": bool(profile and profile.is_demo_teacher),
+        "auto_accept_calls": bool(profile and profile.auto_accept_calls),
     }
 
 
@@ -166,10 +185,10 @@ def validate_teacher_for_call(teacher, *, session_type: str) -> str | None:
     profile = teacher.teacher_profile
     status = compute_teacher_status(teacher)
 
-    if status == COMPUTED_OFFLINE:
-        return "المعلّم غير متصل حاليًا."
     if status == COMPUTED_BUSY:
         return "المعلّم مشغول الآن."
+    if not is_demo_teacher(teacher) and status == COMPUTED_OFFLINE:
+        return "المعلّم غير متصل حاليًا."
 
     if session_type == "audio" and not profile.can_audio:
         return "هذا المعلّم لا يدعم الاتصال الصوتي."

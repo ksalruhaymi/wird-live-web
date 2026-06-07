@@ -30,6 +30,7 @@
           <th class="px-4 py-3 font-bold">الحالة</th>
           <th class="px-4 py-3 font-bold">صوتي</th>
           <th class="px-4 py-3 font-bold">مرئي</th>
+          <th class="px-4 py-3 font-bold">تجريبي</th>
           <th class="px-4 py-3 font-bold">آخر ظهور</th>
         </tr>
       </thead>
@@ -50,11 +51,21 @@
           </td>
           <td class="px-4 py-2 site-text-muted">{% if row.can_audio %}نعم{% else %}لا{% endif %}</td>
           <td class="px-4 py-2 site-text-muted">{% if row.can_video %}نعم{% else %}لا{% endif %}</td>
+          <td class="px-4 py-2">
+            {% if row.is_demo_teacher %}
+              <span class="inline-flex px-2 py-0.5 rounded-full text-[11px] font-bold
+                           bg-violet-50 text-violet-700 border border-violet-200">
+                معلّم آلي
+              </span>
+            {% else %}
+              <span class="site-text-muted">—</span>
+            {% endif %}
+          </td>
           <td class="px-4 py-2 site-text-muted">{{ row.last_seen|date:"Y-m-d H:i"|default:"—" }}</td>
         </tr>
         {% empty %}
         <tr>
-          <td colspan="7" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون حتى الآن.</td>
+          <td colspan="8" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون حتى الآن.</td>
         </tr>
         {% endfor %}
       </tbody>

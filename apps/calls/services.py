@@ -2,7 +2,10 @@ from django.conf import settings
 from django.utils import timezone
 
 from apps.maqraa.teacher_services import (
+    DEMO_CALL_MESSAGE,
+    auto_accepts_calls,
     get_teacher_user,
+    is_demo_teacher,
     mark_teacher_busy,
     mark_teacher_online,
     teacher_display_name,
@@ -81,6 +84,11 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
         "ended_at": call.ended_at.isoformat() if call.ended_at else None,
     }
 
+    demo_call = bool(call.teacher_id and call.teacher and is_demo_teacher(call.teacher))
+    payload["is_demo_call"] = demo_call
+    if demo_call:
+        payload["demo_message"] = DEMO_CALL_MESSAGE
+
     if (
         viewer is not None
         and call.status == CallSession.Status.ACTIVE
@@ -94,6 +102,30 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
     return payload
 
 
+def _activate_call_session(call: CallSession) -> CallSession:
+    """Mark call active and start provider/recording (shared by accept and demo auto-accept)."""
+    now = timezone.now()
+    call.status = CallSession.Status.ACTIVE
+    call.started_at = call.started_at or now
+    if not call.channel_name:
+        assign_channel_name(call)
+    ensure_agora_provider(call)
+    call.save(update_fields=["status", "started_at", "updated_at"])
+
+    from apps.calls.cloud_recording import start_cloud_recording_for_call
+
+    try:
+        start_cloud_recording_for_call(call)
+    except Exception:
+        import logging
+
+        logging.getLogger(__name__).exception(
+            "Cloud recording start failed for call %s (call not affected)", call.id
+        )
+
+    return call
+
+
 def request_call_session(
     user,
     *,
@@ -103,16 +135,19 @@ def request_call_session(
     if resolve_user_type_slug(user) == "teacher":
         raise CallValidationError("المعلّم لا يمكنه طلب اتصال بمعلّم آخر.")
 
-    can_call, eligibility_message = student_can_request_call(user)
-    if not can_call:
-        raise CallValidationError(eligibility_message)
-
     if not teacher_id:
         raise CallValidationError("يجب اختيار معلّم.")
 
     teacher = get_teacher_user(teacher_id)
     if teacher is None:
         raise CallValidationError("المعلّم غير موجود أو غير معتمد.")
+
+    demo_teacher = is_demo_teacher(teacher)
+
+    if not demo_teacher:
+        can_call, eligibility_message = student_can_request_call(user)
+        if not can_call:
+            raise CallValidationError(eligibility_message)
 
     validation_error = validate_teacher_for_call(teacher, session_type=session_type)
     if validation_error:
@@ -127,6 +162,10 @@ def request_call_session(
     )
     assign_channel_name(call)
     mark_teacher_busy(teacher)
+
+    if demo_teacher and auto_accepts_calls(teacher):
+        call = _activate_call_session(call)
+
     return call
 
 
@@ -162,26 +201,7 @@ def accept_call_session(call: CallSession, teacher_user) -> tuple[CallSession | 
     if call.status != CallSession.Status.PENDING:
         return None, "المكالمة ليست بانتظار القبول."
 
-    now = timezone.now()
-    call.status = CallSession.Status.ACTIVE
-    call.started_at = call.started_at or now
-    if not call.channel_name:
-        assign_channel_name(call)
-    ensure_agora_provider(call)
-    call.save(update_fields=["status", "started_at", "updated_at"])
-
-    from apps.calls.cloud_recording import start_cloud_recording_for_call
-
-    try:
-        start_cloud_recording_for_call(call)
-    except Exception:
-        import logging
-
-        logging.getLogger(__name__).exception(
-            "Cloud recording start failed for call %s (call not affected)", call.id
-        )
-
-    return call, None
+    return _activate_call_session(call), None
 
 
 def reject_call_session(call: CallSession, teacher_user) -> tuple[CallSession | None, str | None]:
