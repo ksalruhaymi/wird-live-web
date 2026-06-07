@@ -3,12 +3,8 @@
 {% block dashboard_content %}
 <div class="max-w-7xl mx-auto space-y-6" dir-text>
 
-  <div class="mb-5">
-    <h2 class="site-title-md">حالة المعلمين</h2>
-    <p class="text-[11px] site-text-muted mt-0.5">
-      الحالة تُحسب تلقائيًا: متاح (داخل التطبيق خلال 5 دقائق)، مشغول (مكالمة نشطة)، غير متصل
-    </p>
-  </div>
+  {% url 'dashboard:teacher_availability_list' as teachers_list_url %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="حالة المعلمين" icon="bi-person-badge-fill" subtitle="الحالة تُحسب تلقائيًا: متاح (داخل التطبيق خلال 5 دقائق)، مشغول (مكالمة نشطة)، غير متصل" tab1_url=teachers_list_url tab1_label="حالة المعلمين" tab1_icon="bi-person-badge-fill" tab1_active="1" only %}
 
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_rows per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 

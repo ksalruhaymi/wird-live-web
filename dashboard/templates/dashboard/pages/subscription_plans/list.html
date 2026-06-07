@@ -3,14 +3,10 @@
 {% block dashboard_content %}
 <div class="max-w-6xl mx-auto space-y-6" dir-text>
 
-  <div class="flex items-center justify-between mb-5">
-    <div>
-      <h2 class="site-title-md">باقات الاشتراك</h2>
-      <p class="text-[11px] site-text-muted mt-0.5">
-        إدارة بطاقات الباقات المعروضة في التطبيق
-      </p>
-    </div>
+  {% url 'dashboard:subscription_plan_list' as subscription_plans_list_url %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="باقات الاشتراك" icon="bi-box-seam-fill" subtitle="إدارة بطاقات الباقات المعروضة في التطبيق" tab1_url=subscription_plans_list_url tab1_label="باقات الاشتراك" tab1_icon="bi-box-seam-fill" tab1_active="1" only %}
 
+  <div class="flex items-center justify-end">
     <a href="{% url 'dashboard:subscription_plan_create' %}"
        class="inline-flex items-center gap-2 px-4 py-2 rounded-full
               site-btn-primary text-[12px] font-bold

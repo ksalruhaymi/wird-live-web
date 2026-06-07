@@ -2,14 +2,10 @@
 {% load rbac_tags %}
 
 {% block dashboard_content %}
-<div class="max-w-3xl mx-auto space-y-6" dir-text>
+<div class="max-w-7xl mx-auto space-y-6" dir-text>
 
-  <div class="mb-5">
-    <h2 class="site-title-md">إعدادات تطبيق الجوال</h2>
-    <p class="text-[11px] site-text-muted mt-0.5">
-      التحكم في نسخ APK التجريبية: تفعيل التطبيق، الحد الأدنى للإصدار، ورسالة التحديث.
-    </p>
-  </div>
+  {% url 'dashboard:mobile_app_config_settings' as mobile_config_url %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="إعدادات تطبيق الجوال" icon="bi-phone-fill" subtitle="التحكم في نسخ APK التجريبية: تفعيل التطبيق، الحد الأدنى للإصدار، ورسالة التحديث." tab1_url=mobile_config_url tab1_label="إعدادات تطبيق الجوال" tab1_icon="bi-phone-fill" tab1_active="1" only %}
 
   <div class="site-card">
     <form method="post" class="divide-site">

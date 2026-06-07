@@ -3,12 +3,8 @@
 {% block dashboard_content %}
 <div class="max-w-7xl mx-auto space-y-6" dir-text>
 
-  <div class="mb-5">
-    <h2 class="site-title-md">سجل الاشتراكات</h2>
-    <p class="text-[11px] site-text-muted mt-0.5">
-      ملخص الاشتراك الحالي لكل طالب — اضغط على الاسم لعرض الأرشيف الكامل
-    </p>
-  </div>
+  {% url 'dashboard:student_subscription_list' as subscriptions_list_url %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="سجل الاشتراكات" icon="bi-journal-bookmark-fill" subtitle="ملخص الاشتراك الحالي لكل طالب — اضغط على الاسم لعرض الأرشيف الكامل" tab1_url=subscriptions_list_url tab1_label="سجل الاشتراكات" tab1_icon="bi-journal-bookmark-fill" tab1_active="1" only %}
 
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_rows per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 

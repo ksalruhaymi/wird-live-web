@@ -4,18 +4,11 @@
 {% block dashboard_content %}
 <div class="max-w-6xl mx-auto space-y-6" dir-text>
 
-  <div class="flex items-center justify-between mb-5">
-    <div>
-      <h2 class="site-title-md">تنبيهات التطبيق</h2>
-      <p class="text-[11px] site-text-muted mt-0.5">إدارة التنبيهات الظاهرة داخل تطبيق وِرْد لايف لجميع المستخدمين</p>
-    </div>
-    {% if request.user|can_access:"app_notifications.create" %}
-    <a href="{% url 'dashboard:app_notification_create' %}"
-       class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
-      <i class="bi bi-plus-lg text-sm"></i>
-      إضافة تنبيه
-    </a>
-    {% endif %}
+  {% url 'dashboard:app_notification_list' as app_notifications_list_url %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="تنبيهات التطبيق" icon="bi-bell-fill" subtitle="إدارة التنبيهات الظاهرة داخل تطبيق وِرْد لايف لجميع المستخدمين" tab1_url=app_notifications_list_url tab1_label="تنبيهات التطبيق" tab1_icon="bi-bell-fill" tab1_active="1" only %}
+
+  <div class="flex items-center justify-end">
+    {% include "dashboard/partials/headers/app_notification_add_action.html" with can_create_app_notification=can_create_app_notification %}
   </div>
 
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_notifications per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}

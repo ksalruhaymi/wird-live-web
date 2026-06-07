@@ -1,0 +1,13 @@
+<a href="{{ url }}"
+   class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+   {% if active %}
+     site-link-primary site-surface shadow-sm
+   {% else %}
+     site-text hover:site-surface
+   {% endif %}">
+  {% if active %}
+    <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+  {% endif %}
+  <i class="bi {{ tab_icon }} ml-1"></i>
+  {{ label }}
+</a>

@@ -3,7 +3,8 @@
 
 {% block dashboard_content %}
 <div class="max-w-7xl mx-auto space-y-6" dir-text>
-  <h2 class="site-title-md">سجل التسجيلات</h2>
+  {% url 'dashboard:call_recording_list' as recordings_list_url %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="سجل التسجيلات" icon="bi-mic-fill" tab1_url=recordings_list_url tab1_label="سجل التسجيلات" tab1_icon="bi-mic-fill" tab1_active="1" only %}
 
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_recordings per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 

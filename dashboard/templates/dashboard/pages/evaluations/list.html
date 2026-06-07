@@ -6,18 +6,19 @@
   {% include "dashboard/partials/evaluations_tabs_header.html" with tab=tab %}
 
   {% if tab == 'settings' %}
-  <div class="space-y-5">
-    <div class="flex items-center justify-between gap-3">
-      <p class="text-[11px] site-text-muted">إدارة أنواع التقييم وأسئلة المكالمات بعد كل اتصال.</p>
-      {% if request.user|can_access:"evaluations.create" %}
-      <a href="{% url 'dashboard:rating_question_create' %}"
-         class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
-        <i class="bi bi-plus-lg text-sm"></i>
-        إضافة تقييم
-      </a>
-      {% endif %}
-    </div>
+  <p class="text-[11px] site-text-muted">إدارة أنواع التقييم وأسئلة المكالمات بعد كل اتصال.</p>
 
+  <div class="flex items-center justify-end">
+    {% if request.user|can_access:"evaluations.create" %}
+    <a href="{% url 'dashboard:rating_question_create' %}"
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold shadow-sm hover:shadow-md active:scale-95 transition">
+      <i class="bi bi-plus-lg text-sm"></i>
+      إضافة تقييم
+    </a>
+    {% endif %}
+  </div>
+
+  <div class="space-y-5">
     {% for group in question_groups %}
     <div class="site-card overflow-hidden">
       <div class="px-4 py-3 site-surface border-b site-border flex items-center justify-between gap-3">

@@ -3,10 +3,8 @@
 {% block dashboard_content %}
 <div class="max-w-7xl mx-auto space-y-6" dir-text>
 
-  <div class="mb-5">
-    <h2 class="site-title-md">سجل المكالمات</h2>
-    <p class="text-[11px] site-text-muted mt-0.5">جلسات الاتصال الصوتي والمرئي (Mock — المرحلة 1)</p>
-  </div>
+  {% url 'dashboard:call_session_list' as calls_list_url %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="سجل المكالمات" icon="bi-telephone-fill" subtitle="جلسات الاتصال الصوتي والمرئي (Mock — المرحلة 1)" tab1_url=calls_list_url tab1_label="سجل المكالمات" tab1_icon="bi-telephone-fill" tab1_active="1" only %}
 
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_calls per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 

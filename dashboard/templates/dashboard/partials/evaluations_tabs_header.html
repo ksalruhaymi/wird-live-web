@@ -1,40 +1,8 @@
-<div class="site-card p-4">
-  <div class="flex items-center justify-between gap-3">
-    <h2 class="site-title-md flex items-center gap-2">
-      <i class="bi bi-star-fill site-link-primary"></i>
-      <span>تقييمات الجلسات</span>
-    </h2>
-  </div>
-
-  <div class="mt-4">
-    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
-      <a href="{% url 'dashboard:session_evaluation_list' %}"
-         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
-         {% if tab == 'users' %}
-           site-link-primary site-surface shadow-sm
-         {% else %}
-           site-text hover:site-surface
-         {% endif %}">
-        {% if tab == 'users' %}
-          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
-        {% endif %}
-        <i class="bi bi-people-fill ml-1"></i>
-        تقييمات المستخدمين
-      </a>
-
-      <a href="{% url 'dashboard:session_evaluation_list' %}?tab=settings"
-         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
-         {% if tab == 'settings' %}
-           site-link-primary site-surface shadow-sm
-         {% else %}
-           site-text hover:site-surface
-         {% endif %}">
-        {% if tab == 'settings' %}
-          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
-        {% endif %}
-        <i class="bi bi-gear-fill ml-1"></i>
-        إعدادات التقييمات
-      </a>
-    </nav>
-  </div>
-</div>
+{% url 'dashboard:session_evaluation_list' as evaluations_list_url %}
+{% with evaluations_settings_url=evaluations_list_url|add:"?tab=settings" %}
+  {% if tab == 'settings' %}
+    {% include "dashboard/partials/page_tabs_header.html" with title="تقييمات الجلسات" icon="bi-star-fill" tab1_url=evaluations_list_url tab1_label="تقييمات المستخدمين" tab1_icon="bi-people-fill" tab1_active="" tab2_url=evaluations_settings_url tab2_label="إعدادات التقييمات" tab2_icon="bi-gear-fill" tab2_active="1" only %}
+  {% else %}
+    {% include "dashboard/partials/page_tabs_header.html" with title="تقييمات الجلسات" icon="bi-star-fill" tab1_url=evaluations_list_url tab1_label="تقييمات المستخدمين" tab1_icon="bi-people-fill" tab1_active="1" tab2_url=evaluations_settings_url tab2_label="إعدادات التقييمات" tab2_icon="bi-gear-fill" tab2_active="" only %}
+  {% endif %}
+{% endwith %}

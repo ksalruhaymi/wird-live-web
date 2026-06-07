@@ -86,6 +86,9 @@ def app_notification_list(request):
         request,
         "dashboard/pages/app_notifications/list.html",
         {
+            "can_create_app_notification": request.user.has_permission(
+                "app_notifications.create"
+            ),
             "notifications": page_obj.object_list,
             "page_obj": page_obj,
             "page_numbers": page_numbers,

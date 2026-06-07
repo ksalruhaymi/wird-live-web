@@ -1,0 +1,7 @@
+{% if can_create_app_notification %}
+<a href="{% url 'dashboard:app_notification_create' %}"
+   class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
+  <i class="bi bi-plus-lg text-sm"></i>
+  إضافة تنبيه
+</a>
+{% endif %}
