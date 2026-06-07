@@ -1,23 +1,23 @@
 {% extends "dashboard/layouts/base.html" %}
 {% load rbac_tags %}
 {% block dashboard_content %}
-<div class="max-w-7xl mx-auto space-y-8" dir-text>
+<div class="max-w-7xl mx-auto space-y-6" dir-text>
 
-  <div class="flex items-center justify-between mb-2">
-    <div>
-      <h2 class="site-title-md">تقييمات الجلسات</h2>
-      <p class="text-[11px] site-text-muted mt-0.5">إدارة أنواع التقييم وأسئلة المكالمات بعد كل اتصال.</p>
-    </div>
-    {% if request.user|can_access:"evaluations.create" %}
-    <a href="{% url 'dashboard:rating_question_create' %}"
-       class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
-      <i class="bi bi-plus-lg text-sm"></i>
-      إضافة تقييم
-    </a>
-    {% endif %}
-  </div>
+  {% include "dashboard/partials/evaluations_tabs_header.html" with tab=tab %}
 
+  {% if tab == 'settings' %}
   <div class="space-y-5">
+    <div class="flex items-center justify-between gap-3">
+      <p class="text-[11px] site-text-muted">إدارة أنواع التقييم وأسئلة المكالمات بعد كل اتصال.</p>
+      {% if request.user|can_access:"evaluations.create" %}
+      <a href="{% url 'dashboard:rating_question_create' %}"
+         class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
+        <i class="bi bi-plus-lg text-sm"></i>
+        إضافة تقييم
+      </a>
+      {% endif %}
+    </div>
+
     {% for group in question_groups %}
     <div class="site-card overflow-hidden">
       <div class="px-4 py-3 site-surface border-b site-border flex items-center justify-between gap-3">
@@ -82,8 +82,9 @@
     {% endfor %}
   </div>
 
+  {% else %}
   <div class="space-y-4">
-    <h3 class="site-title-md text-[15px]">سجل تقييمات المكالمات</h3>
+    <p class="text-[11px] site-text-muted">سجل تقييمات المكالمات المقدّمة من المستخدمين بعد كل جلسة.</p>
 
     {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_rows per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
@@ -105,6 +106,7 @@
       </div>
       <button type="submit" class="site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold">تطبيق</button>
     </form>
+
     <div class="overflow-x-auto site-card">
       <table class="min-w-full text-[12px]">
         <thead class="site-surface text-[11px] site-text-muted">
@@ -161,6 +163,7 @@
       {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
     {% endif %}
   </div>
+  {% endif %}
 
 </div>
 {% endblock %}

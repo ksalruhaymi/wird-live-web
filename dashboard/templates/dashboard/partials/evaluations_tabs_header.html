@@ -1,0 +1,40 @@
+<div class="site-card p-4">
+  <div class="flex items-center justify-between gap-3">
+    <h2 class="site-title-md flex items-center gap-2">
+      <i class="bi bi-star-fill site-link-primary"></i>
+      <span>تقييمات الجلسات</span>
+    </h2>
+  </div>
+
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+      <a href="{% url 'dashboard:session_evaluation_list' %}"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'users' %}
+           site-link-primary site-surface shadow-sm
+         {% else %}
+           site-text hover:site-surface
+         {% endif %}">
+        {% if tab == 'users' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-people-fill ml-1"></i>
+        تقييمات المستخدمين
+      </a>
+
+      <a href="{% url 'dashboard:session_evaluation_list' %}?tab=settings"
+         class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1
+         {% if tab == 'settings' %}
+           site-link-primary site-surface shadow-sm
+         {% else %}
+           site-text hover:site-surface
+         {% endif %}">
+        {% if tab == 'settings' %}
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+        {% endif %}
+        <i class="bi bi-gear-fill ml-1"></i>
+        إعدادات التقييمات
+      </a>
+    </nav>
+  </div>
+</div>

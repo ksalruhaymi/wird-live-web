@@ -7,10 +7,18 @@ from apps.calls.rating_service import CATEGORY_LABELS_AR
 from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.rbac.decorators import permissions_required
 
+TAB_USERS = "users"
+TAB_SETTINGS = "settings"
+_VALID_TABS = {TAB_USERS, TAB_SETTINGS}
+
 
 @login_required
 @permissions_required("dashboard.access", "evaluations.view")
 def session_evaluation_list(request):
+    active_tab = (request.GET.get("tab") or TAB_USERS).strip()
+    if active_tab not in _VALID_TABS:
+        active_tab = TAB_USERS
+
     q = (request.GET.get("q") or "").strip()
     status_filter = (request.GET.get("status") or "all").strip()
 
@@ -75,6 +83,7 @@ def session_evaluation_list(request):
         request,
         "dashboard/pages/evaluations/list.html",
         {
+            "tab": active_tab,
             "rows": page_obj.object_list,
             "page_obj": page_obj,
             "page_numbers": page_numbers,

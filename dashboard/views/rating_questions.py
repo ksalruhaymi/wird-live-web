@@ -1,11 +1,15 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 from django.views.decorators.http import require_POST
 
 from apps.calls.models import RatingCategoryConfig, RatingQuestion
 from apps.calls.rating_service import CATEGORY_LABELS_AR
 from identity.rbac.decorators import permissions_required
+
+def _redirect_to_settings_tab():
+    return redirect(f"{reverse('dashboard:session_evaluation_list')}?tab=settings")
 
 
 def _parse_question_form(post):
@@ -62,7 +66,7 @@ def rating_question_create(request):
         else:
             _apply_question(RatingQuestion(), data)
             messages.success(request, "تم إضافة سؤال التقييم بنجاح.")
-            return redirect("dashboard:session_evaluation_list")
+            return _redirect_to_settings_tab()
 
     return render(
         request,
@@ -96,7 +100,7 @@ def rating_question_update(request, pk):
         else:
             _apply_question(question, data)
             messages.success(request, "تم تحديث سؤال التقييم بنجاح.")
-            return redirect("dashboard:session_evaluation_list")
+            return _redirect_to_settings_tab()
 
     return render(
         request,
@@ -120,7 +124,7 @@ def rating_question_delete(request, pk):
     if request.method == "POST":
         question.delete()
         messages.success(request, "تم حذف سؤال التقييم.")
-        return redirect("dashboard:session_evaluation_list")
+        return _redirect_to_settings_tab()
 
     return render(
         request,
@@ -136,7 +140,7 @@ def rating_category_toggle(request, category):
     valid = {c[0] for c in RatingQuestion.Category.choices}
     if category not in valid:
         messages.error(request, "نوع التقييم غير صالح.")
-        return redirect("dashboard:session_evaluation_list")
+        return _redirect_to_settings_tab()
 
     config, _ = RatingCategoryConfig.objects.get_or_create(
         category=category,
@@ -150,4 +154,4 @@ def rating_category_toggle(request, category):
         messages.success(request, f"تم تفعيل {label}.")
     else:
         messages.success(request, f"تم تعطيل {label}.")
-    return redirect("dashboard:session_evaluation_list")
+    return _redirect_to_settings_tab()
