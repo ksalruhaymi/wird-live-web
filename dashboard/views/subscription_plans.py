@@ -2,10 +2,12 @@ from decimal import Decimal, InvalidOperation
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
 from apps.subscription.models import SubscriptionPlan
+from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.rbac.decorators import permissions_required
 
 
@@ -76,14 +78,68 @@ def _parse_plan_form(post):
     return data, errors
 
 
+def _plan_list_hidden_fields(*, q: str, active_filter: str) -> list[dict]:
+    fields = []
+    if q:
+        fields.append({"name": "q", "value": q})
+    if active_filter and active_filter != "all":
+        fields.append({"name": "active", "value": active_filter})
+    return fields
+
+
 @login_required
 @permissions_required("dashboard.access", "subscriptions.view")
 def subscription_plan_list(request):
-    plans = SubscriptionPlan.objects.all().order_by("sort_order", "id")
+    q = (request.GET.get("q") or "").strip()
+    active_filter = (request.GET.get("active") or "all").strip()
+
+    qs = SubscriptionPlan.objects.all().order_by("sort_order", "id")
+    if q:
+        q_filter = Q(title__icontains=q) | Q(description__icontains=q)
+        try:
+            q_filter |= Q(price=Decimal(q.replace(",", ".")))
+        except (InvalidOperation, ValueError):
+            pass
+        try:
+            q_filter |= Q(duration_months=int(q))
+        except ValueError:
+            pass
+        qs = qs.filter(q_filter)
+
+    if active_filter == "active":
+        qs = qs.filter(is_active=True)
+    elif active_filter == "inactive":
+        qs = qs.filter(is_active=False)
+
+    page_obj, page_numbers, per_page_param, total_plans = paginate_with_smart_pages(
+        request=request,
+        queryset=qs,
+        default_per_page="5",
+    )
+
+    pagination_qs = build_pagination_query_string(
+        q=q,
+        active=active_filter,
+        per_page=per_page_param,
+    )
+
     return render(
         request,
         "dashboard/pages/subscription_plans/list.html",
-        {"plans": plans},
+        {
+            "plans": page_obj.object_list,
+            "page_obj": page_obj,
+            "page_numbers": page_numbers,
+            "per_page": per_page_param,
+            "total_plans": total_plans,
+            "q": q,
+            "active_filter": active_filter,
+            "pagination_qs": pagination_qs,
+            "pagination_hidden_fields": _plan_list_hidden_fields(
+                q=q,
+                active_filter=active_filter,
+            ),
+        },
     )
 
 

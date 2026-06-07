@@ -8,7 +8,10 @@
     <p class="text-[11px] site-text-muted mt-0.5">جلسات الاتصال الصوتي والمرئي (Mock — المرحلة 1)</p>
   </div>
 
+  {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_calls per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
+
   <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
+    {% include "dashboard/partials/filter_hidden_fields.html" %}
     <div class="flex-1 min-w-[200px]">
       <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
       <input type="search" name="q" value="{{ q }}"
@@ -91,12 +94,16 @@
         {% endwith %}
         {% empty %}
         <tr>
-          <td colspan="9" class="px-4 py-8 text-center site-text-muted">لا توجد مكالمات.</td>
+          <td colspan="10" class="px-4 py-8 text-center site-text-muted">لا توجد مكالمات مطابقة.</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+
+  {% if per_page != "all" %}
+    {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
+  {% endif %}
 
 </div>
 {% endblock %}

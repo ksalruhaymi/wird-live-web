@@ -84,14 +84,25 @@
 
   <div class="space-y-4">
     <h3 class="site-title-md text-[15px]">سجل تقييمات المكالمات</h3>
-    <form method="get" class="site-card p-4 flex flex-wrap gap-3">
-      <input type="search" name="q" value="{{ q }}" placeholder="بحث بالطالب أو المعلّم…" class="flex-1 px-3 py-2 border site-border rounded-lg text-[12px]">
-      <select name="status" class="px-3 py-2 border site-border rounded-lg text-[12px]">
-        <option value="all">كل الحالات</option>
-        {% for value, label in status_choices %}
-        <option value="{{ value }}" {% if status_filter == value %}selected{% endif %}>{{ label }}</option>
-        {% endfor %}
-      </select>
+
+    {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_rows per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
+
+    <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
+      {% include "dashboard/partials/filter_hidden_fields.html" %}
+      <div class="flex-1 min-w-[200px]">
+        <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
+        <input type="search" name="q" value="{{ q }}" placeholder="بحث بالطالب أو المعلّم…"
+               class="w-full px-3 py-2 border site-border rounded-lg text-[12px]">
+      </div>
+      <div class="min-w-[160px]">
+        <label class="block text-[11px] font-bold site-text-muted mb-1">الحالة</label>
+        <select name="status" class="w-full px-3 py-2 border site-border rounded-lg text-[12px]">
+          <option value="all" {% if status_filter == 'all' %}selected{% endif %}>كل الحالات</option>
+          {% for value, label in status_choices %}
+          <option value="{{ value }}" {% if status_filter == value %}selected{% endif %}>{{ label }}</option>
+          {% endfor %}
+        </select>
+      </div>
       <button type="submit" class="site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold">تطبيق</button>
     </form>
     <div class="overflow-x-auto site-card">
@@ -145,6 +156,10 @@
         </tbody>
       </table>
     </div>
+
+    {% if per_page != "all" %}
+      {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
+    {% endif %}
   </div>
 
 </div>

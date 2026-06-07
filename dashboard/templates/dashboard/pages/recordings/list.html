@@ -5,34 +5,11 @@
 <div class="max-w-7xl mx-auto space-y-6" dir-text>
   <h2 class="site-title-md">سجل التسجيلات</h2>
 
-  <div class="flex items-center justify-between gap-4">
-    <div class="flex-1">
-      {% include "web/components/pagination_total.html" with total_count=total_recordings %}
-    </div>
-    <div class="flex-1"></div>
-    <div class="text-[11px] site-text-muted">
-      <form method="get" class="flex items-center gap-2">
-        {% if q %}
-          <input type="hidden" name="q" value="{{ q }}">
-        {% endif %}
-        <label class="site-text-muted">عدد الصفوف في الصفحة:</label>
-        <select name="per_page"
-                class="border rounded-sm border-gray-300 px-2 py-1 text-[14px]"
-                onchange="this.form.submit()">
-          <option value="5" {% if per_page == "5" %}selected{% endif %}>5</option>
-          <option value="10" {% if per_page == "10" %}selected{% endif %}>10</option>
-          <option value="100" {% if per_page == "100" %}selected{% endif %}>100</option>
-          <option value="all" {% if per_page == "all" %}selected{% endif %}>الكل</option>
-        </select>
-      </form>
-    </div>
-  </div>
+  {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_recordings per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
   <form method="get" class="site-card p-4">
-    {% if per_page %}
-      <input type="hidden" name="per_page" value="{{ per_page }}">
-    {% endif %}
-    <input type="search" name="q" value="{{ q }}" placeholder="بحث…" class="w-full px-3 py-2 border site-border rounded-lg text-[12px]">
+    {% include "dashboard/partials/filter_hidden_fields.html" %}
+    <input type="search" name="q" value="{{ q }}" placeholder="بحث بالطالب أو المعلّم…" class="w-full px-3 py-2 border site-border rounded-lg text-[12px]">
     <button type="submit" class="mt-2 site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold">بحث</button>
   </form>
 
@@ -87,7 +64,7 @@
   </div>
 
   {% if per_page != "all" %}
-    {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers q=q per_page=per_page pagination_qs=pagination_qs %}
+    {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
   {% endif %}
 </div>
 {% endblock %}

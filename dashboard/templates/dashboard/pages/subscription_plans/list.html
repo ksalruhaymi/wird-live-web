@@ -20,6 +20,27 @@
     </a>
   </div>
 
+  {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_plans per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
+
+  <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
+    {% include "dashboard/partials/filter_hidden_fields.html" %}
+    <div class="flex-1 min-w-[200px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
+      <input type="search" name="q" value="{{ q }}"
+             placeholder="اسم الباقة، المبلغ، المدة…"
+             class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+    </div>
+    <div class="min-w-[160px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">الحالة</label>
+      <select name="active" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+        <option value="all" {% if active_filter == 'all' %}selected{% endif %}>الكل</option>
+        <option value="active" {% if active_filter == 'active' %}selected{% endif %}>مفعّلة</option>
+        <option value="inactive" {% if active_filter == 'inactive' %}selected{% endif %}>معطّلة</option>
+      </select>
+    </div>
+    <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">تطبيق</button>
+  </form>
+
   <div class="overflow-x-auto site-card">
     <table class="min-w-full text-[12px]">
       <thead class="site-surface text-[11px] site-text-muted">
@@ -68,13 +89,17 @@
         {% empty %}
         <tr>
           <td colspan="7" class="px-4 py-8 text-center site-text-muted">
-            لا توجد باقات بعد. أضف باقة جديدة.
+            لا توجد باقات مطابقة.
           </td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+
+  {% if per_page != "all" %}
+    {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
+  {% endif %}
 
 </div>
 {% endblock %}

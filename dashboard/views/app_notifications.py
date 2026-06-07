@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
 
 from apps.notification.models import AppNotification, AppNotificationTargetType
+from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.rbac.decorators import permissions_required
 
 
@@ -45,13 +46,58 @@ def _apply_app_notification(instance: AppNotification, data: dict) -> AppNotific
 @permissions_required("dashboard.access", "app_notifications.view")
 def app_notification_list(request):
     q = (request.GET.get("q") or "").strip()
+    status_filter = (request.GET.get("status") or "all").strip()
+    target_filter = (request.GET.get("target") or "all").strip()
+
     qs = AppNotification.objects.all().order_by("-created_at", "-id")
     if q:
         qs = qs.filter(Q(title__icontains=q) | Q(body__icontains=q))
+
+    if status_filter == "active":
+        qs = qs.filter(is_active=True)
+    elif status_filter == "inactive":
+        qs = qs.filter(is_active=False)
+
+    valid_targets = {c[0] for c in AppNotificationTargetType.choices}
+    if target_filter in valid_targets:
+        qs = qs.filter(target_type=target_filter)
+
+    page_obj, page_numbers, per_page_param, total_notifications = paginate_with_smart_pages(
+        request=request,
+        queryset=qs,
+        default_per_page="5",
+    )
+
+    pagination_qs = build_pagination_query_string(
+        q=q,
+        status=status_filter,
+        target=target_filter,
+        per_page=per_page_param,
+    )
+
+    hidden_fields = []
+    if q:
+        hidden_fields.append({"name": "q", "value": q})
+    if status_filter != "all":
+        hidden_fields.append({"name": "status", "value": status_filter})
+    if target_filter != "all":
+        hidden_fields.append({"name": "target", "value": target_filter})
     return render(
         request,
         "dashboard/pages/app_notifications/list.html",
-        {"notifications": qs, "q": q},
+        {
+            "notifications": page_obj.object_list,
+            "page_obj": page_obj,
+            "page_numbers": page_numbers,
+            "per_page": per_page_param,
+            "total_notifications": total_notifications,
+            "q": q,
+            "status_filter": status_filter,
+            "target_filter": target_filter,
+            "target_choices": AppNotificationTargetType.choices,
+            "pagination_qs": pagination_qs,
+            "pagination_hidden_fields": hidden_fields,
+        },
     )
 
 

@@ -10,12 +10,32 @@
     </p>
   </div>
 
+  {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_rows per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
+
   <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
+    {% include "dashboard/partials/filter_hidden_fields.html" %}
     <div class="flex-1 min-w-[200px]">
       <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
       <input type="search" name="q" value="{{ q }}"
              placeholder="اسم، username، email…"
              class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+    </div>
+    <div class="min-w-[140px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">الحالة</label>
+      <select name="status" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+        <option value="all" {% if status_filter == 'all' %}selected{% endif %}>الكل</option>
+        <option value="available" {% if status_filter == 'available' %}selected{% endif %}>متاح</option>
+        <option value="busy" {% if status_filter == 'busy' %}selected{% endif %}>مشغول</option>
+        <option value="offline" {% if status_filter == 'offline' %}selected{% endif %}>غير متصل</option>
+      </select>
+    </div>
+    <div class="min-w-[140px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">تجريبي</label>
+      <select name="demo" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+        <option value="all" {% if demo_filter == 'all' %}selected{% endif %}>الكل</option>
+        <option value="yes" {% if demo_filter == 'yes' %}selected{% endif %}>معلّم آلي</option>
+        <option value="no" {% if demo_filter == 'no' %}selected{% endif %}>غير تجريبي</option>
+      </select>
     </div>
     <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">بحث</button>
   </form>
@@ -65,12 +85,16 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="8" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون حتى الآن.</td>
+          <td colspan="8" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون مطابقون.</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+
+  {% if per_page != "all" %}
+    {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
+  {% endif %}
 
 </div>
 {% endblock %}

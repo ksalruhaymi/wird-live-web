@@ -1,10 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
 from apps.communication.models import Announcement
+from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.rbac.decorators import permissions_required
 
 
@@ -45,11 +47,68 @@ def _apply_announcement(
 @login_required
 @permissions_required("dashboard.access", "announcements.view")
 def announcement_list(request):
+    q = (request.GET.get("q") or "").strip()
+    status_filter = (request.GET.get("status") or "all").strip()
+    date_from = (request.GET.get("date_from") or "").strip()
+    date_to = (request.GET.get("date_to") or "").strip()
+
     qs = Announcement.objects.all().order_by("-created_at", "-id")
+
+    if q:
+        q_filter = Q(title__icontains=q) | Q(message__icontains=q)
+        if q.isdigit():
+            q_filter |= Q(pk=int(q))
+        qs = qs.filter(q_filter)
+
+    if status_filter == "active":
+        qs = qs.filter(is_active=True)
+    elif status_filter == "inactive":
+        qs = qs.filter(is_active=False)
+
+    if date_from:
+        qs = qs.filter(created_at__date__gte=date_from)
+    if date_to:
+        qs = qs.filter(created_at__date__lte=date_to)
+
+    page_obj, page_numbers, per_page_param, total_announcements = paginate_with_smart_pages(
+        request=request,
+        queryset=qs,
+        default_per_page="5",
+    )
+
+    pagination_qs = build_pagination_query_string(
+        q=q,
+        status=status_filter,
+        date_from=date_from,
+        date_to=date_to,
+        per_page=per_page_param,
+    )
+
+    hidden_fields = []
+    if q:
+        hidden_fields.append({"name": "q", "value": q})
+    if status_filter != "all":
+        hidden_fields.append({"name": "status", "value": status_filter})
+    if date_from:
+        hidden_fields.append({"name": "date_from", "value": date_from})
+    if date_to:
+        hidden_fields.append({"name": "date_to", "value": date_to})
     return render(
         request,
         "dashboard/pages/announcements/list.html",
-        {"announcements": qs},
+        {
+            "announcements": page_obj.object_list,
+            "page_obj": page_obj,
+            "page_numbers": page_numbers,
+            "per_page": per_page_param,
+            "total_announcements": total_announcements,
+            "q": q,
+            "status_filter": status_filter,
+            "date_from": date_from,
+            "date_to": date_to,
+            "pagination_qs": pagination_qs,
+            "pagination_hidden_fields": hidden_fields,
+        },
     )
 
 

@@ -1,5 +1,4 @@
 import logging
-from urllib.parse import quote
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -14,21 +13,10 @@ from apps.calls.recording_storage import (
     object_key_for_recording,
     playback_content_type_for_key,
 )
-from core.utils.pagination import paginate_with_smart_pages
+from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.rbac.decorators import permissions_required
 
 logger = logging.getLogger(__name__)
-
-
-def _pagination_query_string(*, q: str, per_page: str, tab: str = "") -> str:
-    parts = []
-    if tab:
-        parts.append(f"tab={quote(tab)}")
-    if q:
-        parts.append(f"q={quote(q)}")
-    if per_page:
-        parts.append(f"per_page={quote(per_page)}")
-    return "&".join(parts) + ("&" if parts else "")
 
 
 def _attach_playback_urls(rows) -> None:
@@ -74,12 +62,17 @@ def call_recording_list(request):
     page_obj, page_numbers, per_page_param, total_recordings = paginate_with_smart_pages(
         request=request,
         queryset=qs,
-        default_per_page="10",
+        default_per_page="5",
     )
 
     rows = list(page_obj.object_list)
     _attach_playback_urls(rows)
 
+    pagination_qs = build_pagination_query_string(q=q, per_page=per_page_param)
+
+    hidden_fields = []
+    if q:
+        hidden_fields.append({"name": "q", "value": q})
     return render(
         request,
         "dashboard/pages/recordings/list.html",
@@ -90,7 +83,8 @@ def call_recording_list(request):
             "per_page": per_page_param,
             "total_recordings": total_recordings,
             "q": q,
-            "pagination_qs": _pagination_query_string(q=q, per_page=per_page_param),
+            "pagination_qs": pagination_qs,
+            "pagination_hidden_fields": hidden_fields,
         },
     )
 

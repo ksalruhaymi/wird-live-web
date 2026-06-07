@@ -15,6 +15,7 @@ from apps.subscription.services import (
     display_status_label,
     get_user_subscription_balance,
 )
+from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.accounts.user_types import USER_TYPE_STUDENT
 from identity.rbac.decorators import permissions_required
 
@@ -112,21 +113,44 @@ def student_subscription_list(request):
 
     rows = [
         _balance_summary_row(user, getattr(user, "subscription_balance", None))
-        for user in users_qs[:500]
+        for user in users_qs
     ]
     rows = _filter_summary_rows(rows, status_filter)
 
+    page_obj, page_numbers, per_page_param, total_rows = paginate_with_smart_pages(
+        request=request,
+        queryset=rows,
+        default_per_page="5",
+    )
+
+    pagination_qs = build_pagination_query_string(
+        q=q,
+        status=status_filter,
+        per_page=per_page_param,
+    )
+
+    hidden_fields = []
+    if q:
+        hidden_fields.append({"name": "q", "value": q})
+    if status_filter != FILTER_ALL:
+        hidden_fields.append({"name": "status", "value": status_filter})
     return render(
         request,
         "dashboard/pages/student_subscriptions/list.html",
         {
-            "rows": rows,
+            "rows": page_obj.object_list,
+            "page_obj": page_obj,
+            "page_numbers": page_numbers,
+            "per_page": per_page_param,
+            "total_rows": total_rows,
             "q": q,
             "status_filter": status_filter,
             "filter_all": FILTER_ALL,
             "filter_active": FILTER_ACTIVE,
             "filter_expired": FILTER_EXPIRED,
             "filter_cancelled": FILTER_CANCELLED,
+            "pagination_qs": pagination_qs,
+            "pagination_hidden_fields": hidden_fields,
         },
     )
 

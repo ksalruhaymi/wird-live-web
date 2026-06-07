@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.shortcuts import render
 
 from apps.calls.models import CallSession
+from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.rbac.decorators import permissions_required
 
 
@@ -46,15 +47,44 @@ def call_session_list(request):
     if status_filter in {s[0] for s in CallSession.Status.choices}:
         qs = qs.filter(status=status_filter)
 
-    rows = [{"call": c, "duration": _duration_display(c)} for c in qs[:500]]
+    page_obj, page_numbers, per_page_param, total_calls = paginate_with_smart_pages(
+        request=request,
+        queryset=qs,
+        default_per_page="5",
+    )
 
+    rows = [
+        {"call": c, "duration": _duration_display(c)}
+        for c in page_obj.object_list
+    ]
+
+    pagination_qs = build_pagination_query_string(
+        q=q,
+        type=type_filter,
+        status=status_filter,
+        per_page=per_page_param,
+    )
+
+    hidden_fields = []
+    if q:
+        hidden_fields.append({"name": "q", "value": q})
+    if type_filter != "all":
+        hidden_fields.append({"name": "type", "value": type_filter})
+    if status_filter != "all":
+        hidden_fields.append({"name": "status", "value": status_filter})
     return render(
         request,
         "dashboard/pages/calls/list.html",
         {
             "rows": rows,
+            "page_obj": page_obj,
+            "page_numbers": page_numbers,
+            "per_page": per_page_param,
+            "total_calls": total_calls,
             "q": q,
             "type_filter": type_filter,
             "status_filter": status_filter,
+            "pagination_qs": pagination_qs,
+            "pagination_hidden_fields": hidden_fields,
         },
     )

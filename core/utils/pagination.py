@@ -1,4 +1,32 @@
+from urllib.parse import quote
+
 from django.core.paginator import Paginator
+
+
+def build_pagination_query_string(**params: str) -> str:
+    """
+    Build a query-string prefix for pagination links.
+    Skips empty values and common "all" filter sentinels.
+    Returns a trailing "&" when non-empty (ready to append page=N).
+    """
+    skip_all_for = {"status", "type", "demo", "active", "target"}
+    parts: list[str] = []
+    for key, value in params.items():
+        if value is None:
+            continue
+        text = str(value).strip()
+        if not text:
+            continue
+        if key in skip_all_for and text == "all":
+            continue
+        parts.append(f"{quote(key)}={quote(text)}")
+    return "&".join(parts) + ("&" if parts else "")
+
+
+def _sequence_total(items) -> int:
+    if isinstance(items, (list, tuple)):
+        return len(items)
+    return items.count()
 
 
 def paginate_with_smart_pages(
@@ -23,7 +51,7 @@ def paginate_with_smart_pages(
         normalized_per_page (str),
         total_count (int)
     """
-    total = queryset.count()
+    total = _sequence_total(queryset)
 
     # Read per_page from request, but logic is centralized here
     per_page_param = request.GET.get(per_page_param_name, default_per_page)
