@@ -7,6 +7,7 @@ from django.core.files.uploadedfile import UploadedFile
 from django.urls import reverse
 
 from apps.maqraa.models import StudentProfile, TeacherProfile
+from apps.maqraa.teacher_approval_service import teacher_approval_payload
 from core.services.phone_service import normalize_phone_number
 from identity.accounts.user_types import USER_TYPE_STUDENT, USER_TYPE_TEACHER, resolve_user_type_slug
 
@@ -110,7 +111,7 @@ def build_teacher_files_payload(user, request=None) -> list[dict]:
 
 def build_profile_payload(user, request=None) -> dict:
     gender = (user.gender or "").strip() or None
-    return {
+    payload = {
         "id": user.id,
         "username": user.username,
         "full_name": (user.full_name or "").strip(),
@@ -124,6 +125,20 @@ def build_profile_payload(user, request=None) -> dict:
         "user_type": resolve_user_type_slug(user),
         "teacher_files": build_teacher_files_payload(user, request),
     }
+    if resolve_user_type_slug(user) == USER_TYPE_TEACHER:
+        profile = getattr(user, "teacher_profile", None)
+        payload.update(teacher_approval_payload(profile))
+
+    payload["management"] = {
+        "can_view_pending_teachers": user.has_permission(
+            "management.teachers.view"
+        ),
+        "can_approve_teachers": user.has_permission(
+            "management.teachers.approve"
+        ),
+        "can_reject_teachers": user.has_permission("management.teachers.reject"),
+    }
+    return payload
 
 
 def validate_avatar_file(uploaded_file: UploadedFile | None) -> str | None:

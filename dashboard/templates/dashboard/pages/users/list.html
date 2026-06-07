@@ -56,6 +56,7 @@
       <thead class="site-surface text-[11px] site-text-muted">
         <tr>
           <th class="px-4 py-3 font-bold">الاسم</th>
+          <th class="px-4 py-3 font-bold">حالة القبول</th>
           <th class="px-4 py-3 font-bold">اسم المستخدم</th>
           <th class="px-4 py-3 font-bold">البريد</th>
           <th class="px-4 py-3 font-bold">الجوال</th>
@@ -69,6 +70,15 @@
         {% for row in rows %}
         <tr class="hover:site-surface transition">
           <td class="px-4 py-2 font-semibold site-text">{{ row.display_name }}</td>
+          <td class="px-4 py-2">
+            {% if row.approval_status == 'approved' %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">{{ row.approval_status_label }}</span>
+            {% elif row.approval_status == 'rejected' %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-red-50 text-red-700 text-[11px] font-bold border border-red-200">{{ row.approval_status_label }}</span>
+            {% else %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-bold border border-amber-200">{{ row.approval_status_label }}</span>
+            {% endif %}
+          </td>
           <td class="px-4 py-2 site-text-muted">{{ row.username }}</td>
           <td class="px-4 py-2 site-text-muted">{{ row.email }}</td>
           <td class="px-4 py-2 site-text-muted" dir="ltr">{{ row.mobile }}</td>
@@ -94,7 +104,7 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="8" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون مطابقون.</td>
+          <td colspan="9" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون مطابقون.</td>
         </tr>
         {% endfor %}
       </tbody>

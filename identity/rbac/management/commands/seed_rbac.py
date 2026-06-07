@@ -42,6 +42,10 @@ class Command(BaseCommand):
             ("users.view", "عرض المستخدمين"),
             ("users.teachers.view", "عرض المعلمين في لوحة المستخدمين"),
             ("users.students.view", "عرض الطلاب في لوحة المستخدمين"),
+            ("management.view", "عرض الإدارة"),
+            ("management.teachers.view", "عرض طلبات المعلمين الجدد"),
+            ("management.teachers.approve", "الموافقة على المعلمين"),
+            ("management.teachers.reject", "رفض المعلمين"),
             ("roles.view", "عرض الأدوار"),
             ("permissions.view", "عرض الصلاحيات"),
             ("permissions.assign", "ربط الصلاحيات بالأدوار"),
@@ -126,6 +130,9 @@ class Command(BaseCommand):
             "users.view",
             "users.teachers.view",
             "users.students.view",
+            "management.teachers.view",
+            "management.teachers.approve",
+            "management.teachers.reject",
         ]
 
         roles_data = {

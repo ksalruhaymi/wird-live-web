@@ -10,6 +10,7 @@ class TeacherProfileAdmin(admin.ModelAdmin):
         "display_name",
         "is_available",
         "is_approved",
+        "approval_status",
         "is_demo_teacher",
         "auto_accept_calls",
         "can_audio",
@@ -18,6 +19,7 @@ class TeacherProfileAdmin(admin.ModelAdmin):
     list_filter = (
         "is_available",
         "is_approved",
+        "approval_status",
         "is_demo_teacher",
         "auto_accept_calls",
         "can_audio",

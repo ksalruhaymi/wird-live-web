@@ -12,6 +12,7 @@ from identity.accounts.user_types import (
 )
 
 from .models import TeacherAvailability, TeacherProfile
+from .teacher_approval_service import is_teacher_list_visible
 
 User = get_user_model()
 
@@ -159,7 +160,9 @@ def list_teachers_payload(*, approved_only: bool = True, request=None) -> list[d
         "teacher_availability",
     )
     if approved_only:
-        qs = qs.filter(teacher_profile__is_approved=True)
+        qs = qs.filter(
+            teacher_profile__approval_status=TeacherProfile.ApprovalStatus.APPROVED
+        )
     qs = qs.order_by("teacher_profile__display_name", "username")
     active_ids = _active_teacher_ids()
     users = list(qs)
@@ -185,7 +188,7 @@ def get_teacher_user(teacher_id: int):
         ).get(pk=teacher_id, teacher_profile__isnull=False)
     except User.DoesNotExist:
         return None
-    if not user.teacher_profile.is_approved:
+    if not is_teacher_list_visible(user.teacher_profile):
         return None
     return user
 

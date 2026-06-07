@@ -14,6 +14,11 @@ from apps.calls.recording_storage import (
     object_key_for_recording,
     playback_content_type_for_key,
 )
+from apps.maqraa.models import TeacherProfile
+from apps.maqraa.teacher_approval_service import (
+    approval_status_label,
+    teacher_approval_payload,
+)
 from apps.maqraa.teacher_services import (
     COMPUTED_AVAILABLE,
     COMPUTED_BUSY,
@@ -162,8 +167,10 @@ def _build_teacher_rows(q: str, status_filter: str, account_filter: str):
 
     rows = []
     for user in teachers:
+        profile = user.teacher_profile
         availability = getattr(user, "teacher_availability", None)
         status = compute_teacher_status(user, active_teacher_ids=active_ids)
+        approval = profile.approval_status or TeacherProfile.ApprovalStatus.PENDING
         rows.append(
             {
                 "user": user,
@@ -173,6 +180,8 @@ def _build_teacher_rows(q: str, status_filter: str, account_filter: str):
                 "mobile": user.mobile or "—",
                 "status": status,
                 "status_label": computed_status_label(status),
+                "approval_status": approval,
+                "approval_status_label": approval_status_label(approval),
                 "session_count": session_counts.get(user.id, 0),
                 "last_seen": availability.last_seen if availability else None,
                 "is_active": user.is_active,
@@ -417,6 +426,7 @@ def dashboard_user_teacher_detail(request, user_id):
         "last_seen": availability.last_seen if availability else None,
         "attached_files": _build_attached_files(user, is_teacher=True),
         "profile": profile,
+        "approval": teacher_approval_payload(profile),
         "q": q,
     }
 

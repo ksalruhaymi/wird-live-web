@@ -163,7 +163,8 @@ def _register_google_user(
             display_name=full_name.strip(),
             riwayat=riwayat.strip(),
             ijazah=ijazah_file,
-            is_approved=True,
+            is_approved=False,
+            approval_status=TeacherProfile.ApprovalStatus.PENDING,
             can_audio=True,
             can_video=True,
         )

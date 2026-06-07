@@ -53,6 +53,7 @@ class Command(BaseCommand):
                 "bio": "Automated demo teacher for testing the call flow.",
                 "is_available": True,
                 "is_approved": True,
+                "approval_status": TeacherProfile.ApprovalStatus.APPROVED,
                 "can_audio": True,
                 "can_video": True,
                 "is_demo_teacher": True,
@@ -63,6 +64,7 @@ class Command(BaseCommand):
         profile.display_name = DEMO_DISPLAY_NAME
         profile.is_available = True
         profile.is_approved = True
+        profile.approval_status = TeacherProfile.ApprovalStatus.APPROVED
         profile.can_audio = True
         profile.can_video = True
         profile.is_demo_teacher = True

@@ -17,6 +17,16 @@
     {% if tab == 'profile' %}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-[12px]">
       <div>
+        <div class="text-[11px] site-text-muted mb-1">حالة القبول</div>
+        <div class="font-semibold site-text">{{ approval.approval_status_label }}</div>
+      </div>
+      {% if approval.rejection_reason %}
+      <div class="md:col-span-2 lg:col-span-3">
+        <div class="text-[11px] site-text-muted mb-1">سبب الرفض</div>
+        <div class="site-text">{{ approval.rejection_reason }}</div>
+      </div>
+      {% endif %}
+      <div>
         <div class="text-[11px] site-text-muted mb-1">الاسم الكامل</div>
         <div class="font-semibold site-text">{{ user_obj.full_name|default:"—" }}</div>
       </div>
@@ -85,10 +95,6 @@
         <div>
           <div class="text-[11px] site-text-muted mb-1">اسم العرض</div>
           <div class="site-text">{{ profile.display_name|default:"—" }}</div>
-        </div>
-        <div>
-          <div class="text-[11px] site-text-muted mb-1">معتمد</div>
-          <div class="site-text">{% if profile.is_approved %}نعم{% else %}لا{% endif %}</div>
         </div>
         <div>
           <div class="text-[11px] site-text-muted mb-1">صوتي / مرئي</div>

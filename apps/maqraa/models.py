@@ -3,6 +3,11 @@ from django.db import models
 
 
 class TeacherProfile(models.Model):
+    class ApprovalStatus(models.TextChoices):
+        PENDING = "pending", "قيد المراجعة"
+        APPROVED = "approved", "مقبول"
+        REJECTED = "rejected", "مرفوض"
+
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -11,7 +16,32 @@ class TeacherProfile(models.Model):
     display_name = models.CharField(max_length=255, blank=True)
     bio = models.TextField(blank=True)
     is_available = models.BooleanField(default=False)
-    is_approved = models.BooleanField(default=False)
+    is_approved = models.BooleanField(
+        default=False,
+        help_text="Legacy flag; kept in sync with approval_status=approved.",
+    )
+    approval_status = models.CharField(
+        max_length=20,
+        choices=ApprovalStatus.choices,
+        default=ApprovalStatus.PENDING,
+    )
+    rejection_reason = models.TextField(blank=True, default="")
+    approved_at = models.DateTimeField(null=True, blank=True)
+    approved_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="teacher_approvals_granted",
+    )
+    rejected_at = models.DateTimeField(null=True, blank=True)
+    rejected_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="teacher_approvals_rejected",
+    )
     can_audio = models.BooleanField(default=True)
     can_video = models.BooleanField(default=True)
     is_demo_teacher = models.BooleanField(
