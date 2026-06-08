@@ -9,10 +9,10 @@
         <i class="bi bi-telephone-fill site-link-primary"></i>
         <span>تفاصيل الجلسة #{{ call.id }}</span>
       </h1>
-      <p class="text-[11px] site-text-muted mt-1">{{ session_type_label }} — {{ call.get_status_display }}</p>
+      <p class="text-[12px] site-text-muted mt-1">{{ session_type_label }} — {{ call.get_status_display }}</p>
     </div>
     <a href="{% url 'dashboard:call_session_list' %}?tab=log"
-       class="inline-flex items-center gap-2 px-4 py-2 rounded-full border site-border text-[12px] font-bold site-text hover:site-surface transition">
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full border site-border text-[13px] font-bold site-text hover:site-surface transition">
       <i class="bi bi-arrow-right"></i>
       العودة إلى السجل
     </a>
@@ -24,55 +24,45 @@
       <i class="bi bi-info-circle site-link-primary"></i>
       ملخص الجلسة
     </h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-[12px]">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5 text-[13px]">
       <div>
-        <div class="text-[11px] site-text-muted mb-1">رقم الجلسة</div>
+        <div class="text-[12px] site-text-muted mb-1">رقم الجلسة</div>
         <div class="font-semibold site-text">{{ call.id }}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">الطالب</div>
-        <div class="site-text">{{ call.student.get_full_name|default:call.student.username }}</div>
-        <div class="text-[10px] site-text-muted">{{ call.student.username }}</div>
+        <div class="text-[12px] site-text-muted mb-1">الطالب</div>
+        <div class="site-text">{% if call.student.full_name %}{{ call.student.full_name }}{% else %}{{ call.student.username }}{% endif %}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">المعلّم</div>
-        {% if call.teacher %}
-        <div class="site-text">{{ call.teacher.get_full_name|default:call.teacher.username }}</div>
-        <div class="text-[10px] site-text-muted">{{ call.teacher.username }}</div>
-        {% else %}
-        <div class="site-text-muted">—</div>
-        {% endif %}
+        <div class="text-[12px] site-text-muted mb-1">المعلّم</div>
+        <div class="site-text">
+          {% if call.teacher %}
+            {% if call.teacher.full_name %}{{ call.teacher.full_name }}{% else %}{{ call.teacher.username }}{% endif %}
+          {% else %}—{% endif %}
+        </div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">نوع المكالمة</div>
+        <div class="text-[12px] site-text-muted mb-1">نوع المكالمة</div>
         <div class="site-text">{{ session_type_label }}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">الحالة</div>
+        <div class="text-[12px] site-text-muted mb-1">الحالة</div>
         <div class="site-text">{{ call.get_status_display }}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">المزود</div>
-        <div class="site-text">{{ call.get_provider_display }}</div>
-      </div>
-      <div class="sm:col-span-2 lg:col-span-3">
-        <div class="text-[11px] site-text-muted mb-1">اسم القناة</div>
-        <div class="site-text font-mono text-[11px]" dir="ltr">{{ call.channel_name|default:"—" }}</div>
-      </div>
-      <div>
-        <div class="text-[11px] site-text-muted mb-1">وقت الإنشاء</div>
+        <div class="text-[12px] site-text-muted mb-1">وقت الإنشاء</div>
         <div class="site-text">{{ call.created_at|date:"Y-m-d H:i" }}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">وقت البداية</div>
+        <div class="text-[12px] site-text-muted mb-1">وقت البداية</div>
         <div class="site-text">{{ call.started_at|date:"Y-m-d H:i"|default:"—" }}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">وقت النهاية</div>
+        <div class="text-[12px] site-text-muted mb-1">وقت النهاية</div>
         <div class="site-text">{{ call.ended_at|date:"Y-m-d H:i"|default:"—" }}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">المدة</div>
+        <div class="text-[12px] site-text-muted mb-1">المدة</div>
         <div class="site-text">{{ duration }}</div>
       </div>
     </div>
@@ -87,25 +77,25 @@
     </h2>
 
     {% if recording_summary.has_recording %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[12px]">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-5 text-[13px]">
       <div>
-        <div class="text-[11px] site-text-muted mb-1">حالة التسجيل</div>
+        <div class="text-[12px] site-text-muted mb-1">حالة التسجيل</div>
         <div class="site-text">{{ recording.get_recording_status_display }}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">تاريخ إنشاء التسجيل</div>
+        <div class="text-[12px] site-text-muted mb-1">تاريخ إنشاء التسجيل</div>
         <div class="site-text">{{ recording.created_at|date:"Y-m-d H:i" }}</div>
       </div>
       {% if recording.duration_seconds %}
       <div>
-        <div class="text-[11px] site-text-muted mb-1">مدة التسجيل</div>
+        <div class="text-[12px] site-text-muted mb-1">مدة التسجيل</div>
         <div class="site-text">{{ recording.duration_seconds }} ث</div>
       </div>
       {% endif %}
       {% if recording.recording_error %}
-      <div class="sm:col-span-2">
-        <div class="text-[11px] site-text-muted mb-1">خطأ التسجيل</div>
-        <div class="site-text text-red-600 text-[11px]">{{ recording.recording_error }}</div>
+      <div class="col-span-2 lg:col-span-4">
+        <div class="text-[12px] site-text-muted mb-1">خطأ التسجيل</div>
+        <div class="site-text text-red-600">{{ recording.recording_error }}</div>
       </div>
       {% endif %}
     </div>
@@ -114,87 +104,76 @@
       {% if recording_summary.playable %}
       <button type="button"
               id="sessionPlayRecordingBtn"
-              class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold"
-              data-playback-url="{% url 'dashboard:call_recording_playback_url' recording_summary.recording_id %}">
-        <i class="bi bi-play-fill"></i>
-        تشغيل
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[13px] font-bold">
+        <i class="bi bi-play-fill session-play-icon"></i>
+        <i class="bi bi-pause-fill session-pause-icon hidden"></i>
+        <span class="session-play-label">تشغيل</span>
       </button>
       {% else %}
-      <span class="text-[12px] site-text-muted">ملف التسجيل غير متاح للتشغيل.</span>
+      <span class="text-[13px] site-text-muted">ملف التسجيل غير متاح للتشغيل.</span>
       {% endif %}
       {% if can_recordings_delete %}
       {% url 'dashboard:call_recording_delete' recording_summary.recording_id as delete_url %}
       <a href="{{ delete_url }}"
-         class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-200 text-red-700 text-[12px] font-bold hover:bg-red-50 transition">
+         class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-red-200 text-red-700 text-[13px] font-bold hover:bg-red-50 transition">
         <i class="bi bi-trash"></i>
         حذف التسجيل
       </a>
       {% endif %}
     </div>
 
-    <p id="sessionRecordingError" class="hidden text-[12px] text-red-600"></p>
-    <p id="sessionRecordingLoading" class="hidden text-[12px] site-text-muted">جاري تجهيز التسجيل…</p>
-    <audio id="sessionRecordingAudio" controls preload="none" class="hidden w-full max-w-lg mt-2" dir="ltr"></audio>
+    <p id="sessionRecordingError" class="hidden text-[13px] text-red-600"></p>
+    <audio id="sessionRecordingAudio" preload="none" class="hidden" dir="ltr"></audio>
 
     {% else %}
-    <p class="text-[12px] site-text-muted">لا يوجد تسجيل لهذه الجلسة.</p>
+    <p class="text-[13px] site-text-muted">لا يوجد تسجيل لهذه الجلسة.</p>
     {% endif %}
   </div>
   {% endif %}
 
   {# ——— تقييمات المكالمة ——— #}
   {% if can_ratings %}
-  <div class="site-card p-5 md:p-6 space-y-4">
+  <div id="ratings" class="site-card p-5 md:p-6 space-y-4 scroll-mt-24">
     <h2 class="text-sm font-bold site-text flex items-center gap-2">
       <i class="bi bi-star-fill site-link-primary"></i>
       تقييمات المكالمة
     </h2>
 
     {% if peer_ratings %}
-    <div class="space-y-4">
-      {% for rating in peer_ratings %}
-      <div class="rounded-lg border site-border p-4 space-y-3">
-        <div class="flex flex-wrap items-center justify-between gap-2">
-          <span class="text-[13px] font-bold site-text">{{ rating.get_rater_role_display }}</span>
-          <span class="inline-flex px-2 py-0.5 rounded-full text-[10px] font-bold border site-border site-text-muted">
-            {{ rating.get_status_display }}
-          </span>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[12px]">
-          <div>
-            <div class="text-[11px] site-text-muted mb-1">المقيّم</div>
-            <div class="site-text">{{ rating.rater.get_full_name|default:rating.rater.username }}</div>
-          </div>
-          <div>
-            <div class="text-[11px] site-text-muted mb-1">المستهدف</div>
-            <div class="site-text">{{ rating.rated.get_full_name|default:rating.rated.username }}</div>
-          </div>
-          <div>
-            <div class="text-[11px] site-text-muted mb-1">متمكن</div>
-            <div class="site-text">{% if rating.competence %}{{ rating.competence }}/5{% else %}—{% endif %}</div>
-          </div>
-          <div>
-            <div class="text-[11px] site-text-muted mb-1">واضح</div>
-            <div class="site-text">{% if rating.clarity %}{{ rating.clarity }}/5{% else %}—{% endif %}</div>
-          </div>
-          <div>
-            <div class="text-[11px] site-text-muted mb-1">جودة الصوت</div>
-            <div class="site-text">{% if rating.audio_quality %}{{ rating.audio_quality }}/5{% else %}—{% endif %}</div>
-          </div>
-          <div>
-            <div class="text-[11px] site-text-muted mb-1">تاريخ الإنشاء</div>
-            <div class="site-text">{{ rating.created_at|date:"Y-m-d H:i" }}</div>
-          </div>
-          <div>
-            <div class="text-[11px] site-text-muted mb-1">آخر تحديث</div>
-            <div class="site-text">{{ rating.updated_at|date:"Y-m-d H:i" }}</div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-[13px]">
+        <thead class="site-surface text-[12px] site-text-muted">
+          <tr>
+            <th class="px-3 py-2.5 font-bold text-start">الدور</th>
+            <th class="px-3 py-2.5 font-bold text-start">المقيّم</th>
+            <th class="px-3 py-2.5 font-bold text-start">المستهدف</th>
+            <th class="px-3 py-2.5 font-bold text-start">الحالة</th>
+            <th class="px-3 py-2.5 font-bold text-center">متمكن</th>
+            <th class="px-3 py-2.5 font-bold text-center">واضح</th>
+            <th class="px-3 py-2.5 font-bold text-center">جودة الصوت</th>
+            <th class="px-3 py-2.5 font-bold text-start whitespace-nowrap">تاريخ الإنشاء</th>
+            <th class="px-3 py-2.5 font-bold text-start whitespace-nowrap">آخر تحديث</th>
+          </tr>
+        </thead>
+        <tbody class="divide-site">
+          {% for rating in peer_ratings %}
+          <tr class="hover:site-surface transition">
+            <td class="px-3 py-2.5 font-medium site-text">{{ rating.get_rater_role_display }}</td>
+            <td class="px-3 py-2.5 site-text">{{ rating.rater.get_full_name|default:rating.rater.username }}</td>
+            <td class="px-3 py-2.5 site-text">{{ rating.rated.get_full_name|default:rating.rated.username }}</td>
+            <td class="px-3 py-2.5 site-text-muted">{{ rating.get_status_display }}</td>
+            <td class="px-3 py-2.5 text-center site-text">{% if rating.competence %}{{ rating.competence }}/5{% else %}—{% endif %}</td>
+            <td class="px-3 py-2.5 text-center site-text">{% if rating.clarity %}{{ rating.clarity }}/5{% else %}—{% endif %}</td>
+            <td class="px-3 py-2.5 text-center site-text">{% if rating.audio_quality %}{{ rating.audio_quality }}/5{% else %}—{% endif %}</td>
+            <td class="px-3 py-2.5 site-text-muted whitespace-nowrap">{{ rating.created_at|date:"Y-m-d H:i" }}</td>
+            <td class="px-3 py-2.5 site-text-muted whitespace-nowrap">{{ rating.updated_at|date:"Y-m-d H:i" }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
     {% else %}
-    <p class="text-[12px] site-text-muted">لا توجد تقييمات لهذه الجلسة.</p>
+    <p class="text-[13px] site-text-muted">لا توجد تقييمات لهذه الجلسة.</p>
     {% endif %}
   </div>
   {% endif %}
@@ -206,33 +185,56 @@
 (function () {
   const btn = document.getElementById('sessionPlayRecordingBtn');
   const audio = document.getElementById('sessionRecordingAudio');
-  const loading = document.getElementById('sessionRecordingLoading');
   const errorEl = document.getElementById('sessionRecordingError');
+  const playIcon = btn?.querySelector('.session-play-icon');
+  const pauseIcon = btn?.querySelector('.session-pause-icon');
+  const playLabel = btn?.querySelector('.session-play-label');
+  const playbackUrl = "{% url 'dashboard:call_recording_playback_url' recording_summary.recording_id %}";
+  let loaded = false;
+
   if (!btn || !audio) return;
 
-  btn.addEventListener('click', async () => {
-    const url = btn.getAttribute('data-playback-url');
-    if (!url) return;
-    if (loading) loading.classList.remove('hidden');
-    if (errorEl) errorEl.classList.add('hidden');
-    audio.classList.add('hidden');
+  function setPlaying(playing) {
+    if (playIcon) playIcon.classList.toggle('hidden', playing);
+    if (pauseIcon) pauseIcon.classList.toggle('hidden', !playing);
+    if (playLabel) playLabel.textContent = playing ? 'إيقاف' : 'تشغيل';
+  }
 
-    try {
-      const response = await fetch(url, { credentials: 'same-origin' });
-      const data = await response.json();
-      if (!response.ok || !data.success) {
-        throw new Error(data.error || 'تعذر تحميل التسجيل.');
+  audio.addEventListener('ended', () => setPlaying(false));
+
+  btn.addEventListener('click', async () => {
+    if (!loaded) {
+      if (errorEl) errorEl.classList.add('hidden');
+      try {
+        const response = await fetch(playbackUrl, { credentials: 'same-origin' });
+        const data = await response.json();
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'تعذر تحميل التسجيل.');
+        }
+        audio.src = data.playback_url;
+        loaded = true;
+      } catch (error) {
+        if (errorEl) {
+          errorEl.textContent = error.message || 'تعذر تحميل التسجيل.';
+          errorEl.classList.remove('hidden');
+        }
+        return;
       }
-      audio.src = data.playback_url;
-      audio.classList.remove('hidden');
-      audio.load();
-      if (loading) loading.classList.add('hidden');
-    } catch (error) {
-      if (loading) loading.classList.add('hidden');
-      if (errorEl) {
-        errorEl.textContent = error.message || 'تعذر تحميل التسجيل.';
-        errorEl.classList.remove('hidden');
+    }
+
+    if (audio.paused) {
+      try {
+        await audio.play();
+        setPlaying(true);
+      } catch (error) {
+        if (errorEl) {
+          errorEl.textContent = 'تعذر تشغيل التسجيل.';
+          errorEl.classList.remove('hidden');
+        }
       }
+    } else {
+      audio.pause();
+      setPlaying(false);
     }
   });
 })();

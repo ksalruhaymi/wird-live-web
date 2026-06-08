@@ -5,22 +5,22 @@
   <input type="hidden" name="tab" value="log">
   {% include "dashboard/partials/filter_hidden_fields.html" %}
   <div class="flex-1 min-w-[200px]">
-    <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
+    <label class="block text-[12px] font-bold site-text-muted mb-1">بحث</label>
     <input type="search" name="q" value="{{ q }}"
            placeholder="طالب، معلم، قناة…"
-           class="w-full px-3 py-2 rounded-lg border site-border text-[11px] site-text">
+           class="w-full px-3 py-2 rounded-lg border site-border text-[13px] site-text">
   </div>
   <div class="min-w-[140px]">
-    <label class="block text-[11px] font-bold site-text-muted mb-1">النوع</label>
-    <select name="type" class="w-full px-3 py-2 rounded-lg border site-border text-[11px] site-text">
+    <label class="block text-[12px] font-bold site-text-muted mb-1">النوع</label>
+    <select name="type" class="w-full px-3 py-2 rounded-lg border site-border text-[13px] site-text">
       <option value="all" {% if type_filter == 'all' %}selected{% endif %}>الكل</option>
       <option value="audio" {% if type_filter == 'audio' %}selected{% endif %}>صوتي</option>
       <option value="video" {% if type_filter == 'video' %}selected{% endif %}>مرئي</option>
     </select>
   </div>
   <div class="min-w-[140px]">
-    <label class="block text-[11px] font-bold site-text-muted mb-1">الحالة</label>
-    <select name="status" class="w-full px-3 py-2 rounded-lg border site-border text-[11px] site-text">
+    <label class="block text-[12px] font-bold site-text-muted mb-1">الحالة</label>
+    <select name="status" class="w-full px-3 py-2 rounded-lg border site-border text-[13px] site-text">
       <option value="all" {% if status_filter == 'all' %}selected{% endif %}>الكل</option>
       <option value="pending" {% if status_filter == 'pending' %}selected{% endif %}>بانتظار المعلم</option>
       <option value="active" {% if status_filter == 'active' %}selected{% endif %}>نشط</option>
@@ -30,96 +30,110 @@
       <option value="cancelled" {% if status_filter == 'cancelled' %}selected{% endif %}>ملغي</option>
     </select>
   </div>
-  <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[11px] font-bold">تطبيق</button>
+  <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[13px] font-bold">تطبيق</button>
 </form>
 
 <div class="overflow-x-auto site-card">
-  <table class="min-w-full text-[11px]">
-    <thead class="site-surface text-[10px] site-text-muted">
+  <table class="min-w-full text-[13px]">
+    <thead class="site-surface text-[12px] site-text-muted">
       <tr>
-        <th class="px-3 py-2 font-bold">#</th>
-        <th class="px-3 py-2 font-bold">الطالب</th>
-        <th class="px-3 py-2 font-bold">المعلّم</th>
-        <th class="px-3 py-2 font-bold">النوع</th>
-        <th class="px-3 py-2 font-bold text-center">الحالة</th>
-        <th class="px-3 py-2 font-bold whitespace-nowrap">وقت الطلب</th>
-        <th class="px-3 py-2 font-bold whitespace-nowrap">البداية</th>
-        <th class="px-3 py-2 font-bold whitespace-nowrap">النهاية</th>
-        <th class="px-3 py-2 font-bold">المدة</th>
+        <th class="px-3 py-2.5 font-bold">#</th>
+        <th class="px-3 py-2.5 font-bold">الطالب</th>
+        <th class="px-3 py-2.5 font-bold">المعلّم</th>
+        <th class="px-3 py-2.5 font-bold">النوع</th>
+        <th class="px-3 py-2.5 font-bold text-center">الحالة</th>
+        <th class="px-3 py-2.5 font-bold whitespace-nowrap">وقت الطلب</th>
+        <th class="px-3 py-2.5 font-bold whitespace-nowrap">البداية</th>
+        <th class="px-3 py-2.5 font-bold whitespace-nowrap">النهاية</th>
+        <th class="px-3 py-2.5 font-bold">المدة</th>
         {% if can_recordings %}
-        <th class="px-3 py-2 font-bold text-center">تسجيل</th>
+        <th class="px-3 py-2.5 font-bold text-center">تسجيل</th>
         {% endif %}
         {% if can_ratings %}
-        <th class="px-3 py-2 font-bold text-center">تقييم</th>
+        <th class="px-3 py-2.5 font-bold text-center">تقييم</th>
         {% endif %}
-        <th class="px-3 py-2 font-bold text-center"></th>
+        <th class="px-3 py-2.5 font-bold text-center">التفاصيل</th>
       </tr>
     </thead>
     <tbody class="divide-site">
       {% for row in rows %}
       {% with call=row.call rec=row.recording rat=row.ratings %}
+      {% url 'dashboard:call_session_detail' call.id as detail_url %}
       <tr class="hover:site-surface transition
         {% if call.status == 'active' %}bg-green-50/30
         {% elif call.status == 'pending' %}bg-blue-50/25
         {% elif call.status == 'missed' %}bg-amber-50/30
         {% elif call.status == 'rejected' or call.status == 'cancelled' %}bg-red-50/20
         {% endif %}">
-        <td class="px-3 py-1.5 site-text-muted tabular-nums">{{ call.id }}</td>
-        <td class="px-3 py-1.5 font-medium site-text max-w-[120px] truncate" title="{% if call.student.full_name %}{{ call.student.full_name }}{% else %}{{ call.student.username }}{% endif %}">
-          {% if call.student.full_name %}{{ call.student.full_name }}{% else %}{{ call.student.username }}{% endif %}
+        <td class="px-3 py-2 tabular-nums">
+          <a href="{{ detail_url }}" class="font-semibold site-link-primary hover:underline">{{ call.id }}</a>
         </td>
-        <td class="px-3 py-1.5 site-text max-w-[120px] truncate" title="{% if call.teacher %}{% if call.teacher.full_name %}{{ call.teacher.full_name }}{% else %}{{ call.teacher.username }}{% endif %}{% endif %}">
+        <td class="px-3 py-2 max-w-[140px] truncate">
+          <a href="{{ detail_url }}" class="font-medium site-text hover:site-link-primary hover:underline block truncate"
+             title="{% if call.student.full_name %}{{ call.student.full_name }}{% else %}{{ call.student.username }}{% endif %}">
+            {% if call.student.full_name %}{{ call.student.full_name }}{% else %}{{ call.student.username }}{% endif %}
+          </a>
+        </td>
+        <td class="px-3 py-2 max-w-[140px] truncate">
           {% if call.teacher %}
+          <a href="{{ detail_url }}" class="site-text hover:site-link-primary hover:underline block truncate"
+             title="{% if call.teacher.full_name %}{{ call.teacher.full_name }}{% else %}{{ call.teacher.username }}{% endif %}">
             {% if call.teacher.full_name %}{{ call.teacher.full_name }}{% else %}{{ call.teacher.username }}{% endif %}
-          {% else %}—{% endif %}
-        </td>
-        <td class="px-3 py-1.5 site-text-muted whitespace-nowrap">{{ call.get_session_type_display }}</td>
-        <td class="px-3 py-1.5 text-center">
-          {% if call.status == 'ended' %}
-          <span class="inline-flex items-center text-green-600" title="{{ call.get_status_display }}">
-            <i class="bi bi-check-circle text-[14px]"></i>
-          </span>
-          {% elif call.status == 'active' %}
-          <span class="inline-flex items-center text-green-700" title="{{ call.get_status_display }}">
-            <i class="bi bi-telephone-fill text-[13px]"></i>
-          </span>
-          {% elif call.status == 'pending' %}
-          <span class="inline-flex items-center text-blue-600" title="{{ call.get_status_display }}">
-            <i class="bi bi-hourglass-split text-[13px]"></i>
-          </span>
-          {% elif call.status == 'missed' %}
-          <span class="inline-flex items-center text-amber-600" title="{{ call.get_status_display }}">
-            <i class="bi bi-telephone-x text-[14px]"></i>
-          </span>
-          {% elif call.status == 'rejected' %}
-          <span class="inline-flex items-center text-red-600" title="{{ call.get_status_display }}">
-            <i class="bi bi-x-circle text-[14px]"></i>
-          </span>
-          {% elif call.status == 'cancelled' %}
-          <span class="inline-flex items-center text-red-500" title="{{ call.get_status_display }}">
-            <i class="bi bi-slash-circle text-[14px]"></i>
-          </span>
+          </a>
           {% else %}
-          <span class="inline-flex items-center site-text-muted" title="{{ call.get_status_display }}">
-            <i class="bi bi-circle text-[12px]"></i>
-          </span>
+          <span class="site-text-muted">—</span>
           {% endif %}
         </td>
-        <td class="px-3 py-1.5 site-text-muted whitespace-nowrap tabular-nums">{{ call.created_at|date:"m-d H:i" }}</td>
-        <td class="px-3 py-1.5 site-text-muted whitespace-nowrap tabular-nums">{{ call.started_at|date:"m-d H:i"|default:"—" }}</td>
-        <td class="px-3 py-1.5 site-text-muted whitespace-nowrap tabular-nums">{{ call.ended_at|date:"m-d H:i"|default:"—" }}</td>
-        <td class="px-3 py-1.5 site-text-muted whitespace-nowrap">{{ row.duration }}</td>
+        <td class="px-3 py-2 site-text-muted whitespace-nowrap">{{ call.get_session_type_display }}</td>
+        <td class="px-3 py-2 text-center">
+          <div class="w-9 h-9 mx-auto flex items-center justify-center">
+          {% if call.status == 'ended' %}
+          <span class="w-9 h-9 inline-flex items-center justify-center text-green-600" title="{{ call.get_status_display }}">
+            <i class="bi bi-check-circle text-lg leading-none"></i>
+          </span>
+          {% elif call.status == 'active' %}
+          <span class="w-9 h-9 inline-flex items-center justify-center text-green-700" title="{{ call.get_status_display }}">
+            <i class="bi bi-telephone-fill text-lg leading-none"></i>
+          </span>
+          {% elif call.status == 'pending' %}
+          <span class="w-9 h-9 inline-flex items-center justify-center text-blue-600" title="{{ call.get_status_display }}">
+            <i class="bi bi-hourglass-split text-lg leading-none"></i>
+          </span>
+          {% elif call.status == 'missed' %}
+          <span class="w-9 h-9 inline-flex items-center justify-center text-amber-600" title="{{ call.get_status_display }}">
+            <i class="bi bi-telephone-x text-lg leading-none"></i>
+          </span>
+          {% elif call.status == 'rejected' %}
+          <span class="w-9 h-9 inline-flex items-center justify-center text-red-600" title="{{ call.get_status_display }}">
+            <i class="bi bi-x-circle text-lg leading-none"></i>
+          </span>
+          {% elif call.status == 'cancelled' %}
+          <span class="w-9 h-9 inline-flex items-center justify-center text-red-500" title="{{ call.get_status_display }}">
+            <i class="bi bi-slash-circle text-lg leading-none"></i>
+          </span>
+          {% else %}
+          <span class="w-9 h-9 inline-flex items-center justify-center site-text-muted" title="{{ call.get_status_display }}">
+            <i class="bi bi-circle text-lg leading-none"></i>
+          </span>
+          {% endif %}
+          </div>
+        </td>
+        <td class="px-3 py-2 site-text-muted whitespace-nowrap tabular-nums">{{ call.created_at|date:"m-d H:i" }}</td>
+        <td class="px-3 py-2 site-text-muted whitespace-nowrap tabular-nums">{{ call.started_at|date:"m-d H:i"|default:"—" }}</td>
+        <td class="px-3 py-2 site-text-muted whitespace-nowrap tabular-nums">{{ call.ended_at|date:"m-d H:i"|default:"—" }}</td>
+        <td class="px-3 py-2 site-text-muted whitespace-nowrap">{{ row.duration }}</td>
 
         {% if can_recordings %}
-        <td class="px-3 py-1.5">
+        <td class="px-3 py-2">
           <div class="flex items-center justify-center gap-1.5 w-[4.75rem] mx-auto">
             <div class="w-9 h-9 shrink-0 flex items-center justify-center">
               {% if rec.playable %}
               <button type="button"
-                      class="call-log-popover-trigger call-play-recording-btn w-9 h-9 inline-flex items-center justify-center rounded-md text-violet-700 hover:bg-violet-50 transition"
+                      class="call-play-recording-btn w-9 h-9 inline-flex items-center justify-center rounded-md text-violet-700 hover:bg-violet-50 transition"
                       title="تشغيل التسجيل"
                       data-playback-url="{% url 'dashboard:call_recording_playback_url' rec.recording_id %}">
-                <i class="bi bi-play-circle text-lg leading-none"></i>
+                <i class="bi bi-play-circle text-lg leading-none call-play-icon"></i>
+                <i class="bi bi-pause-circle text-lg leading-none call-pause-icon hidden"></i>
               </button>
               {% elif rec.has_recording %}
               <span class="w-9 h-9 inline-flex items-center justify-center text-amber-600"
@@ -150,29 +164,28 @@
         {% endif %}
 
         {% if can_ratings %}
-        <td class="px-3 py-1.5 text-center">
+        <td class="px-3 py-2 text-center">
+          <div class="w-9 h-9 mx-auto flex items-center justify-center">
           {% if rat.ratings_total > 0 %}
-          <button type="button"
-                  class="call-log-popover-trigger call-show-ratings-btn inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-md text-amber-700 hover:bg-amber-50 transition text-[10px] font-bold tabular-nums"
-                  title="{{ rat.ratings_status_label }} — {{ rat.ratings_ratio }}"
-                  data-ratings-url="{% url 'dashboard:call_session_ratings_detail' call.id %}">
-            <span>{{ rat.ratings_score_display }}</span>
-            <i class="bi bi-star-fill text-[9px]"></i>
-          </button>
+          <a href="{{ detail_url }}#ratings"
+             class="w-9 h-9 inline-flex items-center justify-center rounded-md text-amber-700 hover:bg-amber-50 transition"
+             title="{{ rat.ratings_status_label }} — {{ rat.ratings_ratio }}">
+            <i class="bi bi-star-fill text-lg leading-none"></i>
+          </a>
           {% else %}
-          <span class="inline-flex items-center justify-center w-7 h-7 site-text-muted" title="لا يوجد تقييم">
-            <i class="bi bi-star text-[14px] opacity-40"></i>
+          <span class="w-9 h-9 inline-flex items-center justify-center site-text-muted" title="لا يوجد تقييم">
+            <i class="bi bi-star text-lg leading-none opacity-40"></i>
           </span>
           {% endif %}
+          </div>
         </td>
         {% endif %}
 
-        <td class="px-3 py-1.5 text-center">
-          {% url 'dashboard:call_session_detail' call.id as detail_url %}
+        <td class="px-3 py-2 text-center">
           <a href="{{ detail_url }}"
-             class="w-7 h-7 inline-flex items-center justify-center rounded-md site-text-muted hover:site-surface transition"
+             class="w-9 h-9 inline-flex items-center justify-center rounded-md site-text-muted hover:site-surface transition"
              title="تفاصيل">
-            <i class="bi bi-eye text-[14px]"></i>
+            <i class="bi bi-eye text-lg leading-none"></i>
           </a>
         </td>
       </tr>
@@ -191,207 +204,78 @@
   {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
 {% endif %}
 
-{# Popover مرتبط بالعنصر المضغوط #}
-{% if can_recordings or can_ratings %}
-<div id="callLogPopover"
-     class="fixed z-[90] hidden pointer-events-auto"
-     role="dialog"
-     aria-hidden="true">
-  <div id="callLogPopoverPanel"
-       class="site-card shadow-lg border site-border rounded-lg p-2.5 min-w-[200px] max-w-[260px]">
-    <div id="callLogPopoverContent"></div>
-  </div>
-</div>
-{% endif %}
-
+{% if can_recordings %}
+<audio id="callLogSharedAudio" preload="none" class="hidden" dir="ltr"></audio>
 <script>
 (function () {
-  function starText(value) {
-    if (value === null || value === undefined) return '—';
-    return value + '/5';
+  const sharedAudio = document.getElementById('callLogSharedAudio');
+  if (!sharedAudio) return;
+
+  let activeBtn = null;
+  let loadedUrl = null;
+
+  function setButtonPlaying(btn, playing) {
+    if (!btn) return;
+    const playIcon = btn.querySelector('.call-play-icon');
+    const pauseIcon = btn.querySelector('.call-pause-icon');
+    if (playIcon) playIcon.classList.toggle('hidden', playing);
+    if (pauseIcon) pauseIcon.classList.toggle('hidden', !playing);
+    btn.setAttribute('title', playing ? 'إيقاف التسجيل' : 'تشغيل التسجيل');
   }
 
-  const popover = document.getElementById('callLogPopover');
-  const popoverPanel = document.getElementById('callLogPopoverPanel');
-  const popoverContent = document.getElementById('callLogPopoverContent');
-  let activeTrigger = null;
-  let activeAudio = null;
-
-  function stopActiveAudio() {
-    if (activeAudio) {
-      activeAudio.pause();
-      activeAudio.removeAttribute('src');
-      activeAudio.load();
-      activeAudio = null;
+  function resetActiveButton() {
+    if (activeBtn) {
+      setButtonPlaying(activeBtn, false);
+      activeBtn = null;
     }
   }
 
-  function closePopover() {
-    if (!popover) return;
-    popover.classList.add('hidden');
-    popover.setAttribute('aria-hidden', 'true');
-    stopActiveAudio();
-    activeTrigger = null;
-    if (popoverContent) popoverContent.innerHTML = '';
-  }
-
-  function positionPopover(trigger) {
-    if (!popover || !popoverPanel || !trigger) return;
-    const rect = trigger.getBoundingClientRect();
-    const panelWidth = popoverPanel.offsetWidth || 220;
-    const panelHeight = popoverPanel.offsetHeight || 72;
-    const gap = 6;
-    let top = rect.bottom + gap;
-    let left = rect.left + (rect.width / 2) - (panelWidth / 2);
-
-    if (top + panelHeight > window.innerHeight - 8) {
-      top = rect.top - panelHeight - gap;
-    }
-    left = Math.max(8, Math.min(left, window.innerWidth - panelWidth - 8));
-    top = Math.max(8, Math.min(top, window.innerHeight - panelHeight - 8));
-
-    popover.style.top = top + 'px';
-    popover.style.left = left + 'px';
-  }
-
-  function openPopover(trigger, html) {
-    if (!popover || !popoverContent) return;
-    if (activeTrigger === trigger && !popover.classList.contains('hidden')) {
-      closePopover();
-      return;
-    }
-    stopActiveAudio();
-    activeTrigger = trigger;
-    popoverContent.innerHTML = html;
-    popover.classList.remove('hidden');
-    popover.setAttribute('aria-hidden', 'false');
-    positionPopover(trigger);
-    activeAudio = popoverContent.querySelector('audio');
-  }
-
-  document.addEventListener('click', (event) => {
-    if (!popover || popover.classList.contains('hidden')) return;
-    if (popover.contains(event.target)) return;
-    if (event.target.closest('.call-log-popover-trigger')) return;
-    closePopover();
+  sharedAudio.addEventListener('ended', resetActiveButton);
+  sharedAudio.addEventListener('pause', () => {
+    if (sharedAudio.currentTime > 0 && !sharedAudio.ended) return;
+    resetActiveButton();
   });
 
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closePopover();
-  });
-
-  window.addEventListener('scroll', () => {
-    if (activeTrigger && popover && !popover.classList.contains('hidden')) {
-      positionPopover(activeTrigger);
-    }
-  }, true);
-
-  window.addEventListener('resize', () => {
-    if (activeTrigger && popover && !popover.classList.contains('hidden')) {
-      positionPopover(activeTrigger);
-    }
-  });
-
-  {% if can_recordings %}
   document.querySelectorAll('.call-play-recording-btn').forEach((btn) => {
     btn.addEventListener('click', async (event) => {
       event.stopPropagation();
       const url = btn.getAttribute('data-playback-url');
       if (!url) return;
 
-      openPopover(btn, `
-        <p class="text-[10px] site-text-muted mb-1.5">تشغيل التسجيل</p>
-        <p class="call-log-popover-loading text-[10px] site-text-muted">جاري التجهيز…</p>
-        <p class="call-log-popover-error hidden text-[10px] text-red-600"></p>
-        <audio controls preload="none" class="hidden w-full max-w-[220px] mt-1" dir="ltr"></audio>
-      `);
-
-      const loadingEl = popoverContent.querySelector('.call-log-popover-loading');
-      const errorEl = popoverContent.querySelector('.call-log-popover-error');
-      const audioEl = popoverContent.querySelector('audio');
-      activeAudio = audioEl;
-
-      try {
-        const response = await fetch(url, { credentials: 'same-origin' });
-        const data = await response.json();
-        if (!response.ok || !data.success) {
-          throw new Error(data.error || 'تعذر تحميل التسجيل.');
-        }
-        if (audioEl) {
-          audioEl.src = data.playback_url;
-          audioEl.classList.remove('hidden');
-          audioEl.load();
-        }
-        if (loadingEl) loadingEl.classList.add('hidden');
-        positionPopover(btn);
-      } catch (error) {
-        if (loadingEl) loadingEl.classList.add('hidden');
-        if (errorEl) {
-          errorEl.textContent = error.message || 'تعذر تحميل التسجيل.';
-          errorEl.classList.remove('hidden');
-        }
-        positionPopover(btn);
+      if (activeBtn === btn && !sharedAudio.paused) {
+        sharedAudio.pause();
+        setButtonPlaying(btn, false);
+        activeBtn = null;
+        return;
       }
-    });
-  });
-  {% endif %}
 
-  {% if can_ratings %}
-  document.querySelectorAll('.call-show-ratings-btn').forEach((btn) => {
-    btn.addEventListener('click', async (event) => {
-      event.stopPropagation();
-      const url = btn.getAttribute('data-ratings-url');
-      if (!url) return;
+      if (activeBtn && activeBtn !== btn) {
+        sharedAudio.pause();
+        setButtonPlaying(activeBtn, false);
+        loadedUrl = null;
+      }
 
-      openPopover(btn, `
-        <p class="call-log-popover-loading text-[10px] site-text-muted">جاري التحميل…</p>
-        <p class="call-log-popover-error hidden text-[10px] text-red-600"></p>
-        <div class="call-log-popover-ratings hidden space-y-2 max-h-[180px] overflow-y-auto"></div>
-      `);
-
-      const loadingEl = popoverContent.querySelector('.call-log-popover-loading');
-      const errorEl = popoverContent.querySelector('.call-log-popover-error');
-      const bodyEl = popoverContent.querySelector('.call-log-popover-ratings');
+      activeBtn = btn;
+      setButtonPlaying(btn, true);
 
       try {
-        const response = await fetch(url, { credentials: 'same-origin' });
-        const data = await response.json();
-        if (!response.ok || !data.success) {
-          throw new Error(data.error || 'تعذر تحميل التقييمات.');
-        }
-        if (loadingEl) loadingEl.classList.add('hidden');
-        if (!data.ratings || data.ratings.length === 0) {
-          if (bodyEl) {
-            bodyEl.innerHTML = '<p class="text-[10px] site-text-muted">لا توجد تقييمات.</p>';
-            bodyEl.classList.remove('hidden');
+        if (loadedUrl !== url) {
+          const response = await fetch(url, { credentials: 'same-origin' });
+          const data = await response.json();
+          if (!response.ok || !data.success) {
+            throw new Error(data.error || 'تعذر تحميل التسجيل.');
           }
-        } else if (bodyEl) {
-          bodyEl.innerHTML = data.ratings.map((item) => `
-            <div class="rounded border site-border p-2">
-              <div class="flex items-center justify-between gap-1 mb-1">
-                <span class="text-[10px] font-bold site-text">${item.rater_role}</span>
-                <span class="text-[9px] site-text-muted">${item.status}</span>
-              </div>
-              <div class="flex gap-2 text-[9px] site-text-muted">
-                <span>م ${starText(item.competence)}</span>
-                <span>و ${starText(item.clarity)}</span>
-                <span>ص ${starText(item.audio_quality)}</span>
-              </div>
-            </div>
-          `).join('');
-          bodyEl.classList.remove('hidden');
+          sharedAudio.src = data.playback_url;
+          loadedUrl = url;
         }
-        positionPopover(btn);
+        await sharedAudio.play();
       } catch (error) {
-        if (loadingEl) loadingEl.classList.add('hidden');
-        if (errorEl) {
-          errorEl.textContent = error.message || 'تعذر تحميل التقييمات.';
-          errorEl.classList.remove('hidden');
-        }
-        positionPopover(btn);
+        resetActiveButton();
+        loadedUrl = null;
+        sharedAudio.removeAttribute('src');
       }
     });
   });
-  {% endif %}
 })();
 </script>
+{% endif %}
