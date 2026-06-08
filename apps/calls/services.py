@@ -153,7 +153,8 @@ def request_call_session(
         if teacher is None:
             raise CallValidationError("المعلّم غير موجود أو ليس بانتظار المراجعة.")
     else:
-        if resolve_user_type_slug(user) != "student":
+        caller_slug = resolve_user_type_slug(user)
+        if caller_slug not in {"student", "admin"}:
             raise CallValidationError("هذا الإجراء للطلاب فقط.")
         teacher = get_teacher_user(teacher_id)
         if teacher is None:

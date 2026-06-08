@@ -7,11 +7,10 @@ from django.views.decorators.http import require_GET, require_POST
 from apps.subscription.models import StudentSubscription, SubscriptionPlan
 from apps.subscription.services import (
     call_eligibility_payload,
+    can_use_subscription_packages,
     create_student_subscription,
     current_subscription_payload,
-    is_student_user,
     subscription_to_payload,
-    STUDENT_ONLY_SUBSCRIPTION_MESSAGE,
 )
 
 
@@ -87,12 +86,6 @@ def subscribe(request):
     if auth_err:
         return auth_err
 
-    if not is_student_user(request.user):
-        return JsonResponse(
-            {"success": False, "message": STUDENT_ONLY_SUBSCRIPTION_MESSAGE},
-            status=403,
-        )
-
     data, err = _parse_json_body(request)
     if err:
         return err
@@ -132,13 +125,13 @@ def my_subscriptions(request):
     if auth_err:
         return auth_err
 
-    if not is_student_user(request.user):
+    if not can_use_subscription_packages(request.user):
         return JsonResponse(
             {
                 "success": True,
                 "applicable": False,
                 "subscriptions": [],
-                "message": STUDENT_ONLY_SUBSCRIPTION_MESSAGE,
+                "message": "",
             }
         )
 

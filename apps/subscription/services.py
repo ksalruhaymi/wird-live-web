@@ -1,12 +1,17 @@
 from __future__ import annotations
 
 from datetime import date
+from decimal import Decimal
 
 from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.utils import timezone
 
-from identity.accounts.user_types import USER_TYPE_STUDENT, resolve_user_type_slug
+from identity.accounts.user_types import (
+    USER_TYPE_ADMIN,
+    USER_TYPE_STUDENT,
+    resolve_user_type_slug,
+)
 
 from .models import StudentSubscription, StudentSubscriptionBalance, SubscriptionPlan
 
@@ -75,6 +80,27 @@ def is_student_user(user) -> bool:
     return resolve_user_type_slug(user) == "student"
 
 
+def is_admin_user(user) -> bool:
+    if getattr(user, "user_type", None) == USER_TYPE_ADMIN:
+        return True
+    if getattr(user, "is_superuser", False):
+        return True
+    if resolve_user_type_slug(user) == "admin":
+        return True
+    roles = getattr(user, "roles", None)
+    if roles is not None and roles.filter(slug="admin").exists():
+        return True
+    return False
+
+
+def can_use_subscription_packages(user) -> bool:
+    if is_student_user(user) or is_admin_user(user):
+        return True
+    if hasattr(user, "has_permission"):
+        return user.has_permission("mobile.subscriptions.checkout.create")
+    return False
+
+
 def get_user_subscription_balance(user) -> StudentSubscriptionBalance | None:
     try:
         return StudentSubscriptionBalance.objects.get(user=user)
@@ -104,7 +130,7 @@ def get_current_active_subscription(user) -> StudentSubscription | None:
 
 
 def student_can_request_call(user) -> tuple[bool, str]:
-    if not is_student_user(user):
+    if not can_use_subscription_packages(user):
         return False, "هذا الإجراء للطلاب فقط."
     balance = get_user_subscription_balance(user)
     if not balance or not is_balance_active(balance):
@@ -115,7 +141,7 @@ def student_can_request_call(user) -> tuple[bool, str]:
 
 
 def call_eligibility_payload(user) -> dict:
-    if not is_student_user(user):
+    if not can_use_subscription_packages(user):
         return {
             "success": True,
             "applicable": False,
@@ -164,13 +190,13 @@ def subscription_to_payload(sub: StudentSubscription, *, include_display: bool =
 
 
 def current_subscription_payload(user) -> dict:
-    if not is_student_user(user):
+    if not can_use_subscription_packages(user):
         return {
             "success": True,
             "applicable": False,
             "has_active_subscription": False,
             "can_call": False,
-            "message": STUDENT_ONLY_SUBSCRIPTION_MESSAGE,
+            "message": "",
         }
 
     balance = get_user_subscription_balance(user)
@@ -213,8 +239,10 @@ def create_student_subscription(
     payment_method: str = "manual",
 ) -> tuple[StudentSubscription | None, str | None]:
     """Create a paid subscription purchase and update the user's active balance."""
-    if not is_student_user(user):
+    if not can_use_subscription_packages(user):
         return None, STUDENT_ONLY_SUBSCRIPTION_MESSAGE
+
+    admin_complimentary = is_admin_user(user)
 
     try:
         plan = SubscriptionPlan.objects.get(pk=plan_id)
@@ -256,17 +284,24 @@ def create_student_subscription(
     balance.last_purchase_at = now
     balance.save()
 
+    charge_amount = Decimal("0") if admin_complimentary else plan.price
+    resolved_payment_method = (
+        "complimentary"
+        if admin_complimentary
+        else (payment_method or "manual")
+    )
+
     sub = StudentSubscription.objects.create(
         user=user,
         plan=plan,
         plan_title=plan.title,
         duration_months=plan.duration_months,
-        amount=plan.price,
+        amount=charge_amount,
         start_date=today,
         end_date=new_expires,
         status=StudentSubscription.Status.ACTIVE,
         payment_status=StudentSubscription.PaymentStatus.PAID,
-        payment_method=payment_method or "manual",
+        payment_method=resolved_payment_method,
         plan_minutes_added=plan.minutes,
         minutes_before=minutes_before,
         minutes_after=new_minutes,
