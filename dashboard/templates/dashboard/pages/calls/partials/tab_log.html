@@ -112,31 +112,39 @@
 
         {% if can_recordings %}
         <td class="px-3 py-1.5">
-          <div class="flex items-center justify-center gap-1">
-            {% if rec.playable %}
-            <button type="button"
-                    class="call-log-popover-trigger call-play-recording-btn w-7 h-7 inline-flex items-center justify-center rounded-md text-violet-700 hover:bg-violet-50 transition"
-                    title="تشغيل التسجيل"
-                    data-playback-url="{% url 'dashboard:call_recording_playback_url' rec.recording_id %}">
-              <i class="bi bi-play-circle text-[16px]"></i>
-            </button>
-            {% elif rec.has_recording %}
-            <span class="w-7 h-7 inline-flex items-center justify-center text-amber-600" title="تسجيل غير متاح">
-              <i class="bi bi-file-earmark-x text-[15px]"></i>
-            </span>
-            {% else %}
-            <span class="w-7 h-7 inline-flex items-center justify-center site-text-muted" title="لا يوجد تسجيل">
-              <i class="bi bi-mic-mute text-[14px]"></i>
-            </span>
-            {% endif %}
-            {% if rec.playable and request.user|can_access:"recordings.delete" %}
-            {% url 'dashboard:call_recording_delete' rec.recording_id as delete_url %}
-            <a href="{{ delete_url }}"
-               class="w-6 h-6 inline-flex items-center justify-center rounded-md text-red-600 hover:bg-red-50 transition"
-               title="حذف التسجيل">
-              <i class="bi bi-trash text-[12px]"></i>
-            </a>
-            {% endif %}
+          <div class="flex items-center justify-center gap-1.5 w-[4.75rem] mx-auto">
+            <div class="w-9 h-9 shrink-0 flex items-center justify-center">
+              {% if rec.playable %}
+              <button type="button"
+                      class="call-log-popover-trigger call-play-recording-btn w-9 h-9 inline-flex items-center justify-center rounded-md text-violet-700 hover:bg-violet-50 transition"
+                      title="تشغيل التسجيل"
+                      data-playback-url="{% url 'dashboard:call_recording_playback_url' rec.recording_id %}">
+                <i class="bi bi-play-circle text-lg leading-none"></i>
+              </button>
+              {% elif rec.has_recording %}
+              <span class="w-9 h-9 inline-flex items-center justify-center text-amber-600"
+                    title="تسجيل غير متاح">
+                <i class="bi bi-file-earmark-x text-lg leading-none"></i>
+              </span>
+              {% else %}
+              <span class="w-9 h-9 inline-flex items-center justify-center site-text-muted"
+                    title="لا يوجد تسجيل">
+                <i class="bi bi-mic-mute text-lg leading-none"></i>
+              </span>
+              {% endif %}
+            </div>
+            <div class="w-9 h-9 shrink-0 flex items-center justify-center">
+              {% if rec.playable and request.user|can_access:"recordings.delete" %}
+              {% url 'dashboard:call_recording_delete' rec.recording_id as delete_url %}
+              <a href="{{ delete_url }}"
+                 class="w-9 h-9 inline-flex items-center justify-center rounded-md text-red-600 hover:bg-red-50 transition"
+                 title="حذف التسجيل">
+                <i class="bi bi-trash text-lg leading-none"></i>
+              </a>
+              {% else %}
+              <span class="w-9 h-9 invisible pointer-events-none" aria-hidden="true"></span>
+              {% endif %}
+            </div>
           </div>
         </td>
         {% endif %}
