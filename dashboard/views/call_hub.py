@@ -2,8 +2,10 @@ import logging
 
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-from django.db.models import Q
-from django.shortcuts import render
+from django.db.models import Prefetch, Q
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, redirect, render
+from django.urls import reverse
 
 from apps.calls.models import (
     CallPeerRating,
@@ -43,6 +45,18 @@ _TAB_PERMISSIONS = {
 }
 
 _TAB_ORDER = [TAB_LOG, TAB_RECORDINGS, TAB_RATINGS, TAB_RATING_SETTINGS]
+
+
+def _user_display_name(user) -> str:
+    if not user:
+        return "—"
+    return (user.full_name or user.get_full_name() or user.username or "—").strip()
+
+
+def _session_type_label(call: CallSession) -> str:
+    if call.is_interview_call:
+        return "مقابلة"
+    return call.get_session_type_display()
 
 
 def _duration_display(call: CallSession) -> str:
@@ -102,6 +116,49 @@ def _resolve_tab(user, raw_tab: str) -> str:
     return _first_allowed_tab(user) or tab
 
 
+def _recording_ui_summary(recording: CallRecording | None) -> dict:
+    if recording is None:
+        return {
+            "has_recording": False,
+            "playable": False,
+            "recording_id": None,
+        }
+    return {
+        "has_recording": True,
+        "playable": bool(object_key_for_recording(recording)),
+        "recording_id": recording.id,
+    }
+
+
+def _ratings_ui_summary(peer_ratings) -> dict:
+    ratings = list(peer_ratings)
+    total = len(ratings)
+    completed = sum(
+        1 for rating in ratings if rating.status == CallPeerRating.Status.COMPLETED
+    )
+    if total == 0:
+        return {
+            "ratings_total": 0,
+            "ratings_completed": 0,
+            "ratings_ratio": "—",
+            "ratings_status_label": "لا يوجد",
+            "ratings_status_key": "none",
+        }
+    if completed == total:
+        status_label = "مكتمل"
+        status_key = "complete"
+    else:
+        status_label = "غير مكتمل"
+        status_key = "incomplete"
+    return {
+        "ratings_total": total,
+        "ratings_completed": completed,
+        "ratings_ratio": f"{completed}/{total}",
+        "ratings_status_label": status_label,
+        "ratings_status_key": status_key,
+    }
+
+
 def _hidden_fields_for_tab(tab: str, extra: list[dict] | None = None) -> list[dict]:
     hidden = [{"name": "tab", "value": tab}]
     if extra:
@@ -114,8 +171,15 @@ def _build_log_context(request, tab: str):
     type_filter = (request.GET.get("type") or "all").strip()
     status_filter = (request.GET.get("status") or "all").strip()
 
-    qs = CallSession.objects.select_related("student", "teacher").order_by(
-        "-created_at", "-id"
+    qs = (
+        CallSession.objects.select_related("student", "teacher", "recording")
+        .prefetch_related(
+            Prefetch(
+                "peer_ratings",
+                queryset=CallPeerRating.objects.order_by("rater_role", "id"),
+            )
+        )
+        .order_by("-created_at", "-id")
     )
 
     if q:
@@ -140,7 +204,17 @@ def _build_log_context(request, tab: str):
         default_per_page="5",
     )
 
-    rows = [{"call": c, "duration": _duration_display(c)} for c in page_obj.object_list]
+    rows = []
+    for call in page_obj.object_list:
+        recording = getattr(call, "recording", None)
+        rows.append(
+            {
+                "call": call,
+                "duration": _duration_display(call),
+                "recording": _recording_ui_summary(recording),
+                "ratings": _ratings_ui_summary(call.peer_ratings.all()),
+            }
+        )
 
     pagination_kwargs = {"tab": tab, "q": q, "per_page": per_page_param}
     if type_filter != "all":
@@ -311,6 +385,9 @@ def call_hub_list(request):
         raise PermissionDenied
 
     raw_tab = (request.GET.get("tab") or "").strip()
+    if raw_tab in {TAB_RECORDINGS, TAB_RATINGS}:
+        return redirect(f"{reverse('dashboard:call_session_list')}?tab={TAB_LOG}")
+
     tab = _resolve_tab(request.user, raw_tab or TAB_LOG)
 
     context = {
@@ -335,3 +412,98 @@ def call_hub_list(request):
         context.update(_build_rating_settings_context())
 
     return render(request, "dashboard/pages/calls/hub.html", context)
+
+
+@login_required
+@permissions_required("dashboard.access", "calls.view")
+def call_session_detail(request, session_id):
+    call = get_object_or_404(
+        CallSession.objects.select_related("student", "teacher", "recording")
+        .prefetch_related(
+            Prefetch(
+                "peer_ratings",
+                queryset=CallPeerRating.objects.select_related(
+                    "rater", "rated"
+                ).order_by("rater_role", "id"),
+            )
+        ),
+        pk=session_id,
+    )
+    recording = getattr(call, "recording", None)
+    user = request.user
+    return render(
+        request,
+        "dashboard/pages/calls/session_detail.html",
+        {
+            "call": call,
+            "duration": _duration_display(call),
+            "session_type_label": _session_type_label(call),
+            "peer_ratings": list(call.peer_ratings.all()),
+            "recording": recording,
+            "recording_summary": _recording_ui_summary(recording),
+            "can_recordings": user_has_permission(user, "recordings.view"),
+            "can_recordings_delete": user_has_permission(user, "recordings.delete"),
+            "can_ratings": user_has_permission(user, "evaluations.view"),
+        },
+    )
+
+
+@login_required
+@permissions_required("dashboard.access", "recordings.view")
+def call_recording_playback_url(request, pk):
+    recording = get_object_or_404(
+        CallRecording.objects.select_related("call_session"),
+        pk=pk,
+    )
+    object_key = object_key_for_recording(recording)
+    if not object_key:
+        return JsonResponse(
+            {"success": False, "error": "لا يوجد ملف تسجيل قابل للتشغيل."},
+            status=404,
+        )
+    try:
+        playback_url, expires_in = generate_recording_signed_url(object_key)
+    except RecordingStorageError:
+        return JsonResponse(
+            {"success": False, "error": "تعذر تجهيز رابط التشغيل."},
+            status=503,
+        )
+    return JsonResponse(
+        {
+            "success": True,
+            "playback_url": playback_url,
+            "content_type": playback_content_type_for_key(object_key),
+            "expires_in": expires_in,
+        }
+    )
+
+
+@login_required
+@permissions_required("dashboard.access", "evaluations.view")
+def call_session_ratings_detail(request, session_id):
+    call = get_object_or_404(
+        CallSession.objects.prefetch_related("peer_ratings"),
+        pk=session_id,
+    )
+    ratings = []
+    for rating in call.peer_ratings.all().order_by("rater_role", "id"):
+        ratings.append(
+            {
+                "id": rating.id,
+                "rater_role": rating.get_rater_role_display(),
+                "status": rating.get_status_display(),
+                "status_key": rating.status,
+                "competence": rating.competence,
+                "clarity": rating.clarity,
+                "audio_quality": rating.audio_quality,
+            }
+        )
+    summary = _ratings_ui_summary(call.peer_ratings.all())
+    return JsonResponse(
+        {
+            "success": True,
+            "call_id": call.id,
+            "summary": summary,
+            "ratings": ratings,
+        }
+    )

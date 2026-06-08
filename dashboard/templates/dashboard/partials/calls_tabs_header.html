@@ -5,19 +5,13 @@
       <i class="bi bi-telephone-fill site-link-primary"></i>
       <span>المكالمات</span>
     </h2>
-    <p class="text-[11px] site-text-muted mt-0.5">سجل الجلسات، التسجيلات، وتقييمات المكالمات في مكان واحد</p>
+    <p class="text-[11px] site-text-muted mt-0.5">سجل الجلسات مع ملخص التسجيل والتقييم — إعدادات التقييم في تاب منفصل</p>
   </div>
 
   <div class="mt-4">
     <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
       {% if can_log %}
         {% include "dashboard/partials/page_tab_link.html" with url=hub_url|add:"?tab=log" label="السجل" tab_icon="bi-list-ul" active=tab_log_active only %}
-      {% endif %}
-      {% if can_recordings %}
-        {% include "dashboard/partials/page_tab_link.html" with url=hub_url|add:"?tab=recordings" label="التسجيلات" tab_icon="bi-mic-fill" active=tab_recordings_active only %}
-      {% endif %}
-      {% if can_ratings %}
-        {% include "dashboard/partials/page_tab_link.html" with url=hub_url|add:"?tab=ratings" label="تقييمات المكالمات" tab_icon="bi-star-fill" active=tab_ratings_active only %}
       {% endif %}
       {% if can_rating_settings %}
         {% include "dashboard/partials/page_tab_link.html" with url=hub_url|add:"?tab=rating-settings" label="إعدادات التقييم" tab_icon="bi-gear-fill" active=tab_settings_active only %}

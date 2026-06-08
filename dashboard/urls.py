@@ -14,7 +14,10 @@ from .views import (
     app_notification_list,
     app_notification_toggle_active,
     app_notification_update,
+    call_recording_playback_url,
+    call_session_detail,
     call_session_list,
+    call_session_ratings_detail,
     dashboard_user_student_detail,
     dashboard_user_student_profile_image,
     dashboard_user_teacher_detail,
@@ -163,6 +166,21 @@ urlpatterns = [
         name="dashboard_user_student_profile_image",
     ),
     path("calls/", call_session_list, name="call_session_list"),
+    path(
+        "calls/recordings/<int:pk>/playback-url/",
+        call_recording_playback_url,
+        name="call_recording_playback_url",
+    ),
+    path(
+        "calls/sessions/<int:session_id>/ratings/",
+        call_session_ratings_detail,
+        name="call_session_ratings_detail",
+    ),
+    path(
+        "calls/sessions/<int:session_id>/",
+        call_session_detail,
+        name="call_session_detail",
+    ),
     path(
         "teachers/availability/",
         teacher_availability_list,

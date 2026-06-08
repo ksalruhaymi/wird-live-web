@@ -18,11 +18,11 @@ logger = logging.getLogger(__name__)
 
 
 def _recordings_hub_url(**params) -> str:
-    qs = build_pagination_query_string(tab="recordings", **params)
+    qs = build_pagination_query_string(tab="log", **params)
     base = reverse("dashboard:call_session_list")
     if qs:
         return f"{base}?{qs.rstrip('&')}"
-    return f"{base}?tab=recordings"
+    return f"{base}?tab=log"
 
 
 @login_required

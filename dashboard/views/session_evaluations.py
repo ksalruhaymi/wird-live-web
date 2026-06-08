@@ -19,10 +19,8 @@ def session_evaluation_list(request):
     raw_tab = (request.GET.get("tab") or "").strip()
     if raw_tab == "settings":
         tab = "rating-settings"
-    elif raw_tab in {"", "users"}:
-        tab = "ratings"
     else:
-        tab = raw_tab
+        tab = "log"
 
     q = (request.GET.get("q") or "").strip()
     status = (request.GET.get("status") or "all").strip()
@@ -31,7 +29,7 @@ def session_evaluation_list(request):
     kwargs = {}
     if q:
         kwargs["q"] = q
-    if status != "all":
+    if tab == "log" and status != "all":
         kwargs["status"] = status
     if per_page:
         kwargs["per_page"] = per_page

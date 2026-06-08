@@ -1,3 +1,4 @@
+{% load rbac_tags %}
 {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_calls per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
 <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
@@ -46,11 +47,18 @@
         <th class="px-4 py-3 font-bold">البداية</th>
         <th class="px-4 py-3 font-bold">النهاية</th>
         <th class="px-4 py-3 font-bold">المدة</th>
+        {% if can_recordings %}
+        <th class="px-4 py-3 font-bold">التسجيل</th>
+        {% endif %}
+        {% if can_ratings %}
+        <th class="px-4 py-3 font-bold">التقييم</th>
+        {% endif %}
+        <th class="px-4 py-3 font-bold text-center">إجراءات</th>
       </tr>
     </thead>
     <tbody class="divide-site">
       {% for row in rows %}
-      {% with call=row.call %}
+      {% with call=row.call rec=row.recording rat=row.ratings %}
       <tr class="hover:site-surface transition
         {% if call.status == 'active' %}bg-green-50/40
         {% elif call.status == 'pending' %}bg-blue-50/40
@@ -81,11 +89,82 @@
         <td class="px-4 py-2 site-text-muted">{{ call.started_at|date:"Y-m-d H:i"|default:"—" }}</td>
         <td class="px-4 py-2 site-text-muted">{{ call.ended_at|date:"Y-m-d H:i"|default:"—" }}</td>
         <td class="px-4 py-2 site-text-muted">{{ row.duration }}</td>
+
+        {% if can_recordings %}
+        <td class="px-4 py-2 min-w-[140px]">
+          {% if rec.has_recording %}
+          <div class="flex flex-col gap-1.5">
+            <span class="inline-flex w-fit px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 text-[10px] font-bold border border-violet-200">موجود</span>
+            <div class="flex flex-wrap items-center gap-1.5">
+              {% if rec.playable %}
+              <button type="button"
+                      class="call-play-recording-btn inline-flex items-center gap-1 px-2.5 py-1 rounded-full border site-border text-[10px] font-bold site-text hover:site-surface transition"
+                      data-playback-url="{% url 'dashboard:call_recording_playback_url' rec.recording_id %}">
+                <i class="bi bi-play-fill"></i>
+                تشغيل
+              </button>
+              {% else %}
+              <span class="text-[10px] site-text-muted">غير متاح</span>
+              {% endif %}
+              {% if request.user|can_access:"recordings.delete" %}
+              {% url 'dashboard:call_recording_delete' rec.recording_id as delete_url %}
+              <a href="{{ delete_url }}"
+                 class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-red-200 text-red-700 text-[10px] font-bold hover:bg-red-50 transition"
+                 title="حذف التسجيل">
+                <i class="bi bi-trash"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+          {% else %}
+          <span class="site-text-muted">لا يوجد</span>
+          {% endif %}
+        </td>
+        {% endif %}
+
+        {% if can_ratings %}
+        <td class="px-4 py-2 min-w-[140px]">
+          <div class="flex flex-col gap-1.5">
+            <div class="flex flex-wrap items-center gap-1.5">
+              {% if rat.ratings_status_key == 'complete' %}
+              <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[10px] font-bold border border-green-200">{{ rat.ratings_status_label }}</span>
+              {% elif rat.ratings_status_key == 'incomplete' %}
+              <span class="inline-flex px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[10px] font-bold border border-amber-200">{{ rat.ratings_status_label }}</span>
+              {% else %}
+              <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[10px] font-bold border site-border">{{ rat.ratings_status_label }}</span>
+              {% endif %}
+              {% if rat.ratings_total > 0 %}
+              <span class="text-[10px] site-text-muted font-semibold">{{ rat.ratings_ratio }}</span>
+              {% endif %}
+            </div>
+            {% if rat.ratings_total > 0 %}
+            <button type="button"
+                    class="call-show-ratings-btn inline-flex w-fit items-center gap-1 px-2.5 py-1 rounded-full border site-border text-[10px] font-bold site-text hover:site-surface transition"
+                    data-ratings-url="{% url 'dashboard:call_session_ratings_detail' call.id %}">
+              <i class="bi bi-star"></i>
+              عرض التقييمات
+            </button>
+            {% endif %}
+          </div>
+        </td>
+        {% endif %}
+        <td class="px-4 py-2">
+          <div class="flex items-center justify-center">
+            {% url 'dashboard:call_session_detail' call.id as detail_url %}
+            <a href="{{ detail_url }}"
+               class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border site-border text-[10px] font-bold site-text hover:site-surface transition"
+               title="تفاصيل">
+              <i class="bi bi-eye"></i>
+              تفاصيل
+            </a>
+          </div>
+        </td>
       </tr>
       {% endwith %}
       {% empty %}
       <tr>
-        <td colspan="10" class="px-4 py-8 text-center site-text-muted">لا توجد مكالمات مطابقة.</td>
+        <td colspan="{% if can_recordings and can_ratings %}13{% elif can_recordings or can_ratings %}12{% else %}11{% endif %}"
+            class="px-4 py-8 text-center site-text-muted">لا توجد مكالمات مطابقة.</td>
       </tr>
       {% endfor %}
     </tbody>
@@ -95,3 +174,198 @@
 {% if per_page != "all" %}
   {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
 {% endif %}
+
+{# Modal: تشغيل التسجيل #}
+{% if can_recordings %}
+<div id="callRecordingModal" class="fixed inset-0 z-[80] hidden" aria-hidden="true">
+  <div class="absolute inset-0 bg-black/45" data-close-recording-modal></div>
+  <div class="relative z-10 flex min-h-full items-center justify-center p-4">
+    <div class="site-card w-full max-w-md p-5 space-y-4 shadow-xl">
+      <div class="flex items-start justify-between gap-3">
+        <h3 class="text-sm font-bold site-text">تشغيل التسجيل</h3>
+        <button type="button" class="site-text-muted hover:site-text" data-close-recording-modal aria-label="إغلاق">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <p id="callRecordingModalError" class="hidden text-[12px] text-red-600"></p>
+      <p id="callRecordingModalLoading" class="text-[12px] site-text-muted">جاري تجهيز التسجيل…</p>
+      <audio id="callRecordingModalAudio" controls preload="none" class="hidden w-full" dir="ltr"></audio>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{# Modal: تفاصيل التقييمات #}
+{% if can_ratings %}
+<div id="callRatingsModal" class="fixed inset-0 z-[80] hidden" aria-hidden="true">
+  <div class="absolute inset-0 bg-black/45" data-close-ratings-modal></div>
+  <div class="relative z-10 flex min-h-full items-center justify-center p-4">
+    <div class="site-card w-full max-w-lg p-5 space-y-4 shadow-xl max-h-[85vh] overflow-y-auto">
+      <div class="flex items-start justify-between gap-3">
+        <h3 id="callRatingsModalTitle" class="text-sm font-bold site-text">تقييمات المكالمة</h3>
+        <button type="button" class="site-text-muted hover:site-text" data-close-ratings-modal aria-label="إغلاق">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <p id="callRatingsModalError" class="hidden text-[12px] text-red-600"></p>
+      <p id="callRatingsModalLoading" class="hidden text-[12px] site-text-muted">جاري التحميل…</p>
+      <div id="callRatingsModalBody" class="space-y-3"></div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<script>
+(function () {
+  function starText(value) {
+    if (value === null || value === undefined) return '—';
+    return value + '/5';
+  }
+
+  {% if can_recordings %}
+  const recordingModal = document.getElementById('callRecordingModal');
+  const recordingAudio = document.getElementById('callRecordingModalAudio');
+  const recordingLoading = document.getElementById('callRecordingModalLoading');
+  const recordingError = document.getElementById('callRecordingModalError');
+
+  function closeRecordingModal() {
+    if (!recordingModal) return;
+    recordingModal.classList.add('hidden');
+    recordingModal.setAttribute('aria-hidden', 'true');
+    if (recordingAudio) {
+      recordingAudio.pause();
+      recordingAudio.removeAttribute('src');
+      recordingAudio.load();
+      recordingAudio.classList.add('hidden');
+    }
+    if (recordingLoading) recordingLoading.classList.remove('hidden');
+    if (recordingError) {
+      recordingError.classList.add('hidden');
+      recordingError.textContent = '';
+    }
+  }
+
+  function openRecordingModal() {
+    if (!recordingModal) return;
+    recordingModal.classList.remove('hidden');
+    recordingModal.setAttribute('aria-hidden', 'false');
+  }
+
+  recordingModal?.querySelectorAll('[data-close-recording-modal]').forEach((el) => {
+    el.addEventListener('click', closeRecordingModal);
+  });
+
+  document.querySelectorAll('.call-play-recording-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const url = btn.getAttribute('data-playback-url');
+      if (!url) return;
+      openRecordingModal();
+      if (recordingLoading) recordingLoading.classList.remove('hidden');
+      if (recordingError) recordingError.classList.add('hidden');
+      if (recordingAudio) recordingAudio.classList.add('hidden');
+
+      try {
+        const response = await fetch(url, { credentials: 'same-origin' });
+        const data = await response.json();
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'تعذر تحميل التسجيل.');
+        }
+        if (recordingAudio) {
+          recordingAudio.src = data.playback_url;
+          if (data.content_type) {
+            recordingAudio.querySelector('source')?.remove();
+          }
+          recordingAudio.classList.remove('hidden');
+          recordingAudio.load();
+        }
+        if (recordingLoading) recordingLoading.classList.add('hidden');
+      } catch (error) {
+        if (recordingLoading) recordingLoading.classList.add('hidden');
+        if (recordingError) {
+          recordingError.textContent = error.message || 'تعذر تحميل التسجيل.';
+          recordingError.classList.remove('hidden');
+        }
+      }
+    });
+  });
+  {% endif %}
+
+  {% if can_ratings %}
+  const ratingsModal = document.getElementById('callRatingsModal');
+  const ratingsTitle = document.getElementById('callRatingsModalTitle');
+  const ratingsBody = document.getElementById('callRatingsModalBody');
+  const ratingsLoading = document.getElementById('callRatingsModalLoading');
+  const ratingsError = document.getElementById('callRatingsModalError');
+
+  function closeRatingsModal() {
+    if (!ratingsModal) return;
+    ratingsModal.classList.add('hidden');
+    ratingsModal.setAttribute('aria-hidden', 'true');
+    if (ratingsBody) ratingsBody.innerHTML = '';
+    if (ratingsError) {
+      ratingsError.classList.add('hidden');
+      ratingsError.textContent = '';
+    }
+    if (ratingsLoading) ratingsLoading.classList.add('hidden');
+  }
+
+  function openRatingsModal() {
+    if (!ratingsModal) return;
+    ratingsModal.classList.remove('hidden');
+    ratingsModal.setAttribute('aria-hidden', 'false');
+  }
+
+  ratingsModal?.querySelectorAll('[data-close-ratings-modal]').forEach((el) => {
+    el.addEventListener('click', closeRatingsModal);
+  });
+
+  document.querySelectorAll('.call-show-ratings-btn').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const url = btn.getAttribute('data-ratings-url');
+      if (!url) return;
+      openRatingsModal();
+      if (ratingsLoading) ratingsLoading.classList.remove('hidden');
+      if (ratingsError) ratingsError.classList.add('hidden');
+      if (ratingsBody) ratingsBody.innerHTML = '';
+
+      try {
+        const response = await fetch(url, { credentials: 'same-origin' });
+        const data = await response.json();
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'تعذر تحميل التقييمات.');
+        }
+        if (ratingsTitle) {
+          ratingsTitle.textContent = 'تقييمات المكالمة #' + data.call_id;
+        }
+        if (!data.ratings || data.ratings.length === 0) {
+          if (ratingsBody) {
+            ratingsBody.innerHTML = '<p class="text-[12px] site-text-muted">لا توجد تقييمات لهذه الجلسة.</p>';
+          }
+        } else if (ratingsBody) {
+          ratingsBody.innerHTML = data.ratings.map((item) => `
+            <div class="rounded-lg border site-border p-3 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[12px] font-bold site-text">${item.rater_role}</span>
+                <span class="text-[10px] site-text-muted">${item.status}</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 text-[11px] site-text-muted">
+                <div>متمكن<br><span class="font-semibold site-text">${starText(item.competence)}</span></div>
+                <div>واضح<br><span class="font-semibold site-text">${starText(item.clarity)}</span></div>
+                <div>جودة الصوت<br><span class="font-semibold site-text">${starText(item.audio_quality)}</span></div>
+              </div>
+            </div>
+          `).join('');
+        }
+        if (ratingsLoading) ratingsLoading.classList.add('hidden');
+      } catch (error) {
+        if (ratingsLoading) ratingsLoading.classList.add('hidden');
+        if (ratingsError) {
+          ratingsError.textContent = error.message || 'تعذر تحميل التقييمات.';
+          ratingsError.classList.remove('hidden');
+        }
+      }
+    });
+  });
+  {% endif %}
+})();
+</script>
