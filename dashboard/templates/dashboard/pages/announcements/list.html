@@ -5,7 +5,7 @@
 <div class="max-w-6xl mx-auto space-y-6" dir-text>
 
   {% url 'dashboard:announcement_list' as announcements_list_url %}
-  {% include "dashboard/partials/page_tabs_header.html" with title="الإعلانات" icon="bi-megaphone-fill" subtitle="إدارة صور الإعلانات الظاهرة في تطبيق وِرْد لايف (آخر 3 مفعّلة)" tab1_url=announcements_list_url tab1_label="الإعلانات" tab1_icon="bi-megaphone-fill" tab1_active="1" only %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="الإعلانات" icon="bi-megaphone-fill" subtitle="إدارة إعلانات التطبيق (نص أو صورة) مع رابط اختياري عند الضغط — آخر 3 مفعّلة تظهر في الرئيسية" tab1_url=announcements_list_url tab1_label="الإعلانات" tab1_icon="bi-megaphone-fill" tab1_active="1" only %}
 
   {% if request.user|can_access:"announcements.create" %}
   <div class="flex items-center justify-end">
@@ -20,7 +20,7 @@
     <div class="flex-1 min-w-[180px]">
       <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
       <input type="search" name="q" value="{{ q }}"
-             placeholder="عنوان، نص، رقم…"
+             placeholder="نص، رابط، رقم…"
              class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
     </div>
     <div class="min-w-[140px]">
@@ -48,7 +48,9 @@
     <table class="min-w-full text-[12px]">
       <thead class="site-surface text-[11px] site-text-muted">
         <tr>
-          <th class="px-4 py-3 font-bold">الصورة</th>
+          <th class="px-4 py-3 font-bold">الشكل</th>
+          <th class="px-4 py-3 font-bold">المحتوى</th>
+          <th class="px-4 py-3 font-bold">الرابط</th>
           <th class="px-4 py-3 font-bold">الحالة</th>
           <th class="px-4 py-3 font-bold">تاريخ الإنشاء</th>
           <th class="px-4 py-3 font-bold text-center">إجراءات</th>
@@ -57,13 +59,25 @@
       <tbody class="divide-site">
         {% for ann in announcements %}
         <tr class="hover:site-surface transition">
-          <td class="px-4 py-2">
-            {% if ann.image %}
+          <td class="px-4 py-2 site-text">
+            {% if ann.display_format == 'text' %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold border border-blue-200">نص</span>
+            {% else %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 text-[11px] font-bold border border-violet-200">صورة</span>
+            {% endif %}
+          </td>
+          <td class="px-4 py-2 max-w-xs">
+            {% if ann.display_format == 'text' %}
+            <span class="site-text line-clamp-2">{{ ann.message|default:"—" }}</span>
+            {% elif ann.image %}
             <img src="{{ ann.image.url }}" alt="إعلان {{ ann.id }}"
                  class="w-20 h-12 object-cover rounded-md border site-border">
             {% else %}
             <span class="site-text-muted">—</span>
             {% endif %}
+          </td>
+          <td class="px-4 py-2 site-text-muted max-w-[160px] truncate" dir="ltr">
+            {% if ann.link_url %}{{ ann.link_url }}{% else %}—{% endif %}
           </td>
           <td class="px-4 py-2">
             {% if ann.is_active %}
@@ -94,7 +108,7 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="4" class="px-4 py-8 text-center site-text-muted">لا توجد إعلانات مطابقة.</td>
+          <td colspan="6" class="px-4 py-8 text-center site-text-muted">لا توجد إعلانات مطابقة.</td>
         </tr>
         {% endfor %}
       </tbody>

@@ -1,5 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
 from django.db.models import Q
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
@@ -9,23 +11,51 @@ from apps.communication.models import Announcement
 from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.rbac.decorators import permissions_required
 
+_URL_VALIDATOR = URLValidator()
+
+
+def _parse_link_url(raw: str) -> tuple[str, list[str]]:
+    link_url = (raw or "").strip()
+    if not link_url:
+        return "", []
+    try:
+        _URL_VALIDATOR(link_url)
+    except ValidationError:
+        return link_url, ["رابط غير صالح."]
+    return link_url, []
+
 
 def _parse_announcement_form(post, files, *, instance: Announcement | None = None):
     errors = []
     is_active = post.get("is_active") == "on"
+    display_format = (post.get("display_format") or Announcement.DisplayFormat.IMAGE).strip()
+    message = (post.get("message") or "").strip()
+    link_url, link_errors = _parse_link_url(post.get("link_url"))
+    errors.extend(link_errors)
     image = files.get("image")
+
+    if display_format not in Announcement.DisplayFormat.values:
+        display_format = Announcement.DisplayFormat.IMAGE
 
     is_create = instance is None
     has_existing_image = bool(instance and instance.image)
 
-    if is_create and not image:
-        errors.append("صورة الإعلان مطلوبة.")
-    if not is_create and not image and not has_existing_image:
-        errors.append("صورة الإعلان مطلوبة.")
+    if display_format == Announcement.DisplayFormat.IMAGE:
+        if is_create and not image:
+            errors.append("صورة الإعلان مطلوبة لإعلان من نوع صورة.")
+        if not is_create and not image and not has_existing_image:
+            errors.append("صورة الإعلان مطلوبة لإعلان من نوع صورة.")
+    elif display_format == Announcement.DisplayFormat.TEXT:
+        if not message:
+            errors.append("نص الإعلان مطلوب لإعلان من نوع نص.")
 
     return {
         "is_active": is_active,
+        "display_format": display_format,
+        "message": message,
+        "link_url": link_url,
         "image": image,
+        "clear_image": display_format == Announcement.DisplayFormat.TEXT,
     }, errors
 
 
@@ -36,12 +66,23 @@ def _apply_announcement(
     is_create: bool,
 ) -> Announcement:
     instance.is_active = data["is_active"]
-    if data["image"]:
+    instance.display_format = data["display_format"]
+    instance.message = data["message"] if data["display_format"] == Announcement.DisplayFormat.TEXT else ""
+    instance.link_url = data["link_url"]
+
+    if data["clear_image"]:
+        instance.image = None
+    elif data["image"]:
         instance.image = data["image"]
+
     if is_create:
         instance.announcement_date = timezone.localdate()
     instance.save()
     return instance
+
+
+def _display_format_label(value: str) -> str:
+    return dict(Announcement.DisplayFormat.choices).get(value, value)
 
 
 @login_required
@@ -55,7 +96,7 @@ def announcement_list(request):
     qs = Announcement.objects.all().order_by("-created_at", "-id")
 
     if q:
-        q_filter = Q(title__icontains=q) | Q(message__icontains=q)
+        q_filter = Q(title__icontains=q) | Q(message__icontains=q) | Q(link_url__icontains=q)
         if q.isdigit():
             q_filter |= Q(pk=int(q))
         qs = qs.filter(q_filter)
@@ -108,6 +149,7 @@ def announcement_list(request):
             "date_to": date_to,
             "pagination_qs": pagination_qs,
             "pagination_hidden_fields": hidden_fields,
+            "display_format_labels": Announcement.DisplayFormat.choices,
         },
     )
 
@@ -119,18 +161,31 @@ def announcement_detail(request, pk):
     return render(
         request,
         "dashboard/pages/announcements/detail.html",
-        {"announcement": announcement},
+        {
+            "announcement": announcement,
+            "display_format_label": _display_format_label(announcement.display_format),
+        },
     )
 
 
 @login_required
 @permissions_required("dashboard.access", "announcements.create")
 def announcement_create(request):
-    initial = {"is_active": True}
+    initial = {
+        "is_active": True,
+        "display_format": Announcement.DisplayFormat.IMAGE,
+        "message": "",
+        "link_url": "",
+    }
 
     if request.method == "POST":
         data, errors = _parse_announcement_form(request.POST, request.FILES)
-        initial = {"is_active": data["is_active"]}
+        initial = {
+            "is_active": data["is_active"],
+            "display_format": data["display_format"],
+            "message": data["message"],
+            "link_url": data["link_url"],
+        }
         if errors:
             for msg in errors:
                 messages.error(request, msg)
@@ -147,6 +202,7 @@ def announcement_create(request):
             "mode": "create",
             "initial": initial,
             "announcement": None,
+            "display_formats": Announcement.DisplayFormat.choices,
         },
     )
 
@@ -155,7 +211,12 @@ def announcement_create(request):
 @permissions_required("dashboard.access", "announcements.update")
 def announcement_update(request, pk):
     announcement = get_object_or_404(Announcement, pk=pk)
-    initial = {"is_active": announcement.is_active}
+    initial = {
+        "is_active": announcement.is_active,
+        "display_format": announcement.display_format,
+        "message": announcement.message,
+        "link_url": announcement.link_url,
+    }
 
     if request.method == "POST":
         data, errors = _parse_announcement_form(
@@ -163,7 +224,12 @@ def announcement_update(request, pk):
             request.FILES,
             instance=announcement,
         )
-        initial = {"is_active": data["is_active"]}
+        initial = {
+            "is_active": data["is_active"],
+            "display_format": data["display_format"],
+            "message": data["message"],
+            "link_url": data["link_url"],
+        }
         if errors:
             for msg in errors:
                 messages.error(request, msg)
@@ -180,6 +246,7 @@ def announcement_update(request, pk):
             "mode": "edit",
             "initial": initial,
             "announcement": announcement,
+            "display_formats": Announcement.DisplayFormat.choices,
         },
     )
 

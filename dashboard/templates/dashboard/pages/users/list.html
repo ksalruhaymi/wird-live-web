@@ -66,7 +66,6 @@
           <th class="px-4 py-3 font-bold">الاسم</th>
           <th class="px-4 py-3 font-bold">حالة القبول</th>
           <th class="px-4 py-3 font-bold">اسم المستخدم</th>
-          <th class="px-4 py-3 font-bold">البريد</th>
           <th class="px-4 py-3 font-bold">الجوال</th>
           <th class="px-4 py-3 font-bold">الحالة الحالية</th>
           <th class="px-4 py-3 font-bold">صوتي</th>
@@ -95,7 +94,6 @@
             {% endif %}
           </td>
           <td class="px-4 py-2 site-text-muted">{{ row.username }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ row.email }}</td>
           <td class="px-4 py-2 site-text-muted" dir="ltr">{{ row.mobile }}</td>
           <td class="px-4 py-2">
             {% if row.status == 'available' %}
@@ -128,7 +126,7 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="12" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون مطابقون.</td>
+          <td colspan="11" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون مطابقون.</td>
         </tr>
         {% endfor %}
       </tbody>
@@ -143,7 +141,6 @@
         <tr>
           <th class="px-4 py-3 font-bold">الاسم</th>
           <th class="px-4 py-3 font-bold">اسم المستخدم</th>
-          <th class="px-4 py-3 font-bold">البريد</th>
           <th class="px-4 py-3 font-bold">الجوال</th>
           <th class="px-4 py-3 font-bold">حالة الاشتراك</th>
           <th class="px-4 py-3 font-bold">عدد الجلسات</th>
@@ -155,7 +152,6 @@
         <tr class="hover:site-surface transition">
           <td class="px-4 py-2 font-semibold site-text">{{ row.display_name }}</td>
           <td class="px-4 py-2 site-text-muted">{{ row.username }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ row.email }}</td>
           <td class="px-4 py-2 site-text-muted" dir="ltr">{{ row.mobile }}</td>
           <td class="px-4 py-2">
             {% if row.subscription_key == 'active' %}
@@ -176,7 +172,7 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="7" class="px-4 py-8 text-center site-text-muted">لا يوجد طلاب مطابقون.</td>
+          <td colspan="6" class="px-4 py-8 text-center site-text-muted">لا يوجد طلاب مطابقون.</td>
         </tr>
         {% endfor %}
       </tbody>

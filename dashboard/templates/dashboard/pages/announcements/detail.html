@@ -9,18 +9,34 @@
   </div>
 
   <div class="site-card p-5 md:p-6 space-y-4">
-    {% if announcement.image %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[12px]">
+      <div>
+        <div class="site-text-muted">الشكل</div>
+        <div class="site-text">{{ display_format_label }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">الحالة</div>
+        <div class="site-text">{% if announcement.is_active %}مفعّل{% else %}معطّل{% endif %}</div>
+      </div>
+      <div class="md:col-span-2">
+        <div class="site-text-muted">رابط عند الضغط</div>
+        <div class="site-text" dir="ltr">{% if announcement.link_url %}{{ announcement.link_url }}{% else %}—{% endif %}</div>
+      </div>
+    </div>
+
+    {% if announcement.display_format == 'text' %}
+    <div class="pt-2 border-t site-border">
+      <div class="site-text-muted text-[12px] mb-1">نص الإعلان</div>
+      <p class="site-text text-sm whitespace-pre-wrap">{{ announcement.message|default:"—" }}</p>
+    </div>
+    {% elif announcement.image %}
     <img src="{{ announcement.image.url }}" alt="إعلان {{ announcement.id }}"
          class="w-full max-h-80 object-contain rounded-lg border site-border">
     {% else %}
     <p class="site-text-muted text-sm">لا توجد صورة لهذا الإعلان.</p>
     {% endif %}
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[12px]">
-      <div>
-        <div class="site-text-muted">الحالة</div>
-        <div class="site-text">{% if announcement.is_active %}مفعّل{% else %}معطّل{% endif %}</div>
-      </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[12px] pt-2 border-t site-border">
       <div>
         <div class="site-text-muted">تاريخ الإنشاء</div>
         <div class="site-text">{{ announcement.created_at|date:"Y-m-d H:i" }}</div>

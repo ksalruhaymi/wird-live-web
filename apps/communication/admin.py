@@ -7,15 +7,14 @@ from .models import Announcement, CommunicationCampaign, CommunicationCampaignCh
 class AnnouncementAdmin(admin.ModelAdmin):
     list_display = (
         "id",
+        "display_format",
         "title",
         "announcement_type",
-        "announced_by",
-        "target_type",
-        "announcement_date",
         "is_active",
+        "link_url",
         "created_at",
     )
-    list_filter = ("is_active", "announcement_type", "announced_by", "target_type")
+    list_filter = ("is_active", "display_format", "announcement_type")
     search_fields = ("title", "message", "target_group")
 
 

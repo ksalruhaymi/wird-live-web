@@ -72,6 +72,10 @@ class CommunicationCampaignChannel(models.Model):
 
 
 class Announcement(models.Model):
+    class DisplayFormat(models.TextChoices):
+        TEXT = "text", "نص"
+        IMAGE = "image", "صورة"
+
     class AnnouncementType(models.TextChoices):
         INFO = "info", "معلومة"
         WARNING = "warning", "تنبيه"
@@ -88,7 +92,19 @@ class Announcement(models.Model):
         GROUP = "group", "مجموعة"
 
     title = models.CharField(max_length=255, blank=True, default="", verbose_name="العنوان")
+    display_format = models.CharField(
+        max_length=10,
+        choices=DisplayFormat.choices,
+        default=DisplayFormat.IMAGE,
+        verbose_name="شكل الإعلان",
+    )
     message = models.TextField(blank=True, default="", verbose_name="نص الإعلان")
+    link_url = models.URLField(
+        max_length=500,
+        blank=True,
+        default="",
+        verbose_name="رابط عند الضغط",
+    )
     image = models.ImageField(
         upload_to="announcements/",
         null=True,

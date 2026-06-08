@@ -9,10 +9,31 @@
   </div>
 
   <div class="site-card p-5 md:p-6">
-    <form method="post" enctype="multipart/form-data" class="space-y-4">
+    <form method="post" enctype="multipart/form-data" class="space-y-4" id="announcement-form">
       {% csrf_token %}
 
-      <div class="space-y-1.5">
+      <div class="space-y-2">
+        <label class="block text-sm font-semibold site-text">شكل الإعلان</label>
+        <div class="flex flex-wrap gap-4 text-sm site-text">
+          {% for value, label in display_formats %}
+          <label class="inline-flex items-center gap-2 cursor-pointer">
+            <input type="radio" name="display_format" value="{{ value }}"
+                   class="rounded-full border site-border"
+                   {% if initial.display_format == value %}checked{% endif %}>
+            <span>{{ label }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div id="announcement-text-fields" class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">نص الإعلان</label>
+        <textarea name="message" rows="4"
+                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
+                  placeholder="اكتب نص الإعلان…">{{ initial.message }}</textarea>
+      </div>
+
+      <div id="announcement-image-fields" class="space-y-1.5">
         <label class="block text-sm font-semibold site-text">صورة الإعلان</label>
         {% if announcement and announcement.image %}
         <div class="mb-2">
@@ -23,7 +44,16 @@
         {% endif %}
         <input type="file" name="image" accept="image/*"
                class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
-               {% if mode == 'create' %}required{% endif %}>
+               id="announcement-image-input">
+      </div>
+
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">رابط عند الضغط <span class="text-[11px] font-normal site-text-muted">(اختياري)</span></label>
+        <input type="url" name="link_url" value="{{ initial.link_url }}"
+               placeholder="https://example.com"
+               dir="ltr"
+               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+        <p class="text-[11px] site-text-muted">عند الضغط على الإعلان في التطبيق يُفتح هذا الرابط في المتصفح.</p>
       </div>
 
       <label class="inline-flex items-center gap-2 text-sm site-text cursor-pointer">
@@ -40,4 +70,37 @@
   </div>
 
 </div>
+
+<script>
+(function () {
+  const form = document.getElementById('announcement-form');
+  if (!form) return;
+
+  const textFields = document.getElementById('announcement-text-fields');
+  const imageFields = document.getElementById('announcement-image-fields');
+  const imageInput = document.getElementById('announcement-image-input');
+  const isCreate = {{ mode|yesno:"true,false" }};
+
+  function selectedFormat() {
+    const checked = form.querySelector('input[name="display_format"]:checked');
+    return checked ? checked.value : 'image';
+  }
+
+  function syncFields() {
+    const format = selectedFormat();
+    const isText = format === 'text';
+    if (textFields) textFields.style.display = isText ? '' : 'none';
+    if (imageFields) imageFields.style.display = isText ? 'none' : '';
+    if (imageInput) {
+      imageInput.required = !isText && isCreate;
+    }
+  }
+
+  form.querySelectorAll('input[name="display_format"]').forEach((el) => {
+    el.addEventListener('change', syncFields);
+  });
+
+  syncFields();
+})();
+</script>
 {% endblock %}

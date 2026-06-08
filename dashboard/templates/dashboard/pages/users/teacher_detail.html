@@ -71,10 +71,6 @@
         <div class="site-text">{% if last_seen %}{{ last_seen|date:"Y-m-d H:i" }}{% else %}—{% endif %}</div>
       </div>
       <div>
-        <div class="text-[11px] site-text-muted mb-1">الرقم الوطني</div>
-        <div class="site-text">{{ user_obj.national_id|default:"—" }}</div>
-      </div>
-      <div>
         <div class="text-[11px] site-text-muted mb-1">المؤهل</div>
         <div class="site-text">{{ user_obj.qualification|default:"—" }}</div>
       </div>
@@ -87,34 +83,6 @@
         <div class="site-text">{{ riwayat_value }}</div>
       </div>
     </div>
-
-    {% if profile %}
-    <div class="pt-4 border-t site-border">
-      <h3 class="text-sm font-bold site-text mb-3">بيانات الملف التعليمي</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-[12px]">
-        <div>
-          <div class="text-[11px] site-text-muted mb-1">اسم العرض</div>
-          <div class="site-text">{{ profile.display_name|default:"—" }}</div>
-        </div>
-        <div>
-          <div class="text-[11px] site-text-muted mb-1">صوتي / مرئي</div>
-          <div class="site-text">{% if profile.can_audio %}صوتي{% endif %}{% if profile.can_audio and profile.can_video %} · {% endif %}{% if profile.can_video %}مرئي{% endif %}</div>
-        </div>
-        <div>
-          <div class="text-[11px] site-text-muted mb-1">معلّم تجريبي</div>
-          <div class="site-text">{% if profile.is_demo_teacher %}نعم{% else %}لا{% endif %}</div>
-        </div>
-        <div>
-          <div class="text-[11px] site-text-muted mb-1">قبول تلقائي للمكالمات</div>
-          <div class="site-text">{% if profile.auto_accept_calls %}نعم{% else %}لا{% endif %}</div>
-        </div>
-        <div class="md:col-span-2 lg:col-span-3">
-          <div class="text-[11px] site-text-muted mb-1">نبذة</div>
-          <div class="site-text">{{ profile.bio|default:"—" }}</div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
 
     <div class="pt-4 border-t site-border">
       <h3 class="text-sm font-bold site-text mb-3">الملفات المرفقة</h3>
