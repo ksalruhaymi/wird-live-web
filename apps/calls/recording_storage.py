@@ -165,11 +165,18 @@ def user_can_access_recording(user, recording: CallRecording) -> bool:
         return True
     try:
         call = getattr(recording, "call_session", None)
-        if call is not None and getattr(call, "is_interview_call", False):
-            if hasattr(user, "has_permission") and user.has_permission(
-                "management.teachers.view"
-            ):
-                return True
+        if call is not None and hasattr(user, "has_permission"):
+            if user.has_permission("management.teachers.view"):
+                if getattr(call, "is_interview_call", False):
+                    return True
+                from identity.accounts.user_types import resolve_user_type_slug
+
+                student = getattr(call, "student", None)
+                if student and resolve_user_type_slug(student) in {
+                    "admin",
+                    "supervisor",
+                }:
+                    return True
     except Exception:
         # Fallback to standard permissions.
         pass

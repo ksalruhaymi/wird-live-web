@@ -17,6 +17,11 @@ from identity.accounts.auth.registration_service import (
     register_account,
     validate_registration_payload,
 )
+from identity.accounts.auth.teacher_login_guard import (
+    INACTIVE_ACCOUNT_MESSAGE,
+    REJECTED_TEACHER_LOGIN_MESSAGE,
+    session_access_block_message,
+)
 from identity.accounts.auth.profile_service import (
     build_profile_payload,
     get_teacher_ijazah_file,
@@ -28,6 +33,19 @@ from identity.accounts.auth.settings_service import is_db_login_allowed
 from identity.accounts.user_types import resolve_user_type_slug
 
 User = get_user_model()
+
+
+def _logout_if_session_blocked(request) -> JsonResponse | None:
+    if not request.user.is_authenticated:
+        return None
+    message = session_access_block_message(request.user)
+    if not message:
+        return None
+    logout(request)
+    return JsonResponse(
+        {"success": False, "authenticated": False, "message": message},
+        status=401,
+    )
 
 
 def _display_name(user) -> str:
@@ -87,6 +105,10 @@ def _parse_request_data(request) -> tuple[dict | None, object | None, JsonRespon
 @ensure_csrf_cookie
 @require_GET
 def me(request):
+    blocked = _logout_if_session_blocked(request)
+    if blocked:
+        return blocked
+
     if request.user.is_authenticated:
         return JsonResponse(
             {
@@ -125,8 +147,11 @@ def login_api(request):
     if result == "ok":
         return _success(request.user)
 
+    if result == "rejected":
+        return _error(REJECTED_TEACHER_LOGIN_MESSAGE, 403)
+
     if result == "inactive":
-        return _error("Account is inactive.", 403)
+        return _error(INACTIVE_ACCOUNT_MESSAGE, 403)
 
     return _error(
         "اسم المستخدم أو البريد الإلكتروني أو كلمة المرور غير صحيحة.",
@@ -243,6 +268,9 @@ def logout_api(request):
 
 
 def _require_authenticated(request) -> JsonResponse | None:
+    blocked = _logout_if_session_blocked(request)
+    if blocked:
+        return blocked
     if not request.user.is_authenticated:
         return JsonResponse(
             {"success": False, "message": "Not authenticated."},

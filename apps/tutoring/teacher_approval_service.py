@@ -40,6 +40,10 @@ def approve_teacher_profile(profile: TeacherProfile, reviewer) -> None:
             "updated_at",
         ]
     )
+    user = profile.user
+    if not user.is_active:
+        user.is_active = True
+        user.save(update_fields=["is_active"])
 
 
 def reject_teacher_profile(profile: TeacherProfile, reviewer, reason: str) -> None:
@@ -59,6 +63,10 @@ def reject_teacher_profile(profile: TeacherProfile, reviewer, reason: str) -> No
             "updated_at",
         ]
     )
+    user = profile.user
+    if user.is_active:
+        user.is_active = False
+        user.save(update_fields=["is_active"])
 
 
 def teacher_approval_payload(profile: TeacherProfile | None) -> dict:

@@ -15,6 +15,10 @@ from identity.accounts.auth.registration_service import (
     validate_ijazah_file,
 )
 from identity.accounts.auth.settings_service import is_db_login_allowed
+from identity.accounts.auth.teacher_login_guard import (
+    INACTIVE_ACCOUNT_MESSAGE,
+    teacher_login_block_message,
+)
 from identity.accounts.user_types import (
     BLOCKED_REGISTRATION_SLUGS,
     USER_TYPE_STUDENT,
@@ -98,10 +102,17 @@ def parse_google_user_type(raw) -> tuple[int | None, str | None, str | None]:
 
 
 def _login_session(request, user: User) -> GoogleAuthOutcome | None:
+    blocked = teacher_login_block_message(user)
+    if blocked:
+        return GoogleAuthOutcome(
+            status="error",
+            message=blocked,
+            http_status=403,
+        )
     if not user.is_active:
         return GoogleAuthOutcome(
             status="error",
-            message="Account is inactive.",
+            message=INACTIVE_ACCOUNT_MESSAGE,
             http_status=403,
         )
     if not user.is_superuser and not is_db_login_allowed():

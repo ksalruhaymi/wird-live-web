@@ -8,9 +8,11 @@ from identity.accounts.auth.profile_service import (
     ijazah_file_kind,
 )
 from apps.calls.models import CallRecording, CallSession
+from apps.calls.recording_storage import object_key_for_recording
 from identity.accounts.user_types import (
     USER_TYPE_STUDENT,
     USER_TYPE_TEACHER,
+    resolve_user_type_slug,
     user_type_label,
 )
 
@@ -91,18 +93,56 @@ def pending_teacher_card_payload(user, request=None) -> dict:
     }
 
 
+def get_latest_interview_recording_for_teacher(teacher_user):
+    """Latest admin/supervisor interview recording for a pending teacher review."""
+    flagged = (
+        CallRecording.objects.filter(
+            teacher_id=teacher_user.id,
+            call_session__is_interview_call=True,
+        )
+        .select_related("call_session", "call_session__student")
+        .order_by("-created_at", "-id")
+    )
+    rec = flagged.first()
+    if rec:
+        return rec
+
+    # Legacy calls created before is_interview_call was stored on the session.
+    legacy = (
+        CallRecording.objects.filter(
+            teacher_id=teacher_user.id,
+            call_session__status=CallSession.Status.ENDED,
+        )
+        .select_related("call_session", "call_session__student")
+        .order_by("-created_at", "-id")
+    )
+    for candidate in legacy:
+        student = candidate.call_session.student
+        if student and resolve_user_type_slug(student) in {"admin", "supervisor"}:
+            return candidate
+    return None
+
+
+def interview_recording_payload(rec: CallRecording) -> dict:
+    has_recording = bool(object_key_for_recording(rec)) and (
+        rec.recording_status == CallRecording.RecordingStatus.COMPLETED
+    )
+    return {
+        "id": rec.id,
+        "call_id": rec.call_session_id,
+        "has_recording": has_recording,
+        "duration_seconds": rec.duration_seconds,
+        "started_at": rec.started_at.isoformat() if rec.started_at else None,
+        "ended_at": rec.ended_at.isoformat() if rec.ended_at else None,
+        "created_at": rec.created_at.isoformat() if rec.created_at else None,
+    }
+
+
 def teacher_review_detail_payload(user, request=None) -> dict:
     profile = user.teacher_profile
     profile_data = build_profile_payload(user, request)
-    interview_rec = (
-        CallRecording.objects.filter(
-            teacher_id=user.id,
-            call_session__is_interview_call=True,
-        )
-        .select_related("call_session")
-        .order_by("-created_at", "-id")
-        .first()
-    )
+    interview_rec = get_latest_interview_recording_for_teacher(user)
+    is_pending = profile.approval_status == TeacherProfile.ApprovalStatus.PENDING
     return {
         "id": user.id,
         "username": user.username,
@@ -123,32 +163,10 @@ def teacher_review_detail_payload(user, request=None) -> dict:
         "profile_image_url": profile_data.get("profile_image_url"),
         "teacher_files": build_management_teacher_files(user, request),
         "interview_recording": (
-            {
-                "id": interview_rec.id,
-                "call_id": interview_rec.call_session_id,
-                "has_recording": bool(
-                    getattr(interview_rec.call_session, "channel_name", "")
-                )
-                and bool(interview_rec.recording_object_key or interview_rec.recording_url)
-                and interview_rec.recording_status
-                == interview_rec.RecordingStatus.COMPLETED,
-                "duration_seconds": interview_rec.duration_seconds,
-                "started_at": interview_rec.started_at.isoformat()
-                if interview_rec.started_at
-                else None,
-                "ended_at": interview_rec.ended_at.isoformat()
-                if interview_rec.ended_at
-                else None,
-                "created_at": interview_rec.created_at.isoformat()
-                if interview_rec.created_at
-                else None,
-            }
-            if interview_rec
-            else None
+            interview_recording_payload(interview_rec) if interview_rec else None
         ),
         "approval": teacher_approval_payload(profile),
-        "is_pending": profile.approval_status
-        == TeacherProfile.ApprovalStatus.PENDING,
+        "is_pending": is_pending,
     }
 
 
