@@ -6,7 +6,14 @@ from django.conf import settings
 from django.http import FileResponse, JsonResponse
 
 
-_PUBLIC_MEDIA_PREFIXES = ("images/", "mushaf/", "mushaf_full/", "audio/", "audio-surahs/")
+_PUBLIC_MEDIA_PREFIXES = (
+    "images/",
+    "mushaf/",
+    "mushaf_full/",
+    "audio/",
+    "audio-surahs/",
+    "mobile/",
+)
 
 
 def protected_media(request, path: str):

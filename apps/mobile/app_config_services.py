@@ -81,11 +81,4 @@ def evaluate_mobile_api_access(
             config=config,
         )
 
-    if config.force_update:
-        return build_mobile_access_denial(
-            status_code=426,
-            code="app_update_required",
-            config=config,
-        )
-
     return None
