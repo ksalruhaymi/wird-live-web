@@ -33,7 +33,9 @@ def my_recordings(request):
     from apps.tutoring.teacher_services import resolve_user_type_slug
 
     if resolve_user_type_slug(user) == "teacher":
-        qs = CallRecording.objects.filter(teacher=user)
+        qs = CallRecording.objects.filter(teacher=user).exclude(
+            call_session__is_interview_call=True
+        )
     else:
         qs = CallRecording.objects.filter(student=user)
 

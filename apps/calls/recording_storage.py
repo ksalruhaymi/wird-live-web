@@ -163,6 +163,16 @@ def user_can_access_recording(user, recording: CallRecording) -> bool:
         return False
     if recording.student_id == user.id or recording.teacher_id == user.id:
         return True
+    try:
+        call = getattr(recording, "call_session", None)
+        if call is not None and getattr(call, "is_interview_call", False):
+            if hasattr(user, "has_permission") and user.has_permission(
+                "management.teachers.view"
+            ):
+                return True
+    except Exception:
+        # Fallback to standard permissions.
+        pass
     if hasattr(user, "has_permission") and user.has_permission("recordings.view"):
         return True
     return False

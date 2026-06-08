@@ -94,6 +94,15 @@ def pending_teacher_card_payload(user, request=None) -> dict:
 def teacher_review_detail_payload(user, request=None) -> dict:
     profile = user.teacher_profile
     profile_data = build_profile_payload(user, request)
+    interview_rec = (
+        CallRecording.objects.filter(
+            teacher_id=user.id,
+            call_session__is_interview_call=True,
+        )
+        .select_related("call_session")
+        .order_by("-created_at", "-id")
+        .first()
+    )
     return {
         "id": user.id,
         "username": user.username,
@@ -113,6 +122,30 @@ def teacher_review_detail_payload(user, request=None) -> dict:
         "bio": (profile.bio or "").strip(),
         "profile_image_url": profile_data.get("profile_image_url"),
         "teacher_files": build_management_teacher_files(user, request),
+        "interview_recording": (
+            {
+                "id": interview_rec.id,
+                "call_id": interview_rec.call_session_id,
+                "has_recording": bool(
+                    getattr(interview_rec.call_session, "channel_name", "")
+                )
+                and bool(interview_rec.recording_object_key or interview_rec.recording_url)
+                and interview_rec.recording_status
+                == interview_rec.RecordingStatus.COMPLETED,
+                "duration_seconds": interview_rec.duration_seconds,
+                "started_at": interview_rec.started_at.isoformat()
+                if interview_rec.started_at
+                else None,
+                "ended_at": interview_rec.ended_at.isoformat()
+                if interview_rec.ended_at
+                else None,
+                "created_at": interview_rec.created_at.isoformat()
+                if interview_rec.created_at
+                else None,
+            }
+            if interview_rec
+            else None
+        ),
         "approval": teacher_approval_payload(profile),
         "is_pending": profile.approval_status
         == TeacherProfile.ApprovalStatus.PENDING,

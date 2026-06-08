@@ -18,16 +18,17 @@ def ensure_post_call_artifacts(call: CallSession) -> None:
     if call.status != CallSession.Status.ENDED or not call.teacher_id:
         return
 
-    SessionEvaluation.objects.get_or_create(
-        call_session=call,
-        defaults={
-            "student_id": call.student_id,
-            "teacher_id": call.teacher_id,
-            "status": SessionEvaluation.Status.PENDING,
-        },
-    )
+    if not getattr(call, "is_interview_call", False):
+        SessionEvaluation.objects.get_or_create(
+            call_session=call,
+            defaults={
+                "student_id": call.student_id,
+                "teacher_id": call.teacher_id,
+                "status": SessionEvaluation.Status.PENDING,
+            },
+        )
 
-    ensure_peer_ratings(call)
+        ensure_peer_ratings(call)
 
     rec, created = CallRecording.objects.get_or_create(
         call_session=call,

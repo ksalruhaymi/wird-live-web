@@ -77,6 +77,7 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
         "id": call.id,
         "session_type": call.session_type,
         "provider": call.provider,
+        "is_interview_call": bool(getattr(call, "is_interview_call", False)),
         "app_id": app_id,
         "channel_name": call.channel_name or "",
         "room_name": call.room_name or "",
@@ -181,6 +182,7 @@ def request_call_session(
         session_type=session_type,
         provider=provider_name_for_new_call(),
         status=CallSession.Status.PENDING,
+        is_interview_call=bool(interview_call),
     )
     assign_channel_name(call)
     mark_teacher_busy(teacher)

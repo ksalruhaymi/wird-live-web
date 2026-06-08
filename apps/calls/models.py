@@ -60,6 +60,10 @@ class CallSession(models.Model):
     ended_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    is_interview_call = models.BooleanField(
+        default=False,
+        verbose_name="مقابلة إدارة (مكالمة معلم جديد)",
+    )
 
     class Meta:
         ordering = ["-created_at", "-id"]
