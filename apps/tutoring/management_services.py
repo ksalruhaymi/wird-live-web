@@ -7,7 +7,12 @@ from identity.accounts.auth.profile_service import (
     build_profile_payload,
     ijazah_file_kind,
 )
-from identity.accounts.user_types import USER_TYPE_TEACHER, user_type_label
+from apps.calls.models import CallRecording, CallSession
+from identity.accounts.user_types import (
+    USER_TYPE_STUDENT,
+    USER_TYPE_TEACHER,
+    user_type_label,
+)
 
 from .models import TeacherProfile
 from .teacher_approval_service import teacher_approval_payload
@@ -131,3 +136,12 @@ def list_pending_teachers(*, q: str = ""):
         )
 
     return list(qs.order_by("-teacher_profile__created_at", "username"))
+
+
+def management_dashboard_stats_payload() -> dict:
+    return {
+        "teachers_count": User.objects.filter(user_type=USER_TYPE_TEACHER).count(),
+        "students_count": User.objects.filter(user_type=USER_TYPE_STUDENT).count(),
+        "calls_count": CallSession.objects.count(),
+        "recordings_count": CallRecording.objects.count(),
+    }

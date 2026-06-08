@@ -8,6 +8,7 @@ from django.views.decorators.http import require_GET, require_POST
 
 from apps.tutoring.management_services import (
     list_pending_teachers,
+    management_dashboard_stats_payload,
     pending_teacher_card_payload,
     teacher_review_detail_payload,
 )
@@ -52,6 +53,20 @@ def _get_pending_teacher(teacher_id: int):
         user_type=USER_TYPE_TEACHER,
         teacher_profile__isnull=False,
         teacher_profile__approval_status=TeacherProfile.ApprovalStatus.PENDING,
+    )
+
+
+@require_GET
+def management_dashboard_stats(request):
+    err = _require_permission(request, "management.teachers.view")
+    if err:
+        return err
+
+    return JsonResponse(
+        {
+            "success": True,
+            "stats": management_dashboard_stats_payload(),
+        }
     )
 
 

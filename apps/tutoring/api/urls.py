@@ -15,6 +15,11 @@ urlpatterns = [
         name="teachers-favorite-toggle",
     ),
     path(
+        "management/dashboard/stats/",
+        management_views.management_dashboard_stats,
+        name="management-dashboard-stats",
+    ),
+    path(
         "management/teachers/pending/",
         management_views.pending_teachers_list,
         name="management-pending-teachers",
