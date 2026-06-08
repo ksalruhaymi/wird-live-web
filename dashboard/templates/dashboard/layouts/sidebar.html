@@ -78,25 +78,11 @@
       <span>المستخدمين</span>
     </a>
     {% endif %}
-    {% if request.user|can_access:"calls.view" %}
+    {% if request.user|can_access:"calls.view" or request.user|can_access:"recordings.view" or request.user|can_access:"evaluations.view" %}
     <a href="{% url 'dashboard:call_session_list' %}"
-       class="site-sidebar-btn {% if '/dashboard/calls' in path %}site-sidebar-btn-active{% endif %}">
+       class="site-sidebar-btn {% if '/dashboard/calls' in path or '/dashboard/recordings' in path or '/dashboard/evaluations' in path %}site-sidebar-btn-active{% endif %}">
       <i class="bi bi-telephone"></i>
-      <span>سجل المكالمات</span>
-    </a>
-    {% endif %}
-    {% if request.user|can_access:"evaluations.view" %}
-    <a href="{% url 'dashboard:session_evaluation_list' %}"
-       class="site-sidebar-btn {% if '/dashboard/evaluations' in path %}site-sidebar-btn-active{% endif %}">
-      <i class="bi bi-star"></i>
-      <span>تقييمات الجلسات</span>
-    </a>
-    {% endif %}
-    {% if request.user|can_access:"recordings.view" %}
-    <a href="{% url 'dashboard:call_recording_list' %}"
-       class="site-sidebar-btn {% if '/dashboard/recordings' in path %}site-sidebar-btn-active{% endif %}">
-      <i class="bi bi-camera-reels"></i>
-      <span>سجل التسجيلات</span>
+      <span>المكالمات</span>
     </a>
     {% endif %}
     {% endwith %}

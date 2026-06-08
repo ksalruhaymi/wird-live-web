@@ -1,0 +1,39 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+<div class="max-w-7xl mx-auto space-y-6" dir-text>
+
+  {% include "dashboard/partials/calls_tabs_header.html" %}
+
+  {% if tab == 'log' %}
+    {% if can_log %}
+      {% include "dashboard/pages/calls/partials/tab_log.html" %}
+    {% else %}
+      <p class="site-text-muted text-center py-8">ليس لديك صلاحية عرض سجل المكالمات.</p>
+    {% endif %}
+
+  {% elif tab == 'recordings' %}
+    {% if can_recordings %}
+      {% include "dashboard/pages/calls/partials/tab_recordings.html" %}
+    {% else %}
+      <p class="site-text-muted text-center py-8">ليس لديك صلاحية عرض التسجيلات.</p>
+    {% endif %}
+
+  {% elif tab == 'ratings' %}
+    {% if can_ratings %}
+      {% include "dashboard/pages/calls/partials/tab_ratings.html" %}
+    {% else %}
+      <p class="site-text-muted text-center py-8">ليس لديك صلاحية عرض تقييمات المكالمات.</p>
+    {% endif %}
+
+  {% elif tab == 'rating-settings' %}
+    {% if can_rating_settings %}
+      {% include "dashboard/pages/calls/partials/tab_rating_settings.html" %}
+    {% else %}
+      <p class="site-text-muted text-center py-8">ليس لديك صلاحية إعدادات التقييم.</p>
+    {% endif %}
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -11,7 +11,7 @@
   <form method="post" class="flex gap-3">
     {% csrf_token %}
     <button type="submit" class="px-4 py-2 rounded-full bg-red-600 text-white text-sm font-bold">حذف</button>
-    <a href="{% url 'dashboard:session_evaluation_list' %}?tab=settings"
+    <a href="{% url 'dashboard:call_session_list' %}?tab=rating-settings"
        class="px-4 py-2 rounded-full border site-border text-sm site-text-muted">إلغاء</a>
   </form>
 </div>

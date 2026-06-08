@@ -1,0 +1,76 @@
+<p class="text-[11px] site-text-muted">إدارة أنواع التقييم وأسئلة المكالمات بعد كل اتصال.</p>
+
+<div class="flex items-center justify-end">
+  {% if request.user|can_access:"evaluations.create" %}
+  <a href="{% url 'dashboard:rating_question_create' %}"
+     class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold shadow-sm hover:shadow-md active:scale-95 transition">
+    <i class="bi bi-plus-lg text-sm"></i>
+    إضافة تقييم
+  </a>
+  {% endif %}
+</div>
+
+<div class="space-y-5">
+  {% for group in question_groups %}
+  <div class="site-card overflow-hidden">
+    <div class="px-4 py-3 site-surface border-b site-border flex items-center justify-between gap-3">
+      <div class="flex items-center gap-2 flex-wrap">
+        <h3 class="text-[13px] font-bold site-text">{{ group.label }}</h3>
+        {% if group.is_active %}
+        <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">مفعل</span>
+        {% else %}
+        <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">غير مفعل</span>
+        {% endif %}
+      </div>
+      {% if request.user|can_access:"evaluations.update" %}
+      <form method="post" action="{% url 'dashboard:rating_category_toggle' group.category %}" class="inline-flex">
+        {% csrf_token %}
+        <button type="submit"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-bold border site-border site-text hover:site-surface transition"
+                title="{% if group.is_active %}تعطيل{% else %}تفعيل{% endif %}">
+          <i class="bi {% if group.is_active %}bi-toggle-on text-green-600{% else %}bi-toggle-off text-slate-500{% endif %}"></i>
+          {% if group.is_active %}تعطيل{% else %}تفعيل{% endif %}
+        </button>
+      </form>
+      {% endif %}
+    </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-[12px]">
+        <thead class="site-surface text-[11px] site-text-muted">
+          <tr>
+            <th class="px-4 py-3 font-bold">#</th>
+            <th class="px-4 py-3 font-bold">نص السؤال</th>
+            <th class="px-4 py-3 font-bold">الترتيب</th>
+            <th class="px-4 py-3 font-bold text-center">إجراءات</th>
+          </tr>
+        </thead>
+        <tbody class="divide-site">
+          {% for question in group.questions %}
+          <tr class="hover:site-surface transition">
+            <td class="px-4 py-2">{{ question.id }}</td>
+            <td class="px-4 py-2 site-text">{{ question.question_text }}</td>
+            <td class="px-4 py-2 text-center">{{ question.order }}</td>
+            <td class="px-4 py-2">
+              <div class="flex items-center justify-center gap-2">
+                {% if request.user|can_access:"evaluations.update" %}
+                {% url 'dashboard:rating_question_update' question.id as edit_url %}
+                {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
+                {% endif %}
+                {% if request.user|can_access:"evaluations.delete" %}
+                {% url 'dashboard:rating_question_delete' question.id as delete_url %}
+                {% include "dashboard/partials/action_icon_delete.html" with url=delete_url %}
+                {% endif %}
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="4" class="px-4 py-6 text-center site-text-muted">لا توجد أسئلة في هذا النوع.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% endfor %}
+</div>

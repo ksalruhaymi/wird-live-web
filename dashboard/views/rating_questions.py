@@ -9,7 +9,7 @@ from apps.calls.rating_service import CATEGORY_LABELS_AR
 from identity.rbac.decorators import permissions_required
 
 def _redirect_to_settings_tab():
-    return redirect(f"{reverse('dashboard:session_evaluation_list')}?tab=settings")
+    return redirect(f"{reverse('dashboard:call_session_list')}?tab=rating-settings")
 
 
 def _parse_question_form(post):

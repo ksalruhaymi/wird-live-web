@@ -1,0 +1,97 @@
+{% include "dashboard/partials/list_pagination_bar.html" with total_count=total_calls per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
+
+<form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
+  <input type="hidden" name="tab" value="log">
+  {% include "dashboard/partials/filter_hidden_fields.html" %}
+  <div class="flex-1 min-w-[200px]">
+    <label class="block text-[11px] font-bold site-text-muted mb-1">بحث</label>
+    <input type="search" name="q" value="{{ q }}"
+           placeholder="طالب، معلم، قناة…"
+           class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+  </div>
+  <div class="min-w-[140px]">
+    <label class="block text-[11px] font-bold site-text-muted mb-1">النوع</label>
+    <select name="type" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+      <option value="all" {% if type_filter == 'all' %}selected{% endif %}>الكل</option>
+      <option value="audio" {% if type_filter == 'audio' %}selected{% endif %}>صوتي</option>
+      <option value="video" {% if type_filter == 'video' %}selected{% endif %}>مرئي</option>
+    </select>
+  </div>
+  <div class="min-w-[140px]">
+    <label class="block text-[11px] font-bold site-text-muted mb-1">الحالة</label>
+    <select name="status" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+      <option value="all" {% if status_filter == 'all' %}selected{% endif %}>الكل</option>
+      <option value="pending" {% if status_filter == 'pending' %}selected{% endif %}>بانتظار المعلم</option>
+      <option value="active" {% if status_filter == 'active' %}selected{% endif %}>نشط</option>
+      <option value="ended" {% if status_filter == 'ended' %}selected{% endif %}>منتهي</option>
+      <option value="rejected" {% if status_filter == 'rejected' %}selected{% endif %}>مرفوض</option>
+      <option value="missed" {% if status_filter == 'missed' %}selected{% endif %}>لم يتم الرد</option>
+      <option value="cancelled" {% if status_filter == 'cancelled' %}selected{% endif %}>ملغي</option>
+    </select>
+  </div>
+  <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">تطبيق</button>
+</form>
+
+<div class="overflow-x-auto site-card">
+  <table class="min-w-full text-[12px]">
+    <thead class="site-surface text-[11px] site-text-muted">
+      <tr>
+        <th class="px-4 py-3 font-bold">#</th>
+        <th class="px-4 py-3 font-bold">الطالب</th>
+        <th class="px-4 py-3 font-bold">المعلّم</th>
+        <th class="px-4 py-3 font-bold">النوع</th>
+        <th class="px-4 py-3 font-bold">المزود</th>
+        <th class="px-4 py-3 font-bold">الحالة</th>
+        <th class="px-4 py-3 font-bold">وقت الطلب</th>
+        <th class="px-4 py-3 font-bold">البداية</th>
+        <th class="px-4 py-3 font-bold">النهاية</th>
+        <th class="px-4 py-3 font-bold">المدة</th>
+      </tr>
+    </thead>
+    <tbody class="divide-site">
+      {% for row in rows %}
+      {% with call=row.call %}
+      <tr class="hover:site-surface transition
+        {% if call.status == 'active' %}bg-green-50/40
+        {% elif call.status == 'pending' %}bg-blue-50/40
+        {% elif call.status == 'ended' %}bg-slate-50/60
+        {% elif call.status == 'rejected' %}bg-red-50/30
+        {% elif call.status == 'missed' %}bg-amber-50/40
+        {% elif call.status == 'cancelled' %}bg-red-50/20
+        {% endif %}">
+        <td class="px-4 py-2 site-text-muted">{{ call.id }}</td>
+        <td class="px-4 py-2 font-semibold site-text">
+          {{ call.student.get_full_name|default:call.student.username }}
+          <div class="text-[10px] site-text-muted">{{ call.student.username }}</div>
+        </td>
+        <td class="px-4 py-2 site-text-muted">
+          {% if call.teacher %}
+          {{ call.teacher.get_full_name|default:call.teacher.username }}
+          <div class="text-[10px] site-text-muted">{{ call.teacher.username }}</div>
+          {% else %}—{% endif %}
+        </td>
+        <td class="px-4 py-2 site-text-muted">{{ call.get_session_type_display }}</td>
+        <td class="px-4 py-2 site-text-muted">{{ call.provider }}</td>
+        <td class="px-4 py-2">
+          <span class="inline-flex px-2 py-0.5 rounded-full text-[11px] font-bold border site-border">
+            {{ call.get_status_display }}
+          </span>
+        </td>
+        <td class="px-4 py-2 site-text-muted">{{ call.created_at|date:"Y-m-d H:i" }}</td>
+        <td class="px-4 py-2 site-text-muted">{{ call.started_at|date:"Y-m-d H:i"|default:"—" }}</td>
+        <td class="px-4 py-2 site-text-muted">{{ call.ended_at|date:"Y-m-d H:i"|default:"—" }}</td>
+        <td class="px-4 py-2 site-text-muted">{{ row.duration }}</td>
+      </tr>
+      {% endwith %}
+      {% empty %}
+      <tr>
+        <td colspan="10" class="px-4 py-8 text-center site-text-muted">لا توجد مكالمات مطابقة.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if per_page != "all" %}
+  {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
+{% endif %}
