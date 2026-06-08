@@ -106,3 +106,55 @@ class ProfileViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("form_data", response.context)
         self.assertContains(response, "رقم الهاتف")
+
+    def test_password_change_without_current_password_fails(self):
+        response = self.client.post(
+            PROFILE_URL,
+            {
+                "full_name": "اسم أولي",
+                "mobile": "",
+                "job_title": "مشرف",
+                "new_password1": "newpass123",
+                "new_password2": "newpass123",
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "كلمة المرور الحالية مطلوبة")
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password("pass12345"))
+
+    def test_password_change_with_wrong_current_password_fails(self):
+        response = self.client.post(
+            PROFILE_URL,
+            {
+                "full_name": "اسم أولي",
+                "mobile": "",
+                "job_title": "مشرف",
+                "current_password": "wrong-password",
+                "new_password1": "newpass123",
+                "new_password2": "newpass123",
+            },
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "كلمة المرور الحالية غير صحيحة")
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password("pass12345"))
+
+    def test_password_change_with_correct_current_password_succeeds(self):
+        response = self.client.post(
+            PROFILE_URL,
+            {
+                "full_name": "اسم أولي",
+                "mobile": "",
+                "job_title": "مشرف",
+                "current_password": "pass12345",
+                "new_password1": "newpass123",
+                "new_password2": "newpass123",
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password("newpass123"))
+
+        session_response = self.client.get(PROFILE_URL)
+        self.assertEqual(session_response.status_code, 200)

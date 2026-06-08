@@ -23,6 +23,7 @@ def profile_view(request):
         full_name = (request.POST.get("full_name") or "").strip()
         mobile_raw = (request.POST.get("mobile") or "").strip()
         job_title = (request.POST.get("job_title") or "").strip()
+        current_password = (request.POST.get("current_password") or "").strip()
         new_password1 = (request.POST.get("new_password1") or "").strip()
         new_password2 = (request.POST.get("new_password2") or "").strip()
 
@@ -31,6 +32,11 @@ def profile_view(request):
             "mobile": mobile_raw,
             "job_title": job_title,
         }
+
+        def password_error(message):
+            messages.error(request, message)
+            form_data["open_password"] = True
+            return _profile_error_response(request, form_data)
 
         mobile_db = None
         if mobile_raw:
@@ -49,13 +55,17 @@ def profile_view(request):
         user.job_title = job_title or None
 
         if new_password1 or new_password2:
+            if not current_password:
+                return password_error("كلمة المرور الحالية مطلوبة.")
+
+            if not user.check_password(current_password):
+                return password_error("كلمة المرور الحالية غير صحيحة.")
+
             if new_password1 != new_password2:
-                messages.error(request, "كلمتا المرور غير متطابقتين.")
-                return _profile_error_response(request, form_data)
+                return password_error("كلمتا المرور غير متطابقتين.")
 
             if len(new_password1) < 8:
-                messages.error(request, "كلمة المرور يجب أن تكون 8 أحرف على الأقل.")
-                return _profile_error_response(request, form_data)
+                return password_error("كلمة المرور يجب أن تكون 8 أحرف على الأقل.")
 
             user.set_password(new_password1)
             try:

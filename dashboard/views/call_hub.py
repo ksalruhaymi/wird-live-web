@@ -136,6 +136,11 @@ def _ratings_ui_summary(peer_ratings) -> dict:
     completed = sum(
         1 for rating in ratings if rating.status == CallPeerRating.Status.COMPLETED
     )
+    scores = []
+    for rating in ratings:
+        for value in (rating.competence, rating.clarity, rating.audio_quality):
+            if value is not None:
+                scores.append(value)
     if total == 0:
         return {
             "ratings_total": 0,
@@ -143,6 +148,7 @@ def _ratings_ui_summary(peer_ratings) -> dict:
             "ratings_ratio": "—",
             "ratings_status_label": "لا يوجد",
             "ratings_status_key": "none",
+            "ratings_score_display": None,
         }
     if completed == total:
         status_label = "مكتمل"
@@ -150,12 +156,18 @@ def _ratings_ui_summary(peer_ratings) -> dict:
     else:
         status_label = "غير مكتمل"
         status_key = "incomplete"
+    if scores:
+        avg_score = round(sum(scores) / len(scores), 1)
+        score_display = f"{avg_score:g}/5"
+    else:
+        score_display = f"{completed}/{total}"
     return {
         "ratings_total": total,
         "ratings_completed": completed,
         "ratings_ratio": f"{completed}/{total}",
         "ratings_status_label": status_label,
         "ratings_status_key": status_key,
+        "ratings_score_display": score_display,
     }
 
 

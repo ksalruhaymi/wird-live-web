@@ -148,13 +148,18 @@
 
             <div id="password_input_wrap" class="field-input hidden space-y-3">
               <input type="password"
+                     name="current_password"
+                     placeholder="كلمة المرور الحالية"
+                     class="site-input">
+
+              <input type="password"
                      name="new_password1"
                      placeholder="كلمة المرور الجديدة"
                      class="site-input">
 
               <input type="password"
                      name="new_password2"
-                     placeholder="تأكيد كلمة المرور"
+                     placeholder="تأكيد كلمة المرور الجديدة"
                      class="site-input">
             </div>
           </div>
@@ -197,6 +202,9 @@ document.addEventListener("DOMContentLoaded", function () {
     enableField("full_name");
     enableField("mobile");
     enableField("job_title");
+    {% if form_data.open_password %}
+    enableField("password");
+    {% endif %}
   {% endif %}
 });
 </script>
