@@ -1,4 +1,8 @@
 {% load rbac_tags %}
+<style>
+  .call-log-icon-slot { width: 2.3125rem; height: 2.3125rem; }
+  .call-log-icon { font-size: 1.1875rem !important; line-height: 1; }
+</style>
 {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_calls per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
 <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
@@ -86,34 +90,34 @@
         </td>
         <td class="px-3 py-2 site-text-muted whitespace-nowrap">{{ call.get_session_type_display }}</td>
         <td class="px-3 py-2 text-center">
-          <div class="w-9 h-9 mx-auto flex items-center justify-center">
+          <div class="call-log-icon-slot mx-auto flex items-center justify-center">
           {% if call.status == 'ended' %}
-          <span class="w-9 h-9 inline-flex items-center justify-center text-green-600" title="{{ call.get_status_display }}">
-            <i class="bi bi-check-circle text-[20px] leading-none"></i>
+          <span class="call-log-icon-slot inline-flex items-center justify-center text-green-600" title="{{ call.get_status_display }}">
+            <i class="bi bi-check-circle call-log-icon"></i>
           </span>
           {% elif call.status == 'active' %}
-          <span class="w-9 h-9 inline-flex items-center justify-center text-green-700" title="{{ call.get_status_display }}">
-            <i class="bi bi-telephone-fill text-[20px] leading-none"></i>
+          <span class="call-log-icon-slot inline-flex items-center justify-center text-green-700" title="{{ call.get_status_display }}">
+            <i class="bi bi-telephone-fill call-log-icon"></i>
           </span>
           {% elif call.status == 'pending' %}
-          <span class="w-9 h-9 inline-flex items-center justify-center text-blue-600" title="{{ call.get_status_display }}">
-            <i class="bi bi-hourglass-split text-[20px] leading-none"></i>
+          <span class="call-log-icon-slot inline-flex items-center justify-center text-blue-600" title="{{ call.get_status_display }}">
+            <i class="bi bi-hourglass-split call-log-icon"></i>
           </span>
           {% elif call.status == 'missed' %}
-          <span class="w-9 h-9 inline-flex items-center justify-center text-amber-600" title="{{ call.get_status_display }}">
-            <i class="bi bi-telephone-x text-[20px] leading-none"></i>
+          <span class="call-log-icon-slot inline-flex items-center justify-center text-amber-600" title="{{ call.get_status_display }}">
+            <i class="bi bi-telephone-x call-log-icon"></i>
           </span>
           {% elif call.status == 'rejected' %}
-          <span class="w-9 h-9 inline-flex items-center justify-center text-red-600" title="{{ call.get_status_display }}">
-            <i class="bi bi-x-circle text-[20px] leading-none"></i>
+          <span class="call-log-icon-slot inline-flex items-center justify-center text-red-600" title="{{ call.get_status_display }}">
+            <i class="bi bi-x-circle call-log-icon"></i>
           </span>
           {% elif call.status == 'cancelled' %}
-          <span class="w-9 h-9 inline-flex items-center justify-center text-red-500" title="{{ call.get_status_display }}">
-            <i class="bi bi-slash-circle text-[20px] leading-none"></i>
+          <span class="call-log-icon-slot inline-flex items-center justify-center text-red-500" title="{{ call.get_status_display }}">
+            <i class="bi bi-slash-circle call-log-icon"></i>
           </span>
           {% else %}
-          <span class="w-9 h-9 inline-flex items-center justify-center site-text-muted" title="{{ call.get_status_display }}">
-            <i class="bi bi-circle text-[20px] leading-none"></i>
+          <span class="call-log-icon-slot inline-flex items-center justify-center site-text-muted" title="{{ call.get_status_display }}">
+            <i class="bi bi-circle call-log-icon"></i>
           </span>
           {% endif %}
           </div>
@@ -125,38 +129,38 @@
 
         {% if can_recordings %}
         <td class="px-3 py-2">
-          <div class="flex items-center justify-center gap-1.5 mx-auto">
-            <div class="w-9 h-9 shrink-0 flex items-center justify-center">
+          <div class="flex items-center justify-center gap-2 mx-auto">
+            <div class="call-log-icon-slot shrink-0 flex items-center justify-center">
               {% if rec.playable %}
               <button type="button"
-                      class="call-play-recording-btn w-9 h-9 inline-flex items-center justify-center rounded-sm text-violet-700 hover:bg-violet-50 transition"
+                      class="call-play-recording-btn call-log-icon-slot inline-flex items-center justify-center rounded-sm text-violet-700 hover:bg-violet-50 transition"
                       title="تشغيل التسجيل"
                       data-playback-url="{% url 'dashboard:call_recording_playback_url' rec.recording_id %}">
-                <i class="bi bi-play-circle text-[20px] leading-none call-play-icon"></i>
-                <i class="bi bi-pause-circle text-[20px] leading-none call-pause-icon hidden"></i>
+                <i class="bi bi-play-circle call-log-icon call-play-icon"></i>
+                <i class="bi bi-pause-circle call-log-icon call-pause-icon hidden"></i>
               </button>
               {% elif rec.has_recording %}
-              <span class="w-9 h-9 inline-flex items-center justify-center text-amber-600"
+              <span class="call-log-icon-slot inline-flex items-center justify-center text-amber-600"
                     title="تسجيل غير متاح">
-                <i class="bi bi-file-earmark-x text-[20px] leading-none"></i>
+                <i class="bi bi-file-earmark-x call-log-icon"></i>
               </span>
               {% else %}
-              <span class="w-9 h-9 inline-flex items-center justify-center site-text-muted"
+              <span class="call-log-icon-slot inline-flex items-center justify-center site-text-muted"
                     title="لا يوجد تسجيل">
-                <i class="bi bi-mic-mute text-[20px] leading-none"></i>
+                <i class="bi bi-mic-mute call-log-icon"></i>
               </span>
               {% endif %}
             </div>
-            <div class="w-9 h-9 shrink-0 flex items-center justify-center">
+            <div class="call-log-icon-slot shrink-0 flex items-center justify-center">
               {% if rec.playable and request.user|can_access:"recordings.delete" %}
               {% url 'dashboard:call_recording_delete' rec.recording_id as delete_url %}
               <a href="{{ delete_url }}"
-                 class="w-9 h-9 inline-flex items-center justify-center rounded-sm text-red-600 hover:bg-red-50 transition"
+                 class="call-log-icon-slot inline-flex items-center justify-center rounded-sm text-red-600 hover:bg-red-50 transition"
                  title="حذف التسجيل">
-                <i class="bi bi-trash text-[20px] leading-none"></i>
+                <i class="bi bi-trash call-log-icon"></i>
               </a>
               {% else %}
-              <span class="w-9 h-9 invisible pointer-events-none" aria-hidden="true"></span>
+              <span class="call-log-icon-slot invisible pointer-events-none" aria-hidden="true"></span>
               {% endif %}
             </div>
           </div>
@@ -169,12 +173,12 @@
           <a href="{{ detail_url }}#ratings"
              class="inline-flex items-center justify-center gap-1 rounded-sm text-amber-700 hover:bg-amber-50 transition px-1 py-0.5"
              title="{{ rat.ratings_status_label }} — {{ rat.ratings_ratio }}">
-            <i class="bi bi-star-fill text-[20px] leading-none"></i>
-            <span class="text-[13px] font-semibold tabular-nums leading-none">{{ rat.ratings_score_display }}</span>
+            <i class="bi bi-star-fill call-log-icon"></i>
+            <span class="text-[14px] font-semibold tabular-nums leading-none">{{ rat.ratings_score_display }}</span>
           </a>
           {% else %}
-          <span class="w-9 h-9 mx-auto inline-flex items-center justify-center site-text-muted" title="لا يوجد تقييم">
-            <i class="bi bi-star text-[20px] leading-none opacity-40"></i>
+          <span class="call-log-icon-slot mx-auto inline-flex items-center justify-center site-text-muted" title="لا يوجد تقييم">
+            <i class="bi bi-star call-log-icon opacity-40"></i>
           </span>
           {% endif %}
         </td>
@@ -182,9 +186,9 @@
 
         <td class="px-3 py-2 text-center">
           <a href="{{ detail_url }}"
-             class="w-9 h-9 mx-auto inline-flex items-center justify-center rounded-sm site-text-muted hover:site-surface transition"
+             class="call-log-icon-slot mx-auto inline-flex items-center justify-center rounded-sm site-text-muted hover:site-surface transition"
              title="تفاصيل">
-            <i class="bi bi-eye text-[20px] leading-none"></i>
+            <i class="bi bi-eye call-log-icon"></i>
           </a>
         </td>
       </tr>
