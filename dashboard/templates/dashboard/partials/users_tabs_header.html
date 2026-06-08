@@ -3,6 +3,6 @@
   {% if tab == 'students' %}
     {% include "dashboard/partials/page_tabs_header.html" with title="المستخدمين" icon="bi-people-fill" subtitle="إدارة وعرض بيانات المعلمين والطلاب" tab1_url=teachers_tab_url tab1_label="المعلمون" tab1_icon="bi-person-workspace" tab1_active="" tab2_url=students_tab_url tab2_label="الطلاب" tab2_icon="bi-mortarboard-fill" tab2_active="1" only %}
   {% else %}
-    {% include "dashboard/partials/page_tabs_header.html" with title="المستخدمين" icon="bi-people-fill" subtitle="إدارة وعرض بيانات المعلمين والطلاب" tab1_url=teachers_tab_url tab1_label="المعلمون" tab1_icon="bi-person-workspace" tab1_active="1" tab2_url=students_tab_url tab2_label="الطلاب" tab2_icon="bi-mortarboard-fill" tab2_active="" only %}
+    {% include "dashboard/partials/page_tabs_header.html" with title="المستخدمين" icon="bi-people-fill" subtitle="إدارة المعلمين وحالة اتصالهم: متاح (داخل التطبيق خلال 5 دقائق)، مشغول (مكالمة نشطة)، غير متصل" tab1_url=teachers_tab_url tab1_label="المعلمون" tab1_icon="bi-person-workspace" tab1_active="1" tab2_url=students_tab_url tab2_label="الطلاب" tab2_icon="bi-mortarboard-fill" tab2_active="" only %}
   {% endif %}
 {% endwith %}

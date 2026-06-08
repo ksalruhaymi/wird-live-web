@@ -85,13 +85,6 @@
       <span>سجل المكالمات</span>
     </a>
     {% endif %}
-    {% if request.user|can_access:"teachers.availability.view" %}
-    <a href="{% url 'dashboard:teacher_availability_list' %}"
-       class="site-sidebar-btn {% if '/dashboard/teachers/availability' in path %}site-sidebar-btn-active{% endif %}">
-      <i class="bi bi-person-check"></i>
-      <span>حالة المعلمين</span>
-    </a>
-    {% endif %}
     {% if request.user|can_access:"evaluations.view" %}
     <a href="{% url 'dashboard:session_evaluation_list' %}"
        class="site-sidebar-btn {% if '/dashboard/evaluations' in path %}site-sidebar-btn-active{% endif %}">

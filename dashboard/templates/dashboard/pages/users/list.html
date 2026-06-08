@@ -27,6 +27,14 @@
         <option value="offline" {% if status_filter == 'offline' %}selected{% endif %}>غير متصل</option>
       </select>
     </div>
+    <div class="min-w-[140px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">تجريبي</label>
+      <select name="demo" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+        <option value="all" {% if demo_filter == 'all' %}selected{% endif %}>الكل</option>
+        <option value="yes" {% if demo_filter == 'yes' %}selected{% endif %}>معلّم آلي</option>
+        <option value="no" {% if demo_filter == 'no' %}selected{% endif %}>غير تجريبي</option>
+      </select>
+    </div>
     {% else %}
     <div class="min-w-[160px]">
       <label class="block text-[11px] font-bold site-text-muted mb-1">حالة الاشتراك</label>
@@ -61,6 +69,9 @@
           <th class="px-4 py-3 font-bold">البريد</th>
           <th class="px-4 py-3 font-bold">الجوال</th>
           <th class="px-4 py-3 font-bold">الحالة الحالية</th>
+          <th class="px-4 py-3 font-bold">صوتي</th>
+          <th class="px-4 py-3 font-bold">مرئي</th>
+          <th class="px-4 py-3 font-bold">تجريبي</th>
           <th class="px-4 py-3 font-bold">عدد الجلسات</th>
           <th class="px-4 py-3 font-bold">آخر ظهور</th>
           <th class="px-4 py-3 font-bold text-center">إجراءات</th>
@@ -68,7 +79,11 @@
       </thead>
       <tbody class="divide-site">
         {% for row in rows %}
-        <tr class="hover:site-surface transition">
+        <tr class="hover:site-surface transition
+          {% if row.status == 'available' %}bg-green-50/40
+          {% elif row.status == 'busy' %}bg-amber-50/40
+          {% elif row.status == 'offline' %}bg-slate-50/60
+          {% endif %}">
           <td class="px-4 py-2 font-semibold site-text">{{ row.display_name }}</td>
           <td class="px-4 py-2">
             {% if row.approval_status == 'approved' %}
@@ -91,6 +106,15 @@
             <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">{{ row.status_label }}</span>
             {% endif %}
           </td>
+          <td class="px-4 py-2 site-text-muted">{% if row.can_audio %}نعم{% else %}لا{% endif %}</td>
+          <td class="px-4 py-2 site-text-muted">{% if row.can_video %}نعم{% else %}لا{% endif %}</td>
+          <td class="px-4 py-2">
+            {% if row.is_demo_teacher %}
+            <span class="inline-flex px-2 py-0.5 rounded-full text-[11px] font-bold bg-violet-50 text-violet-700 border border-violet-200">معلّم آلي</span>
+            {% else %}
+            <span class="site-text-muted">—</span>
+            {% endif %}
+          </td>
           <td class="px-4 py-2 site-text-muted text-center">{{ row.session_count }}</td>
           <td class="px-4 py-2 site-text-muted">
             {% if row.last_seen %}{{ row.last_seen|date:"Y-m-d H:i" }}{% else %}—{% endif %}
@@ -104,7 +128,7 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="9" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون مطابقون.</td>
+          <td colspan="12" class="px-4 py-8 text-center site-text-muted">لا يوجد معلمون مطابقون.</td>
         </tr>
         {% endfor %}
       </tbody>
