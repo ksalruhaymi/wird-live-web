@@ -64,7 +64,9 @@ class CallSession(models.Model):
         default=False,
         verbose_name="مقابلة إدارة (مكالمة معلم جديد)",
     )
-    minutes_charged = models.PositiveIntegerField(
+    minutes_charged = models.DecimalField(
+        max_digits=12,
+        decimal_places=4,
         null=True,
         blank=True,
         verbose_name="دقائق مخصومة من الرصيد",

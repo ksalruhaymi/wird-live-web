@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-import math
 from datetime import date
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_UP
 
 from django.contrib.auth import get_user_model
 from django.db import transaction
@@ -22,6 +21,9 @@ CALL_INELIGIBLE_MESSAGE = (
     "يجب أن يكون لديك اشتراك فعال ورصيد كافٍ للاتصال بالمعلم."
 )
 STUDENT_ONLY_SUBSCRIPTION_MESSAGE = "الاشتراكات متاحة للطلاب فقط."
+
+BILLING_MINUTE_QUANT = Decimal("0.0001")
+ZERO_MINUTES = Decimal("0")
 
 
 def add_months(start: date, months: int) -> date:
@@ -130,13 +132,41 @@ def get_current_active_subscription(user) -> StudentSubscription | None:
     )
 
 
+def sync_balance_status_from_expiry(
+    balance: StudentSubscriptionBalance,
+    *,
+    today: date | None = None,
+) -> None:
+    """Keep stored status aligned with expiry after admin edits."""
+    today = today or timezone.localdate()
+    if balance.status == StudentSubscriptionBalance.Status.CANCELLED:
+        return
+    display = balance_display_status(balance, today=today)
+    if display == StudentSubscription.DisplayStatus.EXPIRED:
+        balance.status = StudentSubscriptionBalance.Status.EXPIRED
+    elif display == StudentSubscription.DisplayStatus.ACTIVE:
+        balance.status = StudentSubscriptionBalance.Status.ACTIVE
+
+
+def _minutes_value(value) -> Decimal:
+    if isinstance(value, Decimal):
+        return value
+    return Decimal(str(value))
+
+
+def _serialize_minutes(value: Decimal | int | None) -> float | None:
+    if value is None:
+        return None
+    return float(_minutes_value(value).quantize(BILLING_MINUTE_QUANT))
+
+
 def student_can_request_call(user) -> tuple[bool, str]:
     if not can_use_subscription_packages(user):
         return False, "هذا الإجراء للطلاب فقط."
     balance = get_user_subscription_balance(user)
     if not balance or not is_balance_active(balance):
         return False, CALL_INELIGIBLE_MESSAGE
-    if balance.remaining_minutes <= 0:
+    if balance.remaining_minutes <= ZERO_MINUTES:
         return False, CALL_INELIGIBLE_MESSAGE
     return True, ""
 
@@ -160,7 +190,7 @@ def call_eligibility_payload(user) -> dict:
         "applicable": True,
         "can_call": can_call,
         "has_active_subscription": active,
-        "balance": balance.remaining_minutes if balance else None,
+        "balance": _serialize_minutes(balance.remaining_minutes if balance else None),
         "message": message,
     }
 
@@ -208,9 +238,9 @@ def current_subscription_payload(user) -> dict:
             "applicable": True,
             "has_active_subscription": False,
             "can_call": False,
-            "balance": balance.remaining_minutes if balance else None,
-            "remaining_minutes": balance.remaining_minutes if balance else 0,
-            "used_minutes": balance.used_minutes if balance else 0,
+            "balance": _serialize_minutes(balance.remaining_minutes if balance else None),
+            "remaining_minutes": _serialize_minutes(balance.remaining_minutes if balance else None) or 0,
+            "used_minutes": _serialize_minutes(balance.used_minutes if balance else None) or 0,
             "message": "",
         }
 
@@ -220,9 +250,9 @@ def current_subscription_payload(user) -> dict:
         "applicable": True,
         "has_active_subscription": True,
         "can_call": can_call,
-        "balance": balance.remaining_minutes,
-        "remaining_minutes": balance.remaining_minutes,
-        "used_minutes": balance.used_minutes,
+        "balance": _serialize_minutes(balance.remaining_minutes),
+        "remaining_minutes": _serialize_minutes(balance.remaining_minutes),
+        "used_minutes": _serialize_minutes(balance.used_minutes),
         "plan_title": balance.current_plan_title,
         "package_title": balance.current_plan_title,
         "expires_at": expires,
@@ -258,7 +288,7 @@ def create_student_subscription(
         user=user,
         defaults={
             "status": StudentSubscriptionBalance.Status.EXPIRED,
-            "remaining_minutes": 0,
+            "remaining_minutes": ZERO_MINUTES,
         },
     )
 
@@ -268,12 +298,12 @@ def create_student_subscription(
 
     if balance_active and balance.expires_at:
         extend_from = balance.expires_at
-        new_minutes = balance.remaining_minutes + plan.minutes
+        new_minutes = _minutes_value(balance.remaining_minutes) + Decimal(plan.minutes)
         transaction_type = "renewal"
         period_start = extend_from
     else:
         extend_from = today
-        new_minutes = plan.minutes
+        new_minutes = Decimal(plan.minutes)
         transaction_type = "purchase"
         period_start = today
 
@@ -315,18 +345,26 @@ def create_student_subscription(
     return sub, None
 
 
-def call_duration_minutes(call) -> int:
-    """Billable minutes for a ended call (rounded up, minimum 0)."""
+def call_billable_minutes(call) -> Decimal:
+    """Billable minutes for an ended call (second-accurate, no rounding up)."""
     if not call.started_at or not call.ended_at:
-        return 0
+        return ZERO_MINUTES
     seconds = max(0, int((call.ended_at - call.started_at).total_seconds()))
     if seconds <= 0:
-        return 0
-    return math.ceil(seconds / 60)
+        return ZERO_MINUTES
+    return (Decimal(seconds) / Decimal("60")).quantize(
+        BILLING_MINUTE_QUANT,
+        rounding=ROUND_HALF_UP,
+    )
+
+
+def call_duration_minutes(call) -> Decimal:
+    """Backward-compatible alias."""
+    return call_billable_minutes(call)
 
 
 @transaction.atomic
-def deduct_call_minutes_for_session(call) -> int:
+def deduct_call_minutes_for_session(call) -> Decimal:
     """
     Deduct used minutes from the student's subscription balance when a call ends.
     Returns minutes charged (0 if skipped or already charged).
@@ -342,24 +380,24 @@ def deduct_call_minutes_for_session(call) -> int:
         return locked.minutes_charged
 
     if locked.is_interview_call:
-        locked.minutes_charged = 0
+        locked.minutes_charged = ZERO_MINUTES
         locked.save(update_fields=["minutes_charged", "updated_at"])
         return 0
 
     teacher = locked.teacher
     if teacher is not None and is_demo_teacher(teacher):
-        locked.minutes_charged = 0
+        locked.minutes_charged = ZERO_MINUTES
         locked.save(update_fields=["minutes_charged", "updated_at"])
         return 0
 
-    billable = call_duration_minutes(locked)
-    if billable <= 0:
-        locked.minutes_charged = 0
+    billable = call_billable_minutes(locked)
+    if billable <= ZERO_MINUTES:
+        locked.minutes_charged = ZERO_MINUTES
         locked.save(update_fields=["minutes_charged", "updated_at"])
-        return 0
+        return ZERO_MINUTES
 
     if not can_use_subscription_packages(locked.student):
-        locked.minutes_charged = 0
+        locked.minutes_charged = ZERO_MINUTES
         locked.save(update_fields=["minutes_charged", "updated_at"])
         return 0
 
@@ -368,12 +406,12 @@ def deduct_call_minutes_for_session(call) -> int:
         .filter(user_id=locked.student_id)
         .first()
     )
-    charge = 0
+    charge = ZERO_MINUTES
     if balance is not None:
-        charge = min(billable, balance.remaining_minutes)
-        if charge > 0:
-            balance.remaining_minutes -= charge
-            balance.used_minutes += charge
+        charge = min(billable, _minutes_value(balance.remaining_minutes))
+        if charge > ZERO_MINUTES:
+            balance.remaining_minutes = _minutes_value(balance.remaining_minutes) - charge
+            balance.used_minutes = _minutes_value(balance.used_minutes) + charge
             balance.save(
                 update_fields=["remaining_minutes", "used_minutes", "updated_at"]
             )

@@ -11,6 +11,7 @@ from apps.calls.models import CallSession
 from apps.subscription.models import StudentSubscription, StudentSubscriptionBalance, SubscriptionPlan
 from apps.subscription.services import (
     add_months,
+    call_billable_minutes,
     call_duration_minutes,
     call_eligibility_payload,
     can_use_subscription_packages,
@@ -19,6 +20,7 @@ from apps.subscription.services import (
     deduct_call_minutes_for_session,
     get_user_subscription_balance,
     student_can_request_call,
+    sync_balance_status_from_expiry,
 )
 from identity.accounts.user_types import (
     USER_TYPE_ADMIN,
@@ -244,24 +246,44 @@ class SubscriptionCallMinuteDeductionTests(TestCase):
             ended_at=ended,
         )
 
-    def test_call_duration_minutes_rounds_up(self):
+    def test_call_billable_minutes_uses_seconds_not_ceiling(self):
         call = self._create_ended_call(seconds=61)
-        self.assertEqual(call_duration_minutes(call), 2)
+        self.assertEqual(call_billable_minutes(call), Decimal("1.0167"))
+
+    def test_short_call_charges_fractional_minute(self):
+        call = self._create_ended_call(seconds=30)
+        self.assertEqual(call_billable_minutes(call), Decimal("0.5"))
+
+    def test_one_second_call_charges_fraction(self):
+        call = self._create_ended_call(seconds=1)
+        self.assertEqual(call_billable_minutes(call), Decimal("0.0167"))
 
     def test_deducts_minutes_when_call_ends(self):
         create_student_subscription(self.student, plan_id=self.plan.id)
         call = self._create_ended_call(seconds=120)
 
         charged = deduct_call_minutes_for_session(call)
-        self.assertEqual(charged, 2)
+        self.assertEqual(charged, Decimal("2"))
 
         balance = get_user_subscription_balance(self.student)
         assert balance is not None
-        self.assertEqual(balance.remaining_minutes, 58)
-        self.assertEqual(balance.used_minutes, 2)
+        self.assertEqual(balance.remaining_minutes, Decimal("58"))
+        self.assertEqual(balance.used_minutes, Decimal("2"))
 
         call.refresh_from_db()
-        self.assertEqual(call.minutes_charged, 2)
+        self.assertEqual(call.minutes_charged, Decimal("2"))
+
+    def test_deducts_fractional_minutes_for_short_call(self):
+        create_student_subscription(self.student, plan_id=self.plan.id)
+        call = self._create_ended_call(seconds=30)
+
+        charged = deduct_call_minutes_for_session(call)
+        self.assertEqual(charged, Decimal("0.5"))
+
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        self.assertEqual(balance.remaining_minutes, Decimal("59.5"))
+        self.assertEqual(balance.used_minutes, Decimal("0.5"))
 
     def test_deduction_is_idempotent(self):
         create_student_subscription(self.student, plan_id=self.plan.id)
@@ -269,10 +291,46 @@ class SubscriptionCallMinuteDeductionTests(TestCase):
 
         first = deduct_call_minutes_for_session(call)
         second = deduct_call_minutes_for_session(call)
-        self.assertEqual(first, 1)
-        self.assertEqual(second, 1)
+        self.assertEqual(first, Decimal("1"))
+        self.assertEqual(second, Decimal("1"))
 
         balance = get_user_subscription_balance(self.student)
         assert balance is not None
-        self.assertEqual(balance.remaining_minutes, 59)
-        self.assertEqual(balance.used_minutes, 1)
+        self.assertEqual(balance.remaining_minutes, Decimal("59"))
+        self.assertEqual(balance.used_minutes, Decimal("1"))
+
+
+class SubscriptionExpiryEligibilityTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_rbac")
+        cls.plan = SubscriptionPlan.objects.create(
+            title="باقة",
+            duration_months=1,
+            price=Decimal("99.00"),
+            minutes=60,
+            is_active=True,
+        )
+        cls.student = User.objects.create_user(
+            username="expiry_student",
+            password="pass12345",
+            user_type=USER_TYPE_STUDENT,
+        )
+
+    def test_expired_balance_blocks_calls(self):
+        from datetime import timedelta
+
+        create_student_subscription(self.student, plan_id=self.plan.id)
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        balance.expires_at = timezone.localdate() - timedelta(days=1)
+        sync_balance_status_from_expiry(balance)
+        balance.save()
+
+        can_call, message = student_can_request_call(self.student)
+        self.assertFalse(can_call)
+        self.assertIn("اشتراك", message)
+
+        payload = call_eligibility_payload(self.student)
+        self.assertFalse(payload["can_call"])
+        self.assertFalse(payload["has_active_subscription"])

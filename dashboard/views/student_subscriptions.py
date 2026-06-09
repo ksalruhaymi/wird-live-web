@@ -14,6 +14,7 @@ from apps.subscription.services import (
     display_status,
     display_status_label,
     get_user_subscription_balance,
+    sync_balance_status_from_expiry,
 )
 from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.accounts.user_types import USER_TYPE_STUDENT
@@ -371,21 +372,21 @@ def _parse_balance_form(post):
     expires_raw = (post.get("expires_at") or "").strip()
     status = (post.get("status") or "").strip()
 
-    remaining_minutes = 0
+    remaining_minutes = Decimal("0")
     try:
-        remaining_minutes = int(minutes_raw)
+        remaining_minutes = Decimal(minutes_raw)
         if remaining_minutes < 0:
             errors.append("الدقائق المتبقية لا يمكن أن تكون سالبة.")
-    except ValueError:
-        errors.append("الدقائق المتبقية يجب أن تكون رقمًا صحيحًا.")
+    except InvalidOperation:
+        errors.append("الدقائق المتبقية يجب أن تكون رقمًا صحيحًا أو عشريًا.")
 
-    used_minutes = 0
+    used_minutes = Decimal("0")
     try:
-        used_minutes = int(used_raw)
+        used_minutes = Decimal(used_raw)
         if used_minutes < 0:
             errors.append("الدقائق المستخدمة لا يمكن أن تكون سالبة.")
-    except ValueError:
-        errors.append("الدقائق المستخدمة يجب أن تكون رقمًا صحيحًا.")
+    except InvalidOperation:
+        errors.append("الدقائق المستخدمة يجب أن تكون رقمًا صحيحًا أو عشريًا.")
 
     expires_at = None
     if expires_raw:
@@ -438,6 +439,7 @@ def student_subscription_balance_update(request, user_id):
             balance.used_minutes = data["used_minutes"]
             balance.expires_at = data["expires_at"]
             balance.status = data["status"]
+            sync_balance_status_from_expiry(balance)
             balance.save()
             messages.success(request, "تم تحديث الاشتراك الحالي بنجاح.")
             return redirect("dashboard:student_subscription_detail", user_id=user.id)

@@ -1,5 +1,7 @@
 from uuid import uuid4
 
+from decimal import Decimal
+
 from django.conf import settings
 from django.db import models
 
@@ -145,12 +147,16 @@ class StudentSubscriptionBalance(models.Model):
         default="",
         verbose_name="الباقة الحالية",
     )
-    remaining_minutes = models.PositiveIntegerField(
-        default=0,
+    remaining_minutes = models.DecimalField(
+        max_digits=12,
+        decimal_places=4,
+        default=Decimal("0"),
         verbose_name="الدقائق المتبقية",
     )
-    used_minutes = models.PositiveIntegerField(
-        default=0,
+    used_minutes = models.DecimalField(
+        max_digits=12,
+        decimal_places=4,
+        default=Decimal("0"),
         verbose_name="الدقائق المستخدمة",
     )
     expires_at = models.DateField(
