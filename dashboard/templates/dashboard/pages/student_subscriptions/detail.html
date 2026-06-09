@@ -59,19 +59,17 @@
   </div>
 
   <div>
-    <h3 class="text-sm font-bold site-text mb-3">أرشيف الاشتراكات</h3>
+    <h3 class="text-sm font-bold site-text mb-3">الباقات المشترك فيها</h3>
+    <p class="text-[11px] site-text-muted mb-3">الأحدث في الأعلى — كل صف يمثل بطاقة اشتراك</p>
     <div class="overflow-x-auto site-card">
       <table class="min-w-full text-[12px]">
         <thead class="site-surface text-[11px] site-text-muted">
           <tr class="dir-text">
-            <th class="px-4 py-3 font-bold">#</th>
-            <th class="px-4 py-3 font-bold">الباقة</th>
-            <th class="px-4 py-3 font-bold">المبلغ</th>
-            <th class="px-4 py-3 font-bold">دقائق مضافة</th>
-            <th class="px-4 py-3 font-bold">البداية</th>
-            <th class="px-4 py-3 font-bold">النهاية</th>
+            <th class="px-4 py-3 font-bold">اسم الباقة</th>
+            <th class="px-4 py-3 font-bold">الدقائق</th>
+            <th class="px-4 py-3 font-bold">تاريخ الاشتراك</th>
+            <th class="px-4 py-3 font-bold">تاريخ الانتهاء</th>
             <th class="px-4 py-3 font-bold">الحالة</th>
-            <th class="px-4 py-3 font-bold">تاريخ العملية</th>
             <th class="px-4 py-3 font-bold text-center">إجراءات</th>
           </tr>
         </thead>
@@ -79,9 +77,7 @@
           {% for row in history_rows %}
           {% with sub=row.subscription %}
           <tr class="hover:site-surface transition">
-            <td class="px-4 py-2 site-text-muted">{{ sub.id }}</td>
-            <td class="px-4 py-2 site-text">{{ sub.plan_title }}</td>
-            <td class="px-4 py-2 site-text-muted">{{ sub.amount }}</td>
+            <td class="px-4 py-2 site-text font-semibold">{{ sub.plan_title }}</td>
             <td class="px-4 py-2 site-text-muted">{{ sub.plan_minutes_added }}</td>
             <td class="px-4 py-2 site-text-muted">{{ sub.start_date }}</td>
             <td class="px-4 py-2 site-text-muted">{{ sub.end_date }}</td>
@@ -94,7 +90,6 @@
               <span class="inline-flex px-2 py-0.5 rounded-full bg-red-100 text-red-700 text-[11px] font-bold border border-red-200">ملغي</span>
               {% endif %}
             </td>
-            <td class="px-4 py-2 site-text-muted">{{ sub.created_at|date:"Y-m-d H:i" }}</td>
             <td class="px-4 py-2">
               <div class="flex items-center justify-center gap-2">
                 {% if request.user|can_access:"subscriptions.update" %}
@@ -117,7 +112,7 @@
           {% endwith %}
           {% empty %}
           <tr>
-            <td colspan="9" class="px-4 py-8 text-center site-text-muted">
+            <td colspan="6" class="px-4 py-8 text-center site-text-muted">
               لا توجد عمليات اشتراك لهذا الطالب.
             </td>
           </tr>

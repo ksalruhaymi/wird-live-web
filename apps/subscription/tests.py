@@ -6,12 +6,14 @@ from django.core.management import call_command
 from django.test import TestCase
 from django.urls import reverse
 
-from apps.subscription.models import StudentSubscription, SubscriptionPlan
+from apps.subscription.models import StudentSubscription, StudentSubscriptionBalance, SubscriptionPlan
 from apps.subscription.services import (
+    add_months,
     call_eligibility_payload,
     can_use_subscription_packages,
     create_student_subscription,
     current_subscription_payload,
+    get_user_subscription_balance,
     student_can_request_call,
 )
 from identity.accounts.user_types import (
@@ -146,3 +148,57 @@ class AdminSubscriptionAccessTests(TestCase):
         self.assertTrue(body["success"])
         self.assertTrue(body["applicable"])
         self.assertTrue(body["can_call"])
+
+
+class SubscriptionRenewalStackingTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_rbac")
+        cls.plan_a = SubscriptionPlan.objects.create(
+            title="باقة شهرية",
+            duration_months=1,
+            price=Decimal("50.00"),
+            minutes=60,
+            is_active=True,
+        )
+        cls.plan_b = SubscriptionPlan.objects.create(
+            title="باقة ربع سنوية",
+            duration_months=3,
+            price=Decimal("120.00"),
+            minutes=120,
+            is_active=True,
+        )
+        cls.student = User.objects.create_user(
+            username="renew_student",
+            password="pass12345",
+            user_type=USER_TYPE_STUDENT,
+        )
+
+    def test_renewal_stacks_minutes_and_extends_duration(self):
+        first, err = create_student_subscription(self.student, plan_id=self.plan_a.id)
+        self.assertIsNone(err)
+        assert first is not None
+
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        first_expires = balance.expires_at
+        first_minutes = balance.remaining_minutes
+
+        second, err = create_student_subscription(self.student, plan_id=self.plan_b.id)
+        self.assertIsNone(err)
+        assert second is not None
+
+        balance.refresh_from_db()
+        self.assertEqual(second.transaction_type, "renewal")
+        self.assertEqual(balance.remaining_minutes, first_minutes + self.plan_b.minutes)
+        self.assertEqual(balance.expires_at, add_months(first_expires, self.plan_b.duration_months))
+        self.assertEqual(second.start_date, first_expires)
+        self.assertEqual(second.end_date, balance.expires_at)
+        self.assertEqual(second.minutes_before, first_minutes)
+        self.assertEqual(second.minutes_after, balance.remaining_minutes)
+        self.assertEqual(second.expiry_before, first_expires)
+        self.assertEqual(second.expiry_after, balance.expires_at)
+        self.assertEqual(
+            StudentSubscription.objects.filter(user=self.student).count(),
+            2,
+        )

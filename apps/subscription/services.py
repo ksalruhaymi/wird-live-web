@@ -269,10 +269,12 @@ def create_student_subscription(
         extend_from = balance.expires_at
         new_minutes = balance.remaining_minutes + plan.minutes
         transaction_type = "renewal"
+        period_start = extend_from
     else:
         extend_from = today
         new_minutes = plan.minutes
         transaction_type = "purchase"
+        period_start = today
 
     new_expires = add_months(extend_from, plan.duration_months)
     now = timezone.now()
@@ -297,7 +299,7 @@ def create_student_subscription(
         plan_title=plan.title,
         duration_months=plan.duration_months,
         amount=charge_amount,
-        start_date=today,
+        start_date=period_start,
         end_date=new_expires,
         status=StudentSubscription.Status.ACTIVE,
         payment_status=StudentSubscription.PaymentStatus.PAID,
