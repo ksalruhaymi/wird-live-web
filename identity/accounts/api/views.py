@@ -3,6 +3,7 @@ import mimetypes
 
 from django.contrib.auth import get_user_model, login, logout
 from django.http import FileResponse, JsonResponse
+from django.middleware.csrf import get_token
 from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
@@ -66,11 +67,15 @@ def _user_payload(user) -> dict:
     }
 
 
-def _success(user, status: int = 200) -> JsonResponse:
-    return JsonResponse(
-        {"success": True, "user": _user_payload(user)},
-        status=status,
-    )
+def _success(user, request, status: int = 200) -> JsonResponse:
+    payload: dict = {"success": True, "user": _user_payload(user)}
+    session_key = request.session.session_key
+    if session_key:
+        payload["session_id"] = session_key
+    csrf = (request.META.get("CSRF_COOKIE") or "").strip() or get_token(request)
+    if csrf:
+        payload["csrf_token"] = csrf
+    return JsonResponse(payload, status=status)
 
 
 def _error(message: str, status: int = 400, code: str | None = None) -> JsonResponse:
@@ -146,7 +151,7 @@ def login_api(request):
     result = login_user(request, identifier, password)
 
     if result == "ok":
-        return _success(request.user)
+        return _success(request.user, request)
 
     if result == "rejected":
         return _error(REJECTED_TEACHER_LOGIN_MESSAGE, 403)
@@ -238,7 +243,7 @@ def register_api(request):
     )
 
     login(request, user, backend="django.contrib.auth.backends.ModelBackend")
-    return _success(user, status=201)
+    return _success(user, request, status=201)
 
 
 @csrf_exempt
@@ -251,7 +256,7 @@ def google_auth_api(request):
     outcome = authenticate_with_google(request, data, ijazah_file=ijazah_file)
 
     if outcome.status == "ok" and outcome.user is not None:
-        return _success(outcome.user, status=outcome.http_status)
+        return _success(outcome.user, request, status=outcome.http_status)
 
     if outcome.status == "account_type_required":
         return _error(
