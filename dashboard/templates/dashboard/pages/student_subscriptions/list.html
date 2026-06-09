@@ -43,6 +43,7 @@
       <thead class="site-surface text-[11px] site-text-muted">
         <tr class="dir-text">
           <th class="px-4 py-3 font-bold">اسم المشترك</th>
+          <th class="px-4 py-3 font-bold">الدقائق المتبقية</th>
           <th class="px-4 py-3 font-bold">الحالة</th>
           <th class="px-4 py-3 font-bold text-center">إجراءات</th>
         </tr>
@@ -58,6 +59,7 @@
             {{ row.user.get_full_name|default:row.user.username }}
             <div class="text-[10px] site-text-muted font-normal">{{ row.user.username }}</div>
           </td>
+          <td class="px-4 py-2 site-text-muted">{{ row.remaining_minutes }}</td>
           <td class="px-4 py-2">
             {% if row.display_status == 'active' %}
             <span class="inline-flex px-2 py-0.5 rounded-full bg-green-100 text-green-800 text-[11px] font-bold border border-green-200">ساري</span>
@@ -79,7 +81,7 @@
         </tr>
         {% empty %}
         <tr>
-          <td colspan="3" class="px-4 py-8 text-center site-text-muted">
+          <td colspan="4" class="px-4 py-8 text-center site-text-muted">
             لا يوجد طلاب بسجلات اشتراك مطابقة.
           </td>
         </tr>

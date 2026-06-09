@@ -64,6 +64,11 @@ class CallSession(models.Model):
         default=False,
         verbose_name="مقابلة إدارة (مكالمة معلم جديد)",
     )
+    minutes_charged = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="دقائق مخصومة من الرصيد",
+    )
 
     class Meta:
         ordering = ["-created_at", "-id"]

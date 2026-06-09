@@ -287,6 +287,10 @@ def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str |
     from apps.calls.post_call import ensure_post_call_artifacts
 
     ensure_post_call_artifacts(call)
+
+    from apps.subscription.services import deduct_call_minutes_for_session
+
+    deduct_call_minutes_for_session(call)
     return call, None
 
 

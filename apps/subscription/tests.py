@@ -5,14 +5,18 @@ from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import timezone
 
+from apps.calls.models import CallSession
 from apps.subscription.models import StudentSubscription, StudentSubscriptionBalance, SubscriptionPlan
 from apps.subscription.services import (
     add_months,
+    call_duration_minutes,
     call_eligibility_payload,
     can_use_subscription_packages,
     create_student_subscription,
     current_subscription_payload,
+    deduct_call_minutes_for_session,
     get_user_subscription_balance,
     student_can_request_call,
 )
@@ -202,3 +206,73 @@ class SubscriptionRenewalStackingTests(TestCase):
             StudentSubscription.objects.filter(user=self.student).count(),
             2,
         )
+
+
+class SubscriptionCallMinuteDeductionTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_rbac")
+        cls.plan = SubscriptionPlan.objects.create(
+            title="باقة دقائق",
+            duration_months=1,
+            price=Decimal("50.00"),
+            minutes=60,
+            is_active=True,
+        )
+        cls.student = User.objects.create_user(
+            username="deduct_student",
+            password="pass12345",
+            user_type=USER_TYPE_STUDENT,
+        )
+        cls.teacher = User.objects.create_user(
+            username="deduct_teacher",
+            password="pass12345",
+            user_type=USER_TYPE_STUDENT,
+        )
+
+    def _create_ended_call(self, *, seconds: int) -> CallSession:
+        from datetime import timedelta
+
+        started = timezone.now() - timedelta(seconds=seconds)
+        ended = timezone.now()
+        return CallSession.objects.create(
+            student=self.student,
+            teacher=self.teacher,
+            session_type=CallSession.SessionType.AUDIO,
+            status=CallSession.Status.ENDED,
+            started_at=started,
+            ended_at=ended,
+        )
+
+    def test_call_duration_minutes_rounds_up(self):
+        call = self._create_ended_call(seconds=61)
+        self.assertEqual(call_duration_minutes(call), 2)
+
+    def test_deducts_minutes_when_call_ends(self):
+        create_student_subscription(self.student, plan_id=self.plan.id)
+        call = self._create_ended_call(seconds=120)
+
+        charged = deduct_call_minutes_for_session(call)
+        self.assertEqual(charged, 2)
+
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        self.assertEqual(balance.remaining_minutes, 58)
+        self.assertEqual(balance.used_minutes, 2)
+
+        call.refresh_from_db()
+        self.assertEqual(call.minutes_charged, 2)
+
+    def test_deduction_is_idempotent(self):
+        create_student_subscription(self.student, plan_id=self.plan.id)
+        call = self._create_ended_call(seconds=60)
+
+        first = deduct_call_minutes_for_session(call)
+        second = deduct_call_minutes_for_session(call)
+        self.assertEqual(first, 1)
+        self.assertEqual(second, 1)
+
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        self.assertEqual(balance.remaining_minutes, 59)
+        self.assertEqual(balance.used_minutes, 1)

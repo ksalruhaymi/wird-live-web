@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import math
 from datetime import date
 from decimal import Decimal
 
@@ -312,3 +313,71 @@ def create_student_subscription(
         transaction_type=transaction_type,
     )
     return sub, None
+
+
+def call_duration_minutes(call) -> int:
+    """Billable minutes for a ended call (rounded up, minimum 0)."""
+    if not call.started_at or not call.ended_at:
+        return 0
+    seconds = max(0, int((call.ended_at - call.started_at).total_seconds()))
+    if seconds <= 0:
+        return 0
+    return math.ceil(seconds / 60)
+
+
+@transaction.atomic
+def deduct_call_minutes_for_session(call) -> int:
+    """
+    Deduct used minutes from the student's subscription balance when a call ends.
+    Returns minutes charged (0 if skipped or already charged).
+    """
+    from apps.calls.models import CallSession
+    from apps.tutoring.teacher_services import is_demo_teacher
+
+    if call.status != CallSession.Status.ENDED:
+        return 0
+
+    locked = CallSession.objects.select_for_update().get(pk=call.pk)
+    if locked.minutes_charged is not None:
+        return locked.minutes_charged
+
+    if locked.is_interview_call:
+        locked.minutes_charged = 0
+        locked.save(update_fields=["minutes_charged", "updated_at"])
+        return 0
+
+    teacher = locked.teacher
+    if teacher is not None and is_demo_teacher(teacher):
+        locked.minutes_charged = 0
+        locked.save(update_fields=["minutes_charged", "updated_at"])
+        return 0
+
+    billable = call_duration_minutes(locked)
+    if billable <= 0:
+        locked.minutes_charged = 0
+        locked.save(update_fields=["minutes_charged", "updated_at"])
+        return 0
+
+    if not can_use_subscription_packages(locked.student):
+        locked.minutes_charged = 0
+        locked.save(update_fields=["minutes_charged", "updated_at"])
+        return 0
+
+    balance = (
+        StudentSubscriptionBalance.objects.select_for_update()
+        .filter(user_id=locked.student_id)
+        .first()
+    )
+    charge = 0
+    if balance is not None:
+        charge = min(billable, balance.remaining_minutes)
+        if charge > 0:
+            balance.remaining_minutes -= charge
+            balance.used_minutes += charge
+            balance.save(
+                update_fields=["remaining_minutes", "used_minutes", "updated_at"]
+            )
+
+    locked.minutes_charged = charge
+    locked.save(update_fields=["minutes_charged", "updated_at"])
+    return charge
