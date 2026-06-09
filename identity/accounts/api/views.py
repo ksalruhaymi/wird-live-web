@@ -1,6 +1,7 @@
 import json
 import mimetypes
 
+from django.conf import settings
 from django.contrib.auth import get_user_model, login, logout
 from django.http import FileResponse, JsonResponse
 from django.middleware.csrf import get_token
@@ -67,14 +68,54 @@ def _user_payload(user) -> dict:
     }
 
 
-def _success(user, request, status: int = 200) -> JsonResponse:
-    payload: dict = {"success": True, "user": _user_payload(user)}
+def _csrf_token(request) -> str:
+    return (request.META.get("CSRF_COOKIE") or "").strip() or get_token(request)
+
+
+def _session_tokens(request) -> dict[str, str]:
+    tokens: dict[str, str] = {}
+    if not request.session.session_key:
+        request.session.save()
     session_key = request.session.session_key
     if session_key:
-        payload["session_id"] = session_key
-    csrf = (request.META.get("CSRF_COOKIE") or "").strip() or get_token(request)
+        tokens["session_id"] = session_key
+    csrf = _csrf_token(request)
     if csrf:
-        payload["csrf_token"] = csrf
+        tokens["csrf_token"] = csrf
+    return tokens
+
+
+def _attach_session_tokens(payload: dict, request) -> dict:
+    payload.update(_session_tokens(request))
+    return payload
+
+
+def _clear_auth_cookies(response: JsonResponse) -> JsonResponse:
+    cookie_kwargs: dict = {"path": "/"}
+    session_domain = getattr(settings, "SESSION_COOKIE_DOMAIN", None)
+    csrf_domain = getattr(settings, "CSRF_COOKIE_DOMAIN", None)
+    if session_domain:
+        response.delete_cookie(
+            settings.SESSION_COOKIE_NAME,
+            domain=session_domain,
+            **cookie_kwargs,
+        )
+    else:
+        response.delete_cookie(settings.SESSION_COOKIE_NAME, **cookie_kwargs)
+    if csrf_domain:
+        response.delete_cookie(
+            settings.CSRF_COOKIE_NAME,
+            domain=csrf_domain,
+            **cookie_kwargs,
+        )
+    else:
+        response.delete_cookie(settings.CSRF_COOKIE_NAME, **cookie_kwargs)
+    return response
+
+
+def _success(user, request, status: int = 200) -> JsonResponse:
+    payload: dict = {"success": True, "user": _user_payload(user)}
+    _attach_session_tokens(payload, request)
     return JsonResponse(payload, status=status)
 
 
@@ -115,21 +156,22 @@ def me(request):
         return blocked
 
     if request.user.is_authenticated:
-        return JsonResponse(
-            {
-                "authenticated": True,
-                "user": _user_payload(request.user),
-                "profile": build_profile_payload(request.user, request),
-            }
-        )
+        payload = {
+            "authenticated": True,
+            "user": _user_payload(request.user),
+            "profile": build_profile_payload(request.user, request),
+        }
+        _attach_session_tokens(payload, request)
+        return JsonResponse(payload)
 
-    return JsonResponse(
-        {
-            "authenticated": False,
-            "message": "Not authenticated.",
-        },
-        status=401,
-    )
+    payload = {
+        "authenticated": False,
+        "message": "Not authenticated.",
+    }
+    csrf = _csrf_token(request)
+    if csrf:
+        payload["csrf_token"] = csrf
+    return JsonResponse(payload, status=401)
 
 
 @csrf_exempt
@@ -276,7 +318,7 @@ def google_auth_api(request):
 @require_POST
 def logout_api(request):
     logout(request)
-    return JsonResponse({"success": True})
+    return _clear_auth_cookies(JsonResponse({"success": True}))
 
 
 def _require_authenticated(request) -> JsonResponse | None:
