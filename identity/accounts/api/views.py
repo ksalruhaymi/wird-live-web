@@ -3,7 +3,7 @@ import mimetypes
 
 from django.contrib.auth import get_user_model, login, logout
 from django.http import FileResponse, JsonResponse
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import csrf_exempt, ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
 from identity.accounts.auth.email_verification_service import (
@@ -127,6 +127,7 @@ def me(request):
     )
 
 
+@csrf_exempt
 @require_POST
 def login_api(request):
     data, err = _parse_json(request)
@@ -159,6 +160,7 @@ def login_api(request):
     )
 
 
+@csrf_exempt
 @require_POST
 def check_email_api(request):
     data, err = _parse_json(request)
@@ -173,6 +175,7 @@ def check_email_api(request):
     return JsonResponse({"success": True, "available": True})
 
 
+@csrf_exempt
 @require_POST
 def send_email_code_api(request):
     if not is_db_login_allowed():
@@ -190,6 +193,7 @@ def send_email_code_api(request):
     return JsonResponse({"success": True})
 
 
+@csrf_exempt
 @require_POST
 def verify_email_code_api(request):
     data, err = _parse_json(request)
@@ -205,6 +209,7 @@ def verify_email_code_api(request):
     return JsonResponse({"success": True, "verification_token": token})
 
 
+@csrf_exempt
 @require_POST
 def register_api(request):
     if not is_db_login_allowed():
@@ -236,6 +241,7 @@ def register_api(request):
     return _success(user, status=201)
 
 
+@csrf_exempt
 @require_POST
 def google_auth_api(request):
     data, ijazah_file, err = _parse_request_data(request)
@@ -261,6 +267,7 @@ def google_auth_api(request):
     )
 
 
+@csrf_exempt
 @require_POST
 def logout_api(request):
     logout(request)
