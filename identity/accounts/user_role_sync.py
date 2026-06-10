@@ -1,0 +1,149 @@
+"""Sync accounts_user.user_type and domain profiles from RBAC role assignments."""
+
+from __future__ import annotations
+
+from django.contrib.auth import get_user_model
+from django.db import transaction
+from django.db.models import Q
+
+from apps.tutoring.models import StudentProfile, TeacherAvailability, TeacherProfile
+from identity.accounts.user_types import (
+    USER_TYPE_ADMIN,
+    USER_TYPE_STUDENT,
+    USER_TYPE_SUPERVISOR,
+    USER_TYPE_TEACHER,
+)
+from identity.rbac.models import Role
+
+User = get_user_model()
+
+CONFLICTING_PRIMARY_ROLES_MESSAGE = (
+    "لا يمكن الجمع بين دور الطالب ودور المعلم في نفس الحساب."
+)
+
+
+def teacher_users_queryset():
+    """Users who should appear under dashboard teachers tab."""
+    return (
+        User.objects.filter(
+            Q(user_type=USER_TYPE_TEACHER)
+            | Q(roles__slug="teacher")
+            | Q(teacher_profile__isnull=False)
+        )
+        .distinct()
+        .select_related("teacher_profile", "teacher_availability")
+    )
+
+
+def student_users_queryset():
+    """Users who should appear under dashboard students tab."""
+    return (
+        User.objects.filter(
+            Q(user_type=USER_TYPE_STUDENT)
+            | Q(roles__slug="student")
+            | Q(student_profile__isnull=False)
+        )
+        .distinct()
+        .select_related("student_profile", "subscription_balance")
+    )
+
+
+def _display_name_for_user(user) -> str:
+    full = (getattr(user, "full_name", None) or "").strip()
+    if full:
+        return full
+    return user.username
+
+
+def ensure_student_profile(user) -> StudentProfile:
+    profile, _ = StudentProfile.objects.get_or_create(
+        user=user,
+        defaults={"display_name": _display_name_for_user(user)},
+    )
+    if not profile.display_name:
+        profile.display_name = _display_name_for_user(user)
+        profile.save(update_fields=["display_name", "updated_at"])
+    return profile
+
+
+def ensure_teacher_profile(user) -> TeacherProfile:
+    profile, created = TeacherProfile.objects.get_or_create(
+        user=user,
+        defaults={
+            "display_name": _display_name_for_user(user),
+            "is_approved": False,
+            "approval_status": TeacherProfile.ApprovalStatus.PENDING,
+            "can_audio": True,
+            "can_video": True,
+        },
+    )
+    if not profile.display_name:
+        profile.display_name = _display_name_for_user(user)
+        profile.save(update_fields=["display_name", "updated_at"])
+    if created:
+        TeacherAvailability.objects.get_or_create(
+            teacher=user,
+            defaults={"status": TeacherAvailability.Status.OFFLINE},
+        )
+    return profile
+
+
+def _resolve_user_type_from_role_slugs(role_slugs: set[str], *, is_superuser: bool) -> int | None:
+    if is_superuser or "admin" in role_slugs:
+        return USER_TYPE_ADMIN
+    if "teacher" in role_slugs:
+        return USER_TYPE_TEACHER
+    if "student" in role_slugs:
+        return USER_TYPE_STUDENT
+    if "supervisor" in role_slugs:
+        return USER_TYPE_SUPERVISOR
+    return None
+
+
+def sync_user_type_and_profiles(user, *, role_slugs: set[str] | None = None) -> None:
+    """
+    Align user_type (and optional profiles) with assigned RBAC roles.
+
+    Does not assign roles; call after roles.set().
+    """
+    if role_slugs is None:
+        role_slugs = set(user.roles.values_list("slug", flat=True))
+
+    if "student" in role_slugs and "teacher" in role_slugs:
+        raise ValueError(CONFLICTING_PRIMARY_ROLES_MESSAGE)
+
+    new_type = _resolve_user_type_from_role_slugs(
+        role_slugs,
+        is_superuser=bool(getattr(user, "is_superuser", False)),
+    )
+    if new_type is None:
+        return
+
+    if user.user_type != new_type:
+        user.user_type = new_type
+        user.save(update_fields=["user_type"])
+
+    if new_type == USER_TYPE_STUDENT:
+        ensure_student_profile(user)
+    elif new_type == USER_TYPE_TEACHER:
+        ensure_teacher_profile(user)
+
+
+@transaction.atomic
+def apply_user_roles(user, roles: list[Role]) -> tuple[bool, str | None]:
+    """
+    Persist RBAC roles and sync user_type / profiles.
+
+    Returns (success, error_message).
+    """
+    role_slugs = {role.slug for role in roles}
+
+    if "student" in role_slugs and "teacher" in role_slugs:
+        return False, CONFLICTING_PRIMARY_ROLES_MESSAGE
+
+    user.roles.set(roles)
+    try:
+        sync_user_type_and_profiles(user, role_slugs=role_slugs)
+    except ValueError as exc:
+        return False, str(exc)
+    return True, None

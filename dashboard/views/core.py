@@ -1,9 +1,8 @@
-from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 
 from apps.calls.models import CallRecording, CallSession
-from identity.accounts.user_types import USER_TYPE_STUDENT, USER_TYPE_TEACHER
+from identity.accounts.user_role_sync import student_users_queryset, teacher_users_queryset
 from identity.rbac.decorators import permission_required, permissions_required
 
 
@@ -16,12 +15,8 @@ def home(request):
 @login_required
 @permissions_required("dashboard.access", "overview.access")
 def overview(request):
-    User = get_user_model()
-    teachers_count = User.objects.filter(
-        user_type=USER_TYPE_TEACHER,
-        teacher_profile__isnull=False,
-    ).count()
-    students_count = User.objects.filter(user_type=USER_TYPE_STUDENT).count()
+    teachers_count = teacher_users_queryset().count()
+    students_count = student_users_queryset().count()
     calls_count = CallSession.objects.count()
     recordings_count = CallRecording.objects.count()
 

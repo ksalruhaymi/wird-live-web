@@ -13,6 +13,7 @@ from core.utils.pagination import paginate_with_smart_pages
 from apps.tutoring.teacher_services import is_demo_teacher
 from identity.accounts.auth.profile_service import build_profile_payload
 from identity.accounts.auth.registration_service import username_from_email
+from identity.accounts.user_role_sync import apply_user_roles
 from identity.accounts.user_types import USER_TYPE_TEACHER, USER_TYPE_SUPERVISOR
 from identity.rbac.decorators import permission_required
 
@@ -319,7 +320,11 @@ def user_update_roles(request, pk):
         return redirect("rbac:user_detail", pk=user_obj.pk)
 
     role_ids = request.POST.getlist("roles")
-    user_obj.roles.set(role_ids)
+    roles = list(Role.objects.filter(pk__in=role_ids))
+    ok, error = apply_user_roles(user_obj, roles)
+    if not ok:
+        messages.error(request, error or "تعذّر تحديث أدوار المستخدم.")
+        return redirect("rbac:user_detail", pk=user_obj.pk)
 
     messages.success(request, "تم تحديث أدوار المستخدم بنجاح.")
     return redirect("rbac:user_detail", pk=user_obj.pk)

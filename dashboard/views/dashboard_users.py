@@ -38,6 +38,12 @@ from apps.subscription.services import (
 )
 from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.accounts.auth.profile_service import build_profile_payload
+from identity.accounts.user_role_sync import (
+    ensure_student_profile,
+    ensure_teacher_profile,
+    student_users_queryset,
+    teacher_users_queryset,
+)
 from identity.accounts.user_types import USER_TYPE_STUDENT, USER_TYPE_TEACHER, user_type_label
 from identity.rbac.decorators import permissions_required
 
@@ -150,10 +156,7 @@ def _session_counts_for_students(student_ids: list[int]) -> dict[int, int]:
 
 
 def _build_teacher_rows(q: str, status_filter: str, account_filter: str, demo_filter: str):
-    qs = User.objects.filter(
-        user_type=USER_TYPE_TEACHER,
-        teacher_profile__isnull=False,
-    ).select_related("teacher_profile", "teacher_availability")
+    qs = teacher_users_queryset()
 
     if q:
         qs = qs.filter(
@@ -170,7 +173,9 @@ def _build_teacher_rows(q: str, status_filter: str, account_filter: str, demo_fi
 
     rows = []
     for user in teachers:
-        profile = user.teacher_profile
+        profile = getattr(user, "teacher_profile", None)
+        if profile is None:
+            profile = ensure_teacher_profile(user)
         availability = getattr(user, "teacher_availability", None)
         status = compute_teacher_status(user, active_teacher_ids=active_ids)
         approval = profile.approval_status or TeacherProfile.ApprovalStatus.PENDING
@@ -219,10 +224,7 @@ def _student_subscription_label(user) -> tuple[str, str]:
 
 
 def _build_student_rows(q: str, account_filter: str, subscription_filter: str):
-    qs = User.objects.filter(user_type=USER_TYPE_STUDENT).select_related(
-        "student_profile",
-        "subscription_balance",
-    )
+    qs = student_users_queryset()
 
     if q:
         qs = qs.filter(
@@ -418,11 +420,11 @@ def _paginate_detail_queryset(request, queryset, detail_tab, q=""):
 @login_required
 @permissions_required("dashboard.access", "users.teachers.view")
 def dashboard_user_teacher_detail(request, user_id):
+    user = get_object_or_404(teacher_users_queryset(), pk=user_id)
+    ensure_teacher_profile(user)
     user = get_object_or_404(
         User.objects.select_related("teacher_profile", "teacher_availability"),
         pk=user_id,
-        user_type=USER_TYPE_TEACHER,
-        teacher_profile__isnull=False,
     )
 
     detail_tab = (request.GET.get("tab") or DETAIL_TAB_PROFILE).strip()
@@ -545,10 +547,11 @@ def dashboard_user_teacher_detail(request, user_id):
 @login_required
 @permissions_required("dashboard.access", "users.students.view")
 def dashboard_user_student_detail(request, user_id):
+    user = get_object_or_404(student_users_queryset(), pk=user_id)
+    ensure_student_profile(user)
     user = get_object_or_404(
         User.objects.select_related("student_profile", "subscription_balance"),
         pk=user_id,
-        user_type=USER_TYPE_STUDENT,
     )
 
     detail_tab = (request.GET.get("tab") or DETAIL_TAB_PROFILE).strip()
@@ -683,7 +686,7 @@ def dashboard_user_student_detail(request, user_id):
 @login_required
 @permissions_required("dashboard.access", "users.teachers.view")
 def dashboard_user_teacher_profile_image(request, user_id):
-    user_obj = get_object_or_404(User, pk=user_id, user_type=USER_TYPE_TEACHER)
+    user_obj = get_object_or_404(teacher_users_queryset(), pk=user_id)
     image = getattr(user_obj, "profile_image", None)
     if not image or not image.name:
         raise Http404
@@ -701,9 +704,8 @@ def dashboard_user_teacher_profile_image(request, user_id):
 @permissions_required("dashboard.access", "users.teachers.view")
 def dashboard_user_teacher_ijazah(request, user_id):
     user_obj = get_object_or_404(
-        User.objects.select_related("teacher_profile"),
+        teacher_users_queryset().select_related("teacher_profile"),
         pk=user_id,
-        user_type=USER_TYPE_TEACHER,
     )
     profile = getattr(user_obj, "teacher_profile", None)
     ijazah = getattr(profile, "ijazah", None) if profile else None
@@ -728,7 +730,7 @@ def dashboard_user_teacher_ijazah(request, user_id):
 @login_required
 @permissions_required("dashboard.access", "users.students.view")
 def dashboard_user_student_profile_image(request, user_id):
-    user_obj = get_object_or_404(User, pk=user_id, user_type=USER_TYPE_STUDENT)
+    user_obj = get_object_or_404(student_users_queryset(), pk=user_id)
     image = getattr(user_obj, "profile_image", None)
     if not image or not image.name:
         raise Http404

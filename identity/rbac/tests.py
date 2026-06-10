@@ -2,11 +2,14 @@ from django.contrib.auth import get_user_model
 from django.core.management import call_command
 from django.test import TestCase
 
+from apps.tutoring.models import StudentProfile, TeacherProfile
+from identity.accounts.user_role_sync import apply_user_roles
 from identity.accounts.user_types import (
     USER_TYPE_ADMIN,
     USER_TYPE_STUDENT,
     USER_TYPE_SUPERVISOR,
     USER_TYPE_TEACHER,
+    primary_user_type_label,
 )
 from identity.rbac.models import Permission, Role
 from identity.rbac.resolver import resolve_permission_codes
@@ -161,3 +164,68 @@ class DualReadPermissionTests(TestCase):
         teacher = self.teacher_user
         self.assertTrue(teacher.has_permission("shared.recordings.play_own"))
         self.assertFalse(teacher.has_permission("recordings.view"))
+
+
+class UserRoleSyncTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_rbac")
+        cls.role_student = Role.objects.get(slug="student")
+        cls.role_teacher = Role.objects.get(slug="teacher")
+        cls.role_supervisor = Role.objects.get(slug="supervisor")
+
+    def _create_user(self, username: str, *, user_type=USER_TYPE_SUPERVISOR):
+        return User.objects.create_user(
+            username=username,
+            password="test-pass",
+            email=f"{username}@test.local",
+            user_type=user_type,
+        )
+
+    def test_student_only_sets_type_and_profile(self):
+        user = self._create_user("sync_student_only")
+        ok, err = apply_user_roles(user, [self.role_student])
+        self.assertTrue(ok, err)
+        user.refresh_from_db()
+        self.assertEqual(user.user_type, USER_TYPE_STUDENT)
+        self.assertTrue(StudentProfile.objects.filter(user=user).exists())
+        self.assertEqual(primary_user_type_label(user), "طالب")
+
+    def test_student_plus_supervisor_keeps_student_type(self):
+        user = self._create_user("sync_student_supervisor")
+        ok, err = apply_user_roles(
+            user, [self.role_student, self.role_supervisor]
+        )
+        self.assertTrue(ok, err)
+        user.refresh_from_db()
+        self.assertEqual(user.user_type, USER_TYPE_STUDENT)
+        self.assertEqual(primary_user_type_label(user), "طالب")
+        slugs = set(user.roles.values_list("slug", flat=True))
+        self.assertEqual(slugs, {"student", "supervisor"})
+
+    def test_teacher_plus_supervisor_keeps_teacher_type(self):
+        user = self._create_user("sync_teacher_supervisor")
+        ok, err = apply_user_roles(
+            user, [self.role_teacher, self.role_supervisor]
+        )
+        self.assertTrue(ok, err)
+        user.refresh_from_db()
+        self.assertEqual(user.user_type, USER_TYPE_TEACHER)
+        self.assertTrue(TeacherProfile.objects.filter(user=user).exists())
+        self.assertEqual(primary_user_type_label(user), "معلم")
+
+    def test_supervisor_only_sets_supervisor_type(self):
+        user = self._create_user("sync_supervisor_only")
+        ok, err = apply_user_roles(user, [self.role_supervisor])
+        self.assertTrue(ok, err)
+        user.refresh_from_db()
+        self.assertEqual(user.user_type, USER_TYPE_SUPERVISOR)
+        self.assertEqual(primary_user_type_label(user), "مشرف")
+
+    def test_student_and_teacher_roles_rejected(self):
+        user = self._create_user("sync_conflict")
+        ok, err = apply_user_roles(
+            user, [self.role_student, self.role_teacher]
+        )
+        self.assertFalse(ok)
+        self.assertIsNotNone(err)
