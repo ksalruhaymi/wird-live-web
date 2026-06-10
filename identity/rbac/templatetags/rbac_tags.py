@@ -1,6 +1,6 @@
 from django import template
 
-from identity.accounts.user_types import user_type_label
+from identity.accounts.user_types import user_list_type_label, user_type_label
 
 register = template.Library()
 
@@ -58,6 +58,14 @@ def user_type_display(user) -> str:
     if not user.is_authenticated:
         return ""
     return user_type_label(user)
+
+
+@register.filter
+def user_list_type_display(user) -> str:
+    """Users list column only; see user_list_type_label()."""
+    if not user.is_authenticated:
+        return ""
+    return user_list_type_label(user)
 
 
 @register.filter
