@@ -1,7 +1,12 @@
 from django.db.models import Exists, OuterRef
 from django.utils import timezone
 
-from apps.notification.models import AppNotification, AppNotificationRead
+from apps.notification.models import (
+    AppNotification,
+    AppNotificationRead,
+    Notification,
+    NotificationChannel,
+)
 
 
 def active_app_notifications_qs():
@@ -15,6 +20,26 @@ def _read_exists_subquery(user):
         notification_id=OuterRef("pk"),
         user=user,
     )
+
+
+def _personal_notifications_qs(user):
+    return Notification.objects.filter(
+        user=user,
+        channel=NotificationChannel.IN_APP,
+    ).order_by("-created_at", "-id")
+
+
+def _personal_notification_payload(notification: Notification) -> dict:
+    return {
+        "id": -notification.id,
+        "title": notification.title,
+        "body": notification.message,
+        "is_active": True,
+        "target_type": "personal",
+        "created_at": notification.created_at.isoformat(),
+        "updated_at": notification.created_at.isoformat(),
+        "is_read": notification.is_read,
+    }
 
 
 def app_notification_to_payload(notification: AppNotification, *, user) -> dict:
@@ -35,12 +60,7 @@ def app_notification_to_payload(notification: AppNotification, *, user) -> dict:
 
 
 def list_app_notifications_for_user(user) -> list[dict]:
-    qs = (
-        active_app_notifications_qs()
-        .annotate(is_read=Exists(_read_exists_subquery(user)))
-        .order_by("-created_at", "-id")
-    )
-    return [
+    broadcast = [
         {
             "id": row.id,
             "title": row.title,
@@ -51,8 +71,17 @@ def list_app_notifications_for_user(user) -> list[dict]:
             "updated_at": row.updated_at.isoformat(),
             "is_read": row.is_read,
         }
-        for row in qs
+        for row in active_app_notifications_qs().annotate(
+            is_read=Exists(_read_exists_subquery(user))
+        )
     ]
+    personal = [
+        _personal_notification_payload(row)
+        for row in _personal_notifications_qs(user)
+    ]
+    combined = broadcast + personal
+    combined.sort(key=lambda item: item["created_at"], reverse=True)
+    return combined
 
 
 def unread_app_notifications_count(user) -> int:
@@ -60,10 +89,19 @@ def unread_app_notifications_count(user) -> int:
         "notification_id",
         flat=True,
     )
-    return active_app_notifications_qs().exclude(id__in=read_ids).count()
+    broadcast_unread = active_app_notifications_qs().exclude(id__in=read_ids).count()
+    personal_unread = _personal_notifications_qs(user).filter(is_read=False).count()
+    return broadcast_unread + personal_unread
 
 
 def mark_app_notification_read(user, notification_id: int) -> bool:
+    if notification_id < 0:
+        notification = _personal_notifications_qs(user).filter(pk=-notification_id).first()
+        if not notification:
+            return False
+        notification.mark_as_read()
+        return True
+
     notification = active_app_notifications_qs().filter(pk=notification_id).first()
     if not notification:
         return False
@@ -77,8 +115,6 @@ def mark_app_notification_read(user, notification_id: int) -> bool:
 
 def mark_all_app_notifications_read(user) -> int:
     active_ids = list(active_app_notifications_qs().values_list("id", flat=True))
-    if not active_ids:
-        return 0
     existing_ids = set(
         AppNotificationRead.objects.filter(
             user=user,
@@ -94,6 +130,19 @@ def mark_all_app_notifications_read(user) -> int:
         for notification_id in active_ids
         if notification_id not in existing_ids
     ]
+    marked = len(to_create)
     if to_create:
         AppNotificationRead.objects.bulk_create(to_create)
-    return len(to_create)
+
+    personal_unread = _personal_notifications_qs(user).filter(is_read=False)
+    personal_marked = personal_unread.count()
+    if personal_marked:
+        now = timezone.now()
+        for notification in personal_unread:
+            notification.is_read = True
+            notification.read_at = now
+        Notification.objects.bulk_update(
+            personal_unread,
+            ["is_read", "read_at"],
+        )
+    return marked + personal_marked

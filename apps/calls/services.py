@@ -1,7 +1,10 @@
 from django.conf import settings
 from django.utils import timezone
 
+from datetime import timedelta
+
 from apps.tutoring.teacher_services import (
+    DEMO_CALL_MAX_SECONDS,
     DEMO_CALL_MESSAGE,
     auto_accepts_calls,
     get_pending_teacher_for_interview,
@@ -98,6 +101,7 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
     payload["is_demo_call"] = demo_call
     if demo_call:
         payload["demo_message"] = DEMO_CALL_MESSAGE
+        payload["demo_max_seconds"] = DEMO_CALL_MAX_SECONDS
 
     if (
         viewer is not None
@@ -207,6 +211,24 @@ def list_incoming_calls(teacher_user) -> list[CallSession]:
     )
 
 
+def _demo_call_time_limit_reached(call: CallSession) -> bool:
+    if call.status != CallSession.Status.ACTIVE:
+        return False
+    if not call.teacher_id or not call.teacher or not is_demo_teacher(call.teacher):
+        return False
+    started_at = call.started_at
+    if not started_at:
+        return False
+    return timezone.now() >= started_at + timedelta(seconds=DEMO_CALL_MAX_SECONDS)
+
+
+def maybe_auto_end_demo_call(call: CallSession, user) -> CallSession:
+    if not _demo_call_time_limit_reached(call):
+        return call
+    ended, _ = end_call_session(call, user)
+    return ended or call
+
+
 def get_call_for_user(call_id: int, user) -> tuple[CallSession | None, str | None]:
     try:
         call = CallSession.objects.select_related("student", "teacher").get(pk=call_id)
@@ -214,6 +236,7 @@ def get_call_for_user(call_id: int, user) -> tuple[CallSession | None, str | Non
         return None, "المكالمة غير موجودة."
     if not _can_view_call(call, user):
         return None, "غير مصرح بعرض هذه المكالمة."
+    call = maybe_auto_end_demo_call(call, user)
     return call, None
 
 

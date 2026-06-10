@@ -1,49 +1,26 @@
 {% extends "web/layouts/base.html" %}
 {% load i18n %}
-{% get_current_language as CURRENT_LANGUAGE %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 
-{% block title %}{% trans "privacy_policy" %}{% endblock %}
+{% block title %}سياسة الخصوصية — وِرْد لايف{% endblock %}
 
 {% block layout %}
 
 <div class="max-w-3xl mx-auto px-4 py-10">
 
-{% if CURRENT_LANGUAGE == 'ar' %}
-
-{# ══ Arabic content ══ #}
-
   <div class="mb-8 text-center" dir="rtl">
 
-    <h1 class="text-2xl font-bold text-emerald-800">{% trans "privacy_app_name" %} — {% trans "privacy_policy" %}</h1>
-    <p class="text-slate-500 mt-1">{% trans "wird-live_platform_tagline" %}</p>
-    <span class="inline-block mt-3 bg-emerald-50 text-emerald-700 text-xs font-semibold px-4 py-1 rounded-full border border-emerald-200">{% trans "last_updated_may_2026" %}</span>
+    <h1 class="text-2xl font-bold text-[#1EA1EE]">وِرْد لايف — سياسة الخصوصية</h1>
+    <p class="text-slate-500 mt-1">منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة ومتابعة الحفظ والمراجعة عن بُعد</p>
+    <span class="inline-block mt-3 bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-semibold px-4 py-1 rounded-full border border-[#1EA1EE]/30">آخر تحديث: يونيو 2026</span>
   </div>
 
-  <div class="bg-emerald-50 border-r-4 border-emerald-600 rounded-lg px-5 py-3 mb-6 text-emerald-800 text-sm" dir="rtl">
-    {% trans "privacy_intro_wird-live" %}
+  <div class="bg-[#1EA1EE]/10 border-r-4 border-[#1EA1EE] rounded-lg px-5 py-3 mb-6 text-slate-700 text-sm" dir="rtl">
+    وِرْد لايف منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال المكالمات الصوتية أو المرئية.
+    توضح هذه السياسة كيف نجمع بياناتك ونستخدمها ونحميها داخل تطبيق وموقع وِرْد لايف.
   </div>
 
   {% include "web/partials/privacy/section_ar.html" %}
-
-{% else %}
-
-{# ══ All other languages ══ #}
-
-  <div class="mb-8 text-center"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
-
-    <h1 class="text-2xl font-bold text-emerald-800">{% trans "privacy_app_name" %} — {% trans "privacy_policy" %}</h1>
-    <p class="text-slate-500 mt-1">{% trans "wird-live_platform_tagline" %}</p>
-    <span class="inline-block mt-3 bg-emerald-50 text-emerald-700 text-xs font-semibold px-4 py-1 rounded-full border border-emerald-200">{% trans "last_updated_may_2026" %}</span>
-  </div>
-
-  <div class="bg-emerald-50 border-{% if LANGUAGE_BIDI %}r{% else %}l{% endif %}-4 border-emerald-600 rounded-lg px-5 py-3 mb-6 text-emerald-800 text-sm"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
-    {% trans "privacy_intro_wird-live" %}
-  </div>
-
-  {% include "web/partials/privacy/section_en.html" %}
-
-{% endif %}
 
 </div>
 

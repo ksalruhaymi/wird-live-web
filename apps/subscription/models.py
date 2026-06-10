@@ -175,6 +175,11 @@ class StudentSubscriptionBalance(models.Model):
         blank=True,
         verbose_name="آخر عملية شراء",
     )
+    low_minutes_warning_sent_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="تاريخ إرسال تنبيه انخفاض الدقائق",
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

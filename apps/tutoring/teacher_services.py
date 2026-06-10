@@ -30,12 +30,20 @@ COMPUTED_STATUS_LABELS_AR = {
 }
 
 DEMO_CALL_MESSAGE = "هذه جلسة تجريبية آلية لاختبار الاتصال."
+DEMO_CALL_TIME_LIMIT_MESSAGE = "انتهت مدة التجربة المجانية"
+DEMO_CALL_MAX_SECONDS = 120
 DEMO_STATUS_LABEL = "متاح للتجربة"
+DEMO_TEACHER_USERNAMES = frozenset({"demo_teacher", "te"})
 
 
 def is_demo_teacher(user) -> bool:
+    if user is None:
+        return False
     profile = getattr(user, "teacher_profile", None)
-    return bool(profile and profile.is_demo_teacher)
+    if profile and profile.is_demo_teacher:
+        return True
+    username = (getattr(user, "username", None) or "").strip().lower()
+    return username in DEMO_TEACHER_USERNAMES
 
 
 def auto_accepts_calls(user) -> bool:

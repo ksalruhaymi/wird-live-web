@@ -1,107 +1,150 @@
-{% load i18n %}
 <div class="space-y-4" dir="rtl">
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم الأول</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">البيانات التي نجمعها</h2>
-    <h3 class="text-sm font-semibold text-slate-700 mt-4 mb-1">أ. بيانات الحساب (عند تسجيل الدخول)</h3>
-    <p class="text-sm text-slate-500">إذا أنشأت حساباً، نجمع <strong class="text-slate-700">البريد الإلكتروني</strong> و<strong class="text-slate-700">الاسم</strong>. تُرسل هذه البيانات إلى خادمنا لإدارة جلستك. تُخزَّن رموز المصادقة بتشفير على جهازك فقط.</p>
-    <h3 class="text-sm font-semibold text-slate-700 mt-4 mb-1">ب. رمز جهاز Firebase (FCM)</h3>
-    <p class="text-sm text-slate-500">نستخدم خدمة Firebase Cloud Messaging من Google لإرسال الإشعارات. يُنشئ Firebase رمزاً مجهولاً للجهاز يُرسل لخادمنا. هذا الرمز لا يعرّفك شخصياً، يُستخدم فقط لإرسال الإشعارات، ويُجدَّد تلقائياً من نظام التشغيل.</p>
-    <h3 class="text-sm font-semibold text-slate-700 mt-4 mb-1">ج. رسائل "تواصل معنا"</h3>
-    <p class="text-sm text-slate-500">إذا استخدمت خاصية التواصل، نتلقى الرسالة التي تكتبها مع البريد الإلكتروني الذي تدخله.</p>
-  </div>
-
-  <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم الثاني</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">البيانات المحفوظة على جهازك فقط</h2>
-    <p class="text-sm text-slate-500">البيانات التالية تُخزَّن محلياً و<strong class="text-slate-700">لا تُرسل</strong> خارج جهازك أبداً:</p>
-    <ul class="list-disc pe-5 mt-2 space-y-1 text-sm text-slate-500">
-      <li>جلساتك وتقدم الحفظ والمراجعة</li>
-      <li>تفضيلات الإشعارات والحساب</li>
-      <li>إعدادات العرض وإمكانية الوصول</li>
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الأول</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">البيانات التي نجمعها</h2>
+    <p class="text-sm text-slate-500 mb-3">عند استخدام وِرْد لايف قد نجمع البيانات التالية:</p>
+    <ul class="list-disc pe-5 space-y-2 text-sm text-slate-500">
+      <li>بيانات الحساب مثل الاسم، اسم المستخدم، البريد الإلكتروني، ونوع الحساب.</li>
+      <li>بيانات الاشتراك مثل اسم الباقة، مدة الاشتراك، عدد الدقائق، تاريخ البداية والنهاية، وحالة الاشتراك.</li>
+      <li>بيانات المكالمات مثل الطالب، المعلم، نوع المكالمة، وقت البداية والنهاية، مدة المكالمة، وحالة المكالمة.</li>
+      <li>تسجيلات المكالمات عند تفعيل التسجيل، وذلك لأغراض المتابعة التعليمية والجودة.</li>
+      <li>تقييمات ما بعد المكالمة، مثل تقييم الطالب للمعلم أو تقييم المعلم للطالب.</li>
+      <li>رسائل التواصل التي ترسلها لنا عبر نماذج التواصل أو الدعم.</li>
     </ul>
   </div>
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم الثالث</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">الميكروفون والأوامر الصوتية</h2>
-    <p class="text-sm text-slate-500">إذا فعّلت ميزة <strong class="text-slate-700">الأوامر الصوتية</strong> لإمكانية الوصول، يستخدم التطبيق ميكروفون جهازك للتعرف على الأوامر الصوتية العربية.</p>
-    <div class="mt-3 bg-emerald-50 border-r-4 border-emerald-500 rounded px-4 py-2 text-emerald-800 text-sm">
-      تتم المعالجة الصوتية محلياً على جهازك تماماً. لا نستقبل أو نخزن أي تسجيل صوتي.
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الثاني</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">استخدام الميكروفون والكاميرا</h2>
+    <p class="text-sm text-slate-500">يستخدم التطبيق الميكروفون لإجراء المكالمات الصوتية، وقد يستخدم الكاميرا عند إجراء المكالمات المرئية.</p>
+    <div class="mt-3 bg-[#1EA1EE]/10 border-r-4 border-[#1EA1EE] rounded px-4 py-2 text-slate-700 text-sm">
+      لا يتم استخدام الميكروفون أو الكاميرا إلا أثناء المكالمة أو عند طلب المستخدم ذلك داخل التطبيق.
     </div>
   </div>
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم الرابع</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">خدمات الطرف الثالث</h2>
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الثالث</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">تسجيل المكالمات</h2>
+    <p class="text-sm text-slate-500">قد يتم تسجيل المكالمات التعليمية داخل وِرْد لايف لأغراض المتابعة، تحسين جودة التعليم، مراجعة الأداء، وحل النزاعات إن وجدت.</p>
+    <p class="text-sm text-slate-500 mt-3">يتم حفظ التسجيلات بشكل آمن، ولا يتم مشاركتها مع أطراف خارجية إلا عند الحاجة لتقديم الخدمة أو الامتثال للمتطلبات النظامية.</p>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الرابع</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">كيف نستخدم البيانات</h2>
+    <p class="text-sm text-slate-500 mb-3">نستخدم بياناتك من أجل:</p>
+    <ul class="list-disc pe-5 space-y-2 text-sm text-slate-500">
+      <li>إنشاء الحساب وإدارة تسجيل الدخول.</li>
+      <li>ربط الطالب بالمعلم.</li>
+      <li>تشغيل المكالمات الصوتية والمرئية.</li>
+      <li>حساب الدقائق والاشتراكات.</li>
+      <li>عرض سجل المكالمات والتسجيلات.</li>
+      <li>تحسين جودة الخدمة.</li>
+      <li>إرسال تنبيهات داخلية داخل التطبيق مثل قرب انتهاء الدقائق أو انتهاء الاشتراك.</li>
+      <li>تقديم الدعم الفني والرد على الاستفسارات.</li>
+    </ul>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الخامس</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">التنبيهات الداخلية</h2>
+    <p class="text-sm text-slate-500 mb-3">قد يرسل وِرْد لايف تنبيهات داخل التطبيق، مثل:</p>
+    <ul class="list-disc pe-5 space-y-2 text-sm text-slate-500">
+      <li>قرب انتهاء دقائق الاتصال.</li>
+      <li>انتهاء دقائق الاتصال.</li>
+      <li>وجود تسجيل جديد.</li>
+      <li>وجود تقييم مطلوب بعد المكالمة.</li>
+      <li>تحديثات مهمة مرتبطة بالحساب أو الاشتراك.</li>
+    </ul>
+    <p class="text-sm text-slate-500 mt-3">هذه التنبيهات داخلية ولا تعتمد على إشعارات الجهاز الخارجية.</p>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم السادس</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">خدمات الطرف الثالث</h2>
+    <p class="text-sm text-slate-500 mb-3">قد نستخدم خدمات خارجية لتشغيل أو تخزين أجزاء من الخدمة، مثل:</p>
     <div class="overflow-x-auto mt-2 rounded-lg border border-slate-200">
       <table class="w-full text-sm">
-        <thead><tr class="bg-emerald-50 text-emerald-800">
+        <thead><tr class="bg-[#1EA1EE]/10 text-[#1EA1EE]">
           <th class="text-right px-4 py-2 border-b border-slate-200 font-semibold">الخدمة</th>
-          <th class="text-right px-4 py-2 border-b border-slate-200 font-semibold">المزود</th>
           <th class="text-right px-4 py-2 border-b border-slate-200 font-semibold">الغرض</th>
         </tr></thead>
         <tbody>
           <tr class="border-b border-slate-100">
-            <td class="px-4 py-2 text-slate-600">Firebase Cloud Messaging</td>
-            <td class="px-4 py-2 text-slate-600">Google LLC</td>
-            <td class="px-4 py-2 text-slate-600">الإشعارات الفورية</td>
+            <td class="px-4 py-2 text-slate-600">Agora</td>
+            <td class="px-4 py-2 text-slate-600">تشغيل المكالمات الصوتية والمرئية</td>
+          </tr>
+          <tr class="border-b border-slate-100">
+            <td class="px-4 py-2 text-slate-600">Cloudflare R2</td>
+            <td class="px-4 py-2 text-slate-600">تخزين تسجيلات المكالمات والملفات المرتبطة بها</td>
           </tr>
           <tr>
-            <td class="px-4 py-2 text-slate-600">Firebase Core</td>
-            <td class="px-4 py-2 text-slate-600">Google LLC</td>
-            <td class="px-4 py-2 text-slate-600">تهيئة التطبيق</td>
+            <td class="px-4 py-2 text-slate-600">مزود الاستضافة وقاعدة البيانات</td>
+            <td class="px-4 py-2 text-slate-600">تشغيل الموقع والتطبيق</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class="text-sm text-slate-500 mt-3">تخضع هذه الخدمات لسياسة خصوصية Google:
-      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" class="text-emerald-700 hover:underline">policies.google.com/privacy</a>
-    </p>
+    <p class="text-sm text-slate-500 mt-3">تُستخدم هذه الخدمات فقط لتقديم الخدمة وتشغيلها بشكل آمن.</p>
   </div>
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم الخامس</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">التحليلات وتقارير الأعطال</h2>
-    <p class="text-sm text-slate-500">لا يستخدم التطبيق <strong class="text-slate-700">أي</strong> SDK للتحليلات أو تقارير الأعطال أو الإعلانات. لا نتتبع سلوكك داخل التطبيق.</p>
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم السابع</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">مشاركة البيانات</h2>
+    <p class="text-sm text-slate-500">لا نبيع بياناتك ولا نشاركها مع أطراف ثالثة لأغراض إعلانية أو تسويقية.</p>
+    <p class="text-sm text-slate-500 mt-3">قد تتم مشاركة بعض البيانات فقط عند الحاجة لتشغيل الخدمة، مثل تشغيل المكالمات أو تخزين التسجيلات أو الامتثال للمتطلبات النظامية.</p>
   </div>
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم السادس</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">مشاركة البيانات</h2>
-    <p class="text-sm text-slate-500">لا نبيع بياناتك ولا نشاركها مع أطراف ثالثة لأغراض إعلانية أو تجارية. البيانات تُشارك فقط مع Firebase (Google) لتوصيل الإشعارات كما هو موضح في القسم الرابع.</p>
-  </div>
-
-  <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم السابع</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">أمان البيانات</h2>
-    <ul class="list-disc pe-5 mt-2 space-y-1 text-sm text-slate-500">
-      <li>تُخزَّن رموز المصادقة باستخدام التشفير على مستوى النظام (Android Keystore).</li>
-      <li>جميع الاتصالات بالخادم تتم عبر HTTPS.</li>
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الثامن</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">أمان البيانات</h2>
+    <p class="text-sm text-slate-500 mb-3">نستخدم وسائل حماية مناسبة للحفاظ على بياناتك، وتشمل:</p>
+    <ul class="list-disc pe-5 space-y-2 text-sm text-slate-500">
+      <li>استخدام اتصال آمن عبر HTTPS.</li>
+      <li>تخزين رموز الدخول بطريقة آمنة.</li>
+      <li>تقييد الوصول إلى البيانات حسب الصلاحيات.</li>
+      <li>حماية التسجيلات والملفات المرتبطة بالمكالمات.</li>
     </ul>
+    <p class="text-sm text-slate-500 mt-3">ومع ذلك، لا توجد وسيلة نقل أو تخزين إلكترونية آمنة بنسبة 100%.</p>
   </div>
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم الثامن</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">حقوقك</h2>
-    <p class="text-sm text-slate-500">إذا كان لديك حساب، يمكنك طلب الاطلاع على بياناتك أو حذفها من خلال شاشة <strong class="text-slate-700">تواصل معنا</strong> داخل التطبيق.</p>
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم التاسع</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">الاحتفاظ بالبيانات</h2>
+    <p class="text-sm text-slate-500">نحتفظ بالبيانات ما دامت مطلوبة لتقديم الخدمة أو لأغراض المتابعة والدعم أو للالتزام بالمتطلبات النظامية.</p>
+    <p class="text-sm text-slate-500 mt-3">يمكن حذف بعض البيانات أو إخفاؤها عند انتهاء الحاجة إليها، حسب طبيعة البيانات ومتطلبات الخدمة.</p>
   </div>
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم التاسع</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">الجمهور المستهدف</h2>
-    <p class="text-sm text-slate-500">هذا التطبيق مصمم ليناسب جمهوراً عاماً من مختلف الأعمار. لا يحتوي على محتوى للبالغين أو عنف أو إعلانات.</p>
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم العاشر</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">حقوق المستخدم</h2>
+    <p class="text-sm text-slate-500">يمكنك طلب الوصول إلى بياناتك أو طلب حذف حسابك أو بياناتك، وذلك من خلال صفحة التواصل داخل التطبيق أو عبر وسائل الدعم المتاحة.</p>
+    <p class="text-sm text-slate-500 mt-3">قد نحتاج إلى الاحتفاظ ببعض البيانات عند وجود التزامات نظامية أو مالية أو تشغيلية.</p>
   </div>
 
   <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
-    <span class="inline-block bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full border border-emerald-200 mb-3">القسم العاشر</span>
-    <h2 class="text-base font-bold text-emerald-900 mb-3">تغييرات السياسة</h2>
-    <p class="text-sm text-slate-500">قد نحدّث هذه السياسة أحياناً. تاريخ "آخر تحديث" في الأعلى يعكس أحدث مراجعة. استمرار استخدام التطبيق بعد أي تحديث يُعدّ قبولاً للسياسة المحدَّثة.</p>
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الحادي عشر</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">الأطفال والجمهور المستهدف</h2>
+    <p class="text-sm text-slate-500">وِرْد لايف خدمة تعليمية موجهة لجمهور عام لتعليم القرآن الكريم عن بُعد. لا يحتوي التطبيق على محتوى للبالغين أو إعلانات.</p>
+    <p class="text-sm text-slate-500 mt-3">إذا كان المستخدم قاصرًا، فيجب أن يكون استخدامه للخدمة تحت إشراف ولي الأمر أو بموافقته.</p>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الثاني عشر</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">التغييرات على سياسة الخصوصية</h2>
+    <p class="text-sm text-slate-500">قد نقوم بتحديث هذه السياسة من وقت لآخر. سيتم توضيح تاريخ آخر تحديث أعلى الصفحة.</p>
+    <p class="text-sm text-slate-500 mt-3">استمرارك في استخدام وِرْد لايف بعد تحديث السياسة يعني موافقتك على النسخة المحدثة.</p>
+  </div>
+
+  <div class="bg-white border border-slate-200 rounded-xl px-6 py-5">
+    <span class="inline-block bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-bold px-3 py-1 rounded-full border border-[#1EA1EE]/30 mb-3">القسم الثالث عشر</span>
+    <h2 class="text-base font-bold text-[#1EA1EE] mb-3">التواصل معنا</h2>
+    <p class="text-sm text-slate-500">للاستفسار عن سياسة الخصوصية أو طلب حذف البيانات، يمكنك التواصل معنا من خلال صفحة التواصل داخل التطبيق أو الموقع.</p>
   </div>
 
   <p class="text-center text-xs text-slate-400 pt-4 pb-8">
-    <strong class="text-emerald-700">{% trans "privacy_app_name" %}</strong> &nbsp;&middot;&nbsp; {% trans "privacy_policy" %} &nbsp;&middot;&nbsp; {% trans "last_updated_may_2026" %}
+    <strong class="text-[#1EA1EE]">وِرْد لايف</strong> &nbsp;&middot;&nbsp; سياسة الخصوصية &nbsp;&middot;&nbsp; آخر تحديث: يونيو 2026
   </p>
 
 </div>

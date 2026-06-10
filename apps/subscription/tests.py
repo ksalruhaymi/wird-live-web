@@ -9,7 +9,9 @@ from django.utils import timezone
 
 from apps.calls.models import CallSession
 from apps.subscription.models import StudentSubscription, StudentSubscriptionBalance, SubscriptionPlan
+from apps.notification.models import Notification
 from apps.subscription.services import (
+    LOW_MINUTES_MESSAGE,
     add_months,
     call_billable_minutes,
     call_duration_minutes,
@@ -19,7 +21,9 @@ from apps.subscription.services import (
     current_subscription_payload,
     deduct_call_minutes_for_session,
     get_user_subscription_balance,
+    maybe_send_low_minutes_notification,
     student_can_request_call,
+    subscription_minutes_flags,
     sync_balance_status_from_expiry,
 )
 from identity.accounts.user_types import (
@@ -298,6 +302,86 @@ class SubscriptionCallMinuteDeductionTests(TestCase):
         assert balance is not None
         self.assertEqual(balance.remaining_minutes, Decimal("59"))
         self.assertEqual(balance.used_minutes, Decimal("1"))
+
+
+class SubscriptionLowMinutesWarningTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_rbac")
+        cls.plan = SubscriptionPlan.objects.create(
+            title="باقة تنبيه",
+            duration_months=1,
+            price=Decimal("50.00"),
+            minutes=60,
+            is_active=True,
+        )
+        cls.student = User.objects.create_user(
+            username="low_minutes_student",
+            password="pass12345",
+            user_type=USER_TYPE_STUDENT,
+        )
+
+    def test_subscription_minutes_flags_low_warning(self):
+        create_student_subscription(self.student, plan_id=self.plan.id)
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        balance.remaining_minutes = Decimal("4.5")
+        balance.save()
+
+        flags = subscription_minutes_flags(balance)
+        self.assertTrue(flags["low_minutes_warning"])
+        self.assertFalse(flags["minutes_expired"])
+        self.assertEqual(flags["low_minutes_message"], LOW_MINUTES_MESSAGE)
+
+    def test_low_minutes_notification_sent_once_per_balance_cycle(self):
+        create_student_subscription(self.student, plan_id=self.plan.id)
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        balance.remaining_minutes = Decimal("4")
+        balance.save()
+
+        maybe_send_low_minutes_notification(self.student, balance)
+        maybe_send_low_minutes_notification(self.student, balance)
+
+        self.assertEqual(
+            Notification.objects.filter(
+                user=self.student,
+                message=LOW_MINUTES_MESSAGE,
+            ).count(),
+            1,
+        )
+        balance.refresh_from_db()
+        self.assertIsNotNone(balance.low_minutes_warning_sent_at)
+
+    def test_current_subscription_payload_includes_minute_flags(self):
+        create_student_subscription(self.student, plan_id=self.plan.id)
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        balance.remaining_minutes = Decimal("0")
+        balance.save()
+
+        payload = current_subscription_payload(self.student)
+        self.assertTrue(payload["minutes_expired"])
+        self.assertEqual(payload["expired_message"], "لقد انتهت دقائق اتصالك")
+
+    def test_new_purchase_resets_low_minutes_warning_flag(self):
+        create_student_subscription(self.student, plan_id=self.plan.id)
+        balance = get_user_subscription_balance(self.student)
+        assert balance is not None
+        balance.remaining_minutes = Decimal("3")
+        balance.low_minutes_warning_sent_at = timezone.now()
+        balance.save()
+
+        plan_b = SubscriptionPlan.objects.create(
+            title="تجديد",
+            duration_months=1,
+            price=Decimal("50.00"),
+            minutes=30,
+            is_active=True,
+        )
+        create_student_subscription(self.student, plan_id=plan_b.id)
+        balance.refresh_from_db()
+        self.assertIsNone(balance.low_minutes_warning_sent_at)
 
 
 class SubscriptionExpiryEligibilityTests(TestCase):
