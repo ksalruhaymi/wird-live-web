@@ -3,7 +3,11 @@ from django.core.management import call_command
 from django.test import TestCase
 
 from apps.tutoring.models import StudentProfile, TeacherProfile
-from identity.accounts.user_role_sync import apply_user_roles
+from identity.accounts.user_role_sync import (
+    apply_user_roles,
+    student_users_queryset,
+    teacher_users_queryset,
+)
 from identity.accounts.user_types import (
     USER_TYPE_ADMIN,
     USER_TYPE_STUDENT,
@@ -229,3 +233,36 @@ class UserRoleSyncTests(TestCase):
         )
         self.assertFalse(ok)
         self.assertIsNotNone(err)
+
+    def test_student_converted_to_supervisor_only_keeps_profile_hidden_from_tab(self):
+        user = self._create_user("was_student", user_type=USER_TYPE_STUDENT)
+        ok, err = apply_user_roles(user, [self.role_student])
+        self.assertTrue(ok, err)
+        ok, err = apply_user_roles(user, [self.role_supervisor])
+        self.assertTrue(ok, err)
+        user.refresh_from_db()
+        self.assertEqual(user.user_type, USER_TYPE_SUPERVISOR)
+        self.assertTrue(StudentProfile.objects.filter(user=user).exists())
+        self.assertFalse(student_users_queryset().filter(pk=user.pk).exists())
+        self.assertEqual(primary_user_type_label(user), "مشرف")
+
+    def test_teacher_converted_to_supervisor_only_keeps_profile_hidden_from_tab(self):
+        user = self._create_user("was_teacher", user_type=USER_TYPE_TEACHER)
+        ok, err = apply_user_roles(user, [self.role_teacher])
+        self.assertTrue(ok, err)
+        ok, err = apply_user_roles(user, [self.role_supervisor])
+        self.assertTrue(ok, err)
+        user.refresh_from_db()
+        self.assertEqual(user.user_type, USER_TYPE_SUPERVISOR)
+        self.assertTrue(TeacherProfile.objects.filter(user=user).exists())
+        self.assertFalse(teacher_users_queryset().filter(pk=user.pk).exists())
+        self.assertEqual(primary_user_type_label(user), "مشرف")
+
+    def test_student_supervisor_still_in_students_tab(self):
+        user = self._create_user("student_super_tab")
+        ok, err = apply_user_roles(
+            user, [self.role_student, self.role_supervisor]
+        )
+        self.assertTrue(ok, err)
+        self.assertTrue(student_users_queryset().filter(pk=user.pk).exists())
+        self.assertEqual(primary_user_type_label(user), "طالب")

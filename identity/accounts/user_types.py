@@ -35,20 +35,30 @@ BLOCKED_REGISTRATION_SLUGS = frozenset(
 
 
 def resolve_user_type_slug(user) -> str:
+    """API/mobile slug; user_type field is authoritative when set."""
+    if getattr(user, "is_superuser", False):
+        return "admin"
     value = getattr(user, "user_type", None)
     if value in USER_TYPE_SLUG_BY_VALUE:
         return USER_TYPE_SLUG_BY_VALUE[value]
-    if hasattr(user, "teacher_profile"):
-        return "teacher"
-    if hasattr(user, "student_profile"):
-        return "student"
-    if getattr(user, "is_superuser", False):
+    role_slugs = {role.slug for role in user.roles.all()}
+    if "admin" in role_slugs:
         return "admin"
+    if "teacher" in role_slugs:
+        return "teacher"
+    if "student" in role_slugs:
+        return "student"
+    if "supervisor" in role_slugs:
+        return "supervisor"
     return "unknown"
 
 
 def primary_user_type_label(user) -> str:
-    """Display label for primary user type; user_type is authoritative after role sync."""
+    """
+    Dashboard display label for the account's primary type.
+
+    user_type wins over roles so supervisor never overrides student/teacher identity.
+    """
     if getattr(user, "is_superuser", False):
         return USER_TYPE_LABEL_AR[USER_TYPE_ADMIN]
 
@@ -56,16 +66,12 @@ def primary_user_type_label(user) -> str:
     if user_type in USER_TYPE_LABEL_AR:
         return USER_TYPE_LABEL_AR[user_type]
 
-    role_slugs = {role.slug for role in user.roles.all()}
-    if "admin" in role_slugs:
-        return USER_TYPE_LABEL_AR[USER_TYPE_ADMIN]
-    if "teacher" in role_slugs:
-        return USER_TYPE_LABEL_AR[USER_TYPE_TEACHER]
-    if "student" in role_slugs:
-        return USER_TYPE_LABEL_AR[USER_TYPE_STUDENT]
-    if "supervisor" in role_slugs:
-        return USER_TYPE_LABEL_AR[USER_TYPE_SUPERVISOR]
-    return "unknown"
+    return {
+        "admin": USER_TYPE_LABEL_AR[USER_TYPE_ADMIN],
+        "teacher": USER_TYPE_LABEL_AR[USER_TYPE_TEACHER],
+        "student": USER_TYPE_LABEL_AR[USER_TYPE_STUDENT],
+        "supervisor": USER_TYPE_LABEL_AR[USER_TYPE_SUPERVISOR],
+    }.get(resolve_user_type_slug(user), "unknown")
 
 
 def user_type_label(user) -> str:

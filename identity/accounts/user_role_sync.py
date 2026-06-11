@@ -21,31 +21,58 @@ CONFLICTING_PRIMARY_ROLES_MESSAGE = (
     "لا يمكن الجمع بين دور الطالب ودور المعلم في نفس الحساب."
 )
 
+_ACTIVE_STUDENT = Q(user_type=USER_TYPE_STUDENT) | Q(roles__slug="student")
+_ACTIVE_TEACHER = Q(user_type=USER_TYPE_TEACHER) | Q(roles__slug="teacher")
+
+# Archived profiles: show only when the account is not supervisor-only / other primary type.
+_LEGACY_STUDENT_PROFILE = (
+    Q(student_profile__isnull=False)
+    & ~Q(user_type=USER_TYPE_SUPERVISOR)
+    & ~Q(user_type=USER_TYPE_TEACHER)
+    & ~Q(roles__slug="teacher")
+)
+_LEGACY_TEACHER_PROFILE = (
+    Q(teacher_profile__isnull=False)
+    & ~Q(user_type=USER_TYPE_SUPERVISOR)
+    & ~Q(user_type=USER_TYPE_STUDENT)
+    & ~Q(roles__slug="student")
+)
+
 
 def teacher_users_queryset():
-    """Users who should appear under dashboard teachers tab."""
+    """
+    Dashboard teachers tab.
+
+    Active teachers (type/role) always appear. Orphan TeacherProfile alone may
+  appear for legacy rows, but not after conversion to supervisor-only (user_type=3).
+    """
     return (
-        User.objects.filter(
-            Q(user_type=USER_TYPE_TEACHER)
-            | Q(roles__slug="teacher")
-            | Q(teacher_profile__isnull=False)
-        )
+        User.objects.filter(_ACTIVE_TEACHER | _LEGACY_TEACHER_PROFILE)
         .distinct()
         .select_related("teacher_profile", "teacher_availability")
     )
 
 
 def student_users_queryset():
-    """Users who should appear under dashboard students tab."""
+    """
+    Dashboard students tab.
+
+    Active students (type/role) always appear. Orphan StudentProfile alone may
+  appear for legacy rows, but not after conversion to supervisor-only (user_type=3).
+    """
     return (
-        User.objects.filter(
-            Q(user_type=USER_TYPE_STUDENT)
-            | Q(roles__slug="student")
-            | Q(student_profile__isnull=False)
-        )
+        User.objects.filter(_ACTIVE_STUDENT | _LEGACY_STUDENT_PROFILE)
         .distinct()
         .select_related("student_profile", "subscription_balance")
     )
+
+
+def is_dashboard_student(user) -> bool:
+    return student_users_queryset().filter(pk=user.pk).exists()
+
+
+def is_dashboard_teacher(user) -> bool:
+    return teacher_users_queryset().filter(pk=user.pk).exists()
 
 
 def _display_name_for_user(user) -> str:
@@ -105,6 +132,7 @@ def sync_user_type_and_profiles(user, *, role_slugs: set[str] | None = None) -> 
     Align user_type (and optional profiles) with assigned RBAC roles.
 
     Does not assign roles; call after roles.set().
+    Does not delete existing StudentProfile / TeacherProfile.
     """
     if role_slugs is None:
         role_slugs = set(user.roles.values_list("slug", flat=True))
@@ -145,5 +173,6 @@ def apply_user_roles(user, roles: list[Role]) -> tuple[bool, str | None]:
     try:
         sync_user_type_and_profiles(user, role_slugs=role_slugs)
     except ValueError as exc:
+        transaction.set_rollback(True)
         return False, str(exc)
     return True, None
