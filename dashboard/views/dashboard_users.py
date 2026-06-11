@@ -42,6 +42,7 @@ from identity.accounts.user_role_sync import (
     ensure_student_profile,
     ensure_teacher_profile,
     student_users_queryset,
+    supervisor_users_queryset,
     teacher_users_queryset,
 )
 from identity.accounts.user_types import USER_TYPE_STUDENT, USER_TYPE_TEACHER, user_type_label
@@ -89,7 +90,8 @@ def _attach_playback_urls(rows) -> None:
 
 TAB_TEACHERS = "teachers"
 TAB_STUDENTS = "students"
-_LIST_TABS = {TAB_TEACHERS, TAB_STUDENTS}
+TAB_SUPERVISORS = "supervisors"
+_LIST_TABS = {TAB_TEACHERS, TAB_STUDENTS, TAB_SUPERVISORS}
 
 DETAIL_TAB_PROFILE = "profile"
 DETAIL_TAB_SESSIONS = "sessions"
@@ -277,6 +279,53 @@ def _build_student_rows(q: str, account_filter: str, subscription_filter: str):
     return rows
 
 
+def _supervisor_display_name(user) -> str:
+    full = (getattr(user, "full_name", None) or "").strip()
+    if full:
+        return full
+    return user.username
+
+
+def _supervisor_roles_label(user) -> str:
+    names = [role.name for role in user.roles.all()]
+    return "، ".join(names) if names else "—"
+
+
+def _build_supervisor_rows(q: str, account_filter: str):
+    qs = supervisor_users_queryset()
+
+    if q:
+        qs = qs.filter(
+            Q(username__icontains=q)
+            | Q(email__icontains=q)
+            | Q(full_name__icontains=q)
+            | Q(mobile__icontains=q)
+        )
+
+    supervisors = list(qs.order_by("username"))
+    rows = []
+    for user in supervisors:
+        rows.append(
+            {
+                "user": user,
+                "display_name": _supervisor_display_name(user),
+                "username": user.username,
+                "email": user.email or "—",
+                "mobile": user.mobile or "—",
+                "user_type_label": user_type_label(user),
+                "roles_label": _supervisor_roles_label(user),
+                "is_active": user.is_active,
+            }
+        )
+
+    if account_filter == FILTER_ACTIVE:
+        rows = [r for r in rows if r["is_active"]]
+    elif account_filter == FILTER_INACTIVE:
+        rows = [r for r in rows if not r["is_active"]]
+
+    return rows
+
+
 def _list_hidden_fields(
     q, tab, status_filter, account_filter, subscription_filter, demo_filter=FILTER_ALL
 ):
@@ -353,8 +402,10 @@ def dashboard_users_list(request):
 
     if active_tab == TAB_TEACHERS:
         rows = _build_teacher_rows(q, status_filter, account_filter, demo_filter)
-    else:
+    elif active_tab == TAB_STUDENTS:
         rows = _build_student_rows(q, account_filter, subscription_filter)
+    else:
+        rows = _build_supervisor_rows(q, account_filter)
 
     page_obj, page_numbers, per_page_param, total_rows = paginate_with_smart_pages(
         request=request,

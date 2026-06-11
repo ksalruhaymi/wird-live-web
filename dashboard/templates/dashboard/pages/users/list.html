@@ -35,7 +35,7 @@
         <option value="no" {% if demo_filter == 'no' %}selected{% endif %}>غير تجريبي</option>
       </select>
     </div>
-    {% else %}
+    {% elif tab == 'students' %}
     <div class="min-w-[160px]">
       <label class="block text-[11px] font-bold site-text-muted mb-1">حالة الاشتراك</label>
       <select name="subscription" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
@@ -134,7 +134,7 @@
     {% else %}
     <p class="px-4 py-8 text-center site-text-muted">ليس لديك صلاحية عرض المعلمين.</p>
     {% endif %}
-    {% else %}
+    {% elif tab == 'students' %}
     {% if request.user|can_access:"users.students.view" %}
     <table class="min-w-full text-[12px]">
       <thead class="site-surface text-[11px] site-text-muted">
@@ -179,6 +179,48 @@
     </table>
     {% else %}
     <p class="px-4 py-8 text-center site-text-muted">ليس لديك صلاحية عرض الطلاب.</p>
+    {% endif %}
+    {% else %}
+    {% if request.user|can_access:"users.view" %}
+    <table class="min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text-muted">
+        <tr>
+          <th class="px-4 py-3 font-bold">الاسم</th>
+          <th class="px-4 py-3 font-bold">اسم المستخدم</th>
+          <th class="px-4 py-3 font-bold">الجوال</th>
+          <th class="px-4 py-3 font-bold">نوع الحساب</th>
+          <th class="px-4 py-3 font-bold">الأدوار</th>
+          <th class="px-4 py-3 font-bold text-center">إجراءات</th>
+        </tr>
+      </thead>
+      <tbody class="divide-site">
+        {% for row in rows %}
+        <tr class="hover:site-surface transition">
+          <td class="px-4 py-2 font-semibold site-text">{{ row.display_name }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ row.username }}</td>
+          <td class="px-4 py-2 site-text-muted" dir="ltr">{{ row.mobile }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ row.user_type_label }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ row.roles_label }}</td>
+          <td class="px-4 py-2">
+            <div class="flex items-center justify-center">
+              {% if request.user|can_access:"users.detail" %}
+              {% url 'rbac:user_detail' row.user.id as view_url %}
+              {% include "dashboard/partials/action_icon_view.html" with url=view_url title="عرض" %}
+              {% else %}
+              <span class="site-text-muted">—</span>
+              {% endif %}
+            </div>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="px-4 py-8 text-center site-text-muted">لا يوجد مشرفون مطابقون.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="px-4 py-8 text-center site-text-muted">ليس لديك صلاحية عرض المشرفين.</p>
     {% endif %}
     {% endif %}
   </div>

@@ -75,6 +75,22 @@ def is_dashboard_teacher(user) -> bool:
     return teacher_users_queryset().filter(pk=user.pk).exists()
 
 
+def supervisor_users_queryset():
+    """
+    Dashboard supervisors tab.
+
+    Any account with the supervisor RBAC role, including student+supervisor or
+    teacher+supervisor. Also includes legacy rows with user_type=supervisor only.
+    """
+    return (
+        User.objects.filter(
+            Q(roles__slug="supervisor") | Q(user_type=USER_TYPE_SUPERVISOR)
+        )
+        .distinct()
+        .prefetch_related("roles")
+    )
+
+
 def _display_name_for_user(user) -> str:
     full = (getattr(user, "full_name", None) or "").strip()
     if full:

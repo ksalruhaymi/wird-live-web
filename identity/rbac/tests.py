@@ -6,6 +6,7 @@ from apps.tutoring.models import StudentProfile, TeacherProfile
 from identity.accounts.user_role_sync import (
     apply_user_roles,
     student_users_queryset,
+    supervisor_users_queryset,
     teacher_users_queryset,
 )
 from identity.accounts.user_types import (
@@ -266,3 +267,18 @@ class UserRoleSyncTests(TestCase):
         self.assertTrue(ok, err)
         self.assertTrue(student_users_queryset().filter(pk=user.pk).exists())
         self.assertEqual(primary_user_type_label(user), "طالب")
+
+    def test_supervisor_role_appears_in_supervisors_tab(self):
+        user = self._create_user("supervisor_tab_only")
+        ok, err = apply_user_roles(user, [self.role_supervisor])
+        self.assertTrue(ok, err)
+        self.assertTrue(supervisor_users_queryset().filter(pk=user.pk).exists())
+
+    def test_student_supervisor_also_in_supervisors_tab(self):
+        user = self._create_user("student_super_both_tabs")
+        ok, err = apply_user_roles(
+            user, [self.role_student, self.role_supervisor]
+        )
+        self.assertTrue(ok, err)
+        self.assertTrue(supervisor_users_queryset().filter(pk=user.pk).exists())
+        self.assertTrue(student_users_queryset().filter(pk=user.pk).exists())
