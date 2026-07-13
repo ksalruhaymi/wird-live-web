@@ -101,7 +101,9 @@ LOCAL_APPS = [
     "apps.tutoring",
     "apps.push",
     "apps.calls",
+    "apps.appointments",
     "apps.mobile",
+    "apps.analytics",
 ]
 
 THIRD_PARTY_APPS = [
@@ -126,6 +128,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "core.middleware.force_logout_inactive.ForceLogoutInactiveUserMiddleware",
+    "core.middleware.single_active_session.SingleActiveSessionMiddleware",
     "core.middleware.visitor_counter.VisitorCounterMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -273,6 +276,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Quran API keys
 # ------------------------------------------------------------------------------
 QURAN_API_KEYS = env_list("QURAN_API_KEYS", default=[])
+ALLOW_PUBLIC_ANALYTICS_INGEST = env_bool("ALLOW_PUBLIC_ANALYTICS_INGEST", True)
 
 
 # ------------------------------------------------------------------------------

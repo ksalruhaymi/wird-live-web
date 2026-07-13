@@ -1,0 +1,15 @@
+{% if status == "confirmed" %}
+<span class="inline-flex px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold border border-blue-200">{{ label }}</span>
+{% elif status == "in_progress" %}
+<span class="inline-flex px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-bold border border-indigo-200">{{ label }}</span>
+{% elif status == "completed" %}
+<span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">{{ label }}</span>
+{% elif status == "cancelled_by_student" or status == "cancelled_by_teacher" or status == "rejected_by_teacher" %}
+<span class="inline-flex px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[11px] font-bold border border-rose-200">{{ label }}</span>
+{% elif status == "no_show_student" or status == "no_show_teacher" or status == "expired" %}
+<span class="inline-flex px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-bold border border-amber-200">{{ label }}</span>
+{% elif status == "pending_approval" %}
+<span class="inline-flex px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 text-[11px] font-bold border border-violet-200">{{ label }}</span>
+{% else %}
+<span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">{{ label|default:status }}</span>
+{% endif %}

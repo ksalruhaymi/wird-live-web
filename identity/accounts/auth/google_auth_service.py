@@ -123,6 +123,9 @@ def _login_session(request, user: User) -> GoogleAuthOutcome | None:
         )
 
     auth_login(request, user, backend="django.contrib.auth.backends.ModelBackend")
+    from identity.accounts.auth.session_policy import enforce_single_active_session
+
+    enforce_single_active_session(request, user)
     return None
 
 

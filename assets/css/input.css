@@ -47,7 +47,7 @@ html[dir="ltr"] {
 /* Base layout */
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   overflow-x: hidden;
   background-color: var(--color-page-bg);
@@ -103,7 +103,7 @@ html[dir="ltr"] .dir-row {
   unicode-bidi: isolate;
 }
 
-/* App structure */
+/* App structure — sticky footer without position:fixed */
 .app-wrapper {
   min-height: 100vh;
   display: flex;
@@ -112,8 +112,8 @@ html[dir="ltr"] .dir-row {
 
 .app-content {
   flex: 1 0 auto;
+  min-height: 0;
 }
-
 
 .app-footer {
   flex-shrink: 0;

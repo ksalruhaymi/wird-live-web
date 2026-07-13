@@ -1,0 +1,31 @@
+{% load rbac_tags %}
+{% url 'dashboard:appointment_overview' as overview_url %}
+{% url 'dashboard:appointment_booking_list' as bookings_url %}
+{% url 'dashboard:appointment_schedule_list' as schedule_url %}
+{% url 'dashboard:appointment_exceptions' as exceptions_url %}
+{% url 'dashboard:appointment_settings' as settings_url %}
+{% url 'dashboard:appointment_all_list' as all_url %}
+<div class="site-card p-4">
+  <div>
+    <h2 class="site-title-md flex items-center gap-2">
+      <i class="bi bi-calendar-event-fill site-link-primary"></i>
+      <span>المواعيد</span>
+    </h2>
+    <p class="text-[11px] site-text-muted mt-0.5">إدارة جدول التوفر والحجوزات والجلسات المجدولة</p>
+  </div>
+
+  <div class="mt-4">
+    <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+      {% include "dashboard/partials/page_tab_link.html" with url=overview_url label="نظرة عامة" tab_icon="bi-speedometer2" active=tab_overview only %}
+      {% include "dashboard/partials/page_tab_link.html" with url=bookings_url label="الحجوزات" tab_icon="bi-journal-check" active=tab_bookings only %}
+      {% if request.user|can_access:"appointments.manage_schedule" %}
+      {% include "dashboard/partials/page_tab_link.html" with url=schedule_url label="الجدول" tab_icon="bi-calendar3" active=tab_schedule only %}
+      {% include "dashboard/partials/page_tab_link.html" with url=exceptions_url label="الاستثناءات" tab_icon="bi-calendar-x" active=tab_exceptions only %}
+      {% include "dashboard/partials/page_tab_link.html" with url=settings_url label="الإعدادات" tab_icon="bi-gear" active=tab_settings only %}
+      {% endif %}
+      {% if request.user|can_access:"appointments.view_all" %}
+      {% include "dashboard/partials/page_tab_link.html" with url=all_url label="جميع المواعيد" tab_icon="bi-people" active=tab_all only %}
+      {% endif %}
+    </nav>
+  </div>
+</div>

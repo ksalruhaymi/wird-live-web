@@ -177,7 +177,7 @@ def list_teachers_payload(*, approved_only: bool = True, request=None) -> list[d
     from apps.calls.rating_service import teacher_rating_percents
 
     rating_map = teacher_rating_percents([user.id for user in users])
-    return [
+    payloads = [
         teacher_to_payload(
             user,
             active_teacher_ids=active_ids,
@@ -186,6 +186,27 @@ def list_teachers_payload(*, approved_only: bool = True, request=None) -> list[d
         )
         for user in users
     ]
+    try:
+        from apps.appointments.services.teacher_list_summary import (
+            booking_card_summaries_for_teachers,
+        )
+
+        summaries = booking_card_summaries_for_teachers([u.id for u in users])
+        for payload in payloads:
+            payload["booking"] = summaries.get(
+                payload["id"],
+                {
+                    "booking_enabled": True,
+                    "has_available_slots": False,
+                    "nearest_slot": None,
+                    "message_code": "no_slots",
+                },
+            )
+    except Exception:
+        # Appointments app optional for older deployments mid-migrate.
+        for payload in payloads:
+            payload.setdefault("booking", None)
+    return payloads
 
 
 def get_teacher_user(teacher_id: int):

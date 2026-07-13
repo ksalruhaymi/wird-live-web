@@ -202,8 +202,9 @@ def stop_cloud_recording_for_call(call: CallSession) -> None:
         rec.recording_status = CallRecording.RecordingStatus.COMPLETED
         rec.recording_error = ""
     else:
-        rec.recording_status = CallRecording.RecordingStatus.COMPLETED
-        rec.recording_error = "Recording stopped but no playable file was returned."
+        # Keep stopping so clients can poll while Agora finishes uploading.
+        rec.recording_status = CallRecording.RecordingStatus.STOPPING
+        rec.recording_error = "Recording stopped; waiting for playable file."
     rec.save(
         update_fields=[
             "recording_object_key",
@@ -215,6 +216,59 @@ def stop_cloud_recording_for_call(call: CallSession) -> None:
         ]
     )
     logger.info("Cloud recording stopped for call %s", call.id)
+
+
+def try_finalize_recording_files(rec: CallRecording) -> bool:
+    """Best-effort: re-query Agora for a missing object key after stop.
+
+    Returns True when a playable object key was persisted.
+    """
+    existing_key = (rec.recording_object_key or "").strip()
+    if existing_key:
+        if rec.recording_status != CallRecording.RecordingStatus.COMPLETED:
+            rec.recording_status = CallRecording.RecordingStatus.COMPLETED
+            rec.recording_error = ""
+            rec.save(update_fields=["recording_status", "recording_error"])
+        return True
+
+    if rec.recording_status in {
+        CallRecording.RecordingStatus.FAILED,
+        CallRecording.RecordingStatus.SKIPPED,
+        CallRecording.RecordingStatus.IDLE,
+    }:
+        return False
+
+    resource_id = (rec.agora_resource_id or "").strip()
+    sid = (rec.agora_sid or "").strip()
+    if not resource_id or not sid:
+        return False
+
+    client = AgoraCloudRecordingClient()
+    file_list = _query_file_list_with_retry(
+        client,
+        resource_id,
+        sid,
+        attempts=2,
+        delay_seconds=1.0,
+    )
+    object_key = _pick_object_key(file_list)
+    if not object_key:
+        return False
+
+    rec.recording_object_key = object_key
+    rec.recording_url = _legacy_public_url(object_key)
+    rec.recording_status = CallRecording.RecordingStatus.COMPLETED
+    rec.recording_error = ""
+    rec.save(
+        update_fields=[
+            "recording_object_key",
+            "recording_url",
+            "recording_status",
+            "recording_error",
+        ]
+    )
+    logger.info("Cloud recording finalized for call %s", rec.call_session_id)
+    return True
 
 
 def _sync_recording_times_from_call(rec: CallRecording, call: CallSession) -> None:
@@ -243,8 +297,8 @@ def _query_file_list_with_retry(
     resource_id: str,
     sid: str,
     *,
-    attempts: int = 3,
-    delay_seconds: float = 2.0,
+    attempts: int = 6,
+    delay_seconds: float = 2.5,
 ) -> list[dict]:
     for attempt in range(attempts):
         if attempt:

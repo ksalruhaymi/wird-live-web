@@ -32,8 +32,10 @@ urlpatterns = [
     path("api/v1/", include("apps.communication.api.urls", namespace="communication_api")),
     path("api/v1/", include("apps.tutoring.api.urls", namespace="tutoring_api")),
     path("api/v1/", include("apps.calls.api.urls", namespace="calls_api")),
+    path("api/v1/", include("apps.appointments.api.urls", namespace="appointments_api")),
     path("api/v1/", include("apps.notification.api.urls", namespace="notification_api")),
     path("api/v1/", include("apps.mobile.api.urls", namespace="mobile_api")),
+    path("api/v1/analytics/", include("apps.analytics.api.urls", namespace="analytics_api")),
     path(
         "api/v1/auth/",
         include(("identity.accounts.api.urls", "accounts_auth_api"), namespace="accounts_auth_api"),

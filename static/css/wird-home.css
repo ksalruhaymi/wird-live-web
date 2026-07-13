@@ -61,7 +61,12 @@ body {
 
 .wird-brand-image {
   height: 44px;
-  width: auto;
+  width: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  /* Keep the logo's grey circular face — do not force a white fill */
+  background: transparent;
 }
 
 .wird-desktop-nav {
@@ -1014,7 +1019,7 @@ body {
   .wird-mobile-toggle { display: inline-flex; }
   .wird-navbar-inner { min-height: 72px; }
   .wird-brand-mark { width: 46px; height: 46px; }
-  .wird-brand-image { height: 38px; }
+  .wird-brand-image { height: 38px; width: 38px; }
   .wird-hero-section { padding: 62px 0 86px; }
   .wird-hero-grid,
   .wird-split-grid,
@@ -1074,10 +1079,12 @@ body {
 /* Final compact corrections */
 .wird-brand-image {
   height: 40px;
+  width: 40px;
 }
 
 .wird-footer .wird-brand-image {
   height: 44px;
+  width: 44px;
 }
 
 .wird-hero-title {
@@ -1135,8 +1142,8 @@ body {
 }
 
 @media (max-width: 640px) {
-  .wird-brand-image { height: 34px; }
-  .wird-footer .wird-brand-image { height: 38px; }
+  .wird-brand-image { height: 34px; width: 34px; }
+  .wird-footer .wird-brand-image { height: 38px; width: 38px; }
   .wird-hero-title { font-size: 23px !important; }
 }
 
@@ -1161,7 +1168,9 @@ body {
 
 .wird-brand-image {
   height: 54px !important;
-  max-width: 150px !important;
+  width: 54px !important;
+  max-width: 54px !important;
+  border-radius: 50% !important;
 }
 
 .wird-nav-links {
@@ -1579,6 +1588,8 @@ body {
 }
 
 .wird-footer {
+  flex-shrink: 0;
+  margin-top: auto;
   padding: 24px 0 !important;
 }
 
@@ -1638,80 +1649,14 @@ body {
   transform: translateY(-2px) !important;
 }
 
-.wird-footer-credit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  text-align: center;
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid var(--wird-line);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--wird-muted);
-}
-
-.wird-footer-credit-logo {
-  width: 110px;
-  height: auto;
-  max-height: 44px;
-  object-fit: contain;
-  display: block;
-  flex-shrink: 0;
-  background: transparent;
-  background-color: transparent;
-  padding: 0;
-  border: none;
-  box-shadow: none;
-}
-
-.wird-footer-credit-email {
-  color: inherit;
-  text-decoration: none;
-  direction: ltr;
-  unicode-bidi: isolate;
-}
-
-.wird-footer-credit-email:hover {
-  color: var(--wird-green);
-}
-
-.dashboard-footer-minimal {
-  flex-shrink: 0;
-  margin-top: auto;
-  background: #ffffff;
-  border-top: 1px solid var(--wird-line);
-}
-
-.wird-footer-credit--dashboard {
-  justify-content: center;
-  text-align: center;
-  margin-top: 0;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  border-top: none;
-  font-size: 13px;
-  color: #5c6b7a;
-}
-
-.wird-footer-credit--dashboard .wird-footer-credit-email:hover {
-  color: var(--wird-green);
-}
-
 @media (max-width: 640px) {
   .wird-footer-row { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
   .wird-app-downloads { gap: 8px !important; }
-  .wird-footer-credit-logo {
-    width: 220px;
-    max-height: 88px;
-  }
 }
 
 @media (max-width: 960px) {
   .wird-navbar-inner { min-height: 62px !important; }
-  .wird-brand-image { height: 46px !important; max-width: 130px !important; }
+  .wird-brand-image { height: 46px !important; width: 46px !important; max-width: 46px !important; }
   .wird-hero-section { padding: 34px 0 52px !important; }
   .wird-hero-grid,
   .wird-split-grid,
@@ -2400,15 +2345,6 @@ html.a11y-dark .wird-app-btn {
 
 html.a11y-dark .wird-app-btn:hover {
   background: #334155 !important;
-}
-
-html.a11y-dark .wird-footer-credit {
-  color: var(--wird-muted);
-  border-top-color: var(--wird-line);
-}
-
-html.a11y-dark .wird-footer-credit-email:hover {
-  color: var(--wird-green);
 }
 
 html.a11y-dark .wird-ks-table-head {

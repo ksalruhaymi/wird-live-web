@@ -69,6 +69,17 @@ def request_call(request):
     if auth_err:
         return auth_err
 
+    from apps.tutoring.teacher_services import resolve_user_type_slug
+
+    if resolve_user_type_slug(request.user) == "teacher":
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "المعلّم يستقبل الاتصالات فقط ولا يمكنه بدء اتصال.",
+            },
+            status=403,
+        )
+
     data = _parse_json_body(request)
     teacher_id = _parse_teacher_id(data)
     session_type = (data.get("session_type") or "").strip().lower()
@@ -228,6 +239,17 @@ def _request_call_with_type(request, session_type: str):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
+
+    from apps.tutoring.teacher_services import resolve_user_type_slug
+
+    if resolve_user_type_slug(request.user) == "teacher":
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "المعلّم يستقبل الاتصالات فقط ولا يمكنه بدء اتصال.",
+            },
+            status=403,
+        )
 
     teacher_id = _parse_teacher_id(_parse_json_body(request))
     if not teacher_id:

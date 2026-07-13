@@ -87,15 +87,6 @@ body {
   color: var(--wird-live-accent) !important;
 }
 
-.wird-footer-credit {
-  color: var(--wird-live-muted);
-  border-top-color: var(--wird-live-border);
-}
-
-.wird-footer-credit-email:hover {
-  color: var(--wird-live-accent) !important;
-}
-
 .wird-app-btn {
   background: #ffffff !important;
   color: var(--wird-live-text) !important;
@@ -233,14 +224,8 @@ html.a11y-dark .wird-footer-links a {
   color: #cbd5e1 !important;
 }
 
-html.a11y-dark .wird-footer-links a:hover,
-html.a11y-dark .wird-footer-credit-email:hover {
+html.a11y-dark .wird-footer-links a:hover {
   color: var(--wird-live-accent) !important;
-}
-
-html.a11y-dark .wird-footer-credit {
-  color: var(--wird-live-muted) !important;
-  border-top-color: var(--wird-live-border) !important;
 }
 
 html.a11y-dark .wird-app-btn {

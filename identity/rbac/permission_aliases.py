@@ -80,6 +80,11 @@ PERMISSION_ALIAS_GROUPS: tuple[frozenset[str], ...] = (
     frozenset({"users.students.view", "web.users.students.view"}),
     # Calls / teachers / evaluations
     frozenset({"calls.view", "web.calls.view"}),
+    frozenset({"appointments.view", "web.appointments.view"}),
+    frozenset({"appointments.manage_schedule", "web.appointments.manage_schedule"}),
+    frozenset({"appointments.manage_bookings", "web.appointments.manage_bookings"}),
+    frozenset({"appointments.view_all", "web.appointments.view_all"}),
+    frozenset({"appointments.override_status", "web.appointments.override_status"}),
     frozenset({"teachers.availability.view", "web.teachers.availability.view"}),
     frozenset({"evaluations.view", "web.evaluations.view"}),
     frozenset({"evaluations.create", "web.evaluations.questions.create"}),

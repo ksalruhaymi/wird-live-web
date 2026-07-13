@@ -1,0 +1,98 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-3xl mx-auto space-y-6" dir-text>
+
+  {% include "dashboard/pages/appointments/_tabs.html" with tab_settings="1" %}
+
+  <div class="site-card">
+    <form method="post" class="divide-site">
+      {% csrf_token %}
+
+      <div class="flex items-center justify-between px-6 py-4">
+        <div>
+          <h4 class="text-[13px] font-bold site-text">استقبال الحجوزات</h4>
+          <p class="text-[11px] site-text-muted">عند الإيقاف لن تظهر فتراتك للطلاب.</p>
+        </div>
+        <label class="inline-flex items-center cursor-pointer">
+          <input type="checkbox" name="booking_enabled" class="sr-only peer"
+                 {% if form.booking_enabled.value %}checked{% endif %}>
+          <div class="relative w-11 h-6 bg-slate-300 rounded-full peer-checked:bg-[var(--color-primary)] transition-colors">
+            <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:-translate-x-5"></span>
+          </div>
+        </label>
+      </div>
+
+      <div class="px-6 py-4 space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[12px] font-bold site-text mb-1">{{ form.default_slot_duration_minutes.label }}</label>
+            <input type="number" name="default_slot_duration_minutes" min="5"
+                   value="{{ form.default_slot_duration_minutes.value }}"
+                   class="w-full rounded-lg border site-border px-3 py-2 text-[12px]">
+          </div>
+          <div>
+            <label class="block text-[12px] font-bold site-text mb-1">{{ form.default_break_minutes.label }}</label>
+            <input type="number" name="default_break_minutes" min="0"
+                   value="{{ form.default_break_minutes.value }}"
+                   class="w-full rounded-lg border site-border px-3 py-2 text-[12px]">
+          </div>
+          <div>
+            <label class="block text-[12px] font-bold site-text mb-1">{{ form.minimum_booking_notice_minutes.label }}</label>
+            <input type="number" name="minimum_booking_notice_minutes" min="0"
+                   value="{{ form.minimum_booking_notice_minutes.value }}"
+                   class="w-full rounded-lg border site-border px-3 py-2 text-[12px]">
+          </div>
+          <div>
+            <label class="block text-[12px] font-bold site-text mb-1">{{ form.maximum_booking_window_days.label }}</label>
+            <input type="number" name="maximum_booking_window_days" min="1"
+                   value="{{ form.maximum_booking_window_days.value }}"
+                   class="w-full rounded-lg border site-border px-3 py-2 text-[12px]">
+          </div>
+          <div>
+            <label class="block text-[12px] font-bold site-text mb-1">{{ form.cancellation_deadline_minutes.label }}</label>
+            <input type="number" name="cancellation_deadline_minutes" min="0"
+                   value="{{ form.cancellation_deadline_minutes.value }}"
+                   class="w-full rounded-lg border site-border px-3 py-2 text-[12px]">
+          </div>
+          <div>
+            <label class="block text-[12px] font-bold site-text mb-1">{{ form.max_active_bookings_per_student.label }}</label>
+            <input type="number" name="max_active_bookings_per_student" min="1"
+                   value="{{ form.max_active_bookings_per_student.value|default_if_none:'' }}"
+                   class="w-full rounded-lg border site-border px-3 py-2 text-[12px]"
+                   placeholder="بدون حد">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[12px] font-bold site-text mb-1">{{ form.timezone.label }}</label>
+          <input type="text" name="timezone" value="{{ form.timezone.value }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-[12px]">
+        </div>
+
+        <div class="space-y-2">
+          <label class="block text-[12px] font-bold site-text">{{ form.allowed_session_types.label }}</label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {% for value, label in form.fields.allowed_session_types.choices %}
+            <label class="inline-flex items-center gap-1.5 text-[12px] site-text">
+              <input type="checkbox" name="allowed_session_types" value="{{ value }}"
+                     {% if value in form.allowed_session_types.value %}checked{% endif %}
+                     class="rounded border site-border">
+              {{ label }}
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end px-6 py-4">
+        <button type="submit" class="site-btn-primary inline-flex items-center gap-2 px-5 py-2 rounded-full text-[12px] font-bold">
+          <i class="bi bi-save-fill"></i>
+          حفظ الإعدادات
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

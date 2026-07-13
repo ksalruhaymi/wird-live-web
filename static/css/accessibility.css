@@ -307,17 +307,8 @@ html.a11y-dark .wird-footer {
 
 html.a11y-dark .app-footer,
 html.a11y-dark .public-footer,
-html.a11y-dark .dashboard-footer,
-html.a11y-dark .dashboard-footer-minimal {
+html.a11y-dark .dashboard-footer {
   background-color: #162032 !important;
-}
-
-html.a11y-dark .dashboard-footer-minimal {
-  border-top-color: #334155 !important;
-}
-
-html.a11y-dark .wird-footer-credit--dashboard {
-  color: #94a3b8 !important;
 }
 
 /* 7. Modals / panels / inputs */

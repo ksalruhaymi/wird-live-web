@@ -52,6 +52,11 @@ LEGACY_PERMISSIONS = [
     ("teachers.update", "تعديل المعلمين"),
     ("teachers.availability.view", "عرض حالة المعلمين"),
     ("calls.view", "عرض سجل المكالمات"),
+    ("appointments.view", "عرض المواعيد"),
+    ("appointments.manage_schedule", "إدارة جدول المواعيد"),
+    ("appointments.manage_bookings", "إدارة حجوزات المواعيد"),
+    ("appointments.view_all", "عرض جميع المواعيد"),
+    ("appointments.override_status", "تجاوز حالات المواعيد"),
     # Subscriptions / announcements
     ("subscriptions.view", "عرض الاشتراكات"),
     ("subscriptions.create", "إنشاء اشتراك"),
@@ -130,6 +135,11 @@ WEB_PERMISSIONS = [
     ("web.users.teachers.update", "تعديل بيانات معلم"),
     ("web.users.students.update", "تعديل بيانات طالب"),
     ("web.calls.view", "عرض سجل المكالمات"),
+    ("web.appointments.view", "عرض المواعيد"),
+    ("web.appointments.manage_schedule", "إدارة جدول المواعيد"),
+    ("web.appointments.manage_bookings", "إدارة حجوزات المواعيد"),
+    ("web.appointments.view_all", "عرض جميع المواعيد"),
+    ("web.appointments.override_status", "تجاوز حالات المواعيد"),
     ("web.teachers.availability.view", "عرض حالة المعلمين"),
     ("web.evaluations.view", "عرض تقييمات الجلسات"),
     ("web.evaluations.questions.create", "إضافة سؤال تقييم"),
@@ -161,6 +171,7 @@ MOBILE_PERMISSIONS = [
     ("mobile.nav.management.view", "تبويب الإدارة"),
     ("mobile.nav.settings.view", "تبويب الإعدادات"),
     ("mobile.nav.subscriptions.view", "تبويب الاشتراكات"),
+    ("mobile.nav.appointments.view", "تبويب المواعيد"),
     ("mobile.management.teachers.view", "عرض طلبات المعلمين الجدد"),
     ("mobile.management.teachers.approve", "الموافقة على المعلمين"),
     ("mobile.management.teachers.reject", "رفض المعلمين"),
@@ -206,6 +217,8 @@ SUPERVISOR_LEGACY_PERMISSIONS = [
     "app_notifications.create",
     "app_notifications.update",
     "calls.view",
+    "appointments.view",
+    "appointments.view_all",
     "teachers.availability.view",
     "evaluations.view",
     "evaluations.create",
@@ -225,6 +238,8 @@ SUPERVISOR_WEB_PERMISSIONS = [
     "web.users.teachers.view",
     "web.users.students.view",
     "web.calls.view",
+    "web.appointments.view",
+    "web.appointments.view_all",
     "web.recordings.view",
     "web.teachers.availability.view",
     "web.evaluations.view",
@@ -258,12 +273,14 @@ TEACHER_MOBILE_PERMISSIONS = [
     "mobile.nav.home.view",
     "mobile.nav.recordings.view",
     "mobile.nav.settings.view",
+    "mobile.nav.appointments.view",
     "mobile.teacher.home.view",
     "mobile.teacher.availability.update",
     "mobile.teacher.heartbeat.send",
     "mobile.calls.incoming.view",
     "mobile.calls.accept",
     "mobile.calls.reject",
+    # Teachers receive calls only — never teachers list / outbound request.
     "mobile.recordings.list_own.view",
 ]
 
@@ -273,6 +290,17 @@ TEACHER_SHARED_PERMISSIONS = [
     "shared.profile.avatar.update",
     "shared.recordings.play_own",
     "shared.recordings.download_own",
+]
+
+TEACHER_WEB_PERMISSIONS = [
+    "dashboard.access",
+    "web.dashboard.access",
+    "appointments.view",
+    "web.appointments.view",
+    "appointments.manage_schedule",
+    "web.appointments.manage_schedule",
+    "appointments.manage_bookings",
+    "web.appointments.manage_bookings",
 ]
 
 STUDENT_MOBILE_PERMISSIONS = [
@@ -351,7 +379,7 @@ class Command(BaseCommand):
         )
 
         teacher_permissions = _dedupe_preserve_order(
-            TEACHER_MOBILE_PERMISSIONS + TEACHER_SHARED_PERMISSIONS
+            TEACHER_MOBILE_PERMISSIONS + TEACHER_SHARED_PERMISSIONS + TEACHER_WEB_PERMISSIONS
         )
 
         student_permissions = _dedupe_preserve_order(

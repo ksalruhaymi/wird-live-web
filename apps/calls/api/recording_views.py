@@ -43,6 +43,27 @@ def my_recordings(request):
         "call_session", "student", "teacher"
     ).order_by("-created_at", "-id")
 
+    # Finalize a few recent recordings that are still waiting on Agora files.
+    from apps.calls.cloud_recording import try_finalize_recording_files
+
+    pending = [
+        rec
+        for rec in qs[:8]
+        if not object_key_for_recording(rec)
+        and rec.recording_status
+        in {
+            CallRecording.RecordingStatus.STOPPING,
+            CallRecording.RecordingStatus.RECORDING,
+            CallRecording.RecordingStatus.STARTING,
+            CallRecording.RecordingStatus.COMPLETED,
+        }
+    ]
+    for rec in pending[:3]:
+        try:
+            try_finalize_recording_files(rec)
+        except Exception:
+            continue
+
     return JsonResponse(
         {
             "success": True,

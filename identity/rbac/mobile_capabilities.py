@@ -13,6 +13,7 @@ MOBILE_CAPABILITY_PERMISSIONS: dict[str, dict[str, str]] = {
         "management": "mobile.nav.management.view",
         "settings": "mobile.nav.settings.view",
         "subscriptions": "mobile.nav.subscriptions.view",
+        "appointments": "mobile.nav.appointments.view",
     },
     "management": {
         "view_pending_teachers": "mobile.management.teachers.view",

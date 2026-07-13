@@ -24,6 +24,23 @@ def available_teachers(request):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
+
+    # Teachers only receive calls; they must not browse/call other teachers.
+    if resolve_user_type_slug(request.user) == "teacher":
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "المعلّم لا يمكنه عرض قائمة المعلمين أو بدء اتصال.",
+            },
+            status=403,
+        )
+
+    if not request.user.has_permission("mobile.teachers.list.view"):
+        return JsonResponse(
+            {"success": False, "message": "غير مصرح بعرض قائمة المعلمين."},
+            status=403,
+        )
+
     teachers = list_teachers_payload(approved_only=True, request=request)
     return JsonResponse({"success": True, "teachers": teachers})
 

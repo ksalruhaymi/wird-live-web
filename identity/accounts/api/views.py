@@ -31,6 +31,10 @@ from identity.accounts.auth.profile_service import (
     update_profile_avatar,
     update_profile_fields,
 )
+from identity.accounts.auth.session_policy import (
+    SESSION_REPLACED_MESSAGE,
+    enforce_single_active_session,
+)
 from identity.accounts.auth.settings_service import is_db_login_allowed
 from identity.accounts.user_types import resolve_user_type_slug
 
@@ -151,6 +155,18 @@ def _parse_request_data(request) -> tuple[dict | None, object | None, JsonRespon
 @ensure_csrf_cookie
 @require_GET
 def me(request):
+    if getattr(request, "_single_session_replaced", False):
+        payload = {
+            "authenticated": False,
+            "success": False,
+            "message": SESSION_REPLACED_MESSAGE,
+            "code": "session_replaced",
+        }
+        csrf = _csrf_token(request)
+        if csrf:
+            payload["csrf_token"] = csrf
+        return JsonResponse(payload, status=401)
+
     blocked = _logout_if_session_blocked(request)
     if blocked:
         return blocked
@@ -285,6 +301,7 @@ def register_api(request):
     )
 
     login(request, user, backend="django.contrib.auth.backends.ModelBackend")
+    enforce_single_active_session(request, user)
     return _success(user, request, status=201)
 
 

@@ -968,3 +968,42 @@ msgstr "الدعم الفني لتطبيق وِرْد لايف"
 
 msgid "about_page_meta_description"
 msgstr "تعرف على منصة وِرْد لايف لربط الطلاب بالمعلمين وتصحيح التلاوة ومتابعة الحفظ عن بُعد."
+
+msgid "analytics_tab_calls"
+msgstr "المكالمات"
+
+msgid "analytics_calls_title"
+msgstr "تحليلات المكالمات"
+
+msgid "analytics_calls_subtitle"
+msgstr "طلبات المكالمات، Agora، والتقييمات من تطبيق Live"
+
+msgid "analytics_calls_total"
+msgstr "إجمالي أحداث المكالمات"
+
+msgid "analytics_calls_requested"
+msgstr "طلبات مكالمة"
+
+msgid "analytics_calls_ended"
+msgstr "مكالمات منتهية"
+
+msgid "analytics_agora_failures"
+msgstr "فشل Agora"
+
+msgid "analytics_ratings_submitted"
+msgstr "تقييمات مُرسلة"
+
+msgid "analytics_calls_by_event"
+msgstr "حسب نوع الحدث"
+
+msgid "analytics_calls_by_mode"
+msgstr "حسب النوع (صوت/فيديو)"
+
+msgid "analytics_no_calls_yet"
+msgstr "لا توجد أحداث مكالمات في هذه الفترة"
+
+msgid "analytics_col_event"
+msgstr "الحدث"
+
+msgid "analytics_col_mode"
+msgstr "الوضع"

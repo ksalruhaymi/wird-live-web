@@ -140,6 +140,41 @@ def _activate_call_session(call: CallSession) -> CallSession:
     return call
 
 
+def create_scheduled_call_session(
+    *,
+    student,
+    teacher,
+    session_type: str,
+) -> CallSession:
+    """Create an immediately active call for a booked appointment.
+
+    Skips live presence checks (online/busy). Minutes are still charged via the
+    normal end-call path when the session ends.
+    """
+    if session_type not in CallSession.SessionType.values:
+        raise CallValidationError("نوع الاتصال غير صالح.")
+
+    profile = getattr(teacher, "teacher_profile", None)
+    if profile is None:
+        raise CallValidationError("المعلّم غير موجود.")
+    if session_type == CallSession.SessionType.AUDIO and not profile.can_audio:
+        raise CallValidationError("هذا المعلّم لا يدعم الاتصال الصوتي.")
+    if session_type == CallSession.SessionType.VIDEO and not profile.can_video:
+        raise CallValidationError("هذا المعلّم لا يدعم الاتصال المرئي.")
+
+    call = CallSession.objects.create(
+        student=student,
+        teacher=teacher,
+        session_type=session_type,
+        provider=provider_name_for_new_call(),
+        status=CallSession.Status.PENDING,
+        is_interview_call=False,
+    )
+    assign_channel_name(call)
+    mark_teacher_busy(teacher)
+    return _activate_call_session(call)
+
+
 def request_call_session(
     user,
     *,

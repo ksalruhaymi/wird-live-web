@@ -8,7 +8,7 @@ font-sans text-gray-800
 {% endblock %}
 
 {% block layout %}
-  <div class="overflow-x-hidden" dir-text>
+  <div class="app-content overflow-x-hidden w-full" dir-text>
 
     <!-- Mobile top bar -->
     <div class="lg:hidden px-4 pt-4">
@@ -28,7 +28,7 @@ font-sans text-gray-800
 
       {% include "dashboard/layouts/sidebar.html" %}
 
-      <main class="flex-1 px-4 lg:px-6 mb-20">
+      <main class="flex-1 px-4 lg:px-6 pb-6">
         {% block dashboard_content %}{% endblock %}
       </main>
 

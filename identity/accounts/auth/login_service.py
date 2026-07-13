@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, get_user_model
 from django.contrib.auth import login as auth_login
 
 from identity.accounts.auth.settings_service import is_db_login_allowed
+from identity.accounts.auth.session_policy import enforce_single_active_session
 from identity.accounts.auth.teacher_login_guard import teacher_login_block_message
 
 User = get_user_model()
@@ -29,6 +30,15 @@ def _password_valid(user_obj, password: str) -> bool:
     return bool(user_obj and user_obj.check_password(password))
 
 
+def _complete_login(request, user) -> None:
+    auth_login(
+        request,
+        user,
+        backend="django.contrib.auth.backends.ModelBackend",
+    )
+    enforce_single_active_session(request, user)
+
+
 def login_user(request, identifier, password):
     user_obj = _resolve_user(identifier)
     if user_obj is None:
@@ -44,9 +54,7 @@ def login_user(request, identifier, password):
         if user and user.is_superuser:
             if not user.is_active:
                 return "inactive"
-            auth_login(
-                request, user, backend="django.contrib.auth.backends.ModelBackend"
-            )
+            _complete_login(request, user)
             return "ok"
         return "invalid"
 
@@ -62,9 +70,5 @@ def login_user(request, identifier, password):
     if not user_obj.is_active:
         return "inactive"
 
-    auth_login(
-        request,
-        user_obj,
-        backend="django.contrib.auth.backends.ModelBackend",
-    )
+    _complete_login(request, user_obj)
     return "ok"

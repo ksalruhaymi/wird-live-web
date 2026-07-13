@@ -85,8 +85,9 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
 
     from apps.calls.recording_storage import object_key_for_recording
 
+    status = rec.recording_status or CallRecording.RecordingStatus.IDLE
     has_recording = bool(object_key_for_recording(rec)) and (
-        rec.recording_status == rec.RecordingStatus.COMPLETED
+        status == CallRecording.RecordingStatus.COMPLETED
     )
     return {
         "id": rec.id,
@@ -95,6 +96,7 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
         "type": rec.session_type,
         "other_party_name": other_name,
         "has_recording": has_recording,
+        "recording_status": status,
         "duration_seconds": rec.duration_seconds,
         "started_at": rec.started_at.isoformat() if rec.started_at else None,
         "ended_at": rec.ended_at.isoformat() if rec.ended_at else None,

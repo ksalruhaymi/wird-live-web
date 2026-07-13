@@ -82,6 +82,14 @@ class User(AbstractUser):
         help_text="Firebase Authentication UID for Google/mobile sign-in",
     )
 
+    active_session_key = models.CharField(
+        max_length=40,
+        blank=True,
+        default="",
+        db_index=True,
+        help_text="Current Django session key for single-device login (admins exempt).",
+    )
+
     profile_image = models.ImageField(
         upload_to="profile_images/",
         blank=True,

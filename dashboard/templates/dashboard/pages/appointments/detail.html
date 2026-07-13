@@ -1,0 +1,145 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+<div class="max-w-4xl mx-auto space-y-6" dir-text>
+
+  {% include "dashboard/pages/appointments/_tabs.html" with tab_bookings="1" %}
+
+  <div class="flex items-start justify-between gap-3">
+    <h1 class="site-title-md">تفاصيل الموعد #{{ appointment.id }}</h1>
+    <a href="{% url 'dashboard:appointment_booking_list' %}" class="text-[12px] site-link-primary font-semibold hover:underline">العودة</a>
+  </div>
+
+  <div class="site-card p-5 md:p-6 space-y-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[12px]">
+      <div>
+        <div class="site-text-muted">الطالب</div>
+        <div class="site-text font-bold">{{ appointment.student.full_name|default:appointment.student.username }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">المعلم</div>
+        <div class="site-text font-bold">{{ appointment.teacher.full_name|default:appointment.teacher.username }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">الوقت</div>
+        <div class="site-text">{{ appointment.slot.start_at|date:"Y-m-d H:i" }} — {{ appointment.slot.end_at|date:"H:i" }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">نوع الجلسة</div>
+        <div class="site-text">{{ appointment.get_session_type_display }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">الحالة</div>
+        <div class="mt-1">
+          {% include "dashboard/pages/appointments/_status_badge.html" with status=appointment.status label=appointment.get_status_display %}
+        </div>
+      </div>
+      <div>
+        <div class="site-text-muted">تاريخ الحجز</div>
+        <div class="site-text">{{ appointment.booked_at|date:"Y-m-d H:i" }}</div>
+      </div>
+      {% if appointment.student_notes %}
+      <div class="md:col-span-2">
+        <div class="site-text-muted">ملاحظات الطالب</div>
+        <div class="site-text whitespace-pre-wrap">{{ appointment.student_notes }}</div>
+      </div>
+      {% endif %}
+      {% if appointment.call_session_id %}
+      <div class="md:col-span-2">
+        <div class="site-text-muted">جلسة المكالمة</div>
+        <a href="{% url 'dashboard:call_session_detail' appointment.call_session_id %}" class="site-link-primary font-semibold">
+          #{{ appointment.call_session_id }}
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if can_manage_bookings %}
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {% if appointment.status == "confirmed" or appointment.status == "pending_approval" or appointment.status == "in_progress" %}
+    <div class="site-card p-5 space-y-3">
+      <h3 class="text-sm font-bold site-text">إلغاء الموعد</h3>
+      <form method="post" action="{% url 'dashboard:appointment_cancel' appointment.id %}" class="space-y-3">
+        {% csrf_token %}
+        <div>
+          <label class="block text-[11px] font-bold site-text-muted mb-1">السبب</label>
+          <input type="text" name="reason" class="w-full px-3 py-2 rounded-lg border site-border text-[12px]" maxlength="255">
+        </div>
+        <label class="inline-flex items-center gap-2 text-[12px] site-text">
+          <input type="checkbox" name="reopen_slot" class="rounded border site-border">
+          إعادة فتح الفترة للحجز
+        </label>
+        <button type="submit" class="px-4 py-2 rounded-full bg-rose-600 text-white text-[12px] font-bold">إلغاء الموعد</button>
+      </form>
+    </div>
+    {% endif %}
+
+    {% if can_override_status %}
+    <div class="site-card p-5 space-y-3">
+      <h3 class="text-sm font-bold site-text">تحديث الحالة</h3>
+      <form method="post" action="{% url 'dashboard:appointment_mark_status' appointment.id %}" class="space-y-3">
+        {% csrf_token %}
+        <select name="status" class="w-full px-3 py-2 rounded-lg border site-border text-[12px]">
+          {% for value, label in status_form.fields.status.choices %}
+          <option value="{{ value }}">{{ label }}</option>
+          {% endfor %}
+        </select>
+        <button type="submit" class="site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold">حفظ الحالة</button>
+      </form>
+    </div>
+    {% endif %}
+
+    {% if can_start_call %}
+    <div class="site-card p-5 space-y-3">
+      <h3 class="text-sm font-bold site-text">بدء المكالمة</h3>
+      <p class="text-[11px] site-text-muted">متاح قبل الموعد بـ 10 دقائق وحتى 10 دقائق بعد البداية.</p>
+      <form method="post" action="{% url 'dashboard:appointment_start_call' appointment.id %}">
+        {% csrf_token %}
+        <button type="submit" class="site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold inline-flex items-center gap-2">
+          <i class="bi bi-telephone-fill"></i>
+          بدء مكالمة صوتية
+        </button>
+      </form>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="site-card overflow-x-auto">
+    <div class="px-4 py-3 border-b site-border">
+      <h3 class="text-sm font-bold site-text">سجل الحالات</h3>
+    </div>
+    <table class="min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text-muted">
+        <tr>
+          <th class="px-4 py-3 font-bold">من</th>
+          <th class="px-4 py-3 font-bold">إلى</th>
+          <th class="px-4 py-3 font-bold">بواسطة</th>
+          <th class="px-4 py-3 font-bold">ملاحظة</th>
+          <th class="px-4 py-3 font-bold">الوقت</th>
+        </tr>
+      </thead>
+      <tbody class="divide-site">
+        {% for row in history %}
+        <tr>
+          <td class="px-4 py-2 site-text-muted">{{ row.old_status|default:"—" }}</td>
+          <td class="px-4 py-2 site-text">{{ row.new_status }}</td>
+          <td class="px-4 py-2 site-text">
+            {% if row.changed_by %}{{ row.changed_by.full_name|default:row.changed_by.username }}{% else %}—{% endif %}
+          </td>
+          <td class="px-4 py-2 site-text-muted">{{ row.note|default:"—" }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ row.created_at|date:"Y-m-d H:i" }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="px-4 py-8 text-center site-text-muted">لا يوجد سجل.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+{% endblock %}
