@@ -292,17 +292,6 @@ TEACHER_SHARED_PERMISSIONS = [
     "shared.recordings.download_own",
 ]
 
-TEACHER_WEB_PERMISSIONS = [
-    "dashboard.access",
-    "web.dashboard.access",
-    "appointments.view",
-    "web.appointments.view",
-    "appointments.manage_schedule",
-    "web.appointments.manage_schedule",
-    "appointments.manage_bookings",
-    "web.appointments.manage_bookings",
-]
-
 STUDENT_MOBILE_PERMISSIONS = [
     "mobile.nav.home.view",
     "mobile.nav.teachers.view",
@@ -379,7 +368,7 @@ class Command(BaseCommand):
         )
 
         teacher_permissions = _dedupe_preserve_order(
-            TEACHER_MOBILE_PERMISSIONS + TEACHER_SHARED_PERMISSIONS + TEACHER_WEB_PERMISSIONS
+            TEACHER_MOBILE_PERMISSIONS + TEACHER_SHARED_PERMISSIONS
         )
 
         student_permissions = _dedupe_preserve_order(

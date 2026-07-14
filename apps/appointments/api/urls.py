@@ -12,6 +12,11 @@ urlpatterns = [
         name="teacher-summary",
     ),
     path(
+        "appointments/teachers/<int:teacher_id>/calendar/",
+        views.student_teacher_calendar,
+        name="teacher-calendar",
+    ),
+    path(
         "appointments/teachers/<int:teacher_id>/days/",
         views.teacher_days,
         name="teacher-days",
@@ -27,6 +32,32 @@ urlpatterns = [
     path("appointments/<int:pk>/", views.appointment_detail, name="detail"),
     path("appointments/<int:pk>/cancel/", views.cancel_appointment, name="cancel"),
     path("appointments/<int:pk>/start-call/", views.start_call, name="start-call"),
+    # Teacher calendar UX
+    path(
+        "appointments/teacher/calendar/",
+        views.teacher_own_calendar,
+        name="teacher-own-calendar",
+    ),
+    path(
+        "appointments/teacher/day/",
+        views.teacher_own_day,
+        name="teacher-own-day",
+    ),
+    path(
+        "appointments/teacher/availability/create/",
+        views.teacher_create_availability,
+        name="teacher-availability-create",
+    ),
+    path(
+        "appointments/teacher/slots/<int:slot_id>/cancel/",
+        views.teacher_cancel_slot,
+        name="teacher-slot-cancel",
+    ),
+    path(
+        "appointments/teacher/day/clear/",
+        views.teacher_clear_day,
+        name="teacher-day-clear",
+    ),
     # Teacher
     path("appointments/teacher/settings/", views.teacher_settings, name="teacher-settings"),
     path(

@@ -29,70 +29,104 @@
     </div>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="site-card p-5 space-y-3">
-      <h3 class="text-sm font-bold site-text">حالة الحجز</h3>
-      {% if booking_enabled is None %}
-      <p class="text-[12px] site-text-muted">عرض شامل لجميع المعلمين — لا توجد إعدادات شخصية.</p>
-      {% elif booking_enabled %}
-      <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">مفعّل</span>
-      {% else %}
-      <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">متوقف</span>
-      {% endif %}
-      {% if nearest %}
-      <p class="text-[12px] site-text">أقرب فترة: {{ nearest.start_at|date:"Y-m-d H:i" }}</p>
-      {% else %}
-      <p class="text-[12px] site-text-muted">لا توجد فترات قريبة متاحة.</p>
-      {% endif %}
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="site-card p-5 space-y-2">
+      <h3 class="text-sm font-bold site-text">آخر 30 يومًا</h3>
+      <p class="text-[12px] site-text">إجمالي الحجوزات: <span class="font-bold">{{ period_stats.total }}</span></p>
+      <p class="text-[12px] site-text">متوسط يومي: <span class="font-bold">{{ avg_daily }}</span></p>
     </div>
-    <div class="site-card p-5 space-y-3">
-      <h3 class="text-sm font-bold site-text">اختصارات</h3>
-      <div class="flex flex-wrap gap-2">
-        <a href="{% url 'dashboard:appointment_booking_list' %}" class="site-btn-primary px-3 py-1.5 rounded-full text-[12px] font-bold">الحجوزات</a>
-        {% if can_manage_schedule %}
-        <a href="{% url 'dashboard:appointment_rule_create' %}" class="px-3 py-1.5 rounded-full text-[12px] font-bold border site-border site-text">إضافة قاعدة</a>
-        <a href="{% url 'dashboard:appointment_settings' %}" class="px-3 py-1.5 rounded-full text-[12px] font-bold border site-border site-text">الإعدادات</a>
-        {% endif %}
-        {% if can_view_all %}
-        <a href="{% url 'dashboard:appointment_all_list' %}" class="px-3 py-1.5 rounded-full text-[12px] font-bold border site-border site-text">جميع المواعيد</a>
-        {% endif %}
-      </div>
+    <div class="site-card p-5 space-y-2">
+      <h3 class="text-sm font-bold site-text">نتائج التشغيل</h3>
+      <p class="text-[12px] site-text">مكتملة: <span class="font-bold">{{ period_stats.completed }}</span></p>
+      <p class="text-[12px] site-text">عدم حضور: <span class="font-bold">{{ period_stats.no_show }}</span></p>
+    </div>
+    <div class="site-card p-5 space-y-2">
+      <h3 class="text-sm font-bold site-text">الإلغاءات (30 يومًا)</h3>
+      <p class="text-[12px] site-text">من الطالب: <span class="font-bold">{{ period_stats.cancelled_by_student }}</span></p>
+      <p class="text-[12px] site-text">من المعلم: <span class="font-bold">{{ period_stats.cancelled_by_teacher }}</span></p>
     </div>
   </div>
 
-  <div class="overflow-x-auto site-card">
-    <div class="px-4 py-3 border-b site-border">
-      <h3 class="text-sm font-bold site-text">أقرب الحجوزات</h3>
+  <div class="flex flex-wrap gap-2">
+    <a href="{% url 'dashboard:appointment_all_list' %}" class="site-btn-primary px-3 py-1.5 rounded-full text-[12px] font-bold">جميع المواعيد</a>
+    <a href="{% url 'dashboard:appointment_all_list' %}?bucket=today" class="px-3 py-1.5 rounded-full text-[12px] font-bold border site-border site-text">مواعيد اليوم</a>
+    <a href="{% url 'dashboard:appointment_all_list' %}?bucket=upcoming" class="px-3 py-1.5 rounded-full text-[12px] font-bold border site-border site-text">القادمة</a>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div class="overflow-x-auto site-card">
+      <div class="px-4 py-3 border-b site-border">
+        <h3 class="text-sm font-bold site-text">مواعيد اليوم</h3>
+      </div>
+      <table class="min-w-full text-[12px]">
+        <thead class="site-surface text-[11px] site-text-muted">
+          <tr>
+            <th class="px-4 py-3 font-bold">المعلم</th>
+            <th class="px-4 py-3 font-bold">الطالب</th>
+            <th class="px-4 py-3 font-bold">الوقت</th>
+            <th class="px-4 py-3 font-bold">الحالة</th>
+            <th class="px-4 py-3 font-bold text-center">عرض</th>
+          </tr>
+        </thead>
+        <tbody class="divide-site">
+          {% for appt in today_preview %}
+          <tr>
+            <td class="px-4 py-2 site-text">{{ appt.teacher.full_name|default:appt.teacher.username }}</td>
+            <td class="px-4 py-2 site-text">{{ appt.student.full_name|default:appt.student.username }}</td>
+            <td class="px-4 py-2 site-text-muted">{{ appt.slot.start_at|date:"H:i" }}</td>
+            <td class="px-4 py-2">
+              {% include "dashboard/pages/appointments/_status_badge.html" with status=appt.status label=appt.get_status_display %}
+            </td>
+            <td class="px-4 py-2 text-center">
+              {% url 'dashboard:appointment_detail' appt.id as view_url %}
+              {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="5" class="px-4 py-8 text-center site-text-muted">لا توجد مواعيد اليوم.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
-    <table class="min-w-full text-[12px]">
-      <thead class="site-surface text-[11px] site-text-muted">
-        <tr>
-          <th class="px-4 py-3 font-bold">الطالب</th>
-          <th class="px-4 py-3 font-bold">الوقت</th>
-          <th class="px-4 py-3 font-bold">الحالة</th>
-          <th class="px-4 py-3 font-bold text-center">عرض</th>
-        </tr>
-      </thead>
-      <tbody class="divide-site">
-        {% for appt in upcoming_preview %}
-        <tr>
-          <td class="px-4 py-2 site-text">{{ appt.student.full_name|default:appt.student.username }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ appt.slot.start_at|date:"Y-m-d H:i" }}</td>
-          <td class="px-4 py-2">
-            {% include "dashboard/pages/appointments/_status_badge.html" with status=appt.status label=appt.get_status_display %}
-          </td>
-          <td class="px-4 py-2 text-center">
-            {% url 'dashboard:appointment_detail' appt.id as view_url %}
-            {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
-          </td>
-        </tr>
-        {% empty %}
-        <tr>
-          <td colspan="4" class="px-4 py-8 text-center site-text-muted">لا توجد حجوزات قادمة.</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+
+    <div class="overflow-x-auto site-card">
+      <div class="px-4 py-3 border-b site-border">
+        <h3 class="text-sm font-bold site-text">أقرب الحجوزات</h3>
+      </div>
+      <table class="min-w-full text-[12px]">
+        <thead class="site-surface text-[11px] site-text-muted">
+          <tr>
+            <th class="px-4 py-3 font-bold">المعلم</th>
+            <th class="px-4 py-3 font-bold">الطالب</th>
+            <th class="px-4 py-3 font-bold">الوقت</th>
+            <th class="px-4 py-3 font-bold">الحالة</th>
+            <th class="px-4 py-3 font-bold text-center">عرض</th>
+          </tr>
+        </thead>
+        <tbody class="divide-site">
+          {% for appt in upcoming_preview %}
+          <tr>
+            <td class="px-4 py-2 site-text">{{ appt.teacher.full_name|default:appt.teacher.username }}</td>
+            <td class="px-4 py-2 site-text">{{ appt.student.full_name|default:appt.student.username }}</td>
+            <td class="px-4 py-2 site-text-muted">{{ appt.slot.start_at|date:"Y-m-d H:i" }}</td>
+            <td class="px-4 py-2">
+              {% include "dashboard/pages/appointments/_status_badge.html" with status=appt.status label=appt.get_status_display %}
+            </td>
+            <td class="px-4 py-2 text-center">
+              {% url 'dashboard:appointment_detail' appt.id as view_url %}
+              {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="5" class="px-4 py-8 text-center site-text-muted">لا توجد حجوزات قادمة.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </div>

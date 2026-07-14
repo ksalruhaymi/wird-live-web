@@ -85,7 +85,7 @@
       <span>المكالمات</span>
     </a>
     {% endif %}
-    {% if request.user|can_access:"appointments.view" %}
+    {% if request.user|can_access:"appointments.view_all" %}
     <a href="{% url 'dashboard:appointment_overview' %}"
        class="site-sidebar-btn {% if '/dashboard/appointments' in path %}site-sidebar-btn-active{% endif %}">
       <i class="bi bi-calendar-event"></i>

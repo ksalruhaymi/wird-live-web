@@ -1,3 +1,11 @@
+from apps.appointments.services.calendar import (
+    cancel_available_slot,
+    clear_day_available_slots,
+    create_availability_for_dates,
+    student_calendar_month,
+    teacher_calendar_month,
+    teacher_day_schedule,
+)
 from apps.appointments.services.booking import book_slot, booking_cost_notice
 from apps.appointments.services.call_link import (
     can_start_call_now,
@@ -50,8 +58,11 @@ __all__ = [
     "book_slot",
     "booking_cost_notice",
     "can_start_call_now",
+    "cancel_available_slot",
     "cancel_by_student",
     "cancel_by_teacher",
+    "clear_day_available_slots",
+    "create_availability_for_dates",
     "preview_availability_exception",
     "create_availability_rule",
     "deactivate_availability_rule",
@@ -69,8 +80,11 @@ __all__ = [
     "slot_to_payload",
     "start_appointment_call",
     "student_appointments",
+    "student_calendar_month",
     "teacher_appointments",
     "teacher_availability_summary",
+    "teacher_calendar_month",
+    "teacher_day_schedule",
     "upcoming_count_for_student",
     "update_booking_settings",
 ]

@@ -15,8 +15,11 @@ from apps.appointments.services import (
     available_days,
     available_slots_for_day,
     book_slot,
+    cancel_available_slot,
     cancel_by_student,
     cancel_by_teacher,
+    clear_day_available_slots,
+    create_availability_for_dates,
     create_availability_rule,
     deactivate_availability_rule,
     get_or_create_booking_settings,
@@ -29,8 +32,11 @@ from apps.appointments.services import (
     slot_to_payload,
     start_appointment_call,
     student_appointments,
+    student_calendar_month,
     teacher_appointments,
     teacher_availability_summary,
+    teacher_calendar_month,
+    teacher_day_schedule,
     upcoming_count_for_student,
     update_booking_settings,
 )
@@ -199,6 +205,119 @@ def teacher_day_slots(request, teacher_id: int):
             "teacher_id": teacher_id,
             "date": day.isoformat(),
             "slots": [slot_to_payload(s) for s in slots],
+        }
+    )
+
+
+@require_GET
+def student_teacher_calendar(request, teacher_id: int):
+    auth_err = _require_auth(request)
+    if auth_err:
+        return auth_err
+    teacher = get_object_or_404(User, pk=teacher_id, teacher_profile__isnull=False)
+    try:
+        payload = student_calendar_month(teacher, month=request.GET.get("month"))
+    except AppointmentError as exc:
+        return _error(exc)
+    return JsonResponse({"success": True, "teacher_id": teacher_id, **payload})
+
+
+# ---------------------------------------------------------------------------
+# Teacher calendar / simple availability
+# ---------------------------------------------------------------------------
+
+
+@require_GET
+def teacher_own_calendar(request):
+    err, teacher = _require_teacher(request)
+    if err:
+        return err
+    try:
+        payload = teacher_calendar_month(teacher, month=request.GET.get("month"))
+    except AppointmentError as exc:
+        return _error(exc)
+    return JsonResponse({"success": True, **payload})
+
+
+@require_GET
+def teacher_own_day(request):
+    err, teacher = _require_teacher(request)
+    if err:
+        return err
+    day = _parse_day(request.GET.get("date"))
+    if not day:
+        return JsonResponse(
+            {"success": False, "message": "التاريخ مطلوب.", "code": "date_required"},
+            status=400,
+        )
+    payload = teacher_day_schedule(teacher, day, request=request)
+    return JsonResponse({"success": True, **payload})
+
+
+@csrf_exempt
+@require_POST
+def teacher_create_availability(request):
+    err, teacher = _require_teacher(request)
+    if err:
+        return err
+    data = _parse_json(request)
+    try:
+        rules = create_availability_for_dates(teacher, data)
+    except AppointmentError as exc:
+        return _error(exc)
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "تم إضافة الأوقات المتاحة.",
+            "rules": [rule_to_payload(r) for r in rules],
+            "created_count": len(rules),
+        },
+        status=201,
+    )
+
+
+@csrf_exempt
+@require_POST
+def teacher_cancel_slot(request, slot_id: int):
+    err, teacher = _require_teacher(request)
+    if err:
+        return err
+    try:
+        slot = cancel_available_slot(teacher, slot_id)
+    except AppointmentError as exc:
+        return _error(exc)
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "تم حذف الفترة المتاحة.",
+            "slot": slot_to_payload(slot),
+        }
+    )
+
+
+@csrf_exempt
+@require_POST
+def teacher_clear_day(request):
+    err, teacher = _require_teacher(request)
+    if err:
+        return err
+    data = _parse_json(request)
+    day = _parse_day(data.get("date") or request.GET.get("date"))
+    if not day:
+        return JsonResponse(
+            {"success": False, "message": "التاريخ مطلوب.", "code": "date_required"},
+            status=400,
+        )
+    try:
+        cleared = clear_day_available_slots(teacher, day)
+    except AppointmentError as exc:
+        return _error(exc)
+    return JsonResponse(
+        {
+            "success": True,
+            "message": "تم حذف الأوقات غير المحجوزة لهذا اليوم.",
+            "date": day.isoformat(),
+            "cleared_count": cleared,
         }
     )
 

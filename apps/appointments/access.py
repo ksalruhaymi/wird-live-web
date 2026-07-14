@@ -22,6 +22,7 @@ def user_can_override_status(user) -> bool:
 
 
 def appointments_queryset_for(user):
+    """Web monitoring: only users with view_all see appointments."""
     qs = Appointment.objects.select_related(
         "slot",
         "teacher",
@@ -32,7 +33,7 @@ def appointments_queryset_for(user):
     )
     if user_can_view_all_appointments(user):
         return qs
-    return qs.filter(teacher=user)
+    return qs.none()
 
 
 def get_appointment_for_user(user, pk: int) -> Appointment | None:
@@ -40,19 +41,12 @@ def get_appointment_for_user(user, pk: int) -> Appointment | None:
 
 
 def rules_queryset_for(user):
-    qs = AvailabilityRule.objects.select_related("teacher")
-    if user_can_view_all_appointments(user) and user_can_manage_schedule(user):
-        # Supervisors with schedule manage still typically shouldn't edit others'
-        # schedule in v1 — only teachers manage own. view_all without being teacher
-        # uses empty for schedule pages unless teacher.
-        pass
-    return qs.filter(teacher=user)
+    """Schedule rules are managed from mobile; web no longer lists them."""
+    return AvailabilityRule.objects.none()
 
 
 def exceptions_queryset_for(user):
-    return AvailabilityException.objects.filter(teacher=user).select_related(
-        "teacher", "source_rule"
-    )
+    return AvailabilityException.objects.none()
 
 
 def schedule_owner(user):

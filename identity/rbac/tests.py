@@ -97,6 +97,8 @@ class DualReadPermissionTests(TestCase):
         self.assertTrue(user.has_permission("web.dashboard.access"))
         self.assertTrue(user.has_permission("web.rbac.access"))
         self.assertTrue(user.has_permission("mobile.nav.management.view"))
+        self.assertTrue(user.has_permission("appointments.view_all"))
+        self.assertTrue(user.has_permission("web.appointments.view_all"))
 
     def test_supervisor_permissions(self):
         user = self.supervisor_user
@@ -108,16 +110,22 @@ class DualReadPermissionTests(TestCase):
         self.assertFalse(user.has_permission("web.rbac.access"))
         self.assertTrue(user.has_permission("recordings.view"))
         self.assertTrue(user.has_permission("shared.recordings.play_all"))
+        self.assertTrue(user.has_permission("appointments.view_all"))
+        self.assertTrue(user.has_permission("web.appointments.view_all"))
+        self.assertFalse(user.has_permission("appointments.manage_schedule"))
+        self.assertFalse(user.has_permission("appointments.manage_bookings"))
+        self.assertFalse(user.has_permission("appointments.override_status"))
 
     def test_teacher_permissions(self):
         user = self.teacher_user
-        # Teachers may enter the dashboard solely for appointments management.
-        self.assertTrue(user.has_permission("dashboard.access"))
-        self.assertTrue(user.has_permission("web.dashboard.access"))
-        self.assertTrue(user.has_permission("appointments.view"))
-        self.assertTrue(user.has_permission("appointments.manage_schedule"))
-        self.assertTrue(user.has_permission("appointments.manage_bookings"))
+        # Teachers manage appointments from mobile only — no dashboard access.
+        self.assertFalse(user.has_permission("dashboard.access"))
+        self.assertFalse(user.has_permission("web.dashboard.access"))
+        self.assertFalse(user.has_permission("appointments.view"))
         self.assertFalse(user.has_permission("appointments.view_all"))
+        self.assertFalse(user.has_permission("appointments.manage_schedule"))
+        self.assertFalse(user.has_permission("appointments.manage_bookings"))
+        self.assertTrue(user.has_permission("mobile.nav.appointments.view"))
         self.assertTrue(user.has_permission("mobile.teacher.home.view"))
         self.assertTrue(user.has_permission("shared.profile.update"))
         self.assertFalse(user.has_permission("management.teachers.view"))
