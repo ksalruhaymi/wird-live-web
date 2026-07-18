@@ -124,9 +124,7 @@ def get_latest_interview_recording_for_teacher(teacher_user):
 
 
 def interview_recording_payload(rec: CallRecording) -> dict:
-    has_recording = bool(object_key_for_recording(rec)) and (
-        rec.recording_status == CallRecording.RecordingStatus.COMPLETED
-    )
+    has_recording = bool(rec.is_playable)
     return {
         "id": rec.id,
         "call_id": rec.call_session_id,

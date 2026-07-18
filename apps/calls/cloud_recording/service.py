@@ -383,7 +383,8 @@ def stop_and_finalize_recording_for_call_id(call_id: int) -> dict:
     except CallRecording.DoesNotExist:
         return {"ok": True, "call_id": call_id, "recording_status": "missing"}
     rec.refresh_from_db()
-    if not rec.is_terminal:
+    # Rematch even when terminal-but-not-playable (e.g. completed with m3u8).
+    if (not rec.is_terminal) or (not rec.is_playable):
         try_finalize_recording_files(rec, allow_expire=True)
         rec.refresh_from_db()
     return {
@@ -419,15 +420,35 @@ def try_finalize_recording_files(
     *,
     allow_expire: bool = True,
 ) -> bool:
-    """Best-effort: re-query Agora for a missing object key after stop.
+    """Best-effort: re-query Agora / rematch R2 for a playable object key.
 
     Returns True when a playable object key was persisted.
     """
+    from apps.calls.recording_storage import (
+        find_playable_object_key_for_recording,
+        is_playable_object_key,
+    )
+
     existing_key = (rec.recording_object_key or "").strip()
-    if existing_key:
+    if existing_key and is_playable_object_key(existing_key):
         if rec.recording_status != CallRecording.RecordingStatus.COMPLETED:
             _mark_recording_ready(rec, existing_key)
         return True
+
+    # Non-playable key (e.g. m3u8) or missing: try rematch from R2 siblings first.
+    rematched = find_playable_object_key_for_recording(rec)
+    if rematched and is_playable_object_key(rematched):
+        _mark_recording_ready(rec, rematched)
+        logger.info(
+            "recording_ready call_id=%s via=r2_rematch key_ext=%s",
+            rec.call_session_id,
+            rematched.rsplit(".", 1)[-1],
+        )
+        return True
+
+    if rec.is_terminal and existing_key and not is_playable_object_key(existing_key):
+        # Completed-with-playlist: keep row, but not playable until rematch succeeds.
+        return False
 
     if rec.is_terminal:
         return False
@@ -539,9 +560,19 @@ def _enter_processing(rec: CallRecording, call: CallSession, *, message: str) ->
 
 
 def _mark_recording_ready(rec: CallRecording, object_key: str) -> None:
+    from apps.calls.recording_storage import is_playable_object_key
+
+    key = (object_key or "").strip().lstrip("/")
+    if not key or not is_playable_object_key(key):
+        logger.warning(
+            "recording_ready_rejected call_id=%s reason=non_playable_key",
+            getattr(rec, "call_session_id", None),
+        )
+        return
+
     now = timezone.now()
-    rec.recording_object_key = object_key
-    rec.recording_url = _legacy_public_url(object_key)
+    rec.recording_object_key = key
+    rec.recording_url = _legacy_public_url(key)
     rec.recording_status = CallRecording.RecordingStatus.COMPLETED
     rec.recording_error = ""
     rec.failure_code = ""
@@ -701,20 +732,17 @@ def _extract_file_list(payload: dict) -> list[dict]:
 
 
 def _pick_best_file_name(file_list: list[dict]) -> str:
+    """Prefer final media (mp4 > m4a > aac > mp3). Never pick m3u8/ts/m2t."""
+    from apps.calls.recording_storage import pick_best_playable_object_key
+
     if not file_list:
         return ""
-
-    def score(item: dict) -> tuple[int, int]:
-        name = (item.get("fileName") or item.get("filename") or "").lower()
-        track = (item.get("trackType") or "").lower()
-        playable = 1 if item.get("isPlayable") else 0
-        is_mp4 = 1 if name.endswith(".mp4") else 0
-        is_audio = 1 if track == "audio" or name.endswith(".mp4") else 0
-        is_video = 1 if track in {"video", "audio_and_video"} else 0
-        return (playable, is_mp4 + is_audio + is_video)
-
-    best = sorted(file_list, key=score, reverse=True)[0]
-    return (best.get("fileName") or best.get("filename") or "").strip()
+    names: list[str] = []
+    for item in file_list:
+        name = (item.get("fileName") or item.get("filename") or "").strip()
+        if name:
+            names.append(name)
+    return pick_best_playable_object_key(names)
 
 
 def _pick_object_key(file_list: list[dict]) -> str:

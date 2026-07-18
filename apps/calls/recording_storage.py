@@ -19,9 +19,51 @@ KNOWN_PUBLIC_BASE_URLS = (
     "https://recordings.wird.me/",
 )
 
+# Final media clients can play. Playlist/segments are never playable alone.
+PLAYABLE_EXTENSIONS: tuple[str, ...] = (".mp4", ".m4a", ".aac", ".mp3")
+NON_PLAYABLE_EXTENSIONS: tuple[str, ...] = (".m3u8", ".ts", ".m2t", ".m2ts")
+
 
 class RecordingStorageError(Exception):
     """Raised when a signed playback URL cannot be generated."""
+
+
+def _lower_name(value: str) -> str:
+    return (value or "").strip().lower()
+
+
+def playable_extension_rank(object_key_or_name: str) -> int:
+    """Higher rank is preferred. Returns -1 when not a playable final file."""
+    name = _lower_name(object_key_or_name)
+    if not name:
+        return -1
+    for ext in NON_PLAYABLE_EXTENSIONS:
+        if name.endswith(ext):
+            return -1
+    # Prefer earlier entries in PLAYABLE_EXTENSIONS (mp4 first).
+    for index, ext in enumerate(PLAYABLE_EXTENSIONS):
+        if name.endswith(ext):
+            return len(PLAYABLE_EXTENSIONS) - index
+    return -1
+
+
+def is_playable_object_key(object_key: str) -> bool:
+    """True only for supported final media extensions (mp4/m4a/aac/mp3)."""
+    return playable_extension_rank(object_key) > 0
+
+
+def pick_best_playable_object_key(candidates: list[str]) -> str:
+    """Pick the best playable key from names/keys; empty when none qualify."""
+    ranked: list[tuple[int, str]] = []
+    for raw in candidates:
+        key = (raw or "").strip().lstrip("/")
+        rank = playable_extension_rank(key)
+        if rank > 0:
+            ranked.append((rank, key))
+    if not ranked:
+        return ""
+    ranked.sort(key=lambda item: item[0], reverse=True)
+    return ranked[0][1]
 
 
 def known_public_base_urls() -> tuple[str, ...]:
@@ -61,10 +103,8 @@ def object_key_from_public_url(url: str) -> str:
 
 def playback_content_type_for_key(object_key: str) -> str:
     """Return an HTML source type for the recorded object key."""
-    name = (object_key or "").lower()
-    if name.endswith(".m3u8"):
-        return "application/vnd.apple.mpegurl"
-    if name.endswith(".mp4"):
+    name = _lower_name(object_key)
+    if name.endswith(".m4a") or name.endswith(".aac") or name.endswith(".mp4"):
         return "audio/mp4"
     if name.endswith(".mp3"):
         return "audio/mpeg"
@@ -77,6 +117,82 @@ def object_key_for_recording(recording: CallRecording) -> str:
     if key:
         return key
     return object_key_from_public_url(recording.recording_url or "")
+
+
+def prefix_for_recording_objects(recording: CallRecording) -> str:
+    """Directory prefix used to list sibling objects for rematch."""
+    current = object_key_for_recording(recording)
+    if current and "/" in current:
+        return current.rsplit("/", 1)[0].rstrip("/") + "/"
+    file_prefix = (
+        getattr(settings, "AGORA_RECORDING_FILE_PREFIX", "wird-live") or "wird-live"
+    ).strip().strip("/")
+    call_id = getattr(recording, "call_session_id", None)
+    if call_id:
+        return f"{file_prefix}/call_call_{call_id}"
+    return f"{file_prefix}/" if file_prefix else ""
+
+
+def list_object_keys_with_prefix(prefix: str, *, max_keys: int = 200) -> list[str]:
+    """List R2 object keys under a prefix (no deletes)."""
+    clean_prefix = (prefix or "").strip().lstrip("/")
+    if not clean_prefix:
+        return []
+
+    bucket = (
+        getattr(settings, "AGORA_RECORDING_STORAGE_BUCKET", "") or ""
+    ).strip()
+    if not bucket:
+        raise RecordingStorageError("R2 bucket is not configured.")
+
+    client = _get_r2_client()
+    keys: list[str] = []
+    continuation: str | None = None
+    while len(keys) < max_keys:
+        kwargs: dict = {
+            "Bucket": bucket,
+            "Prefix": clean_prefix,
+            "MaxKeys": min(100, max_keys - len(keys)),
+        }
+        if continuation:
+            kwargs["ContinuationToken"] = continuation
+        response = client.list_objects_v2(**kwargs)
+        for item in response.get("Contents") or []:
+            key = (item.get("Key") or "").strip()
+            if key:
+                keys.append(key)
+        if not response.get("IsTruncated"):
+            break
+        continuation = response.get("NextContinuationToken")
+        if not continuation:
+            break
+    return keys
+
+
+def find_playable_object_key_for_recording(recording: CallRecording) -> str:
+    """
+    Resolve a playable final media key for a recording.
+
+    Prefers an already-playable stored key; otherwise lists R2 siblings under
+    the same prefix and picks mp4 > m4a > aac > mp3.
+    """
+    current = object_key_for_recording(recording)
+    if is_playable_object_key(current):
+        return current
+
+    prefix = prefix_for_recording_objects(recording)
+    if not prefix:
+        return ""
+    try:
+        siblings = list_object_keys_with_prefix(prefix)
+    except RecordingStorageError:
+        logger.warning(
+            "recording_rematch_list_failed recording_id=%s prefix=%s",
+            getattr(recording, "id", None),
+            prefix,
+        )
+        return ""
+    return pick_best_playable_object_key(siblings)
 
 
 def _get_r2_client():
@@ -107,6 +223,8 @@ def generate_recording_signed_url(object_key: str) -> tuple[str, int]:
     key = (object_key or "").strip()
     if not key:
         raise RecordingStorageError("Recording object key is missing.")
+    if not is_playable_object_key(key):
+        raise RecordingStorageError("Recording object is not a playable media file.")
 
     bucket = (
         getattr(settings, "AGORA_RECORDING_STORAGE_BUCKET", "") or ""

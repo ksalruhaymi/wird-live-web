@@ -373,7 +373,11 @@ class CallRecording(models.Model):
 
     @property
     def is_playable(self) -> bool:
-        return (
-            self.recording_status == self.RecordingStatus.COMPLETED
-            and bool((self.recording_object_key or "").strip())
+        from apps.calls.recording_storage import (
+            is_playable_object_key,
+            object_key_for_recording,
         )
+
+        if self.recording_status != self.RecordingStatus.COMPLETED:
+            return False
+        return is_playable_object_key(object_key_for_recording(self))

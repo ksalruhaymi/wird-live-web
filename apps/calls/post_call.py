@@ -83,12 +83,18 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
     else:
         other_name = student_display_name(rec.student)
 
-    from apps.calls.recording_storage import object_key_for_recording
+    from apps.calls.recording_storage import (
+        is_playable_object_key,
+        object_key_for_recording,
+    )
 
     status = rec.recording_status or CallRecording.RecordingStatus.IDLE
-    # Canonical playable terminal status is `completed` (never a separate `ready`).
-    has_file = bool(object_key_for_recording(rec))
-    is_playable = status == CallRecording.RecordingStatus.COMPLETED and has_file
+    # Canonical playable terminal: completed + supported final media key.
+    key = object_key_for_recording(rec)
+    is_playable = (
+        status == CallRecording.RecordingStatus.COMPLETED
+        and is_playable_object_key(key)
+    )
     has_recording = is_playable
     is_terminal = status in CallRecording.TERMINAL_STATUSES
     user_message = _recording_user_message(status, is_playable)

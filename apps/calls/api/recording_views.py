@@ -8,6 +8,7 @@ from apps.calls.post_call import recording_to_payload
 from apps.calls.recording_storage import (
     RecordingStorageError,
     generate_recording_signed_url,
+    is_playable_object_key,
     object_key_for_recording,
     user_can_access_recording,
 )
@@ -49,9 +50,16 @@ def my_recordings(request):
     pending = [
         rec
         for rec in qs[:8]
-        if not object_key_for_recording(rec)
-        and rec.recording_status
-        in CallRecording.PREPARING_STATUSES
+        if (
+            not is_playable_object_key(object_key_for_recording(rec))
+            and (
+                rec.recording_status in CallRecording.PREPARING_STATUSES
+                or (
+                    rec.recording_status == CallRecording.RecordingStatus.COMPLETED
+                    and not rec.is_playable
+                )
+            )
+        )
     ]
     for rec in pending[:3]:
         try:
@@ -84,7 +92,7 @@ def recording_signed_url(request, pk: int):
         )
 
     object_key = object_key_for_recording(recording)
-    if not object_key:
+    if not object_key or not is_playable_object_key(object_key):
         return JsonResponse(
             {"success": False, "message": "لا يوجد ملف تسجيل متاح."},
             status=404,

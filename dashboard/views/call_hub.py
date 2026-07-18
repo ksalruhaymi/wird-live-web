@@ -18,6 +18,7 @@ from apps.calls.rating_service import CATEGORY_LABELS_AR
 from apps.calls.recording_storage import (
     RecordingStorageError,
     generate_recording_signed_url,
+    is_playable_object_key,
     object_key_for_recording,
     playback_content_type_for_key,
 )
@@ -79,7 +80,9 @@ def _attach_playback_urls(rows) -> None:
         row.playback_unavailable = False
 
         object_key = object_key_for_recording(row)
-        if not object_key:
+        if not object_key or not is_playable_object_key(object_key):
+            if object_key:
+                row.playback_unavailable = True
             continue
 
         row.signed_playback_type = playback_content_type_for_key(object_key)
@@ -124,8 +127,8 @@ def _recording_ui_summary(recording: CallRecording | None) -> dict:
             "recording_id": None,
         }
     return {
-        "has_recording": True,
-        "playable": bool(object_key_for_recording(recording)),
+        "has_recording": bool(recording.is_playable),
+        "playable": bool(recording.is_playable),
         "recording_id": recording.id,
     }
 
