@@ -381,6 +381,14 @@ AGORA_RECORDING_FILE_PREFIX = (
 AGORA_RECORDING_PUBLIC_BASE_URL = (
     os.getenv("AGORA_RECORDING_PUBLIC_BASE_URL", "") or ""
 ).strip()
+# Agora Notifications secret (Console → Project → Notifications).
+# Used only for HMAC-SHA1 / HMAC-SHA256 signature verification of webhooks.
+# Never accept query-string or plain-text token auth for this endpoint.
+AGORA_WEBHOOK_SECRET = (os.getenv("AGORA_WEBHOOK_SECRET", "") or "").strip()
+# Max allowed |now - notifyMs| skew for webhook replay protection (seconds).
+AGORA_WEBHOOK_MAX_SKEW_SECONDS = int(
+    os.getenv("AGORA_WEBHOOK_MAX_SKEW_SECONDS", "600") or "600"
+)
 # Presigned GET URL lifetime for private call recordings (seconds).
 RECORDING_SIGNED_URL_EXPIRES_SECONDS = int(
     os.getenv("RECORDING_SIGNED_URL_EXPIRES_SECONDS", "600") or "600"

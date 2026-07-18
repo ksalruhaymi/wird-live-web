@@ -51,16 +51,11 @@ def my_recordings(request):
         for rec in qs[:8]
         if not object_key_for_recording(rec)
         and rec.recording_status
-        in {
-            CallRecording.RecordingStatus.STOPPING,
-            CallRecording.RecordingStatus.RECORDING,
-            CallRecording.RecordingStatus.STARTING,
-            CallRecording.RecordingStatus.COMPLETED,
-        }
+        in CallRecording.PREPARING_STATUSES
     ]
     for rec in pending[:3]:
         try:
-            try_finalize_recording_files(rec)
+            try_finalize_recording_files(rec, allow_expire=True)
         except Exception:
             continue
 

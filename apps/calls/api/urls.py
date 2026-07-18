@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import evaluation_views, recording_views, views
+from . import agora_webhook, evaluation_views, recording_views, views
 
 app_name = "calls_api"
 
@@ -15,6 +15,11 @@ urlpatterns = [
     path("calls/<int:pk>/reject/", views.reject_call, name="reject"),
     path("calls/<int:pk>/cancel/", views.cancel_call, name="cancel"),
     path("calls/<int:pk>/end/", views.end_call, name="end"),
+    path(
+        "agora/recording-webhook/",
+        agora_webhook.agora_recording_webhook,
+        name="agora-recording-webhook",
+    ),
     path(
         "evaluations/questions/",
         evaluation_views.rating_questions,

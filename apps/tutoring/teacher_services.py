@@ -60,13 +60,33 @@ def teacher_display_name(user) -> str:
 
 
 def _active_teacher_ids() -> set[int]:
+    from datetime import timedelta
+
+    from django.db.models import Q
+    from django.utils import timezone
+
     from apps.calls.models import CallSession
 
+    # Only real in-progress calls block. Recording processing never blocks.
+    # Ignore stale ENDING rows so a hung end cannot lock the teacher forever.
+    ending_cutoff = timezone.now() - timedelta(minutes=2)
     return set(
         CallSession.objects.filter(
-            status=CallSession.Status.ACTIVE,
             teacher_id__isnull=False,
-        ).values_list("teacher_id", flat=True)
+        )
+        .filter(
+            Q(status=CallSession.Status.ACTIVE)
+            | Q(
+                status=CallSession.Status.ENDING,
+                end_requested_at__gt=ending_cutoff,
+            )
+            | Q(
+                status=CallSession.Status.ENDING,
+                end_requested_at__isnull=True,
+                updated_at__gt=ending_cutoff,
+            )
+        )
+        .values_list("teacher_id", flat=True)
     )
 
 

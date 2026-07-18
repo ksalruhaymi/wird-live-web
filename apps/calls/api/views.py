@@ -230,8 +230,29 @@ def end_call(request, pk):
     if error:
         return JsonResponse({"success": False, "message": error}, status=403)
 
+    recording_status = ""
+    recording_pending = bool(getattr(updated, "_recording_pending", False))
+    try:
+        rec = updated.recording
+        recording_status = rec.recording_status or ""
+        recording_pending = recording_pending or rec.is_preparing
+    except Exception:
+        pass
+
+    payload = call_to_payload(updated, request.user, request)
     return JsonResponse(
-        {"success": True, "call": call_to_payload(updated, request.user, request)}
+        {
+            "success": True,
+            "call": payload,
+            "call_status": updated.status,
+            "recording_status": recording_status,
+            "recording_pending": recording_pending,
+            "message": (
+                "تم إنهاء المكالمة، ويجري تجهيز التسجيل في الخلفية."
+                if recording_pending
+                else "تم إنهاء المكالمة."
+            ),
+        }
     )
 
 

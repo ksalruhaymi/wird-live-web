@@ -86,19 +86,63 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
     from apps.calls.recording_storage import object_key_for_recording
 
     status = rec.recording_status or CallRecording.RecordingStatus.IDLE
-    has_recording = bool(object_key_for_recording(rec)) and (
-        status == CallRecording.RecordingStatus.COMPLETED
-    )
+    # Canonical playable terminal status is `completed` (never a separate `ready`).
+    has_file = bool(object_key_for_recording(rec))
+    is_playable = status == CallRecording.RecordingStatus.COMPLETED and has_file
+    has_recording = is_playable
+    is_terminal = status in CallRecording.TERMINAL_STATUSES
+    user_message = _recording_user_message(status, is_playable)
+    next_refresh = 0 if is_terminal else (8 if status == "processing" else 3)
     return {
         "id": rec.id,
         "call_id": rec.call_session_id,
+        "call_status": getattr(rec.call_session, "status", ""),
         "session_type": rec.session_type,
         "type": rec.session_type,
         "other_party_name": other_name,
         "has_recording": has_recording,
         "recording_status": status,
+        "is_terminal": is_terminal,
+        "is_playable": is_playable,
+        "is_preparing": status in CallRecording.PREPARING_STATUSES,
+        "failure_code": rec.failure_code or "",
+        "user_message": user_message,
+        "can_retry_reconciliation": status
+        in {
+            CallRecording.RecordingStatus.FAILED,
+            CallRecording.RecordingStatus.EXPIRED,
+            CallRecording.RecordingStatus.PROCESSING,
+            CallRecording.RecordingStatus.STOPPING,
+        }
+        and not is_playable,
+        "next_refresh_after_seconds": next_refresh,
+        "processing_started_at": (
+            rec.processing_started_at.isoformat()
+            if getattr(rec, "processing_started_at", None)
+            else None
+        ),
+        "ready_at": (
+            rec.ready_at.isoformat() if getattr(rec, "ready_at", None) else None
+        ),
         "duration_seconds": rec.duration_seconds,
         "started_at": rec.started_at.isoformat() if rec.started_at else None,
         "ended_at": rec.ended_at.isoformat() if rec.ended_at else None,
         "created_at": rec.created_at.isoformat() if rec.created_at else None,
     }
+
+
+def _recording_user_message(status: str, is_playable: bool) -> str:
+    if is_playable or status == CallRecording.RecordingStatus.COMPLETED:
+        return ""
+    return {
+        CallRecording.RecordingStatus.RECORDING: "المكالمة ما زالت جارية",
+        CallRecording.RecordingStatus.STARTING: "جاري بدء التسجيل",
+        CallRecording.RecordingStatus.STOP_REQUESTED: "جاري إنهاء التسجيل",
+        CallRecording.RecordingStatus.STOPPING: "جاري إنهاء التسجيل",
+        CallRecording.RecordingStatus.PROCESSING: "جاري تجهيز التسجيل",
+        CallRecording.RecordingStatus.NO_MEDIA: "لم يتم إنشاء تسجيل لهذه المكالمة",
+        CallRecording.RecordingStatus.FAILED: "تعذر تجهيز التسجيل",
+        CallRecording.RecordingStatus.EXPIRED: "انتهت جلسة التسجيل قبل اكتمال المعالجة",
+        CallRecording.RecordingStatus.SKIPPED: "لا يوجد تسجيل لهذه المكالمة",
+        CallRecording.RecordingStatus.CANCELLED: "تم إلغاء التسجيل",
+    }.get(status, "جاري تجهيز التسجيل")

@@ -20,7 +20,7 @@ from identity.accounts.auth.profile_service import _resolve_profile_image_url
 from identity.accounts.user_types import resolve_user_type_slug
 
 from .exceptions import CallProviderError, CallValidationError
-from .models import CallSession
+from .models import CallRecording, CallSession
 from .token_builder import (
     assign_channel_name,
     build_token_for_uid,
@@ -315,31 +315,78 @@ def cancel_pending_call(call: CallSession, student_user) -> tuple[CallSession | 
 
 
 def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str | None]:
+    """End a call quickly and enqueue recording stop asynchronously.
+
+    Idempotent: repeated end requests return the terminal call without
+    re-running billing or blocking on Agora.
+    """
     if not _can_view_call(call, user):
         return None, "غير مصرح بإنهاء هذه المكالمة."
-    if call.status in {
-        CallSession.Status.ENDED,
-        CallSession.Status.REJECTED,
-        CallSession.Status.MISSED,
-        CallSession.Status.CANCELLED,
-    }:
-        return call, None
 
-    call.status = CallSession.Status.ENDED
-    call.ended_at = timezone.now()
-    call.save(update_fields=["status", "ended_at", "updated_at"])
+    from django.db import transaction
+
+    now = timezone.now()
+    with transaction.atomic():
+        locked = (
+            CallSession.objects.select_for_update(of=("self",))
+            .select_related("student", "teacher")
+            .get(pk=call.pk)
+        )
+        if locked.status in CallSession.TERMINAL_STATUSES:
+            return locked, None
+
+        locked.status = CallSession.Status.ENDED
+        locked.end_requested_at = locked.end_requested_at or now
+        locked.ended_at = locked.ended_at or now
+        locked.finalized_at = now
+        locked.end_reason = locked.end_reason or "user_end"
+        locked.save(
+            update_fields=[
+                "status",
+                "end_requested_at",
+                "ended_at",
+                "finalized_at",
+                "end_reason",
+                "updated_at",
+            ]
+        )
+        call = locked
+
     if call.teacher_id:
         mark_teacher_online(call.teacher)
 
-    from apps.calls.cloud_recording import stop_cloud_recording_for_call
-
+    # Mark recording stop requested in DB, then enqueue Celery (no Agora HTTP here).
+    # If enqueue fails, status stays stop_requested for periodic reconcile.
+    recording_pending = False
     try:
-        stop_cloud_recording_for_call(call)
+        from apps.calls.cloud_recording.service import request_stop_cloud_recording
+        from apps.calls.tasks import enqueue_stop_and_finalize_recording
+
+        rec = request_stop_cloud_recording(call)
+        recording_pending = rec.is_preparing
+        if recording_pending or rec.recording_status in {
+            CallRecording.RecordingStatus.STOP_REQUESTED,
+            CallRecording.RecordingStatus.STOPPING,
+            CallRecording.RecordingStatus.PROCESSING,
+            CallRecording.RecordingStatus.RECORDING,
+            CallRecording.RecordingStatus.STARTING,
+        }:
+            mode = enqueue_stop_and_finalize_recording(call.id)
+            if mode == "deferred":
+                import logging
+
+                logging.getLogger(__name__).warning(
+                    "recording_stop_deferred call_id=%s status=%s "
+                    "(awaiting reconcile)",
+                    call.id,
+                    rec.recording_status,
+                )
     except Exception:
         import logging
 
         logging.getLogger(__name__).exception(
-            "Cloud recording stop failed for call %s (call not affected)", call.id
+            "Cloud recording stop enqueue failed for call %s (call not affected)",
+            call.id,
         )
 
     from apps.calls.post_call import ensure_post_call_artifacts
@@ -349,6 +396,9 @@ def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str |
     from apps.subscription.services import deduct_call_minutes_for_session
 
     deduct_call_minutes_for_session(call)
+
+    # Stash for API response enrichment without changing return type callers.
+    call._recording_pending = recording_pending  # type: ignore[attr-defined]
     return call, None
 
 

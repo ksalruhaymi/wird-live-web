@@ -17,10 +17,12 @@ class CallSession(models.Model):
     class Status(models.TextChoices):
         PENDING = "pending", "بانتظار المعلم"
         ACTIVE = "active", "نشط"
+        ENDING = "ending", "جاري الإنهاء"
         ENDED = "ended", "منتهي"
         REJECTED = "rejected", "مرفوض"
         MISSED = "missed", "لم يتم الرد"
         CANCELLED = "cancelled", "ملغي"
+        FAILED = "failed", "فشل"
 
     student = models.ForeignKey(
         settings.AUTH_USER_MODEL,
@@ -58,6 +60,11 @@ class CallSession(models.Model):
     )
     started_at = models.DateTimeField(null=True, blank=True)
     ended_at = models.DateTimeField(null=True, blank=True)
+    end_requested_at = models.DateTimeField(null=True, blank=True)
+    end_reason = models.CharField(max_length=64, blank=True, default="")
+    end_error = models.CharField(max_length=255, blank=True, default="")
+    last_heartbeat_at = models.DateTimeField(null=True, blank=True)
+    finalized_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_interview_call = models.BooleanField(
@@ -71,6 +78,25 @@ class CallSession(models.Model):
         blank=True,
         verbose_name="دقائق مخصومة من الرصيد",
     )
+
+    TERMINAL_STATUSES = frozenset(
+        {
+            Status.ENDED,
+            Status.REJECTED,
+            Status.MISSED,
+            Status.CANCELLED,
+            Status.FAILED,
+        }
+    )
+
+    @property
+    def is_terminal(self) -> bool:
+        return self.status in self.TERMINAL_STATUSES
+
+    @property
+    def blocks_new_calls(self) -> bool:
+        """Whether this session should keep the teacher busy."""
+        return self.status in {self.Status.ACTIVE, self.Status.ENDING}
 
     class Meta:
         ordering = ["-created_at", "-id"]
@@ -255,10 +281,35 @@ class CallRecording(models.Model):
         IDLE = "idle", "Idle"
         STARTING = "starting", "Starting"
         RECORDING = "recording", "Recording"
+        STOP_REQUESTED = "stop_requested", "Stop requested"
         STOPPING = "stopping", "Stopping"
-        COMPLETED = "completed", "Completed"
+        PROCESSING = "processing", "Processing"
+        COMPLETED = "completed", "Completed"  # sole playable terminal status
+        NO_MEDIA = "no_media", "No media"
         FAILED = "failed", "Failed"
+        EXPIRED = "expired", "Expired"
         SKIPPED = "skipped", "Skipped"
+        CANCELLED = "cancelled", "Cancelled"
+
+    TERMINAL_STATUSES = frozenset(
+        {
+            RecordingStatus.COMPLETED,
+            RecordingStatus.NO_MEDIA,
+            RecordingStatus.FAILED,
+            RecordingStatus.EXPIRED,
+            RecordingStatus.SKIPPED,
+            RecordingStatus.CANCELLED,
+        }
+    )
+    PREPARING_STATUSES = frozenset(
+        {
+            RecordingStatus.STARTING,
+            RecordingStatus.RECORDING,
+            RecordingStatus.STOP_REQUESTED,
+            RecordingStatus.STOPPING,
+            RecordingStatus.PROCESSING,
+        }
+    )
 
     call_session = models.OneToOneField(
         CallSession,
@@ -291,6 +342,17 @@ class CallRecording(models.Model):
         default=RecordingStatus.IDLE,
     )
     recording_error = models.TextField(blank=True, default="")
+    stop_requested_at = models.DateTimeField(null=True, blank=True)
+    stopped_at = models.DateTimeField(null=True, blank=True)
+    processing_started_at = models.DateTimeField(null=True, blank=True)
+    ready_at = models.DateTimeField(null=True, blank=True)
+    failed_at = models.DateTimeField(null=True, blank=True)
+    finalized_at = models.DateTimeField(null=True, blank=True)
+    failure_code = models.CharField(max_length=64, blank=True, default="")
+    last_query_at = models.DateTimeField(null=True, blank=True)
+    query_attempts = models.PositiveSmallIntegerField(default=0)
+    stop_attempts = models.PositiveSmallIntegerField(default=0)
+    next_retry_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -300,3 +362,18 @@ class CallRecording(models.Model):
 
     def __str__(self):
         return f"recording_call_{self.call_session_id}"
+
+    @property
+    def is_terminal(self) -> bool:
+        return self.recording_status in self.TERMINAL_STATUSES
+
+    @property
+    def is_preparing(self) -> bool:
+        return self.recording_status in self.PREPARING_STATUSES
+
+    @property
+    def is_playable(self) -> bool:
+        return (
+            self.recording_status == self.RecordingStatus.COMPLETED
+            and bool((self.recording_object_key or "").strip())
+        )
