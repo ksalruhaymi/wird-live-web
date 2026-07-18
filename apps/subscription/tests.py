@@ -25,6 +25,7 @@ from apps.subscription.services import (
     student_can_request_call,
     subscription_minutes_flags,
     sync_balance_status_from_expiry,
+    subscription_to_payload,
 )
 from identity.accounts.user_types import (
     USER_TYPE_ADMIN,
@@ -418,3 +419,73 @@ class SubscriptionExpiryEligibilityTests(TestCase):
         payload = call_eligibility_payload(self.student)
         self.assertFalse(payload["can_call"])
         self.assertFalse(payload["has_active_subscription"])
+
+
+class FreePlanDisplayTests(TestCase):
+    """Zero-price packages must display only «مجاني» (no currency / zeros)."""
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_rbac")
+        cls.free_plan = SubscriptionPlan.objects.create(
+            title="باقة مجانية",
+            duration_months=1,
+            price=Decimal("0.00"),
+            minutes=15,
+            is_active=True,
+            sort_order=1,
+        )
+        cls.paid_plan = SubscriptionPlan.objects.create(
+            title="باقة مدفوعة",
+            duration_months=1,
+            price=Decimal("99.00"),
+            minutes=60,
+            is_active=True,
+            sort_order=2,
+        )
+        cls.student = User.objects.create_user(
+            username="free_plan_student",
+            password="pass12345",
+            user_type=USER_TYPE_STUDENT,
+        )
+
+    def test_plan_is_free_and_display_price(self):
+        self.assertTrue(self.free_plan.is_free)
+        self.assertEqual(self.free_plan.display_price, "مجاني")
+        self.assertNotIn("ريال", self.free_plan.display_price)
+        self.assertNotIn("0", self.free_plan.display_price)
+
+        self.assertFalse(self.paid_plan.is_free)
+        self.assertEqual(self.paid_plan.display_price, "99.00 ريال")
+
+    def test_list_plans_api_exposes_free_fields(self):
+        response = self.client.get(
+            reverse("subscription_api:list-plans"),
+            **MOBILE_API_HEADERS,
+        )
+        self.assertEqual(response.status_code, 200)
+        plans = {p["title"]: p for p in response.json()["plans"]}
+
+        free = plans["باقة مجانية"]
+        self.assertTrue(free["is_free"])
+        self.assertEqual(free["display_price"], "مجاني")
+        self.assertEqual(free["price"], "0.00")
+
+        paid = plans["باقة مدفوعة"]
+        self.assertFalse(paid["is_free"])
+        self.assertEqual(paid["display_price"], "99.00 ريال")
+        self.assertEqual(paid["price"], "99.00")
+
+    def test_subscription_payload_for_free_plan(self):
+        sub, error = create_student_subscription(
+            self.student, plan_id=self.free_plan.id
+        )
+        self.assertIsNone(error)
+        assert sub is not None
+        self.assertTrue(sub.is_free)
+        self.assertEqual(sub.display_price, "مجاني")
+
+        payload = subscription_to_payload(sub, include_display=True)
+        self.assertTrue(payload["is_free"])
+        self.assertEqual(payload["display_price"], "مجاني")
+        self.assertEqual(payload["amount"], "0.00")

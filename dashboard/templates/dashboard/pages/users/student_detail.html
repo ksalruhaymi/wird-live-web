@@ -312,7 +312,7 @@
             {% for row in history_rows %}
             <tr>
               <td class="px-4 py-2">{{ row.subscription.plan_title }}</td>
-              <td class="px-4 py-2">{{ row.subscription.amount }}</td>
+              <td class="px-4 py-2">{{ row.subscription.display_price }}</td>
               <td class="px-4 py-2">{{ row.subscription.start_date|date:"Y-m-d" }}</td>
               <td class="px-4 py-2">{{ row.subscription.end_date|date:"Y-m-d" }}</td>
               <td class="px-4 py-2">{{ row.display_label }}</td>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import User
+from .models import PasswordResetCode, User
 
 
 @admin.register(User)
@@ -39,3 +39,26 @@ class UserAdmin(admin.ModelAdmin):
         ("Meta", {"fields": ("created_by", "date_joined", "last_login")}),
     )
     filter_horizontal = ("roles",)
+
+
+@admin.register(PasswordResetCode)
+class PasswordResetCodeAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "user",
+        "expires_at",
+        "verified_at",
+        "used_at",
+        "attempts_count",
+        "created_at",
+    )
+    list_filter = ("used_at", "verified_at")
+    search_fields = ("user__username", "user__email")
+    raw_id_fields = ("user",)
+    readonly_fields = (
+        "code_hash",
+        "reset_token_hash",
+        "created_at",
+        "updated_at",
+    )
+

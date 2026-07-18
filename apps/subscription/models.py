@@ -5,6 +5,8 @@ from decimal import Decimal
 from django.conf import settings
 from django.db import models
 
+from apps.subscription.pricing import format_display_price, is_free_amount
+
 
 class SubscriptionPlan(models.Model):
     title = models.CharField(max_length=255, verbose_name="اسم الباقة")
@@ -35,6 +37,14 @@ class SubscriptionPlan(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def is_free(self) -> bool:
+        return is_free_amount(self.price)
+
+    @property
+    def display_price(self) -> str:
+        return format_display_price(self.price, with_currency=True)
 
 
 class StudentSubscription(models.Model):
@@ -125,6 +135,14 @@ class StudentSubscription(models.Model):
 
     def __str__(self):
         return f"{self.user_id} — {self.plan_title}"
+
+    @property
+    def is_free(self) -> bool:
+        return is_free_amount(self.amount)
+
+    @property
+    def display_price(self) -> str:
+        return format_display_price(self.amount, with_currency=True)
 
 
 class StudentSubscriptionBalance(models.Model):

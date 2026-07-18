@@ -279,6 +279,8 @@ def subscription_to_payload(sub: StudentSubscription, *, include_display: bool =
         "plan_title": sub.plan_title,
         "duration_months": sub.duration_months,
         "amount": str(sub.amount),
+        "is_free": sub.is_free,
+        "display_price": sub.display_price,
         "start_date": sub.start_date.isoformat(),
         "end_date": sub.end_date.isoformat(),
         "status": sub.status,

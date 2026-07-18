@@ -15,6 +15,12 @@ from identity.accounts.auth.email_verification_service import (
 )
 from identity.accounts.auth.google_auth_service import authenticate_with_google
 from identity.accounts.auth.login_service import login_user
+from identity.accounts.auth.password_reset_service import (
+    confirm_password_reset,
+    request_password_reset,
+    resend_password_reset_code,
+    verify_password_reset_code,
+)
 from identity.accounts.auth.registration_service import (
     register_account,
     validate_registration_payload,
@@ -270,6 +276,71 @@ def verify_email_code_api(request):
         return _error(message or "رمز التحقق غير صالح.", 400)
 
     return JsonResponse({"success": True, "verification_token": token})
+
+
+@csrf_exempt
+@require_POST
+def password_reset_request_api(request):
+    data, err = _parse_json(request)
+    if err:
+        return err
+
+    identifier = (data.get("identifier") or "").strip()
+    ok, message = request_password_reset(identifier, request=request)
+    if not ok:
+        return _error(message, 400)
+    return JsonResponse({"success": True, "message": message})
+
+
+@csrf_exempt
+@require_POST
+def password_reset_resend_api(request):
+    data, err = _parse_json(request)
+    if err:
+        return err
+
+    identifier = (data.get("identifier") or "").strip()
+    ok, message = resend_password_reset_code(identifier, request=request)
+    if not ok:
+        status = 429 if "الانتظار" in message else 400
+        return _error(message, status)
+    return JsonResponse({"success": True, "message": message})
+
+
+@csrf_exempt
+@require_POST
+def password_reset_verify_api(request):
+    data, err = _parse_json(request)
+    if err:
+        return err
+
+    identifier = (data.get("identifier") or "").strip()
+    code = (data.get("code") or "").strip()
+    reset_token, message = verify_password_reset_code(identifier, code)
+    if not reset_token:
+        return _error(message or "رمز التحقق غير صالح.", 400)
+    return JsonResponse({"success": True, "reset_token": reset_token})
+
+
+@csrf_exempt
+@require_POST
+def password_reset_confirm_api(request):
+    data, err = _parse_json(request)
+    if err:
+        return err
+
+    reset_token = (data.get("reset_token") or "").strip()
+    new_password = data.get("new_password") or ""
+    new_password_confirmation = data.get("new_password_confirmation") or ""
+    user, message = confirm_password_reset(
+        request,
+        reset_token=reset_token,
+        new_password=new_password,
+        new_password_confirmation=new_password_confirmation,
+    )
+    if user is None:
+        return _error(message or "تعذر تحديث كلمة المرور.", 400)
+    return _success(user, request)
 
 
 @csrf_exempt

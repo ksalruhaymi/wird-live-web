@@ -13,6 +13,26 @@ urlpatterns = [
     path("check-email/", views.check_email_api, name="check_email"),
     path("send-email-code/", views.send_email_code_api, name="send_email_code"),
     path("verify-email-code/", views.verify_email_code_api, name="verify_email_code"),
+    path(
+        "password-reset/request/",
+        views.password_reset_request_api,
+        name="password_reset_request",
+    ),
+    path(
+        "password-reset/resend/",
+        views.password_reset_resend_api,
+        name="password_reset_resend",
+    ),
+    path(
+        "password-reset/verify/",
+        views.password_reset_verify_api,
+        name="password_reset_verify",
+    ),
+    path(
+        "password-reset/confirm/",
+        views.password_reset_confirm_api,
+        name="password_reset_confirm",
+    ),
     path("profile/", views.profile_api, name="profile"),
     path("profile/update/", views.profile_update_api, name="profile_update"),
     path("profile/avatar/", views.profile_avatar_api, name="profile_avatar"),

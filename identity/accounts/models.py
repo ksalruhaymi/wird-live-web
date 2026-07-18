@@ -157,3 +157,36 @@ class EmailRegistrationVerification(models.Model):
 
     def __str__(self):
         return f"Email verification for {self.email}"
+
+
+class PasswordResetCode(models.Model):
+    """One-time password-reset OTP + temporary reset token (hashed at rest)."""
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="password_reset_codes",
+        verbose_name="المستخدم",
+    )
+    code_hash = models.CharField(max_length=128)
+    expires_at = models.DateTimeField()
+    verified_at = models.DateTimeField(blank=True, null=True)
+    used_at = models.DateTimeField(blank=True, null=True)
+    attempts_count = models.PositiveSmallIntegerField(default=0)
+    max_attempts = models.PositiveSmallIntegerField(default=5)
+    reset_token_hash = models.CharField(max_length=128, blank=True, default="")
+    reset_token_expires_at = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=["user", "-created_at"]),
+            models.Index(fields=["expires_at"]),
+        ]
+        verbose_name = "رمز استعادة كلمة المرور"
+        verbose_name_plural = "رموز استعادة كلمة المرور"
+
+    def __str__(self):
+        return f"Password reset for user={self.user_id}"
+

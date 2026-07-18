@@ -20,6 +20,8 @@ def _plan_payload(plan: SubscriptionPlan) -> dict:
         "title": plan.title,
         "duration_months": plan.duration_months,
         "price": str(plan.price),
+        "is_free": plan.is_free,
+        "display_price": plan.display_price,
         "minutes": plan.minutes,
         "description": plan.description,
         "sort_order": plan.sort_order,
