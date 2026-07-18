@@ -393,3 +393,35 @@ AGORA_WEBHOOK_MAX_SKEW_SECONDS = int(
 RECORDING_SIGNED_URL_EXPIRES_SECONDS = int(
     os.getenv("RECORDING_SIGNED_URL_EXPIRES_SECONDS", "600") or "600"
 )
+
+# ------------------------------------------------------------------------------
+# Celery (shared: dev + prod). Broker via env; no secrets in code.
+# Tasks do not require a result backend — omit unless you add result consumers.
+# ------------------------------------------------------------------------------
+CELERY_BROKER_URL = (
+    os.getenv("CELERY_BROKER_URL", "redis://127.0.0.1:6379/0") or ""
+).strip() or "redis://127.0.0.1:6379/0"
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_ACKS_LATE = True
+CELERY_TASK_REJECT_ON_WORKER_LOST = True
+CELERY_WORKER_PREFETCH_MULTIPLIER = 1
+CELERY_TASK_SOFT_TIME_LIMIT = int(
+    os.getenv("CELERY_TASK_SOFT_TIME_LIMIT", "90") or "90"
+)
+CELERY_TASK_TIME_LIMIT = int(
+    os.getenv("CELERY_TASK_TIME_LIMIT", "120") or "120"
+)
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_ENABLE_UTC = True
+# Never leave retries unbounded at the app level; per-task max_retries apply.
+CELERY_TASK_DEFAULT_RETRY_DELAY = 20
+# Eager mode only when explicitly enabled (tests/local); never default in prod.
+CELERY_TASK_ALWAYS_EAGER = (
+    (os.getenv("CELERY_TASK_ALWAYS_EAGER", "") or "").strip().lower()
+    in {"1", "true", "yes", "on"}
+)
+CELERY_TASK_EAGER_PROPAGATES = True

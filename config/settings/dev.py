@@ -25,7 +25,4 @@ AUTHENTICATION_BACKENDS = [
 
 WHATSAPP_ENABLED = False
 
-
-CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL", "redis://127.0.0.1:6379/0")
-CELERY_ACCEPT_CONTENT = ["json"]
-CELERY_TASK_SERIALIZER = "json"
+# Celery broker/serializers live in base.py (shared with prod).

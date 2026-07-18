@@ -1,6 +1,8 @@
 import os
+
 from celery import Celery
 
+# Matches config.settings.__init__ which selects prod/dev via APP_ENV.
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
 app = Celery("config")
