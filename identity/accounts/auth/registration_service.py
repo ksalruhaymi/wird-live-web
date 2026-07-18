@@ -7,7 +7,11 @@ from django.core.files.uploadedfile import UploadedFile
 from django.db import transaction
 
 from apps.tutoring.models import StudentProfile, TeacherAvailability, TeacherProfile
-from identity.accounts.auth.email_verification_service import consume_verification_token
+from identity.accounts.auth.email_verification_service import (
+    RegistrationSessionError,
+    consume_registration_session,
+    validate_registration_session,
+)
 from identity.accounts.user_types import (
     BLOCKED_REGISTRATION_SLUGS,
     MOBILE_REGISTRATION_SLUGS,
@@ -22,6 +26,12 @@ _USERNAME_PATTERN = re.compile(r"^[\w.@+-]+$")
 _IJAZAH_ALLOWED_EXTENSIONS = {".png", ".jpg", ".jpeg", ".pdf"}
 _IJAZAH_MAX_BYTES = 5 * 1024 * 1024
 
+
+class RegistrationFailed(Exception):
+    def __init__(self, message: str, *, code: str | None = None):
+        self.message = message
+        self.code = code
+        super().__init__(message)
 
 def parse_user_type(raw) -> tuple[int | None, str | None]:
     value = (raw or "").strip().lower()
@@ -87,12 +97,20 @@ def register_account(
     gender: str | None = None,
     riwayat: str = "",
     ijazah_file: UploadedFile | None = None,
+    verification_token: str = "",
 ) -> User:
-    username = username_from_email(email)
+    email_normalized = email.strip().lower()
+    if verification_token:
+        try:
+            consume_registration_session(email_normalized, verification_token)
+        except RegistrationSessionError as exc:
+            raise RegistrationFailed(exc.message, code=exc.code) from exc
+
+    username = username_from_email(email_normalized)
 
     user = User.objects.create_user(
         username=username,
-        email=email.strip().lower(),
+        email=email_normalized,
         password=password,
         full_name=full_name.strip(),
         user_type=user_type_value,
@@ -133,66 +151,82 @@ def validate_registration_payload(
     *,
     ijazah_file: UploadedFile | None = None,
     require_verification_token: bool = False,
-) -> tuple[dict | None, str | None]:
+) -> tuple[dict | None, str | None, str | None]:
+    """
+    Validate registration fields.
+
+    Returns (payload, error_message, error_code).
+    Does NOT consume the registration session — that happens in register_account.
+    """
     full_name = (data.get("full_name") or data.get("name") or "").strip()
     email = (data.get("email") or "").strip().lower()
     password = data.get("password") or ""
     confirm_password = data.get("confirm_password") or data.get("password_confirm") or ""
     user_type_raw = data.get("user_type")
-    verification_token = (data.get("verification_token") or "").strip()
+    verification_token = (
+        data.get("verification_token")
+        or data.get("registration_session_token")
+        or ""
+    ).strip()
 
     if not full_name:
-        return None, "الاسم مطلوب."
+        return None, "الاسم مطلوب.", None
     if not email:
-        return None, "البريد الإلكتروني مطلوب."
+        return None, "البريد الإلكتروني مطلوب.", None
     if "@" not in email:
-        return None, "البريد الإلكتروني غير صالح."
+        return None, "البريد الإلكتروني غير صالح.", None
     if not password:
-        return None, "كلمة المرور مطلوبة."
+        return None, "كلمة المرور مطلوبة.", None
     if confirm_password and confirm_password != password:
-        return None, "كلمة المرور وتأكيدها غير متطابقين."
+        return None, "كلمة المرور وتأكيدها غير متطابقين.", None
 
     if require_verification_token:
         if not verification_token:
-            return None, "رمز التحقق من البريد مطلوب."
-        if not consume_verification_token(email, verification_token):
-            return None, "انتهت صلاحية التحقق من البريد. أعد المحاولة."
+            return None, "جلسة إكمال التسجيل مطلوبة.", "registration_session_invalid"
+        try:
+            validate_registration_session(email, verification_token)
+        except RegistrationSessionError as exc:
+            return None, exc.message, exc.code
 
     user_type_value, type_err = parse_user_type(user_type_raw)
     if type_err:
-        return None, type_err
+        return None, type_err, None
 
     gender, gender_err = parse_gender(data.get("gender"))
     if gender_err:
-        return None, gender_err
+        return None, gender_err, None
 
     if user_type_value not in (USER_TYPE_STUDENT, USER_TYPE_TEACHER):
-        return None, "نوع الحساب غير صالح."
+        return None, "نوع الحساب غير صالح.", None
 
     riwayat = (data.get("riwayat") or "").strip()
     if user_type_value == USER_TYPE_TEACHER:
         if not riwayat:
-            return None, "الروايات مطلوبة."
+            return None, "الروايات مطلوبة.", None
         ijazah_err = validate_ijazah_file(ijazah_file)
         if ijazah_err:
-            return None, ijazah_err
+            return None, ijazah_err, None
 
     username = username_from_email(email)
     if not username:
-        return None, "البريد الإلكتروني غير صالح."
+        return None, "البريد الإلكتروني غير صالح.", None
 
     if User.objects.filter(username__iexact=username).exists():
-        return None, (
-            "اسم المستخدم المستخرج من هذا البريد مستخدم بالفعل. "
-            "يرجى استخدام بريد إلكتروني آخر."
+        return (
+            None,
+            (
+                "اسم المستخدم المستخرج من هذا البريد مستخدم بالفعل. "
+                "يرجى استخدام بريد إلكتروني آخر."
+            ),
+            None,
         )
     if User.objects.filter(email__iexact=email).exists():
-        return None, "هذا البريد مستخدم مسبقًا"
+        return None, "هذا البريد مستخدم مسبقًا", None
 
     try:
         validate_password(password)
     except ValidationError as exc:
-        return None, " ".join(exc.messages)
+        return None, " ".join(exc.messages), None
 
     return {
         "full_name": full_name,
@@ -202,4 +236,5 @@ def validate_registration_payload(
         "gender": gender,
         "riwayat": riwayat,
         "ijazah_file": ijazah_file,
-    }, None
+        "verification_token": verification_token,
+    }, None, None

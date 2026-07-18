@@ -22,6 +22,7 @@ from identity.accounts.auth.password_reset_service import (
     verify_password_reset_code,
 )
 from identity.accounts.auth.registration_service import (
+    RegistrationFailed,
     register_account,
     validate_registration_payload,
 )
@@ -275,7 +276,14 @@ def verify_email_code_api(request):
     if not token:
         return _error(message or "رمز التحقق غير صالح.", 400)
 
-    return JsonResponse({"success": True, "verification_token": token})
+    return JsonResponse(
+        {
+            "success": True,
+            "verification_token": token,
+            "registration_session_token": token,
+            "session_expires_in_seconds": 30 * 60,
+        }
+    )
 
 
 @csrf_exempt
@@ -353,23 +361,27 @@ def register_api(request):
     if err:
         return err
 
-    payload, message = validate_registration_payload(
+    payload, message, error_code = validate_registration_payload(
         data,
         ijazah_file=ijazah_file,
         require_verification_token=True,
     )
     if message:
-        return _error(message, 400)
+        return _error(message, 400, code=error_code)
 
-    user = register_account(
-        full_name=payload["full_name"],
-        email=payload["email"],
-        password=payload["password"],
-        user_type_value=payload["user_type_value"],
-        gender=payload["gender"],
-        riwayat=payload["riwayat"],
-        ijazah_file=payload["ijazah_file"],
-    )
+    try:
+        user = register_account(
+            full_name=payload["full_name"],
+            email=payload["email"],
+            password=payload["password"],
+            user_type_value=payload["user_type_value"],
+            gender=payload["gender"],
+            riwayat=payload["riwayat"],
+            ijazah_file=payload["ijazah_file"],
+            verification_token=payload.get("verification_token") or "",
+        )
+    except RegistrationFailed as exc:
+        return _error(exc.message, 400, code=exc.code)
 
     login(request, user, backend="django.contrib.auth.backends.ModelBackend")
     enforce_single_active_session(request, user)
