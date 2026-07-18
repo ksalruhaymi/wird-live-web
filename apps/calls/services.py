@@ -113,11 +113,18 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
         if uses_agora_rtc(call):
             payload["token_expires_at"] = token_expiry_iso()
 
+    from apps.calls.recording_consent import recording_consent_payload
+
+    payload.update(recording_consent_payload(call, viewer))
     return payload
 
 
 def _activate_call_session(call: CallSession) -> CallSession:
-    """Mark call active and start provider/recording (shared by accept and demo auto-accept)."""
+    """Mark call active and prepare provider.
+
+    Cloud recording does NOT start here. It starts only after both parties
+    submit explicit recording consent (see apps.calls.recording_consent).
+    """
     now = timezone.now()
     call.status = CallSession.Status.ACTIVE
     call.started_at = call.started_at or now
@@ -125,18 +132,6 @@ def _activate_call_session(call: CallSession) -> CallSession:
         assign_channel_name(call)
     ensure_agora_provider(call)
     call.save(update_fields=["status", "started_at", "updated_at"])
-
-    from apps.calls.cloud_recording import start_cloud_recording_for_call
-
-    try:
-        start_cloud_recording_for_call(call)
-    except Exception:
-        import logging
-
-        logging.getLogger(__name__).exception(
-            "Cloud recording start failed for call %s (call not affected)", call.id
-        )
-
     return call
 
 

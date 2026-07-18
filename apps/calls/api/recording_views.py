@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_GET, require_http_methods
 
 from apps.calls.models import CallRecording
 from apps.calls.post_call import recording_to_payload
@@ -111,5 +111,51 @@ def recording_signed_url(request, pk: int):
             "success": True,
             "url": url,
             "expires_in": expires_in,
+        }
+    )
+
+
+
+@csrf_exempt
+@require_http_methods(["DELETE", "POST"])
+def delete_my_recording(request, pk: int):
+    """Delete a recording owned by the authenticated student or teacher."""
+    auth_err = _require_auth(request)
+    if auth_err:
+        return auth_err
+
+    recording = get_object_or_404(CallRecording, pk=pk)
+    user = request.user
+    if recording.student_id != user.id and recording.teacher_id != user.id:
+        return JsonResponse(
+            {"success": False, "message": "غير مصرح لك بحذف هذا التسجيل."},
+            status=403,
+        )
+
+    from apps.calls.recording_storage import (
+        delete_recording_object,
+        delete_recording_prefix,
+        object_key_for_recording,
+        prefix_for_recording_objects,
+    )
+
+    prefix = prefix_for_recording_objects(recording)
+    key = object_key_for_recording(recording)
+    r2_ok = True
+    try:
+        if prefix:
+            delete_recording_prefix(prefix)
+        elif key:
+            delete_recording_object(key)
+    except RecordingStorageError:
+        r2_ok = False
+
+    recording_id = recording.id
+    recording.delete()
+    return JsonResponse(
+        {
+            "success": True,
+            "recording_id": recording_id,
+            "storage_cleaned": r2_ok,
         }
     )

@@ -301,3 +301,31 @@ def user_can_access_recording(user, recording: CallRecording) -> bool:
     if hasattr(user, "has_permission") and user.has_permission("recordings.view"):
         return True
     return False
+
+
+
+def delete_recording_prefix(prefix: str) -> tuple[int, list[str]]:
+    """Delete all R2 objects under a prefix. Returns (deleted_count, failed_keys).
+
+    Failed keys are returned without raising so callers can log safely.
+    Never log secret credentials.
+    """
+    clean = (prefix or "").strip().lstrip("/")
+    if not clean:
+        return 0, []
+    keys = list_object_keys_with_prefix(clean if clean.endswith("/") else clean)
+    # Also include exact prefix as key if list used directory form
+    deleted = 0
+    failed: list[str] = []
+    for key in keys:
+        try:
+            delete_recording_object(key)
+            deleted += 1
+        except RecordingStorageError:
+            failed.append(key)
+            logger.warning(
+                "r2_delete_failed key_len=%s prefix_len=%s",
+                len(key),
+                len(clean),
+            )
+    return deleted, failed

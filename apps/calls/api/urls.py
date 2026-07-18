@@ -16,6 +16,11 @@ urlpatterns = [
     path("calls/<int:pk>/cancel/", views.cancel_call, name="cancel"),
     path("calls/<int:pk>/end/", views.end_call, name="end"),
     path(
+        "calls/<int:pk>/recording-consent/",
+        views.recording_consent,
+        name="recording-consent",
+    ),
+    path(
         "agora/recording-webhook/",
         agora_webhook.agora_recording_webhook,
         name="agora-recording-webhook",
@@ -33,5 +38,10 @@ urlpatterns = [
         "recordings/<int:pk>/signed-url/",
         recording_views.recording_signed_url,
         name="recording-signed-url",
+    ),
+    path(
+        "recordings/<int:pk>/delete/",
+        recording_views.delete_my_recording,
+        name="recording-delete",
     ),
 ]

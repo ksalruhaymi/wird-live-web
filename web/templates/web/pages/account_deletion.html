@@ -1,0 +1,116 @@
+{% extends "web/layouts/base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
+{% block title %}{% if LANGUAGE_CODE == "en" %}Delete Account — Wird Live{% else %}حذف الحساب — وِرْد لايف{% endif %}{% endblock %}
+
+{% block meta_description %}{% if LANGUAGE_CODE == "en" %}How to delete your Wird Live account, or submit a verified deletion request by email.{% else %}كيفية حذف حساب وِرْد لايف، أو إرسال طلب حذف عبر البريد بعد التحقق.{% endif %}{% endblock %}
+
+{% block layout %}
+<div class="max-w-3xl mx-auto px-4 py-10" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+  <h1 class="text-2xl font-bold text-[#1EA1EE] mb-2">{% if LANGUAGE_CODE == "en" %}Delete your Wird Live account{% else %}حذف حساب وِرْد لايف{% endif %}</h1>
+  <p class="text-slate-600 text-sm mb-8">{% if LANGUAGE_CODE == "en" %}You can delete your account from the mobile app, or submit a deletion request below. Public web requests are reviewed manually and do not delete your account immediately.{% else %}يمكنك حذف حسابك من تطبيق الجوال، أو إرسال طلب حذف أدناه. الطلبات عبر الويب تُراجع يدويًا ولا تحذف الحساب فورًا.{% endif %}</p>
+
+  <section class="space-y-3 text-sm text-slate-700 leading-7 mb-8">
+    <h2 class="text-lg font-bold text-slate-900">{% if LANGUAGE_CODE == "en" %}How to delete from the app{% else %}طريقة الحذف من التطبيق{% endif %}</h2>
+    <ol class="list-decimal {% if LANGUAGE_BIDI %}pr-5{% else %}pl-5{% endif %} space-y-2">
+      <li>{% if LANGUAGE_CODE == "en" %}Open More (settings).{% else %}افتح المزيد (الإعدادات).{% endif %}</li>
+      <li>{% if LANGUAGE_CODE == "en" %}Open Account &amp; Privacy.{% else %}افتح الحساب والخصوصية.{% endif %}</li>
+      <li>{% if LANGUAGE_CODE == "en" %}Choose Delete Account, confirm with your password (or the required confirmation), then permanently delete.{% else %}اختر حذف الحساب، وأكد بكلمة المرور (أو التأكيد المطلوب)، ثم احذف نهائيًا.{% endif %}</li>
+    </ol>
+  </section>
+
+  <section class="space-y-3 text-sm text-slate-700 leading-7 mb-8">
+    <h2 class="text-lg font-bold text-slate-900">{% if LANGUAGE_CODE == "en" %}Request deletion outside the app{% else %}طلب الحذف خارج التطبيق{% endif %}</h2>
+    <p>{% if LANGUAGE_CODE == "en" %}Submit the form below. We will contact you at the email you provide to verify identity before deleting anything. Do not include passwords in this form.{% else %}أرسل النموذج أدناه. سنتواصل معك على البريد المُدخل للتحقق من الهوية قبل أي حذف. لا تُدخل كلمة المرور في هذا النموذج.{% endif %}</p>
+
+    {% if success %}
+    <div class="rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-3 text-emerald-800" role="status">
+      {% if LANGUAGE_CODE == "en" %}Your request was sent. Our team will follow up after identity verification.{% else %}تم إرسال طلبك. سيتابع الفريق بعد التحقق من الهوية.{% endif %}
+    </div>
+    {% endif %}
+
+    {% if errors.form %}
+    <div class="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-800" role="alert">
+      {% if errors.form == "rate_limited" %}
+        {% if LANGUAGE_CODE == "en" %}You recently submitted a request. Please try again later.{% else %}أرسلت طلبًا مؤخرًا. حاول مرة أخرى لاحقًا.{% endif %}
+      {% else %}
+        {% if LANGUAGE_CODE == "en" %}Could not send the request. Email {{ support_email }} instead.{% else %}تعذر إرسال الطلب. راسل {{ support_email }} مباشرة.{% endif %}
+      {% endif %}
+    </div>
+    {% endif %}
+
+    <form method="post" action="{% url 'web:account_deletion' %}" class="space-y-4 rounded-xl border border-slate-200 bg-white p-5" novalidate>
+      {% csrf_token %}
+      {# Honeypot — leave empty #}
+      <div class="hidden" aria-hidden="true">
+        <label for="company">Company</label>
+        <input type="text" name="company" id="company" tabindex="-1" autocomplete="off">
+      </div>
+      <div>
+        <label for="username" class="block text-sm font-medium text-slate-800 mb-1">{% if LANGUAGE_CODE == "en" %}Username{% else %}اسم المستخدم{% endif %}</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          required
+          maxlength="150"
+          value="{{ data.username }}"
+          class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+          autocomplete="username"
+        >
+        {% if errors.username %}
+        <p class="text-red-600 text-xs mt-1">{% if LANGUAGE_CODE == "en" %}Username is required.{% else %}اسم المستخدم مطلوب.{% endif %}</p>
+        {% endif %}
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium text-slate-800 mb-1">{% if LANGUAGE_CODE == "en" %}Email{% else %}البريد الإلكتروني{% endif %}</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          required
+          maxlength="254"
+          value="{{ data.email }}"
+          class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+          autocomplete="email"
+        >
+        {% if errors.email %}
+        <p class="text-red-600 text-xs mt-1">{% if LANGUAGE_CODE == "en" %}Enter a valid email address.{% else %}أدخل بريدًا إلكترونيًا صحيحًا.{% endif %}</p>
+        {% endif %}
+      </div>
+      <div>
+        <label for="notes" class="block text-sm font-medium text-slate-800 mb-1">{% if LANGUAGE_CODE == "en" %}Optional notes{% else %}ملاحظات اختيارية{% endif %}</label>
+        <textarea name="notes" id="notes" rows="3" maxlength="1000" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm">{{ data.notes }}</textarea>
+      </div>
+      <button type="submit" class="inline-flex items-center justify-center rounded-lg bg-[#1EA1EE] px-4 py-2 text-sm font-semibold text-white hover:opacity-95">
+        {% if LANGUAGE_CODE == "en" %}Submit deletion request{% else %}إرسال طلب الحذف{% endif %}
+      </button>
+      <p class="text-xs text-slate-500">
+        {% if LANGUAGE_CODE == "en" %}This form does not delete your account immediately. You can also email{% else %}هذا النموذج لا يحذف الحساب فورًا. يمكنك أيضًا مراسلة{% endif %}
+        <a class="text-[#1EA1EE] underline" href="mailto:{{ support_email }}">{{ support_email }}</a>.
+      </p>
+    </form>
+  </section>
+
+  <section class="space-y-3 text-sm text-slate-700 leading-7 mb-8">
+    <h2 class="text-lg font-bold text-slate-900">{% if LANGUAGE_CODE == "en" %}Data that is deleted{% else %}البيانات التي يتم حذفها{% endif %}</h2>
+    <ul class="list-disc {% if LANGUAGE_BIDI %}pr-5{% else %}pl-5{% endif %} space-y-1">
+      <li>{% if LANGUAGE_CODE == "en" %}Account profile information{% else %}معلومات ملف الحساب{% endif %}</li>
+      <li>{% if LANGUAGE_CODE == "en" %}Call history for your sessions{% else %}سجل المكالمات الخاصة بجلساتك{% endif %}</li>
+      <li>{% if LANGUAGE_CODE == "en" %}Audio recordings linked to your sessions (including related cloud files). Shared recordings are removed for both participants.{% else %}التسجيلات الصوتية المرتبطة بجلساتك (بما فيها الملفات السحابية). التسجيلات المشتركة تُحذف من حساب الطرفين.{% endif %}</li>
+      <li>{% if LANGUAGE_CODE == "en" %}Appointments linked to your account{% else %}المواعيد المرتبطة بحسابك{% endif %}</li>
+    </ul>
+  </section>
+
+  <section class="space-y-3 text-sm text-slate-700 leading-7 mb-8">
+    <h2 class="text-lg font-bold text-slate-900">{% if LANGUAGE_CODE == "en" %}Data that may be retained{% else %}بيانات قد يُحتفظ بها{% endif %}</h2>
+    <p>{% if LANGUAGE_CODE == "en" %}Limited operational or security logs without your profile may be retained for a short period where required for security, abuse prevention, or legal obligations. We do not keep your account available for login after deletion.{% else %}قد يُحتفظ بسجلات تشغيلية أو أمنية محدودة دون ملفك الشخصي لفترة قصيرة عند الحاجة للأمان أو منع إساءة الاستخدام أو الالتزامات النظامية. لن يبقى حسابك متاحًا لتسجيل الدخول بعد الحذف.{% endif %}</p>
+  </section>
+
+  <p class="text-xs text-slate-500">
+    <a class="text-[#1EA1EE] underline" href="{% url 'web:privacy_policy' %}">{% if LANGUAGE_CODE == "en" %}Privacy Policy{% else %}سياسة الخصوصية{% endif %}</a>
+  </p>
+</div>
+{% endblock %}

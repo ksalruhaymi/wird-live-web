@@ -1,27 +1,23 @@
 {% extends "web/layouts/base.html" %}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 
-{% block title %}سياسة الخصوصية — وِرْد لايف{% endblock %}
+{% block title %}{% if LANGUAGE_CODE == "en" %}Privacy Policy — Wird Live{% else %}سياسة الخصوصية — وِرْد لايف{% endif %}{% endblock %}
+
+{% block meta_description %}{% if LANGUAGE_CODE == "en" %}How Wird Live collects and uses account data, call history, and consented audio recordings.{% else %}كيف تجمع منصة وِرْد لايف بيانات الحساب والمكالمات والتسجيلات الصوتية بعد الموافقة وتستخدمها.{% endif %}{% endblock %}
 
 {% block layout %}
-
 <div class="max-w-3xl mx-auto px-4 py-10">
-
-  <div class="mb-8 text-center" dir="rtl">
-
-    <h1 class="text-2xl font-bold text-[#1EA1EE]">وِرْد لايف — سياسة الخصوصية</h1>
-    <p class="text-slate-500 mt-1">منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة ومتابعة الحفظ والمراجعة عن بُعد</p>
-    <span class="inline-block mt-3 bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-semibold px-4 py-1 rounded-full border border-[#1EA1EE]/30">آخر تحديث: يونيو 2026</span>
+  <div class="mb-8 text-center" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
+    <h1 class="text-2xl font-bold text-[#1EA1EE]">{% if LANGUAGE_CODE == "en" %}Wird Live — Privacy Policy{% else %}وِرْد لايف — سياسة الخصوصية{% endif %}</h1>
+    <p class="text-slate-500 mt-1">{% if LANGUAGE_CODE == "en" %}An educational platform connecting students and teachers for remote Quran tutoring.{% else %}منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة ومتابعة الحفظ والمراجعة عن بُعد{% endif %}</p>
+    <span class="inline-block mt-3 bg-[#1EA1EE]/10 text-[#1EA1EE] text-xs font-semibold px-4 py-1 rounded-full border border-[#1EA1EE]/30">{% if LANGUAGE_CODE == "en" %}Last updated: July 2026{% else %}آخر تحديث: يوليو 2026{% endif %}</span>
   </div>
-
-  <div class="bg-[#1EA1EE]/10 border-r-4 border-[#1EA1EE] rounded-lg px-5 py-3 mb-6 text-slate-700 text-sm" dir="rtl">
-    وِرْد لايف منصة تعليمية لربط الطلاب بالمعلمين لتصحيح التلاوة، متابعة الحفظ، والمراجعة عن بُعد من خلال المكالمات الصوتية أو المرئية.
-    توضح هذه السياسة كيف نجمع بياناتك ونستخدمها ونحميها داخل تطبيق وموقع وِرْد لايف.
-  </div>
-
-  {% include "web/partials/privacy/section_ar.html" %}
-
+  {% if LANGUAGE_CODE == "en" %}
+    {% include "web/partials/privacy/section_en.html" %}
+  {% else %}
+    {% include "web/partials/privacy/section_ar.html" %}
+  {% endif %}
 </div>
-
 {% endblock %}

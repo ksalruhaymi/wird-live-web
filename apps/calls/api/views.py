@@ -323,3 +323,38 @@ def my_calls(request):
             "calls": [call_to_payload(c, request.user, request) for c in calls],
         }
     )
+
+
+
+@csrf_exempt
+@require_POST
+def recording_consent(request, pk: int):
+    """Record explicit call-recording consent for the authenticated participant."""
+    auth_err = _require_auth(request)
+    if auth_err:
+        return auth_err
+
+    call, err = get_call_for_user(pk, request.user)
+    if err or call is None:
+        return JsonResponse(
+            {"success": False, "message": err or "المكالمة غير موجودة."},
+            status=404 if call is None else 403,
+        )
+
+    data = _parse_json_body(request)
+    platform = (data.get("platform") or "").strip()
+    from apps.calls.recording_consent import (
+        record_call_recording_consent,
+        recording_consent_payload,
+    )
+
+    try:
+        record_call_recording_consent(call, request.user, platform=platform)
+    except CallValidationError as exc:
+        return _handle_call_error(exc)
+
+    call = CallSession.objects.select_related("student", "teacher", "recording").get(
+        pk=call.pk
+    )
+    payload = call_to_payload(call, viewer=request.user)
+    return JsonResponse({"success": True, "call": payload, **recording_consent_payload(call, request.user)})

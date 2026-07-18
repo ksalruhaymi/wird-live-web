@@ -77,6 +77,31 @@ def ensure_recording_row(call: CallSession) -> CallRecording:
 
 def start_cloud_recording_for_call(call: CallSession) -> None:
     """Start Agora Cloud Recording when a call becomes active (best-effort)."""
+    from apps.calls.recording_consent import is_demo_protected_call
+
+    call = CallSession.objects.select_related("student", "teacher").get(pk=call.pk)
+    if is_demo_protected_call(call):
+        logger.info(
+            "Skipping cloud recording for demo-protected call_id=%s",
+            call.id,
+        )
+        rec = ensure_recording_row(call)
+        if rec.recording_status in {
+            CallRecording.RecordingStatus.IDLE,
+            CallRecording.RecordingStatus.STARTING,
+        }:
+            rec.recording_status = CallRecording.RecordingStatus.SKIPPED
+            rec.recording_error = "Recording is not allowed for demo calls."
+            rec.finalized_at = timezone.now()
+            rec.save(
+                update_fields=[
+                    "recording_status",
+                    "recording_error",
+                    "finalized_at",
+                ]
+            )
+        return
+
     if not uses_agora_rtc(call):
         return
     if not cloud_recording_configured():

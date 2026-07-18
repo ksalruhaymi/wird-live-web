@@ -8,4 +8,5 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("about/", views.about, name="about"),
     path("privacy-policy/", views.privacy_policy, name="privacy_policy"),
+    path("account-deletion/", views.account_deletion, name="account_deletion"),
 ]

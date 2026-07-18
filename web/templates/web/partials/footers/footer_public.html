@@ -6,6 +6,7 @@
       <nav class="wird-footer-links" aria-label="{% trans 'footer_links' %}">
         <a href="{% url 'web:about' %}">{% trans "about" %}</a>
         <a href="{% url 'web:privacy_policy' %}">{% trans "privacy_policy" %}</a>
+        <a href="{% url 'web:account_deletion' %}">{% if LANGUAGE_CODE == "en" %}Delete Account{% else %}حذف الحساب{% endif %}</a>
         <a href="{% url 'contact:contact' %}">{% trans "contact_us" %}</a>
       </nav>
       <div class="wird-app-downloads">

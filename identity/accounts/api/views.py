@@ -503,3 +503,49 @@ def profile_teacher_ijazah_api(request):
     except (ValueError, FileNotFoundError):
         return _error("تعذر فتح الملف.", 404)
 
+
+
+
+@csrf_exempt
+@require_http_methods(["DELETE", "POST"])
+def delete_account_api(request):
+    """Permanently delete the authenticated user's account and related data."""
+    if not request.user.is_authenticated:
+        return JsonResponse(
+            {"success": False, "message": "يجب تسجيل الدخول."},
+            status=401,
+        )
+
+    import json
+
+    try:
+        data = json.loads(request.body.decode("utf-8") or "{}")
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        data = {}
+    if not isinstance(data, dict):
+        data = {}
+
+    password = data.get("password") or ""
+    confirmation = data.get("confirmation") or data.get("confirm") or ""
+
+    from identity.accounts.account_deletion import (
+        AccountDeletionError,
+        delete_user_account,
+    )
+
+    try:
+        result = delete_user_account(
+            request.user,
+            password=str(password),
+            confirmation=str(confirmation),
+        )
+    except AccountDeletionError as exc:
+        return JsonResponse(
+            {"success": False, "message": exc.message},
+            status=exc.status,
+        )
+
+    from django.contrib.auth import logout
+
+    logout(request)
+    return JsonResponse({"success": True, **result})

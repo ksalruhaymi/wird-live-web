@@ -381,3 +381,43 @@ class CallRecording(models.Model):
         if self.recording_status != self.RecordingStatus.COMPLETED:
             return False
         return is_playable_object_key(object_key_for_recording(self))
+
+
+
+RECORDING_CONSENT_VERSION = "recording-consent-v1"
+
+
+class CallRecordingConsent(models.Model):
+    """Explicit per-user consent to record a call session."""
+
+    call_session = models.ForeignKey(
+        CallSession,
+        on_delete=models.CASCADE,
+        related_name="recording_consents",
+    )
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="call_recording_consents",
+    )
+    consent_given = models.BooleanField(default=True)
+    consented_at = models.DateTimeField()
+    consent_version = models.CharField(max_length=64, default=RECORDING_CONSENT_VERSION)
+    platform = models.CharField(max_length=32, blank=True, default="")
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["call_session", "user"],
+                name="uniq_call_recording_consent_user_session",
+            )
+        ]
+        indexes = [
+            models.Index(fields=["call_session", "consent_given"]),
+        ]
+        verbose_name = "موافقة تسجيل مكالمة"
+        verbose_name_plural = "موافقات تسجيل المكالمات"
+
+    def __str__(self):
+        return f"consent_call_{self.call_session_id}_user_{self.user_id}"
