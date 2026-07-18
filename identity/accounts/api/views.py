@@ -11,6 +11,7 @@ from django.views.decorators.http import require_GET, require_POST, require_http
 from identity.accounts.auth.email_verification_service import (
     check_email_available,
     send_registration_code,
+    send_registration_code_payload,
     verify_registration_code,
 )
 from identity.accounts.auth.google_auth_service import authenticate_with_google
@@ -238,9 +239,10 @@ def check_email_api(request):
         return err
 
     email = (data.get("email") or "").strip()
-    available, message = check_email_available(email)
+    available, message, error_code = check_email_available(email)
     if not available:
-        return _error(message or "هذا البريد مستخدم مسبقًا", 400)
+        status = 409 if error_code == "email_already_registered" else 400
+        return _error(message or "هذا البريد مستخدم مسبقًا", status, code=error_code)
 
     return JsonResponse({"success": True, "available": True})
 
@@ -256,11 +258,18 @@ def send_email_code_api(request):
         return err
 
     email = (data.get("email") or "").strip()
-    sent, message = send_registration_code(email)
-    if not sent:
-        return _error(message or "تعذر إرسال رمز التحقق.", 400)
+    result = send_registration_code(email)
+    payload = send_registration_code_payload(result)
+    if not result.ok:
+        if result.error_code == "otp_resend_cooldown":
+            status = 429
+        elif result.error_code == "email_already_registered":
+            status = 409
+        else:
+            status = 400
+        return JsonResponse(payload, status=status)
 
-    return JsonResponse({"success": True})
+    return JsonResponse(payload)
 
 
 @csrf_exempt
@@ -272,9 +281,9 @@ def verify_email_code_api(request):
 
     email = (data.get("email") or "").strip()
     code = (data.get("code") or "").strip()
-    token, message = verify_registration_code(email, code)
+    token, message, error_code = verify_registration_code(email, code)
     if not token:
-        return _error(message or "رمز التحقق غير صالح.", 400)
+        return _error(message or "رمز التحقق غير صالح.", 400, code=error_code)
 
     return JsonResponse(
         {

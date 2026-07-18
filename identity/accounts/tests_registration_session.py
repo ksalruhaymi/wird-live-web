@@ -49,12 +49,13 @@ class RegistrationSessionFlowTests(TestCase):
 
     def test_otp_success_then_complete_registration(self):
         self._create_pending_otp("4321")
-        token, err = verify_registration_code(self.email, "4321")
+        token, err, code = verify_registration_code(self.email, "4321")
+        self.assertIsNone(code)
         self.assertIsNone(err)
         self.assertTrue(token)
 
         # OTP must not be reusable after verify.
-        token2, err2 = verify_registration_code(self.email, "4321")
+        token2, err2, _ = verify_registration_code(self.email, "4321")
         self.assertIsNone(token2)
         self.assertIsNotNone(err2)
 
@@ -99,13 +100,13 @@ class RegistrationSessionFlowTests(TestCase):
     def test_otp_not_reused_after_verify(self):
         self._create_pending_otp("1111")
         verify_registration_code(self.email, "1111")
-        again, message = verify_registration_code(self.email, "1111")
+        again, message, _ = verify_registration_code(self.email, "1111")
         self.assertIsNone(again)
         self.assertEqual(message, "رمز التحقق غير صالح.")
 
     def test_registration_session_expired(self):
         self._create_pending_otp("2222")
-        token, _ = verify_registration_code(self.email, "2222")
+        token, _, _ = verify_registration_code(self.email, "2222")
         row = EmailRegistrationVerification.objects.get(verification_token=token)
         row.token_expires_at = timezone.now() - timedelta(seconds=1)
         row.save(update_fields=["token_expires_at"])
@@ -128,7 +129,7 @@ class RegistrationSessionFlowTests(TestCase):
 
     def test_session_cannot_be_reused_after_account_created(self):
         self._create_pending_otp("3333")
-        token, _ = verify_registration_code(self.email, "3333")
+        token, _, _ = verify_registration_code(self.email, "3333")
         register_account(
             full_name="طالب",
             email=self.email,
@@ -143,7 +144,7 @@ class RegistrationSessionFlowTests(TestCase):
 
     def test_validation_failure_does_not_consume_session(self):
         self._create_pending_otp("4444")
-        token, _ = verify_registration_code(self.email, "4444")
+        token, _, _ = verify_registration_code(self.email, "4444")
         payload, message, _code = validate_registration_payload(
             {
                 "full_name": "طالب",

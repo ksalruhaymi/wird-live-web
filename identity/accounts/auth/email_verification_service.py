@@ -1,7 +1,8 @@
 import hashlib
 import logging
 import secrets
-from datetime import timedelta
+from dataclasses import dataclass
+from datetime import datetime, timedelta
 
 from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
@@ -16,6 +17,17 @@ User = get_user_model()
 
 _CODE_TTL_MINUTES = 10
 _TOKEN_TTL_MINUTES = 30
+_RESEND_COOLDOWN_SECONDS = 60
+
+OTP_EXPIRED_MESSAGE = "انتهت صلاحية رمز التحقق."
+OTP_INVALID_MESSAGE = "رمز التحقق غير صالح."
+OTP_EXPIRED_CODE = "otp_expired"
+OTP_RESEND_COOLDOWN_CODE = "otp_resend_cooldown"
+OTP_RESEND_COOLDOWN_MESSAGE = "يرجى الانتظار قبل إعادة إرسال رمز التحقق."
+EMAIL_ALREADY_REGISTERED_CODE = "email_already_registered"
+EMAIL_ALREADY_REGISTERED_MESSAGE = (
+    "البريد الإلكتروني مسجل مسبقًا. سجّل الدخول أو استخدم بريدًا آخر."
+)
 
 # Distinct from OTP expiry — used only for post-verify registration completion.
 REGISTRATION_SESSION_EXPIRED_MESSAGE = (
@@ -36,6 +48,17 @@ class RegistrationSessionError(Exception):
         super().__init__(message)
 
 
+@dataclass(frozen=True)
+class SendRegistrationCodeResult:
+    ok: bool
+    message: str | None = None
+    error_code: str | None = None
+    expires_at: datetime | None = None
+    expires_in_seconds: int | None = None
+    server_time: datetime | None = None
+    resend_available_in_seconds: int | None = None
+
+
 def _hash_code(code: str) -> str:
     return hashlib.sha256(code.encode("utf-8")).hexdigest()
 
@@ -48,24 +71,72 @@ def _generate_token() -> str:
     return secrets.token_urlsafe(32)
 
 
-def check_email_available(email: str) -> tuple[bool, str | None]:
-    normalized = (email or "").strip().lower()
+def _iso(dt: datetime) -> str:
+    return dt.isoformat().replace("+00:00", "Z")
+
+
+def normalize_registration_email(email: str) -> str:
+    """Strip + UserManager.normalize_email + lowercase for case-insensitive checks."""
+    raw = (email or "").strip()
+    if not raw:
+        return ""
+    try:
+        normalized = User.objects.normalize_email(raw)
+    except Exception:
+        normalized = raw
+    return (normalized or raw).strip().lower()
+
+
+def check_email_available(email: str) -> tuple[bool, str | None, str | None]:
+    """Returns (available, message, error_code)."""
+    normalized = normalize_registration_email(email)
     if not normalized or "@" not in normalized:
-        return False, "البريد الإلكتروني غير صالح."
+        return False, "البريد الإلكتروني غير صالح.", None
     if User.objects.filter(email__iexact=normalized).exists():
-        return False, "هذا البريد مستخدم مسبقًا"
-    return True, None
+        return False, EMAIL_ALREADY_REGISTERED_MESSAGE, EMAIL_ALREADY_REGISTERED_CODE
+    return True, None, None
 
 
-def send_registration_code(email: str) -> tuple[bool, str | None]:
-    available, message = check_email_available(email)
-    if not available:
-        return False, message
+def _resend_wait_seconds(email: str, now: datetime) -> int:
+    latest = (
+        EmailRegistrationVerification.objects.filter(email__iexact=email)
+        .order_by("-created_at")
+        .first()
+    )
+    if latest is None:
+        return 0
+    elapsed = (now - latest.created_at).total_seconds()
+    remaining = _RESEND_COOLDOWN_SECONDS - int(elapsed)
+    return max(0, remaining)
 
-    normalized = email.strip().lower()
-    code = _generate_code()
+
+def send_registration_code(email: str) -> SendRegistrationCodeResult:
     now = timezone.now()
+    available, message, error_code = check_email_available(email)
+    if not available:
+        return SendRegistrationCodeResult(
+            ok=False,
+            message=message,
+            error_code=error_code,
+            server_time=now,
+        )
 
+    normalized = normalize_registration_email(email)
+    wait = _resend_wait_seconds(normalized, now)
+    if wait > 0:
+        return SendRegistrationCodeResult(
+            ok=False,
+            message=OTP_RESEND_COOLDOWN_MESSAGE,
+            error_code=OTP_RESEND_COOLDOWN_CODE,
+            server_time=now,
+            resend_available_in_seconds=wait,
+        )
+
+    code = _generate_code()
+    expires_at = now + timedelta(minutes=_CODE_TTL_MINUTES)
+    expires_in_seconds = int((expires_at - now).total_seconds())
+
+    # Invalidate any previous unverified OTP for this email.
     EmailRegistrationVerification.objects.filter(
         email__iexact=normalized,
         verified_at__isnull=True,
@@ -74,7 +145,7 @@ def send_registration_code(email: str) -> tuple[bool, str | None]:
     EmailRegistrationVerification.objects.create(
         email=normalized,
         code_hash=_hash_code(code),
-        expires_at=now + timedelta(minutes=_CODE_TTL_MINUTES),
+        expires_at=expires_at,
     )
 
     try:
@@ -86,18 +157,53 @@ def send_registration_code(email: str) -> tuple[bool, str | None]:
             fail_silently=False,
         )
     except Exception as exc:
-        logger.exception("Failed to send verification email: %s", exc)
-        return False, "تعذر إرسال رمز التحقق. حاول مرة أخرى لاحقًا."
+        # Never log the OTP itself.
+        logger.exception("Failed to send verification email: %s", type(exc).__name__)
+        return SendRegistrationCodeResult(
+            ok=False,
+            message="تعذر إرسال رمز التحقق. حاول مرة أخرى لاحقًا.",
+            server_time=now,
+        )
 
-    return True, None
+    return SendRegistrationCodeResult(
+        ok=True,
+        expires_at=expires_at,
+        expires_in_seconds=expires_in_seconds,
+        server_time=now,
+        resend_available_in_seconds=_RESEND_COOLDOWN_SECONDS,
+    )
 
 
-def verify_registration_code(email: str, code: str) -> tuple[str | None, str | None]:
-    """Verify OTP once and issue a registration-session token (not the OTP)."""
+def send_registration_code_payload(result: SendRegistrationCodeResult) -> dict:
+    """JSON-safe payload (never includes the OTP)."""
+    payload: dict = {
+        "success": result.ok,
+        "server_time": _iso(result.server_time or timezone.now()),
+    }
+    if result.message:
+        payload["message"] = result.message
+    if result.error_code:
+        payload["code"] = result.error_code
+    if result.expires_at is not None:
+        payload["expires_at"] = _iso(result.expires_at)
+    if result.expires_in_seconds is not None:
+        payload["expires_in_seconds"] = result.expires_in_seconds
+    if result.resend_available_in_seconds is not None:
+        payload["resend_available_in_seconds"] = result.resend_available_in_seconds
+    return payload
+
+
+def verify_registration_code(
+    email: str, code: str
+) -> tuple[str | None, str | None, str | None]:
+    """Verify OTP once and issue a registration-session token (not the OTP).
+
+    Returns (token, error_message, error_code).
+    """
     normalized = (email or "").strip().lower()
     raw_code = (code or "").strip()
     if not normalized or len(raw_code) != 4 or not raw_code.isdigit():
-        return None, "رمز التحقق غير صالح."
+        return None, OTP_INVALID_MESSAGE, None
 
     record = (
         EmailRegistrationVerification.objects.filter(
@@ -108,13 +214,13 @@ def verify_registration_code(email: str, code: str) -> tuple[str | None, str | N
         .first()
     )
     if record is None:
-        return None, "رمز التحقق غير صالح."
+        return None, OTP_INVALID_MESSAGE, None
 
     if record.expires_at < timezone.now():
-        return None, "انتهت صلاحية رمز التحقق."
+        return None, OTP_EXPIRED_MESSAGE, OTP_EXPIRED_CODE
 
     if record.code_hash != _hash_code(raw_code):
-        return None, "رمز التحقق غير صالح."
+        return None, OTP_INVALID_MESSAGE, None
 
     token = _generate_token()
     now = timezone.now()
@@ -133,7 +239,7 @@ def verify_registration_code(email: str, code: str) -> tuple[str | None, str | N
             "expires_at",
         ],
     )
-    return token, None
+    return token, None, None
 
 
 def _load_registration_session(email: str, token: str, *, for_update: bool = False):

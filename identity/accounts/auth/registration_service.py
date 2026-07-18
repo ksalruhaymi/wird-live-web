@@ -4,12 +4,15 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import UploadedFile
-from django.db import transaction
+from django.db import IntegrityError, transaction
 
 from apps.tutoring.models import StudentProfile, TeacherAvailability, TeacherProfile
 from identity.accounts.auth.email_verification_service import (
+    EMAIL_ALREADY_REGISTERED_CODE,
+    EMAIL_ALREADY_REGISTERED_MESSAGE,
     RegistrationSessionError,
     consume_registration_session,
+    normalize_registration_email,
     validate_registration_session,
 )
 from identity.accounts.user_types import (
@@ -99,7 +102,7 @@ def register_account(
     ijazah_file: UploadedFile | None = None,
     verification_token: str = "",
 ) -> User:
-    email_normalized = email.strip().lower()
+    email_normalized = normalize_registration_email(email)
     if verification_token:
         try:
             consume_registration_session(email_normalized, verification_token)
@@ -108,17 +111,28 @@ def register_account(
 
     username = username_from_email(email_normalized)
 
-    user = User.objects.create_user(
-        username=username,
-        email=email_normalized,
-        password=password,
-        full_name=full_name.strip(),
-        user_type=user_type_value,
-        gender=gender,
-        created_by=None,
-        is_staff=False,
-        is_superuser=False,
-    )
+    try:
+        user = User.objects.create_user(
+            username=username,
+            email=email_normalized,
+            password=password,
+            full_name=full_name.strip(),
+            user_type=user_type_value,
+            gender=gender,
+            created_by=None,
+            is_staff=False,
+            is_superuser=False,
+        )
+    except IntegrityError as exc:
+        # Concurrent registration race — never surface a stack trace.
+        if User.objects.filter(email__iexact=email_normalized).exists():
+            raise RegistrationFailed(
+                EMAIL_ALREADY_REGISTERED_MESSAGE,
+                code=EMAIL_ALREADY_REGISTERED_CODE,
+            ) from exc
+        raise RegistrationFailed(
+            "تعذر إنشاء الحساب. حاول مرة أخرى.",
+        ) from exc
 
     _assign_role_for_user_type(user, user_type_value)
 
@@ -159,7 +173,7 @@ def validate_registration_payload(
     Does NOT consume the registration session — that happens in register_account.
     """
     full_name = (data.get("full_name") or data.get("name") or "").strip()
-    email = (data.get("email") or "").strip().lower()
+    email = normalize_registration_email(data.get("email") or "")
     password = data.get("password") or ""
     confirm_password = data.get("confirm_password") or data.get("password_confirm") or ""
     user_type_raw = data.get("user_type")
@@ -221,7 +235,7 @@ def validate_registration_payload(
             None,
         )
     if User.objects.filter(email__iexact=email).exists():
-        return None, "هذا البريد مستخدم مسبقًا", None
+        return None, EMAIL_ALREADY_REGISTERED_MESSAGE, EMAIL_ALREADY_REGISTERED_CODE
 
     try:
         validate_password(password)
