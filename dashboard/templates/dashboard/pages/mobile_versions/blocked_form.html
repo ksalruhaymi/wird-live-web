@@ -1,0 +1,63 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-2xl mx-auto space-y-5" dir-text>
+
+  <div class="flex items-start justify-between gap-3">
+    <h1 class="site-title-md">{{ title }}</h1>
+    <a href="{% url 'dashboard:blocked_mobile_version_list' %}" class="text-[12px] site-link-primary font-semibold hover:underline">العودة</a>
+  </div>
+
+    10|  <div class="site-card p-5 md:p-6">
+    <form method="post" class="space-y-4">
+      {% csrf_token %}
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">المنصة</label>
+          <select name="platform" class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+            {% for value, label in platform_choices %}
+            <option value="{{ value }}" {% if initial.platform == value %}selected{% endif %}>{{ label }}</option>
+    20|            {% endfor %}
+          </select>
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">رقم البناء (build_number)</label>
+          <input type="number" name="build_number" value="{{ initial.build_number }}" min="1" required
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+    30|        <label class="block text-sm font-semibold site-text">رقم الإصدار (اختياري، للعرض فقط)</label>
+        <input type="text" name="version_name" value="{{ initial.version_name }}" placeholder="1.2.3"
+               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+      </div>
+
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">سبب الحظر (عربي)</label>
+        <textarea name="reason_ar" rows="3"
+                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.reason_ar }}</textarea>
+      </div>
+    40|
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">سبب الحظر (إنجليزي)</label>
+        <textarea name="reason_en" rows="3" dir="ltr"
+                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.reason_en }}</textarea>
+      </div>
+
+      <label class="inline-flex items-center gap-2 text-sm site-text">
+        <input type="checkbox" name="is_active" {% if initial.is_active %}checked{% endif %}
+               class="rounded border site-border">
+    50|        <span>محظور (فعّال)</span>
+      </label>
+
+      <div class="pt-2">
+        <button type="submit" class="site-btn-primary px-5 py-2 rounded-full text-sm font-bold">
+          {% if mode == 'create' %}إنشاء{% else %}حفظ التعديلات{% endif %}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+    60|{% endblock %}

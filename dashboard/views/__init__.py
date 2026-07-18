@@ -43,6 +43,18 @@ from .student_subscriptions import (
 )
 from .call_recordings import call_recording_delete, call_recording_list
 from .mobile_app_config import mobile_app_config_settings
+from .mobile_versions import (
+    blocked_mobile_version_create,
+    blocked_mobile_version_list,
+    blocked_mobile_version_toggle_active,
+    blocked_mobile_version_update,
+    mobile_version_activate,
+    mobile_version_create,
+    mobile_version_deactivate,
+    mobile_version_detail,
+    mobile_version_list,
+    mobile_version_update,
+)
 from .rating_questions import (
     rating_category_toggle,
     rating_question_create,
@@ -101,6 +113,16 @@ __all__ = [
     "call_recording_list",
     "call_recording_delete",
     "mobile_app_config_settings",
+    "mobile_version_list",
+    "mobile_version_detail",
+    "mobile_version_create",
+    "mobile_version_update",
+    "mobile_version_activate",
+    "mobile_version_deactivate",
+    "blocked_mobile_version_list",
+    "blocked_mobile_version_create",
+    "blocked_mobile_version_update",
+    "blocked_mobile_version_toggle_active",
     "dashboard_users_list",
     "dashboard_user_teacher_detail",
     "dashboard_user_student_detail",

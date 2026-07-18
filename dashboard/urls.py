@@ -17,6 +17,10 @@ from .views import (
     app_notification_list,
     app_notification_toggle_active,
     app_notification_update,
+    blocked_mobile_version_create,
+    blocked_mobile_version_list,
+    blocked_mobile_version_toggle_active,
+    blocked_mobile_version_update,
     call_recording_playback_url,
     call_session_detail,
     call_session_list,
@@ -49,6 +53,12 @@ from .views import (
     call_recording_delete,
     call_recording_list,
     mobile_app_config_settings,
+    mobile_version_activate,
+    mobile_version_create,
+    mobile_version_deactivate,
+    mobile_version_detail,
+    mobile_version_list,
+    mobile_version_update,
 )
 
 app_name = "dashboard"
@@ -223,5 +233,51 @@ urlpatterns = [
         "mobile-app-config/",
         mobile_app_config_settings,
         name="mobile_app_config_settings",
+    ),
+    path("mobile-versions/", mobile_version_list, name="mobile_version_list"),
+    path(
+        "mobile-versions/create/",
+        mobile_version_create,
+        name="mobile_version_create",
+    ),
+    path(
+        "mobile-versions/<int:pk>/",
+        mobile_version_detail,
+        name="mobile_version_detail",
+    ),
+    path(
+        "mobile-versions/<int:pk>/edit/",
+        mobile_version_update,
+        name="mobile_version_update",
+    ),
+    path(
+        "mobile-versions/<int:pk>/activate/",
+        mobile_version_activate,
+        name="mobile_version_activate",
+    ),
+    path(
+        "mobile-versions/<int:pk>/deactivate/",
+        mobile_version_deactivate,
+        name="mobile_version_deactivate",
+    ),
+    path(
+        "mobile-versions/blocked/",
+        blocked_mobile_version_list,
+        name="blocked_mobile_version_list",
+    ),
+    path(
+        "mobile-versions/blocked/create/",
+        blocked_mobile_version_create,
+        name="blocked_mobile_version_create",
+    ),
+    path(
+        "mobile-versions/blocked/<int:pk>/edit/",
+        blocked_mobile_version_update,
+        name="blocked_mobile_version_update",
+    ),
+    path(
+        "mobile-versions/blocked/<int:pk>/toggle-active/",
+        blocked_mobile_version_toggle_active,
+        name="blocked_mobile_version_toggle_active",
     ),
 ]

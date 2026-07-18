@@ -5,6 +5,7 @@ from apps.mobile.models import MobileAppConfig
 
 API_V1_PREFIX = "/api/v1/"
 APP_CONFIG_PATH = "/api/v1/mobile/app-config/"
+APP_VERSION_CHECK_PATH = "/api/v1/mobile/app-version/check/"
 
 
 class MobileAppVersionMiddleware:
@@ -28,7 +29,7 @@ class MobileAppVersionMiddleware:
         path = request.path
         if not path.startswith(API_V1_PREFIX):
             return False
-        if path == APP_CONFIG_PATH:
+        if path in {APP_CONFIG_PATH, APP_VERSION_CHECK_PATH}:
             return False
         return True
 

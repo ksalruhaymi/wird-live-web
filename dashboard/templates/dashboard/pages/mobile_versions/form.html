@@ -1,0 +1,165 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-3xl mx-auto space-y-5" dir-text>
+
+  <div class="flex items-start justify-between gap-3">
+    <h1 class="site-title-md">{{ title }}</h1>
+    <a href="{% url 'dashboard:mobile_version_list' %}" class="text-[12px] site-link-primary font-semibold hover:underline">العودة</a>
+  </div>
+
+    10|  <div class="site-card p-5 md:p-6">
+    <form method="post" class="space-y-5" id="mobile-version-form">
+      {% csrf_token %}
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">المنصة</label>
+          <select name="platform" class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+            {% for value, label in platform_choices %}
+            <option value="{{ value }}" {% if initial.platform == value %}selected{% endif %}>{{ label }}</option>
+    20|            {% endfor %}
+          </select>
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">نوع التحديث</label>
+          <select name="update_mode" id="id_update_mode" class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+            {% for value, label in update_mode_choices %}
+            <option value="{{ value }}" {% if initial.update_mode == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+    30|      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">رقم الإصدار (version_name)</label>
+          <input type="text" name="version_name" value="{{ initial.version_name }}" placeholder="1.2.3" required
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">رقم البناء (build_number)</label>
+          <input type="number" name="build_number" value="{{ initial.build_number }}" min="1" required
+    40|                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">أقل إصدار مدعوم (اختياري)</label>
+          <input type="text" name="minimum_version_name" value="{{ initial.minimum_version_name }}" placeholder="1.0.0"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+        </div>
+        <div class="space-y-1.5">
+    50|          <label class="block text-sm font-semibold site-text">أقل رقم بناء مدعوم (اختياري)</label>
+          <input type="number" name="minimum_build_number" value="{{ initial.minimum_build_number }}" min="1"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">عنوان التحديث (عربي)</label>
+          <input type="text" name="update_title_ar" value="{{ initial.update_title_ar }}"
+    60|                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">عنوان التحديث (إنجليزي)</label>
+          <input type="text" name="update_title_en" value="{{ initial.update_title_en }}" dir="ltr"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    70|        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">نص رسالة التحديث (عربي)</label>
+          <textarea name="update_message_ar" rows="3"
+                    class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.update_message_ar }}</textarea>
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">نص رسالة التحديث (إنجليزي)</label>
+          <textarea name="update_message_en" rows="3" dir="ltr"
+                    class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.update_message_en }}</textarea>
+        </div>
+    80|      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">ملاحظات الإصدار (عربي)</label>
+          <textarea name="release_notes_ar" rows="3"
+                    class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.release_notes_ar }}</textarea>
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">ملاحظات الإصدار (إنجليزي)</label>
+          <textarea name="release_notes_en" rows="3" dir="ltr"
+    90|                    class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.release_notes_en }}</textarea>
+        </div>
+      </div>
+
+      <div class="space-y-1.5">
+        <label class="block text-sm font-semibold site-text">رابط المتجر (اختياري)</label>
+        <input type="url" name="store_url" value="{{ initial.store_url }}" placeholder="https://"
+               class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+      </div>
+
+   100|      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">تاريخ بدء التطبيق (اختياري)</label>
+          <input type="datetime-local" name="starts_at" value="{{ initial.starts_at_raw }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+        </div>
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text" id="later_reminder_label">ساعات إعادة التذكير (اختياري)</label>
+          <input type="number" name="later_reminder_hours" id="id_later_reminder_hours" value="{{ initial.later_reminder_hours }}" min="1"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
+   110|        </div>
+      </div>
+
+      <label class="inline-flex items-center gap-2 text-sm site-text" id="allow_later_wrapper">
+        <input type="checkbox" name="allow_later" id="id_allow_later" {% if initial.allow_later %}checked{% endif %}
+               class="rounded border site-border">
+        <span>السماح بتأجيل التحديث</span>
+      </label>
+
+      <label class="inline-flex items-center gap-2 text-sm site-text">
+        <input type="checkbox" name="is_active" {% if initial.is_active %}checked{% endif %}
+   120|               class="rounded border site-border">
+        <span>نشط (يصبح هو الإصدار المُفعّل لهذه المنصة)</span>
+      </label>
+
+      <div class="pt-2">
+        <button type="submit" class="site-btn-primary px-5 py-2 rounded-full text-sm font-bold">
+          {% if mode == 'create' %}إنشاء{% else %}حفظ التعديلات{% endif %}
+        </button>
+      </div>
+    </form>
+  </div>
+   130|</div>
+
+<script>
+(function () {
+  var updateModeSelect = document.getElementById("id_update_mode");
+  var allowLaterCheckbox = document.getElementById("id_allow_later");
+  var laterReminderInput = document.getElementById("id_later_reminder_hours");
+
+  function syncRequiredModeFields() {
+    var isRequired = updateModeSelect.value === "required";
+    var isNone = updateModeSelect.value === "none";
+    var disableAllowLater = isRequired || isNone;
+
+    allowLaterCheckbox.disabled = disableAllowLater;
+    if (disableAllowLater) {
+      allowLaterCheckbox.checked = false;
+    }
+    laterReminderInput.disabled = disableAllowLater || !allowLaterCheckbox.checked;
+  }
+
+  updateModeSelect.addEventListener("change", syncRequiredModeFields);
+  allowLaterCheckbox.addEventListener("change", function () {
+    laterReminderInput.disabled = !allowLaterCheckbox.checked;
+  });
+
+  syncRequiredModeFields();
+})();
+</script>
+{% endblock %}

@@ -19,8 +19,8 @@
         <label class="inline-flex items-center cursor-pointer">
           <input type="checkbox" name="app_enabled" class="sr-only peer"
                  {% if config.app_enabled %}checked{% endif %}>
-          <div class="relative w-11 h-6 bg-slate-300 rounded-full peer-checked:bg-[var(--color-primary)] transition-colors">
-            <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:-translate-x-5"></span>
+          <div class="relative w-11 h-6 bg-slate-300 rounded-full peer-checked:bg-[var(--color-primary)] transition-colors peer-checked:[&>span]:translate-x-0">
+            <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full transition-transform -translate-x-5"></span>
           </div>
         </label>
       </div>
@@ -45,8 +45,8 @@
           <label class="inline-flex items-center cursor-pointer">
             <input type="checkbox" name="force_update" class="sr-only peer"
                    {% if config.force_update %}checked{% endif %}>
-            <div class="relative w-11 h-6 bg-slate-300 rounded-full peer-checked:bg-[var(--color-primary)] transition-colors">
-              <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full transition-transform peer-checked:-translate-x-5"></span>
+            <div class="relative w-11 h-6 bg-slate-300 rounded-full peer-checked:bg-[var(--color-primary)] transition-colors peer-checked:[&>span]:translate-x-0">
+              <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full transition-transform -translate-x-5"></span>
             </div>
           </label>
         </div>

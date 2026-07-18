@@ -49,3 +49,6 @@ RECORDINGS_DELETE = "recordings.delete"
 
 MOBILE_APP_CONFIG_VIEW = "mobile_app_config.view"
 MOBILE_APP_CONFIG_UPDATE = "mobile_app_config.update"
+
+MOBILE_VERSIONS_VIEW = "mobile_versions.view"
+MOBILE_VERSIONS_MANAGE = "mobile_versions.manage"

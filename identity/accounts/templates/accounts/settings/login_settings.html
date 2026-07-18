@@ -45,10 +45,11 @@
                  {% if settings.allow_db_login %}checked{% endif %}>
 
           <div class="relative w-11 h-6 bg-slate-300 rounded-full
-                      peer-checked:bg-[var(--color-primary)] transition-colors">
+                      peer-checked:bg-[var(--color-primary)] transition-colors
+                      peer-checked:[&>span]:translate-x-0">
             <span class="absolute top-0.5 right-0.5 w-5 h-5 bg-white rounded-full
                          transition-transform
-                         peer-checked:-translate-x-5"></span>
+                         -translate-x-5"></span>
           </div>
         </label>
       </div>

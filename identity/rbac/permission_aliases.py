@@ -68,6 +68,9 @@ PERMISSION_ALIAS_GROUPS: tuple[frozenset[str], ...] = (
     # Mobile app config
     frozenset({"mobile_app_config.view", "web.mobile_app_config.view"}),
     frozenset({"mobile_app_config.update", "web.mobile_app_config.update"}),
+    # Mobile app versions
+    frozenset({"mobile_versions.view", "web.mobile_versions.view"}),
+    frozenset({"mobile_versions.manage", "web.mobile_versions.manage"}),
     # Dashboard users
     frozenset(
         {

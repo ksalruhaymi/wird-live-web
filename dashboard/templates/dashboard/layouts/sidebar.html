@@ -71,6 +71,13 @@
       <span>إعدادات تطبيق الجوال</span>
     </a>
     {% endif %}
+    {% if request.user|can_access:"mobile_versions.view" %}
+    <a href="{% url 'dashboard:mobile_version_list' %}"
+       class="site-sidebar-btn {% if '/dashboard/mobile-versions' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-phone-vibrate"></i>
+      <span>إصدارات التطبيق</span>
+    </a>
+    {% endif %}
     {% if request.user|can_access:"users.view" %}
     <a href="{% url 'dashboard:dashboard_users_list' %}?tab=teachers"
        class="site-sidebar-btn {% if '/dashboard/users' in path %}site-sidebar-btn-active{% endif %}">

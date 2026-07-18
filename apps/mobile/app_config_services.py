@@ -1,6 +1,14 @@
 from __future__ import annotations
 
 from apps.mobile.models import MobileAppConfig
+from apps.mobile.version_services import compare_semantic_versions
+
+__all__ = [
+    "app_config_to_payload",
+    "compare_semantic_versions",
+    "build_mobile_access_denial",
+    "evaluate_mobile_api_access",
+]
 
 
 def app_config_to_payload(config: MobileAppConfig) -> dict:
@@ -13,27 +21,6 @@ def app_config_to_payload(config: MobileAppConfig) -> dict:
         "message": config.message,
         "update_url": config.update_url or "",
     }
-
-
-def compare_semantic_versions(left: str, right: str) -> int:
-    """Return negative when left is lower than right."""
-    left_parts = _parse_version_parts(left)
-    right_parts = _parse_version_parts(right)
-    length = max(len(left_parts), len(right_parts))
-
-    for index in range(length):
-        left_value = left_parts[index] if index < len(left_parts) else 0
-        right_value = right_parts[index] if index < len(right_parts) else 0
-        if left_value != right_value:
-            return left_value - right_value
-    return 0
-
-
-def _parse_version_parts(raw: str) -> list[int]:
-    cleaned = (raw or "").split("+", 1)[0].strip()
-    if not cleaned:
-        return [0]
-    return [int(part) if part.isdigit() else 0 for part in cleaned.split(".")]
 
 
 def build_mobile_access_denial(

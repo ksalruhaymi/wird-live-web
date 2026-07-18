@@ -79,6 +79,8 @@ LEGACY_PERMISSIONS = [
     ("recordings.delete", "حذف التسجيلات"),
     ("mobile_app_config.view", "عرض إعدادات تطبيق الجوال"),
     ("mobile_app_config.update", "تعديل إعدادات تطبيق الجوال"),
+    ("mobile_versions.view", "عرض إصدارات التطبيق"),
+    ("mobile_versions.manage", "إدارة إصدارات التطبيق"),
     # Notifications / messaging / communication
     ("notification.access", "الوصول إلى التنبيهات"),
     ("notification.create", "إرسال تنبيه"),
@@ -130,6 +132,8 @@ WEB_PERMISSIONS = [
     ("web.app_notifications.toggle", "تفعيل/تعطيل تنبيه تطبيق"),
     ("web.mobile_app_config.view", "عرض إعدادات تطبيق الجوال"),
     ("web.mobile_app_config.update", "تعديل إعدادات تطبيق الجوال"),
+    ("web.mobile_versions.view", "عرض إصدارات التطبيق"),
+    ("web.mobile_versions.manage", "إدارة إصدارات التطبيق"),
     ("web.users.teachers.view", "عرض المعلمين في لوحة المستخدمين"),
     ("web.users.students.view", "عرض الطلاب في لوحة المستخدمين"),
     ("web.users.teachers.update", "تعديل بيانات معلم"),

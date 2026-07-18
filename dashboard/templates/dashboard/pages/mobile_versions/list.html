@@ -1,0 +1,132 @@
+{% extends "dashboard/layouts/base.html" %}
+{% load rbac_tags %}
+
+{% block dashboard_content %}
+<div class="max-w-6xl mx-auto space-y-6" dir-text>
+
+  {% url 'dashboard:mobile_version_list' as versions_list_url %}
+  {% url 'dashboard:blocked_mobile_version_list' as blocked_list_url %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="إصدارات التطبيق" icon="bi-phone-vibrate" subtitle="إدارة إصدارات تطبيق وِرْد لايف على أندرويد و iOS، سياسات التحديث، والإصدارات المحظورة" tab1_url=versions_list_url tab1_label="إصدارات التطبيق" tab1_icon="bi-phone-vibrate" tab1_active="1" tab2_url=blocked_list_url tab2_label="الإصدارات المحظورة" tab2_icon="bi-slash-circle" tab2_active="" only %}
+
+    10|  <div class="flex items-center justify-end">
+    {% if can_manage_mobile_versions %}
+    <a href="{% url 'dashboard:mobile_version_create' %}"
+       class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
+      <i class="bi bi-plus-lg text-sm"></i>
+      إضافة إصدار
+    </a>
+    {% endif %}
+  </div>
+
+  {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_versions per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
+
+    20|  <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
+    {% include "dashboard/partials/filter_hidden_fields.html" %}
+    <div class="min-w-[140px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">المنصة</label>
+      <select name="platform" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+        <option value="all" {% if platform_filter == 'all' %}selected{% endif %}>الكل</option>
+        {% for value, label in platform_choices %}
+        <option value="{{ value }}" {% if platform_filter == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    30|    </div>
+    <div class="min-w-[140px]">
+      <label class="block text-[11px] font-bold site-text-muted mb-1">الحالة</label>
+      <select name="status" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+        <option value="all" {% if status_filter == 'all' %}selected{% endif %}>الكل</option>
+        <option value="active" {% if status_filter == 'active' %}selected{% endif %}>نشط</option>
+        <option value="inactive" {% if status_filter == 'inactive' %}selected{% endif %}>غير نشط</option>
+      </select>
+    </div>
+    <div class="min-w-[160px]">
+    40|      <label class="block text-[11px] font-bold site-text-muted mb-1">نوع التحديث</label>
+      <select name="mode" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
+        <option value="all" {% if mode_filter == 'all' %}selected{% endif %}>الكل</option>
+        {% for value, label in update_mode_choices %}
+        <option value="{{ value }}" {% if mode_filter == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">بحث</button>
+  </form>
+    50|
+  <div class="overflow-x-auto site-card">
+    <table class="min-w-full text-[12px]">
+      <thead class="site-surface text-[11px] site-text-muted">
+        <tr>
+          <th class="px-4 py-3 font-bold">المنصة</th>
+          <th class="px-4 py-3 font-bold">الإصدار</th>
+          <th class="px-4 py-3 font-bold">رقم البناء</th>
+          <th class="px-4 py-3 font-bold">نوع التحديث</th>
+          <th class="px-4 py-3 font-bold">الحالة</th>
+    60|          <th class="px-4 py-3 font-bold">تاريخ الإنشاء</th>
+          <th class="px-4 py-3 font-bold text-center">إجراءات</th>
+        </tr>
+      </thead>
+      <tbody class="divide-site">
+        {% for item in versions %}
+        <tr class="hover:site-surface transition">
+          <td class="px-4 py-2 site-text">
+            {% if item.platform == 'android' %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">Android</span>
+    70|            {% else %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold border site-border">iOS</span>
+            {% endif %}
+          </td>
+          <td class="px-4 py-2 site-text font-semibold">{{ item.version_name }}</td>
+          <td class="px-4 py-2 site-text-muted">{{ item.build_number }}</td>
+          <td class="px-4 py-2">
+            {% if item.update_mode == 'required' %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[11px] font-bold border border-rose-200">{{ item.get_update_mode_display }}</span>
+            {% elif item.update_mode == 'optional' %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-bold border border-amber-200">{{ item.get_update_mode_display }}</span>
+    80|            {% else %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">{{ item.get_update_mode_display }}</span>
+            {% endif %}
+          </td>
+          <td class="px-4 py-2">
+            {% if item.is_active %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">نشط</span>
+            {% else %}
+            <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">غير نشط</span>
+            {% endif %}
+    90|          </td>
+          <td class="px-4 py-2 site-text-muted">{{ item.created_at|date:"Y-m-d H:i" }}</td>
+          <td class="px-4 py-2">
+            <div class="flex items-center justify-center gap-2">
+              {% url 'dashboard:mobile_version_detail' item.id as view_url %}
+              {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
+              {% if can_manage_mobile_versions %}
+              {% url 'dashboard:mobile_version_update' item.id as edit_url %}
+              {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
+              {% if item.is_active %}
+              <form method="post" action="{% url 'dashboard:mobile_version_deactivate' item.id %}" class="inline-flex">
+   100|                {% csrf_token %}
+                {% include "dashboard/partials/action_icon_toggle.html" with is_active=item.is_active %}
+              </form>
+              {% else %}
+              <form method="post" action="{% url 'dashboard:mobile_version_activate' item.id %}" class="inline-flex">
+                {% csrf_token %}
+                {% include "dashboard/partials/action_icon_toggle.html" with is_active=item.is_active %}
+              </form>
+              {% endif %}
+              {% endif %}
+            </div>
+   110|          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="7" class="px-4 py-8 text-center site-text-muted">لا توجد إصدارات مطابقة.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+   120|  {% if per_page != "all" %}
+    {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,118 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-3xl mx-auto space-y-5" dir-text>
+
+  <div class="flex items-start justify-between gap-3">
+    <h1 class="site-title-md">تفاصيل إصدار التطبيق</h1>
+    <a href="{% url 'dashboard:mobile_version_list' %}" class="text-[12px] site-link-primary font-semibold hover:underline">العودة</a>
+  </div>
+
+    10|  <div class="site-card p-5 md:p-6 space-y-4">
+    <div class="flex items-center gap-2">
+      {% if version.platform == 'android' %}
+      <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">Android</span>
+      {% else %}
+      <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold border site-border">iOS</span>
+      {% endif %}
+      {% if version.is_active %}
+      <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">نشط</span>
+      {% else %}
+    20|      <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">غير نشط</span>
+      {% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[12px]">
+      <div>
+        <div class="site-text-muted">رقم الإصدار</div>
+        <div class="site-text font-bold">{{ version.version_name }}</div>
+      </div>
+      <div>
+    30|        <div class="site-text-muted">رقم البناء</div>
+        <div class="site-text font-bold">{{ version.build_number }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">أقل إصدار مدعوم</div>
+        <div class="site-text">{{ version.minimum_version_name|default:"—" }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">أقل رقم بناء مدعوم</div>
+        <div class="site-text">{{ version.minimum_build_number|default:"—" }}</div>
+    40|      </div>
+      <div>
+        <div class="site-text-muted">نوع التحديث</div>
+        <div class="site-text">{{ version.get_update_mode_display }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">السماح بالتأجيل</div>
+        <div class="site-text">{% if version.allow_later %}نعم{% else %}لا{% endif %}</div>
+      </div>
+      <div>
+    50|        <div class="site-text-muted">ساعات إعادة التذكير</div>
+        <div class="site-text">{{ version.later_reminder_hours|default:"—" }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">تاريخ بدء التطبيق</div>
+        <div class="site-text">{{ version.starts_at|date:"Y-m-d H:i"|default:"فوري" }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">رابط المتجر</div>
+        <div class="site-text break-all">{{ version.store_url|default:"—" }}</div>
+    60|      </div>
+      <div>
+        <div class="site-text-muted">تاريخ الإنشاء</div>
+        <div class="site-text">{{ version.created_at|date:"Y-m-d H:i" }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted">آخر تحديث</div>
+        <div class="site-text">{{ version.updated_at|date:"Y-m-d H:i" }}</div>
+      </div>
+    </div>
+
+    70|    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-[12px] pt-2 border-t site-border">
+      <div>
+        <div class="site-text-muted mb-1">عنوان التحديث (عربي)</div>
+        <div class="site-text">{{ version.update_title_ar|default:"—" }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted mb-1">عنوان التحديث (إنجليزي)</div>
+        <div class="site-text" dir="ltr">{{ version.update_title_en|default:"—" }}</div>
+      </div>
+      <div>
+    80|        <div class="site-text-muted mb-1">رسالة التحديث (عربي)</div>
+        <div class="site-text whitespace-pre-wrap">{{ version.update_message_ar|default:"—" }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted mb-1">رسالة التحديث (إنجليزي)</div>
+        <div class="site-text whitespace-pre-wrap" dir="ltr">{{ version.update_message_en|default:"—" }}</div>
+      </div>
+      <div>
+        <div class="site-text-muted mb-1">ملاحظات الإصدار (عربي)</div>
+        <div class="site-text whitespace-pre-wrap">{{ version.release_notes_ar|default:"—" }}</div>
+    90|      </div>
+      <div>
+        <div class="site-text-muted mb-1">ملاحظات الإصدار (إنجليزي)</div>
+        <div class="site-text whitespace-pre-wrap" dir="ltr">{{ version.release_notes_en|default:"—" }}</div>
+      </div>
+    </div>
+
+    {% if can_manage_mobile_versions %}
+    <div class="flex gap-2 pt-2">
+      <a href="{% url 'dashboard:mobile_version_update' version.id %}"
+         class="site-btn-primary px-4 py-2 rounded-full text-[12px] font-bold">تعديل</a>
+   100|      {% if version.is_active %}
+      <form method="post" action="{% url 'dashboard:mobile_version_deactivate' version.id %}">
+        {% csrf_token %}
+        <button type="submit" class="px-4 py-2 rounded-full bg-slate-100 site-text text-[12px] font-bold border site-border">تعطيل</button>
+      </form>
+      {% else %}
+      <form method="post" action="{% url 'dashboard:mobile_version_activate' version.id %}">
+        {% csrf_token %}
+        <button type="submit" class="px-4 py-2 rounded-full bg-green-50 text-green-700 text-[12px] font-bold border border-green-200">تفعيل</button>
+      </form>
+   110|      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
