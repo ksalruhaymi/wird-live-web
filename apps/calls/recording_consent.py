@@ -211,7 +211,7 @@ def mark_participant_media_ready(
         raise CallValidationError("المكالمة ليست نشطة.")
     if not _is_participant(call, user):
         raise CallValidationError("غير مصرح بإرسال جاهزية الوسائط لهذه المكالمة.")
-    if not recording_consents_satisfied(call):
+    if not user_has_recording_consent(call, user):
         raise CallValidationError("يجب الموافقة على تسجيل المكالمة أولاً.")
 
     is_test = is_test_call_session(call)

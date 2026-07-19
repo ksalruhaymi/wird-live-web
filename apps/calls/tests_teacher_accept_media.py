@@ -171,6 +171,92 @@ class RealCallMediaReadyRecordingTests(TestCase):
         self.assertIsNotNone(call.student_media_ready_at)
         self.assertIsNotNone(call.teacher_media_ready_at)
 
+    def test_media_ready_allowed_with_own_consent_only(self):
+        """Student can mark media-ready before teacher consents (no deadlock)."""
+        record_call_recording_consent(self.call, self.student, platform="android")
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            mark_participant_media_ready(
+                self.call, self.student, agora_uid=self.student.id
+            )
+            mock_start.assert_not_called()
+        call = CallSession.objects.get(pk=self.call.pk)
+        self.assertIsNotNone(call.student_media_ready_at)
+        self.assertIsNone(call.teacher_media_ready_at)
+
+    def test_one_party_media_ready_does_not_start_recording(self):
+        record_call_recording_consent(self.call, self.student, platform="android")
+        record_call_recording_consent(self.call, self.teacher, platform="ios")
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            mark_participant_media_ready(
+                self.call, self.student, agora_uid=self.student.id
+            )
+            mock_start.assert_not_called()
+            self.assertFalse(recording_start_prerequisites_met(self.call))
+
+    def test_media_ready_idempotent_for_student(self):
+        record_call_recording_consent(self.call, self.student, platform="android")
+        first = mark_participant_media_ready(
+            self.call, self.student, agora_uid=self.student.id
+        )
+        second = mark_participant_media_ready(
+            self.call, self.student, agora_uid=self.student.id
+        )
+        self.assertEqual(first.student_media_ready_at, second.student_media_ready_at)
+
+    def test_non_participant_cannot_media_ready(self):
+        from apps.calls.exceptions import CallValidationError
+
+        other = User.objects.create_user(
+            username="mr_other",
+            password="Pass1234!",
+            user_type=USER_TYPE_STUDENT,
+        )
+        record_call_recording_consent(self.call, self.student, platform="android")
+        with self.assertRaises(CallValidationError):
+            mark_participant_media_ready(self.call, other, agora_uid=other.id)
+
+    def test_accepted_active_is_not_completed(self):
+        self.assertEqual(self.call.status, CallSession.Status.ACTIVE)
+        self.assertNotIn(self.call.status, CallSession.TERMINAL_STATUSES)
+
+
+class StaleActiveCallReconcileTests(TestCase):
+    def setUp(self):
+        self.student = User.objects.create_user(
+            username="stale_student",
+            password="Pass1234!",
+            user_type=USER_TYPE_STUDENT,
+        )
+        self.teacher = User.objects.create_user(
+            username="stale_teacher",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+        )
+        TeacherProfile.objects.create(user=self.teacher)
+
+    def test_stale_active_without_media_ends_as_failed(self):
+        from datetime import timedelta
+
+        from apps.calls.cloud_recording.reconcile import _force_end_call
+
+        call = CallSession.objects.create(
+            student=self.student,
+            teacher=self.teacher,
+            session_type=CallSession.SessionType.AUDIO,
+            provider=CallSession.Provider.AGORA,
+            status=CallSession.Status.ACTIVE,
+            started_at=timezone.now() - timedelta(hours=2),
+            channel_name="ch_stale_1",
+        )
+        _force_end_call(call, reason="stale_active_watchdog")
+        call.refresh_from_db()
+        self.assertEqual(call.status, CallSession.Status.FAILED)
+        self.assertEqual(call.end_reason, "stale_active_watchdog")
+
 
 class MyRecordingsListFilterTests(TestCase):
     def setUp(self):

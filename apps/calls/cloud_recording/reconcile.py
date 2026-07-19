@@ -240,7 +240,17 @@ def reconcile_call_recording(call_id: int, *, apply: bool = False) -> dict:
 
 def _force_end_call(call: CallSession, *, reason: str) -> None:
     now = timezone.now()
-    call.status = CallSession.Status.ENDED
+    # Stuck active calls without a real media session are failures, not
+    # successful completed calls.
+    no_media = not (
+        getattr(call, "student_media_ready_at", None)
+        or getattr(call, "teacher_media_ready_at", None)
+        or getattr(call, "participant_media_ready_at", None)
+    )
+    if reason.startswith("stale_") and no_media:
+        call.status = CallSession.Status.FAILED
+    else:
+        call.status = CallSession.Status.ENDED
     call.end_requested_at = call.end_requested_at or now
     call.ended_at = call.ended_at or now
     call.finalized_at = now
