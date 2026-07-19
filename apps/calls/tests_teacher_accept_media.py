@@ -258,6 +258,61 @@ class StaleActiveCallReconcileTests(TestCase):
         self.assertEqual(call.end_reason, "stale_active_watchdog")
 
 
+class SetupFailureEndCallTests(TestCase):
+    def setUp(self):
+        self.student = User.objects.create_user(
+            username="setup_student",
+            password="Pass1234!",
+            user_type=USER_TYPE_STUDENT,
+        )
+        self.teacher = User.objects.create_user(
+            username="setup_teacher",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+        )
+        TeacherProfile.objects.create(user=self.teacher)
+        self.call = CallSession.objects.create(
+            student=self.student,
+            teacher=self.teacher,
+            session_type=CallSession.SessionType.AUDIO,
+            provider=CallSession.Provider.AGORA,
+            status=CallSession.Status.ACTIVE,
+            started_at=timezone.now(),
+            channel_name="ch_setup_1",
+        )
+
+    def test_end_without_media_ready_is_failed_not_completed(self):
+        from apps.calls.models import SessionEvaluation
+        from apps.calls.services import end_call_session
+        from apps.subscription.services import deduct_call_minutes_for_session
+
+        updated, error = end_call_session(
+            self.call,
+            self.student,
+            end_reason="microphone_permission_failed",
+        )
+        self.assertIsNone(error)
+        self.assertEqual(updated.status, CallSession.Status.FAILED)
+        self.assertEqual(updated.end_reason, "microphone_permission_failed")
+        self.assertFalse(
+            SessionEvaluation.objects.filter(call_session=updated).exists()
+        )
+        # deduct is skipped for FAILED
+        charged = deduct_call_minutes_for_session(updated)
+        self.assertEqual(float(charged or 0), 0)
+        rec = CallRecording.objects.get(call_session=updated)
+        self.assertEqual(rec.recording_status, CallRecording.RecordingStatus.NO_MEDIA)
+
+    def test_setup_failed_reason_marks_failed(self):
+        from apps.calls.services import end_call_session
+
+        updated, error = end_call_session(
+            self.call, self.teacher, end_reason="setup_failed"
+        )
+        self.assertIsNone(error)
+        self.assertEqual(updated.status, CallSession.Status.FAILED)
+
+
 class MyRecordingsListFilterTests(TestCase):
     def setUp(self):
         self.student = User.objects.create_user(

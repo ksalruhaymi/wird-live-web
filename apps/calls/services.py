@@ -428,11 +428,37 @@ def cancel_pending_call(call: CallSession, student_user) -> tuple[CallSession | 
     return call, None
 
 
-def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str | None]:
+def _call_had_media_ready(call: CallSession) -> bool:
+    return bool(
+        getattr(call, "student_media_ready_at", None)
+        or getattr(call, "teacher_media_ready_at", None)
+        or getattr(call, "participant_media_ready_at", None)
+    )
+
+
+_SETUP_FAILURE_REASONS = frozenset(
+    {
+        "setup_failed",
+        "microphone_permission_failed",
+        "connection_failed",
+        "setup_timeout",
+    }
+)
+
+
+def end_call_session(
+    call: CallSession,
+    user,
+    *,
+    end_reason: str | None = None,
+) -> tuple[CallSession | None, str | None]:
     """End a call quickly and enqueue recording stop asynchronously.
 
     Idempotent: repeated end requests return the terminal call without
     re-running billing or blocking on Agora.
+
+    Calls that never reached media-ready are marked FAILED (setup failure)
+    so they are not treated as successful completed sessions.
     """
     if not _can_view_call(call, user):
         return None, "غير مصرح بإنهاء هذه المكالمة."
@@ -440,6 +466,7 @@ def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str |
     from django.db import transaction
 
     now = timezone.now()
+    reason = (end_reason or "").strip()[:64]
     with transaction.atomic():
         locked = (
             CallSession.objects.select_for_update(of=("self",))
@@ -449,11 +476,17 @@ def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str |
         if locked.status in CallSession.TERMINAL_STATUSES:
             return locked, None
 
-        locked.status = CallSession.Status.ENDED
+        had_media = _call_had_media_ready(locked)
+        setup_failure = (not had_media) or (reason in _SETUP_FAILURE_REASONS)
+        if setup_failure:
+            locked.status = CallSession.Status.FAILED
+            locked.end_reason = reason or "setup_failed"
+        else:
+            locked.status = CallSession.Status.ENDED
+            locked.end_reason = reason or locked.end_reason or "user_end"
         locked.end_requested_at = locked.end_requested_at or now
         locked.ended_at = locked.ended_at or now
         locked.finalized_at = now
-        locked.end_reason = locked.end_reason or "user_end"
         locked.save(
             update_fields=[
                 "status",
@@ -469,9 +502,14 @@ def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str |
     if call.teacher_id:
         mark_teacher_online(call.teacher)
 
+    recording_pending = False
+    if call.status == CallSession.Status.FAILED:
+        _mark_setup_failure_recording(call)
+        call._recording_pending = False  # type: ignore[attr-defined]
+        return call, None
+
     # Mark recording stop requested in DB, then enqueue Celery (no Agora HTTP here).
     # If enqueue fails, status stays stop_requested for periodic reconcile.
-    recording_pending = False
     try:
         from apps.calls.cloud_recording.service import request_stop_cloud_recording
         from apps.calls.tasks import enqueue_stop_and_finalize_recording
@@ -514,6 +552,37 @@ def end_call_session(call: CallSession, user) -> tuple[CallSession | None, str |
     # Stash for API response enrichment without changing return type callers.
     call._recording_pending = recording_pending  # type: ignore[attr-defined]
     return call, None
+
+
+def _mark_setup_failure_recording(call: CallSession) -> None:
+    """Ensure no playable recording artifact for setup failures."""
+    from apps.calls.cloud_recording.service import ensure_recording_row
+
+    try:
+        rec = ensure_recording_row(call)
+        if rec.recording_status in {
+            CallRecording.RecordingStatus.IDLE,
+            CallRecording.RecordingStatus.STARTING,
+            "",
+        } or not rec.recording_status:
+            rec.recording_status = CallRecording.RecordingStatus.NO_MEDIA
+            rec.recording_error = (call.end_reason or "setup_failed")[:255]
+            rec.finalized_at = timezone.now()
+            rec.ended_at = call.ended_at or timezone.now()
+            rec.save(
+                update_fields=[
+                    "recording_status",
+                    "recording_error",
+                    "finalized_at",
+                    "ended_at",
+                ]
+            )
+    except Exception:
+        import logging
+
+        logging.getLogger(__name__).exception(
+            "setup_failure_recording_mark_failed call_id=%s", call.id
+        )
 
 
 # Legacy immediate-start API (delegates to pending request for compatibility).

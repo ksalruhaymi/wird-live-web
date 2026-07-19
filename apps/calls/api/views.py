@@ -227,7 +227,15 @@ def end_call(request, pk):
         CallSession.objects.select_related("student", "teacher"),
         pk=pk,
     )
-    updated, error = end_call_session(call, request.user)
+    data = _parse_json_body(request)
+    end_reason = ""
+    raw_reason = data.get("end_reason")
+    if isinstance(raw_reason, str):
+        end_reason = raw_reason.strip()[:64]
+
+    updated, error = end_call_session(
+        call, request.user, end_reason=end_reason or None
+    )
     if error:
         return JsonResponse({"success": False, "message": error}, status=403)
 
@@ -241,17 +249,22 @@ def end_call(request, pk):
         pass
 
     payload = call_to_payload(updated, request.user, request)
+    setup_failed = updated.status == CallSession.Status.FAILED
     return JsonResponse(
         {
             "success": True,
             "call": payload,
             "call_status": updated.status,
             "recording_status": recording_status,
-            "recording_pending": recording_pending,
+            "recording_pending": recording_pending and not setup_failed,
             "message": (
-                "تم إنهاء المكالمة، ويجري تجهيز التسجيل في الخلفية."
-                if recording_pending
-                else "تم إنهاء المكالمة."
+                "تعذر إكمال تهيئة المكالمة."
+                if setup_failed
+                else (
+                    "تم إنهاء المكالمة، ويجري تجهيز التسجيل في الخلفية."
+                    if recording_pending
+                    else "تم إنهاء المكالمة."
+                )
             ),
         }
     )

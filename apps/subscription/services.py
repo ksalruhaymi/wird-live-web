@@ -477,6 +477,16 @@ def deduct_call_minutes_for_session(call) -> Decimal:
         locked.save(update_fields=["minutes_charged", "updated_at"])
         return 0
 
+    # Never bill calls that never reached Agora media-ready (setup failure).
+    if not (
+        getattr(locked, "student_media_ready_at", None)
+        or getattr(locked, "teacher_media_ready_at", None)
+        or getattr(locked, "participant_media_ready_at", None)
+    ):
+        locked.minutes_charged = ZERO_MINUTES
+        locked.save(update_fields=["minutes_charged", "updated_at"])
+        return 0
+
     teacher = locked.teacher
     if teacher is not None and is_demo_teacher(teacher):
         locked.minutes_charged = ZERO_MINUTES
