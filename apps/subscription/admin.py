@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import (
+    MinuteCreditPack,
     NewsletterSubscriber,
     StudentSubscription,
     StudentSubscriptionBalance,
@@ -23,6 +24,32 @@ class SubscriptionPlanAdmin(admin.ModelAdmin):
     list_filter = ("is_active",)
     search_fields = ("title",)
     ordering = ("sort_order", "id")
+
+
+@admin.register(MinuteCreditPack)
+class MinuteCreditPackAdmin(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "user",
+        "plan_title",
+        "purchased_minutes",
+        "remaining_minutes",
+        "expires_at",
+        "status",
+        "store",
+        "store_transaction_id",
+        "purchased_at",
+    )
+    list_filter = ("status", "store")
+    search_fields = (
+        "user__username",
+        "user__email",
+        "plan_title",
+        "store_transaction_id",
+        "store_product_id",
+    )
+    raw_id_fields = ("user", "plan", "student_subscription")
+    ordering = ("-purchased_at", "-id")
 
 
 @admin.register(StudentSubscriptionBalance)

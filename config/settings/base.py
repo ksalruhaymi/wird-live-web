@@ -342,6 +342,24 @@ FIREBASE_CREDENTIALS_PATH = os.getenv("FIREBASE_CREDENTIALS_PATH", "")
 
 
 # ------------------------------------------------------------------------------
+# Store billing verification (App Store / Google Play)
+# ------------------------------------------------------------------------------
+# STORE_BILLING_ENV must match mobile --dart-define=STORE_ENV (sandbox|production).
+STORE_BILLING_ENV = (os.getenv("STORE_BILLING_ENV", "sandbox") or "sandbox").strip().lower()
+APPLE_BUNDLE_ID = (os.getenv("APPLE_BUNDLE_ID", "com.kslabs.wirdlive") or "").strip()
+APPLE_ISSUER_ID = (os.getenv("APPLE_ISSUER_ID", "") or "").strip()
+APPLE_KEY_ID = (os.getenv("APPLE_KEY_ID", "") or "").strip()
+APPLE_PRIVATE_KEY_PATH = (os.getenv("APPLE_PRIVATE_KEY_PATH", "") or "").strip()
+APPLE_PRIVATE_KEY = (os.getenv("APPLE_PRIVATE_KEY", "") or "").strip()
+GOOGLE_PLAY_PACKAGE_NAME = (
+    os.getenv("GOOGLE_PLAY_PACKAGE_NAME", "com.kslabs.wirdlive") or ""
+).strip()
+GOOGLE_PLAY_SERVICE_ACCOUNT_PATH = (
+    os.getenv("GOOGLE_PLAY_SERVICE_ACCOUNT_PATH", "") or ""
+).strip()
+
+
+# ------------------------------------------------------------------------------
 # Voice / video calls (Agora)
 # ------------------------------------------------------------------------------
 APP_ENV = app_env

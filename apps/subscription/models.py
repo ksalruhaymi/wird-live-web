@@ -93,7 +93,7 @@ class StudentSubscription(models.Model):
         verbose_name="حالة الدفع",
     )
     payment_method = models.CharField(max_length=64, blank=True, default="")
-    transaction_reference = models.CharField(max_length=128, blank=True, default="")
+    transaction_reference = models.CharField(max_length=512, blank=True, default="")
     notes = models.TextField(blank=True, default="")
     plan_minutes_added = models.PositiveIntegerField(
         default=0,
@@ -207,6 +207,103 @@ class StudentSubscriptionBalance(models.Model):
 
     def __str__(self):
         return f"{self.user_id} — {self.remaining_minutes} دقيقة"
+
+
+class MinuteCreditPack(models.Model):
+    """One verified purchase → one spendable minute pack (consumable top-up)."""
+
+    class Status(models.TextChoices):
+        ACTIVE = "active", "نشطة"
+        EXHAUSTED = "exhausted", "نفدت"
+        EXPIRED = "expired", "منتهية"
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="minute_credit_packs",
+        verbose_name="المستخدم",
+    )
+    plan = models.ForeignKey(
+        SubscriptionPlan,
+        on_delete=models.PROTECT,
+        related_name="minute_credit_packs",
+        verbose_name="الباقة",
+    )
+    plan_title = models.CharField(max_length=255, blank=True, default="")
+    purchased_minutes = models.DecimalField(
+        max_digits=12,
+        decimal_places=4,
+        verbose_name="الدقائق المشتراة",
+    )
+    remaining_minutes = models.DecimalField(
+        max_digits=12,
+        decimal_places=4,
+        verbose_name="الدقائق المتبقية",
+    )
+    purchased_at = models.DateTimeField(verbose_name="وقت الشراء")
+    expires_at = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="تاريخ انتهاء الصلاحية",
+        help_text="null = باقة مفتوحة بلا انتهاء زمني",
+    )
+    store = models.CharField(
+        max_length=32,
+        blank=True,
+        default="",
+        verbose_name="المتجر",
+    )
+    store_product_id = models.CharField(max_length=255, blank=True, default="")
+    store_transaction_id = models.CharField(
+        max_length=512,
+        blank=True,
+        default="",
+        db_index=True,
+        verbose_name="معرّف عملية المتجر",
+    )
+    purchase_token = models.TextField(
+        blank=True,
+        default="",
+        verbose_name="رمز/توقيع الشراء",
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=Status.choices,
+        default=Status.ACTIVE,
+        db_index=True,
+    )
+    google_consume_pending = models.BooleanField(
+        default=False,
+        verbose_name="بانتظار consume في Google",
+    )
+    student_subscription = models.ForeignKey(
+        StudentSubscription,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="credit_packs",
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["expires_at", "purchased_at", "id"]
+        verbose_name = "حزمة رصيد دقائق"
+        verbose_name_plural = "حزم رصيد الدقائق"
+        constraints = [
+            models.UniqueConstraint(
+                fields=["store_transaction_id"],
+                condition=~models.Q(store_transaction_id=""),
+                name="uniq_minute_pack_store_transaction_id",
+            ),
+        ]
+        indexes = [
+            models.Index(fields=["user", "status"]),
+            models.Index(fields=["user", "expires_at"]),
+        ]
+
+    def __str__(self):
+        return f"{self.user_id} — {self.remaining_minutes}/{self.purchased_minutes}"
 
 
 class NewsletterSubscriber(models.Model):

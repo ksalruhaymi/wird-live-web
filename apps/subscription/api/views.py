@@ -102,11 +102,18 @@ def subscribe(request):
         )
 
     payment_method = (data.get("payment_method") or "manual").strip() or "manual"
+    transaction_reference = (data.get("transaction_reference") or "").strip()
+    store_product_id = (data.get("store_product_id") or "").strip()
+    purchase_token = (data.get("purchase_token") or "").strip()
 
     sub, error = create_student_subscription(
         request.user,
         plan_id=plan_id,
         payment_method=payment_method,
+        transaction_reference=transaction_reference,
+        store_product_id=store_product_id,
+        purchase_token=purchase_token,
+        require_store_purchase=True,
     )
     if error:
         return JsonResponse({"success": False, "message": error}, status=400)

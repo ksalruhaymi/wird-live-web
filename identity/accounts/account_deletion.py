@@ -37,9 +37,9 @@ def _is_protected_account(user) -> bool:
 
 def verify_account_deletion_credentials(user, *, password: str, confirmation: str) -> None:
     confirmation = (confirmation or "").strip()
-    if confirmation != "DELETE":
+    if confirmation not in {"حذف", "DELETE"}:
         raise AccountDeletionError(
-            "يجب كتابة DELETE لتأكيد حذف الحساب.",
+            "يجب كتابة حذف لتأكيد حذف الحساب.",
             status=400,
         )
     if _is_protected_account(user):

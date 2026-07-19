@@ -1,5 +1,6 @@
 import json
 from decimal import Decimal
+from unittest.mock import patch
 
 from django.contrib.auth import get_user_model
 from django.core.management import call_command
@@ -186,6 +187,9 @@ class SubscriptionRenewalStackingTests(TestCase):
         )
 
     def test_renewal_stacks_minutes_and_extends_duration(self):
+        """Each purchase creates its own pack; wallet = sum of active packs."""
+        from apps.subscription.models import MinuteCreditPack
+
         first, err = create_student_subscription(self.student, plan_id=self.plan_a.id)
         self.assertIsNone(err)
         assert first is not None
@@ -200,15 +204,21 @@ class SubscriptionRenewalStackingTests(TestCase):
         assert second is not None
 
         balance.refresh_from_db()
-        self.assertEqual(second.transaction_type, "renewal")
+        self.assertEqual(
+            MinuteCreditPack.objects.filter(user=self.student).count(),
+            2,
+        )
         self.assertEqual(balance.remaining_minutes, first_minutes + self.plan_b.minutes)
-        self.assertEqual(balance.expires_at, add_months(first_expires, self.plan_b.duration_months))
-        self.assertEqual(second.start_date, first_expires)
-        self.assertEqual(second.end_date, balance.expires_at)
+        # Nearest expiry is the first (1-month) pack, not extended by the second.
+        self.assertEqual(balance.expires_at, first_expires)
+        pack_b = MinuteCreditPack.objects.get(student_subscription=second)
+        self.assertEqual(
+            pack_b.expires_at,
+            add_months(timezone.localdate(), self.plan_b.duration_months),
+        )
         self.assertEqual(second.minutes_before, first_minutes)
         self.assertEqual(second.minutes_after, balance.remaining_minutes)
-        self.assertEqual(second.expiry_before, first_expires)
-        self.assertEqual(second.expiry_after, balance.expires_at)
+        self.assertEqual(second.expiry_after, pack_b.expires_at)
         self.assertEqual(
             StudentSubscription.objects.filter(user=self.student).count(),
             2,
@@ -249,6 +259,7 @@ class SubscriptionCallMinuteDeductionTests(TestCase):
             status=CallSession.Status.ENDED,
             started_at=started,
             ended_at=ended,
+            student_media_ready_at=started,
         )
 
     def test_call_billable_minutes_uses_seconds_not_ceiling(self):
@@ -405,12 +416,19 @@ class SubscriptionExpiryEligibilityTests(TestCase):
     def test_expired_balance_blocks_calls(self):
         from datetime import timedelta
 
+        from apps.subscription.models import MinuteCreditPack
+
         create_student_subscription(self.student, plan_id=self.plan.id)
+        pack = MinuteCreditPack.objects.get(user=self.student)
+        pack.expires_at = timezone.localdate() - timedelta(days=1)
+        pack.save(update_fields=["expires_at"])
+
         balance = get_user_subscription_balance(self.student)
         assert balance is not None
-        balance.expires_at = timezone.localdate() - timedelta(days=1)
-        sync_balance_status_from_expiry(balance)
-        balance.save()
+        from apps.subscription.credit_packs import sync_wallet_from_packs
+
+        sync_wallet_from_packs(self.student)
+        balance.refresh_from_db()
 
         can_call, message = student_can_request_call(self.student)
         self.assertFalse(can_call)
@@ -489,3 +507,267 @@ class FreePlanDisplayTests(TestCase):
         self.assertTrue(payload["is_free"])
         self.assertEqual(payload["display_price"], "مجاني")
         self.assertEqual(payload["amount"], "0.00")
+
+
+class StorePurchaseSubscribeApiTests(TestCase):
+    """Paid plans via mobile API require verified store purchases."""
+
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_rbac")
+        cls.paid_plan = SubscriptionPlan.objects.create(
+            title="باقة متجر",
+            duration_months=1,
+            price=Decimal("49.00"),
+            minutes=20,
+            is_active=True,
+        )
+        cls.free_plan = SubscriptionPlan.objects.create(
+            title="باقة مجانية متجر",
+            duration_months=1,
+            price=Decimal("0.00"),
+            minutes=5,
+            is_active=True,
+        )
+        cls.student = User.objects.create_user(
+            username="store_student",
+            password="pass12345",
+            user_type=USER_TYPE_STUDENT,
+        )
+        cls.other_student = User.objects.create_user(
+            username="store_student_other",
+            password="pass12345",
+            user_type=USER_TYPE_STUDENT,
+        )
+
+    def _verified(self, *, method="play_store", tx="gp-verified-001"):
+        from apps.subscription.store_verification.types import VerifiedStorePurchase
+
+        product_id = (
+            f"wird_live_minutes_{self.paid_plan.minutes}"
+            if method == "play_store"
+            else f"com.kslabs.wirdlive.minutes.{self.paid_plan.minutes}"
+        )
+        return VerifiedStorePurchase(
+            payment_method=method,
+            product_id=product_id,
+            transaction_id=tx,
+            environment="sandbox",
+            product_kind="consumable",
+            package_or_bundle_id="com.kslabs.wirdlive",
+            minutes=self.paid_plan.minutes,
+            needs_google_consume=(method == "play_store"),
+            google_purchase_token="token-abc" if method == "play_store" else "",
+        )
+
+    def test_paid_plan_rejects_manual_without_store_reference(self):
+        self.client.force_login(self.student)
+        response = self.client.post(
+            SUBSCRIBE_URL,
+            data=json.dumps(
+                {"plan_id": self.paid_plan.id, "payment_method": "manual"}
+            ),
+            content_type="application/json",
+            **MOBILE_API_HEADERS,
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertFalse(response.json()["success"])
+        self.assertEqual(
+            StudentSubscription.objects.filter(user=self.student).count(),
+            0,
+        )
+
+    def test_paid_plan_rejects_transaction_reference_without_token(self):
+        self.client.force_login(self.student)
+        response = self.client.post(
+            SUBSCRIBE_URL,
+            data=json.dumps(
+                {
+                    "plan_id": self.paid_plan.id,
+                    "payment_method": "play_store",
+                    "transaction_reference": "client-only-tx",
+                }
+            ),
+            content_type="application/json",
+            **MOBILE_API_HEADERS,
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("التحقق", response.json()["message"])
+        self.assertEqual(
+            StudentSubscription.objects.filter(user=self.student).count(),
+            0,
+        )
+
+    @patch("apps.subscription.store_verification.verify_store_purchase")
+    def test_paid_plan_rejects_when_verification_fails(self, mock_verify):
+        from apps.subscription.store_verification.types import StoreVerificationError
+
+        mock_verify.side_effect = StoreVerificationError("تحقق فاشل")
+        self.client.force_login(self.student)
+        response = self.client.post(
+            SUBSCRIBE_URL,
+            data=json.dumps(
+                {
+                    "plan_id": self.paid_plan.id,
+                    "payment_method": "play_store",
+                    "purchase_token": "fake-token",
+                    "store_product_id": f"wird_live_minutes_{self.paid_plan.minutes}",
+                }
+            ),
+            content_type="application/json",
+            **MOBILE_API_HEADERS,
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.json()["message"], "تحقق فاشل")
+        self.assertEqual(
+            StudentSubscription.objects.filter(user=self.student).count(),
+            0,
+        )
+
+    def test_paid_plan_activates_after_verified_store_purchase(self):
+        verified = self._verified(method="play_store", tx="gp-verified-001")
+        with patch(
+            "apps.subscription.store_verification.verify_store_purchase",
+            return_value=verified,
+        ), patch(
+            "apps.subscription.store_verification.schedule_google_consume",
+        ) as consume:
+            self.client.force_login(self.student)
+            response = self.client.post(
+                SUBSCRIBE_URL,
+                data=json.dumps(
+                    {
+                        "plan_id": self.paid_plan.id,
+                        "payment_method": "play_store",
+                        "transaction_reference": "ignored-client-tx",
+                        "purchase_token": "real-play-token",
+                        "store_product_id": f"wird_live_minutes_{self.paid_plan.minutes}",
+                    }
+                ),
+                content_type="application/json",
+                **MOBILE_API_HEADERS,
+            )
+        self.assertEqual(response.status_code, 201)
+        body = response.json()
+        self.assertTrue(body["success"])
+        sub = StudentSubscription.objects.get(user=self.student)
+        self.assertEqual(sub.payment_method, "play_store")
+        self.assertEqual(sub.transaction_reference, "gp-verified-001")
+        self.assertEqual(sub.plan_minutes_added, self.paid_plan.minutes)
+        consume.assert_called_once()
+
+    def test_same_minute_sku_can_be_purchased_again_with_new_transaction(self):
+        first = self._verified(method="play_store", tx="gp-tx-a")
+        second = self._verified(method="play_store", tx="gp-tx-b")
+        payload_base = {
+            "plan_id": self.paid_plan.id,
+            "payment_method": "play_store",
+            "purchase_token": "real-play-token",
+            "store_product_id": f"wird_live_minutes_{self.paid_plan.minutes}",
+        }
+        with patch(
+            "apps.subscription.store_verification.schedule_google_consume",
+        ):
+            with patch(
+                "apps.subscription.store_verification.verify_store_purchase",
+                return_value=first,
+            ):
+                self.client.force_login(self.student)
+                r1 = self.client.post(
+                    SUBSCRIBE_URL,
+                    data=json.dumps(payload_base),
+                    content_type="application/json",
+                    **MOBILE_API_HEADERS,
+                )
+            with patch(
+                "apps.subscription.store_verification.verify_store_purchase",
+                return_value=second,
+            ):
+                r2 = self.client.post(
+                    SUBSCRIBE_URL,
+                    data=json.dumps(payload_base),
+                    content_type="application/json",
+                    **MOBILE_API_HEADERS,
+                )
+        self.assertEqual(r1.status_code, 201)
+        self.assertEqual(r2.status_code, 201)
+        self.assertEqual(
+            StudentSubscription.objects.filter(user=self.student).count(),
+            2,
+        )
+
+    def test_store_transaction_is_idempotent(self):
+        verified = self._verified(method="app_store", tx="ios-tx-dup-1")
+        payload = {
+            "plan_id": self.paid_plan.id,
+            "payment_method": "app_store",
+            "transaction_reference": "ios-tx-dup-1",
+            "purchase_token": "signed.jws.token",
+            "store_product_id": f"com.kslabs.wirdlive.minutes.{self.paid_plan.minutes}",
+        }
+        with patch(
+            "apps.subscription.store_verification.verify_store_purchase",
+            return_value=verified,
+        ):
+            self.client.force_login(self.student)
+            first = self.client.post(
+                SUBSCRIBE_URL,
+                data=json.dumps(payload),
+                content_type="application/json",
+                **MOBILE_API_HEADERS,
+            )
+            second = self.client.post(
+                SUBSCRIBE_URL,
+                data=json.dumps(payload),
+                content_type="application/json",
+                **MOBILE_API_HEADERS,
+            )
+        self.assertEqual(first.status_code, 201)
+        self.assertEqual(second.status_code, 201)
+        self.assertEqual(
+            StudentSubscription.objects.filter(user=self.student).count(),
+            1,
+        )
+
+    def test_store_transaction_cannot_be_reused_by_another_user(self):
+        verified = self._verified(method="app_store", tx="ios-shared-tx")
+        payload = {
+            "plan_id": self.paid_plan.id,
+            "payment_method": "app_store",
+            "purchase_token": "signed.jws.token",
+            "store_product_id": f"com.kslabs.wirdlive.minutes.{self.paid_plan.minutes}",
+        }
+        with patch(
+            "apps.subscription.store_verification.verify_store_purchase",
+            return_value=verified,
+        ):
+            self.client.force_login(self.student)
+            first = self.client.post(
+                SUBSCRIBE_URL,
+                data=json.dumps(payload),
+                content_type="application/json",
+                **MOBILE_API_HEADERS,
+            )
+            self.client.force_login(self.other_student)
+            second = self.client.post(
+                SUBSCRIBE_URL,
+                data=json.dumps(payload),
+                content_type="application/json",
+                **MOBILE_API_HEADERS,
+            )
+        self.assertEqual(first.status_code, 201)
+        self.assertEqual(second.status_code, 400)
+        self.assertIn("مستخدمة", second.json()["message"])
+
+    def test_free_plan_still_allows_manual(self):
+        self.client.force_login(self.student)
+        response = self.client.post(
+            SUBSCRIBE_URL,
+            data=json.dumps(
+                {"plan_id": self.free_plan.id, "payment_method": "manual"}
+            ),
+            content_type="application/json",
+            **MOBILE_API_HEADERS,
+        )
+        self.assertEqual(response.status_code, 201)
+        self.assertTrue(response.json()["success"])

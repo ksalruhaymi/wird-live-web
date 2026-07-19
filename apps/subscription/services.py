@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 from datetime import date
 from decimal import Decimal, ROUND_HALF_UP
 
@@ -13,9 +14,15 @@ from identity.accounts.user_types import (
     resolve_user_type_slug,
 )
 
-from .models import StudentSubscription, StudentSubscriptionBalance, SubscriptionPlan
+from .models import (
+    MinuteCreditPack,
+    StudentSubscription,
+    StudentSubscriptionBalance,
+    SubscriptionPlan,
+)
 
 User = get_user_model()
+logger = logging.getLogger(__name__)
 
 CALL_INELIGIBLE_MESSAGE = (
     "يجب أن يكون لديك اشتراك فعال ورصيد كافٍ للاتصال بالمعلم."
@@ -62,13 +69,26 @@ def balance_display_status(
     *,
     today: date | None = None,
 ) -> str:
-    """Computed status for the user's current balance summary."""
+    """Computed status: active when spendable minute packs (or legacy wallet) remain."""
     today = today or timezone.localdate()
     if balance.status == StudentSubscriptionBalance.Status.CANCELLED:
         return StudentSubscription.DisplayStatus.CANCELLED
+
+    from apps.subscription.credit_packs import available_minutes_for_user
+    from apps.subscription.models import MinuteCreditPack
+
+    if MinuteCreditPack.objects.filter(user_id=balance.user_id).exists():
+        if available_minutes_for_user(balance.user, today=today) > ZERO_MINUTES:
+            return StudentSubscription.DisplayStatus.ACTIVE
+        return StudentSubscription.DisplayStatus.EXPIRED
+
+    # Legacy single-wallet balances (no packs yet).
     if not balance.expires_at or balance.expires_at < today:
         return StudentSubscription.DisplayStatus.EXPIRED
-    if balance.status == StudentSubscriptionBalance.Status.ACTIVE:
+    if (
+        balance.status == StudentSubscriptionBalance.Status.ACTIVE
+        and _minutes_value(balance.remaining_minutes) > ZERO_MINUTES
+    ):
         return StudentSubscription.DisplayStatus.ACTIVE
     return StudentSubscription.DisplayStatus.EXPIRED
 
@@ -349,14 +369,30 @@ def current_subscription_payload(user) -> dict:
     )
 
 
+STORE_PAYMENT_METHODS = frozenset({"app_store", "play_store"})
+
+
 @transaction.atomic
 def create_student_subscription(
     user,
     *,
     plan_id: int,
     payment_method: str = "manual",
+    transaction_reference: str = "",
+    store_product_id: str = "",
+    purchase_token: str = "",
+    require_store_purchase: bool = False,
 ) -> tuple[StudentSubscription | None, str | None]:
-    """Create a paid subscription purchase and update the user's active balance."""
+    """Verify store purchase (when required), create a minute credit pack, sync wallet."""
+    from apps.subscription.credit_packs import (
+        available_minutes_for_user,
+        compute_pack_expires_at,
+        create_minute_credit_pack,
+        find_pack_by_store_transaction,
+        plan_is_open_ended,
+        sync_wallet_from_packs,
+    )
+
     if not can_use_subscription_packages(user):
         return None, STUDENT_ONLY_SUBSCRIPTION_MESSAGE
 
@@ -370,47 +406,111 @@ def create_student_subscription(
     if not plan.is_active:
         return None, "الباقة غير متاحة."
 
+    method = (payment_method or "manual").strip() or "manual"
+    client_tx = (transaction_reference or "").strip()
+    client_product_id = (store_product_id or "").strip()
+    client_purchase_token = (purchase_token or "").strip()
+
+    verified = None
+    resolved_tx = client_tx
+    resolved_product_id = client_product_id
+    resolved_token = client_purchase_token
+
+    if require_store_purchase and not admin_complimentary and not plan.is_free:
+        if method not in STORE_PAYMENT_METHODS:
+            return (
+                None,
+                "يجب إتمام الشراء عبر متجر التطبيقات (App Store / Google Play) أولاً.",
+            )
+        if not client_purchase_token:
+            return (
+                None,
+                "بيانات التحقق من المتجر مطلوبة قبل تفعيل الاشتراك.",
+            )
+        try:
+            from apps.subscription.store_verification import (
+                StoreVerificationError,
+                schedule_google_consume,
+                verify_store_purchase,
+            )
+
+            verified = verify_store_purchase(
+                payment_method=method,
+                minutes=plan.minutes,
+                purchase_token=client_purchase_token,
+                store_product_id=client_product_id,
+                transaction_reference=client_tx,
+            )
+        except StoreVerificationError as exc:
+            return None, exc.message
+        except Exception:
+            logger.exception("Store purchase verification failed unexpectedly")
+            return None, "تعذّر التحقق من عملية الشراء لدى المتجر."
+
+        if verified.minutes != int(plan.minutes):
+            return None, "عدد دقائق عملية المتجر لا يطابق الباقة."
+
+        resolved_tx = verified.transaction_id
+        resolved_product_id = verified.product_id
+        method = verified.payment_method
+        resolved_token = client_purchase_token
+
+        existing_pack = find_pack_by_store_transaction(resolved_tx)
+        if existing_pack is not None:
+            if existing_pack.user_id != user.id:
+                return None, "عملية الشراء مستخدمة مسبقاً على حساب آخر."
+            if existing_pack.student_subscription_id:
+                return existing_pack.student_subscription, None
+
+        existing_sub = (
+            StudentSubscription.objects.select_for_update()
+            .filter(transaction_reference=resolved_tx)
+            .order_by("-id")
+            .first()
+        )
+        if existing_sub is not None:
+            if existing_sub.user_id == user.id:
+                return existing_sub, None
+            return None, "عملية الشراء مستخدمة مسبقاً على حساب آخر."
+
+    elif resolved_tx:
+        existing = (
+            StudentSubscription.objects.select_for_update()
+            .filter(user=user, transaction_reference=resolved_tx)
+            .order_by("-id")
+            .first()
+        )
+        if existing is not None:
+            return existing, None
+
     today = timezone.localdate()
-    balance, _ = StudentSubscriptionBalance.objects.select_for_update().get_or_create(
-        user=user,
-        defaults={
-            "status": StudentSubscriptionBalance.Status.EXPIRED,
-            "remaining_minutes": ZERO_MINUTES,
-        },
-    )
-
-    balance_active = is_balance_active(balance, today=today)
-    minutes_before = balance.remaining_minutes
-    expiry_before = balance.expires_at
-
-    if balance_active and balance.expires_at:
-        extend_from = balance.expires_at
-        new_minutes = _minutes_value(balance.remaining_minutes) + Decimal(plan.minutes)
-        transaction_type = "renewal"
-        period_start = extend_from
-    else:
-        extend_from = today
-        new_minutes = Decimal(plan.minutes)
-        transaction_type = "purchase"
-        period_start = today
-
-    new_expires = add_months(extend_from, plan.duration_months)
+    minutes_before = available_minutes_for_user(user, today=today)
+    pack_expires = compute_pack_expires_at(plan=plan)
+    period_start = today
+    # Ledger end_date: pack expiry day, or start_date for open-ended packs.
+    new_expires = pack_expires if pack_expires is not None else period_start
+    transaction_type = "purchase"
     now = timezone.now()
-
-    balance.current_plan_title = plan.title
-    balance.remaining_minutes = new_minutes
-    balance.expires_at = new_expires
-    balance.status = StudentSubscriptionBalance.Status.ACTIVE
-    balance.last_purchase_at = now
-    balance.low_minutes_warning_sent_at = None
-    balance.save()
 
     charge_amount = Decimal("0") if admin_complimentary else plan.price
     resolved_payment_method = (
-        "complimentary"
-        if admin_complimentary
-        else (payment_method or "manual")
+        "complimentary" if admin_complimentary else method
     )
+    stored_reference = resolved_tx
+    if not stored_reference and resolved_product_id:
+        stored_reference = resolved_product_id
+
+    notes = ""
+    if verified is not None:
+        notes = (
+            f"store_verified env={verified.environment} "
+            f"kind={verified.product_kind} minutes={verified.minutes} "
+            f"product={verified.product_id}"
+        )
+    if plan_is_open_ended(plan):
+        notes = (notes + " open_ended=1").strip()
+
+    minutes_after = minutes_before + Decimal(plan.minutes)
 
     sub = StudentSubscription.objects.create(
         user=user,
@@ -423,13 +523,43 @@ def create_student_subscription(
         status=StudentSubscription.Status.ACTIVE,
         payment_status=StudentSubscription.PaymentStatus.PAID,
         payment_method=resolved_payment_method,
+        transaction_reference=stored_reference or "",
+        notes=notes,
         plan_minutes_added=plan.minutes,
         minutes_before=minutes_before,
-        minutes_after=new_minutes,
-        expiry_before=expiry_before,
-        expiry_after=new_expires,
+        minutes_after=minutes_after,
+        expiry_before=None,
+        expiry_after=pack_expires,
         transaction_type=transaction_type,
     )
+
+    needs_consume = bool(verified is not None and verified.needs_google_consume)
+    pack = create_minute_credit_pack(
+        user=user,
+        plan=plan,
+        store=resolved_payment_method if resolved_payment_method in STORE_PAYMENT_METHODS else (
+            "complimentary" if admin_complimentary else "manual"
+        ),
+        store_product_id=resolved_product_id,
+        store_transaction_id=stored_reference,
+        purchase_token=resolved_token if verified is not None else "",
+        google_consume_pending=needs_consume,
+        student_subscription=sub,
+    )
+    sync_wallet_from_packs(user)
+    balance = get_user_subscription_balance(user)
+    if balance is not None:
+        balance.low_minutes_warning_sent_at = None
+        balance.last_purchase_at = now
+        balance.save(
+            update_fields=["low_minutes_warning_sent_at", "last_purchase_at", "updated_at"]
+        )
+
+    if needs_consume and verified is not None:
+        from apps.subscription.store_verification import schedule_google_consume
+
+        schedule_google_consume(verified, pack_id=pack.id)
+
     return sub, None
 
 
@@ -511,13 +641,27 @@ def deduct_call_minutes_for_session(call) -> Decimal:
     )
     charge = ZERO_MINUTES
     if balance is not None:
-        charge = min(billable, _minutes_value(balance.remaining_minutes))
-        if charge > ZERO_MINUTES:
-            balance.remaining_minutes = _minutes_value(balance.remaining_minutes) - charge
+        from apps.subscription.credit_packs import deduct_minutes_from_packs
+        from apps.subscription.models import MinuteCreditPack
+
+        billable_left = billable
+        if MinuteCreditPack.objects.filter(user_id=locked.student_id).exists():
+            charge = deduct_minutes_from_packs(locked.student, billable_left)
+            balance.refresh_from_db()
             balance.used_minutes = _minutes_value(balance.used_minutes) + charge
-            balance.save(
-                update_fields=["remaining_minutes", "used_minutes", "updated_at"]
-            )
+            balance.save(update_fields=["used_minutes", "updated_at"])
+        else:
+            # Legacy wallet without packs.
+            charge = min(billable_left, _minutes_value(balance.remaining_minutes))
+            if charge > ZERO_MINUTES:
+                balance.remaining_minutes = (
+                    _minutes_value(balance.remaining_minutes) - charge
+                )
+                balance.used_minutes = _minutes_value(balance.used_minutes) + charge
+                balance.save(
+                    update_fields=["remaining_minutes", "used_minutes", "updated_at"]
+                )
+        if charge > ZERO_MINUTES:
             maybe_send_low_minutes_notification(locked.student, balance)
 
     locked.minutes_charged = charge
