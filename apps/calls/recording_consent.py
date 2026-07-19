@@ -26,8 +26,10 @@ def _is_participant(call: CallSession, user) -> bool:
 
 
 def is_test_call_session(call: CallSession) -> bool:
-    """True for explicit test calls (and legacy demo-teacher sessions)."""
+    """True for standalone test-call service (and legacy demo-teacher sessions)."""
     if getattr(call, "is_test_call", False):
+        return True
+    if getattr(call, "service_type", "") == CallSession.ServiceType.TEST_CALL:
         return True
     from apps.tutoring.teacher_services import is_demo_teacher
 

@@ -85,8 +85,49 @@ class TestCallFlowTests(TestCase):
         self.assertEqual(call_data.get("demo_max_seconds"), DEMO_CALL_MAX_SECONDS)
         call = CallSession.objects.get(pk=call_data["id"])
         self.assertTrue(call.is_test_call)
-        self.assertEqual(call.teacher_id, self.demo.id)
+        self.assertEqual(call.service_type, CallSession.ServiceType.TEST_CALL)
+        self.assertIsNone(call.teacher_id)
         self.assertEqual(call.student_id, self.student.id)
+        self.assertEqual(call_data.get("service_type"), "test_call")
+        self.assertIsNone(call_data.get("teacher_id"))
+
+    def test_teacher_api_can_start_test_call(self):
+        """Teachers must be allowed on POST calls/test-call/ (no role gate)."""
+        teacher = User.objects.create_user(
+            username="tc_teacher_caller",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            email="tc_teacher_caller@example.com",
+        )
+        TeacherProfile.objects.create(
+            user=teacher,
+            display_name="معلم تجريبي",
+            is_demo_teacher=False,
+            is_approved=True,
+            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
+            can_audio=True,
+        )
+        self.client.force_login(teacher)
+        url = reverse("calls_api:test-call")
+        with patch(
+            "apps.calls.services.provider_name_for_new_call",
+            return_value=CallSession.Provider.AGORA,
+        ), patch("apps.calls.services.assign_channel_name"):
+            resp = self.client.post(
+                url, data="{}", content_type="application/json", **self.headers
+            )
+        self.assertEqual(resp.status_code, 201)
+        body = resp.json()
+        self.assertTrue(body["success"])
+        self.assertNotIn("غير متاح من حساب المعلّم", str(body))
+        call_data = body["call"]
+        self.assertTrue(call_data["is_test_call"])
+        self.assertEqual(call_data.get("service_type"), "test_call")
+        self.assertIsNone(call_data.get("teacher_id"))
+        call = CallSession.objects.get(pk=call_data["id"])
+        self.assertEqual(call.student_id, teacher.id)
+        self.assertIsNone(call.teacher_id)
+        self.assertEqual(call.service_type, CallSession.ServiceType.TEST_CALL)
 
     def test_consent_alone_does_not_start_test_call_recording(self):
         call = start_test_call_session(self.student)
@@ -177,11 +218,12 @@ class TestCallFlowTests(TestCase):
             self.assertEqual(instance.start.call_count, 1)
             self.assertEqual(
                 instance.start.call_args.kwargs.get("subscribe_audio_uids"),
-                [self.student.id, self.demo.id],
+                [self.student.id],
             )
 
         rec = CallRecording.objects.get(call_session=call)
         self.assertEqual(rec.recording_status, CallRecording.RecordingStatus.RECORDING)
+        self.assertIsNone(rec.teacher_id)
 
     def test_media_ready_api_endpoint(self):
         call = start_test_call_session(self.student)
@@ -236,11 +278,12 @@ class TestCallFlowTests(TestCase):
             client_cls.assert_called()
             self.assertEqual(
                 instance.start.call_args.kwargs.get("subscribe_audio_uids"),
-                [self.student.id, self.demo.id],
+                [self.student.id],
             )
 
         rec = CallRecording.objects.get(call_session=call)
         self.assertNotEqual(rec.recording_status, CallRecording.RecordingStatus.SKIPPED)
+        self.assertIsNone(rec.teacher_id)
 
     def test_payload_allows_recording_for_test_call(self):
         call = start_test_call_session(self.student)
@@ -318,7 +361,7 @@ class TestCallFlowTests(TestCase):
         rec = CallRecording.objects.create(
             call_session=call,
             student=self.student,
-            teacher=self.demo,
+            teacher=None,
             session_type=call.session_type,
             recording_status=CallRecording.RecordingStatus.PROCESSING,
             agora_resource_id="rid",
@@ -352,7 +395,7 @@ class TestCallFlowTests(TestCase):
         rec = CallRecording.objects.create(
             call_session=call,
             student=self.student,
-            teacher=self.demo,
+            teacher=None,
             session_type=call.session_type,
             recording_status=CallRecording.RecordingStatus.PROCESSING,
             agora_resource_id="rid",
@@ -404,3 +447,246 @@ class TestCallFlowTests(TestCase):
             mock_start.assert_not_called()
             mark_participant_media_ready(call, teacher, agora_uid=teacher.id)
             mock_start.assert_called_once()
+
+
+class TestCallLifetimeLimitTests(TestCase):
+    """Lifetime max of 3 counted test calls (recording created) per user."""
+
+    def setUp(self):
+        self.student = User.objects.create_user(
+            username="limit_student",
+            password="Pass1234!",
+            user_type=USER_TYPE_STUDENT,
+            email="limit_student@example.com",
+        )
+        self.other = User.objects.create_user(
+            username="limit_other",
+            password="Pass1234!",
+            user_type=USER_TYPE_STUDENT,
+            email="limit_other@example.com",
+        )
+        self.teacher_user = User.objects.create_user(
+            username="limit_teacher",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            email="limit_teacher@example.com",
+        )
+        TeacherProfile.objects.create(
+            user=self.teacher_user,
+            display_name="معلم عادي",
+            is_demo_teacher=False,
+            is_approved=True,
+            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
+            can_audio=True,
+        )
+
+    def _end_without_recording(self, call: CallSession) -> None:
+        call.status = CallSession.Status.ENDED
+        call.ended_at = timezone.now()
+        call.save(update_fields=["status", "ended_at"])
+
+    def _complete_counted_test_call(self, user) -> CallSession:
+        """Simulate a real started test call that created a recording."""
+        from apps.calls.services import counted_test_calls_for_user
+
+        call = start_test_call_session(user)
+        CallRecording.objects.create(
+            call_session=call,
+            student=user,
+            teacher=None,
+            session_type=call.session_type,
+            recording_status=CallRecording.RecordingStatus.RECORDING,
+            started_at=timezone.now(),
+        )
+        self._end_without_recording(call)
+        self.assertGreaterEqual(counted_test_calls_for_user(user), 1)
+        return call
+
+    def test_user_can_complete_three_counted_test_calls(self):
+        from apps.calls.services import counted_test_calls_for_user
+
+        for _ in range(3):
+            self._complete_counted_test_call(self.student)
+        self.assertEqual(counted_test_calls_for_user(self.student), 3)
+
+    def test_fourth_counted_test_call_is_rejected(self):
+        from apps.calls.exceptions import CallValidationError
+        from apps.calls.services import (
+            TEST_CALL_LIFETIME_LIMIT_MESSAGE,
+            start_test_call_session,
+        )
+
+        for _ in range(3):
+            self._complete_counted_test_call(self.student)
+
+        with self.assertRaises(CallValidationError) as ctx:
+            start_test_call_session(self.student)
+        self.assertEqual(ctx.exception.message, TEST_CALL_LIFETIME_LIMIT_MESSAGE)
+        self.assertEqual(
+            ctx.exception.message,
+            "لقد استخدمت الحد الأقصى للاتصالات التجريبية.",
+        )
+
+    def test_failed_before_recording_does_not_count(self):
+        from apps.calls.services import (
+            counted_test_calls_for_user,
+            start_test_call_session,
+        )
+
+        failed = start_test_call_session(self.student)
+        self._end_without_recording(failed)
+        self.assertEqual(counted_test_calls_for_user(self.student), 0)
+
+        # Still allowed to start again (and complete with recording).
+        self._complete_counted_test_call(self.student)
+        self.assertEqual(counted_test_calls_for_user(self.student), 1)
+
+        for _ in range(2):
+            self._complete_counted_test_call(self.student)
+        self.assertEqual(counted_test_calls_for_user(self.student), 3)
+
+    def test_users_are_independent(self):
+        from apps.calls.exceptions import CallValidationError
+        from apps.calls.services import (
+            counted_test_calls_for_user,
+            start_test_call_session,
+        )
+
+        for _ in range(3):
+            self._complete_counted_test_call(self.student)
+
+        with self.assertRaises(CallValidationError):
+            start_test_call_session(self.student)
+
+        self.assertEqual(counted_test_calls_for_user(self.other), 0)
+        first = start_test_call_session(self.other)
+        self.assertTrue(first.is_test_call)
+        self.assertEqual(first.student_id, self.other.id)
+
+    def test_teacher_can_start_test_call(self):
+        call = start_test_call_session(self.teacher_user)
+        self.assertTrue(call.is_test_call)
+        self.assertEqual(call.service_type, CallSession.ServiceType.TEST_CALL)
+        self.assertEqual(call.student_id, self.teacher_user.id)
+        self.assertIsNone(call.teacher_id)
+
+    def test_recording_start_path_unchanged_for_test_call(self):
+        """Existing gated recording start still runs after consent + media-ready."""
+        call = start_test_call_session(self.student)
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            record_call_recording_consent(call, self.student, platform="android")
+            mock_start.assert_not_called()
+            mark_participant_media_ready(call, self.student, agora_uid=self.student.id)
+            mock_start.assert_called_once()
+
+
+class IndependentTestCallServiceTests(TestCase):
+    """Standalone test-call service: no peer User/Teacher dependency."""
+
+    def setUp(self):
+        self.student = User.objects.create_user(
+            username="ind_student",
+            password="Pass1234!",
+            user_type=USER_TYPE_STUDENT,
+            email="ind_student@example.com",
+        )
+        self.teacher = User.objects.create_user(
+            username="ind_teacher",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            email="ind_teacher@example.com",
+        )
+        TeacherProfile.objects.create(
+            user=self.teacher,
+            display_name="معلم",
+            is_demo_teacher=False,
+            is_approved=True,
+            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
+            can_audio=True,
+            can_video=True,
+        )
+
+    def test_student_can_use_independent_test_call(self):
+        call = start_test_call_session(self.student)
+        self.assertTrue(call.is_test_call)
+        self.assertEqual(call.service_type, "test_call")
+        self.assertIsNone(call.teacher_id)
+        self.assertEqual(call.student_id, self.student.id)
+        self.assertEqual(call.status, CallSession.Status.ACTIVE)
+
+    def test_teacher_can_use_independent_test_call(self):
+        call = start_test_call_session(self.teacher)
+        self.assertTrue(call.is_test_call)
+        self.assertEqual(call.service_type, CallSession.ServiceType.TEST_CALL)
+        self.assertIsNone(call.teacher_id)
+        self.assertEqual(call.student_id, self.teacher.id)
+
+    def test_service_is_not_a_user_or_teacher_peer(self):
+        call = start_test_call_session(self.student)
+        self.assertIsNone(call.teacher)
+        self.assertFalse(
+            TeacherProfile.objects.filter(user_id=call.teacher_id).exists()
+        )
+        self.assertTrue(call.is_independent_test_service)
+
+    def test_request_call_to_demo_teacher_is_rejected(self):
+        from apps.calls.exceptions import CallValidationError
+        from apps.calls.services import request_call_session
+
+        demo = User.objects.create_user(
+            username="ind_demo",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            email="ind.demo@wird.local",
+        )
+        TeacherProfile.objects.create(
+            user=demo,
+            is_demo_teacher=True,
+            auto_accept_calls=True,
+            is_approved=True,
+            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
+            can_audio=True,
+        )
+        with self.assertRaises(CallValidationError) as ctx:
+            request_call_session(
+                self.student,
+                session_type=CallSession.SessionType.AUDIO,
+                teacher_id=demo.id,
+            )
+        self.assertIn("خدمة الاتصال التجريبي", ctx.exception.message)
+
+    def test_normal_student_teacher_call_unaffected(self):
+        from apps.calls.services import request_call_session
+
+        with patch(
+            "apps.calls.services.student_can_request_call",
+            return_value=(True, ""),
+        ), patch(
+            "apps.calls.services.validate_teacher_for_call",
+            return_value=None,
+        ), patch(
+            "apps.calls.services.provider_name_for_new_call",
+            return_value=CallSession.Provider.AGORA,
+        ), patch("apps.calls.services.assign_channel_name"), patch(
+            "apps.calls.services.mark_teacher_busy"
+        ):
+            call = request_call_session(
+                self.student,
+                session_type=CallSession.SessionType.AUDIO,
+                teacher_id=self.teacher.id,
+            )
+        self.assertFalse(call.is_test_call)
+        self.assertEqual(call.service_type, CallSession.ServiceType.NONE)
+        self.assertEqual(call.teacher_id, self.teacher.id)
+        self.assertEqual(call.student_id, self.student.id)
+        self.assertEqual(call.status, CallSession.Status.PENDING)
+
+    def test_ensure_recording_row_allows_null_teacher(self):
+        from apps.calls.cloud_recording.service import ensure_recording_row
+
+        call = start_test_call_session(self.student)
+        rec = ensure_recording_row(call)
+        self.assertIsNone(rec.teacher_id)
+        self.assertEqual(rec.student_id, self.student.id)

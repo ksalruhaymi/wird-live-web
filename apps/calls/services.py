@@ -6,8 +6,6 @@ from datetime import timedelta
 from apps.tutoring.teacher_services import (
     DEMO_CALL_MAX_SECONDS,
     DEMO_CALL_MESSAGE,
-    auto_accepts_calls,
-    get_demo_teacher_user,
     get_pending_teacher_for_interview,
     get_teacher_user,
     is_demo_teacher,
@@ -30,6 +28,9 @@ from .token_builder import (
     token_expiry_iso,
     uses_agora_rtc,
 )
+
+TEST_CALL_LIFETIME_LIMIT = 3
+TEST_CALL_LIFETIME_LIMIT_MESSAGE = "لقد استخدمت الحد الأقصى للاتصالات التجريبية."
 
 
 def student_display_name(user) -> str:
@@ -80,6 +81,7 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
     payload = {
         "id": call.id,
         "session_type": call.session_type,
+        "service_type": getattr(call, "service_type", "") or "",
         "provider": call.provider,
         "is_interview_call": bool(getattr(call, "is_interview_call", False)),
         "is_test_call": bool(getattr(call, "is_test_call", False)),
@@ -213,7 +215,13 @@ def request_call_session(
 
     demo_teacher = is_demo_teacher(teacher)
 
-    if not demo_teacher and not interview_call:
+    # Test-call is a standalone service — not reachable via teacher request.
+    if demo_teacher:
+        raise CallValidationError(
+            "الاتصال التجريبي متاح عبر خدمة الاتصال التجريبي فقط.",
+        )
+
+    if not interview_call:
         can_call, eligibility_message = student_can_request_call(user)
         if not can_call:
             raise CallValidationError(eligibility_message)
@@ -233,28 +241,38 @@ def request_call_session(
         provider=provider_name_for_new_call(),
         status=CallSession.Status.PENDING,
         is_interview_call=bool(interview_call),
-        is_test_call=bool(demo_teacher),
+        is_test_call=False,
     )
     assign_channel_name(call)
     mark_teacher_busy(teacher)
 
-    if demo_teacher and auto_accepts_calls(teacher):
-        call = _activate_call_session(call)
-
     return call
 
 
+def counted_test_calls_for_user(user) -> int:
+    """Test calls that started for real and created a recording row.
+
+    Sessions that never reached recording creation (setup failure, cancel
+    before media/recording) do not consume the lifetime quota.
+    """
+    return (
+        CallSession.objects.filter(
+            student=user,
+            is_test_call=True,
+            recording__isnull=False,
+        )
+        .distinct()
+        .count()
+    )
+
+
 def start_test_call_session(user) -> CallSession:
-    """Start a 60s test call with the automated peer. No booking or minutes."""
+    """Start a 60s standalone test-call service. No peer User/Teacher."""
     from apps.calls.models import TEST_CALL_MAX_SECONDS
 
-    caller_slug = resolve_user_type_slug(user)
-    if caller_slug not in {"student", "admin"}:
-        raise CallValidationError("الاتصال التجريبي متاح للمستخدمين المسجلين فقط.")
-
-    teacher = get_demo_teacher_user()
-    if teacher is None:
-        raise CallValidationError("خدمة الاتصال التجريبي غير متاحة حاليًا.")
+    # Lifetime quota: only sessions that created a recording count.
+    if counted_test_calls_for_user(user) >= TEST_CALL_LIFETIME_LIMIT:
+        raise CallValidationError(TEST_CALL_LIFETIME_LIMIT_MESSAGE)
 
     # Block concurrent active/pending test calls for this user.
     active_exists = CallSession.objects.filter(
@@ -286,18 +304,17 @@ def start_test_call_session(user) -> CallSession:
     _ = TEST_CALL_MAX_SECONDS  # documented max; enforced via DEMO_CALL_MAX_SECONDS
     call = CallSession.objects.create(
         student=user,
-        teacher=teacher,
+        teacher=None,
         session_type=CallSession.SessionType.AUDIO,
         provider=provider_name_for_new_call(),
         status=CallSession.Status.PENDING,
         is_interview_call=False,
         is_test_call=True,
+        service_type=CallSession.ServiceType.TEST_CALL,
     )
     assign_channel_name(call)
-    mark_teacher_busy(teacher)
-    if auto_accepts_calls(teacher):
-        call = _activate_call_session(call)
-    return call
+    # No peer teacher — activate immediately for the independent service.
+    return _activate_call_session(call)
 
 
 def list_incoming_calls(teacher_user) -> list[CallSession]:

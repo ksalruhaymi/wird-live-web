@@ -316,17 +316,6 @@ def start_test_call(request):
     if auth_err:
         return auth_err
 
-    from apps.tutoring.teacher_services import resolve_user_type_slug
-
-    if resolve_user_type_slug(request.user) == "teacher":
-        return JsonResponse(
-            {
-                "success": False,
-                "message": "الاتصال التجريبي غير متاح من حساب المعلّم.",
-            },
-            status=403,
-        )
-
     try:
         call = start_test_call_session(request.user)
     except (CallValidationError, CallProviderError) as exc:

@@ -15,15 +15,31 @@ def _duration_seconds(call: CallSession) -> int:
 
 def ensure_post_call_artifacts(call: CallSession) -> None:
     """Create evaluation + recording placeholders when a call ends."""
-    if call.status != CallSession.Status.ENDED or not call.teacher_id:
+    if call.status != CallSession.Status.ENDED:
         return
 
     from apps.calls.recording_consent import is_test_call_session
 
-    # Test calls: recording only — no SessionEvaluation / peer ratings.
-    if not getattr(call, "is_interview_call", False) and not is_test_call_session(
-        call
-    ):
+    # Standalone test-call service: recording row only (teacher may be null).
+    if is_test_call_session(call):
+        CallRecording.objects.get_or_create(
+            call_session=call,
+            defaults={
+                "student_id": call.student_id,
+                "teacher_id": call.teacher_id,
+                "session_type": call.session_type,
+                "started_at": call.started_at,
+                "ended_at": call.ended_at or timezone.now(),
+                "duration_seconds": _duration_seconds(call),
+            },
+        )
+        return
+
+    if not call.teacher_id:
+        return
+
+    # Real / interview calls: evaluation + peer ratings + recording placeholder.
+    if not getattr(call, "is_interview_call", False):
         SessionEvaluation.objects.get_or_create(
             call_session=call,
             defaults={

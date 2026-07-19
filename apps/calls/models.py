@@ -24,6 +24,12 @@ class CallSession(models.Model):
         CANCELLED = "cancelled", "ملغي"
         FAILED = "failed", "فشل"
 
+    class ServiceType(models.TextChoices):
+        """Independent call services (not a User / Teacher role)."""
+
+        NONE = "", "—"
+        TEST_CALL = "test_call", "اتصال تجريبي"
+
     student = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
@@ -42,6 +48,15 @@ class CallSession(models.Model):
         max_length=10,
         choices=SessionType.choices,
         verbose_name="نوع الاتصال",
+    )
+    service_type = models.CharField(
+        max_length=32,
+        choices=ServiceType.choices,
+        blank=True,
+        default=ServiceType.NONE,
+        db_index=True,
+        verbose_name="نوع الخدمة المستقلة",
+        help_text="مثال: test_call — خدمة اتصال تجريبي بلا طرف معلّم.",
     )
     provider = models.CharField(
         max_length=20,
@@ -122,9 +137,24 @@ class CallSession(models.Model):
         ordering = ["-created_at", "-id"]
         verbose_name = "جلسة اتصال"
         verbose_name_plural = "جلسات الاتصال"
+        constraints = [
+            models.CheckConstraint(
+                condition=(
+                    models.Q(teacher__isnull=False)
+                    | models.Q(is_test_call=True)
+                    | models.Q(service_type="test_call")
+                ),
+                name="calls_callsession_teacher_required_unless_test",
+            ),
+        ]
 
     def __str__(self):
         return f"call_{self.pk} ({self.session_type})"
+
+    @property
+    def is_independent_test_service(self) -> bool:
+        """True when this session is the standalone test-call service (not a peer)."""
+        return bool(self.is_test_call) or self.service_type == self.ServiceType.TEST_CALL
 
 
 class SessionEvaluation(models.Model):
@@ -343,7 +373,9 @@ class CallRecording(models.Model):
     )
     teacher = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
         related_name="call_recordings_as_teacher",
     )
     session_type = models.CharField(max_length=10)
