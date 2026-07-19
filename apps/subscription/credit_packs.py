@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import logging
-from datetime import date
+from datetime import date, timedelta
 from decimal import Decimal
 
+from dateutil.relativedelta import relativedelta
 from django.db import transaction
 from django.db.models import F, Q, Sum
 from django.utils import timezone
@@ -30,20 +31,37 @@ def _minutes(value) -> Decimal:
 
 
 def plan_is_open_ended(plan: SubscriptionPlan) -> bool:
-    """Open packs: duration_months <= 0 → no expires_at."""
+    """Open packs: both validity fields null (legacy: duration_months <= 0)."""
+    value = getattr(plan, "validity_value", None)
+    unit = (getattr(plan, "validity_unit", None) or "").strip() or None
+    if value is not None or unit is not None:
+        return False
+    # Both validity fields empty: open unless legacy duration_months says timed.
     return int(getattr(plan, "duration_months", 0) or 0) <= 0
 
 
 def compute_pack_expires_at(*, plan: SubscriptionPlan, purchased_at=None) -> date | None:
-    """Timed pack expires on purchase date + duration_months; open → None."""
+    """Compute pack expiry from validity_value/unit (calendar months, not 30-day)."""
     if plan_is_open_ended(plan):
         return None
-    from apps.subscription.services import add_months
 
     purchased_day = timezone.localdate()
     if purchased_at is not None:
         purchased_day = timezone.localtime(purchased_at).date()
-    return add_months(purchased_day, int(plan.duration_months))
+
+    value = getattr(plan, "validity_value", None)
+    unit = (getattr(plan, "validity_unit", None) or "").strip() or None
+
+    if value is not None and unit == SubscriptionPlan.ValidityUnit.DAYS:
+        return purchased_day + timedelta(days=int(value))
+    if value is not None and unit == SubscriptionPlan.ValidityUnit.MONTHS:
+        return purchased_day + relativedelta(months=int(value))
+
+    # Legacy fallback: duration_months as calendar months.
+    months = int(getattr(plan, "duration_months", 0) or 0)
+    if months > 0:
+        return purchased_day + relativedelta(months=months)
+    return None
 
 
 def expire_stale_packs_for_user(user, *, today: date | None = None) -> int:

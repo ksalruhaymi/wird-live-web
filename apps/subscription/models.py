@@ -9,8 +9,26 @@ from apps.subscription.pricing import format_display_price, is_free_amount
 
 
 class SubscriptionPlan(models.Model):
+    class ValidityUnit(models.TextChoices):
+        DAYS = "days", "أيام"
+        MONTHS = "months", "أشهر"
+
     title = models.CharField(max_length=255, verbose_name="اسم الباقة")
+    # Legacy field kept for compatibility; validity_* is the source of truth.
     duration_months = models.PositiveSmallIntegerField(verbose_name="المدة بالأشهر")
+    validity_value = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name="قيمة الصلاحية",
+        help_text="عدد الأيام أو الأشهر. فارغ مع الوحدة = باقة مفتوحة حتى نفاد الدقائق.",
+    )
+    validity_unit = models.CharField(
+        max_length=10,
+        choices=ValidityUnit.choices,
+        null=True,
+        blank=True,
+        verbose_name="وحدة الصلاحية",
+    )
     price = models.DecimalField(
         max_digits=10,
         decimal_places=2,
@@ -45,6 +63,46 @@ class SubscriptionPlan(models.Model):
     @property
     def display_price(self) -> str:
         return format_display_price(self.price, with_currency=True)
+
+    @property
+    def is_open_ended(self) -> bool:
+        """True when both validity fields are empty (until minutes run out)."""
+        unit = (self.validity_unit or "").strip() or None
+        return self.validity_value is None and unit is None
+
+    def sync_legacy_duration_months(self) -> None:
+        """Keep duration_months aligned for older consumers."""
+        if self.is_open_ended:
+            self.duration_months = 0
+        elif self.validity_unit == self.ValidityUnit.MONTHS and self.validity_value:
+            self.duration_months = int(self.validity_value)
+        else:
+            # Day-based packs have no month equivalent; keep 0 for legacy.
+            self.duration_months = 0
+
+    @property
+    def validity_display(self) -> str:
+        if self.is_open_ended:
+            return "مفتوحة حتى نفاد الدقائق"
+        value = self.validity_value
+        unit = self.validity_unit
+        if value is None or not unit:
+            if self.duration_months and self.duration_months > 0:
+                return f"{self.duration_months} شهر"
+            return "مفتوحة حتى نفاد الدقائق"
+        if unit == self.ValidityUnit.DAYS:
+            if value == 1:
+                return "يوم واحد"
+            if value == 2:
+                return "يومان"
+            return f"{value} أيام"
+        if unit == self.ValidityUnit.MONTHS:
+            if value == 1:
+                return "شهر واحد"
+            if value == 2:
+                return "شهران"
+            return f"{value} أشهر"
+        return str(value)
 
 
 class StudentSubscription(models.Model):

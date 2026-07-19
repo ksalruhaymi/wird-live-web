@@ -20,7 +20,7 @@
   </div>
 
   <div class="site-card p-5 md:p-6">
-    <form method="post" class="space-y-5">
+    <form method="post" class="space-y-5" id="subscription-plan-form">
       {% csrf_token %}
 
       <div class="space-y-1.5">
@@ -30,15 +30,38 @@
                required>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="flex items-center gap-2">
+        <input type="checkbox" name="is_open_ended" id="is_open_ended"
+               class="rounded border site-border"
+               {% if initial.is_open_ended %}checked{% endif %}>
+        <label for="is_open_ended" class="text-sm font-semibold site-text">
+          مفتوحة حتى نفاد الدقائق
+        </label>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="validity-fields">
         <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">المدة (بالأشهر)</label>
-          <input type="number" name="duration_months" min="1" step="1"
-                 value="{{ initial.duration_months }}"
-                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text"
-                 required>
+          <label class="block text-sm font-semibold site-text">قيمة الصلاحية</label>
+          <input type="number" name="validity_value" id="validity_value" min="1" step="1"
+                 value="{{ initial.validity_value }}"
+                 class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
         </div>
 
+        <div class="space-y-1.5">
+          <label class="block text-sm font-semibold site-text">وحدة الصلاحية</label>
+          <select name="validity_unit" id="validity_unit"
+                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">
+            {% for value, label in validity_unit_choices %}
+            <option value="{{ value }}"
+                    {% if initial.validity_unit == value %}selected{% endif %}>
+              {{ label }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="space-y-1.5">
           <label class="block text-sm font-semibold site-text">المبلغ (ريال)</label>
           <input type="text" name="price" inputmode="decimal"
@@ -95,4 +118,32 @@
   </div>
 
 </div>
+
+<script>
+(function () {
+  var openEnded = document.getElementById('is_open_ended');
+  var valueInput = document.getElementById('validity_value');
+  var unitInput = document.getElementById('validity_unit');
+  var fields = document.getElementById('validity-fields');
+  function syncValidityFields() {
+    var disabled = !!(openEnded && openEnded.checked);
+    if (valueInput) {
+      valueInput.disabled = disabled;
+      valueInput.required = !disabled;
+    }
+    if (unitInput) {
+      unitInput.disabled = disabled;
+      unitInput.required = !disabled;
+    }
+    if (fields) {
+      fields.style.opacity = disabled ? '0.45' : '1';
+      fields.style.pointerEvents = disabled ? 'none' : '';
+    }
+  }
+  if (openEnded) {
+    openEnded.addEventListener('change', syncValidityFields);
+    syncValidityFields();
+  }
+})();
+</script>
 {% endblock %}

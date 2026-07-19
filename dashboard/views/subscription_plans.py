@@ -10,31 +10,63 @@ from apps.subscription.models import SubscriptionPlan
 from core.utils.pagination import build_pagination_query_string, paginate_with_smart_pages
 from identity.rbac.decorators import permissions_required
 
+VALIDITY_UNITS = {
+    SubscriptionPlan.ValidityUnit.DAYS,
+    SubscriptionPlan.ValidityUnit.MONTHS,
+}
+
 
 def _parse_plan_form(post):
     """Return (data dict, errors list) from POST."""
     errors = []
     title = (post.get("title") or "").strip()
-    duration_raw = (post.get("duration_months") or "").strip()
     price_raw = (post.get("price") or "").strip()
     minutes_raw = (post.get("minutes") or "0").strip()
     description = (post.get("description") or "").strip()
     sort_raw = (post.get("sort_order") or "0").strip()
     is_active = post.get("is_active") == "on"
+    is_open_ended = post.get("is_open_ended") == "on"
+    validity_value_raw = (post.get("validity_value") or "").strip()
+    validity_unit_raw = (post.get("validity_unit") or "").strip()
 
     if not title:
         errors.append("الرجاء إدخال اسم الباقة.")
 
-    duration_months = None
-    if not duration_raw:
-        errors.append("الرجاء إدخال مدة الاشتراك بالأشهر.")
+    validity_value = None
+    validity_unit = None
+    duration_months = 0
+
+    if is_open_ended:
+        validity_value = None
+        validity_unit = None
+        duration_months = 0
     else:
-        try:
-            duration_months = int(duration_raw)
-            if duration_months < 1:
-                errors.append("مدة الاشتراك يجب أن تكون شهرًا واحدًا على الأقل.")
-        except ValueError:
-            errors.append("مدة الاشتراك يجب أن تكون رقمًا صحيحًا.")
+        if not validity_value_raw and not validity_unit_raw:
+            errors.append("الرجاء إدخال قيمة ووحدة الصلاحية، أو اختيار باقة مفتوحة.")
+        elif not validity_value_raw:
+            errors.append("لا يمكن تحديد وحدة الصلاحية دون قيمة.")
+        elif not validity_unit_raw:
+            errors.append("لا يمكن تحديد قيمة الصلاحية دون وحدة.")
+        else:
+            try:
+                validity_value = int(validity_value_raw)
+                if validity_value < 1:
+                    errors.append("قيمة الصلاحية يجب أن تكون رقمًا موجبًا (1 فأكثر).")
+                    validity_value = None
+            except ValueError:
+                errors.append("قيمة الصلاحية يجب أن تكون رقمًا صحيحًا.")
+                validity_value = None
+
+            if validity_unit_raw not in VALIDITY_UNITS:
+                errors.append("وحدة الصلاحية غير صالحة.")
+                validity_unit = None
+            else:
+                validity_unit = validity_unit_raw
+
+            if validity_value is not None and validity_unit == SubscriptionPlan.ValidityUnit.MONTHS:
+                duration_months = validity_value
+            else:
+                duration_months = 0
 
     price = None
     if not price_raw:
@@ -68,6 +100,9 @@ def _parse_plan_form(post):
 
     data = {
         "title": title,
+        "validity_value": validity_value,
+        "validity_unit": validity_unit,
+        "is_open_ended": is_open_ended,
         "duration_months": duration_months,
         "price": price,
         "minutes": minutes,
@@ -76,6 +111,20 @@ def _parse_plan_form(post):
         "is_active": is_active,
     }
     return data, errors
+
+
+def _plan_form_initial_from_post(post, data):
+    return {
+        "title": post.get("title", ""),
+        "validity_value": post.get("validity_value", ""),
+        "validity_unit": post.get("validity_unit", ""),
+        "is_open_ended": post.get("is_open_ended") == "on",
+        "price": post.get("price", ""),
+        "minutes": post.get("minutes", "0"),
+        "description": post.get("description", ""),
+        "sort_order": post.get("sort_order", "0"),
+        "is_active": data.get("is_active", post.get("is_active") == "on"),
+    }
 
 
 def _plan_list_hidden_fields(*, q: str, active_filter: str) -> list[dict]:
@@ -101,7 +150,7 @@ def subscription_plan_list(request):
         except (InvalidOperation, ValueError):
             pass
         try:
-            q_filter |= Q(duration_months=int(q))
+            q_filter |= Q(validity_value=int(q)) | Q(duration_months=int(q))
         except ValueError:
             pass
         qs = qs.filter(q_filter)
@@ -148,7 +197,9 @@ def subscription_plan_list(request):
 def subscription_plan_create(request):
     initial = {
         "title": "",
-        "duration_months": "",
+        "validity_value": "",
+        "validity_unit": SubscriptionPlan.ValidityUnit.MONTHS,
+        "is_open_ended": False,
         "price": "",
         "minutes": "0",
         "description": "",
@@ -158,18 +209,16 @@ def subscription_plan_create(request):
 
     if request.method == "POST":
         data, errors = _parse_plan_form(request.POST)
-        initial = {**data, "duration_months": request.POST.get("duration_months", "")}
-        initial["price"] = request.POST.get("price", "")
-        initial["minutes"] = request.POST.get("minutes", "0")
-        initial["description"] = request.POST.get("description", "")
-        initial["sort_order"] = request.POST.get("sort_order", "0")
+        initial = _plan_form_initial_from_post(request.POST, data)
 
         if errors:
             for msg in errors:
                 messages.error(request, msg)
         else:
-            SubscriptionPlan.objects.create(
+            plan = SubscriptionPlan(
                 title=data["title"],
+                validity_value=data["validity_value"],
+                validity_unit=data["validity_unit"],
                 duration_months=data["duration_months"],
                 price=data["price"],
                 minutes=data["minutes"],
@@ -177,6 +226,8 @@ def subscription_plan_create(request):
                 sort_order=data["sort_order"],
                 is_active=data["is_active"],
             )
+            plan.sync_legacy_duration_months()
+            plan.save()
             messages.success(request, "تم إنشاء الباقة بنجاح.")
             return redirect("dashboard:subscription_plan_list")
 
@@ -188,6 +239,7 @@ def subscription_plan_create(request):
             "mode": "create",
             "initial": initial,
             "plan": None,
+            "validity_unit_choices": SubscriptionPlan.ValidityUnit.choices,
         },
     )
 
@@ -198,7 +250,9 @@ def subscription_plan_update(request, pk):
     plan = get_object_or_404(SubscriptionPlan, pk=pk)
     initial = {
         "title": plan.title,
-        "duration_months": str(plan.duration_months),
+        "validity_value": "" if plan.validity_value is None else str(plan.validity_value),
+        "validity_unit": plan.validity_unit or SubscriptionPlan.ValidityUnit.MONTHS,
+        "is_open_ended": plan.is_open_ended,
         "price": str(plan.price),
         "minutes": str(plan.minutes),
         "description": plan.description,
@@ -208,23 +262,22 @@ def subscription_plan_update(request, pk):
 
     if request.method == "POST":
         data, errors = _parse_plan_form(request.POST)
-        initial = {**data, "duration_months": request.POST.get("duration_months", "")}
-        initial["price"] = request.POST.get("price", "")
-        initial["minutes"] = request.POST.get("minutes", "0")
-        initial["description"] = request.POST.get("description", "")
-        initial["sort_order"] = request.POST.get("sort_order", "0")
+        initial = _plan_form_initial_from_post(request.POST, data)
 
         if errors:
             for msg in errors:
                 messages.error(request, msg)
         else:
             plan.title = data["title"]
+            plan.validity_value = data["validity_value"]
+            plan.validity_unit = data["validity_unit"]
             plan.duration_months = data["duration_months"]
             plan.price = data["price"]
             plan.minutes = data["minutes"]
             plan.description = data["description"]
             plan.sort_order = data["sort_order"]
             plan.is_active = data["is_active"]
+            plan.sync_legacy_duration_months()
             plan.save()
             messages.success(request, "تم تحديث الباقة بنجاح.")
             return redirect("dashboard:subscription_plan_list")
@@ -237,6 +290,7 @@ def subscription_plan_update(request, pk):
             "mode": "edit",
             "initial": initial,
             "plan": plan,
+            "validity_unit_choices": SubscriptionPlan.ValidityUnit.choices,
         },
     )
 

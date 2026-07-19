@@ -14,6 +14,8 @@ class SubscriptionPlanAdmin(admin.ModelAdmin):
     list_display = (
         "id",
         "title",
+        "validity_value",
+        "validity_unit",
         "duration_months",
         "display_price",
         "minutes",
@@ -21,9 +23,20 @@ class SubscriptionPlanAdmin(admin.ModelAdmin):
         "sort_order",
         "updated_at",
     )
-    list_filter = ("is_active",)
+    list_filter = ("is_active", "validity_unit")
     search_fields = ("title",)
     ordering = ("sort_order", "id")
+    fields = (
+        "title",
+        "validity_value",
+        "validity_unit",
+        "duration_months",
+        "price",
+        "minutes",
+        "description",
+        "is_active",
+        "sort_order",
+    )
 
 
 @admin.register(MinuteCreditPack)
