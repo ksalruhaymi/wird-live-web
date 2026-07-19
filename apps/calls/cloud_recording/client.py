@@ -174,9 +174,13 @@ class AgoraCloudRecordingClient:
         recording_uid: str,
         rtc_token: str,
         session_type: str,
+        subscribe_audio_uids: list[int] | None = None,
     ) -> str:
         storage = _storage_config(channel_name)
-        recording_config = _recording_config(session_type)
+        recording_config = _recording_config(
+            session_type,
+            subscribe_audio_uids=subscribe_audio_uids,
+        )
         recording_file_config = {
             "avFileType": ["hls", "mp4"],
         }
@@ -190,6 +194,9 @@ class AgoraCloudRecordingClient:
                 (storage.get("extensionParams") or {}).get("endpoint")
             ),
             "session_type": session_type,
+            "stream_types": recording_config.get("streamTypes"),
+            "subscribe_audio_uids": recording_config.get("subscribeAudioUids"),
+            "channel_type": recording_config.get("channelType"),
         }
         data = self._request(
             "POST",
@@ -326,13 +333,23 @@ def _storage_config(channel_name: str) -> dict[str, Any]:
     return storage
 
 
-def _recording_config(session_type: str) -> dict[str, Any]:
-    return {
+def _recording_config(
+    session_type: str,
+    *,
+    subscribe_audio_uids: list[int] | None = None,
+) -> dict[str, Any]:
+    # channelType 0 = communication (matches Flutter channelProfileCommunication)
+    # streamTypes 0 = audio only
+    config: dict[str, Any] = {
         "channelType": 0,
         "streamTypes": 0,
         "maxIdleTime": 120,
         "subscribeUidGroup": 0,
     }
+    # When set, subscribe only these UIDs (must include the human publisher).
+    if subscribe_audio_uids:
+        config["subscribeAudioUids"] = [str(int(u)) for u in subscribe_audio_uids]
+    return config
 
 
 def _safe_response_body(response: requests.Response, max_len: int = 2000) -> str:

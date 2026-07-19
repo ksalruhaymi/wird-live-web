@@ -1,8 +1,7 @@
-"""Test-call (اتصال تجريبي) recording consent and duration tests."""
+"""Test-call (اتصال تجريبي) recording consent, media-ready, and duration tests."""
 
 from __future__ import annotations
 
-import json
 from datetime import timedelta
 from unittest.mock import patch
 
@@ -11,6 +10,7 @@ from django.test import Client, TestCase
 from django.urls import reverse
 from django.utils import timezone
 
+from apps.calls.cloud_recording.client import AgoraCloudRecordingError
 from apps.calls.cloud_recording.reconcile import reconcile_stuck_calls
 from apps.calls.models import (
     TEST_CALL_RECORDING_CONSENT_VERSION,
@@ -21,6 +21,7 @@ from apps.calls.models import (
 )
 from apps.calls.recording_consent import (
     is_test_call_session,
+    mark_participant_media_ready,
     maybe_start_recording_if_consents_ready,
     record_call_recording_consent,
     recording_consent_payload,
@@ -72,7 +73,9 @@ class TestCallFlowTests(TestCase):
             "apps.calls.services.provider_name_for_new_call",
             return_value=CallSession.Provider.AGORA,
         ), patch("apps.calls.services.assign_channel_name"):
-            resp = self.client.post(url, data="{}", content_type="application/json", **self.headers)
+            resp = self.client.post(
+                url, data="{}", content_type="application/json", **self.headers
+            )
         self.assertEqual(resp.status_code, 201)
         body = resp.json()
         self.assertTrue(body["success"])
@@ -85,7 +88,7 @@ class TestCallFlowTests(TestCase):
         self.assertEqual(call.teacher_id, self.demo.id)
         self.assertEqual(call.student_id, self.student.id)
 
-    def test_test_call_requires_caller_consent_only(self):
+    def test_consent_alone_does_not_start_test_call_recording(self):
         call = start_test_call_session(self.student)
         call.refresh_from_db()
         self.assertTrue(is_test_call_session(call))
@@ -98,8 +101,10 @@ class TestCallFlowTests(TestCase):
             mock_start.assert_not_called()
 
             record_call_recording_consent(call, self.student, platform="android")
-            mock_start.assert_called_once()
+            mock_start.assert_not_called()
             self.assertTrue(recording_consents_satisfied(call))
+            self.assertFalse(maybe_start_recording_if_consents_ready(call))
+            mock_start.assert_not_called()
 
         consent = CallRecordingConsent.objects.get(call_session=call, user=self.student)
         self.assertEqual(consent.consent_version, TEST_CALL_RECORDING_CONSENT_VERSION)
@@ -107,12 +112,101 @@ class TestCallFlowTests(TestCase):
             CallRecordingConsent.objects.filter(call_session=call, user=self.demo).count(),
             0,
         )
-        self.assertEqual(
-            CallRecordingConsent.objects.filter(
-                call_session=call, platform="demo_system"
-            ).count(),
-            0,
+
+    def test_media_ready_without_consent_rejected(self):
+        from apps.calls.exceptions import CallValidationError
+
+        call = start_test_call_session(self.student)
+        with self.assertRaises(CallValidationError):
+            mark_participant_media_ready(call, self.student, agora_uid=self.student.id)
+
+    def test_media_ready_non_participant_rejected(self):
+        from apps.calls.exceptions import CallValidationError
+
+        other = User.objects.create_user(
+            username="tc_other",
+            password="Pass1234!",
+            user_type=USER_TYPE_STUDENT,
         )
+        call = start_test_call_session(self.student)
+        record_call_recording_consent(call, self.student, platform="android")
+        with self.assertRaises(CallValidationError):
+            mark_participant_media_ready(call, other, agora_uid=other.id)
+
+    def test_media_ready_starts_recording_once_idempotent(self):
+        call = start_test_call_session(self.student)
+        record_call_recording_consent(call, self.student, platform="android")
+
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            mark_participant_media_ready(call, self.student, agora_uid=self.student.id)
+            mock_start.assert_called_once()
+
+        call.refresh_from_db()
+        self.assertIsNotNone(call.participant_media_ready_at)
+        first_ready = call.participant_media_ready_at
+
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            # Idempotent media-ready timestamp; start_cloud still invoked but
+            # real start is idempotent (tested below).
+            mark_participant_media_ready(call, self.student, agora_uid=self.student.id)
+            mock_start.assert_called_once()
+
+        call.refresh_from_db()
+        self.assertEqual(call.participant_media_ready_at, first_ready)
+
+        with patch(
+            "apps.calls.cloud_recording.service.uses_agora_rtc", return_value=True
+        ), patch(
+            "apps.calls.cloud_recording.service.cloud_recording_configured",
+            return_value=True,
+        ), patch(
+            "apps.calls.cloud_recording.service.AgoraCloudRecordingClient"
+        ) as client_cls:
+            instance = client_cls.return_value
+            instance.acquire.return_value = "r1"
+            instance.start.return_value = "s1"
+            from apps.calls.cloud_recording.service import start_cloud_recording_for_call
+
+            start_cloud_recording_for_call(call)
+            start_cloud_recording_for_call(call)
+            self.assertEqual(instance.acquire.call_count, 1)
+            self.assertEqual(instance.start.call_count, 1)
+            self.assertEqual(
+                instance.start.call_args.kwargs.get("subscribe_audio_uids"),
+                [self.student.id],
+            )
+
+        rec = CallRecording.objects.get(call_session=call)
+        self.assertEqual(rec.recording_status, CallRecording.RecordingStatus.RECORDING)
+
+    def test_media_ready_api_endpoint(self):
+        call = start_test_call_session(self.student)
+        record_call_recording_consent(call, self.student, platform="android")
+        self.client.force_login(self.student)
+        url = reverse("calls_api:media-ready", kwargs={"pk": call.id})
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            resp = self.client.post(
+                url,
+                data='{"agora_uid": %d}' % self.student.id,
+                content_type="application/json",
+                **self.headers,
+            )
+        self.assertEqual(resp.status_code, 200)
+        body = resp.json()
+        self.assertTrue(body["success"])
+        self.assertTrue(body["call"]["participant_media_ready"])
+        self.assertTrue(body.get("consent_ready"))
+        mock_start.assert_called_once()
+        call.refresh_from_db()
+        self.assertIsNotNone(call.participant_media_ready_at)
+        self.assertIn("expires_at", body["call"])
+        self.assertIn("timer_started_at", body["call"])
 
     def test_demo_teacher_cannot_give_consent(self):
         from apps.calls.exceptions import CallValidationError
@@ -136,10 +230,14 @@ class TestCallFlowTests(TestCase):
             "apps.calls.cloud_recording.service.AgoraCloudRecordingClient"
         ) as client_cls:
             instance = client_cls.return_value
-            instance.acquire.return_value = {"resourceId": "r1"}
-            instance.start.return_value = {"sid": "s1"}
+            instance.acquire.return_value = "r1"
+            instance.start.return_value = "s1"
             start_cloud_recording_for_call(call)
             client_cls.assert_called()
+            self.assertEqual(
+                instance.start.call_args.kwargs.get("subscribe_audio_uids"),
+                [self.student.id],
+            )
 
         rec = CallRecording.objects.get(call_session=call)
         self.assertNotEqual(rec.recording_status, CallRecording.RecordingStatus.SKIPPED)
@@ -151,6 +249,7 @@ class TestCallFlowTests(TestCase):
         self.assertTrue(payload["recording_consent_required"])
         self.assertTrue(payload["is_test_call"])
         self.assertTrue(payload["test_call_caller_consent_only"])
+        self.assertFalse(payload["participant_media_ready"])
 
     def test_concurrent_test_call_blocked(self):
         from apps.calls.exceptions import CallValidationError
@@ -159,12 +258,18 @@ class TestCallFlowTests(TestCase):
         with self.assertRaises(CallValidationError):
             start_test_call_session(self.student)
 
-    def test_auto_end_after_60_seconds(self):
+    def test_auto_end_requires_media_ready_anchor(self):
         from apps.calls.services import maybe_auto_end_demo_call
 
         call = start_test_call_session(self.student)
-        call.started_at = timezone.now() - timedelta(seconds=61)
+        call.started_at = timezone.now() - timedelta(seconds=120)
         call.save(update_fields=["started_at"])
+        # Without media-ready, do not auto-end on activation age.
+        still = maybe_auto_end_demo_call(call, self.student)
+        self.assertEqual(still.status, CallSession.Status.ACTIVE)
+
+        call.participant_media_ready_at = timezone.now() - timedelta(seconds=61)
+        call.save(update_fields=["participant_media_ready_at"])
         ended = maybe_auto_end_demo_call(call, self.student)
         self.assertEqual(ended.status, CallSession.Status.ENDED)
 
@@ -193,8 +298,8 @@ class TestCallFlowTests(TestCase):
 
     def test_reconcile_ends_overdue_test_call(self):
         call = start_test_call_session(self.student)
-        call.started_at = timezone.now() - timedelta(seconds=90)
-        call.save(update_fields=["started_at"])
+        call.participant_media_ready_at = timezone.now() - timedelta(seconds=90)
+        call.save(update_fields=["participant_media_ready_at"])
         with patch(
             "apps.calls.cloud_recording.reconcile.stop_and_finalize_recording_for_call_id"
         ):
@@ -205,6 +310,68 @@ class TestCallFlowTests(TestCase):
 
     def test_max_duration_constant_is_60(self):
         self.assertEqual(DEMO_CALL_MAX_SECONDS, 60)
+
+    def test_worker_404_without_r2_sets_clear_failure(self):
+        from apps.calls.cloud_recording.service import try_finalize_recording_files
+
+        call = start_test_call_session(self.student)
+        rec = CallRecording.objects.create(
+            call_session=call,
+            student=self.student,
+            teacher=self.demo,
+            session_type=call.session_type,
+            recording_status=CallRecording.RecordingStatus.PROCESSING,
+            agora_resource_id="rid",
+            agora_sid="sid",
+            recording_uid="900000007",
+            processing_started_at=timezone.now(),
+        )
+        with patch(
+            "apps.calls.recording_storage.find_playable_object_key_for_recording",
+            return_value="",
+        ), patch(
+            "apps.calls.cloud_recording.service.AgoraCloudRecordingClient"
+        ) as client_cls:
+            instance = client_cls.return_value
+            instance.query.side_effect = AgoraCloudRecordingError(
+                "recording API returned status 404: failed to find worker",
+                status_code=404,
+                action="query",
+                safe_body='{"reason":"failed to find worker"}',
+            )
+            ok = try_finalize_recording_files(rec, allow_expire=True)
+        self.assertFalse(ok)
+        rec.refresh_from_db()
+        self.assertEqual(rec.recording_status, CallRecording.RecordingStatus.NO_MEDIA)
+        self.assertEqual(rec.failure_code, "recorder_worker_exited_before_media")
+
+    def test_r2_rematch_prevents_false_no_media(self):
+        from apps.calls.cloud_recording.service import try_finalize_recording_files
+
+        call = start_test_call_session(self.student)
+        rec = CallRecording.objects.create(
+            call_session=call,
+            student=self.student,
+            teacher=self.demo,
+            session_type=call.session_type,
+            recording_status=CallRecording.RecordingStatus.PROCESSING,
+            agora_resource_id="rid",
+            agora_sid="sid",
+            recording_uid="900000007",
+            processing_started_at=timezone.now(),
+        )
+        with patch(
+            "apps.calls.recording_storage.find_playable_object_key_for_recording",
+            return_value="recordings/ch/file.mp4",
+        ), patch(
+            "apps.calls.recording_storage.is_playable_object_key",
+            return_value=True,
+        ):
+            ok = try_finalize_recording_files(rec, allow_expire=True)
+        self.assertTrue(ok)
+        rec.refresh_from_db()
+        self.assertEqual(rec.recording_status, CallRecording.RecordingStatus.COMPLETED)
+        self.assertEqual(rec.recording_object_key, "recordings/ch/file.mp4")
 
     def test_normal_call_still_needs_both_consents(self):
         teacher = User.objects.create_user(

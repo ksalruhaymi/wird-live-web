@@ -108,11 +108,16 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
         payload["demo_message"] = DEMO_CALL_MESSAGE
         payload["demo_max_seconds"] = DEMO_CALL_MAX_SECONDS
         payload["max_duration_seconds"] = DEMO_CALL_MAX_SECONDS
-        if call.started_at:
-            expires = call.started_at + timedelta(seconds=DEMO_CALL_MAX_SECONDS)
+        # Countdown anchors on media-ready (after join/publish + recording start),
+        # not session created_at / consent / activation alone.
+        timer_anchor = getattr(call, "participant_media_ready_at", None)
+        if timer_anchor:
+            payload["timer_started_at"] = timer_anchor.isoformat()
+            expires = timer_anchor + timedelta(seconds=DEMO_CALL_MAX_SECONDS)
             payload["expires_at"] = expires.isoformat()
         payload["teacher_name"] = "اتصال تجريبي"
         payload["teacher_profile_image_url"] = ""
+        payload["participant_media_ready"] = bool(timer_anchor)
 
     if (
         viewer is not None
@@ -316,10 +321,11 @@ def _demo_call_time_limit_reached(call: CallSession) -> bool:
 
     if not is_test_call_session(call):
         return False
-    started_at = call.started_at
-    if not started_at:
+    # Do not auto-end on activation age alone — wait until media-ready timer starts.
+    anchor = getattr(call, "participant_media_ready_at", None)
+    if not anchor:
         return False
-    return timezone.now() >= started_at + timedelta(seconds=DEMO_CALL_MAX_SECONDS)
+    return timezone.now() >= anchor + timedelta(seconds=DEMO_CALL_MAX_SECONDS)
 
 
 def maybe_auto_end_demo_call(call: CallSession, user) -> CallSession:

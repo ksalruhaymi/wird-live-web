@@ -22,6 +22,11 @@ urlpatterns = [
         name="recording-consent",
     ),
     path(
+        "calls/<int:pk>/media-ready/",
+        views.media_ready,
+        name="media-ready",
+    ),
+    path(
         "agora/recording-webhook/",
         agora_webhook.agora_recording_webhook,
         name="agora-recording-webhook",

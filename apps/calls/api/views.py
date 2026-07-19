@@ -389,3 +389,45 @@ def recording_consent(request, pk: int):
     )
     payload = call_to_payload(call, viewer=request.user)
     return JsonResponse({"success": True, "call": payload, **recording_consent_payload(call, request.user)})
+
+
+@csrf_exempt
+@require_POST
+def media_ready(request, pk: int):
+    """Mark test-call participant media ready and start cloud recording."""
+    auth_err = _require_auth(request)
+    if auth_err:
+        return auth_err
+
+    call, err = get_call_for_user(pk, request.user)
+    if err or call is None:
+        return JsonResponse(
+            {"success": False, "message": err or "المكالمة غير موجودة."},
+            status=404 if call is None else 403,
+        )
+
+    data = _parse_json_body(request)
+    agora_uid = data.get("agora_uid")
+    try:
+        agora_uid_int = int(agora_uid) if agora_uid is not None else None
+    except (TypeError, ValueError):
+        agora_uid_int = None
+
+    from apps.calls.recording_consent import (
+        mark_participant_media_ready,
+        recording_consent_payload,
+    )
+
+    try:
+        call = mark_participant_media_ready(
+            call, request.user, agora_uid=agora_uid_int
+        )
+    except CallValidationError as exc:
+        return _handle_call_error(exc)
+
+    call = CallSession.objects.select_related("student", "teacher", "recording").get(
+        pk=call.pk
+    )
+    payload = call_to_payload(call, viewer=request.user)
+    consent = recording_consent_payload(call, request.user)
+    return JsonResponse({"success": True, "call": payload, **consent})

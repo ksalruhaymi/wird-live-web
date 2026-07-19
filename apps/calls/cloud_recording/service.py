@@ -76,9 +76,14 @@ def ensure_recording_row(call: CallSession) -> CallRecording:
 
 
 def start_cloud_recording_for_call(call: CallSession) -> None:
-    """Start Agora Cloud Recording when a call becomes active (best-effort)."""
+    """Start Agora Cloud Recording (idempotent; best-effort).
+
+    For test calls the caller must already have marked media-ready so the
+    human publisher is in the channel before the recorder joins.
+    """
+    from django.db import transaction
+
     call = CallSession.objects.select_related("student", "teacher").get(pk=call.pk)
-    # Test calls are recorded after the human caller's consent — do not skip.
 
     if not uses_agora_rtc(call):
         return
@@ -97,26 +102,66 @@ def start_cloud_recording_for_call(call: CallSession) -> None:
             )
         return
 
-    rec = ensure_recording_row(call)
-    if rec.recording_status in {
-        CallRecording.RecordingStatus.RECORDING,
-        CallRecording.RecordingStatus.STOP_REQUESTED,
-        CallRecording.RecordingStatus.STOPPING,
-        CallRecording.RecordingStatus.PROCESSING,
-        CallRecording.RecordingStatus.COMPLETED,
-    }:
-        return
-
     channel = (call.channel_name or "").strip()
     if not channel:
         logger.warning("Cloud recording skipped for call %s: missing channel", call.id)
         return
 
     recording_uid = recording_uid_for_call(call)
-    rec.recording_status = CallRecording.RecordingStatus.STARTING
-    rec.recording_uid = recording_uid
-    rec.started_at = call.started_at or timezone.now()
-    rec.save(update_fields=["recording_status", "recording_uid", "started_at"])
+    publisher_uid = int(call.student_id) if call.student_id else None
+    try:
+        recorder_uid_int = int(recording_uid)
+    except (TypeError, ValueError):
+        recorder_uid_int = None
+    if (
+        publisher_uid is not None
+        and recorder_uid_int is not None
+        and publisher_uid == recorder_uid_int
+    ):
+        logger.error(
+            "recording_uid_collision call_id=%s publisher_uid=%s recorder_uid=%s",
+            call.id,
+            publisher_uid,
+            recorder_uid_int,
+        )
+        return
+
+    with transaction.atomic():
+        rec = ensure_recording_row(call)
+        rec = CallRecording.objects.select_for_update().get(pk=rec.pk)
+        if rec.recording_status in {
+            CallRecording.RecordingStatus.RECORDING,
+            CallRecording.RecordingStatus.STARTING,
+            CallRecording.RecordingStatus.STOP_REQUESTED,
+            CallRecording.RecordingStatus.STOPPING,
+            CallRecording.RecordingStatus.PROCESSING,
+            CallRecording.RecordingStatus.COMPLETED,
+        }:
+            logger.info(
+                "recording_start_skipped_already_active call_id=%s status=%s",
+                call.id,
+                rec.recording_status,
+            )
+            return
+
+        rec.recording_status = CallRecording.RecordingStatus.STARTING
+        rec.recording_uid = recording_uid
+        rec.started_at = timezone.now()
+        rec.save(update_fields=["recording_status", "recording_uid", "started_at"])
+
+    subscribe_audio_uids: list[int] | None = None
+    if publisher_uid is not None:
+        subscribe_audio_uids = [publisher_uid]
+
+    logger.info(
+        "recording_start_requested call_id=%s cname=%s publisher_uid=%s "
+        "recorder_uid=%s stream_types=0 subscribe_audio_uids=%s",
+        call.id,
+        channel,
+        publisher_uid,
+        recording_uid,
+        subscribe_audio_uids,
+    )
 
     client = AgoraCloudRecordingClient()
     try:
@@ -132,6 +177,7 @@ def start_cloud_recording_for_call(call: CallSession) -> None:
             recording_uid=recording_uid,
             rtc_token=rtc_token,
             session_type=call.session_type,
+            subscribe_audio_uids=subscribe_audio_uids,
         )
     except AgoraCloudRecordingError as exc:
         _mark_recording_terminal(
@@ -141,7 +187,7 @@ def start_cloud_recording_for_call(call: CallSession) -> None:
             message=str(exc)[:500],
         )
         logger.warning(
-            "recording_stop_failed action=start call_id=%s code=%s status=%s",
+            "recording_start_failed call_id=%s code=%s status=%s",
             call.id,
             _failure_code_from_exc(exc),
             exc.status_code,
@@ -164,7 +210,12 @@ def start_cloud_recording_for_call(call: CallSession) -> None:
             "failure_code",
         ]
     )
-    logger.info("recording_start_success call_id=%s", call.id)
+    logger.info(
+        "recording_start_succeeded call_id=%s sid_set=%s resource_set=%s",
+        call.id,
+        bool(sid),
+        bool(resource_id),
+    )
 
 
 def request_stop_cloud_recording(call: CallSession) -> CallRecording:
@@ -342,6 +393,11 @@ def stop_cloud_recording_for_call(
 
     rec.stopped_at = timezone.now()
     file_list = _extract_file_list(stop_payload)
+    logger.info(
+        "recording_stop_response call_id=%s file_list_count=%s",
+        call.id,
+        len(file_list) if file_list else 0,
+    )
     if not file_list and wait_for_files:
         file_list = _query_file_list_with_retry(
             client,
@@ -495,19 +551,34 @@ def try_finalize_recording_files(
         )
     except AgoraCloudRecordingError as exc:
         code = _failure_code_from_exc(exc)
-        if allow_expire and code in {"resource_expired", "not_found"}:
+        if allow_expire and code in {"resource_expired", "not_found", "recorder_worker_exited_before_media"}:
+            # Prefer R2 rematch before classifying no_media / worker-exit.
+            rematched_after_query = find_playable_object_key_for_recording(rec)
+            if rematched_after_query and is_playable_object_key(rematched_after_query):
+                _mark_recording_ready(rec, rematched_after_query)
+                logger.info(
+                    "recording_ready call_id=%s via=r2_rematch_after_query_404",
+                    rec.call_session_id,
+                )
+                return True
+
+            failure_code = code
+            body = (exc.safe_body or str(exc) or "").lower()
+            if code == "not_found" or "failed to find worker" in body:
+                failure_code = "recorder_worker_exited_before_media"
             _mark_recording_terminal(
                 rec,
                 CallRecording.RecordingStatus.NO_MEDIA
-                if code == "not_found"
+                if failure_code == "recorder_worker_exited_before_media"
                 else CallRecording.RecordingStatus.EXPIRED,
-                failure_code=code,
+                failure_code=failure_code,
                 message=str(exc)[:500],
             )
             logger.warning(
-                "recording_expired call_id=%s code=%s",
+                "recording_query_terminal call_id=%s code=%s failure_code=%s",
                 rec.call_session_id,
                 code,
+                failure_code,
             )
         return False
 
@@ -627,6 +698,8 @@ def _failure_code_from_exc(exc: AgoraCloudRecordingError) -> str:
     body = (exc.safe_body or str(exc) or "").lower()
     if "resourceid exceeded time limit" in body or "resource expired" in body:
         return "resource_expired"
+    if "failed to find worker" in body:
+        return "recorder_worker_exited_before_media"
     if exc.status_code == 404:
         return "not_found"
     if exc.status_code and 500 <= exc.status_code < 600:
@@ -638,7 +711,11 @@ def _failure_code_from_exc(exc: AgoraCloudRecordingError) -> str:
 
 def _is_already_stopped_or_expired(exc: AgoraCloudRecordingError) -> bool:
     code = _failure_code_from_exc(exc)
-    if code in {"resource_expired", "not_found"}:
+    if code in {
+        "resource_expired",
+        "not_found",
+        "recorder_worker_exited_before_media",
+    }:
         return True
     body = (exc.safe_body or str(exc) or "").lower()
     return any(

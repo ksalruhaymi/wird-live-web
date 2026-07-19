@@ -117,9 +117,10 @@ class RecordingConsentTests(TestCase):
             1,
         )
 
-    def test_test_call_records_after_caller_consent(self):
+    def test_test_call_consent_alone_does_not_start_recording(self):
         from apps.calls.recording_consent import (
             is_test_call_session,
+            mark_participant_media_ready,
             maybe_start_recording_if_consents_ready,
             recording_consent_payload,
         )
@@ -141,16 +142,20 @@ class RecordingConsentTests(TestCase):
             record_call_recording_consent(
                 self.call, self.student, platform="ios"
             )
-            mock_start.assert_called_once()
-            self.assertEqual(
-                CallRecordingConsent.objects.filter(call_session=self.call).count(),
-                1,
-            )
-            self.assertTrue(maybe_start_recording_if_consents_ready(self.call))
+            mock_start.assert_not_called()
+            self.assertFalse(maybe_start_recording_if_consents_ready(self.call))
+            mock_start.assert_not_called()
 
-        payload = recording_consent_payload(self.call, self.student)
+            mark_participant_media_ready(self.call, self.student, agora_uid=self.student.id)
+            mock_start.assert_called_once()
+
+        payload = recording_consent_payload(
+            CallSession.objects.select_related("student", "teacher").get(pk=self.call.pk),
+            self.student,
+        )
         self.assertTrue(payload["recording_allowed"])
-        self.assertTrue(payload["recording_consent_required"])
+        self.assertTrue(payload["consent_ready"])
+        self.assertTrue(payload["participant_media_ready"])
         self.assertTrue(payload["is_test_call"])
         self.assertEqual(
             CallRecordingConsent.objects.filter(
@@ -191,10 +196,16 @@ class RecordingConsentTests(TestCase):
             "apps.calls.cloud_recording.service.AgoraCloudRecordingClient"
         ) as client_cls:
             instance = client_cls.return_value
-            instance.acquire.return_value = {"resourceId": "r1"}
-            instance.start.return_value = {"sid": "s1"}
+            instance.acquire.return_value = "r1"
+            instance.start.return_value = "s1"
             start_cloud_recording_for_call(self.call)
             client_cls.assert_called()
+            instance.start.assert_called_once()
+            start_kwargs = instance.start.call_args.kwargs
+            self.assertEqual(
+                start_kwargs.get("subscribe_audio_uids"),
+                [self.student.id],
+            )
 
         rec = CallRecording.objects.get(call_session=self.call)
         self.assertNotEqual(rec.recording_status, CallRecording.RecordingStatus.SKIPPED)

@@ -43,7 +43,8 @@ def reconcile_stuck_calls(*, dry_run: bool = True, limit: int = 100) -> dict:
         CallSession.objects.filter(
             status=CallSession.Status.ACTIVE,
             is_test_call=True,
-            started_at__lte=now
+            participant_media_ready_at__isnull=False,
+            participant_media_ready_at__lte=now
             - timedelta(seconds=DEMO_CALL_MAX_SECONDS)
             - TEST_CALL_STALE_GRACE,
         ).order_by("id")[:limit]

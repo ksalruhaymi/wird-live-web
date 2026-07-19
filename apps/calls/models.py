@@ -76,6 +76,11 @@ class CallSession(models.Model):
         db_index=True,
         verbose_name="اتصال تجريبي (اختبار جودة)",
     )
+    participant_media_ready_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="جاهزية صوت المشارك (بعد join/publish)",
+    )
     minutes_charged = models.DecimalField(
         max_digits=12,
         decimal_places=4,
