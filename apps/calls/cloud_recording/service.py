@@ -150,8 +150,14 @@ def start_cloud_recording_for_call(call: CallSession) -> None:
         rec.save(update_fields=["recording_status", "recording_uid", "started_at"])
 
     subscribe_audio_uids: list[int] | None = None
-    if publisher_uid is not None:
-        subscribe_audio_uids = [publisher_uid]
+    uids: list[int] = []
+    if call.student_id:
+        uids.append(int(call.student_id))
+    if call.teacher_id and int(call.teacher_id) not in uids:
+        uids.append(int(call.teacher_id))
+    if uids:
+        subscribe_audio_uids = uids
+    publisher_uid = int(call.student_id) if call.student_id else None
 
     logger.info(
         "recording_start_requested call_id=%s cname=%s publisher_uid=%s "

@@ -347,39 +347,82 @@ def get_call_for_user(call_id: int, user) -> tuple[CallSession | None, str | Non
 
 
 def accept_call_session(call: CallSession, teacher_user) -> tuple[CallSession | None, str | None]:
+    """Accept a pending call atomically.
+
+    Idempotent when the same teacher re-accepts an already-active call.
+    """
+    from django.db import transaction
+
     if resolve_user_type_slug(teacher_user) != "teacher":
         return None, "هذا الإجراء للمعلّمين فقط."
     if call.teacher_id != teacher_user.id:
         return None, "غير مصرح بقبول هذه المكالمة."
-    if call.status != CallSession.Status.PENDING:
-        return None, "المكالمة ليست بانتظار القبول."
 
-    return _activate_call_session(call), None
+    with transaction.atomic():
+        locked = (
+            CallSession.objects.select_for_update(of=("self",))
+            .select_related("student", "teacher")
+            .get(pk=call.pk)
+        )
+        if locked.teacher_id != teacher_user.id:
+            return None, "غير مصرح بقبول هذه المكالمة."
+        if locked.status == CallSession.Status.ACTIVE:
+            # Idempotent re-accept after a successful accept.
+            return locked, None
+        if locked.status != CallSession.Status.PENDING:
+            return None, "المكالمة ليست بانتظار القبول."
+        return _activate_call_session(locked), None
 
 
 def reject_call_session(call: CallSession, teacher_user) -> tuple[CallSession | None, str | None]:
+    from django.db import transaction
+
     if call.teacher_id != teacher_user.id:
         return None, "غير مصرح برفض هذه المكالمة."
-    if call.status != CallSession.Status.PENDING:
-        return None, "لا يمكن رفض هذه المكالمة."
 
-    call.status = CallSession.Status.REJECTED
-    call.ended_at = timezone.now()
-    call.save(update_fields=["status", "ended_at", "updated_at"])
+    with transaction.atomic():
+        locked = (
+            CallSession.objects.select_for_update(of=("self",))
+            .select_related("student", "teacher")
+            .get(pk=call.pk)
+        )
+        if locked.teacher_id != teacher_user.id:
+            return None, "غير مصرح برفض هذه المكالمة."
+        if locked.status != CallSession.Status.PENDING:
+            return None, "لا يمكن رفض هذه المكالمة."
+
+        locked.status = CallSession.Status.REJECTED
+        locked.ended_at = timezone.now()
+        locked.save(update_fields=["status", "ended_at", "updated_at"])
+        call = locked
+
     if call.teacher_id:
         mark_teacher_online(call.teacher)
     return call, None
 
 
 def cancel_pending_call(call: CallSession, student_user) -> tuple[CallSession | None, str | None]:
+    from django.db import transaction
+
     if call.student_id != student_user.id:
         return None, "غير مصرح بإلغاء هذه المكالمة."
-    if call.status != CallSession.Status.PENDING:
-        return None, "لا يمكن إلغاء هذه المكالمة."
 
-    call.status = CallSession.Status.MISSED
-    call.ended_at = timezone.now()
-    call.save(update_fields=["status", "ended_at", "updated_at"])
+    with transaction.atomic():
+        locked = (
+            CallSession.objects.select_for_update(of=("self",))
+            .select_related("student", "teacher")
+            .get(pk=call.pk)
+        )
+        if locked.student_id != student_user.id:
+            return None, "غير مصرح بإلغاء هذه المكالمة."
+        if locked.status != CallSession.Status.PENDING:
+            return None, "لا يمكن إلغاء هذه المكالمة."
+
+        locked.status = CallSession.Status.MISSED
+        locked.ended_at = timezone.now()
+        locked.save(update_fields=["status", "ended_at", "updated_at"])
+        call = locked
+
     if call.teacher_id:
         mark_teacher_online(call.teacher)
     return call, None

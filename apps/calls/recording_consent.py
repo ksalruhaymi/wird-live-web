@@ -94,13 +94,29 @@ def test_call_media_ready(call: CallSession) -> bool:
     return bool(getattr(call, "participant_media_ready_at", None))
 
 
-def recording_start_prerequisites_met(call: CallSession) -> bool:
-    """Consent (+ media-ready for test calls) before cloud recording may start."""
-    if not recording_consents_satisfied(call):
-        return False
+def both_parties_media_ready(call: CallSession) -> bool:
+    """True when student and teacher have both joined and published audio."""
+    return bool(
+        getattr(call, "student_media_ready_at", None)
+        and getattr(call, "teacher_media_ready_at", None)
+    )
+
+
+def parties_media_ready(call: CallSession) -> bool:
     if is_test_call_session(call):
         return test_call_media_ready(call)
-    return True
+    return both_parties_media_ready(call)
+
+
+def recording_start_prerequisites_met(call: CallSession) -> bool:
+    """Consent + media-ready before cloud recording may start.
+
+    Real calls require both parties' consent and both media-ready.
+    Test calls require caller consent + caller media-ready.
+    """
+    if not recording_consents_satisfied(call):
+        return False
+    return parties_media_ready(call)
 
 
 def record_call_recording_consent(
@@ -164,15 +180,15 @@ def record_call_recording_consent(
             if updates:
                 consent.save(update_fields=updates)
 
-    if is_test_call_session(call):
-        # Consent alone must NOT start Cloud Recording — wait for media-ready.
-        logger.info(
-            "test_call_consent_ready call_id=%s user_id=%s (defer recording until media-ready)",
-            call.id,
-            user.id,
-        )
-        return consent
-
+    # Consent alone must NEVER start Cloud Recording — wait for media-ready.
+    logger.info(
+        "recording_consent_ready call_id=%s user_id=%s is_test=%s "
+        "(defer recording until media-ready)",
+        call.id,
+        user.id,
+        is_test_call_session(call),
+    )
+    # If both consents + media-ready already exist (e.g. late consent), try start.
     maybe_start_recording_if_consents_ready(call)
     return consent
 
@@ -183,19 +199,24 @@ def mark_participant_media_ready(
     *,
     agora_uid: int | None = None,
 ) -> CallSession:
-    """Mark human participant media ready and start test-call recording.
+    """Mark participant media ready after Agora join + publish.
 
+    - Test calls: student (caller) only; sets participant_media_ready_at.
+    - Real calls: student or teacher; sets the matching side timestamp.
+    Recording starts only when consent + media-ready prerequisites are met.
     Idempotent: repeated calls do not start a second Agora recording.
     """
     call = CallSession.objects.select_related("student", "teacher").get(pk=call.pk)
-    if not is_test_call_session(call):
-        raise CallValidationError("إشارة جاهزية الوسائط للاتصال التجريبي فقط.")
     if call.status != CallSession.Status.ACTIVE:
         raise CallValidationError("المكالمة ليست نشطة.")
-    if user.id != call.student_id:
+    if not _is_participant(call, user):
         raise CallValidationError("غير مصرح بإرسال جاهزية الوسائط لهذه المكالمة.")
     if not recording_consents_satisfied(call):
-        raise CallValidationError("يجب الموافقة على تسجيل الاتصال التجريبي أولاً.")
+        raise CallValidationError("يجب الموافقة على تسجيل المكالمة أولاً.")
+
+    is_test = is_test_call_session(call)
+    if is_test and user.id != call.student_id:
+        raise CallValidationError("غير مصرح بإرسال جاهزية الوسائط لهذه المكالمة.")
 
     uid_log = int(agora_uid) if agora_uid is not None else None
     with transaction.atomic():
@@ -207,14 +228,33 @@ def mark_participant_media_ready(
         if locked.status != CallSession.Status.ACTIVE:
             raise CallValidationError("المكالمة ليست نشطة.")
         now = timezone.now()
-        if locked.participant_media_ready_at is None:
-            locked.participant_media_ready_at = now
-            locked.save(update_fields=["participant_media_ready_at", "updated_at"])
+        updates: list[str] = []
+
+        if is_test:
+            if locked.participant_media_ready_at is None:
+                locked.participant_media_ready_at = now
+                updates.append("participant_media_ready_at")
+            if locked.student_media_ready_at is None:
+                locked.student_media_ready_at = now
+                updates.append("student_media_ready_at")
+        elif user.id == locked.student_id:
+            if locked.student_media_ready_at is None:
+                locked.student_media_ready_at = now
+                updates.append("student_media_ready_at")
+        elif user.id == locked.teacher_id:
+            if locked.teacher_media_ready_at is None:
+                locked.teacher_media_ready_at = now
+                updates.append("teacher_media_ready_at")
+
+        if updates:
+            updates.append("updated_at")
+            locked.save(update_fields=updates)
             logger.info(
-                "media_ready_received call_id=%s user_id=%s agora_uid=%s",
+                "media_ready_received call_id=%s user_id=%s agora_uid=%s fields=%s",
                 locked.id,
                 user.id,
                 uid_log,
+                updates,
             )
         else:
             logger.info(
@@ -227,15 +267,16 @@ def mark_participant_media_ready(
 
     started = maybe_start_recording_if_consents_ready(call)
     logger.info(
-        "media_ready_recording_start call_id=%s started=%s",
+        "media_ready_recording_start call_id=%s started=%s both_ready=%s",
         call.id,
         started,
+        parties_media_ready(call),
     )
     return CallSession.objects.select_related("student", "teacher").get(pk=call.pk)
 
 
 def maybe_start_recording_if_consents_ready(call: CallSession) -> bool:
-    """Start Agora cloud recording when consent (+ media-ready for tests) is met."""
+    """Start Agora cloud recording when consent + media-ready prerequisites are met."""
     call = CallSession.objects.select_related("student", "teacher").get(pk=call.pk)
     if call.status != CallSession.Status.ACTIVE:
         return False
@@ -276,7 +317,7 @@ def recording_consent_payload(call: CallSession, viewer) -> dict:
     if viewer is not None:
         my_consent = user_has_recording_consent(call, viewer)
     consent_ok = recording_consents_satisfied(call)
-    media_ready = test_call_media_ready(call) if is_test else True
+    media_ready = parties_media_ready(call)
     rec_status = ""
     recording_active = False
     try:
@@ -293,6 +334,8 @@ def recording_consent_payload(call: CallSession, viewer) -> dict:
         "both_parties_recording_consent": consent_ok,
         "consent_ready": consent_ok,
         "participant_media_ready": media_ready,
+        "student_media_ready": bool(getattr(call, "student_media_ready_at", None)),
+        "teacher_media_ready": bool(getattr(call, "teacher_media_ready_at", None)),
         "recording_status": rec_status,
         "recording_active": recording_active,
         "recording_allowed": True,

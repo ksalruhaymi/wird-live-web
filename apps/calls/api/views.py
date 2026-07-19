@@ -394,7 +394,7 @@ def recording_consent(request, pk: int):
 @csrf_exempt
 @require_POST
 def media_ready(request, pk: int):
-    """Mark test-call participant media ready and start cloud recording."""
+    """Mark participant media ready after Agora join; may start cloud recording."""
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err

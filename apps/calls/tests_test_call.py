@@ -177,7 +177,7 @@ class TestCallFlowTests(TestCase):
             self.assertEqual(instance.start.call_count, 1)
             self.assertEqual(
                 instance.start.call_args.kwargs.get("subscribe_audio_uids"),
-                [self.student.id],
+                [self.student.id, self.demo.id],
             )
 
         rec = CallRecording.objects.get(call_session=call)
@@ -236,7 +236,7 @@ class TestCallFlowTests(TestCase):
             client_cls.assert_called()
             self.assertEqual(
                 instance.start.call_args.kwargs.get("subscribe_audio_uids"),
-                [self.student.id],
+                [self.student.id, self.demo.id],
             )
 
         rec = CallRecording.objects.get(call_session=call)
@@ -399,4 +399,8 @@ class TestCallFlowTests(TestCase):
             record_call_recording_consent(call, self.student, platform="android")
             mock_start.assert_not_called()
             record_call_recording_consent(call, teacher, platform="ios")
+            mock_start.assert_not_called()
+            mark_participant_media_ready(call, self.student, agora_uid=self.student.id)
+            mock_start.assert_not_called()
+            mark_participant_media_ready(call, teacher, agora_uid=teacher.id)
             mock_start.assert_called_once()

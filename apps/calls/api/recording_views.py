@@ -70,7 +70,12 @@ def my_recordings(request):
     return JsonResponse(
         {
             "success": True,
-            "recordings": [recording_to_payload(r, user) for r in qs],
+            "recordings": [
+                p
+                for r in qs
+                if (p := recording_to_payload(r, user))
+                and (p.get("is_playable") or p.get("is_preparing"))
+            ],
         }
     )
 

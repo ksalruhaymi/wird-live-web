@@ -56,7 +56,9 @@ class RecordingConsentTests(TestCase):
             _activate_call_session(self.call)
             start.assert_not_called()
 
-    def test_recording_starts_only_after_both_consents(self):
+    def test_recording_starts_only_after_both_consents_and_media_ready(self):
+        from apps.calls.recording_consent import mark_participant_media_ready
+
         self.call.status = CallSession.Status.ACTIVE
         self.call.started_at = timezone.now()
         self.call.save(update_fields=["status", "started_at"])
@@ -69,8 +71,18 @@ class RecordingConsentTests(TestCase):
             self.assertFalse(both_parties_have_recording_consent(self.call))
 
             record_call_recording_consent(self.call, self.teacher, platform="ios")
-            mock_start.assert_called_once()
+            mock_start.assert_not_called()
             self.assertTrue(both_parties_have_recording_consent(self.call))
+
+            mark_participant_media_ready(
+                self.call, self.student, agora_uid=self.student.id
+            )
+            mock_start.assert_not_called()
+
+            mark_participant_media_ready(
+                self.call, self.teacher, agora_uid=self.teacher.id
+            )
+            mock_start.assert_called_once()
             self.assertEqual(
                 CallRecordingConsent.objects.filter(call_session=self.call).count(),
                 2,
@@ -204,7 +216,7 @@ class RecordingConsentTests(TestCase):
             start_kwargs = instance.start.call_args.kwargs
             self.assertEqual(
                 start_kwargs.get("subscribe_audio_uids"),
-                [self.student.id],
+                [self.student.id, self.teacher.id],
             )
 
         rec = CallRecording.objects.get(call_session=self.call)

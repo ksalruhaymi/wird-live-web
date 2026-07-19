@@ -158,9 +158,9 @@ def _recording_user_message(status: str, is_playable: bool) -> str:
         CallRecording.RecordingStatus.STOP_REQUESTED: "جاري إنهاء التسجيل",
         CallRecording.RecordingStatus.STOPPING: "جاري إنهاء التسجيل",
         CallRecording.RecordingStatus.PROCESSING: "جاري تجهيز التسجيل",
-        CallRecording.RecordingStatus.NO_MEDIA: "لم يتم إنشاء تسجيل لهذه المكالمة",
+        CallRecording.RecordingStatus.NO_MEDIA: "لم يكتمل الاتصال، لذلك لم يُنشأ تسجيل.",
         CallRecording.RecordingStatus.FAILED: "تعذر تجهيز التسجيل",
         CallRecording.RecordingStatus.EXPIRED: "انتهت جلسة التسجيل قبل اكتمال المعالجة",
-        CallRecording.RecordingStatus.SKIPPED: "لا يوجد تسجيل لهذه المكالمة",
+        CallRecording.RecordingStatus.SKIPPED: "لم يكتمل الاتصال، لذلك لم يُنشأ تسجيل.",
         CallRecording.RecordingStatus.CANCELLED: "تم إلغاء التسجيل",
     }.get(status, "جاري تجهيز التسجيل")

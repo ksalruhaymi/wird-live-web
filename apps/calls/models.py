@@ -81,6 +81,16 @@ class CallSession(models.Model):
         blank=True,
         verbose_name="جاهزية صوت المشارك (بعد join/publish)",
     )
+    student_media_ready_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="جاهزية صوت الطالب (بعد join/publish)",
+    )
+    teacher_media_ready_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name="جاهزية صوت المعلم (بعد join/publish)",
+    )
     minutes_charged = models.DecimalField(
         max_digits=12,
         decimal_places=4,
