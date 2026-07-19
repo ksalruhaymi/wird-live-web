@@ -31,14 +31,15 @@ def my_recordings(request):
         return auth_err
 
     user = request.user
+    from django.db.models import Q
+
     from apps.tutoring.teacher_services import resolve_user_type_slug
 
+    # Include rows where the viewer is student OR teacher.
+    # Test-call recordings store the caller as student with teacher=null.
+    qs = CallRecording.objects.filter(Q(student=user) | Q(teacher=user))
     if resolve_user_type_slug(user) == "teacher":
-        qs = CallRecording.objects.filter(teacher=user).exclude(
-            call_session__is_interview_call=True
-        )
-    else:
-        qs = CallRecording.objects.filter(student=user)
+        qs = qs.exclude(call_session__is_interview_call=True)
 
     qs = qs.select_related(
         "call_session", "student", "teacher"

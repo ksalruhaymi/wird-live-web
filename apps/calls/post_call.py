@@ -99,11 +99,6 @@ def evaluation_to_payload(ev: SessionEvaluation) -> dict:
 
 
 def recording_to_payload(rec: CallRecording, viewer) -> dict:
-    if viewer.id == rec.student_id:
-        other_name = teacher_display_name(rec.teacher)
-    else:
-        other_name = student_display_name(rec.student)
-
     from apps.calls.recording_consent import is_test_call_session
     from apps.calls.recording_storage import (
         is_playable_object_key,
@@ -114,6 +109,13 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
     is_test = bool(call is not None and is_test_call_session(call))
     if is_test:
         other_name = "تسجيل الاتصال التجريبي"
+    elif viewer.id == rec.student_id:
+        # teacher may be null on legacy/orphan rows — never crash the list.
+        other_name = (
+            teacher_display_name(rec.teacher) if rec.teacher_id else ""
+        )
+    else:
+        other_name = student_display_name(rec.student) if rec.student_id else ""
 
     status = rec.recording_status or CallRecording.RecordingStatus.IDLE
     # Canonical playable terminal: completed + supported final media key.
@@ -124,8 +126,14 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
     )
     has_recording = is_playable
     is_terminal = status in CallRecording.TERMINAL_STATUSES
+    # Keep completed-but-not-yet-keyed rows visible as preparing until playable.
+    is_preparing = status in CallRecording.PREPARING_STATUSES or (
+        status == CallRecording.RecordingStatus.COMPLETED and not is_playable
+    )
     user_message = _recording_user_message(status, is_playable)
-    next_refresh = 0 if is_terminal else (8 if status == "processing" else 3)
+    next_refresh = 0 if (is_terminal and not is_preparing) else (
+        8 if status == "processing" else 3
+    )
     return {
         "id": rec.id,
         "call_id": rec.call_session_id,
@@ -138,7 +146,7 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
         "recording_status": status,
         "is_terminal": is_terminal,
         "is_playable": is_playable,
-        "is_preparing": status in CallRecording.PREPARING_STATUSES,
+        "is_preparing": is_preparing,
         "failure_code": rec.failure_code or "",
         "user_message": user_message,
         "can_retry_reconciliation": status

@@ -690,3 +690,182 @@ class IndependentTestCallServiceTests(TestCase):
         rec = ensure_recording_row(call)
         self.assertIsNone(rec.teacher_id)
         self.assertEqual(rec.student_id, self.student.id)
+
+
+class TeacherTestCallMyRecordingsApiTests(TestCase):
+    """Teacher test-call recordings must appear on recordings/my/."""
+
+    def setUp(self):
+        self.teacher = User.objects.create_user(
+            username="rec_api_teacher",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            email="rec_api_teacher@example.com",
+        )
+        TeacherProfile.objects.create(
+            user=self.teacher,
+            display_name="معلم API",
+            is_demo_teacher=False,
+            is_approved=True,
+            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
+            can_audio=True,
+        )
+        self.student = User.objects.create_user(
+            username="rec_api_student",
+            password="Pass1234!",
+            user_type=USER_TYPE_STUDENT,
+            email="rec_api_student@example.com",
+        )
+        self.peer_teacher = User.objects.create_user(
+            username="rec_api_peer",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            email="rec_api_peer@example.com",
+        )
+        TeacherProfile.objects.create(
+            user=self.peer_teacher,
+            display_name="معلم عادي",
+            is_demo_teacher=False,
+            is_approved=True,
+            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
+            can_audio=True,
+        )
+        self.client = Client()
+        self.headers = {
+            "HTTP_X_APP_VERSION": "1.0.0",
+            "HTTP_X_APP_BUILD": "1",
+            "HTTP_X_APP_PLATFORM": "android",
+        }
+        self.url = reverse("calls_api:recordings-my")
+
+    def _create_teacher_test_recording(self, *, status, object_key=""):
+        call = CallSession.objects.create(
+            student=self.teacher,
+            teacher=None,
+            session_type=CallSession.SessionType.AUDIO,
+            provider=CallSession.Provider.AGORA,
+            status=CallSession.Status.ENDED,
+            is_test_call=True,
+            service_type=CallSession.ServiceType.TEST_CALL,
+            channel_name="ch_teacher_test",
+            started_at=timezone.now(),
+            ended_at=timezone.now(),
+        )
+        return CallRecording.objects.create(
+            call_session=call,
+            student=self.teacher,
+            teacher=None,
+            session_type="audio",
+            recording_status=status,
+            recording_object_key=object_key,
+            duration_seconds=45,
+            started_at=call.started_at,
+            ended_at=call.ended_at,
+        )
+
+    def _create_normal_recording(self):
+        call = CallSession.objects.create(
+            student=self.student,
+            teacher=self.peer_teacher,
+            session_type=CallSession.SessionType.AUDIO,
+            provider=CallSession.Provider.AGORA,
+            status=CallSession.Status.ENDED,
+            is_test_call=False,
+            channel_name="ch_normal",
+            started_at=timezone.now(),
+            ended_at=timezone.now(),
+        )
+        return CallRecording.objects.create(
+            call_session=call,
+            student=self.student,
+            teacher=self.peer_teacher,
+            session_type="audio",
+            recording_status=CallRecording.RecordingStatus.COMPLETED,
+            recording_object_key="recordings/normal/file.mp4",
+            duration_seconds=120,
+            started_at=call.started_at,
+            ended_at=call.ended_at,
+        )
+
+    @patch("apps.calls.cloud_recording.try_finalize_recording_files")
+    def test_teacher_test_recording_appears_in_my_recordings(self, _finalize):
+        rec = self._create_teacher_test_recording(
+            status=CallRecording.RecordingStatus.COMPLETED,
+            object_key="recordings/test/teacher.mp4",
+        )
+        self.client.force_login(self.teacher)
+        resp = self.client.get(self.url, **self.headers)
+        self.assertEqual(resp.status_code, 200)
+        body = resp.json()
+        self.assertTrue(body["success"])
+        ids = [r["id"] for r in body["recordings"]]
+        self.assertIn(rec.id, ids)
+        payload = next(r for r in body["recordings"] if r["id"] == rec.id)
+        self.assertTrue(payload["is_test_call"])
+        self.assertTrue(payload["is_playable"])
+        self.assertEqual(payload["other_party_name"], "تسجيل الاتصال التجريبي")
+
+    @patch("apps.calls.cloud_recording.try_finalize_recording_files")
+    def test_teacher_null_payload_does_not_drop_preparing(self, _finalize):
+        from apps.calls.post_call import recording_to_payload
+
+        rec = self._create_teacher_test_recording(
+            status=CallRecording.RecordingStatus.PROCESSING,
+        )
+        payload = recording_to_payload(rec, self.teacher)
+        self.assertTrue(payload["is_test_call"])
+        self.assertTrue(payload["is_preparing"])
+        self.assertFalse(payload["is_playable"])
+        self.assertEqual(payload["other_party_name"], "تسجيل الاتصال التجريبي")
+
+        self.client.force_login(self.teacher)
+        resp = self.client.get(self.url, **self.headers)
+        self.assertEqual(resp.status_code, 200)
+        ids = [r["id"] for r in resp.json()["recordings"]]
+        self.assertIn(rec.id, ids)
+
+    @patch("apps.calls.cloud_recording.try_finalize_recording_files")
+    def test_completed_without_key_stays_preparing_then_playable(self, _finalize):
+        from apps.calls.post_call import recording_to_payload
+
+        rec = self._create_teacher_test_recording(
+            status=CallRecording.RecordingStatus.COMPLETED,
+            object_key="",
+        )
+        payload = recording_to_payload(rec, self.teacher)
+        self.assertTrue(payload["is_preparing"])
+        self.assertFalse(payload["is_playable"])
+
+        rec.recording_object_key = "recordings/test/ready.mp4"
+        rec.save(update_fields=["recording_object_key"])
+        payload = recording_to_payload(rec, self.teacher)
+        self.assertFalse(payload["is_preparing"])
+        self.assertTrue(payload["is_playable"])
+
+        self.client.force_login(self.teacher)
+        resp = self.client.get(self.url, **self.headers)
+        ids = [r["id"] for r in resp.json()["recordings"]]
+        self.assertIn(rec.id, ids)
+        row = next(r for r in resp.json()["recordings"] if r["id"] == rec.id)
+        self.assertTrue(row["is_playable"])
+
+    @patch("apps.calls.cloud_recording.try_finalize_recording_files")
+    def test_normal_recordings_unaffected(self, _finalize):
+        normal = self._create_normal_recording()
+        self.client.force_login(self.peer_teacher)
+        resp = self.client.get(self.url, **self.headers)
+        self.assertEqual(resp.status_code, 200)
+        ids = [r["id"] for r in resp.json()["recordings"]]
+        self.assertIn(normal.id, ids)
+        row = next(r for r in resp.json()["recordings"] if r["id"] == normal.id)
+        self.assertFalse(row["is_test_call"])
+        self.assertTrue(row["is_playable"])
+        self.assertEqual(row["other_party_name"], "rec_api_student")
+
+        self.client.force_login(self.student)
+        resp = self.client.get(self.url, **self.headers)
+        self.assertEqual(resp.status_code, 200)
+        ids = [r["id"] for r in resp.json()["recordings"]]
+        self.assertIn(normal.id, ids)
+        row = next(r for r in resp.json()["recordings"] if r["id"] == normal.id)
+        self.assertEqual(row["other_party_name"], "معلم عادي")
