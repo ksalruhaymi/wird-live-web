@@ -472,6 +472,11 @@ def deduct_call_minutes_for_session(call) -> Decimal:
         locked.save(update_fields=["minutes_charged", "updated_at"])
         return 0
 
+    if getattr(locked, "is_test_call", False):
+        locked.minutes_charged = ZERO_MINUTES
+        locked.save(update_fields=["minutes_charged", "updated_at"])
+        return 0
+
     teacher = locked.teacher
     if teacher is not None and is_demo_teacher(teacher):
         locked.minutes_charged = ZERO_MINUTES

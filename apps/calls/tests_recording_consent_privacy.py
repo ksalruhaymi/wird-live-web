@@ -117,44 +117,41 @@ class RecordingConsentTests(TestCase):
             1,
         )
 
-    def test_demo_teacher_call_never_starts_recording(self):
-        from apps.calls.exceptions import CallValidationError
+    def test_test_call_records_after_caller_consent(self):
         from apps.calls.recording_consent import (
-            is_demo_protected_call,
+            is_test_call_session,
             maybe_start_recording_if_consents_ready,
             recording_consent_payload,
         )
         from apps.tutoring.models import TeacherProfile
 
         TeacherProfile.objects.create(user=self.teacher, is_demo_teacher=True)
+        self.call.is_test_call = True
         self.call.status = CallSession.Status.ACTIVE
         self.call.started_at = timezone.now()
-        self.call.save(update_fields=["status", "started_at"])
+        self.call.save(update_fields=["is_test_call", "status", "started_at"])
         self.call = CallSession.objects.select_related("student", "teacher").get(
             pk=self.call.pk
         )
-        self.assertTrue(is_demo_protected_call(self.call))
+        self.assertTrue(is_test_call_session(self.call))
 
         with patch(
             "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
         ) as mock_start:
-            with self.assertRaises(CallValidationError):
-                record_call_recording_consent(
-                    self.call, self.student, platform="ios"
-                )
-            mock_start.assert_not_called()
+            record_call_recording_consent(
+                self.call, self.student, platform="ios"
+            )
+            mock_start.assert_called_once()
             self.assertEqual(
                 CallRecordingConsent.objects.filter(call_session=self.call).count(),
-                0,
+                1,
             )
-            self.assertFalse(maybe_start_recording_if_consents_ready(self.call))
-            mock_start.assert_not_called()
+            self.assertTrue(maybe_start_recording_if_consents_ready(self.call))
 
         payload = recording_consent_payload(self.call, self.student)
-        self.assertFalse(payload["recording_active"])
-        self.assertFalse(payload["recording_allowed"])
-        self.assertFalse(payload["recording_consent_required"])
-        self.assertTrue(payload["is_demo_call"])
+        self.assertTrue(payload["recording_allowed"])
+        self.assertTrue(payload["recording_consent_required"])
+        self.assertTrue(payload["is_test_call"])
         self.assertEqual(
             CallRecordingConsent.objects.filter(
                 call_session=self.call, platform="demo_system"
@@ -162,15 +159,25 @@ class RecordingConsentTests(TestCase):
             0,
         )
 
-    def test_start_cloud_recording_skips_demo_teacher_call(self):
+    def test_start_cloud_recording_does_not_skip_test_call(self):
         from apps.calls.cloud_recording.service import start_cloud_recording_for_call
         from apps.tutoring.models import TeacherProfile
 
         TeacherProfile.objects.create(user=self.teacher, is_demo_teacher=True)
+        self.call.is_test_call = True
         self.call.status = CallSession.Status.ACTIVE
         self.call.started_at = timezone.now()
         self.call.provider = CallSession.Provider.AGORA
-        self.call.save(update_fields=["status", "started_at", "provider"])
+        self.call.channel_name = "ch_test"
+        self.call.save(
+            update_fields=[
+                "is_test_call",
+                "status",
+                "started_at",
+                "provider",
+                "channel_name",
+            ]
+        )
         self.call = CallSession.objects.select_related("student", "teacher").get(
             pk=self.call.pk
         )
@@ -181,17 +188,20 @@ class RecordingConsentTests(TestCase):
             "apps.calls.cloud_recording.service.cloud_recording_configured",
             return_value=True,
         ), patch(
-            "apps.calls.cloud_recording.client.AgoraCloudRecordingClient"
+            "apps.calls.cloud_recording.service.AgoraCloudRecordingClient"
         ) as client_cls:
+            instance = client_cls.return_value
+            instance.acquire.return_value = {"resourceId": "r1"}
+            instance.start.return_value = {"sid": "s1"}
             start_cloud_recording_for_call(self.call)
-            client_cls.assert_not_called()
+            client_cls.assert_called()
 
         rec = CallRecording.objects.get(call_session=self.call)
-        self.assertEqual(rec.recording_status, CallRecording.RecordingStatus.SKIPPED)
+        self.assertNotEqual(rec.recording_status, CallRecording.RecordingStatus.SKIPPED)
         payload = __import__(
             "apps.calls.recording_consent", fromlist=["recording_consent_payload"]
         ).recording_consent_payload(self.call, self.student)
-        self.assertFalse(payload["recording_active"])
+        self.assertTrue(payload["recording_allowed"])
 
 
 class RecordingDeleteApiTests(TestCase):

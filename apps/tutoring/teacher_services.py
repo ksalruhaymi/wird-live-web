@@ -29,10 +29,14 @@ COMPUTED_STATUS_LABELS_AR = {
     COMPUTED_OFFLINE: "غير متصل",
 }
 
-DEMO_CALL_MESSAGE = "هذه جلسة تجريبية آلية لاختبار الاتصال."
-DEMO_CALL_TIME_LIMIT_MESSAGE = "انتهت مدة التجربة المجانية"
-DEMO_CALL_MAX_SECONDS = 120
+DEMO_CALL_MESSAGE = (
+    "مرحبًا، هذا اتصال تجريبي. تحدث الآن لاختبار جودة صوتك، "
+    "وسينتهي الاتصال بعد دقيقة واحدة."
+)
+DEMO_CALL_TIME_LIMIT_MESSAGE = "انتهت مدة الاتصال التجريبي"
+DEMO_CALL_MAX_SECONDS = 60
 DEMO_STATUS_LABEL = "متاح للتجربة"
+DEMO_DISPLAY_NAME_AR = "اتصال تجريبي"
 DEMO_TEACHER_USERNAMES = frozenset({"demo_teacher", "te"})
 
 
@@ -46,12 +50,27 @@ def is_demo_teacher(user) -> bool:
     return username in DEMO_TEACHER_USERNAMES
 
 
+def get_demo_teacher_user():
+    """Return the automated test-call peer account (never None if seeded)."""
+    profile = (
+        TeacherProfile.objects.filter(is_demo_teacher=True)
+        .select_related("user")
+        .order_by("user_id")
+        .first()
+    )
+    if profile is not None:
+        return profile.user
+    return User.objects.filter(username__iexact="demo_teacher").first()
+
+
 def auto_accepts_calls(user) -> bool:
     profile = getattr(user, "teacher_profile", None)
     return bool(profile and profile.auto_accept_calls)
 
 
 def teacher_display_name(user) -> str:
+    if is_demo_teacher(user):
+        return DEMO_DISPLAY_NAME_AR
     profile = getattr(user, "teacher_profile", None)
     if profile and profile.display_name:
         return profile.display_name
@@ -187,6 +206,8 @@ def list_teachers_payload(*, approved_only: bool = True, request=None) -> list[d
         "teacher_profile",
         "teacher_availability",
     )
+    # Test-call peer is never listed among real teachers.
+    qs = qs.exclude(teacher_profile__is_demo_teacher=True)
     if approved_only:
         qs = qs.filter(
             teacher_profile__approval_status=TeacherProfile.ApprovalStatus.APPROVED

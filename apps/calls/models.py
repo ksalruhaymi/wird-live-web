@@ -71,6 +71,11 @@ class CallSession(models.Model):
         default=False,
         verbose_name="مقابلة إدارة (مكالمة معلم جديد)",
     )
+    is_test_call = models.BooleanField(
+        default=False,
+        db_index=True,
+        verbose_name="اتصال تجريبي (اختبار جودة)",
+    )
     minutes_charged = models.DecimalField(
         max_digits=12,
         decimal_places=4,
@@ -385,6 +390,8 @@ class CallRecording(models.Model):
 
 
 RECORDING_CONSENT_VERSION = "recording-consent-v1"
+TEST_CALL_RECORDING_CONSENT_VERSION = "test-call-recording-consent-v1"
+TEST_CALL_MAX_SECONDS = 60
 
 
 class CallRecordingConsent(models.Model):

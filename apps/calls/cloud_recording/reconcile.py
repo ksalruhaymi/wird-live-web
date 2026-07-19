@@ -20,6 +20,8 @@ logger = logging.getLogger(__name__)
 STALE_ACTIVE_AFTER = timedelta(hours=2)
 STALE_ENDING_AFTER = timedelta(minutes=2)
 STALE_RECORDING_AFTER = timedelta(minutes=10)
+# Test calls must end shortly after the 60s limit even if the client never ends.
+TEST_CALL_STALE_GRACE = timedelta(seconds=15)
 
 
 def reconcile_stuck_calls(*, dry_run: bool = True, limit: int = 100) -> dict:
@@ -29,10 +31,35 @@ def reconcile_stuck_calls(*, dry_run: bool = True, limit: int = 100) -> dict:
         "dry_run": dry_run,
         "active_finalized": [],
         "ending_finalized": [],
+        "test_calls_finalized": [],
         "recordings_reconciled": [],
         "teachers_released": [],
         "errors": [],
     }
+
+    from apps.tutoring.teacher_services import DEMO_CALL_MAX_SECONDS
+
+    overdue_test = list(
+        CallSession.objects.filter(
+            status=CallSession.Status.ACTIVE,
+            is_test_call=True,
+            started_at__lte=now
+            - timedelta(seconds=DEMO_CALL_MAX_SECONDS)
+            - TEST_CALL_STALE_GRACE,
+        ).order_by("id")[:limit]
+    )
+    for call in overdue_test:
+        summary["test_calls_finalized"].append(call.id)
+        if dry_run:
+            continue
+        try:
+            _force_end_call(call, reason="test_call_duration_exceeded")
+            stop_and_finalize_recording_for_call_id(call.id)
+            if call.teacher_id:
+                mark_teacher_online(call.teacher)
+                summary["teachers_released"].append(call.teacher_id)
+        except Exception as exc:
+            summary["errors"].append({"call_id": call.id, "error": str(exc)[:200]})
 
     stale_active = list(
         CallSession.objects.filter(status=CallSession.Status.ACTIVE)

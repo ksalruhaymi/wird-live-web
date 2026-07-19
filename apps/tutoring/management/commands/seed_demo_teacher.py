@@ -13,7 +13,7 @@ User = get_user_model()
 
 DEMO_USERNAME = "demo_teacher"
 DEMO_EMAIL = "demo.teacher@wird.local"
-DEMO_DISPLAY_NAME = "إتصال تجريبي"
+DEMO_DISPLAY_NAME = "اتصال تجريبي"
 DEFAULT_DEMO_PASSWORD = "WirdDemoTeacher-ChangeMe!"
 
 

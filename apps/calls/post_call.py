@@ -18,7 +18,12 @@ def ensure_post_call_artifacts(call: CallSession) -> None:
     if call.status != CallSession.Status.ENDED or not call.teacher_id:
         return
 
-    if not getattr(call, "is_interview_call", False):
+    from apps.calls.recording_consent import is_test_call_session
+
+    # Test calls: recording only — no SessionEvaluation / peer ratings.
+    if not getattr(call, "is_interview_call", False) and not is_test_call_session(
+        call
+    ):
         SessionEvaluation.objects.get_or_create(
             call_session=call,
             defaults={
@@ -83,10 +88,16 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
     else:
         other_name = student_display_name(rec.student)
 
+    from apps.calls.recording_consent import is_test_call_session
     from apps.calls.recording_storage import (
         is_playable_object_key,
         object_key_for_recording,
     )
+
+    call = getattr(rec, "call_session", None)
+    is_test = bool(call is not None and is_test_call_session(call))
+    if is_test:
+        other_name = "تسجيل الاتصال التجريبي"
 
     status = rec.recording_status or CallRecording.RecordingStatus.IDLE
     # Canonical playable terminal: completed + supported final media key.
@@ -106,6 +117,7 @@ def recording_to_payload(rec: CallRecording, viewer) -> dict:
         "session_type": rec.session_type,
         "type": rec.session_type,
         "other_party_name": other_name,
+        "is_test_call": is_test,
         "has_recording": has_recording,
         "recording_status": status,
         "is_terminal": is_terminal,

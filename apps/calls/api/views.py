@@ -18,6 +18,7 @@ from apps.calls.services import (
     reject_call_session,
     request_call_session,
     resolve_user_type_slug,
+    start_test_call_session,
 )
 
 
@@ -292,6 +293,36 @@ def _request_call_with_type(request, session_type: str):
         {"success": True, "call": call_to_payload(call, request.user, request)},
         status=201,
     )
+
+
+@csrf_exempt
+@require_POST
+def start_test_call(request):
+    """Start a 60-second test call (automated peer). No booking or minutes."""
+    auth_err = _require_auth(request)
+    if auth_err:
+        return auth_err
+
+    from apps.tutoring.teacher_services import resolve_user_type_slug
+
+    if resolve_user_type_slug(request.user) == "teacher":
+        return JsonResponse(
+            {
+                "success": False,
+                "message": "الاتصال التجريبي غير متاح من حساب المعلّم.",
+            },
+            status=403,
+        )
+
+    try:
+        call = start_test_call_session(request.user)
+    except (CallValidationError, CallProviderError) as exc:
+        return _handle_call_error(exc)
+
+    payload = call_to_payload(call, request.user, request)
+    payload["recording_policy"] = "caller_consent_only"
+    payload["max_duration_seconds"] = payload.get("max_duration_seconds", 60)
+    return JsonResponse({"success": True, "call": payload}, status=201)
 
 
 @csrf_exempt

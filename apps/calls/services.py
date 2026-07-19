@@ -7,6 +7,7 @@ from apps.tutoring.teacher_services import (
     DEMO_CALL_MAX_SECONDS,
     DEMO_CALL_MESSAGE,
     auto_accepts_calls,
+    get_demo_teacher_user,
     get_pending_teacher_for_interview,
     get_teacher_user,
     is_demo_teacher,
@@ -81,6 +82,7 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
         "session_type": call.session_type,
         "provider": call.provider,
         "is_interview_call": bool(getattr(call, "is_interview_call", False)),
+        "is_test_call": bool(getattr(call, "is_test_call", False)),
         "app_id": app_id,
         "channel_name": call.channel_name or "",
         "room_name": call.room_name or "",
@@ -97,11 +99,20 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
         "ended_at": call.ended_at.isoformat() if call.ended_at else None,
     }
 
-    demo_call = bool(call.teacher_id and call.teacher and is_demo_teacher(call.teacher))
-    payload["is_demo_call"] = demo_call
-    if demo_call:
+    from apps.calls.recording_consent import is_test_call_session
+
+    test_call = is_test_call_session(call)
+    payload["is_demo_call"] = test_call
+    payload["is_test_call"] = test_call
+    if test_call:
         payload["demo_message"] = DEMO_CALL_MESSAGE
         payload["demo_max_seconds"] = DEMO_CALL_MAX_SECONDS
+        payload["max_duration_seconds"] = DEMO_CALL_MAX_SECONDS
+        if call.started_at:
+            expires = call.started_at + timedelta(seconds=DEMO_CALL_MAX_SECONDS)
+            payload["expires_at"] = expires.isoformat()
+        payload["teacher_name"] = "اتصال تجريبي"
+        payload["teacher_profile_image_url"] = ""
 
     if (
         viewer is not None
@@ -122,8 +133,8 @@ def call_to_payload(call: CallSession, viewer=None, request=None) -> dict:
 def _activate_call_session(call: CallSession) -> CallSession:
     """Mark call active and prepare provider.
 
-    Cloud recording does NOT start here. It starts only after both parties
-    submit explicit recording consent (see apps.calls.recording_consent).
+    Cloud recording does NOT start here. It starts only after consent policy
+    is satisfied (both parties for real calls; human caller only for test calls).
     """
     now = timezone.now()
     call.status = CallSession.Status.ACTIVE
@@ -217,6 +228,7 @@ def request_call_session(
         provider=provider_name_for_new_call(),
         status=CallSession.Status.PENDING,
         is_interview_call=bool(interview_call),
+        is_test_call=bool(demo_teacher),
     )
     assign_channel_name(call)
     mark_teacher_busy(teacher)
@@ -224,6 +236,62 @@ def request_call_session(
     if demo_teacher and auto_accepts_calls(teacher):
         call = _activate_call_session(call)
 
+    return call
+
+
+def start_test_call_session(user) -> CallSession:
+    """Start a 60s test call with the automated peer. No booking or minutes."""
+    from apps.calls.models import TEST_CALL_MAX_SECONDS
+
+    caller_slug = resolve_user_type_slug(user)
+    if caller_slug not in {"student", "admin"}:
+        raise CallValidationError("الاتصال التجريبي متاح للمستخدمين المسجلين فقط.")
+
+    teacher = get_demo_teacher_user()
+    if teacher is None:
+        raise CallValidationError("خدمة الاتصال التجريبي غير متاحة حاليًا.")
+
+    # Block concurrent active/pending test calls for this user.
+    active_exists = CallSession.objects.filter(
+        student=user,
+        is_test_call=True,
+        status__in=[
+            CallSession.Status.PENDING,
+            CallSession.Status.ACTIVE,
+            CallSession.Status.ENDING,
+        ],
+    ).exists()
+    if active_exists:
+        raise CallValidationError(
+            "لديك اتصال تجريبي نشط بالفعل. أنهِه قبل بدء تجربة جديدة.",
+        )
+
+    # Soft rate limit: max 5 test calls per hour.
+    hour_ago = timezone.now() - timedelta(hours=1)
+    recent_count = CallSession.objects.filter(
+        student=user,
+        is_test_call=True,
+        created_at__gte=hour_ago,
+    ).count()
+    if recent_count >= 5:
+        raise CallValidationError(
+            "وصلت إلى الحد الأقصى للاتصالات التجريبية مؤقتًا. حاول لاحقًا.",
+        )
+
+    _ = TEST_CALL_MAX_SECONDS  # documented max; enforced via DEMO_CALL_MAX_SECONDS
+    call = CallSession.objects.create(
+        student=user,
+        teacher=teacher,
+        session_type=CallSession.SessionType.AUDIO,
+        provider=provider_name_for_new_call(),
+        status=CallSession.Status.PENDING,
+        is_interview_call=False,
+        is_test_call=True,
+    )
+    assign_channel_name(call)
+    mark_teacher_busy(teacher)
+    if auto_accepts_calls(teacher):
+        call = _activate_call_session(call)
     return call
 
 
@@ -244,7 +312,9 @@ def list_incoming_calls(teacher_user) -> list[CallSession]:
 def _demo_call_time_limit_reached(call: CallSession) -> bool:
     if call.status != CallSession.Status.ACTIVE:
         return False
-    if not call.teacher_id or not call.teacher or not is_demo_teacher(call.teacher):
+    from apps.calls.recording_consent import is_test_call_session
+
+    if not is_test_call_session(call):
         return False
     started_at = call.started_at
     if not started_at:

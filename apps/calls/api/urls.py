@@ -6,6 +6,7 @@ app_name = "calls_api"
 
 urlpatterns = [
     path("calls/request/", views.request_call, name="request"),
+    path("calls/test-call/", views.start_test_call, name="test-call"),
     path("calls/incoming/", views.incoming_calls, name="incoming"),
     path("calls/my/", views.my_calls, name="my"),
     path("calls/start-audio/", views.start_audio, name="start-audio"),
