@@ -55,14 +55,14 @@ def permission_required(code: str):
 
 
 def superuser_required(view_func):
-    """Allow only authenticated Django superusers (is_superuser=True)."""
+    """Allow only when request.user.is_authenticated and request.user.is_superuser."""
 
     @wraps(view_func)
     def _wrapped(request, *args, **kwargs):
         user = request.user
-        if not user.is_authenticated:
-            return redirect_to_login(request.get_full_path())
-        if not getattr(user, "is_superuser", False):
+        if not (user.is_authenticated and user.is_superuser):
+            if not user.is_authenticated:
+                return redirect_to_login(request.get_full_path())
             raise PermissionDenied()
         return view_func(request, *args, **kwargs)
 

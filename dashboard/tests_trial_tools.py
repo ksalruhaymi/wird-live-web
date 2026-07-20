@@ -44,6 +44,7 @@ from identity.accounts.trial_cleanup import purge_non_protected_users
 from identity.accounts.user_types import (
     USER_TYPE_ADMIN,
     USER_TYPE_STUDENT,
+    USER_TYPE_SUPERVISOR,
     USER_TYPE_TEACHER,
 )
 from identity.rbac.models import Role
@@ -67,6 +68,14 @@ class TrialToolsAccessTests(TestCase):
             email="trial_admin@example.com",
         )
         cls.admin.roles.set([Role.objects.get(slug="admin")])
+        cls.supervisor = User.objects.create_user(
+            username="trial_supervisor",
+            password="Pass1234!",
+            user_type=USER_TYPE_SUPERVISOR,
+            email="trial_supervisor@example.com",
+            is_superuser=False,
+        )
+        cls.supervisor.roles.set([Role.objects.get(slug="supervisor")])
 
     def setUp(self):
         self.client = Client()
@@ -124,6 +133,47 @@ class TrialToolsAccessTests(TestCase):
             {"confirmation": "DELETE ALL USERS"},
         )
         self.assertEqual(response.status_code, 403)
+
+    def test_supervisor_non_superuser_cannot_see_or_access_purge_tools(self):
+        self.assertFalse(self.supervisor.is_superuser)
+        self.client.force_login(self.supervisor)
+
+        calls_page = self.client.get(reverse("dashboard:call_session_list"))
+        self.assertEqual(calls_page.status_code, 200)
+        self.assertNotContains(calls_page, "حذف جميع المكالمات")
+        self.assertNotContains(calls_page, reverse("dashboard:purge_all_calls"))
+
+        users_page = self.client.get(reverse("dashboard:dashboard_users_list"))
+        self.assertEqual(users_page.status_code, 200)
+        self.assertNotContains(users_page, "حذف جميع المستخدمين غير المحميين")
+        self.assertNotContains(
+            users_page, reverse("dashboard:purge_non_protected_users")
+        )
+
+        self.assertEqual(
+            self.client.get(reverse("dashboard:purge_all_calls")).status_code,
+            403,
+        )
+        self.assertEqual(
+            self.client.post(
+                reverse("dashboard:purge_all_calls"),
+                {"confirmation": "DELETE ALL CALLS"},
+            ).status_code,
+            403,
+        )
+        self.assertEqual(
+            self.client.get(
+                reverse("dashboard:purge_non_protected_users")
+            ).status_code,
+            403,
+        )
+        self.assertEqual(
+            self.client.post(
+                reverse("dashboard:purge_non_protected_users"),
+                {"confirmation": "DELETE ALL USERS"},
+            ).status_code,
+            403,
+        )
 
 
 class TrialPurgeCallsTests(TestCase):
