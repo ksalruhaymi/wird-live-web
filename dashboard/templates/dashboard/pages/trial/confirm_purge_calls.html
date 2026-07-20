@@ -1,0 +1,43 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-xl mx-auto site-card p-6 space-y-4" dir-text>
+  <h2 class="site-title-md text-red-700">حذف جميع المكالمات</h2>
+  <p class="site-text text-sm">
+    هذه العملية لا يمكن التراجع عنها. سيتم حذف جميع جلسات الاتصال والتسجيلات والتقييمات والموافقات المرتبطة،
+    وحذف ملفات التسجيل من التخزين السحابي (R2) قدر الإمكان.
+  </p>
+  <p class="site-text text-sm font-semibold text-red-700">
+    لن تُحذف إعدادات أسئلة التقييم العامة.
+  </p>
+
+  <div class="rounded-xl border site-border p-4 space-y-1 text-[12px]">
+    <div><span class="site-text-muted">جلسات الاتصال:</span> <strong>{{ counts.call_sessions }}</strong></div>
+    <div><span class="site-text-muted">التسجيلات:</span> <strong>{{ counts.call_recordings }}</strong></div>
+    <div><span class="site-text-muted">تقييمات الأقران:</span> <strong>{{ counts.peer_ratings }}</strong></div>
+    <div><span class="site-text-muted">إجابات التقييم:</span> <strong>{{ counts.peer_rating_answers }}</strong></div>
+    <div><span class="site-text-muted">موافقات التسجيل:</span> <strong>{{ counts.recording_consents }}</strong></div>
+    <div><span class="site-text-muted">تقييمات الجلسات:</span> <strong>{{ counts.session_evaluations }}</strong></div>
+  </div>
+
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <div>
+      <label class="block text-[12px] font-bold site-text mb-1">
+        للتأكيد اكتب بالضبط: <span class="font-mono text-red-700">{{ confirm_phrase }}</span>
+      </label>
+      <input type="text" name="confirmation" autocomplete="off" required
+             class="w-full px-3 py-2 rounded-lg border site-border text-[13px] site-text font-mono"
+             placeholder="{{ confirm_phrase }}">
+    </div>
+    <div class="flex gap-3">
+      <button type="submit"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 text-white text-sm font-bold">
+        حذف جميع المكالمات
+      </button>
+      <a href="{% url 'dashboard:call_session_list' %}?tab=log"
+         class="px-4 py-2 rounded-full border site-border text-sm site-text-muted">إلغاء</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

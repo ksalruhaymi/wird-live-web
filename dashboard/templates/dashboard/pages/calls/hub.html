@@ -6,6 +6,19 @@
 
   {% include "dashboard/partials/calls_tabs_header.html" %}
 
+  {% if request.user.is_superuser %}
+  <div class="site-card p-4 flex flex-wrap items-center justify-between gap-3 border border-red-200 bg-red-50/40">
+    <div class="text-[12px] site-text">
+      <span class="font-bold text-red-700">أدوات تجريبية (مشرف أعلى فقط):</span>
+      حذف جميع المكالمات والتسجيلات المرتبطة. لا يمكن التراجع.
+    </div>
+    <a href="{% url 'dashboard:purge_all_calls' %}"
+       class="inline-flex items-center px-4 py-2 rounded-full bg-red-600 text-white text-[12px] font-bold">
+      حذف جميع المكالمات
+    </a>
+  </div>
+  {% endif %}
+
   {% if tab == 'log' %}
     {% if can_log %}
       {% include "dashboard/pages/calls/partials/tab_log.html" %}

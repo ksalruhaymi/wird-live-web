@@ -147,6 +147,47 @@ def delete_user_account(user, *, password: str = "", confirmation: str = "") -> 
     return {"ok": True, **stats}
 
 
+def hard_delete_user_account(user) -> dict:
+    """
+    Hard-delete a user and related call/appointment/profile data.
+
+    Used by admin trial cleanup. Does not verify self-serve password/confirmation.
+    """
+    user_id = user.id
+    username = user.username
+
+    _end_active_calls_for_user(user)
+    stats = _collect_and_delete_user_recordings(user)
+
+    with transaction.atomic():
+        from apps.appointments.models import Appointment
+
+        Appointment.objects.filter(
+            models_q_student_or_teacher_appointment(user)
+        ).delete()
+
+        CallSession.objects.filter(student_id=user_id).delete()
+        CallSession.objects.filter(teacher_id=user_id).update(teacher=None)
+
+        for rel in ("student_profile", "teacher_profile"):
+            profile = getattr(user, rel, None)
+            if profile is not None:
+                profile.delete()
+
+        user.delete()
+
+    logger.info(
+        "account_hard_deleted user_id=%s username=%s recordings=%s "
+        "r2_deleted=%s r2_failed=%s",
+        user_id,
+        username,
+        stats["recordings_removed"],
+        stats["r2_deleted"],
+        stats["r2_failed"],
+    )
+    return {"ok": True, "user_id": user_id, "username": username, **stats}
+
+
 def models_q_student_or_teacher_appointment(user):
     from django.db.models import Q
 

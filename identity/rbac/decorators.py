@@ -52,3 +52,18 @@ def permission_required(code: str):
         return _wrapped
 
     return decorator
+
+
+def superuser_required(view_func):
+    """Allow only authenticated Django superusers (is_superuser=True)."""
+
+    @wraps(view_func)
+    def _wrapped(request, *args, **kwargs):
+        user = request.user
+        if not user.is_authenticated:
+            return redirect_to_login(request.get_full_path())
+        if not getattr(user, "is_superuser", False):
+            raise PermissionDenied()
+        return view_func(request, *args, **kwargs)
+
+    return _wrapped

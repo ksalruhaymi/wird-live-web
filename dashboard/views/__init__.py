@@ -70,6 +70,7 @@ from .subscription_plans import (
     subscription_plan_toggle_active,
     subscription_plan_update,
 )
+from .trial_tools import purge_all_calls, purge_non_protected_users_view
 
 __all__ = [
     "home",
@@ -130,4 +131,6 @@ __all__ = [
     "dashboard_user_teacher_profile_image",
     "dashboard_user_teacher_ijazah",
     "dashboard_user_student_profile_image",
+    "purge_all_calls",
+    "purge_non_protected_users_view",
 ]

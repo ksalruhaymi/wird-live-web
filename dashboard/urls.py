@@ -60,6 +60,8 @@ from .views import (
     mobile_version_detail,
     mobile_version_list,
     mobile_version_update,
+    purge_all_calls,
+    purge_non_protected_users_view,
 )
 
 app_name = "dashboard"
@@ -158,6 +160,11 @@ urlpatterns = [
     path("appointments/<int:pk>/", appointment_detail, name="appointment_detail"),
     path("users/", dashboard_users_list, name="dashboard_users_list"),
     path(
+        "users/purge-non-protected/",
+        purge_non_protected_users_view,
+        name="purge_non_protected_users",
+    ),
+    path(
         "users/teachers/<int:user_id>/",
         dashboard_user_teacher_detail,
         name="dashboard_user_teacher_detail",
@@ -183,6 +190,11 @@ urlpatterns = [
         name="dashboard_user_student_profile_image",
     ),
     path("calls/", call_session_list, name="call_session_list"),
+    path(
+        "calls/purge-all/",
+        purge_all_calls,
+        name="purge_all_calls",
+    ),
     path(
         "calls/recordings/<int:pk>/playback-url/",
         call_recording_playback_url,

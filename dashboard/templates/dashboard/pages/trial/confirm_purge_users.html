@@ -1,0 +1,50 @@
+{% extends "dashboard/layouts/base.html" %}
+
+{% block dashboard_content %}
+<div class="max-w-xl mx-auto site-card p-6 space-y-4" dir-text>
+  <h2 class="site-title-md text-red-700">حذف جميع المستخدمين غير المحميين</h2>
+  <p class="site-text text-sm">
+    هذه العملية لا يمكن التراجع عنها. سيتم حذف المستخدمين العاديين وبياناتهم المرتبطة
+    (المكالمات، التسجيلات، المواعيد، الملفات الشخصية) مع حذف ملفات R2 قدر الإمكان.
+  </p>
+  <p class="site-text text-sm font-semibold">
+    سيبقى دائمًا: المشرفون الأعلى (is_superuser)، الحسابات التجريبية (super / student / teacher)،
+    وحسابك الحالي.
+  </p>
+
+  <div class="rounded-xl border site-border p-4 space-y-2 text-[12px]">
+    <div>
+      <span class="site-text-muted">عدد المستخدمين المقرر حذفهم:</span>
+      <strong class="text-red-700">{{ victim_count }}</strong>
+    </div>
+    {% if victim_sample %}
+    <div class="site-text-muted">عينة (حتى 30):</div>
+    <ul class="list-disc pr-5 space-y-0.5">
+      {% for uid, uname in victim_sample %}
+      <li><span class="font-mono">#{{ uid }}</span> — {{ uname }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+
+  <form method="post" class="space-y-4">
+    {% csrf_token %}
+    <div>
+      <label class="block text-[12px] font-bold site-text mb-1">
+        للتأكيد اكتب بالضبط: <span class="font-mono text-red-700">{{ confirm_phrase }}</span>
+      </label>
+      <input type="text" name="confirmation" autocomplete="off" required
+             class="w-full px-3 py-2 rounded-lg border site-border text-[13px] site-text font-mono"
+             placeholder="{{ confirm_phrase }}">
+    </div>
+    <div class="flex gap-3">
+      <button type="submit"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600 text-white text-sm font-bold">
+        حذف جميع المستخدمين غير المحميين
+      </button>
+      <a href="{% url 'dashboard:dashboard_users_list' %}?tab=teachers"
+         class="px-4 py-2 rounded-full border site-border text-sm site-text-muted">إلغاء</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

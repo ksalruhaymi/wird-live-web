@@ -6,6 +6,19 @@
 
   {% include "dashboard/partials/users_tabs_header.html" with tab=tab %}
 
+  {% if request.user.is_superuser %}
+  <div class="site-card p-4 flex flex-wrap items-center justify-between gap-3 border border-red-200 bg-red-50/40">
+    <div class="text-[12px] site-text">
+      <span class="font-bold text-red-700">أدوات تجريبية (مشرف أعلى فقط):</span>
+      حذف جميع المستخدمين غير المحميين مع الإبقاء على المشرفين والحسابات التجريبية وحسابك.
+    </div>
+    <a href="{% url 'dashboard:purge_non_protected_users' %}"
+       class="inline-flex items-center px-4 py-2 rounded-full bg-red-600 text-white text-[12px] font-bold">
+      حذف جميع المستخدمين غير المحميين
+    </a>
+  </div>
+  {% endif %}
+
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_rows per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
   <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
