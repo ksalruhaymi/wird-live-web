@@ -77,41 +77,6 @@
   </div>
   {% endif %}
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="site-card p-4">
-      <p class="text-xs font-semibold site-text-muted flex items-center gap-1">
-        <i class="bi bi-android2"></i> النسخة الفعّالة — Android
-      </p>
-      {% if active_android %}
-        <p class="mt-2 text-sm font-bold site-text" dir="ltr">
-          {{ active_android.version_name }} (build {{ active_android.build_number }})
-        </p>
-        <p class="mt-1 text-[11px] site-text-muted">
-          أقل build: {{ active_android.minimum_build_number|default:active_android.build_number }}
-          · {% if active_android.update_mode == 'required' %}تحديث إجباري{% else %}بدون إجبار{% endif %}
-        </p>
-      {% else %}
-        <p class="mt-2 text-sm site-text-muted">لا توجد نسخة فعّالة</p>
-      {% endif %}
-    </div>
-    <div class="site-card p-4">
-      <p class="text-xs font-semibold site-text-muted flex items-center gap-1">
-        <i class="bi bi-apple"></i> النسخة الفعّالة — iOS
-      </p>
-      {% if active_ios %}
-        <p class="mt-2 text-sm font-bold site-text" dir="ltr">
-          {{ active_ios.version_name }} (build {{ active_ios.build_number }})
-        </p>
-        <p class="mt-1 text-[11px] site-text-muted">
-          أقل build: {{ active_ios.minimum_build_number|default:active_ios.build_number }}
-          · {% if active_ios.update_mode == 'required' %}تحديث إجباري{% else %}بدون إجبار{% endif %}
-        </p>
-      {% else %}
-        <p class="mt-2 text-sm site-text-muted">لا توجد نسخة فعّالة</p>
-      {% endif %}
-    </div>
-  </div>
-
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_versions per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
   <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
