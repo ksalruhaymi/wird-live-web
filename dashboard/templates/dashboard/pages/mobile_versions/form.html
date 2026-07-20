@@ -33,17 +33,17 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">رقم الإصدار</label>
+          <label class="block text-sm font-semibold site-text">آخر إصدار</label>
           <input type="text" name="version_name" value="{{ initial.version_name }}" placeholder="1.0.1" required
                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
         </div>
         <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">رقم الـ build</label>
+          <label class="block text-sm font-semibold site-text">رقم Build</label>
           <input type="number" name="build_number" value="{{ initial.build_number }}" min="1" required
                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
         </div>
         <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">أقل build مسموح</label>
+          <label class="block text-sm font-semibold site-text">أقل Build مسموح</label>
           <input type="number" name="minimum_build_number" value="{{ initial.minimum_build_number }}" min="1"
                  placeholder="نفس رقم البناء إن تُرك فارغًا"
                  class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text" dir="ltr">
@@ -58,12 +58,12 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">رسالة التحديث (عربي)</label>
+          <label class="block text-sm font-semibold site-text">رسالة التحديث عربي</label>
           <textarea name="update_message_ar" rows="3"
                     class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.update_message_ar }}</textarea>
         </div>
         <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">رسالة التحديث (إنجليزي)</label>
+          <label class="block text-sm font-semibold site-text">رسالة التحديث إنجليزي</label>
           <textarea name="update_message_en" rows="3" dir="ltr"
                     class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.update_message_en }}</textarea>
         </div>
@@ -71,12 +71,12 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">ملاحظات النسخة (عربي)</label>
+          <label class="block text-sm font-semibold site-text">ملاحظات النسخة عربي</label>
           <textarea name="release_notes_ar" rows="3"
                     class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.release_notes_ar }}</textarea>
         </div>
         <div class="space-y-1.5">
-          <label class="block text-sm font-semibold site-text">ملاحظات النسخة (إنجليزي)</label>
+          <label class="block text-sm font-semibold site-text">ملاحظات النسخة إنجليزي</label>
           <textarea name="release_notes_en" rows="3" dir="ltr"
                     class="w-full rounded-lg border site-border px-3 py-2 text-sm site-text">{{ initial.release_notes_en }}</textarea>
         </div>
@@ -84,27 +84,18 @@
 
       <div class="flex flex-wrap gap-6 pt-1">
         <label class="inline-flex items-center gap-2 text-sm site-text">
-          <input type="checkbox" name="platform_app_enabled"
-                 {% if initial.platform_app_enabled %}checked{% endif %}
+          <input type="checkbox" name="force_update" {% if initial.force_update %}checked{% endif %}
                  class="rounded border site-border">
-          <span>
-            {% if initial.platform == 'ios' %}تشغيل تطبيق iOS{% else %}تشغيل تطبيق Android{% endif %}
-          </span>
+          <span>تحديث إجباري</span>
         </label>
         <label class="inline-flex items-center gap-2 text-sm site-text">
           <input type="checkbox" name="is_active" {% if initial.is_active %}checked{% endif %}
                  class="rounded border site-border">
-          <span>تفعيل هذه النسخة للمنصة</span>
-        </label>
-        <label class="inline-flex items-center gap-2 text-sm site-text">
-          <input type="checkbox" name="force_update" {% if initial.force_update %}checked{% endif %}
-                 class="rounded border site-border">
-          <span>التحديث إجباري</span>
+          <span>فعّالة</span>
         </label>
       </div>
       <p class="text-[11px] site-text-muted">
-        عند إيقاف تشغيل المنصة يُحظر دخول مستخدميها فقط دون التأثير على المنصة الأخرى.
-        عند تفعيل النسخة تُعطَّل النسخة الفعّالة السابقة لنفس المنصة تلقائيًا، وتُزامَن حدود التحديث مع العملاء القدامى.
+        عند تفعيل هذه النسخة سيتم تعطيل النسخة الفعّالة السابقة لنفس المنصة تلقائيًا.
       </p>
 
       <div class="pt-2 flex gap-2">

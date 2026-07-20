@@ -1,20 +1,14 @@
 {% extends "dashboard/layouts/base.html" %}
-{% load rbac_tags %}
 
 {% block dashboard_content %}
 <div class="max-w-6xl mx-auto space-y-6" dir-text>
 
   <div class="site-card p-4">
     <div class="flex flex-wrap items-center justify-between gap-3">
-      <div>
-        <h1 class="text-base md:text-lg font-extrabold site-text flex items-center gap-2">
-          <i class="bi bi-phone site-link-primary"></i>
-          <span>نسخ التطبيقات</span>
-        </h1>
-        <p class="mt-1 text-[11px] site-text-muted">
-          إدارة إصدارات تطبيق وِرْد لايف لكل منصة (Android / iOS).
-        </p>
-      </div>
+      <h1 class="text-base md:text-lg font-extrabold site-text flex items-center gap-2">
+        <i class="bi bi-phone site-link-primary"></i>
+        <span>نسخ التطبيقات</span>
+      </h1>
 
       {% if can_manage_mobile_versions %}
       <div class="flex flex-wrap gap-2">
@@ -31,41 +25,7 @@
       </div>
       {% endif %}
     </div>
-
-    <div class="mt-4">
-      <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
-        {% url 'dashboard:mobile_version_list' as versions_list_url %}
-        {% url 'dashboard:blocked_mobile_version_list' as blocked_list_url %}
-        <a href="{{ versions_list_url }}"
-           class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1 site-tab-link-active site-surface shadow-sm">
-          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
-          <i class="bi bi-phone-vibrate ml-1"></i>
-          <span>النسخ</span>
-        </a>
-        <a href="{{ blocked_list_url }}"
-           class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1 site-tab-link hover:site-surface">
-          <i class="bi bi-slash-circle ml-1"></i>
-          <span>المحظورة</span>
-        </a>
-      </nav>
-    </div>
   </div>
-
-  {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_versions per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
-
-  <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
-    {% include "dashboard/partials/filter_hidden_fields.html" %}
-    <div class="min-w-[160px]">
-      <label class="block text-[11px] font-bold site-text-muted mb-1">المنصة</label>
-      <select name="platform" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
-        <option value="all" {% if platform_filter == 'all' %}selected{% endif %}>الكل</option>
-        {% for value, label in platform_choices %}
-        <option value="{{ value }}" {% if platform_filter == value %}selected{% endif %}>{{ label }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">عرض</button>
-  </form>
 
   <div class="site-card overflow-hidden">
     <div class="overflow-x-auto">
@@ -73,7 +33,7 @@
         <thead class="site-surface text-[11px] site-text-muted border-b site-border">
           <tr class="text-right">
             <th class="px-4 py-3 font-bold">المنصة</th>
-            <th class="px-4 py-3 font-bold">الإصدار</th>
+            <th class="px-4 py-3 font-bold">آخر إصدار</th>
             <th class="px-4 py-3 font-bold">Build</th>
             <th class="px-4 py-3 font-bold">أقل Build</th>
             <th class="px-4 py-3 font-bold">إجباري</th>
@@ -100,8 +60,6 @@
             <td class="px-4 py-2 site-text-muted whitespace-nowrap">{{ item.updated_at|date:"Y-m-d H:i" }}</td>
             <td class="px-4 py-2">
               <div class="flex items-center justify-center gap-2">
-                {% url 'dashboard:mobile_version_detail' item.id as view_url %}
-                {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
                 {% if can_manage_mobile_versions %}
                 {% url 'dashboard:mobile_version_update' item.id as edit_url %}
                 {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
@@ -133,11 +91,6 @@
   {% if per_page != "all" %}
     {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
   {% endif %}
-
-  <div class="site-card p-4 text-[11px] site-text-muted" dir="ltr">
-    API check:
-    <code>/api/v1/mobile/app-version/check/</code>
-  </div>
 
 </div>
 {% endblock %}

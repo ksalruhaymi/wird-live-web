@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from apps.mobile.models import MobileAppConfig, MobilePlatform
+from apps.mobile.models import MobileAppConfig
 from apps.mobile.version_services import compare_semantic_versions
 
 __all__ = [
@@ -14,6 +14,8 @@ __all__ = [
 
 def resolve_platform_from_request(request) -> str:
     """Prefer ?platform=, then X-App-Platform header."""
+    from apps.mobile.models import MobilePlatform
+
     platform = (request.GET.get("platform") or "").strip().lower()
     if platform in {MobilePlatform.ANDROID, MobilePlatform.IOS}:
         return platform
@@ -30,18 +32,12 @@ def app_config_to_payload(
 ) -> dict:
     """Public mobile app config payload (no sensitive fields).
 
-    ``app_enabled`` reflects the requested platform's kill-switch.
+    App is always considered enabled — access is controlled only by the
+    active version's optional/required update rules.
     """
-    normalized = (platform or "").strip().lower()
-    if normalized in {MobilePlatform.ANDROID, MobilePlatform.IOS}:
-        app_enabled = config.is_enabled_for_platform(normalized)
-    else:
-        # Old clients without platform: legacy field only (not the decision source
-        # for android/ios-aware callers).
-        app_enabled = bool(config.app_enabled)
-
+    del platform  # kept for call-site compatibility
     return {
-        "app_enabled": app_enabled,
+        "app_enabled": True,
         "min_supported_version": config.min_supported_version,
         "min_supported_build": config.min_supported_build,
         "force_update": config.force_update,
@@ -71,29 +67,15 @@ def evaluate_mobile_api_access(
     *,
     app_version: str,
     app_build: int,
-    platform: str,
+    platform: str = "",
     config: MobileAppConfig,
 ) -> dict | None:
-    """Return denial metadata when the mobile client must be blocked."""
-    if not config.is_enabled_for_platform(platform):
-        return build_mobile_access_denial(
-            status_code=403,
-            code="app_disabled",
-            config=config,
-        )
-
-    if app_build < config.min_supported_build:
+    """Deny only when a forced update is active and build is below the minimum."""
+    del app_version, platform  # version string / platform not used for kill-switch
+    if config.force_update and app_build < config.min_supported_build:
         return build_mobile_access_denial(
             status_code=426,
             code="app_update_required",
             config=config,
         )
-
-    if compare_semantic_versions(app_version, config.min_supported_version) < 0:
-        return build_mobile_access_denial(
-            status_code=426,
-            code="app_update_required",
-            config=config,
-        )
-
     return None

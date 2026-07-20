@@ -26,7 +26,7 @@ def app_config(request):
 @require_GET
 def app_version_check(request):
     """
-    Public version-check endpoint for optional / required / blocked updates.
+    Public version-check endpoint for optional / required updates.
     Does not require authentication.
     """
     platform = (request.GET.get("platform") or "").strip().lower()

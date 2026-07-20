@@ -184,11 +184,9 @@ def evaluate_app_version_check(
     Decide update action for a client.
 
     Priority:
-    1. blocked_version
-    2. required_update (below minimum build)
-    3. required_update (update_mode required + older than latest)
-    4. optional_update
-    5. no_update
+    1. required_update — force_update and build < minimum allowed
+    2. optional_update — older than active latest (never blocks entry)
+    3. no_update
     """
     locale = normalize_locale(locale)
     platform = (platform or "").strip().lower()
@@ -198,36 +196,6 @@ def evaluate_app_version_check(
     active = get_active_version(platform)
     latest_version_name = active.version_name if active else version_name
     latest_build = active.build_number if active else build_number
-
-    blocked = is_build_blocked(platform, build_number)
-    if blocked is not None:
-        title = _pick_localized(
-            "هذا الإصدار متوقف",
-            "This Version Is No Longer Supported",
-            locale,
-        )
-        message = _pick_localized(
-            blocked.reason_ar
-            or "يرجى تحديث التطبيق إلى أحدث إصدار للمتابعة.",
-            blocked.reason_en
-            or "Please update the app to the latest version to continue.",
-            locale,
-        )
-        store_url = (active.store_url if active else "") or ""
-        return {
-            "success": True,
-            "action": ACTION_BLOCKED,
-            "update_available": True,
-            "update_required": True,
-            "blocked": True,
-            "latest_version_name": latest_version_name,
-            "latest_build_number": latest_build,
-            "title": title,
-            "message": message,
-            "store_url": store_url,
-            "allow_later": False,
-            "later_reminder_hours": None,
-        }
 
     if active is None or not _has_started(active.starts_at, now):
         return {
@@ -252,8 +220,14 @@ def evaluate_app_version_check(
             "latest_build_number": active.build_number,
         }
 
-    min_build = active.minimum_build_number
-    below_minimum = min_build is not None and build_number < min_build
+    min_build = (
+        active.minimum_build_number
+        if active.minimum_build_number is not None
+        else active.build_number
+    )
+    force_required = (
+        active.update_mode == UpdateMode.REQUIRED and build_number < min_build
+    )
 
     title = _pick_localized(active.update_title_ar, active.update_title_en, locale)
     message = _pick_localized(
@@ -263,7 +237,7 @@ def evaluate_app_version_check(
         active.release_notes_ar, active.release_notes_en, locale
     )
 
-    if below_minimum or active.update_mode == UpdateMode.REQUIRED:
+    if force_required:
         if not title:
             title = _pick_localized(
                 "يجب تحديث التطبيق",
@@ -294,45 +268,33 @@ def evaluate_app_version_check(
             "later_reminder_hours": None,
         }
 
-    if active.update_mode == UpdateMode.OPTIONAL:
-        if not title:
-            title = _pick_localized(
-                "يتوفر تحديث جديد",
-                "A New Update Is Available",
-                locale,
-            )
-        if not message:
-            message = _pick_localized(
-                "حدّث التطبيق للحصول على التحسينات الجديدة.",
-                "Update the app to get the latest improvements.",
-                locale,
-            )
-        allow_later = bool(active.allow_later)
-        return {
-            "success": True,
-            "action": ACTION_OPTIONAL,
-            "update_available": True,
-            "update_required": False,
-            "blocked": False,
-            "latest_version_name": active.version_name,
-            "latest_build_number": active.build_number,
-            "minimum_version_name": active.minimum_version_name or "",
-            "minimum_build_number": active.minimum_build_number,
-            "title": title,
-            "message": message,
-            "release_notes": release_notes,
-            "store_url": active.store_url or "",
-            "allow_later": allow_later,
-            "later_reminder_hours": active.later_reminder_hours if allow_later else None,
-        }
-
-    # update_mode = none and older than latest → no forced prompt
+    # Non-forced (or forced but still above minimum): optional prompt only.
+    if not title:
+        title = _pick_localized(
+            "يتوفر تحديث جديد",
+            "A New Update Is Available",
+            locale,
+        )
+    if not message:
+        message = _pick_localized(
+            "حدّث التطبيق للحصول على التحسينات الجديدة.",
+            "Update the app to get the latest improvements.",
+            locale,
+        )
     return {
         "success": True,
-        "action": ACTION_NO_UPDATE,
-        "update_available": False,
+        "action": ACTION_OPTIONAL,
+        "update_available": True,
         "update_required": False,
         "blocked": False,
         "latest_version_name": active.version_name,
         "latest_build_number": active.build_number,
+        "minimum_version_name": active.minimum_version_name or "",
+        "minimum_build_number": active.minimum_build_number,
+        "title": title,
+        "message": message,
+        "release_notes": release_notes,
+        "store_url": active.store_url or "",
+        "allow_later": True,
+        "later_reminder_hours": active.later_reminder_hours or 24,
     }

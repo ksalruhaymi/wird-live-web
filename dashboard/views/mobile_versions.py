@@ -7,8 +7,6 @@ from django.utils.dateparse import parse_datetime
 from django.views.decorators.http import require_POST
 
 from apps.mobile.models import (
-    BlockedMobileAppVersion,
-    MobileAppConfig,
     MobileAppVersion,
     MobilePlatform,
     UpdateMode,
@@ -60,9 +58,6 @@ def _parse_mobile_version_form(post, *, existing: MobileAppVersion | None = None
     platform = (post.get("platform") or "").strip().lower()
     if platform not in VALID_PLATFORMS:
         errors.append("المنصة غير صالحة.")
-
-    # Checkbox: present+on → enabled; absent → disabled.
-    platform_app_enabled = post.get("platform_app_enabled") == "on"
 
     version_name = (post.get("version_name") or "").strip()
     if not is_valid_version_name(version_name):
@@ -178,7 +173,6 @@ def _parse_mobile_version_form(post, *, existing: MobileAppVersion | None = None
         "starts_at_raw": starts_at_raw,
         "is_active": is_active,
         "force_update": update_mode == UpdateMode.REQUIRED,
-        "platform_app_enabled": platform_app_enabled,
     }
     return data, errors
 
@@ -204,24 +198,10 @@ def _apply_mobile_version(instance: MobileAppVersion, data: dict) -> MobileAppVe
     return instance
 
 
-def _apply_platform_app_enabled(platform: str, enabled: bool) -> None:
-    config = MobileAppConfig.get_settings()
-    config.set_enabled_for_platform(platform, enabled)
-
-
-def _platform_app_enabled_initial(platform: str) -> bool:
-    config = MobileAppConfig.get_settings()
-    return config.is_enabled_for_platform(platform)
-
-
 @login_required
 @permissions_required("dashboard.access", "mobile_versions.view")
 def mobile_version_list(request):
-    platform_filter = (request.GET.get("platform") or "all").strip()
-
     qs = MobileAppVersion.objects.all().order_by("-created_at", "-id")
-    if platform_filter in VALID_PLATFORMS:
-        qs = qs.filter(platform=platform_filter)
 
     page_obj, page_numbers, per_page_param, total_versions = paginate_with_smart_pages(
         request=request,
@@ -230,25 +210,7 @@ def mobile_version_list(request):
     )
 
     pagination_qs = build_pagination_query_string(
-        platform=platform_filter,
         per_page=per_page_param,
-    )
-
-    hidden_fields = []
-    if platform_filter != "all":
-        hidden_fields.append({"name": "platform", "value": platform_filter})
-
-    active_android = (
-        MobileAppVersion.objects.filter(
-            platform=MobilePlatform.ANDROID, is_active=True
-        )
-        .order_by("-activated_at", "-id")
-        .first()
-    )
-    active_ios = (
-        MobileAppVersion.objects.filter(platform=MobilePlatform.IOS, is_active=True)
-        .order_by("-activated_at", "-id")
-        .first()
     )
 
     return render(
@@ -258,17 +220,12 @@ def mobile_version_list(request):
             "can_manage_mobile_versions": request.user.has_permission(
                 "mobile_versions.manage"
             ),
-            "active_android": active_android,
-            "active_ios": active_ios,
             "versions": page_obj.object_list,
             "page_obj": page_obj,
             "page_numbers": page_numbers,
             "per_page": per_page_param,
             "total_versions": total_versions,
-            "platform_filter": platform_filter,
-            "platform_choices": MobilePlatform.choices,
             "pagination_qs": pagination_qs,
-            "pagination_hidden_fields": hidden_fields,
         },
     )
 
@@ -315,7 +272,6 @@ def mobile_version_create(request):
         "later_reminder_hours": "",
         "starts_at_raw": "",
         "is_active": False,
-        "platform_app_enabled": _platform_app_enabled_initial(prefill_platform),
     }
 
     if request.method == "POST":
@@ -328,7 +284,6 @@ def mobile_version_create(request):
             try:
                 version = MobileAppVersion(created_by=request.user, updated_by=request.user)
                 _apply_mobile_version(version, data)
-                _apply_platform_app_enabled(data["platform"], data["platform_app_enabled"])
                 if data["is_active"]:
                     activate_mobile_app_version(version, actor=request.user)
             except ValidationError as exc:
@@ -378,7 +333,6 @@ def mobile_version_update(request, pk):
             else ""
         ),
         "is_active": version.is_active,
-        "platform_app_enabled": _platform_app_enabled_initial(version.platform),
     }
 
     if request.method == "POST":
@@ -393,7 +347,6 @@ def mobile_version_update(request, pk):
                 _apply_mobile_version(version, data)
                 version.updated_by = request.user
                 version.save(update_fields=["updated_by", "updated_at"])
-                _apply_platform_app_enabled(data["platform"], data["platform_app_enabled"])
                 if data["is_active"]:
                     activate_mobile_app_version(version, actor=request.user)
                 elif was_active:
@@ -438,195 +391,27 @@ def mobile_version_deactivate(request, pk):
     return redirect("dashboard:mobile_version_list")
 
 
-def _parse_blocked_version_form(post):
-    errors = []
-
-    platform = (post.get("platform") or "").strip().lower()
-    if platform not in VALID_PLATFORMS:
-        errors.append("المنصة غير صالحة.")
-
-    version_name = (post.get("version_name") or "").strip()
-
-    build_number = _parse_optional_int(
-        post.get("build_number"), field_label="رقم البناء", errors=errors, minimum=1
-    )
-    if build_number is None and not (post.get("build_number") or "").strip():
-        errors.append("رقم البناء مطلوب.")
-
-    reason_ar = (post.get("reason_ar") or "").strip()
-    reason_en = (post.get("reason_en") or "").strip()
-    is_active = post.get("is_active") == "on"
-
-    data = {
-        "platform": platform,
-        "version_name": version_name,
-        "build_number": build_number,
-        "reason_ar": reason_ar,
-        "reason_en": reason_en,
-        "is_active": is_active,
-    }
-    return data, errors
-
-
-def _apply_blocked_version(instance: BlockedMobileAppVersion, data: dict) -> BlockedMobileAppVersion:
-    instance.platform = data["platform"]
-    instance.version_name = data["version_name"]
-    instance.build_number = data["build_number"]
-    instance.reason_ar = data["reason_ar"]
-    instance.reason_en = data["reason_en"]
-    instance.is_active = data["is_active"]
-    instance.save()
-    return instance
-
-
 @login_required
 @permissions_required("dashboard.access", "mobile_versions.view")
 def blocked_mobile_version_list(request):
-    platform_filter = (request.GET.get("platform") or "all").strip()
-    status_filter = (request.GET.get("status") or "all").strip()
-
-    qs = BlockedMobileAppVersion.objects.all().order_by("-created_at", "-id")
-
-    if platform_filter in VALID_PLATFORMS:
-        qs = qs.filter(platform=platform_filter)
-
-    if status_filter == "active":
-        qs = qs.filter(is_active=True)
-    elif status_filter == "inactive":
-        qs = qs.filter(is_active=False)
-
-    page_obj, page_numbers, per_page_param, total_blocked = paginate_with_smart_pages(
-        request=request,
-        queryset=qs,
-        default_per_page="10",
-    )
-
-    pagination_qs = build_pagination_query_string(
-        platform=platform_filter,
-        status=status_filter,
-        per_page=per_page_param,
-    )
-
-    hidden_fields = []
-    if platform_filter != "all":
-        hidden_fields.append({"name": "platform", "value": platform_filter})
-    if status_filter != "all":
-        hidden_fields.append({"name": "status", "value": status_filter})
-
-    return render(
-        request,
-        "dashboard/pages/mobile_versions/blocked_list.html",
-        {
-            "can_manage_mobile_versions": request.user.has_permission(
-                "mobile_versions.manage"
-            ),
-            "blocked_versions": page_obj.object_list,
-            "page_obj": page_obj,
-            "page_numbers": page_numbers,
-            "per_page": per_page_param,
-            "total_blocked": total_blocked,
-            "platform_filter": platform_filter,
-            "status_filter": status_filter,
-            "platform_choices": MobilePlatform.choices,
-            "pagination_qs": pagination_qs,
-            "pagination_hidden_fields": hidden_fields,
-        },
-    )
+    """Legacy blocked UI — redirected to the simplified versions list."""
+    return redirect("dashboard:mobile_version_list")
 
 
 @login_required
 @permissions_required("dashboard.access", "mobile_versions.manage")
 def blocked_mobile_version_create(request):
-    initial = {
-        "platform": MobilePlatform.ANDROID,
-        "version_name": "",
-        "build_number": "",
-        "reason_ar": "",
-        "reason_en": "",
-        "is_active": True,
-    }
-
-    if request.method == "POST":
-        data, errors = _parse_blocked_version_form(request.POST)
-        initial = data
-        if errors:
-            for msg in errors:
-                messages.error(request, msg)
-        else:
-            try:
-                blocked = BlockedMobileAppVersion(created_by=request.user)
-                _apply_blocked_version(blocked, data)
-            except ValidationError as exc:
-                for msg in exc.messages:
-                    messages.error(request, msg)
-            else:
-                messages.success(request, "تم إضافة الإصدار المحظور بنجاح.")
-                return redirect("dashboard:blocked_mobile_version_list")
-
-    return render(
-        request,
-        "dashboard/pages/mobile_versions/blocked_form.html",
-        {
-            "title": "إضافة إصدار محظور",
-            "mode": "create",
-            "initial": initial,
-            "blocked_version": None,
-            "platform_choices": MobilePlatform.choices,
-        },
-    )
+    return redirect("dashboard:mobile_version_list")
 
 
 @login_required
 @permissions_required("dashboard.access", "mobile_versions.manage")
 def blocked_mobile_version_update(request, pk):
-    blocked = get_object_or_404(BlockedMobileAppVersion, pk=pk)
-    initial = {
-        "platform": blocked.platform,
-        "version_name": blocked.version_name,
-        "build_number": blocked.build_number,
-        "reason_ar": blocked.reason_ar,
-        "reason_en": blocked.reason_en,
-        "is_active": blocked.is_active,
-    }
-
-    if request.method == "POST":
-        data, errors = _parse_blocked_version_form(request.POST)
-        initial = data
-        if errors:
-            for msg in errors:
-                messages.error(request, msg)
-        else:
-            try:
-                _apply_blocked_version(blocked, data)
-            except ValidationError as exc:
-                for msg in exc.messages:
-                    messages.error(request, msg)
-            else:
-                messages.success(request, "تم تحديث الإصدار المحظور بنجاح.")
-                return redirect("dashboard:blocked_mobile_version_list")
-
-    return render(
-        request,
-        "dashboard/pages/mobile_versions/blocked_form.html",
-        {
-            "title": "تعديل إصدار محظور",
-            "mode": "edit",
-            "initial": initial,
-            "blocked_version": blocked,
-            "platform_choices": MobilePlatform.choices,
-        },
-    )
+    return redirect("dashboard:mobile_version_list")
 
 
 @login_required
 @permissions_required("dashboard.access", "mobile_versions.manage")
 @require_POST
 def blocked_mobile_version_toggle_active(request, pk):
-    blocked = get_object_or_404(BlockedMobileAppVersion, pk=pk)
-    blocked.is_active = not blocked.is_active
-    blocked.save(update_fields=["is_active", "updated_at"])
-    if blocked.is_active:
-        messages.success(request, "تم تفعيل الحظر.")
-    else:
-        messages.success(request, "تم إلغاء الحظر.")
-    return redirect("dashboard:blocked_mobile_version_list")
+    return redirect("dashboard:mobile_version_list")

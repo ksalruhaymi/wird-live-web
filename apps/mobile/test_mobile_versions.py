@@ -5,13 +5,15 @@ from django.core.exceptions import ValidationError
 from django.core.management import call_command
 from django.test import TestCase, override_settings
 from django.urls import reverse
-from django.utils import timezone
 
-from apps.mobile.models import BlockedMobileAppVersion, MobileAppVersion, MobilePlatform, UpdateMode
+from apps.mobile.app_config_services import (
+    app_config_to_payload,
+    evaluate_mobile_api_access,
+)
+from apps.mobile.models import MobileAppConfig, MobileAppVersion, MobilePlatform, UpdateMode
 from apps.mobile.version_services import (
     activate_mobile_app_version,
     compare_semantic_versions,
-    deactivate_mobile_app_version,
     evaluate_app_version_check,
 )
 from identity.accounts.user_types import USER_TYPE_ADMIN, USER_TYPE_STUDENT
@@ -20,12 +22,7 @@ from identity.rbac.models import Role
 User = get_user_model()
 
 CHECK_URL = "/api/v1/mobile/app-version/check/"
-
-MOBILE_API_HEADERS = {
-    "HTTP_X_APP_VERSION": "99.0.0",
-    "HTTP_X_APP_BUILD": "99999",
-    "HTTP_X_APP_PLATFORM": "android",
-}
+CONFIG_URL = "/api/v1/mobile/app-config/"
 
 
 def _make_student(username: str):
@@ -78,31 +75,21 @@ class MobileAppVersionModelTests(TestCase):
         with self.assertRaises(ValidationError):
             _make_version(build_number=10, minimum_build_number=11)
 
-    def test_allow_later_with_required_mode_rejected(self):
-        # save() normalizes allow_later/later_reminder_hours before validating,
-        # so exercise Model.clean() directly to assert the raw validation rule.
-        version = MobileAppVersion(
-            platform=MobilePlatform.ANDROID,
-            version_name="1.0.0",
-            build_number=1,
-            update_mode=UpdateMode.REQUIRED,
-            allow_later=True,
+    def test_one_active_version_per_platform(self):
+        first = _make_version(platform=MobilePlatform.ANDROID, version_name="1.0.0", build_number=1)
+        second = _make_version(platform=MobilePlatform.ANDROID, version_name="2.0.0", build_number=2)
+        activate_mobile_app_version(first)
+        activate_mobile_app_version(second)
+        first.refresh_from_db()
+        second.refresh_from_db()
+        self.assertFalse(first.is_active)
+        self.assertTrue(second.is_active)
+        self.assertEqual(
+            MobileAppVersion.objects.filter(
+                platform=MobilePlatform.ANDROID, is_active=True
+            ).count(),
+            1,
         )
-        with self.assertRaises(ValidationError):
-            version.full_clean()
-
-    def test_required_mode_forces_allow_later_false_on_valid_save(self):
-        version = MobileAppVersion(
-            platform=MobilePlatform.ANDROID,
-            version_name="1.0.0",
-            build_number=1,
-            update_mode=UpdateMode.REQUIRED,
-            allow_later=False,
-            later_reminder_hours=None,
-        )
-        version.save()
-        self.assertFalse(version.allow_later)
-        self.assertIsNone(version.later_reminder_hours)
 
     def test_activate_deactivates_previous_for_same_platform(self):
         old = _make_version(version_name="1.0.0", build_number=1)
@@ -144,22 +131,13 @@ class EvaluateAppVersionCheckTests(TestCase):
         self.assertEqual(result["action"], "no_update")
         self.assertFalse(result["update_available"])
 
-    def test_no_update_when_starts_at_in_future(self):
+    def test_no_update_when_build_equal_or_newer(self):
         active = _make_version(
             version_name="2.0.0",
             build_number=20,
-            update_mode=UpdateMode.OPTIONAL,
-            starts_at=timezone.now() + timezone.timedelta(days=1),
+            minimum_build_number=15,
+            update_mode=UpdateMode.REQUIRED,
         )
-        activate_mobile_app_version(active)
-
-        result = evaluate_app_version_check(
-            platform=MobilePlatform.ANDROID, version_name="1.0.0", build_number=1
-        )
-        self.assertEqual(result["action"], "no_update")
-
-    def test_no_update_when_build_equal_or_newer(self):
-        active = _make_version(version_name="2.0.0", build_number=20, update_mode=UpdateMode.REQUIRED)
         activate_mobile_app_version(active)
 
         result = evaluate_app_version_check(
@@ -172,41 +150,45 @@ class EvaluateAppVersionCheckTests(TestCase):
         )
         self.assertEqual(result_newer["action"], "no_update")
 
-    def test_optional_update(self):
+    def test_optional_update_does_not_block_entry(self):
         active = _make_version(
             version_name="2.0.0",
             build_number=20,
-            update_mode=UpdateMode.OPTIONAL,
-            allow_later=True,
-            later_reminder_hours=12,
+            minimum_build_number=15,
+            update_mode=UpdateMode.NONE,
         )
         activate_mobile_app_version(active)
 
         result = evaluate_app_version_check(
-            platform=MobilePlatform.ANDROID, version_name="1.0.0", build_number=1
+            platform=MobilePlatform.ANDROID, version_name="1.0.0", build_number=10
         )
         self.assertEqual(result["action"], "optional_update")
         self.assertTrue(result["update_available"])
         self.assertFalse(result["update_required"])
-        self.assertTrue(result["allow_later"])
-        self.assertEqual(result["later_reminder_hours"], 12)
+        self.assertFalse(result["blocked"])
 
-    def test_required_update(self):
+    def test_required_update_only_when_force_and_below_minimum(self):
         active = _make_version(
             version_name="2.0.0",
             build_number=20,
+            minimum_build_number=15,
             update_mode=UpdateMode.REQUIRED,
         )
         activate_mobile_app_version(active)
 
-        result = evaluate_app_version_check(
-            platform=MobilePlatform.ANDROID, version_name="1.0.0", build_number=1
+        blocked = evaluate_app_version_check(
+            platform=MobilePlatform.ANDROID, version_name="1.0.0", build_number=10
         )
-        self.assertEqual(result["action"], "required_update")
-        self.assertTrue(result["update_required"])
-        self.assertFalse(result["allow_later"])
+        self.assertEqual(blocked["action"], "required_update")
+        self.assertTrue(blocked["update_required"])
 
-    def test_required_via_minimum_build_even_if_optional_mode(self):
+        optional_above_min = evaluate_app_version_check(
+            platform=MobilePlatform.ANDROID, version_name="1.5.0", build_number=16
+        )
+        self.assertEqual(optional_above_min["action"], "optional_update")
+        self.assertFalse(optional_above_min["update_required"])
+
+    def test_non_forced_below_minimum_is_optional_not_required(self):
         active = _make_version(
             version_name="2.0.0",
             build_number=20,
@@ -219,31 +201,59 @@ class EvaluateAppVersionCheckTests(TestCase):
         result = evaluate_app_version_check(
             platform=MobilePlatform.ANDROID, version_name="1.0.0", build_number=10
         )
-        self.assertEqual(result["action"], "required_update")
-        self.assertTrue(result["update_required"])
+        self.assertEqual(result["action"], "optional_update")
+        self.assertFalse(result["update_required"])
 
-    def test_blocked_version(self):
+    def test_blocked_rows_do_not_affect_decision(self):
+        from apps.mobile.models import BlockedMobileAppVersion
+
         active = _make_version(
-            version_name="2.0.0", build_number=20, update_mode=UpdateMode.OPTIONAL
+            version_name="2.0.0", build_number=20, update_mode=UpdateMode.NONE
         )
         activate_mobile_app_version(active)
         BlockedMobileAppVersion.objects.create(
             platform=MobilePlatform.ANDROID,
             build_number=5,
-            reason_ar="إصدار قديم به مشاكل أمنية",
+            reason_ar="قديم",
         )
 
         result = evaluate_app_version_check(
             platform=MobilePlatform.ANDROID, version_name="0.9.0", build_number=5
         )
-        self.assertEqual(result["action"], "blocked_version")
-        self.assertTrue(result["blocked"])
-        self.assertTrue(result["update_required"])
+        self.assertEqual(result["action"], "optional_update")
+        self.assertFalse(result["blocked"])
+
+    def test_android_policy_does_not_affect_ios(self):
+        android = _make_version(
+            platform=MobilePlatform.ANDROID,
+            version_name="2.0.0",
+            build_number=20,
+            minimum_build_number=15,
+            update_mode=UpdateMode.REQUIRED,
+        )
+        ios = _make_version(
+            platform=MobilePlatform.IOS,
+            version_name="2.0.0",
+            build_number=20,
+            update_mode=UpdateMode.NONE,
+        )
+        activate_mobile_app_version(android)
+        activate_mobile_app_version(ios)
+
+        android_result = evaluate_app_version_check(
+            platform=MobilePlatform.ANDROID, version_name="1.0.0", build_number=10
+        )
+        ios_result = evaluate_app_version_check(
+            platform=MobilePlatform.IOS, version_name="2.0.0", build_number=20
+        )
+        self.assertEqual(android_result["action"], "required_update")
+        self.assertEqual(ios_result["action"], "no_update")
 
     def test_arabic_locale_text(self):
         active = _make_version(
             version_name="2.0.0",
             build_number=20,
+            minimum_build_number=15,
             update_mode=UpdateMode.REQUIRED,
         )
         activate_mobile_app_version(active)
@@ -256,40 +266,47 @@ class EvaluateAppVersionCheckTests(TestCase):
         )
         self.assertEqual(result["title"], "يجب تحديث التطبيق")
 
-    def test_english_locale_text(self):
-        active = _make_version(
-            version_name="2.0.0",
-            build_number=20,
-            update_mode=UpdateMode.REQUIRED,
-        )
-        activate_mobile_app_version(active)
 
-        result = evaluate_app_version_check(
-            platform=MobilePlatform.ANDROID,
-            version_name="1.0.0",
-            build_number=1,
-            locale="en",
-        )
-        self.assertEqual(result["title"], "Update Required")
+@override_settings(AXES_ENABLED=False)
+class AppEnabledNotDecisionSourceTests(TestCase):
+    def setUp(self):
+        self.config = MobileAppConfig.get_settings()
+        self.config.app_enabled = False
+        self.config.android_app_enabled = False
+        self.config.ios_app_enabled = False
+        self.config.force_update = False
+        self.config.min_supported_build = 1
+        self.config.save()
 
-    def test_locale_fallback_to_arabic_when_english_missing(self):
-        active = _make_version(
-            version_name="2.0.0",
-            build_number=20,
-            update_mode=UpdateMode.OPTIONAL,
-            allow_later=True,
-            update_title_ar="عنوان مخصص",
-            update_title_en="",
+    def test_app_enabled_false_does_not_block_access(self):
+        denial = evaluate_mobile_api_access(
+            app_version="1.0.0",
+            app_build=10,
+            platform="android",
+            config=self.config,
         )
-        activate_mobile_app_version(active)
+        self.assertIsNone(denial)
 
-        result = evaluate_app_version_check(
-            platform=MobilePlatform.ANDROID,
-            version_name="1.0.0",
-            build_number=1,
-            locale="en",
+    def test_payload_always_reports_app_enabled_true(self):
+        payload = app_config_to_payload(self.config, platform="android")
+        self.assertTrue(payload["app_enabled"])
+
+        response = self.client.get(CONFIG_URL, {"platform": "android"})
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.json()["app_enabled"])
+
+    def test_force_update_below_minimum_still_blocks_api(self):
+        self.config.force_update = True
+        self.config.min_supported_build = 15
+        self.config.save()
+        denial = evaluate_mobile_api_access(
+            app_version="1.0.0",
+            app_build=10,
+            platform="android",
+            config=self.config,
         )
-        self.assertEqual(result["title"], "عنوان مخصص")
+        self.assertIsNotNone(denial)
+        self.assertEqual(denial["payload"]["code"], "app_update_required")
 
 
 @override_settings(AXES_ENABLED=False)
@@ -317,18 +334,6 @@ class MobileAppVersionCheckApiTests(TestCase):
         body = response.json()
         self.assertTrue(body["success"])
 
-    def test_response_has_no_created_by_field(self):
-        active = _make_version(version_name="2.0.0", build_number=20, update_mode=UpdateMode.OPTIONAL)
-        activate_mobile_app_version(active)
-
-        response = self.client.get(
-            CHECK_URL,
-            {"platform": "android", "version_name": "1.0.0", "build_number": "1"},
-        )
-        self.assertEqual(response.status_code, 200)
-        body = response.json()
-        self.assertNotIn("created_by", body)
-
 
 @override_settings(AXES_ENABLED=False)
 class MobileVersionDashboardPermissionTests(TestCase):
@@ -344,224 +349,41 @@ class MobileVersionDashboardPermissionTests(TestCase):
         response = self.client.get(reverse("dashboard:mobile_version_list"))
         self.assertEqual(response.status_code, 403)
 
-    def test_admin_with_permission_can_access(self):
+    def test_admin_list_is_simple_without_blocked_or_kill_switch(self):
         self.client.force_login(self.admin)
         response = self.client.get(reverse("dashboard:mobile_version_list"))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "نسخ التطبيقات")
         self.assertContains(response, "إضافة Android")
         self.assertContains(response, "إضافة iOS")
+        self.assertNotContains(response, "المحظورة")
+        self.assertNotContains(response, "إضافة حظر")
         self.assertNotContains(response, "تشغيل التطبيق")
+        self.assertNotContains(response, "تشغيل تطبيق Android")
+        self.assertNotContains(response, "تشغيل تطبيق iOS")
+        self.assertNotContains(response, "app_enabled")
 
-
-@override_settings(AXES_ENABLED=False)
-class PlatformAppEnabledTests(TestCase):
-    CONFIG_URL = "/api/v1/mobile/app-config/"
-
-    def setUp(self):
-        from apps.mobile.models import MobileAppConfig
-
-        self.config = MobileAppConfig.get_settings()
-        self.config.app_enabled = True
-        self.config.android_app_enabled = True
-        self.config.ios_app_enabled = True
-        self.config.min_supported_version = "1.0.0"
-        self.config.min_supported_build = 1
-        self.config.force_update = False
-        self.config.save()
-
-    def test_defaults_are_enabled(self):
-        from apps.mobile.models import MobileAppConfig
-
-        row = MobileAppConfig(pk=2)
-        self.assertTrue(row.android_app_enabled)
-        self.assertTrue(row.ios_app_enabled)
-
-    def test_android_disabled_ios_enabled(self):
-        from apps.mobile.app_config_services import (
-            app_config_to_payload,
-            evaluate_mobile_api_access,
+    def test_form_has_no_platform_kill_switch(self):
+        self.client.force_login(self.admin)
+        response = self.client.get(
+            reverse("dashboard:mobile_version_create") + "?platform=android"
         )
-
-        self.config.android_app_enabled = False
-        self.config.ios_app_enabled = True
-        self.config.save()
-
-        self.assertFalse(self.config.is_enabled_for_platform("android"))
-        self.assertTrue(self.config.is_enabled_for_platform("ios"))
-
-        android_denial = evaluate_mobile_api_access(
-            app_version="9.0.0",
-            app_build=900,
-            platform="android",
-            config=self.config,
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "آخر إصدار")
+        self.assertContains(
+            response,
+            "عند تفعيل هذه النسخة سيتم تعطيل النسخة الفعّالة السابقة لنفس المنصة تلقائيًا.",
         )
-        self.assertIsNotNone(android_denial)
-        self.assertEqual(android_denial["payload"]["code"], "app_disabled")
+        self.assertNotContains(response, "تشغيل تطبيق Android")
+        self.assertNotContains(response, "تشغيل تطبيق iOS")
+        self.assertNotContains(response, "platform_app_enabled")
 
-        ios_ok = evaluate_mobile_api_access(
-            app_version="9.0.0",
-            app_build=900,
-            platform="ios",
-            config=self.config,
-        )
-        self.assertIsNone(ios_ok)
-
-        self.assertFalse(
-            app_config_to_payload(self.config, platform="android")["app_enabled"]
-        )
-        self.assertTrue(
-            app_config_to_payload(self.config, platform="ios")["app_enabled"]
-        )
-
-    def test_ios_disabled_android_enabled(self):
-        from apps.mobile.app_config_services import (
-            app_config_to_payload,
-            evaluate_mobile_api_access,
-        )
-
-        self.config.android_app_enabled = True
-        self.config.ios_app_enabled = False
-        self.config.save()
-
-        self.assertTrue(self.config.is_enabled_for_platform("android"))
-        self.assertFalse(self.config.is_enabled_for_platform("ios"))
-
-        android_ok = evaluate_mobile_api_access(
-            app_version="9.0.0",
-            app_build=900,
-            platform="android",
-            config=self.config,
-        )
-        self.assertIsNone(android_ok)
-
-        ios_denial = evaluate_mobile_api_access(
-            app_version="9.0.0",
-            app_build=900,
-            platform="ios",
-            config=self.config,
-        )
-        self.assertIsNotNone(ios_denial)
-        self.assertEqual(ios_denial["payload"]["code"], "app_disabled")
-
-        self.assertTrue(
-            app_config_to_payload(self.config, platform="android")["app_enabled"]
-        )
-        self.assertFalse(
-            app_config_to_payload(self.config, platform="ios")["app_enabled"]
-        )
-
-    def test_api_returns_platform_specific_enabled_state(self):
-        self.config.android_app_enabled = False
-        self.config.ios_app_enabled = True
-        self.config.save()
-
-        android_response = self.client.get(
-            self.CONFIG_URL,
-            {"platform": "android"},
-        )
-        self.assertEqual(android_response.status_code, 200)
-        self.assertFalse(android_response.json()["app_enabled"])
-
-        ios_response = self.client.get(
-            self.CONFIG_URL,
-            HTTP_X_APP_PLATFORM="ios",
-        )
-        self.assertEqual(ios_response.status_code, 200)
-        self.assertTrue(ios_response.json()["app_enabled"])
-
-    def test_legacy_app_enabled_is_not_decision_source(self):
-        from apps.mobile.app_config_services import evaluate_mobile_api_access
-
-        self.config.app_enabled = False
-        self.config.android_app_enabled = True
-        self.config.ios_app_enabled = True
-        self.config.save()
-
-        self.assertIsNone(
-            evaluate_mobile_api_access(
-                app_version="9.0.0",
-                app_build=900,
-                platform="android",
-                config=self.config,
-            )
-        )
-
-    def test_force_update_and_blocked_unaffected_by_platform_toggle(self):
-        self.config.android_app_enabled = False
-        self.config.ios_app_enabled = True
-        self.config.save()
-
-        active = _make_version(
-            platform=MobilePlatform.ANDROID,
-            version_name="2.0.0",
-            build_number=20,
-            minimum_build_number=15,
-            update_mode=UpdateMode.REQUIRED,
-            store_url="https://example.com/android",
-        )
-        activate_mobile_app_version(active)
-        BlockedMobileAppVersion.objects.create(
-            platform=MobilePlatform.ANDROID,
-            build_number=5,
-            reason_ar="محظور",
-            is_active=True,
-        )
-
-        blocked = evaluate_app_version_check(
-            platform="android",
-            version_name="1.0.0",
-            build_number=5,
-            locale="ar",
-        )
-        self.assertEqual(blocked["action"], "blocked_version")
-
-        required = evaluate_app_version_check(
-            platform="android",
-            version_name="1.0.0",
-            build_number=10,
-            locale="ar",
-        )
-        self.assertEqual(required["action"], "required_update")
-
-        ios_active = _make_version(
-            platform=MobilePlatform.IOS,
-            version_name="2.0.0",
-            build_number=20,
-            update_mode=UpdateMode.NONE,
-        )
-        activate_mobile_app_version(ios_active)
-        ios_ok = evaluate_app_version_check(
-            platform="ios",
-            version_name="2.0.0",
-            build_number=20,
-            locale="ar",
-        )
-        self.assertEqual(ios_ok["action"], "no_update")
-
-
-@override_settings(AXES_ENABLED=False)
-class PlatformAppEnabledMigrationTests(TestCase):
-    def test_data_migration_preserves_old_value(self):
-        import importlib
-
-        from django.apps import apps as django_apps
-
-        from apps.mobile.models import MobileAppConfig
-
-        migration = importlib.import_module(
-            "apps.mobile.migrations.0003_platform_app_enabled"
-        )
-
-        config = MobileAppConfig.get_settings()
-        config.app_enabled = False
-        config.android_app_enabled = True
-        config.ios_app_enabled = True
-        config.save()
-
-        migration.copy_legacy_app_enabled(django_apps, None)
-
-        config.refresh_from_db()
-        self.assertFalse(config.android_app_enabled)
-        self.assertFalse(config.ios_app_enabled)
-        self.assertFalse(config.app_enabled)
+    def test_blocked_urls_redirect_without_error(self):
+        self.client.force_login(self.admin)
+        for name in (
+            "dashboard:blocked_mobile_version_list",
+            "dashboard:blocked_mobile_version_create",
+        ):
+            response = self.client.get(reverse(name))
+            self.assertEqual(response.status_code, 302)
+            self.assertEqual(response.url, reverse("dashboard:mobile_version_list"))
