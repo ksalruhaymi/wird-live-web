@@ -4,25 +4,119 @@
 {% block dashboard_content %}
 <div class="max-w-6xl mx-auto space-y-6" dir-text>
 
-  {% url 'dashboard:mobile_version_list' as versions_list_url %}
-  {% url 'dashboard:blocked_mobile_version_list' as blocked_list_url %}
-  {% include "dashboard/partials/page_tabs_header.html" with title="إصدارات التطبيق" icon="bi-phone-vibrate" subtitle="إدارة إصدارات تطبيق وِرْد لايف على أندرويد و iOS، سياسات التحديث، والإصدارات المحظورة" tab1_url=versions_list_url tab1_label="إصدارات التطبيق" tab1_icon="bi-phone-vibrate" tab1_active="1" tab2_url=blocked_list_url tab2_label="الإصدارات المحظورة" tab2_icon="bi-slash-circle" tab2_active="" only %}
+  <div class="site-card p-4">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <h1 class="text-base md:text-lg font-extrabold site-text flex items-center gap-2">
+          <i class="bi bi-phone site-link-primary"></i>
+          <span>نسخ التطبيقات</span>
+        </h1>
+        <p class="mt-1 text-[11px] site-text-muted">
+          إدارة إصدارات تطبيق وِرْد لايف لكل منصة (Android / iOS).
+        </p>
+      </div>
 
-    10|  <div class="flex items-center justify-end">
-    {% if can_manage_mobile_versions %}
-    <a href="{% url 'dashboard:mobile_version_create' %}"
-       class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
-      <i class="bi bi-plus-lg text-sm"></i>
-      إضافة إصدار
-    </a>
+      {% if can_manage_mobile_versions %}
+      <div class="flex flex-wrap gap-2">
+        <a href="{% url 'dashboard:mobile_version_create' %}?platform=android"
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
+          <i class="bi bi-android2"></i>
+          إضافة Android
+        </a>
+        <a href="{% url 'dashboard:mobile_version_create' %}?platform=ios"
+           class="inline-flex items-center gap-2 px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">
+          <i class="bi bi-apple"></i>
+          إضافة iOS
+        </a>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="mt-4">
+      <nav class="-mb-px flex flex-wrap gap-1 text-[13px] font-bold">
+        {% url 'dashboard:mobile_version_list' as versions_list_url %}
+        {% url 'dashboard:blocked_mobile_version_list' as blocked_list_url %}
+        <a href="{{ versions_list_url }}"
+           class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1 site-tab-link-active site-surface shadow-sm">
+          <i class="bi bi-check-circle-fill site-link-primary text-[12px]"></i>
+          <i class="bi bi-phone-vibrate ml-1"></i>
+          <span>النسخ</span>
+        </a>
+        <a href="{{ blocked_list_url }}"
+           class="relative px-4 py-2 rounded-t-xl transition flex items-center gap-1 site-tab-link hover:site-surface">
+          <i class="bi bi-slash-circle ml-1"></i>
+          <span>المحظورة</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  {% if can_toggle_app_enabled or app_config %}
+  <div class="site-card p-4 flex flex-wrap items-center justify-between gap-3">
+    <div>
+      <p class="text-xs font-bold site-text">تشغيل التطبيق</p>
+      <p class="text-[11px] site-text-muted mt-0.5">
+        عند الإيقاف يُحظر الدخول من كل النسخ (مفتاح طوارئ). حدود الإصدار تُدار من النسخ أدناه.
+      </p>
+    </div>
+    {% if can_toggle_app_enabled %}
+    <form method="post" action="{% url 'dashboard:mobile_app_toggle_enabled' %}" class="inline-flex items-center gap-3">
+      {% csrf_token %}
+      <label class="inline-flex items-center gap-2 text-sm site-text cursor-pointer">
+        <input type="checkbox" name="app_enabled" class="rounded border site-border"
+               {% if app_config.app_enabled %}checked{% endif %}
+               onchange="this.form.submit()">
+        <span>{% if app_config.app_enabled %}مفعّل{% else %}متوقّف{% endif %}</span>
+      </label>
+    </form>
+    {% else %}
+    <span class="text-xs font-bold {% if app_config.app_enabled %}text-green-700{% else %}text-rose-700{% endif %}">
+      {% if app_config.app_enabled %}مفعّل{% else %}متوقّف{% endif %}
+    </span>
     {% endif %}
+  </div>
+  {% endif %}
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-1">
+        <i class="bi bi-android2"></i> النسخة الفعّالة — Android
+      </p>
+      {% if active_android %}
+        <p class="mt-2 text-sm font-bold site-text" dir="ltr">
+          {{ active_android.version_name }} (build {{ active_android.build_number }})
+        </p>
+        <p class="mt-1 text-[11px] site-text-muted">
+          أقل build: {{ active_android.minimum_build_number|default:active_android.build_number }}
+          · {% if active_android.update_mode == 'required' %}تحديث إجباري{% else %}بدون إجبار{% endif %}
+        </p>
+      {% else %}
+        <p class="mt-2 text-sm site-text-muted">لا توجد نسخة فعّالة</p>
+      {% endif %}
+    </div>
+    <div class="site-card p-4">
+      <p class="text-xs font-semibold site-text-muted flex items-center gap-1">
+        <i class="bi bi-apple"></i> النسخة الفعّالة — iOS
+      </p>
+      {% if active_ios %}
+        <p class="mt-2 text-sm font-bold site-text" dir="ltr">
+          {{ active_ios.version_name }} (build {{ active_ios.build_number }})
+        </p>
+        <p class="mt-1 text-[11px] site-text-muted">
+          أقل build: {{ active_ios.minimum_build_number|default:active_ios.build_number }}
+          · {% if active_ios.update_mode == 'required' %}تحديث إجباري{% else %}بدون إجبار{% endif %}
+        </p>
+      {% else %}
+        <p class="mt-2 text-sm site-text-muted">لا توجد نسخة فعّالة</p>
+      {% endif %}
+    </div>
   </div>
 
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_versions per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
-    20|  <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
+  <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">
     {% include "dashboard/partials/filter_hidden_fields.html" %}
-    <div class="min-w-[140px]">
+    <div class="min-w-[160px]">
       <label class="block text-[11px] font-bold site-text-muted mb-1">المنصة</label>
       <select name="platform" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
         <option value="all" {% if platform_filter == 'all' %}selected{% endif %}>الكل</option>
@@ -30,103 +124,81 @@
         <option value="{{ value }}" {% if platform_filter == value %}selected{% endif %}>{{ label }}</option>
         {% endfor %}
       </select>
-    30|    </div>
-    <div class="min-w-[140px]">
-      <label class="block text-[11px] font-bold site-text-muted mb-1">الحالة</label>
-      <select name="status" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
-        <option value="all" {% if status_filter == 'all' %}selected{% endif %}>الكل</option>
-        <option value="active" {% if status_filter == 'active' %}selected{% endif %}>نشط</option>
-        <option value="inactive" {% if status_filter == 'inactive' %}selected{% endif %}>غير نشط</option>
-      </select>
     </div>
-    <div class="min-w-[160px]">
-    40|      <label class="block text-[11px] font-bold site-text-muted mb-1">نوع التحديث</label>
-      <select name="mode" class="w-full px-3 py-2 rounded-lg border site-border text-[12px] site-text">
-        <option value="all" {% if mode_filter == 'all' %}selected{% endif %}>الكل</option>
-        {% for value, label in update_mode_choices %}
-        <option value="{{ value }}" {% if mode_filter == value %}selected{% endif %}>{{ label }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">بحث</button>
+    <button type="submit" class="px-4 py-2 rounded-full site-btn-primary text-[12px] font-bold">عرض</button>
   </form>
-    50|
-  <div class="overflow-x-auto site-card">
-    <table class="min-w-full text-[12px]">
-      <thead class="site-surface text-[11px] site-text-muted">
-        <tr>
-          <th class="px-4 py-3 font-bold">المنصة</th>
-          <th class="px-4 py-3 font-bold">الإصدار</th>
-          <th class="px-4 py-3 font-bold">رقم البناء</th>
-          <th class="px-4 py-3 font-bold">نوع التحديث</th>
-          <th class="px-4 py-3 font-bold">الحالة</th>
-    60|          <th class="px-4 py-3 font-bold">تاريخ الإنشاء</th>
-          <th class="px-4 py-3 font-bold text-center">إجراءات</th>
-        </tr>
-      </thead>
-      <tbody class="divide-site">
-        {% for item in versions %}
-        <tr class="hover:site-surface transition">
-          <td class="px-4 py-2 site-text">
-            {% if item.platform == 'android' %}
-            <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">Android</span>
-    70|            {% else %}
-            <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold border site-border">iOS</span>
-            {% endif %}
-          </td>
-          <td class="px-4 py-2 site-text font-semibold">{{ item.version_name }}</td>
-          <td class="px-4 py-2 site-text-muted">{{ item.build_number }}</td>
-          <td class="px-4 py-2">
-            {% if item.update_mode == 'required' %}
-            <span class="inline-flex px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 text-[11px] font-bold border border-rose-200">{{ item.get_update_mode_display }}</span>
-            {% elif item.update_mode == 'optional' %}
-            <span class="inline-flex px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-[11px] font-bold border border-amber-200">{{ item.get_update_mode_display }}</span>
-    80|            {% else %}
-            <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">{{ item.get_update_mode_display }}</span>
-            {% endif %}
-          </td>
-          <td class="px-4 py-2">
-            {% if item.is_active %}
-            <span class="inline-flex px-2 py-0.5 rounded-full bg-green-50 text-green-700 text-[11px] font-bold border border-green-200">نشط</span>
-            {% else %}
-            <span class="inline-flex px-2 py-0.5 rounded-full bg-slate-100 text-slate-600 text-[11px] font-bold border site-border">غير نشط</span>
-            {% endif %}
-    90|          </td>
-          <td class="px-4 py-2 site-text-muted">{{ item.created_at|date:"Y-m-d H:i" }}</td>
-          <td class="px-4 py-2">
-            <div class="flex items-center justify-center gap-2">
-              {% url 'dashboard:mobile_version_detail' item.id as view_url %}
-              {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
-              {% if can_manage_mobile_versions %}
-              {% url 'dashboard:mobile_version_update' item.id as edit_url %}
-              {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
-              {% if item.is_active %}
-              <form method="post" action="{% url 'dashboard:mobile_version_deactivate' item.id %}" class="inline-flex">
-   100|                {% csrf_token %}
-                {% include "dashboard/partials/action_icon_toggle.html" with is_active=item.is_active %}
-              </form>
-              {% else %}
-              <form method="post" action="{% url 'dashboard:mobile_version_activate' item.id %}" class="inline-flex">
-                {% csrf_token %}
-                {% include "dashboard/partials/action_icon_toggle.html" with is_active=item.is_active %}
-              </form>
-              {% endif %}
-              {% endif %}
-            </div>
-   110|          </td>
-        </tr>
-        {% empty %}
-        <tr>
-          <td colspan="7" class="px-4 py-8 text-center site-text-muted">لا توجد إصدارات مطابقة.</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+
+  <div class="site-card overflow-hidden">
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-[12px]">
+        <thead class="site-surface text-[11px] site-text-muted border-b site-border">
+          <tr class="text-right">
+            <th class="px-4 py-3 font-bold">المنصة</th>
+            <th class="px-4 py-3 font-bold">الإصدار</th>
+            <th class="px-4 py-3 font-bold">Build</th>
+            <th class="px-4 py-3 font-bold">أقل Build</th>
+            <th class="px-4 py-3 font-bold">إجباري</th>
+            <th class="px-4 py-3 font-bold">فعّالة</th>
+            <th class="px-4 py-3 font-bold">رابط التحديث</th>
+            <th class="px-4 py-3 font-bold">آخر تعديل</th>
+            <th class="px-4 py-3 font-bold text-center">إجراء</th>
+          </tr>
+        </thead>
+        <tbody class="divide-site">
+          {% for item in versions %}
+          <tr class="hover:site-surface transition {% if item.is_active %}bg-emerald-50/40{% endif %}">
+            <td class="px-4 py-2 site-text font-semibold">
+              {% if item.platform == 'android' %}Android{% else %}iOS{% endif %}
+            </td>
+            <td class="px-4 py-2 site-text font-semibold" dir="ltr">{{ item.version_name }}</td>
+            <td class="px-4 py-2 site-text" dir="ltr">{{ item.build_number }}</td>
+            <td class="px-4 py-2 site-text" dir="ltr">{{ item.minimum_build_number|default:"—" }}</td>
+            <td class="px-4 py-2 site-text">{% if item.update_mode == 'required' %}نعم{% else %}لا{% endif %}</td>
+            <td class="px-4 py-2 site-text">{% if item.is_active %}نعم{% else %}لا{% endif %}</td>
+            <td class="px-4 py-2 site-text max-w-[200px] truncate" dir="ltr" title="{{ item.store_url }}">
+              {{ item.store_url|default:"—" }}
+            </td>
+            <td class="px-4 py-2 site-text-muted whitespace-nowrap">{{ item.updated_at|date:"Y-m-d H:i" }}</td>
+            <td class="px-4 py-2">
+              <div class="flex items-center justify-center gap-2">
+                {% url 'dashboard:mobile_version_detail' item.id as view_url %}
+                {% include "dashboard/partials/action_icon_view.html" with url=view_url %}
+                {% if can_manage_mobile_versions %}
+                {% url 'dashboard:mobile_version_update' item.id as edit_url %}
+                {% include "dashboard/partials/action_icon_edit.html" with url=edit_url %}
+                {% if item.is_active %}
+                <form method="post" action="{% url 'dashboard:mobile_version_deactivate' item.id %}" class="inline-flex">
+                  {% csrf_token %}
+                  {% include "dashboard/partials/action_icon_toggle.html" with is_active=item.is_active %}
+                </form>
+                {% else %}
+                <form method="post" action="{% url 'dashboard:mobile_version_activate' item.id %}" class="inline-flex">
+                  {% csrf_token %}
+                  {% include "dashboard/partials/action_icon_toggle.html" with is_active=item.is_active %}
+                </form>
+                {% endif %}
+                {% endif %}
+              </div>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="9" class="px-4 py-8 text-center site-text-muted">لا توجد نسخ مسجّلة بعد.</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
   </div>
 
-   120|  {% if per_page != "all" %}
+  {% if per_page != "all" %}
     {% include "web/components/pagination.html" with page_obj=page_obj page_numbers=page_numbers pagination_qs=pagination_qs %}
   {% endif %}
+
+  <div class="site-card p-4 text-[11px] site-text-muted" dir="ltr">
+    API check:
+    <code>/api/v1/mobile/app-version/check/</code>
+  </div>
 
 </div>
 {% endblock %}

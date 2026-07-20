@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
+from django.views.decorators.http import require_POST
 
 from apps.mobile.models import MobileAppConfig
 from identity.rbac.decorators import permissions_required
@@ -9,34 +10,20 @@ from identity.rbac.decorators import permissions_required
 @login_required
 @permissions_required("dashboard.access", "mobile_app_config.view")
 def mobile_app_config_settings(request):
+    """Legacy settings URL — redirected to the unified versions page."""
+    return redirect("dashboard:mobile_version_list")
+
+
+@login_required
+@permissions_required("dashboard.access", "mobile_app_config.update")
+@require_POST
+def mobile_app_toggle_enabled(request):
+    """Kill-switch only: keep app_enabled without duplicating version settings."""
     config = MobileAppConfig.get_settings()
-
-    if request.method == "POST":
-        if not request.user.has_permission("mobile_app_config.update"):
-            messages.error(request, "ليس لديك صلاحية تعديل إعدادات تطبيق الجوال.")
-            return redirect("dashboard:mobile_app_config_settings")
-
-        config.app_enabled = "app_enabled" in request.POST
-        config.force_update = "force_update" in request.POST
-        config.min_supported_version = (
-            request.POST.get("min_supported_version") or "1.0.0"
-        ).strip()
-        config.message = (request.POST.get("message") or "").strip()
-        config.update_url = (request.POST.get("update_url") or "").strip()
-
-        build_raw = (request.POST.get("min_supported_build") or "1").strip()
-        try:
-            config.min_supported_build = max(1, int(build_raw))
-        except ValueError:
-            messages.error(request, "رقم البناء يجب أن يكون عدداً صحيحاً.")
-            return redirect("dashboard:mobile_app_config_settings")
-
-        config.save()
-        messages.success(request, "تم تحديث إعدادات تطبيق الجوال بنجاح.")
-        return redirect("dashboard:mobile_app_config_settings")
-
-    return render(
-        request,
-        "dashboard/pages/mobile_app_config/form.html",
-        {"config": config},
-    )
+    config.app_enabled = request.POST.get("app_enabled") == "on"
+    config.save(update_fields=["app_enabled", "updated_at"])
+    if config.app_enabled:
+        messages.success(request, "تم تفعيل التطبيق.")
+    else:
+        messages.success(request, "تم إيقاف التطبيق — سيُحظر الدخول من النسخ الحالية.")
+    return redirect("dashboard:mobile_version_list")

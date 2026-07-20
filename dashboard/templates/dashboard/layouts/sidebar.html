@@ -64,18 +64,11 @@
       <span>تنبيهات التطبيق</span>
     </a>
     {% endif %}
-    {% if request.user|can_access:"mobile_app_config.view" %}
-    <a href="{% url 'dashboard:mobile_app_config_settings' %}"
-       class="site-sidebar-btn {% if '/dashboard/mobile-app-config' in path %}site-sidebar-btn-active{% endif %}">
-      <i class="bi bi-phone-flip"></i>
-      <span>إعدادات تطبيق الجوال</span>
-    </a>
-    {% endif %}
-    {% if request.user|can_access:"mobile_versions.view" %}
+    {% if request.user|can_access:"mobile_versions.view" or request.user|can_access:"mobile_app_config.view" %}
     <a href="{% url 'dashboard:mobile_version_list' %}"
-       class="site-sidebar-btn {% if '/dashboard/mobile-versions' in path %}site-sidebar-btn-active{% endif %}">
-      <i class="bi bi-phone-vibrate"></i>
-      <span>إصدارات التطبيق</span>
+       class="site-sidebar-btn {% if '/dashboard/mobile-versions' in path or '/dashboard/mobile-app-config' in path %}site-sidebar-btn-active{% endif %}">
+      <i class="bi bi-phone"></i>
+      <span>نسخ التطبيقات</span>
     </a>
     {% endif %}
     {% if request.user|can_access:"users.view" %}

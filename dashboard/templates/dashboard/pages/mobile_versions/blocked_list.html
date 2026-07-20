@@ -6,7 +6,7 @@
 
   {% url 'dashboard:mobile_version_list' as versions_list_url %}
   {% url 'dashboard:blocked_mobile_version_list' as blocked_list_url %}
-  {% include "dashboard/partials/page_tabs_header.html" with title="الإصدارات المحظورة" icon="bi-slash-circle" subtitle="إدارة أرقام البناء المحظورة من استخدام تطبيق وِرْد لايف" tab1_url=versions_list_url tab1_label="إصدارات التطبيق" tab1_icon="bi-phone-vibrate" tab1_active="" tab2_url=blocked_list_url tab2_label="الإصدارات المحظورة" tab2_icon="bi-slash-circle" tab2_active="1" only %}
+  {% include "dashboard/partials/page_tabs_header.html" with title="نسخ التطبيقات" icon="bi-phone" subtitle="إدارة أرقام البناء المحظورة من استخدام تطبيق وِرْد لايف" tab1_url=versions_list_url tab1_label="النسخ" tab1_icon="bi-phone-vibrate" tab1_active="" tab2_url=blocked_list_url tab2_label="المحظورة" tab2_icon="bi-slash-circle" tab2_active="1" only %}
 
     10|  <div class="flex items-center justify-end">
     {% if can_manage_mobile_versions %}

@@ -42,7 +42,7 @@ from .student_subscriptions import (
     student_subscription_update,
 )
 from .call_recordings import call_recording_delete, call_recording_list
-from .mobile_app_config import mobile_app_config_settings
+from .mobile_app_config import mobile_app_config_settings, mobile_app_toggle_enabled
 from .mobile_versions import (
     blocked_mobile_version_create,
     blocked_mobile_version_list,
@@ -113,6 +113,7 @@ __all__ = [
     "call_recording_list",
     "call_recording_delete",
     "mobile_app_config_settings",
+    "mobile_app_toggle_enabled",
     "mobile_version_list",
     "mobile_version_detail",
     "mobile_version_create",

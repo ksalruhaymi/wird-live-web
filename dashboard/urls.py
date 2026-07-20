@@ -53,6 +53,7 @@ from .views import (
     call_recording_delete,
     call_recording_list,
     mobile_app_config_settings,
+    mobile_app_toggle_enabled,
     mobile_version_activate,
     mobile_version_create,
     mobile_version_deactivate,
@@ -233,6 +234,11 @@ urlpatterns = [
         "mobile-app-config/",
         mobile_app_config_settings,
         name="mobile_app_config_settings",
+    ),
+    path(
+        "mobile-app-config/toggle-enabled/",
+        mobile_app_toggle_enabled,
+        name="mobile_app_toggle_enabled",
     ),
     path("mobile-versions/", mobile_version_list, name="mobile_version_list"),
     path(

@@ -348,4 +348,6 @@ class MobileVersionDashboardPermissionTests(TestCase):
         self.client.force_login(self.admin)
         response = self.client.get(reverse("dashboard:mobile_version_list"))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "إصدارات التطبيق")
+        self.assertContains(response, "نسخ التطبيقات")
+        self.assertContains(response, "إضافة Android")
+        self.assertContains(response, "إضافة iOS")
