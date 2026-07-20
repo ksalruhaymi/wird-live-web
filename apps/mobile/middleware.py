@@ -68,5 +68,6 @@ class MobileAppVersionMiddleware:
         return evaluate_mobile_api_access(
             app_version=version,
             app_build=app_build,
+            platform=platform,
             config=config,
         )

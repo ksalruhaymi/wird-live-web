@@ -7,7 +7,10 @@ from django.utils import timezone
 class MobileAppConfig(models.Model):
     """Singleton remote control settings for legacy mobile clients / middleware."""
 
+    # Legacy shared flag — kept for older rows/clients; not the decision source.
     app_enabled = models.BooleanField(default=True)
+    android_app_enabled = models.BooleanField(default=True)
+    ios_app_enabled = models.BooleanField(default=True)
     min_supported_version = models.CharField(max_length=32, default="1.0.0")
     min_supported_build = models.PositiveIntegerField(default=1)
     force_update = models.BooleanField(default=False)
@@ -28,6 +31,28 @@ class MobileAppConfig(models.Model):
     def get_settings(cls) -> "MobileAppConfig":
         obj, _ = cls.objects.get_or_create(pk=1)
         return obj
+
+    def is_enabled_for_platform(self, platform: str) -> bool:
+        """Return the kill-switch for one platform (never the shared legacy flag)."""
+        value = (platform or "").strip().lower()
+        if value == MobilePlatform.ANDROID:
+            return bool(self.android_app_enabled)
+        if value == MobilePlatform.IOS:
+            return bool(self.ios_app_enabled)
+        # Unknown platform: fall back to legacy field for old clients only.
+        return bool(self.app_enabled)
+
+    def set_enabled_for_platform(self, platform: str, enabled: bool) -> None:
+        value = (platform or "").strip().lower()
+        if value == MobilePlatform.ANDROID:
+            self.android_app_enabled = bool(enabled)
+            self.save(update_fields=["android_app_enabled", "updated_at"])
+            return
+        if value == MobilePlatform.IOS:
+            self.ios_app_enabled = bool(enabled)
+            self.save(update_fields=["ios_app_enabled", "updated_at"])
+            return
+        raise ValueError(f"unsupported platform: {platform}")
 
 
 class MobilePlatform(models.TextChoices):

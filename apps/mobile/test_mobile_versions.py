@@ -351,3 +351,217 @@ class MobileVersionDashboardPermissionTests(TestCase):
         self.assertContains(response, "نسخ التطبيقات")
         self.assertContains(response, "إضافة Android")
         self.assertContains(response, "إضافة iOS")
+        self.assertNotContains(response, "تشغيل التطبيق")
+
+
+@override_settings(AXES_ENABLED=False)
+class PlatformAppEnabledTests(TestCase):
+    CONFIG_URL = "/api/v1/mobile/app-config/"
+
+    def setUp(self):
+        from apps.mobile.models import MobileAppConfig
+
+        self.config = MobileAppConfig.get_settings()
+        self.config.app_enabled = True
+        self.config.android_app_enabled = True
+        self.config.ios_app_enabled = True
+        self.config.min_supported_version = "1.0.0"
+        self.config.min_supported_build = 1
+        self.config.force_update = False
+        self.config.save()
+
+    def test_defaults_are_enabled(self):
+        from apps.mobile.models import MobileAppConfig
+
+        row = MobileAppConfig(pk=2)
+        self.assertTrue(row.android_app_enabled)
+        self.assertTrue(row.ios_app_enabled)
+
+    def test_android_disabled_ios_enabled(self):
+        from apps.mobile.app_config_services import (
+            app_config_to_payload,
+            evaluate_mobile_api_access,
+        )
+
+        self.config.android_app_enabled = False
+        self.config.ios_app_enabled = True
+        self.config.save()
+
+        self.assertFalse(self.config.is_enabled_for_platform("android"))
+        self.assertTrue(self.config.is_enabled_for_platform("ios"))
+
+        android_denial = evaluate_mobile_api_access(
+            app_version="9.0.0",
+            app_build=900,
+            platform="android",
+            config=self.config,
+        )
+        self.assertIsNotNone(android_denial)
+        self.assertEqual(android_denial["payload"]["code"], "app_disabled")
+
+        ios_ok = evaluate_mobile_api_access(
+            app_version="9.0.0",
+            app_build=900,
+            platform="ios",
+            config=self.config,
+        )
+        self.assertIsNone(ios_ok)
+
+        self.assertFalse(
+            app_config_to_payload(self.config, platform="android")["app_enabled"]
+        )
+        self.assertTrue(
+            app_config_to_payload(self.config, platform="ios")["app_enabled"]
+        )
+
+    def test_ios_disabled_android_enabled(self):
+        from apps.mobile.app_config_services import (
+            app_config_to_payload,
+            evaluate_mobile_api_access,
+        )
+
+        self.config.android_app_enabled = True
+        self.config.ios_app_enabled = False
+        self.config.save()
+
+        self.assertTrue(self.config.is_enabled_for_platform("android"))
+        self.assertFalse(self.config.is_enabled_for_platform("ios"))
+
+        android_ok = evaluate_mobile_api_access(
+            app_version="9.0.0",
+            app_build=900,
+            platform="android",
+            config=self.config,
+        )
+        self.assertIsNone(android_ok)
+
+        ios_denial = evaluate_mobile_api_access(
+            app_version="9.0.0",
+            app_build=900,
+            platform="ios",
+            config=self.config,
+        )
+        self.assertIsNotNone(ios_denial)
+        self.assertEqual(ios_denial["payload"]["code"], "app_disabled")
+
+        self.assertTrue(
+            app_config_to_payload(self.config, platform="android")["app_enabled"]
+        )
+        self.assertFalse(
+            app_config_to_payload(self.config, platform="ios")["app_enabled"]
+        )
+
+    def test_api_returns_platform_specific_enabled_state(self):
+        self.config.android_app_enabled = False
+        self.config.ios_app_enabled = True
+        self.config.save()
+
+        android_response = self.client.get(
+            self.CONFIG_URL,
+            {"platform": "android"},
+        )
+        self.assertEqual(android_response.status_code, 200)
+        self.assertFalse(android_response.json()["app_enabled"])
+
+        ios_response = self.client.get(
+            self.CONFIG_URL,
+            HTTP_X_APP_PLATFORM="ios",
+        )
+        self.assertEqual(ios_response.status_code, 200)
+        self.assertTrue(ios_response.json()["app_enabled"])
+
+    def test_legacy_app_enabled_is_not_decision_source(self):
+        from apps.mobile.app_config_services import evaluate_mobile_api_access
+
+        self.config.app_enabled = False
+        self.config.android_app_enabled = True
+        self.config.ios_app_enabled = True
+        self.config.save()
+
+        self.assertIsNone(
+            evaluate_mobile_api_access(
+                app_version="9.0.0",
+                app_build=900,
+                platform="android",
+                config=self.config,
+            )
+        )
+
+    def test_force_update_and_blocked_unaffected_by_platform_toggle(self):
+        self.config.android_app_enabled = False
+        self.config.ios_app_enabled = True
+        self.config.save()
+
+        active = _make_version(
+            platform=MobilePlatform.ANDROID,
+            version_name="2.0.0",
+            build_number=20,
+            minimum_build_number=15,
+            update_mode=UpdateMode.REQUIRED,
+            store_url="https://example.com/android",
+        )
+        activate_mobile_app_version(active)
+        BlockedMobileAppVersion.objects.create(
+            platform=MobilePlatform.ANDROID,
+            build_number=5,
+            reason_ar="محظور",
+            is_active=True,
+        )
+
+        blocked = evaluate_app_version_check(
+            platform="android",
+            version_name="1.0.0",
+            build_number=5,
+            locale="ar",
+        )
+        self.assertEqual(blocked["action"], "blocked_version")
+
+        required = evaluate_app_version_check(
+            platform="android",
+            version_name="1.0.0",
+            build_number=10,
+            locale="ar",
+        )
+        self.assertEqual(required["action"], "required_update")
+
+        ios_active = _make_version(
+            platform=MobilePlatform.IOS,
+            version_name="2.0.0",
+            build_number=20,
+            update_mode=UpdateMode.NONE,
+        )
+        activate_mobile_app_version(ios_active)
+        ios_ok = evaluate_app_version_check(
+            platform="ios",
+            version_name="2.0.0",
+            build_number=20,
+            locale="ar",
+        )
+        self.assertEqual(ios_ok["action"], "no_update")
+
+
+@override_settings(AXES_ENABLED=False)
+class PlatformAppEnabledMigrationTests(TestCase):
+    def test_data_migration_preserves_old_value(self):
+        import importlib
+
+        from django.apps import apps as django_apps
+
+        from apps.mobile.models import MobileAppConfig
+
+        migration = importlib.import_module(
+            "apps.mobile.migrations.0003_platform_app_enabled"
+        )
+
+        config = MobileAppConfig.get_settings()
+        config.app_enabled = False
+        config.android_app_enabled = True
+        config.ios_app_enabled = True
+        config.save()
+
+        migration.copy_legacy_app_enabled(django_apps, None)
+
+        config.refresh_from_db()
+        self.assertFalse(config.android_app_enabled)
+        self.assertFalse(config.ios_app_enabled)
+        self.assertFalse(config.app_enabled)

@@ -51,32 +51,6 @@
     </div>
   </div>
 
-  {% if can_toggle_app_enabled or app_config %}
-  <div class="site-card p-4 flex flex-wrap items-center justify-between gap-3">
-    <div>
-      <p class="text-xs font-bold site-text">تشغيل التطبيق</p>
-      <p class="text-[11px] site-text-muted mt-0.5">
-        عند الإيقاف يُحظر الدخول من كل النسخ (مفتاح طوارئ). حدود الإصدار تُدار من النسخ أدناه.
-      </p>
-    </div>
-    {% if can_toggle_app_enabled %}
-    <form method="post" action="{% url 'dashboard:mobile_app_toggle_enabled' %}" class="inline-flex items-center gap-3">
-      {% csrf_token %}
-      <label class="inline-flex items-center gap-2 text-sm site-text cursor-pointer">
-        <input type="checkbox" name="app_enabled" class="rounded border site-border"
-               {% if app_config.app_enabled %}checked{% endif %}
-               onchange="this.form.submit()">
-        <span>{% if app_config.app_enabled %}مفعّل{% else %}متوقّف{% endif %}</span>
-      </label>
-    </form>
-    {% else %}
-    <span class="text-xs font-bold {% if app_config.app_enabled %}text-green-700{% else %}text-rose-700{% endif %}">
-      {% if app_config.app_enabled %}مفعّل{% else %}متوقّف{% endif %}
-    </span>
-    {% endif %}
-  </div>
-  {% endif %}
-
   {% include "dashboard/partials/list_pagination_bar.html" with total_count=total_versions per_page=per_page pagination_hidden_fields=pagination_hidden_fields %}
 
   <form method="get" class="site-card p-4 flex flex-wrap items-end gap-3">

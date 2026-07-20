@@ -2,7 +2,10 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_GET
 
-from apps.mobile.app_config_services import app_config_to_payload
+from apps.mobile.app_config_services import (
+    app_config_to_payload,
+    resolve_platform_from_request,
+)
 from apps.mobile.models import MobileAppConfig, MobilePlatform
 from apps.mobile.version_services import (
     evaluate_app_version_check,
@@ -15,7 +18,8 @@ from apps.mobile.version_services import (
 def app_config(request):
     """Legacy public config endpoint — kept for older published app builds."""
     config = MobileAppConfig.get_settings()
-    return JsonResponse(app_config_to_payload(config))
+    platform = resolve_platform_from_request(request)
+    return JsonResponse(app_config_to_payload(config, platform=platform))
 
 
 @csrf_exempt

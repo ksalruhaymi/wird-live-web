@@ -61,6 +61,9 @@ def _parse_mobile_version_form(post, *, existing: MobileAppVersion | None = None
     if platform not in VALID_PLATFORMS:
         errors.append("المنصة غير صالحة.")
 
+    # Checkbox: present+on → enabled; absent → disabled.
+    platform_app_enabled = post.get("platform_app_enabled") == "on"
+
     version_name = (post.get("version_name") or "").strip()
     if not is_valid_version_name(version_name):
         errors.append("رقم الإصدار غير صالح. مثال: 1.2.3")
@@ -175,6 +178,7 @@ def _parse_mobile_version_form(post, *, existing: MobileAppVersion | None = None
         "starts_at_raw": starts_at_raw,
         "is_active": is_active,
         "force_update": update_mode == UpdateMode.REQUIRED,
+        "platform_app_enabled": platform_app_enabled,
     }
     return data, errors
 
@@ -198,6 +202,16 @@ def _apply_mobile_version(instance: MobileAppVersion, data: dict) -> MobileAppVe
     instance.starts_at = data["starts_at"]
     instance.save()
     return instance
+
+
+def _apply_platform_app_enabled(platform: str, enabled: bool) -> None:
+    config = MobileAppConfig.get_settings()
+    config.set_enabled_for_platform(platform, enabled)
+
+
+def _platform_app_enabled_initial(platform: str) -> bool:
+    config = MobileAppConfig.get_settings()
+    return config.is_enabled_for_platform(platform)
 
 
 @login_required
@@ -237,8 +251,6 @@ def mobile_version_list(request):
         .first()
     )
 
-    app_config = MobileAppConfig.get_settings()
-
     return render(
         request,
         "dashboard/pages/mobile_versions/list.html",
@@ -246,10 +258,6 @@ def mobile_version_list(request):
             "can_manage_mobile_versions": request.user.has_permission(
                 "mobile_versions.manage"
             ),
-            "can_toggle_app_enabled": request.user.has_permission(
-                "mobile_app_config.update"
-            ),
-            "app_config": app_config,
             "active_android": active_android,
             "active_ios": active_ios,
             "versions": page_obj.object_list,
@@ -307,6 +315,7 @@ def mobile_version_create(request):
         "later_reminder_hours": "",
         "starts_at_raw": "",
         "is_active": False,
+        "platform_app_enabled": _platform_app_enabled_initial(prefill_platform),
     }
 
     if request.method == "POST":
@@ -319,6 +328,7 @@ def mobile_version_create(request):
             try:
                 version = MobileAppVersion(created_by=request.user, updated_by=request.user)
                 _apply_mobile_version(version, data)
+                _apply_platform_app_enabled(data["platform"], data["platform_app_enabled"])
                 if data["is_active"]:
                     activate_mobile_app_version(version, actor=request.user)
             except ValidationError as exc:
@@ -368,6 +378,7 @@ def mobile_version_update(request, pk):
             else ""
         ),
         "is_active": version.is_active,
+        "platform_app_enabled": _platform_app_enabled_initial(version.platform),
     }
 
     if request.method == "POST":
@@ -382,6 +393,7 @@ def mobile_version_update(request, pk):
                 _apply_mobile_version(version, data)
                 version.updated_by = request.user
                 version.save(update_fields=["updated_by", "updated_at"])
+                _apply_platform_app_enabled(data["platform"], data["platform_app_enabled"])
                 if data["is_active"]:
                     activate_mobile_app_version(version, actor=request.user)
                 elif was_active:

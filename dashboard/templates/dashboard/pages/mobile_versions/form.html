@@ -84,6 +84,14 @@
 
       <div class="flex flex-wrap gap-6 pt-1">
         <label class="inline-flex items-center gap-2 text-sm site-text">
+          <input type="checkbox" name="platform_app_enabled"
+                 {% if initial.platform_app_enabled %}checked{% endif %}
+                 class="rounded border site-border">
+          <span>
+            {% if initial.platform == 'ios' %}تشغيل تطبيق iOS{% else %}تشغيل تطبيق Android{% endif %}
+          </span>
+        </label>
+        <label class="inline-flex items-center gap-2 text-sm site-text">
           <input type="checkbox" name="is_active" {% if initial.is_active %}checked{% endif %}
                  class="rounded border site-border">
           <span>تفعيل هذه النسخة للمنصة</span>
@@ -95,7 +103,8 @@
         </label>
       </div>
       <p class="text-[11px] site-text-muted">
-        عند التفعيل تُعطَّل النسخة الفعّالة السابقة لنفس المنصة تلقائيًا، وتُزامَن حدود التحديث مع العملاء القدامى.
+        عند إيقاف تشغيل المنصة يُحظر دخول مستخدميها فقط دون التأثير على المنصة الأخرى.
+        عند تفعيل النسخة تُعطَّل النسخة الفعّالة السابقة لنفس المنصة تلقائيًا، وتُزامَن حدود التحديث مع العملاء القدامى.
       </p>
 
       <div class="pt-2 flex gap-2">
