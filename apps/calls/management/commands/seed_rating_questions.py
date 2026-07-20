@@ -20,18 +20,11 @@ DEFAULT_QUESTIONS = [
             ("ما رأيك في جودة الصوت؟", 3),
         ],
     ),
-    (
-        RatingQuestion.Category.DEMO_TEACHER,
-        [
-            ("ما رأيك في الجلسة التجريبية؟", 1),
-            ("هل الصوت كان واضحًا؟", 2),
-        ],
-    ),
 ]
 
 
 class Command(BaseCommand):
-    help = "Seed default rating questions for teacher, student, and demo teacher."
+    help = "Seed default rating questions for teacher and student."
 
     @transaction.atomic
     def handle(self, *args, **options):

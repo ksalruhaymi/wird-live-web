@@ -588,7 +588,6 @@ def deduct_call_minutes_for_session(call) -> Decimal:
     Returns minutes charged (0 if skipped or already charged).
     """
     from apps.calls.models import CallSession
-    from apps.tutoring.teacher_services import is_demo_teacher
 
     if call.status != CallSession.Status.ENDED:
         return 0
@@ -613,12 +612,6 @@ def deduct_call_minutes_for_session(call) -> Decimal:
         or getattr(locked, "teacher_media_ready_at", None)
         or getattr(locked, "participant_media_ready_at", None)
     ):
-        locked.minutes_charged = ZERO_MINUTES
-        locked.save(update_fields=["minutes_charged", "updated_at"])
-        return 0
-
-    teacher = locked.teacher
-    if teacher is not None and is_demo_teacher(teacher):
         locked.minutes_charged = ZERO_MINUTES
         locked.save(update_fields=["minutes_charged", "updated_at"])
         return 0

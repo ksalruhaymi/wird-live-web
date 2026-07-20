@@ -10,7 +10,6 @@ from django.views.decorators.http import require_POST
 
 from core.services.phone_service import normalize_phone_number
 from core.utils.pagination import paginate_with_smart_pages
-from apps.tutoring.teacher_services import is_demo_teacher
 from identity.accounts.auth.profile_service import build_profile_payload
 from identity.accounts.auth.registration_service import username_from_email
 from identity.accounts.user_role_sync import apply_user_roles
@@ -219,12 +218,10 @@ def user_detail(request, pk):
 
     has_profile_image = bool(getattr(user_obj, "profile_image", None))
 
-    teacher_demo = False
     teacher_auto_accept = False
     if is_teacher:
         profile = getattr(user_obj, "teacher_profile", None)
         if profile:
-            teacher_demo = profile.is_demo_teacher
             teacher_auto_accept = profile.auto_accept_calls
 
     context = {
@@ -236,7 +233,6 @@ def user_detail(request, pk):
         "riwayat_value": build_profile_payload(user_obj).get("riwayat") or "-",
         "is_teacher": is_teacher,
         "teacher_ijazah": teacher_ijazah,
-        "teacher_demo": teacher_demo,
         "teacher_auto_accept": teacher_auto_accept,
         "has_profile_image": has_profile_image,
     }

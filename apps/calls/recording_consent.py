@@ -26,15 +26,10 @@ def _is_participant(call: CallSession, user) -> bool:
 
 
 def is_test_call_session(call: CallSession) -> bool:
-    """True for standalone test-call service (and legacy demo-teacher sessions)."""
+    """True for standalone test-call service."""
     if getattr(call, "is_test_call", False):
         return True
-    if getattr(call, "service_type", "") == CallSession.ServiceType.TEST_CALL:
-        return True
-    from apps.tutoring.teacher_services import is_demo_teacher
-
-    teacher = getattr(call, "teacher", None)
-    return teacher is not None and is_demo_teacher(teacher)
+    return getattr(call, "service_type", "") == CallSession.ServiceType.TEST_CALL
 
 
 def is_demo_protected_call(call: CallSession) -> bool:
@@ -127,18 +122,11 @@ def record_call_recording_consent(
     *,
     platform: str = "",
 ) -> CallRecordingConsent:
-    from apps.tutoring.teacher_services import is_demo_teacher
-
     call = CallSession.objects.select_related("student", "teacher").get(pk=call.pk)
     if call.status != CallSession.Status.ACTIVE:
         raise CallValidationError("لا يمكن تسجيل الموافقة إلا أثناء مكالمة نشطة.")
     if not _is_participant(call, user):
         raise CallValidationError("غير مصرح لك بالموافقة على هذه المكالمة.")
-
-    if is_demo_teacher(user):
-        raise CallValidationError(
-            "لا تُطلب موافقة من الطرف الآلي للاتصال التجريبي.",
-        )
 
     if is_test_call_session(call):
         if user.id != call.student_id:

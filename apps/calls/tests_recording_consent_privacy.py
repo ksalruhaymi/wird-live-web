@@ -136,9 +136,7 @@ class RecordingConsentTests(TestCase):
             maybe_start_recording_if_consents_ready,
             recording_consent_payload,
         )
-        from apps.tutoring.models import TeacherProfile
 
-        TeacherProfile.objects.create(user=self.teacher, is_demo_teacher=True)
         self.call.is_test_call = True
         self.call.status = CallSession.Status.ACTIVE
         self.call.started_at = timezone.now()
@@ -178,9 +176,7 @@ class RecordingConsentTests(TestCase):
 
     def test_start_cloud_recording_does_not_skip_test_call(self):
         from apps.calls.cloud_recording.service import start_cloud_recording_for_call
-        from apps.tutoring.models import TeacherProfile
 
-        TeacherProfile.objects.create(user=self.teacher, is_demo_teacher=True)
         self.call.is_test_call = True
         self.call.status = CallSession.Status.ACTIVE
         self.call.started_at = timezone.now()

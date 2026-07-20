@@ -257,7 +257,6 @@ class RatingQuestion(models.Model):
     class Category(models.TextChoices):
         TEACHER = "teacher", "تقييم المعلم"
         STUDENT = "student", "تقييم الطالب"
-        DEMO_TEACHER = "demo_teacher", "تقييم المعلم التجريبي"
 
     category = models.CharField(
         max_length=20,

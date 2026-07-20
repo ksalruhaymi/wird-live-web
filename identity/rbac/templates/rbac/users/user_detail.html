@@ -198,27 +198,11 @@
     {% if is_teacher %}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-[13px]">
         <div class="space-y-1">
-          <div class="text-[11px] site-text-muted">نوع المعلّم</div>
-          <div>
-            {% if teacher_demo %}
-              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full
-                           bg-violet-50 text-violet-700 border border-violet-200 text-[12px] font-semibold">
-                <i class="bi bi-robot"></i>
-                معلّم تجريبي / آلي
-              </span>
-            {% else %}
-              <span class="font-semibold site-text">معلّم حقيقي</span>
-            {% endif %}
+          <div class="text-[11px] site-text-muted">قبول المكالمات</div>
+          <div class="font-semibold site-text">
+            {% if teacher_auto_accept %}قبول تلقائي{% else %}يدوي{% endif %}
           </div>
         </div>
-        {% if teacher_demo %}
-          <div class="space-y-1">
-            <div class="text-[11px] site-text-muted">قبول المكالمات</div>
-            <div class="font-semibold site-text">
-              {% if teacher_auto_accept %}قبول تلقائي{% else %}يدوي{% endif %}
-            </div>
-          </div>
-        {% endif %}
       </div>
 
       <div class="border-t site-border pt-5 mb-6">

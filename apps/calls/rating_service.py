@@ -1,8 +1,6 @@
 from django.db import transaction
 from django.db.models import Avg, F
 
-from apps.tutoring.teacher_services import is_demo_teacher
-
 from .models import (
     CallPeerRating,
     CallPeerRatingAnswer,
@@ -16,7 +14,6 @@ from .services import student_display_name, teacher_display_name
 CATEGORY_LABELS_AR = {
     RatingQuestion.Category.TEACHER: "تقييم المعلم",
     RatingQuestion.Category.STUDENT: "تقييم الطالب",
-    RatingQuestion.Category.DEMO_TEACHER: "تقييم المعلم التجريبي",
 }
 
 
@@ -36,23 +33,9 @@ def _validate_score(value) -> int | None:
     return None
 
 
-def _demo_teacher_user_ids() -> set[int]:
-    from apps.tutoring.models import TeacherProfile
-
-    return set(
-        TeacherProfile.objects.filter(is_demo_teacher=True).values_list(
-            "user_id", flat=True
-        )
-    )
-
-
 def questions_type_for_rating(rating: CallPeerRating) -> str:
     if rating.rater_role == CallPeerRating.RaterRole.TEACHER:
         return RatingQuestion.Category.STUDENT
-    call = rating.call_session
-    teacher = call.teacher
-    if teacher and is_demo_teacher(teacher):
-        return RatingQuestion.Category.DEMO_TEACHER
     return RatingQuestion.Category.TEACHER
 
 
@@ -260,8 +243,6 @@ def teacher_rating_percents(teacher_ids: list[int]) -> dict[int, int]:
     if not teacher_ids:
         return {}
 
-    demo_ids = _demo_teacher_user_ids()
-
     rows = (
         CallPeerRating.objects.filter(
             rated_id__in=teacher_ids,
@@ -271,7 +252,6 @@ def teacher_rating_percents(teacher_ids: list[int]) -> dict[int, int]:
             clarity__isnull=False,
             audio_quality__isnull=False,
         )
-        .exclude(rated_id__in=demo_ids)
         .values("rated_id")
         .annotate(
             avg_stars=Avg(

@@ -8,7 +8,6 @@ from apps.tutoring.teacher_services import (
     DEMO_CALL_MESSAGE,
     get_pending_teacher_for_interview,
     get_teacher_user,
-    is_demo_teacher,
     mark_teacher_busy,
     mark_teacher_online,
     teacher_display_name,
@@ -212,14 +211,6 @@ def request_call_session(
         teacher = get_teacher_user(teacher_id)
         if teacher is None:
             raise CallValidationError("المعلّم غير موجود أو غير معتمد.")
-
-    demo_teacher = is_demo_teacher(teacher)
-
-    # Test-call is a standalone service — not reachable via teacher request.
-    if demo_teacher:
-        raise CallValidationError(
-            "الاتصال التجريبي متاح عبر خدمة الاتصال التجريبي فقط.",
-        )
 
     if not interview_call:
         can_call, eligibility_message = student_can_request_call(user)

@@ -26,7 +26,6 @@ from apps.tutoring.teacher_services import (
     COMPUTED_OFFLINE,
     compute_teacher_status,
     computed_status_label,
-    is_demo_teacher,
     teacher_display_name,
     _active_teacher_ids,
 )
@@ -115,8 +114,6 @@ FILTER_INACTIVE = "inactive"
 FILTER_SUB_ACTIVE = "active"
 FILTER_SUB_EXPIRED = "expired"
 FILTER_SUB_NONE = "none"
-FILTER_DEMO_YES = "yes"
-FILTER_DEMO_NO = "no"
 
 _GENDER_LABELS = {
     "male": "ذكر",
@@ -160,7 +157,7 @@ def _session_counts_for_students(student_ids: list[int]) -> dict[int, int]:
     return {row["student_id"]: row["count"] for row in rows}
 
 
-def _build_teacher_rows(q: str, status_filter: str, account_filter: str, demo_filter: str):
+def _build_teacher_rows(q: str, status_filter: str, account_filter: str):
     qs = teacher_users_queryset()
 
     if q:
@@ -199,18 +196,12 @@ def _build_teacher_rows(q: str, status_filter: str, account_filter: str, demo_fi
                 "last_seen": availability.last_seen if availability else None,
                 "can_audio": profile.can_audio,
                 "can_video": profile.can_video,
-                "is_demo_teacher": is_demo_teacher(user),
                 "is_active": user.is_active,
             }
         )
 
     if status_filter in {COMPUTED_AVAILABLE, COMPUTED_BUSY, COMPUTED_OFFLINE}:
         rows = [r for r in rows if r["status"] == status_filter]
-
-    if demo_filter == FILTER_DEMO_YES:
-        rows = [r for r in rows if r["is_demo_teacher"]]
-    elif demo_filter == FILTER_DEMO_NO:
-        rows = [r for r in rows if not r["is_demo_teacher"]]
 
     if account_filter == FILTER_ACTIVE:
         rows = [r for r in rows if r["is_active"]]
@@ -330,15 +321,13 @@ def _build_supervisor_rows(q: str, account_filter: str):
 
 
 def _list_hidden_fields(
-    q, tab, status_filter, account_filter, subscription_filter, demo_filter=FILTER_ALL
+    q, tab, status_filter, account_filter, subscription_filter
 ):
     hidden = [{"name": "tab", "value": tab}]
     if q:
         hidden.append({"name": "q", "value": q})
     if tab == TAB_TEACHERS and status_filter != FILTER_ALL:
         hidden.append({"name": "status", "value": status_filter})
-    if tab == TAB_TEACHERS and demo_filter != FILTER_ALL:
-        hidden.append({"name": "demo", "value": demo_filter})
     if account_filter != FILTER_ALL:
         hidden.append({"name": "account", "value": account_filter})
     if tab == TAB_STUDENTS and subscription_filter != FILTER_ALL:
@@ -401,10 +390,9 @@ def dashboard_users_list(request):
     status_filter = (request.GET.get("status") or FILTER_ALL).strip()
     account_filter = (request.GET.get("account") or FILTER_ALL).strip()
     subscription_filter = (request.GET.get("subscription") or FILTER_ALL).strip()
-    demo_filter = (request.GET.get("demo") or FILTER_ALL).strip()
 
     if active_tab == TAB_TEACHERS:
-        rows = _build_teacher_rows(q, status_filter, account_filter, demo_filter)
+        rows = _build_teacher_rows(q, status_filter, account_filter)
     elif active_tab == TAB_STUDENTS:
         rows = _build_student_rows(q, account_filter, subscription_filter)
     else:
@@ -419,8 +407,6 @@ def dashboard_users_list(request):
     pagination_kwargs = {"tab": active_tab, "q": q, "per_page": per_page_param}
     if active_tab == TAB_TEACHERS and status_filter != FILTER_ALL:
         pagination_kwargs["status"] = status_filter
-    if active_tab == TAB_TEACHERS and demo_filter != FILTER_ALL:
-        pagination_kwargs["demo"] = demo_filter
     if account_filter != FILTER_ALL:
         pagination_kwargs["account"] = account_filter
     if active_tab == TAB_STUDENTS and subscription_filter != FILTER_ALL:
@@ -428,7 +414,7 @@ def dashboard_users_list(request):
     pagination_qs = build_pagination_query_string(**pagination_kwargs)
 
     hidden_fields = _list_hidden_fields(
-        q, active_tab, status_filter, account_filter, subscription_filter, demo_filter
+        q, active_tab, status_filter, account_filter, subscription_filter
     )
     if per_page_param:
         hidden_fields.append({"name": "per_page", "value": per_page_param})
@@ -445,7 +431,6 @@ def dashboard_users_list(request):
             "total_rows": total_rows,
             "q": q,
             "status_filter": status_filter,
-            "demo_filter": demo_filter,
             "account_filter": account_filter,
             "subscription_filter": subscription_filter,
             "pagination_qs": pagination_qs,

@@ -12,7 +12,6 @@ def teacher_availability_list(request):
     """Legacy URL — redirects to المستخدمين → المعلمون with the same filters."""
     q = (request.GET.get("q") or "").strip()
     status_filter = (request.GET.get("status") or "all").strip()
-    demo_filter = (request.GET.get("demo") or "all").strip()
     per_page = (request.GET.get("per_page") or "").strip()
 
     kwargs = {"tab": "teachers"}
@@ -20,8 +19,6 @@ def teacher_availability_list(request):
         kwargs["q"] = q
     if status_filter != "all":
         kwargs["status"] = status_filter
-    if demo_filter != "all":
-        kwargs["demo"] = demo_filter
     if per_page:
         kwargs["per_page"] = per_page
 

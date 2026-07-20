@@ -44,21 +44,6 @@ class TestCallFlowTests(TestCase):
             user_type=USER_TYPE_STUDENT,
             email="tc_student@example.com",
         )
-        self.demo = User.objects.create_user(
-            username="demo_teacher",
-            password="Pass1234!",
-            user_type=USER_TYPE_TEACHER,
-            email="demo.teacher@wird.local",
-        )
-        TeacherProfile.objects.create(
-            user=self.demo,
-            display_name="اتصال تجريبي",
-            is_demo_teacher=True,
-            auto_accept_calls=True,
-            is_approved=True,
-            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
-            can_audio=True,
-        )
         self.client = Client()
         self.headers = {
             "HTTP_X_APP_VERSION": "1.0.0",
@@ -102,7 +87,6 @@ class TestCallFlowTests(TestCase):
         TeacherProfile.objects.create(
             user=teacher,
             display_name="معلم تجريبي",
-            is_demo_teacher=False,
             is_approved=True,
             approval_status=TeacherProfile.ApprovalStatus.APPROVED,
             can_audio=True,
@@ -150,8 +134,8 @@ class TestCallFlowTests(TestCase):
         consent = CallRecordingConsent.objects.get(call_session=call, user=self.student)
         self.assertEqual(consent.consent_version, TEST_CALL_RECORDING_CONSENT_VERSION)
         self.assertEqual(
-            CallRecordingConsent.objects.filter(call_session=call, user=self.demo).count(),
-            0,
+            CallRecordingConsent.objects.filter(call_session=call).count(),
+            1,
         )
 
     def test_media_ready_without_consent_rejected(self):
@@ -250,12 +234,6 @@ class TestCallFlowTests(TestCase):
         self.assertIn("expires_at", body["call"])
         self.assertIn("timer_started_at", body["call"])
 
-    def test_demo_teacher_cannot_give_consent(self):
-        from apps.calls.exceptions import CallValidationError
-
-        call = start_test_call_session(self.student)
-        with self.assertRaises(CallValidationError):
-            record_call_recording_consent(call, self.demo, platform="android")
 
     def test_start_cloud_recording_does_not_skip_test_call(self):
         from apps.calls.cloud_recording.service import start_cloud_recording_for_call
@@ -422,7 +400,6 @@ class TestCallFlowTests(TestCase):
         )
         TeacherProfile.objects.create(
             user=teacher,
-            is_demo_teacher=False,
             is_approved=True,
             approval_status=TeacherProfile.ApprovalStatus.APPROVED,
         )
@@ -474,7 +451,6 @@ class TestCallLifetimeLimitTests(TestCase):
         TeacherProfile.objects.create(
             user=self.teacher_user,
             display_name="معلم عادي",
-            is_demo_teacher=False,
             is_approved=True,
             approval_status=TeacherProfile.ApprovalStatus.APPROVED,
             can_audio=True,
@@ -601,7 +577,6 @@ class IndependentTestCallServiceTests(TestCase):
         TeacherProfile.objects.create(
             user=self.teacher,
             display_name="معلم",
-            is_demo_teacher=False,
             is_approved=True,
             approval_status=TeacherProfile.ApprovalStatus.APPROVED,
             can_audio=True,
@@ -631,31 +606,6 @@ class IndependentTestCallServiceTests(TestCase):
         )
         self.assertTrue(call.is_independent_test_service)
 
-    def test_request_call_to_demo_teacher_is_rejected(self):
-        from apps.calls.exceptions import CallValidationError
-        from apps.calls.services import request_call_session
-
-        demo = User.objects.create_user(
-            username="ind_demo",
-            password="Pass1234!",
-            user_type=USER_TYPE_TEACHER,
-            email="ind.demo@wird.local",
-        )
-        TeacherProfile.objects.create(
-            user=demo,
-            is_demo_teacher=True,
-            auto_accept_calls=True,
-            is_approved=True,
-            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
-            can_audio=True,
-        )
-        with self.assertRaises(CallValidationError) as ctx:
-            request_call_session(
-                self.student,
-                session_type=CallSession.SessionType.AUDIO,
-                teacher_id=demo.id,
-            )
-        self.assertIn("خدمة الاتصال التجريبي", ctx.exception.message)
 
     def test_normal_student_teacher_call_unaffected(self):
         from apps.calls.services import request_call_session
@@ -705,7 +655,6 @@ class TeacherTestCallMyRecordingsApiTests(TestCase):
         TeacherProfile.objects.create(
             user=self.teacher,
             display_name="معلم API",
-            is_demo_teacher=False,
             is_approved=True,
             approval_status=TeacherProfile.ApprovalStatus.APPROVED,
             can_audio=True,
@@ -725,7 +674,6 @@ class TeacherTestCallMyRecordingsApiTests(TestCase):
         TeacherProfile.objects.create(
             user=self.peer_teacher,
             display_name="معلم عادي",
-            is_demo_teacher=False,
             is_approved=True,
             approval_status=TeacherProfile.ApprovalStatus.APPROVED,
             can_audio=True,
