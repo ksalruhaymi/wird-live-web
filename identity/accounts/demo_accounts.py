@@ -12,9 +12,18 @@ DEMO_ROLE_ADMIN = User.DemoRole.ADMIN
 DEMO_ROLE_STUDENT = User.DemoRole.STUDENT
 DEMO_ROLE_TEACHER = User.DemoRole.TEACHER
 
-DEMO_SUPERVISOR_USERNAME = "demo_supervisor"
-DEMO_STUDENT_USERNAME = "demo_student"
-DEMO_TEACHER_USERNAME = "demo_teacher"
+DEMO_SUPERVISOR_USERNAME = "super"
+DEMO_STUDENT_USERNAME = "student"
+DEMO_TEACHER_USERNAME = "teacher"
+
+DEMO_SUPERVISOR_DISPLAY_NAME = "مشرف - اختبار"
+DEMO_STUDENT_DISPLAY_NAME = "طالب - اختبار"
+DEMO_TEACHER_DISPLAY_NAME = "معلم - اختبار"
+
+# Previous usernames kept for safe rename / seed lookup.
+LEGACY_DEMO_SUPERVISOR_USERNAMES = ("demo_supervisor",)
+LEGACY_DEMO_STUDENT_USERNAMES = ("demo_student",)
+LEGACY_DEMO_TEACHER_USERNAMES = ("demo_teacher",)
 
 
 def is_demo_account(user) -> bool:

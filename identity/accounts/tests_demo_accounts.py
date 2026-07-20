@@ -312,30 +312,67 @@ class SeedDemoAccountsCommandTests(TestCase):
         _ensure_role("teacher")
         call_command("seed_demo_accounts")
 
-        supervisor = User.objects.get(username="demo_supervisor")
-        student = User.objects.get(username="demo_student")
-        teacher = User.objects.get(username="demo_teacher")
+        supervisor = User.objects.get(username="super")
+        student = User.objects.get(username="student")
+        teacher = User.objects.get(username="teacher")
 
         self.assertTrue(supervisor.is_demo_account)
         self.assertEqual(supervisor.demo_role, DEMO_ROLE_ADMIN)
         self.assertFalse(supervisor.is_superuser)
         self.assertEqual(supervisor.user_type, USER_TYPE_SUPERVISOR)
+        self.assertEqual(supervisor.full_name, "مشرف - اختبار")
         self.assertTrue(supervisor.roles.filter(slug="supervisor").exists())
 
         self.assertTrue(student.is_demo_account)
         self.assertEqual(student.demo_role, DEMO_ROLE_STUDENT)
+        self.assertEqual(student.full_name, "طالب - اختبار")
         self.assertTrue(hasattr(student, "student_profile"))
+        self.assertEqual(student.student_profile.display_name, "طالب - اختبار")
 
         self.assertTrue(teacher.is_demo_account)
         self.assertEqual(teacher.demo_role, DEMO_ROLE_TEACHER)
+        self.assertEqual(teacher.full_name, "معلم - اختبار")
         self.assertEqual(
             teacher.teacher_profile.approval_status,
             TeacherProfile.ApprovalStatus.APPROVED,
         )
+        self.assertEqual(teacher.teacher_profile.display_name, "معلم - اختبار")
 
         # Idempotent
         call_command("seed_demo_accounts")
         self.assertEqual(
             User.objects.filter(is_demo_account=True, demo_role=DEMO_ROLE_TEACHER).count(),
+            1,
+        )
+        self.assertEqual(User.objects.filter(username="teacher").count(), 1)
+
+    def test_seed_renames_legacy_usernames(self):
+        from django.core.management import call_command
+
+        _ensure_role("supervisor")
+        _ensure_role("student")
+        _ensure_role("teacher")
+
+        legacy_teacher = User.objects.create_user(
+            username="demo_teacher",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            is_demo_account=True,
+            demo_role=DEMO_ROLE_TEACHER,
+            full_name="old",
+        )
+        TeacherProfile.objects.create(
+            user=legacy_teacher,
+            display_name="old",
+            is_approved=True,
+            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
+        )
+
+        call_command("seed_demo_accounts")
+        legacy_teacher.refresh_from_db()
+        self.assertEqual(legacy_teacher.username, "teacher")
+        self.assertEqual(legacy_teacher.full_name, "معلم - اختبار")
+        self.assertEqual(
+            User.objects.filter(username__in=["demo_teacher", "teacher"]).count(),
             1,
         )
