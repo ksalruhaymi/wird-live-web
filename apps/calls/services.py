@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.utils import timezone
 
 from datetime import timedelta
@@ -28,6 +29,7 @@ from .token_builder import (
     uses_agora_rtc,
 )
 
+User = get_user_model()
 TEST_CALL_LIFETIME_LIMIT = 3
 TEST_CALL_LIFETIME_LIMIT_MESSAGE = "لقد استخدمت الحد الأقصى للاتصالات التجريبية."
 
@@ -201,16 +203,34 @@ def request_call_session(
 
     interview_call = _is_interview_caller(user)
     if interview_call:
-        teacher = get_pending_teacher_for_interview(teacher_id)
+        teacher = get_pending_teacher_for_interview(teacher_id, viewer=user)
         if teacher is None:
-            raise CallValidationError("المعلّم غير موجود أو ليس بانتظار المراجعة.")
+            raise CallValidationError(
+                "المعلّم غير موجود أو ليس بانتظار المراجعة.",
+                status=404,
+            )
     else:
         caller_slug = resolve_user_type_slug(user)
         if caller_slug not in {"student", "admin"}:
             raise CallValidationError("هذا الإجراء للطلاب فقط.")
-        teacher = get_teacher_user(teacher_id)
+        from identity.accounts.demo_accounts import (
+            can_viewer_see_teacher,
+            is_demo_teacher_account,
+        )
+
+        raw_teacher = (
+            User.objects.filter(pk=teacher_id, teacher_profile__isnull=False)
+            .select_related("teacher_profile")
+            .first()
+        )
+        if raw_teacher is None or (
+            is_demo_teacher_account(raw_teacher)
+            and not can_viewer_see_teacher(user, raw_teacher)
+        ):
+            raise CallValidationError("المعلّم غير موجود.", status=404)
+        teacher = get_teacher_user(teacher_id, viewer=user)
         if teacher is None:
-            raise CallValidationError("المعلّم غير موجود أو غير معتمد.")
+            raise CallValidationError("المعلّم غير موجود أو غير معتمد.", status=404)
 
     if not interview_call:
         can_call, eligibility_message = student_can_request_call(user)

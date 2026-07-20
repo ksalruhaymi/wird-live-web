@@ -39,18 +39,22 @@ _LEGACY_TEACHER_PROFILE = (
 )
 
 
-def teacher_users_queryset():
+def teacher_users_queryset(*, viewer=None):
     """
     Dashboard teachers tab.
 
     Active teachers (type/role) always appear. Orphan TeacherProfile alone may
   appear for legacy rows, but not after conversion to supervisor-only (user_type=3).
+    Demo teachers are hidden unless viewer is superuser.
     """
-    return (
+    from identity.accounts.demo_accounts import exclude_hidden_demo_teachers
+
+    qs = (
         User.objects.filter(_ACTIVE_TEACHER | _LEGACY_TEACHER_PROFILE)
         .distinct()
         .select_related("teacher_profile", "teacher_availability")
     )
+    return exclude_hidden_demo_teachers(qs, viewer)
 
 
 def student_users_queryset():
@@ -72,7 +76,12 @@ def is_dashboard_student(user) -> bool:
 
 
 def is_dashboard_teacher(user) -> bool:
-    return teacher_users_queryset().filter(pk=user.pk).exists()
+    # Include demo teachers for self-identity checks (viewer=None would hide them).
+    return (
+        User.objects.filter(_ACTIVE_TEACHER | _LEGACY_TEACHER_PROFILE)
+        .filter(pk=user.pk)
+        .exists()
+    )
 
 
 def supervisor_users_queryset():

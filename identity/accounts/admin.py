@@ -12,9 +12,12 @@ class UserAdmin(admin.ModelAdmin):
         "email",
         "enrollment_track",
         "user_type",
+        "is_demo_account",
+        "demo_role",
         "is_active",
         "is_staff",
     )
+    list_filter = ("is_demo_account", "demo_role", "user_type", "is_active", "is_staff")
     search_fields = ("username", "full_name", "national_id", "email")
     readonly_fields = ("date_joined", "last_login")
     fieldsets = (
@@ -33,6 +36,12 @@ class UserAdmin(admin.ModelAdmin):
                     "gender",
                     "user_type",
                 ),
+            },
+        ),
+        (
+            "Demo / Trial",
+            {
+                "fields": ("is_demo_account", "demo_role"),
             },
         ),
         ("RBAC", {"fields": ("roles",)}),

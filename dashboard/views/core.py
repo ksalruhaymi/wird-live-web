@@ -15,7 +15,7 @@ def home(request):
 @login_required
 @permissions_required("dashboard.access", "overview.access")
 def overview(request):
-    teachers_count = teacher_users_queryset().count()
+    teachers_count = teacher_users_queryset(viewer=request.user).count()
     students_count = student_users_queryset().count()
     calls_count = CallSession.objects.count()
     recordings_count = CallRecording.objects.count()

@@ -104,6 +104,11 @@ def book_slot(
         raise AppointmentError("الموعد غير موجود.", code="slot_not_found", status=404) from exc
 
     teacher = slot.teacher
+    from identity.accounts.demo_accounts import can_viewer_see_teacher
+
+    if not can_viewer_see_teacher(student, teacher):
+        raise AppointmentError("الموعد غير موجود.", code="slot_not_found", status=404)
+
     ensure_teacher_slot_window(teacher)
     settings_obj = get_or_create_booking_settings(teacher)
 

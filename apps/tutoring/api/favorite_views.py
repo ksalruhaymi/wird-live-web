@@ -6,6 +6,10 @@ from django.views.decorators.http import require_GET, require_POST
 
 from apps.tutoring.models import TeacherFavorite
 from apps.tutoring.teacher_services import resolve_user_type_slug
+from identity.accounts.demo_accounts import (
+    can_viewer_see_teacher,
+    get_visible_teacher_or_none,
+)
 
 
 def _require_auth(request):
@@ -26,11 +30,13 @@ def favorite_teacher_ids(request):
     if resolve_user_type_slug(request.user) != "student":
         return JsonResponse({"success": True, "teacher_ids": []})
 
-    ids = list(
-        TeacherFavorite.objects.filter(student=request.user).values_list(
-            "teacher_id", flat=True
-        )
-    )
+    ids = []
+    for teacher_id in TeacherFavorite.objects.filter(student=request.user).values_list(
+        "teacher_id", flat=True
+    ):
+        teacher = get_visible_teacher_or_none(request.user, teacher_id)
+        if teacher is not None:
+            ids.append(teacher_id)
     return JsonResponse({"success": True, "teacher_ids": ids})
 
 
@@ -52,7 +58,7 @@ def toggle_favorite(request, teacher_id):
     teacher = User.objects.filter(
         pk=teacher_id, teacher_profile__isnull=False
     ).first()
-    if teacher is None:
+    if teacher is None or not can_viewer_see_teacher(request.user, teacher):
         return JsonResponse(
             {"success": False, "message": "المعلّم غير موجود."},
             status=404,

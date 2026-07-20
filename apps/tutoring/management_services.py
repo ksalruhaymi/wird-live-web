@@ -168,12 +168,15 @@ def teacher_review_detail_payload(user, request=None) -> dict:
     }
 
 
-def list_pending_teachers(*, q: str = ""):
+def list_pending_teachers(*, q: str = "", viewer=None):
+    from identity.accounts.demo_accounts import exclude_hidden_demo_teachers
+
     qs = User.objects.filter(
         user_type=USER_TYPE_TEACHER,
         teacher_profile__isnull=False,
         teacher_profile__approval_status=TeacherProfile.ApprovalStatus.PENDING,
     ).select_related("teacher_profile")
+    qs = exclude_hidden_demo_teachers(qs, viewer)
 
     if q:
         qs = qs.filter(

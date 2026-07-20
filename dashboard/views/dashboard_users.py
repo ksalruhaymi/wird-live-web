@@ -157,8 +157,8 @@ def _session_counts_for_students(student_ids: list[int]) -> dict[int, int]:
     return {row["student_id"]: row["count"] for row in rows}
 
 
-def _build_teacher_rows(q: str, status_filter: str, account_filter: str):
-    qs = teacher_users_queryset()
+def _build_teacher_rows(q: str, status_filter: str, account_filter: str, *, viewer=None):
+    qs = teacher_users_queryset(viewer=viewer)
 
     if q:
         qs = qs.filter(
@@ -392,7 +392,7 @@ def dashboard_users_list(request):
     subscription_filter = (request.GET.get("subscription") or FILTER_ALL).strip()
 
     if active_tab == TAB_TEACHERS:
-        rows = _build_teacher_rows(q, status_filter, account_filter)
+        rows = _build_teacher_rows(q, status_filter, account_filter, viewer=request.user)
     elif active_tab == TAB_STUDENTS:
         rows = _build_student_rows(q, account_filter, subscription_filter)
     else:
@@ -459,7 +459,7 @@ def _paginate_detail_queryset(request, queryset, detail_tab, q=""):
 @login_required
 @permissions_required("dashboard.access", "users.teachers.view")
 def dashboard_user_teacher_detail(request, user_id):
-    user = get_object_or_404(teacher_users_queryset(), pk=user_id)
+    user = get_object_or_404(teacher_users_queryset(viewer=request.user), pk=user_id)
     ensure_teacher_profile(user)
     user = get_object_or_404(
         User.objects.select_related("teacher_profile", "teacher_availability"),
@@ -725,7 +725,7 @@ def dashboard_user_student_detail(request, user_id):
 @login_required
 @permissions_required("dashboard.access", "users.teachers.view")
 def dashboard_user_teacher_profile_image(request, user_id):
-    user_obj = get_object_or_404(teacher_users_queryset(), pk=user_id)
+    user_obj = get_object_or_404(teacher_users_queryset(viewer=request.user), pk=user_id)
     image = getattr(user_obj, "profile_image", None)
     if not image or not image.name:
         raise Http404
@@ -743,7 +743,7 @@ def dashboard_user_teacher_profile_image(request, user_id):
 @permissions_required("dashboard.access", "users.teachers.view")
 def dashboard_user_teacher_ijazah(request, user_id):
     user_obj = get_object_or_404(
-        teacher_users_queryset().select_related("teacher_profile"),
+        teacher_users_queryset(viewer=request.user).select_related("teacher_profile"),
         pk=user_id,
     )
     profile = getattr(user_obj, "teacher_profile", None)

@@ -54,8 +54,10 @@ def _parse_teacher_id(data: dict) -> int | None:
 
 def _handle_call_error(exc) -> JsonResponse:
     if isinstance(exc, CallValidationError):
-        status = 400
-        if exc.message == CALL_INELIGIBLE_MESSAGE or "اشتراك" in exc.message:
+        status = getattr(exc, "status", 400) or 400
+        if status == 400 and (
+            exc.message == CALL_INELIGIBLE_MESSAGE or "اشتراك" in exc.message
+        ):
             status = 403
         return JsonResponse({"success": False, "message": exc.message}, status=status)
     if isinstance(exc, CallProviderError):

@@ -163,10 +163,14 @@ def teacher_to_payload(
 
 
 def list_teachers_payload(*, approved_only: bool = True, request=None) -> list[dict]:
+    from identity.accounts.demo_accounts import exclude_hidden_demo_teachers
+
     qs = User.objects.filter(teacher_profile__isnull=False).select_related(
         "teacher_profile",
         "teacher_availability",
     )
+    viewer = getattr(request, "user", None) if request is not None else None
+    qs = exclude_hidden_demo_teachers(qs, viewer)
     if approved_only:
         qs = qs.filter(
             teacher_profile__approval_status=TeacherProfile.ApprovalStatus.APPROVED
@@ -209,7 +213,10 @@ def list_teachers_payload(*, approved_only: bool = True, request=None) -> list[d
     return payloads
 
 
-def get_teacher_user(teacher_id: int):
+def get_teacher_user(teacher_id: int, *, viewer=None):
+    """Return an approved teacher visible to viewer, or None."""
+    from identity.accounts.demo_accounts import can_viewer_see_teacher
+
     try:
         user = User.objects.select_related(
             "teacher_profile",
@@ -219,11 +226,15 @@ def get_teacher_user(teacher_id: int):
         return None
     if not is_teacher_list_visible(user.teacher_profile):
         return None
+    if viewer is not None and not can_viewer_see_teacher(viewer, user):
+        return None
     return user
 
 
-def get_pending_teacher_for_interview(teacher_id: int):
+def get_pending_teacher_for_interview(teacher_id: int, *, viewer=None):
     """Return a pending teacher for admin/supervisor interview calls only."""
+    from identity.accounts.demo_accounts import can_viewer_see_teacher
+
     try:
         user = User.objects.select_related(
             "teacher_profile",
@@ -233,6 +244,8 @@ def get_pending_teacher_for_interview(teacher_id: int):
         return None
     profile = user.teacher_profile
     if profile.approval_status != TeacherProfile.ApprovalStatus.PENDING:
+        return None
+    if viewer is not None and not can_viewer_see_teacher(viewer, user):
         return None
     return user
 
@@ -267,11 +280,14 @@ def mark_teacher_online(teacher) -> None:
     touch_teacher_last_seen(teacher)
 
 
-def search_teacher_rows(q: str):
+def search_teacher_rows(q: str, *, viewer=None):
+    from identity.accounts.demo_accounts import exclude_hidden_demo_teachers
+
     qs = User.objects.filter(teacher_profile__isnull=False).select_related(
         "teacher_profile",
         "teacher_availability",
     )
+    qs = exclude_hidden_demo_teachers(qs, viewer)
     if q:
         qs = qs.filter(
             Q(username__icontains=q)

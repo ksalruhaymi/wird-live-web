@@ -126,7 +126,9 @@ def teacher_summary(request, teacher_id: int):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
-    teacher = get_object_or_404(User, pk=teacher_id, teacher_profile__isnull=False)
+    from identity.accounts.demo_accounts import get_visible_teacher_or_404
+
+    teacher = get_visible_teacher_or_404(request.user, teacher_id)
     summary = teacher_availability_summary(teacher)
     settings_obj = get_or_create_booking_settings(teacher)
     message = ""
@@ -150,7 +152,9 @@ def teacher_days(request, teacher_id: int):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
-    teacher = get_object_or_404(User, pk=teacher_id, teacher_profile__isnull=False)
+    from identity.accounts.demo_accounts import get_visible_teacher_or_404
+
+    teacher = get_visible_teacher_or_404(request.user, teacher_id)
     from_date = _parse_day(request.GET.get("from"))
     raw = request.GET.get("days")
     if raw is None:
@@ -191,7 +195,9 @@ def teacher_day_slots(request, teacher_id: int):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
-    teacher = get_object_or_404(User, pk=teacher_id, teacher_profile__isnull=False)
+    from identity.accounts.demo_accounts import get_visible_teacher_or_404
+
+    teacher = get_visible_teacher_or_404(request.user, teacher_id)
     day = _parse_day(request.GET.get("date"))
     if not day:
         return JsonResponse(
@@ -214,7 +220,9 @@ def student_teacher_calendar(request, teacher_id: int):
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
-    teacher = get_object_or_404(User, pk=teacher_id, teacher_profile__isnull=False)
+    from identity.accounts.demo_accounts import get_visible_teacher_or_404
+
+    teacher = get_visible_teacher_or_404(request.user, teacher_id)
     try:
         payload = student_calendar_month(teacher, month=request.GET.get("month"))
     except AppointmentError as exc:

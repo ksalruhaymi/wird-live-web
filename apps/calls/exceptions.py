@@ -9,6 +9,7 @@ class CallProviderError(Exception):
 class CallValidationError(Exception):
     """Raised when call request validation fails (teacher, session type, etc.)."""
 
-    def __init__(self, message: str):
+    def __init__(self, message: str, *, status: int = 400):
         self.message = message
+        self.status = status
         super().__init__(message)

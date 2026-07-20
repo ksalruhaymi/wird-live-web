@@ -79,7 +79,7 @@ def pending_teachers_list(request):
     q = (request.GET.get("q") or "").strip()
     teachers = [
         pending_teacher_card_payload(user, request)
-        for user in list_pending_teachers(q=q)
+        for user in list_pending_teachers(q=q, viewer=request.user)
     ]
     return JsonResponse({"success": True, "teachers": teachers})
 

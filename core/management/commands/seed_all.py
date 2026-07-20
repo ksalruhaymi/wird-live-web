@@ -11,6 +11,7 @@ class Command(BaseCommand):
         commands = [
             "seed_superadmin",
             "seed_rbac",
+            "seed_demo_accounts",
             "seed_rating_questions",
         ]
 

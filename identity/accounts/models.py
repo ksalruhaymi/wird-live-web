@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models import Q
 
 from core.services.phone_service import normalize_phone_number
 from core.validators import validate_phone
@@ -10,6 +11,11 @@ class User(AbstractUser):
     """
     Custom User model.
     """
+
+    class DemoRole(models.TextChoices):
+        ADMIN = "admin", "مشرف تجريبي"
+        STUDENT = "student", "طالب تجريبي"
+        TEACHER = "teacher", "معلم تجريبي"
 
     GENDER_CHOICES = (
         ("male", "ذكر"),
@@ -108,9 +114,33 @@ class User(AbstractUser):
         blank=True,
     )
 
+    is_demo_account = models.BooleanField(
+        default=False,
+        db_index=True,
+        help_text="Protected trial/demo account; excluded from bulk trial cleanup.",
+    )
+    demo_role = models.CharField(
+        max_length=20,
+        choices=DemoRole.choices,
+        blank=True,
+        null=True,
+        help_text="Demo account kind when is_demo_account=True.",
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["demo_role"],
+                condition=Q(is_demo_account=True, demo_role__isnull=False),
+                name="uniq_demo_account_per_role",
+            ),
+        ]
+
     def save(self, *args, **kwargs):
         if self.mobile:
             self.mobile = normalize_phone_number(self.mobile, "SA")
+        if not self.is_demo_account:
+            self.demo_role = None
         super().save(*args, **kwargs)
 
     def __str__(self):
