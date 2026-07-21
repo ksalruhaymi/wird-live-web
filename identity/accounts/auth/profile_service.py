@@ -144,6 +144,9 @@ def build_profile_payload(user, request=None) -> dict:
         "can_reject_teachers": user.has_permission("management.teachers.reject"),
     }
     payload["mobile_capabilities"] = build_mobile_capabilities(user)
+    from apps.calls.recording_consent import account_recording_consent_payload
+
+    payload.update(account_recording_consent_payload(user))
     return payload
 
 

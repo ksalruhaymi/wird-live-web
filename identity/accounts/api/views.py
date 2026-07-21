@@ -455,6 +455,68 @@ def profile_api(request):
     )
 
 
+@csrf_exempt
+@require_http_methods(["POST", "DELETE"])
+def recording_consent_account_api(request):
+    """Save or revoke account-level call recording consent."""
+    auth_error = _require_authenticated(request)
+    if auth_error:
+        return auth_error
+
+    from apps.calls.exceptions import CallValidationError
+    from apps.calls.models import (
+        RECORDING_CONSENT_VERSION,
+        TEST_CALL_RECORDING_CONSENT_VERSION,
+    )
+    from apps.calls.recording_consent import (
+        account_recording_consent_payload,
+        revoke_account_recording_consent,
+        save_account_recording_consent,
+    )
+
+    if request.method == "DELETE":
+        data, err = _parse_json(request)
+        if err:
+            data = {}
+        version = (data.get("version") or "").strip() or None
+        revoke_account_recording_consent(request.user, version=version)
+        return JsonResponse(
+            {
+                "success": True,
+                **account_recording_consent_payload(request.user),
+            }
+        )
+
+    data, err = _parse_json(request)
+    if err:
+        return err
+    version = (data.get("version") or RECORDING_CONSENT_VERSION).strip()
+    if version not in {
+        RECORDING_CONSENT_VERSION,
+        TEST_CALL_RECORDING_CONSENT_VERSION,
+    }:
+        return _error("نسخة الموافقة غير صالحة.", 400)
+    try:
+        save_account_recording_consent(request.user, version)
+    except CallValidationError as exc:
+        return _error(str(exc.message if hasattr(exc, "message") else exc), 400)
+    # Refresh from DB
+    request.user.refresh_from_db(
+        fields=[
+            "call_recording_consent_version",
+            "call_recording_consent_at",
+            "test_call_recording_consent_version",
+            "test_call_recording_consent_at",
+        ]
+    )
+    return JsonResponse(
+        {
+            "success": True,
+            **account_recording_consent_payload(request.user),
+        }
+    )
+
+
 @require_http_methods(["PATCH"])
 def profile_update_api(request):
     auth_error = _require_authenticated(request)

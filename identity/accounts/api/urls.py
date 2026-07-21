@@ -36,6 +36,11 @@ urlpatterns = [
     path("profile/", views.profile_api, name="profile"),
     path("profile/update/", views.profile_update_api, name="profile_update"),
     path("profile/avatar/", views.profile_avatar_api, name="profile_avatar"),
+    path(
+        "recording-consent/",
+        views.recording_consent_account_api,
+        name="recording-consent-account",
+    ),
     path("account/", views.delete_account_api, name="delete_account"),
     path(
         "profile/teacher-files/ijazah/",

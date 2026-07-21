@@ -127,6 +127,30 @@ class User(AbstractUser):
         help_text="Demo account kind when is_demo_account=True.",
     )
 
+    # Account-level call recording consent (skip per-call dialog when version matches).
+    call_recording_consent_version = models.CharField(
+        max_length=64,
+        blank=True,
+        default="",
+        help_text="Last accepted real-call recording consent version.",
+    )
+    call_recording_consent_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        help_text="When the user last accepted real-call recording consent.",
+    )
+    test_call_recording_consent_version = models.CharField(
+        max_length=64,
+        blank=True,
+        default="",
+        help_text="Last accepted test-call recording consent version.",
+    )
+    test_call_recording_consent_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        help_text="When the user last accepted test-call recording consent.",
+    )
+
     class Meta:
         constraints = [
             models.UniqueConstraint(

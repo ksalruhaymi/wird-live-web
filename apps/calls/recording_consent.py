@@ -43,6 +43,108 @@ def consent_version_for_call(call: CallSession) -> str:
     return RECORDING_CONSENT_VERSION
 
 
+def user_has_account_recording_consent(user, version: str) -> bool:
+    """True when the account has accepted this consent policy version."""
+    if not user or not getattr(user, "is_authenticated", False):
+        return False
+    version = (version or "").strip()
+    if not version:
+        return False
+    if version == TEST_CALL_RECORDING_CONSENT_VERSION:
+        return (
+            getattr(user, "test_call_recording_consent_version", "") or ""
+        ).strip() == version
+    if version == RECORDING_CONSENT_VERSION:
+        return (
+            getattr(user, "call_recording_consent_version", "") or ""
+        ).strip() == version
+    return False
+
+
+def save_account_recording_consent(user, version: str) -> None:
+    """Persist account-level consent for the given policy version."""
+    version = (version or "").strip()
+    if not version:
+        raise CallValidationError("نسخة الموافقة غير صالحة.")
+    now = timezone.now()
+    if version == TEST_CALL_RECORDING_CONSENT_VERSION:
+        user.test_call_recording_consent_version = version
+        user.test_call_recording_consent_at = now
+        user.save(
+            update_fields=[
+                "test_call_recording_consent_version",
+                "test_call_recording_consent_at",
+            ]
+        )
+        return
+    if version == RECORDING_CONSENT_VERSION:
+        user.call_recording_consent_version = version
+        user.call_recording_consent_at = now
+        user.save(
+            update_fields=[
+                "call_recording_consent_version",
+                "call_recording_consent_at",
+            ]
+        )
+        return
+    raise CallValidationError("نسخة الموافقة غير معروفة.")
+
+
+def revoke_account_recording_consent(user, *, version: str | None = None) -> None:
+    """Clear account-level recording consent (all or one version)."""
+    version = (version or "").strip()
+    updates: list[str] = []
+    if not version or version == RECORDING_CONSENT_VERSION:
+        user.call_recording_consent_version = ""
+        user.call_recording_consent_at = None
+        updates.extend(
+            ["call_recording_consent_version", "call_recording_consent_at"]
+        )
+    if not version or version == TEST_CALL_RECORDING_CONSENT_VERSION:
+        user.test_call_recording_consent_version = ""
+        user.test_call_recording_consent_at = None
+        updates.extend(
+            [
+                "test_call_recording_consent_version",
+                "test_call_recording_consent_at",
+            ]
+        )
+    if updates:
+        user.save(update_fields=updates)
+
+
+def account_recording_consent_payload(user) -> dict:
+    """Profile/me fields for mobile skip-dialog logic."""
+    real_version = (getattr(user, "call_recording_consent_version", "") or "").strip()
+    test_version = (
+        getattr(user, "test_call_recording_consent_version", "") or ""
+    ).strip()
+    return {
+        "recording_consent": {
+            "given": real_version == RECORDING_CONSENT_VERSION,
+            "version": real_version,
+            "current_version": RECORDING_CONSENT_VERSION,
+            "needs_reconsent": real_version != RECORDING_CONSENT_VERSION,
+            "consented_at": (
+                user.call_recording_consent_at.isoformat()
+                if getattr(user, "call_recording_consent_at", None)
+                else None
+            ),
+        },
+        "test_call_recording_consent": {
+            "given": test_version == TEST_CALL_RECORDING_CONSENT_VERSION,
+            "version": test_version,
+            "current_version": TEST_CALL_RECORDING_CONSENT_VERSION,
+            "needs_reconsent": test_version != TEST_CALL_RECORDING_CONSENT_VERSION,
+            "consented_at": (
+                user.test_call_recording_consent_at.isoformat()
+                if getattr(user, "test_call_recording_consent_at", None)
+                else None
+            ),
+        },
+    }
+
+
 def test_call_requires_caller_consent_only(call: CallSession) -> bool:
     return is_test_call_session(call)
 
@@ -51,12 +153,14 @@ def user_has_recording_consent(call: CallSession, user) -> bool:
     if not _is_participant(call, user):
         return False
     version = consent_version_for_call(call)
-    return CallRecordingConsent.objects.filter(
+    if CallRecordingConsent.objects.filter(
         call_session=call,
         user_id=user.id,
         consent_given=True,
         consent_version=version,
-    ).exists()
+    ).exists():
+        return True
+    return user_has_account_recording_consent(user, version)
 
 
 def both_parties_have_recording_consent(call: CallSession) -> bool:
@@ -71,19 +175,42 @@ def both_parties_have_recording_consent(call: CallSession) -> bool:
             user_id__in=[call.student_id, call.teacher_id],
         ).values_list("user_id", flat=True)
     )
-    return call.student_id in given and call.teacher_id in given
+    if call.student_id in given and call.teacher_id in given:
+        return True
+    from django.contrib.auth import get_user_model
+
+    User = get_user_model()
+    users = {
+        u.id: u
+        for u in User.objects.filter(id__in=[call.student_id, call.teacher_id])
+    }
+    student_ok = call.student_id in given or user_has_account_recording_consent(
+        users.get(call.student_id), version
+    )
+    teacher_ok = call.teacher_id in given or user_has_account_recording_consent(
+        users.get(call.teacher_id), version
+    )
+    return student_ok and teacher_ok
 
 
 def recording_consents_satisfied(call: CallSession) -> bool:
     if is_test_call_session(call):
         if not call.student_id:
             return False
-        return CallRecordingConsent.objects.filter(
+        if CallRecordingConsent.objects.filter(
             call_session=call,
             user_id=call.student_id,
             consent_given=True,
             consent_version=TEST_CALL_RECORDING_CONSENT_VERSION,
-        ).exists()
+        ).exists():
+            return True
+        from django.contrib.auth import get_user_model
+
+        User = get_user_model()
+        caller = User.objects.filter(pk=call.student_id).first()
+        return user_has_account_recording_consent(
+            caller, TEST_CALL_RECORDING_CONSENT_VERSION
+        )
     return both_parties_have_recording_consent(call)
 
 
@@ -170,6 +297,9 @@ def record_call_recording_consent(
             if updates:
                 consent.save(update_fields=updates)
 
+    # Persist account-level consent so future calls skip the dialog.
+    save_account_recording_consent(user, version)
+
     # Consent alone must NEVER start Cloud Recording — wait for media-ready.
     logger.info(
         "recording_consent_ready call_id=%s user_id=%s is_test=%s "
@@ -203,6 +333,17 @@ def mark_participant_media_ready(
         raise CallValidationError("غير مصرح بإرسال جاهزية الوسائط لهذه المكالمة.")
     if not user_has_recording_consent(call, user):
         raise CallValidationError("يجب الموافقة على تسجيل المكالمة أولاً.")
+
+    # Materialize per-call consent row from account-level consent when missing.
+    version = consent_version_for_call(call)
+    if user_has_account_recording_consent(user, version):
+        if not CallRecordingConsent.objects.filter(
+            call_session=call,
+            user_id=user.id,
+            consent_given=True,
+            consent_version=version,
+        ).exists():
+            record_call_recording_consent(call, user, platform="account")
 
     is_test = is_test_call_session(call)
     if is_test and user.id != call.student_id:

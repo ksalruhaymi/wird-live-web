@@ -34,6 +34,18 @@ TEST_CALL_LIFETIME_LIMIT = 3
 TEST_CALL_LIFETIME_LIMIT_MESSAGE = "لقد استخدمت الحد الأقصى للاتصالات التجريبية."
 
 
+def _is_test_call_quota_exempt(user) -> bool:
+    """Admins / supervisors / staff are not limited by the 3-call lifetime quota."""
+    from apps.subscription.services import is_admin_user
+
+    if is_admin_user(user):
+        return True
+    if getattr(user, "is_superuser", False) or getattr(user, "is_staff", False):
+        return True
+    slug = resolve_user_type_slug(user)
+    return slug in {"admin", "supervisor"}
+
+
 def student_display_name(user) -> str:
     profile = getattr(user, "student_profile", None)
     if profile and profile.display_name:
@@ -282,7 +294,11 @@ def start_test_call_session(user) -> CallSession:
     from apps.calls.models import TEST_CALL_MAX_SECONDS
 
     # Lifetime quota: only sessions that created a recording count.
-    if counted_test_calls_for_user(user) >= TEST_CALL_LIFETIME_LIMIT:
+    # Admins / supervisors / staff are unlimited for QA / ops test calls.
+    if (
+        not _is_test_call_quota_exempt(user)
+        and counted_test_calls_for_user(user) >= TEST_CALL_LIFETIME_LIMIT
+    ):
         raise CallValidationError(TEST_CALL_LIFETIME_LIMIT_MESSAGE)
 
     # Block concurrent active/pending test calls for this user.
@@ -300,17 +316,18 @@ def start_test_call_session(user) -> CallSession:
             "لديك اتصال تجريبي نشط بالفعل. أنهِه قبل بدء تجربة جديدة.",
         )
 
-    # Soft rate limit: max 5 test calls per hour.
-    hour_ago = timezone.now() - timedelta(hours=1)
-    recent_count = CallSession.objects.filter(
-        student=user,
-        is_test_call=True,
-        created_at__gte=hour_ago,
-    ).count()
-    if recent_count >= 5:
-        raise CallValidationError(
-            "وصلت إلى الحد الأقصى للاتصالات التجريبية مؤقتًا. حاول لاحقًا.",
-        )
+    # Soft rate limit: max 5 test calls per hour (quota-exempt users skip).
+    if not _is_test_call_quota_exempt(user):
+        hour_ago = timezone.now() - timedelta(hours=1)
+        recent_count = CallSession.objects.filter(
+            student=user,
+            is_test_call=True,
+            created_at__gte=hour_ago,
+        ).count()
+        if recent_count >= 5:
+            raise CallValidationError(
+                "وصلت إلى الحد الأقصى للاتصالات التجريبية مؤقتًا. حاول لاحقًا.",
+            )
 
     _ = TEST_CALL_MAX_SECONDS  # documented max; enforced via DEMO_CALL_MAX_SECONDS
     call = CallSession.objects.create(

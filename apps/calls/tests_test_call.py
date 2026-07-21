@@ -503,6 +503,24 @@ class TestCallLifetimeLimitTests(TestCase):
             "لقد استخدمت الحد الأقصى للاتصالات التجريبية.",
         )
 
+    def test_admin_is_exempt_from_lifetime_limit(self):
+        from apps.calls.services import start_test_call_session
+        from identity.accounts.user_types import USER_TYPE_ADMIN
+
+        admin = User.objects.create_user(
+            username="limit_admin",
+            password="Pass1234!",
+            user_type=USER_TYPE_ADMIN,
+            email="limit_admin@example.com",
+            is_staff=True,
+        )
+        for _ in range(3):
+            self._complete_counted_test_call(admin)
+
+        call = start_test_call_session(admin)
+        self.assertTrue(call.is_test_call)
+        self.assertEqual(call.student_id, admin.id)
+
     def test_failed_before_recording_does_not_count(self):
         from apps.calls.services import (
             counted_test_calls_for_user,
