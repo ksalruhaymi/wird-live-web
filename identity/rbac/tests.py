@@ -115,6 +115,12 @@ class DualReadPermissionTests(TestCase):
         self.assertFalse(user.has_permission("appointments.manage_schedule"))
         self.assertFalse(user.has_permission("appointments.manage_bookings"))
         self.assertFalse(user.has_permission("appointments.override_status"))
+        self.assertTrue(user.has_permission("mobile.teachers.list.view"))
+        self.assertTrue(user.has_permission("mobile.calls.request"))
+        self.assertTrue(user.has_permission("mobile.management.teachers.interview_call"))
+        self.assertTrue(user.has_permission("mobile.nav.subscriptions.view"))
+        self.assertTrue(user.has_permission("mobile.subscriptions.packages.view"))
+        self.assertTrue(user.has_permission("mobile.subscriptions.checkout.create"))
 
     def test_teacher_permissions(self):
         user = self.teacher_user

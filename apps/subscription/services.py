@@ -120,8 +120,15 @@ def is_admin_user(user) -> bool:
     return False
 
 
+def is_complimentary_subscription_user(user) -> bool:
+    """Only admin accounts may activate packages without store payment."""
+    return is_admin_user(user)
+
+
 def can_use_subscription_packages(user) -> bool:
     if is_student_user(user) or is_admin_user(user):
+        return True
+    if resolve_user_type_slug(user) == "supervisor":
         return True
     if hasattr(user, "has_permission"):
         return user.has_permission("mobile.subscriptions.checkout.create")
@@ -396,7 +403,7 @@ def create_student_subscription(
     if not can_use_subscription_packages(user):
         return None, STUDENT_ONLY_SUBSCRIPTION_MESSAGE
 
-    admin_complimentary = is_admin_user(user)
+    admin_complimentary = is_complimentary_subscription_user(user)
 
     try:
         plan = SubscriptionPlan.objects.get(pk=plan_id)

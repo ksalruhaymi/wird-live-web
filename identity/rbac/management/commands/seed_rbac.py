@@ -262,10 +262,20 @@ SUPERVISOR_MOBILE_PERMISSIONS = [
     "mobile.nav.recordings.view",
     "mobile.nav.management.view",
     "mobile.nav.settings.view",
+    "mobile.nav.subscriptions.view",
     "mobile.management.teachers.view",
     "mobile.management.teachers.approve",
     "mobile.management.teachers.reject",
     "mobile.management.teachers.interview_call",
+    # Teachers screen: list all approved teachers and place outbound calls.
+    "mobile.teachers.list.view",
+    "mobile.teachers.profile.view",
+    "mobile.teachers.favorite.toggle",
+    "mobile.calls.request",
+    # Packages + paid store checkout (not complimentary).
+    "mobile.subscriptions.packages.view",
+    "mobile.subscriptions.status.view",
+    "mobile.subscriptions.checkout.create",
 ]
 
 SUPERVISOR_SHARED_PERMISSIONS = [

@@ -6,6 +6,8 @@ from django.contrib.auth import get_user_model
 from django.db.models import Q, QuerySet
 from django.http import Http404
 
+from identity.accounts.user_types import resolve_user_type_slug
+
 User = get_user_model()
 
 DEMO_ROLE_ADMIN = User.DemoRole.ADMIN
@@ -51,6 +53,13 @@ def is_demo_supervisor_account(user) -> bool:
     )
 
 
+def _is_staff_viewer(viewer) -> bool:
+    """Admin/supervisor may monitor the full teacher roster (including demo)."""
+    if viewer is None or not getattr(viewer, "is_authenticated", False):
+        return False
+    return resolve_user_type_slug(viewer) in {"admin", "supervisor"}
+
+
 def can_viewer_see_teacher(viewer, teacher) -> bool:
     """
     Visibility for a teacher User.
@@ -58,6 +67,7 @@ def can_viewer_see_teacher(viewer, teacher) -> bool:
     Non-demo teachers are always visible at this layer (other gates apply elsewhere).
     Demo teachers are visible only to:
       - is_superuser=True viewers
+      - admin / supervisor (ops monitoring)
       - the protected demo student account
     """
     if teacher is None:
@@ -68,13 +78,17 @@ def can_viewer_see_teacher(viewer, teacher) -> bool:
         return False
     if getattr(viewer, "is_superuser", False):
         return True
+    if _is_staff_viewer(viewer):
+        return True
     return is_demo_student_account(viewer)
 
 
 def exclude_hidden_demo_teachers(qs: QuerySet, viewer) -> QuerySet:
     """Filter a User queryset of teachers for the given viewer."""
     if viewer is not None and (
-        getattr(viewer, "is_superuser", False) or is_demo_student_account(viewer)
+        getattr(viewer, "is_superuser", False)
+        or is_demo_student_account(viewer)
+        or _is_staff_viewer(viewer)
     ):
         return qs
     return qs.exclude(is_demo_account=True, demo_role=DEMO_ROLE_TEACHER)
@@ -83,7 +97,9 @@ def exclude_hidden_demo_teachers(qs: QuerySet, viewer) -> QuerySet:
 def demo_teacher_visibility_q(viewer) -> Q:
     """Q object usable in teacher User filters."""
     if viewer is not None and (
-        getattr(viewer, "is_superuser", False) or is_demo_student_account(viewer)
+        getattr(viewer, "is_superuser", False)
+        or is_demo_student_account(viewer)
+        or _is_staff_viewer(viewer)
     ):
         return Q()
     return ~Q(is_demo_account=True, demo_role=DEMO_ROLE_TEACHER)

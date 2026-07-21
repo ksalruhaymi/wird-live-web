@@ -119,6 +119,13 @@ class DemoTeacherVisibilityHelpersTests(TestCase):
             email="vis_super@example.com",
             password="Pass1234!",
         )
+        self.supervisor = User.objects.create_user(
+            username="vis_supervisor",
+            password="Pass1234!",
+            user_type=USER_TYPE_SUPERVISOR,
+            email="vis_supervisor@example.com",
+        )
+        self.supervisor.roles.set([_ensure_role("supervisor")])
 
     def test_helpers(self):
         self.assertTrue(is_demo_teacher_account(self.demo_teacher))
@@ -128,6 +135,7 @@ class DemoTeacherVisibilityHelpersTests(TestCase):
     def test_can_viewer_see_teacher(self):
         self.assertTrue(can_viewer_see_teacher(self.superuser, self.demo_teacher))
         self.assertTrue(can_viewer_see_teacher(self.demo_student, self.demo_teacher))
+        self.assertTrue(can_viewer_see_teacher(self.supervisor, self.demo_teacher))
         self.assertFalse(can_viewer_see_teacher(self.normal_student, self.demo_teacher))
         self.assertTrue(can_viewer_see_teacher(self.normal_student, self.normal_teacher))
 
@@ -139,6 +147,10 @@ class DemoTeacherVisibilityHelpersTests(TestCase):
 
         visible = exclude_hidden_demo_teachers(qs, self.demo_student)
         self.assertTrue(visible.filter(pk=self.demo_teacher.pk).exists())
+
+        staff_visible = exclude_hidden_demo_teachers(qs, self.supervisor)
+        self.assertTrue(staff_visible.filter(pk=self.demo_teacher.pk).exists())
+        self.assertTrue(staff_visible.filter(pk=self.normal_teacher.pk).exists())
 
     def test_get_visible_teacher_or_404(self):
         get_visible_teacher_or_404(self.demo_student, self.demo_teacher.id)

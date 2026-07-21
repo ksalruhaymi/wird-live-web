@@ -58,8 +58,8 @@ def _can_view_call(call: CallSession, user) -> bool:
     return user.id in {call.student_id, call.teacher_id}
 
 
-def _is_interview_caller(user) -> bool:
-    """Admin/supervisor calling a pending teacher for interview (no subscription)."""
+def _is_staff_caller(user) -> bool:
+    """Admin/supervisor who may place outbound calls (interview or approved teachers)."""
     slug = resolve_user_type_slug(user)
     if slug not in {"admin", "supervisor"}:
         return False
@@ -213,14 +213,22 @@ def request_call_session(
     if not teacher_id:
         raise CallValidationError("يجب اختيار معلّم.")
 
-    interview_call = _is_interview_caller(user)
-    if interview_call:
-        teacher = get_pending_teacher_for_interview(teacher_id, viewer=user)
-        if teacher is None:
-            raise CallValidationError(
-                "المعلّم غير موجود أو ليس بانتظار المراجعة.",
-                status=404,
-            )
+    interview_call = False
+    staff_caller = _is_staff_caller(user)
+
+    if staff_caller:
+        # Pending → interview call; approved → regular outbound call (no subscription).
+        pending = get_pending_teacher_for_interview(teacher_id, viewer=user)
+        if pending is not None:
+            interview_call = True
+            teacher = pending
+        else:
+            teacher = get_teacher_user(teacher_id, viewer=user)
+            if teacher is None:
+                raise CallValidationError(
+                    "المعلّم غير موجود أو غير معتمد.",
+                    status=404,
+                )
     else:
         caller_slug = resolve_user_type_slug(user)
         if caller_slug not in {"student", "admin"}:
@@ -244,7 +252,7 @@ def request_call_session(
         if teacher is None:
             raise CallValidationError("المعلّم غير موجود أو غير معتمد.", status=404)
 
-    if not interview_call:
+    if not interview_call and not staff_caller:
         can_call, eligibility_message = student_can_request_call(user)
         if not can_call:
             raise CallValidationError(eligibility_message)

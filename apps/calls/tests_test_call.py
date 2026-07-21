@@ -660,6 +660,96 @@ class IndependentTestCallServiceTests(TestCase):
         self.assertEqual(rec.student_id, self.student.id)
 
 
+class StaffCallerApprovedTeacherTests(TestCase):
+    """Supervisor/admin may list-call approved teachers (not interview-only)."""
+
+    @classmethod
+    def setUpTestData(cls):
+        from django.core.management import call_command
+
+        from identity.accounts.user_types import USER_TYPE_SUPERVISOR
+        from identity.rbac.models import Role
+
+        call_command("seed_rbac")
+        role = Role.objects.get(slug="supervisor")
+        cls.supervisor = User.objects.create_user(
+            username="staff_call_sv",
+            password="Pass1234!",
+            user_type=USER_TYPE_SUPERVISOR,
+            email="staff_call_sv@example.com",
+        )
+        cls.supervisor.roles.set([role])
+        cls.teacher = User.objects.create_user(
+            username="staff_call_teacher",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            email="staff_call_teacher@example.com",
+        )
+        TeacherProfile.objects.create(
+            user=cls.teacher,
+            display_name="معلم معتمد",
+            is_approved=True,
+            approval_status=TeacherProfile.ApprovalStatus.APPROVED,
+            can_audio=True,
+            can_video=True,
+        )
+        cls.pending = User.objects.create_user(
+            username="staff_call_pending",
+            password="Pass1234!",
+            user_type=USER_TYPE_TEACHER,
+            email="staff_call_pending@example.com",
+        )
+        TeacherProfile.objects.create(
+            user=cls.pending,
+            display_name="معلم بانتظار",
+            is_approved=False,
+            approval_status=TeacherProfile.ApprovalStatus.PENDING,
+            can_audio=True,
+            can_video=True,
+        )
+
+    def test_supervisor_can_request_approved_teacher_without_subscription(self):
+        from apps.calls.services import request_call_session
+
+        with patch(
+            "apps.calls.services.validate_teacher_for_call",
+            return_value=None,
+        ), patch(
+            "apps.calls.services.provider_name_for_new_call",
+            return_value=CallSession.Provider.AGORA,
+        ), patch("apps.calls.services.assign_channel_name"), patch(
+            "apps.calls.services.mark_teacher_busy"
+        ):
+            call = request_call_session(
+                self.supervisor,
+                session_type=CallSession.SessionType.AUDIO,
+                teacher_id=self.teacher.id,
+            )
+        self.assertFalse(call.is_interview_call)
+        self.assertEqual(call.teacher_id, self.teacher.id)
+        self.assertEqual(call.student_id, self.supervisor.id)
+
+    def test_supervisor_pending_teacher_is_interview_call(self):
+        from apps.calls.services import request_call_session
+
+        with patch(
+            "apps.calls.services.validate_teacher_for_call",
+            return_value=None,
+        ), patch(
+            "apps.calls.services.provider_name_for_new_call",
+            return_value=CallSession.Provider.AGORA,
+        ), patch("apps.calls.services.assign_channel_name"), patch(
+            "apps.calls.services.mark_teacher_busy"
+        ):
+            call = request_call_session(
+                self.supervisor,
+                session_type=CallSession.SessionType.AUDIO,
+                teacher_id=self.pending.id,
+            )
+        self.assertTrue(call.is_interview_call)
+        self.assertEqual(call.teacher_id, self.pending.id)
+
+
 class TeacherTestCallMyRecordingsApiTests(TestCase):
     """Teacher test-call recordings must appear on recordings/my/."""
 

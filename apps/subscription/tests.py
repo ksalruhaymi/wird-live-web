@@ -77,6 +77,13 @@ class AdminSubscriptionAccessTests(TestCase):
             user_type=USER_TYPE_SUPERVISOR,
         )
         cls.rbac_admin_user.roles.set([cls.role_admin])
+        cls.role_supervisor = Role.objects.get(slug="supervisor")
+        cls.supervisor_user = User.objects.create_user(
+            username="sub_supervisor",
+            password="pass12345",
+            user_type=USER_TYPE_SUPERVISOR,
+        )
+        cls.supervisor_user.roles.set([cls.role_supervisor])
 
     def test_admin_current_subscription_is_applicable(self):
         payload = current_subscription_payload(self.admin_user)
@@ -150,6 +157,70 @@ class AdminSubscriptionAccessTests(TestCase):
         assert sub is not None
         self.assertEqual(sub.amount, Decimal("0"))
         self.assertEqual(sub.payment_method, "complimentary")
+
+    def test_supervisor_can_access_packages_but_not_complimentary(self):
+        """Supervisor sees packages and must pay via store like a student."""
+        from apps.subscription.services import is_complimentary_subscription_user
+        from apps.subscription.store_verification.types import VerifiedStorePurchase
+
+        self.assertTrue(can_use_subscription_packages(self.supervisor_user))
+        self.assertFalse(is_complimentary_subscription_user(self.supervisor_user))
+
+        payload = current_subscription_payload(self.supervisor_user)
+        self.assertTrue(payload["applicable"])
+        self.assertFalse(payload["has_active_subscription"])
+        self.assertFalse(payload["can_call"])
+
+        # Without store verification, paid checkout must be rejected.
+        sub, error = create_student_subscription(
+            self.supervisor_user,
+            plan_id=self.plan.id,
+            require_store_purchase=True,
+        )
+        self.assertIsNone(sub)
+        self.assertIsNotNone(error)
+        self.assertIn("متجر", error)
+
+        product_id = f"wird_live_minutes_{self.plan.minutes}"
+        verified = VerifiedStorePurchase(
+            payment_method="play_store",
+            product_id=product_id,
+            transaction_id="sv_tx_supervisor_1",
+            environment="sandbox",
+            product_kind="consumable",
+            package_or_bundle_id="com.kslabs.wirdlive",
+            minutes=self.plan.minutes,
+            needs_google_consume=True,
+            google_purchase_token="token-supervisor-1",
+        )
+        with patch(
+            "apps.subscription.store_verification.verify_store_purchase",
+            return_value=verified,
+        ), patch(
+            "apps.subscription.store_verification.schedule_google_consume"
+        ):
+            sub, error = create_student_subscription(
+                self.supervisor_user,
+                plan_id=self.plan.id,
+                payment_method="play_store",
+                transaction_reference="sv_tx_supervisor_1",
+                store_product_id=product_id,
+                purchase_token="token-supervisor-1",
+                require_store_purchase=True,
+            )
+        self.assertIsNone(error)
+        assert sub is not None
+        self.assertEqual(sub.payment_method, "play_store")
+        self.assertEqual(sub.amount, self.plan.price)
+        self.assertNotEqual(sub.payment_method, "complimentary")
+
+        balance = get_user_subscription_balance(self.supervisor_user)
+        assert balance is not None
+        self.assertEqual(balance.remaining_minutes, self.plan.minutes)
+
+        can_call, message = student_can_request_call(self.supervisor_user)
+        self.assertTrue(can_call)
+        self.assertEqual(message, "")
 
     def test_admin_call_eligibility_api_after_subscription(self):
         create_student_subscription(self.admin_user, plan_id=self.plan.id)
