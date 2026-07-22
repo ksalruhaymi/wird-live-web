@@ -70,6 +70,7 @@ def register_device(request):
         return err
 
     fcm_token = str(data.get("fcm_token") or "").strip()
+    voip_token = str(data.get("voip_token") or "").strip()[:255]
     platform = str(data.get("platform") or "").strip().lower()
     device_id = str(data.get("device_id") or "").strip()[:_MAX_DEVICE_ID_LENGTH]
 
@@ -101,6 +102,9 @@ def register_device(request):
         }
         if user is not None:
             defaults["user"] = user
+        # Only overwrite VoIP token when the client sends one (iOS PushKit).
+        if voip_token:
+            defaults["voip_token"] = voip_token
 
         device, created = UserDevice.objects.update_or_create(
             fcm_token=fcm_token,
@@ -127,6 +131,15 @@ def register_device(request):
                     device_id,
                 )
 
+        # Keep at most one active VoIP token per iOS device_id.
+        if voip_token and device_id and user is not None:
+            UserDevice.objects.filter(
+                user=user,
+                device_id=device_id,
+                platform=UserDevice.Platform.IOS,
+                is_active=True,
+            ).exclude(pk=device.pk).update(voip_token="")
+
     except Exception:
         logger.exception("push_api: failed to register device")
         return JsonResponse({"detail": "خطأ في الخادم."}, status=500)
@@ -138,6 +151,7 @@ def register_device(request):
             "message": "تم تسجيل التوكن بنجاح.",
             "id": device.id,
             "created": created,
+            "voip_registered": bool(voip_token or device.voip_token),
         },
         status=status_code,
     )

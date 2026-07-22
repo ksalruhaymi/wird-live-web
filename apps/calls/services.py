@@ -34,16 +34,39 @@ TEST_CALL_LIFETIME_LIMIT = 3
 TEST_CALL_LIFETIME_LIMIT_MESSAGE = "لقد استخدمت الحد الأقصى للاتصالات التجريبية."
 
 
+def _notify_teacher_incoming_call(call: CallSession) -> None:
+    try:
+        from apps.push.call_notify import notify_incoming_call
+
+        notify_incoming_call(call)
+    except Exception:
+        import logging
+
+        logging.getLogger(__name__).exception(
+            "incoming_call_push_failed call_id=%s", getattr(call, "pk", None)
+        )
+
+
+def _notify_teacher_call_cancelled(call: CallSession, *, reason: str) -> None:
+    try:
+        from apps.push.call_notify import notify_call_cancelled
+
+        notify_call_cancelled(call, reason=reason)
+    except Exception:
+        import logging
+
+        logging.getLogger(__name__).exception(
+            "call_cancel_push_failed call_id=%s reason=%s",
+            getattr(call, "pk", None),
+            reason,
+        )
+
+
 def _is_test_call_quota_exempt(user) -> bool:
-    """Admins / supervisors / staff are not limited by the 3-call lifetime quota."""
+    """Only admins are not limited by the 3-call lifetime quota."""
     from apps.subscription.services import is_admin_user
 
-    if is_admin_user(user):
-        return True
-    if getattr(user, "is_superuser", False) or getattr(user, "is_staff", False):
-        return True
-    slug = resolve_user_type_slug(user)
-    return slug in {"admin", "supervisor"}
+    return is_admin_user(user)
 
 
 def student_display_name(user) -> str:
@@ -276,6 +299,7 @@ def request_call_session(
     )
     assign_channel_name(call)
     mark_teacher_busy(teacher)
+    _notify_teacher_incoming_call(call)
 
     return call
 
@@ -302,7 +326,7 @@ def start_test_call_session(user) -> CallSession:
     from apps.calls.models import TEST_CALL_MAX_SECONDS
 
     # Lifetime quota: only sessions that created a recording count.
-    # Admins / supervisors / staff are unlimited for QA / ops test calls.
+    # Admins are unlimited for QA / ops test calls; supervisors share the 3-call cap.
     if (
         not _is_test_call_quota_exempt(user)
         and counted_test_calls_for_user(user) >= TEST_CALL_LIFETIME_LIMIT
@@ -451,6 +475,7 @@ def reject_call_session(call: CallSession, teacher_user) -> tuple[CallSession | 
 
     if call.teacher_id:
         mark_teacher_online(call.teacher)
+    _notify_teacher_call_cancelled(call, reason="rejected")
     return call, None
 
 
@@ -478,6 +503,7 @@ def cancel_pending_call(call: CallSession, student_user) -> tuple[CallSession | 
 
     if call.teacher_id:
         mark_teacher_online(call.teacher)
+    _notify_teacher_call_cancelled(call, reason="cancelled")
     return call, None
 
 
@@ -554,6 +580,7 @@ def end_call_session(
 
     if call.teacher_id:
         mark_teacher_online(call.teacher)
+    _notify_teacher_call_cancelled(call, reason=reason or call.status)
 
     recording_pending = False
     if call.status == CallSession.Status.FAILED:

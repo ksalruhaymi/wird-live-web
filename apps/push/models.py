@@ -16,6 +16,13 @@ class UserDevice(models.Model):
         verbose_name="المستخدم",
     )
     fcm_token = models.TextField(unique=True, verbose_name="FCM Token")
+    voip_token = models.CharField(
+        max_length=255,
+        blank=True,
+        default="",
+        db_index=True,
+        verbose_name="VoIP Token (iOS PushKit)",
+    )
     platform = models.CharField(
         max_length=10,
         choices=Platform.choices,

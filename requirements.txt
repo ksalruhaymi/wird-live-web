@@ -18,3 +18,4 @@ agora-token-builder==1.0.0
 boto3==1.42.41
 PyJWT[crypto]==2.13.0
 google-auth==2.53.0
+httpx[http2]==0.28.1

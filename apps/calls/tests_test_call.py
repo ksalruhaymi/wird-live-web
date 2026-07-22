@@ -521,6 +521,32 @@ class TestCallLifetimeLimitTests(TestCase):
         self.assertTrue(call.is_test_call)
         self.assertEqual(call.student_id, admin.id)
 
+    def test_supervisor_is_limited_to_three_test_calls(self):
+        from apps.calls.exceptions import CallValidationError
+        from apps.calls.services import (
+            TEST_CALL_LIFETIME_LIMIT_MESSAGE,
+            start_test_call_session,
+        )
+        from identity.accounts.user_types import USER_TYPE_SUPERVISOR
+        from identity.rbac.models import Role
+
+        supervisor = User.objects.create_user(
+            username="limit_supervisor",
+            password="Pass1234!",
+            user_type=USER_TYPE_SUPERVISOR,
+            email="limit_supervisor@example.com",
+        )
+        role = Role.objects.filter(slug="supervisor").first()
+        if role:
+            supervisor.roles.set([role])
+
+        for _ in range(3):
+            self._complete_counted_test_call(supervisor)
+
+        with self.assertRaises(CallValidationError) as ctx:
+            start_test_call_session(supervisor)
+        self.assertEqual(ctx.exception.message, TEST_CALL_LIFETIME_LIMIT_MESSAGE)
+
     def test_failed_before_recording_does_not_count(self):
         from apps.calls.services import (
             counted_test_calls_for_user,

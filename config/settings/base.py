@@ -340,6 +340,25 @@ AXES_RESET_ON_SUCCESS = True
 # ------------------------------------------------------------------------------
 FIREBASE_CREDENTIALS_PATH = os.getenv("FIREBASE_CREDENTIALS_PATH", "")
 
+# ------------------------------------------------------------------------------
+# Apple PushKit VoIP (incoming calls on locked / killed iOS)
+# Same .p8 Auth Key can be reused if APNs is enabled for the key.
+# Never commit key files — path/env only.
+# ------------------------------------------------------------------------------
+APNS_TEAM_ID = (os.getenv("APNS_TEAM_ID", "") or "").strip()
+APNS_KEY_ID = (os.getenv("APNS_KEY_ID", "") or os.getenv("APPLE_KEY_ID", "") or "").strip()
+APNS_BUNDLE_ID = (
+    os.getenv("APNS_BUNDLE_ID", "") or os.getenv("APPLE_BUNDLE_ID", "com.kslabs.wirdlive") or ""
+).strip()
+APNS_PRIVATE_KEY_PATH = (
+    os.getenv("APNS_PRIVATE_KEY_PATH", "") or os.getenv("APPLE_PRIVATE_KEY_PATH", "") or ""
+).strip()
+APNS_PRIVATE_KEY = (os.getenv("APNS_PRIVATE_KEY", "") or os.getenv("APPLE_PRIVATE_KEY", "") or "").strip()
+APNS_USE_SANDBOX = env_bool(
+    "APNS_USE_SANDBOX",
+    app_env not in {"prod", "production"},
+)
+
 
 # ------------------------------------------------------------------------------
 # Store billing verification (App Store / Google Play)
