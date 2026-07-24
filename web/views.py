@@ -92,7 +92,7 @@ def _send_account_deletion_request_email(data, *, client_ip: str = ""):
 
 @never_cache
 @csrf_protect
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["GET", "POST", "HEAD"])
 def account_deletion(request):
     data = {"username": "", "email": "", "notes": ""}
     errors = {}
