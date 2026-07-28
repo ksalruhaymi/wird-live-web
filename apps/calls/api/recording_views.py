@@ -33,6 +33,7 @@ def my_recordings(request):
     user = request.user
     from django.db.models import Q
 
+    from apps.calls.recording_soft_delete import recording_hidden_for_user
     from apps.tutoring.teacher_services import resolve_user_type_slug
 
     # Include rows where the viewer is student OR teacher.
@@ -68,12 +69,13 @@ def my_recordings(request):
         except Exception:
             continue
 
+    visible = [r for r in qs if not recording_hidden_for_user(r, user)]
     return JsonResponse(
         {
             "success": True,
             "recordings": [
                 p
-                for r in qs
+                for r in visible
                 if (p := recording_to_payload(r, user))
                 and (p.get("is_playable") or p.get("is_preparing"))
             ],
@@ -125,7 +127,11 @@ def recording_signed_url(request, pk: int):
 @csrf_exempt
 @require_http_methods(["DELETE", "POST"])
 def delete_my_recording(request, pk: int):
-    """Delete a recording owned by the authenticated student or teacher."""
+    """Soft-remove a recording from the caller's list only.
+
+    Does not delete the file from storage. Hard delete is retention-gated and
+    separate from the user-facing remove action.
+    """
     auth_err = _require_auth(request)
     if auth_err:
         return auth_err
@@ -138,30 +144,22 @@ def delete_my_recording(request, pk: int):
             status=403,
         )
 
-    from apps.calls.recording_storage import (
-        delete_recording_object,
-        delete_recording_prefix,
-        object_key_for_recording,
-        prefix_for_recording_objects,
+    from apps.calls.recording_soft_delete import (
+        hide_recording_for_user,
+        recording_parties_have_hidden,
     )
 
-    prefix = prefix_for_recording_objects(recording)
-    key = object_key_for_recording(recording)
-    r2_ok = True
-    try:
-        if prefix:
-            delete_recording_prefix(prefix)
-        elif key:
-            delete_recording_object(key)
-    except RecordingStorageError:
-        r2_ok = False
-
-    recording_id = recording.id
-    recording.delete()
+    hide_recording_for_user(recording, user)
+    recording.refresh_from_db()
+    both_hidden = recording_parties_have_hidden(recording)
+    # Hard delete is retention-gated and runs via cleanup job — not here.
     return JsonResponse(
         {
             "success": True,
-            "recording_id": recording_id,
-            "storage_cleaned": r2_ok,
+            "recording_id": pk,
+            "soft_removed": True,
+            "removed_for_both_parties": both_hidden,
+            "hard_deleted": False,
+            "storage_cleaned": False,
         }
     )

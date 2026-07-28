@@ -279,8 +279,16 @@ def user_can_access_recording(user, recording: CallRecording) -> bool:
     """Student/teacher party or dashboard user with recordings.view."""
     if not user or not user.is_authenticated:
         return False
-    if recording.student_id == user.id or recording.teacher_id == user.id:
-        return True
+    # Soft-hidden from the caller's own list — still allow staff/admin access.
+    is_party = recording.student_id == user.id or recording.teacher_id == user.id
+    if is_party:
+        from apps.calls.recording_soft_delete import recording_hidden_for_user
+
+        if recording_hidden_for_user(recording, user):
+            # Party removed it from their list; block their own playback.
+            pass
+        else:
+            return True
     try:
         call = getattr(recording, "call_session", None)
         if call is not None and hasattr(user, "has_permission"):

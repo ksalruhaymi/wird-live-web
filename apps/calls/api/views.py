@@ -378,13 +378,24 @@ def recording_consent(request, pk: int):
 
     data = _parse_json_body(request)
     platform = (data.get("platform") or "").strip()
+    # Default True for backward compatibility with older clients.
+    raw_given = data.get("consent_given", data.get("consented", True))
+    if isinstance(raw_given, str):
+        consent_given = raw_given.strip().lower() in {"1", "true", "yes"}
+    else:
+        consent_given = bool(raw_given)
     from apps.calls.recording_consent import (
         record_call_recording_consent,
         recording_consent_payload,
     )
 
     try:
-        record_call_recording_consent(call, request.user, platform=platform)
+        record_call_recording_consent(
+            call,
+            request.user,
+            platform=platform,
+            consent_given=consent_given,
+        )
     except CallValidationError as exc:
         return _handle_call_error(exc)
 

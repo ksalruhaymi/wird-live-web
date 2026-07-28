@@ -150,46 +150,53 @@ def test_call_requires_caller_consent_only(call: CallSession) -> bool:
 
 
 def user_has_recording_consent(call: CallSession, user) -> bool:
+    """True only with an explicit per-call agree row for this session.
+
+    Account-level consent must not satisfy recording start for calls that
+    show the opt-in dialog. Missing row = still waiting; decline = False.
+    """
     if not _is_participant(call, user):
         return False
     version = consent_version_for_call(call)
-    if CallRecordingConsent.objects.filter(
+    return CallRecordingConsent.objects.filter(
         call_session=call,
         user_id=user.id,
         consent_given=True,
         consent_version=version,
-    ).exists():
-        return True
-    return user_has_account_recording_consent(user, version)
+    ).exists()
+
+
+def any_participant_declined_recording(call: CallSession) -> bool:
+    """True when at least one participant explicitly declined (no who)."""
+    version = consent_version_for_call(call)
+    user_ids = [call.student_id]
+    if call.teacher_id:
+        user_ids.append(call.teacher_id)
+    return CallRecordingConsent.objects.filter(
+        call_session=call,
+        user_id__in=[uid for uid in user_ids if uid],
+        consent_given=False,
+        consent_version=version,
+    ).exists()
 
 
 def both_parties_have_recording_consent(call: CallSession) -> bool:
+    """Both parties must have explicit consent_given=True for this call."""
     if not call.student_id or not call.teacher_id:
         return False
-    version = RECORDING_CONSENT_VERSION
-    given = set(
-        CallRecordingConsent.objects.filter(
-            call_session=call,
-            consent_given=True,
-            consent_version=version,
-            user_id__in=[call.student_id, call.teacher_id],
-        ).values_list("user_id", flat=True)
-    )
-    if call.student_id in given and call.teacher_id in given:
-        return True
-    from django.contrib.auth import get_user_model
-
-    User = get_user_model()
-    users = {
-        u.id: u
-        for u in User.objects.filter(id__in=[call.student_id, call.teacher_id])
-    }
-    student_ok = call.student_id in given or user_has_account_recording_consent(
-        users.get(call.student_id), version
-    )
-    teacher_ok = call.teacher_id in given or user_has_account_recording_consent(
-        users.get(call.teacher_id), version
-    )
+    version = consent_version_for_call(call)
+    student_ok = CallRecordingConsent.objects.filter(
+        call_session=call,
+        user_id=call.student_id,
+        consent_given=True,
+        consent_version=version,
+    ).exists()
+    teacher_ok = CallRecordingConsent.objects.filter(
+        call_session=call,
+        user_id=call.teacher_id,
+        consent_given=True,
+        consent_version=version,
+    ).exists()
     return student_ok and teacher_ok
 
 
@@ -197,20 +204,12 @@ def recording_consents_satisfied(call: CallSession) -> bool:
     if is_test_call_session(call):
         if not call.student_id:
             return False
-        if CallRecordingConsent.objects.filter(
+        return CallRecordingConsent.objects.filter(
             call_session=call,
             user_id=call.student_id,
             consent_given=True,
             consent_version=TEST_CALL_RECORDING_CONSENT_VERSION,
-        ).exists():
-            return True
-        from django.contrib.auth import get_user_model
-
-        User = get_user_model()
-        caller = User.objects.filter(pk=call.student_id).first()
-        return user_has_account_recording_consent(
-            caller, TEST_CALL_RECORDING_CONSENT_VERSION
-        )
+        ).exists()
     return both_parties_have_recording_consent(call)
 
 
@@ -248,6 +247,7 @@ def record_call_recording_consent(
     user,
     *,
     platform: str = "",
+    consent_given: bool = True,
 ) -> CallRecordingConsent:
     call = CallSession.objects.select_related("student", "teacher").get(pk=call.pk)
     if call.status != CallSession.Status.ACTIVE:
@@ -269,47 +269,47 @@ def record_call_recording_consent(
     if plat == "demo_system":
         raise CallValidationError("منصة الموافقة غير صالحة.")
 
+    given = bool(consent_given)
     with transaction.atomic():
         consent, created = CallRecordingConsent.objects.get_or_create(
             call_session=call,
             user=user,
             defaults={
-                "consent_given": True,
+                "consent_given": given,
                 "consented_at": now,
                 "consent_version": version,
                 "platform": plat,
             },
         )
         if not created:
-            updates = []
-            if not consent.consent_given:
-                consent.consent_given = True
-                updates.append("consent_given")
-            if not consent.consented_at:
-                consent.consented_at = now
-                updates.append("consented_at")
+            consent.consent_given = given
+            consent.consented_at = now
+            consent.consent_version = version
+            updates = ["consent_given", "consented_at", "consent_version"]
             if plat and not consent.platform:
                 consent.platform = plat
                 updates.append("platform")
-            if consent.consent_version != version:
-                consent.consent_version = version
-                updates.append("consent_version")
-            if updates:
-                consent.save(update_fields=updates)
+            consent.save(update_fields=updates)
 
-    # Persist account-level consent so future calls skip the dialog.
-    save_account_recording_consent(user, version)
-
-    # Consent alone must NEVER start Cloud Recording — wait for media-ready.
-    logger.info(
-        "recording_consent_ready call_id=%s user_id=%s is_test=%s "
-        "(defer recording until media-ready)",
-        call.id,
-        user.id,
-        is_test_call_session(call),
-    )
-    # If both consents + media-ready already exist (e.g. late consent), try start.
-    maybe_start_recording_if_consents_ready(call)
+    # Only persist account-level consent when the user explicitly agrees.
+    if given:
+        save_account_recording_consent(user, version)
+        # Consent alone must NEVER start Cloud Recording — wait for media-ready.
+        logger.info(
+            "recording_consent_ready call_id=%s user_id=%s is_test=%s "
+            "(defer recording until media-ready)",
+            call.id,
+            user.id,
+            is_test_call_session(call),
+        )
+        maybe_start_recording_if_consents_ready(call)
+    else:
+        logger.info(
+            "recording_consent_declined call_id=%s user_id=%s is_test=%s",
+            call.id,
+            user.id,
+            is_test_call_session(call),
+        )
     return consent
 
 
@@ -333,17 +333,6 @@ def mark_participant_media_ready(
         raise CallValidationError("غير مصرح بإرسال جاهزية الوسائط لهذه المكالمة.")
     if not user_has_recording_consent(call, user):
         raise CallValidationError("يجب الموافقة على تسجيل المكالمة أولاً.")
-
-    # Materialize per-call consent row from account-level consent when missing.
-    version = consent_version_for_call(call)
-    if user_has_account_recording_consent(user, version):
-        if not CallRecordingConsent.objects.filter(
-            call_session=call,
-            user_id=user.id,
-            consent_given=True,
-            consent_version=version,
-        ).exists():
-            record_call_recording_consent(call, user, platform="account")
 
     is_test = is_test_call_session(call)
     if is_test and user.id != call.student_id:
@@ -464,6 +453,10 @@ def recording_consent_payload(call: CallSession, viewer) -> dict:
         "my_recording_consent_given": my_consent,
         "both_parties_recording_consent": consent_ok,
         "consent_ready": consent_ok,
+        # Neutral flag: do not reveal which participant declined.
+        "recording_declined_by_participant": any_participant_declined_recording(
+            call
+        ),
         "participant_media_ready": media_ready,
         "student_media_ready": bool(getattr(call, "student_media_ready_at", None)),
         "teacher_media_ready": bool(getattr(call, "teacher_media_ready_at", None)),

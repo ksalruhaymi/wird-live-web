@@ -76,3 +76,15 @@ def reconcile_stuck_calls_task(*, dry_run: bool = False) -> dict:
     from apps.calls.cloud_recording.reconcile import reconcile_stuck_calls
 
     return reconcile_stuck_calls(dry_run=dry_run)
+
+
+@shared_task(name="apps.calls.tasks.purge_expired_soft_hidden_recordings")
+def purge_expired_soft_hidden_recordings_task(
+    *,
+    limit: int = 100,
+    dry_run: bool = False,
+) -> dict:
+    """Periodic retention purge for soft-hidden recordings (idempotent)."""
+    from apps.calls.recording_soft_delete import purge_expired_soft_hidden_recordings
+
+    return purge_expired_soft_hidden_recordings(limit=limit, dry_run=dry_run)

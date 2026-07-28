@@ -94,6 +94,117 @@ class RecordingConsentTests(TestCase):
                 RECORDING_CONSENT_VERSION,
             )
 
+    def test_decline_by_one_party_blocks_recording_and_call_continues(self):
+        from apps.calls.recording_consent import (
+            any_participant_declined_recording,
+            recording_consent_payload,
+            recording_start_prerequisites_met,
+        )
+
+        self.call.status = CallSession.Status.ACTIVE
+        self.call.started_at = timezone.now()
+        self.call.save(update_fields=["status", "started_at"])
+
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            record_call_recording_consent(
+                self.call, self.student, platform="android", consent_given=True
+            )
+            record_call_recording_consent(
+                self.call, self.teacher, platform="ios", consent_given=False
+            )
+            mock_start.assert_not_called()
+            self.assertFalse(both_parties_have_recording_consent(self.call))
+            self.assertTrue(any_participant_declined_recording(self.call))
+            self.assertFalse(recording_start_prerequisites_met(self.call))
+            payload = recording_consent_payload(self.call, self.student)
+            self.assertTrue(payload["recording_declined_by_participant"])
+            # Neutral: no who-declined field.
+            self.assertNotIn("declined_by_user_id", payload)
+            self.assertEqual(self.call.status, CallSession.Status.ACTIVE)
+
+    def test_account_consent_alone_does_not_satisfy_current_call(self):
+        from apps.calls.recording_consent import (
+            recording_consents_satisfied,
+            save_account_recording_consent,
+            user_has_recording_consent,
+        )
+
+        self.call.status = CallSession.Status.ACTIVE
+        self.call.started_at = timezone.now()
+        self.call.save(update_fields=["status", "started_at"])
+
+        save_account_recording_consent(self.student, RECORDING_CONSENT_VERSION)
+        save_account_recording_consent(self.teacher, RECORDING_CONSENT_VERSION)
+        self.student.refresh_from_db()
+        self.teacher.refresh_from_db()
+
+        self.assertFalse(user_has_recording_consent(self.call, self.student))
+        self.assertFalse(user_has_recording_consent(self.call, self.teacher))
+        self.assertFalse(both_parties_have_recording_consent(self.call))
+        self.assertFalse(recording_consents_satisfied(self.call))
+
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            from apps.calls.recording_consent import maybe_start_recording_if_consents_ready
+
+            self.assertFalse(maybe_start_recording_if_consents_ready(self.call))
+            mock_start.assert_not_called()
+
+    def test_one_party_explicit_consent_does_not_start_recording(self):
+        from apps.calls.recording_consent import (
+            mark_participant_media_ready,
+            maybe_start_recording_if_consents_ready,
+            recording_start_prerequisites_met,
+        )
+
+        self.call.status = CallSession.Status.ACTIVE
+        self.call.started_at = timezone.now()
+        self.call.save(update_fields=["status", "started_at"])
+
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            record_call_recording_consent(
+                self.call, self.student, platform="android", consent_given=True
+            )
+            # Teacher has not decided yet — wait; do not start.
+            self.assertFalse(both_parties_have_recording_consent(self.call))
+            mark_participant_media_ready(
+                self.call, self.student, agora_uid=self.student.id
+            )
+            self.assertFalse(recording_start_prerequisites_met(self.call))
+            self.assertFalse(maybe_start_recording_if_consents_ready(self.call))
+            mock_start.assert_not_called()
+
+    def test_both_parties_explicit_consent_for_same_call_starts_recording(self):
+        from apps.calls.recording_consent import mark_participant_media_ready
+
+        self.call.status = CallSession.Status.ACTIVE
+        self.call.started_at = timezone.now()
+        self.call.save(update_fields=["status", "started_at"])
+
+        with patch(
+            "apps.calls.cloud_recording.service.start_cloud_recording_for_call"
+        ) as mock_start:
+            record_call_recording_consent(
+                self.call, self.student, platform="android", consent_given=True
+            )
+            record_call_recording_consent(
+                self.call, self.teacher, platform="ios", consent_given=True
+            )
+            self.assertTrue(both_parties_have_recording_consent(self.call))
+            mark_participant_media_ready(
+                self.call, self.student, agora_uid=self.student.id
+            )
+            mock_start.assert_not_called()
+            mark_participant_media_ready(
+                self.call, self.teacher, agora_uid=self.teacher.id
+            )
+            mock_start.assert_called_once()
+
     def test_non_participant_cannot_consent(self):
         other = User.objects.create_user(
             username="c_other", password="Pass1234!", user_type=USER_TYPE_STUDENT
@@ -255,7 +366,7 @@ class RecordingDeleteApiTests(TestCase):
         self.client = Client()
 
     @patch("apps.calls.recording_storage.delete_recording_prefix")
-    def test_owner_can_delete(self, mock_del):
+    def test_owner_soft_removes_without_hard_delete(self, mock_del):
         mock_del.return_value = (1, [])
         self.client.force_login(self.student)
         url = reverse("calls_api:recording-delete", kwargs={"pk": self.rec.pk})
@@ -266,7 +377,83 @@ class RecordingDeleteApiTests(TestCase):
             HTTP_X_APP_PLATFORM="android",
         )
         self.assertEqual(resp.status_code, 200)
+        body = resp.json()
+        self.assertTrue(body.get("soft_removed"))
+        self.assertFalse(body.get("hard_deleted"))
+        # Row remains for the other party / admin.
+        self.rec.refresh_from_db()
+        self.assertIsNotNone(self.rec.hidden_by_student_at)
+        self.assertIsNone(self.rec.hidden_by_teacher_at)
+        mock_del.assert_not_called()
+
+    def test_one_party_hide_keeps_other_party_list(self):
+        from apps.calls.recording_soft_delete import (
+            hide_recording_for_user,
+            recording_hidden_for_user,
+        )
+
+        hide_recording_for_user(self.rec, self.student)
+        self.rec.refresh_from_db()
+        self.assertTrue(recording_hidden_for_user(self.rec, self.student))
+        self.assertFalse(recording_hidden_for_user(self.rec, self.teacher))
+        self.assertTrue(CallRecording.objects.filter(pk=self.rec.pk).exists())
+
+    def test_both_parties_hide_does_not_hard_delete_before_retention(self):
+        from apps.calls.recording_soft_delete import (
+            hide_recording_for_user,
+            maybe_hard_delete_recording,
+            purge_expired_soft_hidden_recordings,
+            recording_parties_have_hidden,
+        )
+
+        hide_recording_for_user(self.rec, self.student)
+        hide_recording_for_user(self.rec, self.teacher)
+        self.rec.refresh_from_db()
+        self.assertTrue(recording_parties_have_hidden(self.rec))
+        self.assertFalse(maybe_hard_delete_recording(self.rec))
+        self.assertTrue(CallRecording.objects.filter(pk=self.rec.pk).exists())
+
+        summary = purge_expired_soft_hidden_recordings(limit=10, dry_run=False)
+        self.assertEqual(summary["deleted"], 0)
+        self.assertTrue(CallRecording.objects.filter(pk=self.rec.pk).exists())
+
+    @patch("apps.calls.recording_storage.delete_recording_prefix")
+    def test_cleanup_hard_deletes_after_retention_window(self, mock_del):
+        from datetime import timedelta
+
+        from apps.calls.recording_soft_delete import (
+            RECORDING_RETENTION_DAYS_AFTER_BOTH_HIDDEN,
+            hide_recording_for_user,
+            purge_expired_soft_hidden_recordings,
+        )
+
+        mock_del.return_value = (1, [])
+        hide_recording_for_user(self.rec, self.student)
+        hide_recording_for_user(self.rec, self.teacher)
+        past = timezone.now() - timedelta(
+            days=RECORDING_RETENTION_DAYS_AFTER_BOTH_HIDDEN + 1
+        )
+        CallRecording.objects.filter(pk=self.rec.pk).update(
+            hidden_by_student_at=past,
+            hidden_by_teacher_at=past,
+        )
+
+        summary = purge_expired_soft_hidden_recordings(limit=10, dry_run=False)
+        self.assertGreaterEqual(summary["deleted"], 1)
         self.assertFalse(CallRecording.objects.filter(pk=self.rec.pk).exists())
+        mock_del.assert_called()
+
+    def test_cleanup_skips_before_retention_window(self):
+        from apps.calls.recording_soft_delete import (
+            hide_recording_for_user,
+            purge_expired_soft_hidden_recordings,
+        )
+
+        hide_recording_for_user(self.rec, self.student)
+        hide_recording_for_user(self.rec, self.teacher)
+        summary = purge_expired_soft_hidden_recordings(limit=10, dry_run=False)
+        self.assertEqual(summary["deleted"], 0)
+        self.assertTrue(CallRecording.objects.filter(pk=self.rec.pk).exists())
 
     def test_non_owner_cannot_delete(self):
         self.client.force_login(self.other)

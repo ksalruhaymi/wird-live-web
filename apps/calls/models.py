@@ -404,6 +404,11 @@ class CallRecording(models.Model):
     query_attempts = models.PositiveSmallIntegerField(default=0)
     stop_attempts = models.PositiveSmallIntegerField(default=0)
     next_retry_at = models.DateTimeField(null=True, blank=True)
+    # Soft-hide per participant (user "remove from my recordings").
+    # Hard delete of R2/DB is separate and only after both parties hide
+    # and the approved retention window has elapsed.
+    hidden_by_student_at = models.DateTimeField(null=True, blank=True)
+    hidden_by_teacher_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
